@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="../style/easyui.css" rel="stylesheet"/>
+    <link href="../style/common.css" rel="stylesheet"/>
+    <link href="../plugins/zTree/zTreeStyle2.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="mainSection" id="J_RoleManageDiv">
+    <div class="toolBox">
+        <p>
+            <span>工具箱:</span>
+            <a class="abled" id="J_RoleAdd">创建新角色</a>
+            <a href="#" class="unabled unit J_DelAll" title="请先从下表中选择操作对象" name="J_RoleManDelAll">批量删除</a>
+        </p>
+    </div>
+    <div id="J_RoleManListDiv" class="mt10">
+        <table class='display' id='roleManList' cellpadding='0' cellspacing='0' border='0'>
+          <thead>
+            <tr>
+              <th width="4%"><input type="checkbox" class="checkBoss" ctrl="roleManList"/></th>
+              <th>角色编号</th>
+              <th class='tl'>角色名称</th>
+              <th class='tl'>角色描述</th>
+              <th>编辑</th>
+              <th>删除</th>
+            </tr>
+          </thead>
+          <tbody id='mediumResourceTableDiv'>
+          </tbody>
+        </table>
+    </div>
+</div>
+<div class="mainSection none" id="J_AddRoleDiv1">
+    <div class="fullWindow">
+        <div class="fullWindowContentArea">
+            <form class="form mt10 w9" id="J_AddRoleStep01">
+                <h2>新建角色-1.基本信息录入</h2>
+                <table>
+                    <tr>
+                        <td class="rowName">角色名称</td>
+                        <td><input type="text" name="addRoleName" class="input_type1" rule="required"/></td>
+                    </tr>
+                    <tr>
+                        <td class="rowName">角色描述</td>
+                        <td><textarea id="addRoleDesc" class="textArea_type1"></textarea></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="mainSection none" id="J_AddRoleDiv2">
+    <div class="fullWindow">
+        <div class="fullWindowContentArea" style="overflow-y:scroll;">
+            <form class="form mt10 w9"  id="addRoleStep02">
+                <h2>新建角色-2.权限分配</h2>
+                <div>
+                    <ul class="ztree" id="addTree">
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="mainSection none" id="J_EditRoleDiv">
+    <div class="fullWindow">
+        <div class="fullWindowContentArea" style="overflow-y:scroll;">
+            <form class="form mt10 w9 overhid" id="J_EditRoleForm">
+                <h2>编辑角色</h2>
+                <div class="fl w5">
+                    <table>
+                        <tr>
+                            <td class="rowName">角色名称</td>
+                            <td><input type="text" class="input_type1 required" id="editRoleName"/>
+                            <input type="hidden" id="editRoleId"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="rowName">角色描述</td>
+                            <td><textarea class="textArea_type1" id="editRoleDesc"></textarea></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="fr w4">
+                    <ul class="ztree" id="editTree">
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-1.6.1.min.js"></script>
+<script src="../js/jquery.easyui.min.js"></script>
+<script src="../plugins/zTree/jquery.ztree.core-3.0.js"></script>
+<script src="../plugins/zTree/jquery.ztree.excheck-3.0.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/jquery.dataTables.js"></script>
+<script src="../plugins/form/jquery.sdForm.js"></script>
+<script src="js/roleManage.js"></script>
+</body>
+</html>
