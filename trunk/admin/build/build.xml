@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="rmyy" basedir="../" default="all">
+    <description>ant rmyy start...</description> 
+    <echo message="----------- Project Name: ${ant.project.name} ------------" />
+    <echo message="----------- ${ant.version}  ------------" />
+    <echo message="----------- Java Home: ${java.home}  ------------" />
+    <echo message="----------- JDK Version: ${java.version} ------------" />
+    <echo message="----------- OS Name: ${os.name}  Version: ${os.version}  ------------" />
+    <echo message="----------- user: ${user.name} zone: ${user.language}  ------------" />
+    <echo message="----------- Work path: ${basedir}  ------------" />
+    <echo message="----------- Encoding: ${file.encoding}  ------------" />
+
+    <target name="init">
+        <property name="src" value="${basedir}/src" />
+        <property name="test" value="${basedir}/test" />
+        <property name="lib" value="${basedir}/lib" />
+        <property name="dist" value="${basedir}/dist" />
+        <property name="javaDoc" value="${dist}/javadoc" />
+        <property name="web.dir" value="${basedir}/WebContent" />
+        <property name="web.dest.dir" value="${web.dir}/WEB-INF/classes" />
+        <property name="web.lib" value="${web.dir}/WEB-INF/lib" />
+        <property name="web.config.dir" value="${web.dest.dir}/config" />
+        <property name="tomcat.dir" value="D:\dev\server\apache-tomcat-7.0.26" />
+        <property name="webapps.dir" value="${tomcat.dir}/webapps" />
+        <property name="webapps.temp" value="${tomcat.dir}/work/Catalina/localhost/rmyy" />
+    </target>
+
+    <target name="clean" depends="init">
+        <echo message="----------- Clean path Start  ------------" />
+        <delete dir="${dist}" />
+        <delete dir="${web.dest.dir}" />
+        <delete dir="${web.lib}" />
+        <!--
+        <delete dir="${web.config.dir}" />
+        -->
+        <echo message="----------- Clean path Success  ------------" />
+
+    </target>
+
+    <!--配置资源文件-->
+    <target name="prepare" depends="init, clean"> 
+        
+        <echo message="----------- Create path Start  ------------" />
+        <mkdir dir="${dist}" />
+        <mkdir dir="${web.dest.dir}" />
+        <mkdir dir="${web.lib}" />
+        <echo message="----------- Create path Success  ------------" />
+
+        <echo message="----------- Copy lib From: ${lib}  ------------" />
+        <echo message="----------- Copy lib to: ${web.lib}  ------------" />
+        <!--  
+        -->
+        <copy todir="${web.lib}">
+            <fileset dir="${lib}">
+                <include name="*.jar" />
+                <exclude name="*.svn"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${web.dest.dir}">
+            <fileset dir="${src}">
+                <include name="*.properties" />
+                <include name="**/*.properties" />
+                <include name="**/*.xml" />
+                <include name="*.xml" />
+                <include name="*.tmp" />
+                <exclude name="*/*.svn"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${web.config.dir}">
+            <fileset dir="${src}/config">
+                <include name="*/*.xml" />
+                <exclude name="*/*.svn"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <!--编译源码-->
+    <target name="compile" depends="prepare">
+        <echo message="-------------------------------------------------------"/>  
+        <echo message="  compile start - Generate the war pages"/>  
+        <echo message="-------------------------------------------------------"/>
+        <javac srcdir="${src}" source="1.6" includeantruntime="on" destdir="${web.dest.dir}" debug="true" encoding="UTF-8" failonerror="false">
+            <classpath>
+                <fileset dir="${lib}">
+                    <include name="**/*.jar" />
+                </fileset>
+            </classpath>
+        </javac>
+        <delete file="${web.lib}/servlet-api.jar" />
+        <echo message="-------------------------------------------------------"/>  
+        <echo message="  compile success - Generate the war pages"/>  
+        <echo message="-------------------------------------------------------"/>
+    </target>
+
+    <!--打包-->
+    <target name="package" depends="compile" description="not wrap the java file to .war">
+        <echo message="-------------------------------------------------------"/>  
+        <echo message="  package start - Generate the war pages"/>  
+        <echo message="-------------------------------------------------------"/>
+        <war warfile="${dist}/rmyy.war" webxml="${web.dir}/WEB-INF/web.xml">
+           <classes dir = "${web.dir}/WEB-INF/classes"/>
+           <fileset dir="${web.dir}">
+            <include name="**/*"/>
+           </fileset>   
+        </war>
+        <echo message="-------------------------------------------------------"/>  
+        <echo message="  package success - Generate the war pages"/>  
+        <echo message="-------------------------------------------------------"/>
+    </target>
+
+    <!-- 生成JavaDoc -->
+    <target name="javadoc" description="generate the java api help doc">
+        <echo message="-------------------------------------------------------"/>  
+        <echo message="  javadoc start - Generate the API HTML pages"/>  
+        <echo message="-------------------------------------------------------"/>
+      <!-- destdir is where to generate dolder -->
+      <delete dir="dist/javaDoc"/>
+      <mkdir dir="dist/javaDoc"/>
+      <javadoc destdir="dist/javadoc" encoding="UTF-8" docencoding="UTF-8" charset="utf-8" author="true" noindex="false" nonavbar="false" notree="false" splitindex="true" use="true" version="true" source="1.6" >
+       <!-- dir source path folder，this is the path java existed not class files, attention please -->
+       <packageset dir="src">
+       <!--
+        <exclude name="*.*"/>
+       -->
+        <!-- exclude the java file at javadoc -->
+        <!-- 
+        <exclude name="${excludeClasses}" />
+        -->
+       </packageset>
+      <classpath>  
+          <fileset dir="lib">  
+              <include name="*.jar"/>  
+           </fileset>  
+      </classpath>
+      </javadoc>
+        <echo message="-------------------------------------------------------"/>  
+        <echo message="  javadoc success  - Generate the API HTML pages"/>  
+        <echo message="-------------------------------------------------------"/>
+     </target>
+
+    <!--部署-->
+    <target name="deploy" depends="package">
+
+        <echo message="----------- Clean Deploy path Start  ------------" />
+        <delete dir="${webapps.dir}/rmyy.war" />
+        <delete dir="${webapps.dir}/rmyy" />
+        <delete dir="${tomcat.dir}/conf/Catalina/localhost/rmyy.xml" />
+        <delete dir="${webapps.temp}" />
+        <echo message="----------- Clean Deploy path Success  ------------" />
+
+        <copy todir="${tomcat.dir}/webapps/">
+            <fileset dir="${dist}">
+                <include name="rmyy.war" />
+            </fileset>
+        </copy>
+    </target>
+ <!--
+    <ftp userid="zhoumf" password="123456" server="192.168.30.7" >
+        <property name="path" location="/home/zhoumf/tomcat/webapps"/>
+    </ftp>
+-->
+    <target name="all" depends="deploy" />
+</project>
