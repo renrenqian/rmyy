@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="OperationLog">
+
+    <!-- 新增日志 -->
+    <insert id="insert" parameterClass="OperationLog">
+        <!--
+        <selectKey resultClass="java.lang.Long" keyProperty="id">SELECT SEQ_LOG.NEXTVAL AS ID FROM DUAL</selectKey>
+        -->
+        <![CDATA[
+             INSERT INTO 
+             SYSTEM_LOG (sl_time, sl_user, sl_ip, sl_state, sl_action, sl_params,sl_cate)
+             VALUES     (#time#, #userId#, #ip#, #state#, #action#, #params#,#userType#)
+        ]]>
+    </insert>
+    <!-- 查询日志的总记录数 -->
+    <select id="getTotalCount" parameterClass="OperationLog" resultClass="java.lang.Long">
+       <![CDATA[
+               select COUNT(SL_ID) from
+      SYSTEM_LOG    log
+      left join PRIVILEGE_INFO P on log.SL_ACTION = P.PI_METHOD
+          left join USER_INFO U on log.SL_USER = U.UI_ID
+      ]]>
+     <dynamic prepend=" WHERE ">
+          <isNotEmpty property="userName">
+          <![CDATA[
+                 log.SL_ID Like  CONCAT('%',#userName#,'%')        OR 
+                 log.SL_TIME Like CONCAT('%',#userName#,'%')    OR 
+                 U.UI_NAME Like CONCAT('%',#userName#,'%')     OR 
+                 P.PI_NAME Like CONCAT('%',#userName#,'%')     OR 
+                 log.SL_IP Like CONCAT('%',#userName#,'%')      OR
+                 log.SL_STATE Like CONCAT('%',#userName#,'%')   OR
+                 log.SL_PARAMS Like CONCAT('%',#userName#,'%')  
+                 ]]>
+          </isNotEmpty>
+    </dynamic>    
+    <![CDATA[ ]]>
+    </select>
+    
+    
+
+    
+    <!-- 分页查找日志 -->
+    <select id="listAllByPageBean" parameterClass="pageBean" resultClass="OperationLog">
+        <![CDATA[
+            SELECT log.SL_ID AS id,log.SL_TIME AS  time,log.SL_USER AS userId,U.UI_NAME AS userName,P.PI_NAME AS action,
+                   log.SL_IP  AS ip,log.SL_STATE  AS state,log.SL_PARAMS AS param,log.SL_CATE AS userType
+            FROM SYSTEM_LOG log 
+            left join PRIVILEGE_INFO P on log.SL_ACTION = P.PI_METHOD
+            left join USER_INFO U on log.SL_USER = U.UI_ID
+        ]]>
+        <dynamic prepend=" where ">
+        <isNotEmpty property="condition.userName">
+          <![CDATA[
+                 log.SL_ID Like CONCAT('%',#condition.userName#,'%')         OR 
+                 log.SL_TIME Like  CONCAT('%',#condition.userName#,'%')   OR 
+                 U.UI_NAME Like CONCAT('%',#condition.userName#,'%')     OR 
+                 P.PI_NAME Like CONCAT('%',#condition.userName#,'%')     OR 
+                 log.SL_IP Like CONCAT('%',#condition.userName#,'%')   OR
+                 log.SL_STATE Like CONCAT('%',#condition.userName#,'%')  OR
+                 log.SL_PARAMS Like CONCAT('%',#condition.userName#,'%') 
+                 ]]>
+          </isNotEmpty>
+        </dynamic>
+        <![CDATA[ ORDER BY  log.SL_ID DESC]]>
+        <![CDATA[LIMIT #start#,#pageSize#]]>
+        
+    </select>
+</sqlMap>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="UserInfo">
+    <!-- 根据id或用户名查询单个用户 -->
+    <select id="search" parameterClass="UserInfo" resultClass="UserInfo">
+        <![CDATA[
+          SELECT 
+                ui_id AS uiId, ui_name AS uiName,ui_pwd AS uiPwd,
+                ui_enable AS uiEnable,ui_desc AS uiDesc,ui_offic_phone AS uiOfficePhone,
+                ui_cell_phone AS uiCellPhone, ui_mail AS uiMail,
+                ui_home AS uiHome,ui_company AS uiCompany
+          FROM USER_INFO WHERE ui_name=#uiName# OR ui_id=#uiId#
+        ]]>
+    </select>
+    <!-- 查询所有非内置账户 ui_show=1非内置账户;ui_show=0内置账户; --><!-- USER_CP_REF USER_PUBLIC_REF -->
+    <select id="listAll" resultClass="UserInfo">
+       <![CDATA[
+             SELECT 
+                u.ui_id AS uiId, ui_name AS uiName,ui_pwd AS uiPwd,
+                ui_enable AS uiEnable,ui_desc AS uiDesc,ui_offic_phone AS uiOfficePhone,
+                ui_cell_phone AS uiCellPhone, ui_mail AS uiMail,
+                ui_home AS uiHome,ui_company AS uiCompany
+          FROM  USER_INFO u 
+          WHERE ui_show = 1
+          ORDER BY u.ui_id DESC
+        ]]>
+    </select>
+     
+    <!-- 根据单个用户ID删除非内置账户 -->
+    <delete id="delete" parameterClass="UserInfo">
+       <![CDATA[DELETE FROM USER_INFO WHERE ui_show=1 AND ui_id=#uiId#]]>
+    </delete>
+    <!-- 添加非内置账户 -->
+    <insert id="insert" parameterClass="UserInfo">
+       <![CDATA[
+          INSERT INTO USER_INFO(ui_id,ui_name,ui_pwd,ui_enable,ui_desc,ui_offic_phone,ui_cell_phone,ui_mail,ui_home,ui_company,ui_show) 
+                         VALUES(#uiId#,#uiName#,#uiPwd#,#uiEnable#,#uiDesc#,#uiOfficePhone#,#uiCellPhone#,#uiMail#,#uiHome#,#uiCompany#,1)
+       ]]>
+       <selectKey resultClass="int" keyProperty="uiId">
+         <![CDATA[SELECT LAST_INSERT_ID();]]>
+       </selectKey> 
+    </insert>
+     
+    <!-- 更新非内置账户 -->
+    <update id="update" parameterClass="UserInfo">
+      <![CDATA[
+         UPDATE USER_INFO 
+         SET    ui_name=#uiName#,ui_pwd=#uiPwd#,ui_enable=#uiEnable#,ui_desc=#uiDesc#,
+                ui_offic_phone=#uiOfficePhone#,ui_cell_phone=#uiCellPhone#,ui_mail=#uiMail#,
+                ui_home=#uiHome#,ui_company=#uiCompany#
+         WHERE ui_show=1 AND ui_id=#uiId# 
+      ]]>
+    </update>
+    <!-- 根据用户ID批量删除非内置账户 -->
+    <delete id="deleteList" parameterClass="java.util.List">
+        <![CDATA[ DELETE FROM USER_INFO WHERE ui_show=1 AND ui_id IN]]>
+        <iterate conjunction="," prepend="" open="(" close=")">
+          <![CDATA[#[]#]]>
+        </iterate>
+    </delete>
+</sqlMap>

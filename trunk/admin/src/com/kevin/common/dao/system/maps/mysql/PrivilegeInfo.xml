@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="PrivilegeInfo">
+    <!-- list -->
+    <select id="listAll" resultClass="PrivilegeInfo">
+    <![CDATA[
+          select PI_ID AS piId,PI_METHOD AS piMethod,PI_NAME AS piName,PI_PARENT AS piParent,PI_LEVEL AS piLevel,PI_DESC AS piDesc,PI_SHOW AS piShow 
+          from PRIVILEGE_INFO
+          ORDER BY pi_id DESC
+    ]]>
+    </select>
+</sqlMap>

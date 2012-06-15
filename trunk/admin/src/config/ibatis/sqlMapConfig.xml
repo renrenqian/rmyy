@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+    <settings cacheModelsEnabled="true" useStatementNamespaces="true"
+        lazyLoadingEnabled="false" enhancementEnabled="false" />
+    <!-- 实体类别名 -->
+    <typeAlias alias="PageBean" type="com.kevin.common.pojo.PageBean" />
+    <typeAlias alias="DataDict" type="com.kevin.common.pojo.system.DataDict"/>
+       <!-- 系统管理-->
+    <typeAlias alias="UserInfo" type="com.kevin.common.pojo.system.UserInfo" />
+    <typeAlias alias="UserRoleRef" type="com.kevin.common.pojo.system.UserRoleRef" />
+    <typeAlias alias="RoleInfo" type="com.kevin.common.pojo.system.RoleInfo" />
+    <typeAlias alias="OperationLog" type="com.kevin.common.pojo.system.OperationLog" />
+    <typeAlias alias="SystemParameter" type="com.kevin.common.pojo.system.SystemParameter" />
+    <typeAlias alias="Message" type="com.kevin.common.pojo.system.Message" />
+    <typeAlias alias="SystemInfo" type="com.kevin.common.pojo.system.SystemInfo" />
+    <typeAlias alias="PrivilegeInfo" type="com.kevin.common.pojo.system.PrivilegeInfo" />
+    <typeAlias alias="RolePrivilegeRef" type="com.kevin.common.pojo.system.RolePrivilegeRef" /> 
+    
+    <!-- 映射文件 -->
+    <sqlMap resource="com/kevin/common/dao/datadict/maps/mysql/DataDict.xml"/>
+      <!-- 系统管理-->
+    <sqlMap resource="com/kevin/common/dao/system/maps/mysql/SystemParameter.xml" />
+    <sqlMap resource="com/kevin/common/dao/system/maps/mysql/UserInfo.xml" />
+    <sqlMap resource="com/kevin/common/dao/system/maps/mysql/OperationLog.xml" />
+    <sqlMap resource="com/kevin/common/dao/system/maps/mysql/UserRoleRef.xml" />
+    <sqlMap resource="com/kevin/common/dao/system/maps/mysql/RoleInfo.xml" />
+    <sqlMap resource="com/kevin/common/dao/system/maps/mysql/PrivilegeInfo.xml" />
+    <sqlMap resource="com/kevin/common/dao/system/maps/mysql/Message.xml" />
+    <sqlMap resource="com/kevin/common/dao/system/maps/mysql/SystemInfo.xml" />
+    <sqlMap resource="com/kevin/common/dao/system/maps/mysql/RolePrivilegeRef.xml" />
+</sqlMapConfig>

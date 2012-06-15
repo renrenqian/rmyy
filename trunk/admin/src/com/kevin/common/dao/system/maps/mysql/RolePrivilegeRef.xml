@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="RolePrivilegeRef">
+   <delete id="deleteRolePrivilegeRefByRoleId" parameterClass="java.lang.Integer">
+        <![CDATA[
+            DELETE FROM ROLE_PRIVILEGE_REF WHERE RI_ID=#value#
+           ]]>
+   </delete>
+   <insert id="insert" parameterClass="RolePrivilegeRef">
+       <![CDATA[
+              INSERT INTO ROLE_PRIVILEGE_REF(RI_ID,PI_ID) VALUES(#roleInfo.riId#,#privilegeInfo.piId#)
+        ]]>
+   </insert>
+   <select id="getPrivilegeListByRoleId" parameterClass="java.lang.Integer" resultClass="PrivilegeInfo">
+       <![CDATA[
+           SELECT ref.PI_ID AS piId ,pi.PI_LEVEL AS piLevel,pi.PI_METHOD AS piMethod
+           FROM ROLE_PRIVILEGE_REF ref, PRIVILEGE_INFO pi
+           WHERE RI_ID=#value# and pi.PI_ID = ref.PI_ID
+           ORDER BY RI_ID DESC
+        ]]>
+   </select>
+   <!-- 查询角色列表拥有的权限和-->
+   <select id="listPrivilegeByRoleList" parameterClass="java.util.List" resultClass="PrivilegeInfo">
+        <![CDATA[
+            SELECT DISTINCT pi.PI_ID AS piId,pi.PI_METHOD AS piMethod,pi.PI_NAME AS piName,
+                   pi.PI_PARENT AS piParent,pi.PI_LEVEL AS piLevel,pi.PI_DESC AS piDesc 
+            FROM PRIVILEGE_INFO pi,ROLE_PRIVILEGE_REF ref
+            WHERE  pi.PI_ID = ref.PI_ID
+        ]]>
+        <iterate prepend="  AND  " conjunction="," open="ref.RI_ID IN (" close=")">
+            <![CDATA[#[].riId#]]>
+        </iterate>
+    </select>
+</sqlMap>

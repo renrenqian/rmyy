@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="SystemInfo">
+     <select id="listAll" resultClass="SystemInfo">
+       <![CDATA[
+             SELECT 
+                 sys_id AS sysId,sys_name AS sysName,sys_code AS sysCode,
+                sys_version AS  sysVersion,redis_ip AS redisIp,redis_port AS redisPort,
+                ftp_account AS ftpAccount,ftp_pwd AS ftpPwd,src_root AS srcRoot,dst_Root AS dstRoot,
+                add_time AS addTime,add_user AS addUser,update_time AS updateTime, update_user AS updateUser
+          FROM  SYSTEM_INFO
+        ]]>
+    </select>
+</sqlMap>

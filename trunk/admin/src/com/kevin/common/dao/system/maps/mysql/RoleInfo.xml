@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="RoleInfo">
+    <select id="search" parameterClass="RoleInfo" resultClass="RoleInfo">
+        <![CDATA[
+          select RI_ID AS riId,RI_NAME AS riName,RI_DESC AS riDesc from ROLE_INFO
+          where (RI_NAME=#riName# OR RI_ID=#riId#) and RI_SHOW = 1
+        ]]>
+   </select>
+   <select id="listAll" parameterClass="RoleInfo" resultClass="RoleInfo">
+       <![CDATA[
+          select RI_ID AS riId,RI_NAME AS riName,RI_DESC AS riDesc from ROLE_INFO
+          WHERE RI_SHOW = 1
+          ORDER BY ri_id DESC
+        ]]>
+   </select>
+   <delete id="delete" parameterClass="RoleInfo">
+       <![CDATA[
+           DELETE FROM ROLE_INFO WHERE RI_ID=#riId#
+       ]]>
+   </delete>
+   <insert id="insert" parameterClass="RoleInfo">
+       <![CDATA[
+          INSERT INTO ROLE_INFO(RI_NAME,RI_DESC) 
+                         VALUES(#riName#,#riDesc#)
+       ]]>
+   </insert>
+   <update id="update" parameterClass="RoleInfo">
+      <![CDATA[
+         UPDATE ROLE_INFO 
+         SET    RI_NAME=#riName#,RI_DESC=#riDesc#
+         WHERE RI_ID=#riId#
+      ]]>
+   </update>
+   <delete id="deleteList" parameterClass="java.util.List">
+        <![CDATA[ DELETE FROM ROLE_INFO WHERE RI_ID IN]]>
+        <iterate conjunction="," prepend="" open="(" close=")">
+          <![CDATA[#[]#]]>
+        </iterate>
+   </delete>
+</sqlMap>

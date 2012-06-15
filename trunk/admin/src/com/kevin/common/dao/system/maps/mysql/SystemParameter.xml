@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="SystemParameter">
+     <!-- List all the parameters  -->
+     <select id="listAll" resultClass="SystemParameter">
+       <![CDATA[
+         SELECT 
+            SP_ID AS spId, SP_NAME AS spName, SP_CODE AS spCode, SP_MARK as spMark, SP_TYPE AS spType, SP_VALUE AS spValue, SP_EDITABLE AS spEditable,
+            SP_DESC AS spDesc
+          FROM  SYSTEM_PARAMETER
+          WHERE SP_SHOW = 1
+          ORDER BY spEditable desc;
+        ]]>
+    </select>
+    <!-- update the system parameters -->
+    <update id="update" parameterClass="SystemParameter">
+       <![CDATA[
+       UPDATE SYSTEM_PARAMETER
+       SET 
+          SP_VALUE = #spValue#
+        WHERE SP_ID = #spId#
+        ]]>
+    </update>
+
+
+<!-- search  the system parameters -->
+    <select id="search" parameterClass="SystemParameter" resultClass="SystemParameter">
+       <![CDATA[
+       SELECT 
+      SP_ID AS spId, SP_NAME AS spName, SP_CODE AS spCode,  SP_MARK as spMark, SP_TYPE AS spType, SP_VALUE AS spValue, SP_EDITABLE AS spEditable,
+            SP_DESC AS spDesc
+          FROM   SYSTEM_PARAMETER
+          where SP_ID = #spId# or SP_CODE=#spCode#
+        ]]>
+    </select>
+</sqlMap>

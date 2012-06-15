@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Message">
+    <typeAlias alias="NewsClass" type="com.kevin.common.pojo.system.Message"/>
+<resultMap class="NewsClass" id="baseNewsBean">
+       <result property="msgId" column="IMSG_ID"/>
+       <result property="msgName" column="IMSG_NAME"/>
+       <result property="msgSender" column="IMSG_SENDER"/>
+       <result property="senderName" column="senderName"/>
+       <result property="msgRead" column="IMSG_READ"/>
+       <result property="msgSendTime" column="IMSG_SENDTIME"/>
+    </resultMap>
+    <resultMap class="NewsClass" id="newsBean" extends="baseNewsBean">
+       <result property="msgContent" column="IMSG_CONTENT"/>
+       <result property="msgReceiver" column="IMSG_RECEIVER"/>
+       <result property="msgReadTime" column="IMSG_READTIME"/>
+    </resultMap>
+    <!-- insert -->
+    <insert id="insert" parameterClass="NewsClass">
+     <![CDATA[
+        INSERT INTO INSTATION_MESSAGE(IMSG_ID,IMSG_NAME,IMSG_CONTENT,IMSG_SENDER,IMSG_SENDTIME,IMSG_RECEIVER,IMSG_READ) 
+                      VALUES(#msgId#,#msgName#,#msgContent#,#msgSender#,#msgSendTime#,#msgReceiver#,#msgRead#)
+     ]]>
+    </insert>
+    <!-- update -->
+    <update id="update" parameterClass="NewsClass">
+       <![CDATA[
+          UPDATE INSTATION_MESSAGE SET IMSG_READTIME = #msgReadTime#,IMSG_READ=#msgRead# 
+          WHERE IMSG_ID = #msgId#
+       ]]>
+    </update>
+    <update id="batchUpdate" parameterClass="NewsClass">
+       <![CDATA[
+          UPDATE INSTATION_MESSAGE SET IMSG_READTIME = #msgReadTime#,IMSG_READ=#msgRead# 
+          WHERE IMSG_ID in (#msgName#)
+       ]]>
+    </update>
+    <!-- delete -->
+    <delete id="deleteById" parameterClass="java.lang.Long">
+       <![CDATA[
+          DELETE FROM INSTATION_MESSAGE WHERE IMSG_ID=#value#
+        ]]>
+    </delete>
+    <!-- batch delete -->
+    <delete id="deleteList" parameterClass="java.util.List">
+        <![CDATA[
+            DELETE FROM INSTATION_MESSAGE WHERE
+        ]]>
+        <iterate conjunction="," open=" IMSG_ID IN (" close=")">
+            <![CDATA[#[]#]]>
+        </iterate>
+    </delete>
+    <!-- search -->
+    <select id="search" parameterClass="NewsClass" resultMap="newsBean">
+        <![CDATA[
+           SELECT M.*,U.UI_NAME AS senderName FROM INSTATION_MESSAGE M,USER_INFO U WHERE M.IMSG_RECEIVER = U.UI_ID AND M.IMSG_ID=#msgId#
+        ]]>
+    </select>
+    <!-- 获得未读消息的个数 -->
+    <select id="getNewMsgCount" parameterClass="NewsClass" resultClass="java.lang.Long">
+         <![CDATA[
+            SELECT COUNT(IMSG_ID) FROM INSTATION_MESSAGE WHERE (IMSG_RECEIVER=#msgReceiver#  OR IMSG_RECEIVER=0 OR IMSG_RECEIVER IS NULL) AND  IMSG_READ=0
+       ]]>
+    </select>
+    <!-- 查询符合条件的信息 -->
+    <select id="list" parameterClass="NewsClass" resultMap="newsBean">
+       <![CDATA[
+           SELECT M.*
+            ,U2.UI_NAME AS senderName 
+FROM INSTATION_MESSAGE M,USER_INFO U,USER_INFO U2 
+WHERE M.IMSG_RECEIVER = U.UI_ID AND M.IMSG_SENDER= U2.UI_ID    
+       ]]>
+       <dynamic prepend=" AND ">
+          <isNotEmpty property="msgName" prepend=" AND ">
+            <![CDATA[M.IMSG_NAME = #msgName#]]>
+          </isNotEmpty>
+          <isNotEmpty property="msgSender" prepend=" AND ">
+            <![CDATA[M.IMSG_SENDER = #msgSender#]]>
+          </isNotEmpty>
+          <isNotEmpty property="msgSendTime" prepend=" AND ">
+            <![CDATA[M.IMSG_SENDTIME = #msgSendTime#]]>
+          </isNotEmpty>
+          <isNotEmpty property="msgRead" prepend=" AND ">
+            <![CDATA[M.IMSG_READ = #msgRead#]]>
+          </isNotEmpty>
+           <isNotEmpty property="msgReceiver" prepend=" AND ">
+            <![CDATA[M.IMSG_RECEIVER = #msgReceiver#]]>
+          </isNotEmpty>
+          <isNotEmpty property="msgReadTime" prepend=" AND ">
+            <![CDATA[M.IMSG_READTIME = #msgReadTime#]]>
+          </isNotEmpty>
+          <isNotEmpty property="senderName" prepend=" AND ">
+            <!-- 接收者(不是发送者) -->
+            <![CDATA[(u.ui_name = #senderName# OR m.MSG_RECEIVER IS NULL OR m.MSG_RECEIVER = 0)]]>
+          </isNotEmpty>
+       </dynamic>
+        <![CDATA[ 
+            ORDER BY M.IMSG_ID DESC
+        ]]>
+    </select>
+</sqlMap>

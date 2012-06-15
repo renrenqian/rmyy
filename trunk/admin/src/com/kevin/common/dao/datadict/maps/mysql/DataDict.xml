@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="DataDict">
+    <select id="list"  parameterClass="DataDict"  resultClass="DataDict">
+        <![CDATA[
+          select * from DATA_DICT 
+            where DICT_PARENTKIND = #DICT_PARENTKIND#
+          order by DICT_KEY 
+    ]]>
+    </select>
+    <select id="listAll" resultClass="DataDict">
+        <![CDATA[SELECT * FROM DATA_DICT ORDER BY DICT_KIND,DICT_KEY]]>
+    </select>
+</sqlMap>

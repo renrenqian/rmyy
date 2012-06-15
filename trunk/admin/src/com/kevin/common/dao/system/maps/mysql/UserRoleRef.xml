@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="UserRoleRef">
+    <delete id="deleteUserRoleRefByUserId" parameterClass="java.lang.Integer">
+        <![CDATA[DELETE FROM USER_ROLE_REF WHERE ui_id=#value#]]>
+    </delete>
+    <insert id="insert" parameterClass="UserRoleRef">
+       <![CDATA[
+          INSERT INTO USER_ROLE_REF(ui_id,ri_id) VALUES(#userInfo.uiId#,#roleInfo.riId#)
+        ]]>
+    </insert>
+    <select id="getRoleListByUserId" parameterClass="java.lang.Integer"
+        resultClass="UserRoleRef">
+       <![CDATA[
+           SELECT ui.ui_id AS "userInfo.uiId",ui.ui_name AS "userInfo.uiName",
+                  ri.ri_id AS "roleInfo.riId",ri_name AS "roleInfo.riName" 
+           FROM ROLE_INFO ri,USER_INFO ui,USER_ROLE_REF urr 
+           WHERE urr.ui_id=#value# AND ri.ri_id = urr.ri_id AND ui.ui_id=urr.ui_id
+        ]]>
+    </select>
+    <select id="listAll" resultClass="UserRoleRef">
+       <![CDATA[
+           SELECT ui.ui_id AS "userInfo.uiId",ui.ui_name AS "userInfo.uiName",
+                  ri.ri_id AS "roleInfo.riId",ri_name AS "roleInfo.riName" 
+           FROM ROLE_INFO ri,USER_INFO ui,USER_ROLE_REF urr 
+           WHERE ri.ri_id = urr.ri_id AND ui.ui_id=urr.ui_id
+        ]]>
+    </select>
+
+    <select id="listRoleCount" parameterClass="java.lang.Integer"
+        resultClass="java.lang.Integer">
+       <![CDATA[
+           select count(*) from USER_ROLE_REF where ri_id =#value#
+        ]]>
+    </select>
+</sqlMap>
