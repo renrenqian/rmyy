@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<head>
+    <!--#include virtual="../master/headFile.html"-->
+</head>
+<body>
+<!--#include virtual="../master/top.html"-->
+<div class="content contentPart" style="margin-top: 3px; *margin-top: 3px;">
+    <div style="display: block; overflow: hidden;">
+        <div class="leftCol2">
+            <div class="mainPart">
+                <div class="itemBg">
+                    <div class="titleBg2">
+                        <p class="bread">
+                            <a href="/index.shtml" class="breadB">首页</a><span>></span><a href="#" class="breadN">
+                            医院概览</a><span>></span><a href="#" class="breadN">医院历史</a>
+                        </p>
+                    </div>
+                    <h2 class="titleType3">医院历史</h2>
+
+                    <div style="clear: both;"></div>
+                    <div class="newsBody">
+
+                        <div style="clear:both;"></div>
+                        <hr class="mb20 w"/>
+                        <p>杭州市第一人民医院建于1923年，是杭州市政府及爱国人士自筹资金建立的杭州市第一所综合性医院，原名杭州市立传染病医院，自1928年6月更名为杭州市立医院，是当时唯一设有内、外、妇、儿等科的市立综合性医院，1966年正式命名为
+                        杭州市第一人民医院。2000年后，医院又相继成为浙江省医学科学院临床研究院、南京医科大学附属杭州医院。</p>
+                        <p>九十年激越澎湃，九十年乘风破浪。多年来，医院始终秉承“严谨治医、仁爱为民、开拓进取、追求卓越”的办院宗旨，激励员工铭记“严谨、博学、敬业、仁爱”之院训，全心全意为人民群众服务，为杭州地区乃至浙江省的医药卫生事业发展做出了自己的贡献。</p>
+                         <img src="../images/h1.jpg" width="670">
+                         <img src="../images/h2.jpg" width="670">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--#include virtual="../master/overviewSubTitle.html"-->
+    </div>
+</div>
+<!--#include virtual="../master/footer.html"-->
+<script src="/hospital/js/common.js"></script>
+</body>
+</html>
+
+
+
+
+
+
