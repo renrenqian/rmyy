@@ -1,0 +1,89 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>青草工作室</title>
+    <link href="../style/easyui.css" rel="stylesheet" />
+    <link href="../style/common.css" rel="stylesheet"/>
+    </head>
+<body>
+<div class="mainSection">
+    <div class="form mt10">
+        <h2 id="form-heading">个人信息设置</h2>
+        <form class="validateThis" name="个人信息设置各选项" id="form1">
+            <table>
+                <tr>
+                    <td class="rowName">用户名</td>
+                    <td>
+                        <input type="hidden" id="userId"/>
+                        <input type="text" class="input_type1" id="userName" name="user.uiName" rule="required"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="rowName">密码</td>
+                    <td><span class="p10" style="display:block;"><a href="#" class="blue" id="J_PerInfoPwdReset">修改密码</a></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="rowName">联系电话</td>
+                    <td><input type="text" class="input_type1"  id="officePhone" rule="phone"/></td>
+                </tr>
+                <tr>
+                    <td class="rowName">邮箱地址</td>
+                    <td><input type="text" class="input_type1"    id="mail"  rule="email"/>
+    
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="p10"><a class="button btn-blue"id="J_PerInfoSetOk">
+                        <span class="icon ico-blub"></span>确定
+                    </a></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <!-- 修改密码 -->
+    <div style="display:none;" id="J_PerInfoPwdResetDiv">
+        <form name="密码设置" id="form2" class="form">
+            <table>
+                <tr>
+                    <td class="rowName">原始密码</td>
+                    <td><input type="password" class="input_type1" id="oldPassword"/>
+                     <input type="hidden" id="realPassword"/>
+                     <input type="hidden" id="uiId_mod_pwd" name="user.uiId"/>
+                    </td>
+                   
+                </tr>
+                <tr>
+                    <td class="rowName">新密码</td>
+                    <td><input type="password" class="input_type1" id="newPwd" name="user.uiPwd"  rule="required"/></td>
+                </tr>
+                <tr>
+                    <td class="rowName">确认密码</td>
+                    <td><input type="password" class="input_type1 repwd" id="confirmPassword" name="confirmPassword"   rule="required same#newPwd"/></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="p10" >
+                        <a class="button btn-blue" id="J_PerInfoPwdResetOk">
+                            <span class="icon ico-blub"></span>确定</a>
+                        <a class="button btn-grey" id="J_PerInfoPwdResetClose">取消</a>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+    <script src="../js/jquery-1.6.1.min.js"></script>
+    <script src="../js/jquery.easyui.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/md5.js" type="text/javascript" language="javascript"></script>
+    <script src="../js/jquery.dataTables.js"></script>
+    <script src="../plugins/form/jquery.sdForm.js"></script>
+    <script src="js/perInfoSet.js" language="javascript" type="text/javascript"></script>
+</body>
+</html>
+

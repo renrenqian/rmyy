@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>青草工作室</title>
+    <link href="../style/easyui.css" rel="stylesheet"/>
+    <link href="../style/common.css" rel="stylesheet"/>
+    <style type="text/css">
+.newUser2Sel { overflow: hidden; }
+.newUser2Sel ul li, .contentList ul li { float: left; margin-right: 4%; margin-bottom: 20px; width: 140px; overflow: hidden; height: 20px; white-space: nowrap; text-overflow: ellipsis; }
+.newUser2Sel label, .contentList label { cursor: pointer; margin-left: 5px; }
+    </style>
+</head>
+<body>
+<div class="mainSection" id="J_UserManageDiv">
+    <div class="toolBox">
+        <p>
+            <span>工具箱:</span>
+            <a href="#" class="abled" id="J_UserAdd">添加新用户</a>
+            <a href="#" class="unabled unit J_DelAll" title="请先从下表中选择操作对象" id="J_UserManDelAll">批量删除</a>
+        </p>
+    </div>
+    <div id="J_UserManListDiv" class="mt10">
+        <table class='display' id='userManList' cellpadding='0' cellspacing='0' border='0'>
+            <thead>
+            <tr>
+                <th><input type='checkbox' class='checkBoss' ctrl="userManList"/></th>
+                <th class='tl'>用户名</th>
+                <th class='tl'>角色</th>
+                <th>在线状态</th>
+                <th>启用状态</th>
+                <th>编辑</th>
+                <th>删除</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="mainSection none" id="J_AddUserDiv1">
+    <div class="fullWindow">
+        <div class="fullWindowContentArea">
+            <form class="form mt10 w9" id="addUserForm1">
+                <h2>新建用户&nbsp;--&nbsp;基本信息录入</h2>
+                <table>
+                    <tr>
+                        <td class="rowName">用户名</td>
+                        <td><input type="text" class="input_type1" name="user.uiName" rule="required"/></td>
+                    </tr>
+                    <tr>
+                        <td class="rowName">密码</td>
+                        <td><input type="password" class="input_type1" id="uiPwd" name="user.uiPwd" rule="required"/></td>
+                    </tr>
+                    <tr>
+                        <td class="rowName">确认密码</td>
+                        <td><input type="password" class="input_type1" id="confirmPwd" rule="required same#uiPwd"/></td>
+                    </tr>
+                    <tr>
+                        <td class="rowName">联系电话</td>
+                        <td><input type="text" class="input_type1" name="user.uiOfficePhone" rule="phone"/></td>
+                    </tr>
+                    <tr>
+                        <td class="rowName">邮箱地址</td>
+                        <td><input type="text" class="input_type1" name="user.uiMail" rule="email"/></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="mainSection none" id="J_AddUserDiv2">
+    <div class="fullWindow">
+        <div class="fullWindowContentArea">
+            <form class="form mt10 w9" id="addUserForm2">
+                <h2>新建用户&nbsp;--&nbsp;角色分配</h2>
+                <div class="newUser2Sel">
+                    <ul id="J_roleList_new">
+                    </ul>
+                    <ul>
+                        <li>
+                            <input type="checkbox" value="" id="newUserRoleSel_all"/>
+                            <label for="newUserRoleSel_all" class="green"> 全选</label>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="mainSection none" id="J_EditUserDiv">
+    <div class="fullWindow">
+        <div class="fullWindowContentArea">
+            <form class="form mt10 w9" id="editUserForm">
+                <h2>用户基本信息编辑</h2>
+                <table>
+                    <tr>
+                        <td class="rowName">用户名</td>
+                        <td>
+                            <input type="text" class="input_type1" rule="required" name="user.uiName"/>
+                            <input type="hidden" name="user.uiId" id="uiId"/><a href='#' class="blue unl ml10" onclick='initPwd()'>初始化密码</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="rowName">联系电话</td>
+                        <td><input type="text" class="input_type1" rule="phone" name="user.uiOfficePhone"/></td>
+                    </tr>
+                    <tr>
+                        <td class="rowName">邮箱地址</td>
+                        <td><input type="text" class="input_type1" rule="email" name="user.uiMail"/></td>
+                    </tr>
+                </table>
+                <h2 style="margin-top:10px;">用户角色信息编辑</h2>
+
+                <div class="newUser2Sel mt20">
+                    <ul id="J_roleList_edit">
+                    </ul>
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="editUserRoleSel_all" class='checkBoss' ctrl="J_roleList_edit"/>
+                            <label for="editUserRoleSel_all" class="green"> 全选</label>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-1.6.1.min.js"></script>
+<script src="../js/jquery.easyui.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/md5.js" type="text/javascript" language="javascript"></script>
+<script src="../js/jquery.dataTables.js"></script>
+<script src="../plugins/form/jquery.sdForm.js"></script>
+<script src="js/userManage.js"></script>
+</body>
+</html>
