@@ -1,0 +1,34 @@
+/**
+ * DeptServicesImpl.java
+ * kevin 2012-6-16
+ * @version 0.1
+ */
+package com.kevin.group.service.dept.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.kevin.common.service.AbstractBaseService;
+import com.kevin.group.dao.dept.IDeptDAO;
+import com.kevin.group.pojo.dept.Dept;
+import com.kevin.group.service.dept.IDeptServices;
+
+/**
+ * @author kevin
+ * @since jdk1.6
+ */
+@Service("deptService")
+public class DeptServicesImpl extends AbstractBaseService<Dept> implements IDeptServices {
+
+    private IDeptDAO deptDAO;
+
+    /**
+     * @param deptDAO the deptDAO to set
+     */
+    @Autowired
+    public final void setDeptDAO(IDeptDAO deptDAO) {
+        setAbsBaseDao(deptDAO);
+        this.deptDAO = deptDAO;
+    }
+    
+}

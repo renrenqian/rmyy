@@ -48,4 +48,5 @@
 
     </package>
     <include file="config/struts/system.xml" />
+    <include file="config/struts/group.xml" />
 </struts>

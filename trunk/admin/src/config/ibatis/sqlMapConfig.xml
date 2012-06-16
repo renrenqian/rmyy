@@ -30,4 +30,12 @@
     <sqlMap resource="com/kevin/common/dao/system/maps/mysql/Message.xml" />
     <sqlMap resource="com/kevin/common/dao/system/maps/mysql/SystemInfo.xml" />
     <sqlMap resource="com/kevin/common/dao/system/maps/mysql/RolePrivilegeRef.xml" />
+    
+    <!-- group manage start -->
+    <!-- entity -->
+    <typeAlias alias="dept" type="com.kevin.group.pojo.dept.Dept" /> 
+    <!-- sql map -->
+    <sqlMap resource="com/kevin/group/dao/dept/maps/mysql/Dept.xml" />
+    <!-- group manage start -->
+    
 </sqlMapConfig>

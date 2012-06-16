@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="group" namespace="/group" extends="defaultj">
+        <!-- 科室start -->
+        <!--新增科室 -->
+        <action name="addDept" method="addDept" class="deptInfoAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>       
+       <action name="listDept" method="listDept" class="deptInfoAction">
+            <result name="success" type="json">
+               <param name="ignoreHierarchy">false</param>
+               <param name="excludeNullProperties">true</param>
+            </result>
+       </action>
+        <!--更新科室信息 -->
+        <action name="updateDept" method="updateDept" class="deptInfoAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+        <!--删除科室 -->
+        <action name="deleteDept" method="deleteDept" class="deptInfoAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+        <!--批量删除科室 -->
+        <action name="batchDeleteDept" method="batchDeleteDept" class="deptInfoAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+ 
+    </package>
+</struts>

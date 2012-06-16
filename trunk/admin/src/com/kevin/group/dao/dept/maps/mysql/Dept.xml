@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Dept">
+
+    <!-- paginate the dept info -->
+    <select id="list"  parameterClass="Dept"  resultClass="Dept">
+     <![CDATA[
+       select 
+         OD_ID as dpId,
+         OD_NAME as dpName,
+         OD_ORDER as dpOrder,
+         OD_BELONG as dpBelong,
+         OD_IN_CHARGE as dpIn_charge,
+         OD_TELEPHONE as dpOd_telephone,
+         OD_EMAIL as dpEmail,
+         OD_SITE as dpSite,
+         OD_LOCATION as dpLocation,
+         OD_BED_COUNTER as dpBed_counter,
+         OD_DESC as dpDesc,
+         OD_ACADEMIC_POSITION as dpAcademic_position,
+         OD_TECH_ADV as dpTech_adv,
+         OD_RESEARCH_DIRECTION as dpResearch_direction
+       from OFFICE_DETAIL
+     ]]>
+     <![CDATA[LIMIT #start#,#pageSize#]]>
+    </select>
+
+    <!-- add dept -->
+    <insert id="insert" parameterClass="Dept">
+       <![CDATA[
+          INSERT INTO OFFICE_DETAIL(OD_ID,OD_NAME,OD_ORDER,OD_BELONG,OD_IN_CHARGE,OD_TELEPHONE,OD_EMAIL,OD_SITE,OD_LOCATION,OD_BED_COUNTER,OD_DESC,OD_ACADEMIC_POSITION,OD_TECH_ADV,OD_RESEARCH_DIRECTION) 
+                         VALUES(#dpId#, #dpName#, #dpOrder#, #dpBelong#, #dpIn_charge#, #dpOd_telephone#, #dpEmail#, #dpSite#, #dpLocation#, #dpBed_counter#, #dpDesc#, #dpAcademic_position#, #dpTech_adv#, #dpResearch_direction#)
+       ]]>
+       <selectKey resultClass="int" keyProperty="dpId">
+         <![CDATA[SELECT LAST_INSERT_ID();]]>
+       </selectKey> 
+    </insert>
+    
+    <!-- delete dept by id -->
+    <delete id="delete" parameterClass="Dept">
+       <![CDATA[DELETE FROM OFFICE_DETAIL WHERE OD_ID= #dpId# ]]>
+    </delete>
+    
+    <!-- update the dept -->
+    <update id="update" parameterClass="Dept">
+      <![CDATA[
+         UPDATE OFFICE_DETAIL 
+         SET
+            OD_NAME = #dpName#,
+            OD_ORDER = #dpOrder#,
+            OD_BELONG = #dpBelong#,
+            OD_IN_CHARGE = #dpIn_charge#,
+            OD_TELEPHONE = #dpOd_telephone#,
+            OD_EMAIL = #dpEmail#,
+            OD_SITE = #dpSite#,
+            OD_LOCATION = #dpLocation#,
+            OD_BED_COUNTER = #dpBed_counter#,
+            OD_DESC = #dpDesc#,
+            OD_ACADEMIC_POSITION = #dpAcademic_position#,
+            OD_TECH_ADV = #dpTech_adv#,
+            OD_RESEARCH_DIRECTION = #dpResearch_direction#
+         WHERE OD_ID = #dpId#
+      ]]>
+    </update>
+</sqlMap>

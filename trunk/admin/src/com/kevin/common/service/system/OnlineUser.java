@@ -7,11 +7,6 @@ import javax.servlet.http.HttpSession;
 
 import com.kevin.common.pojo.system.UserInfo;
 
-/**
- * 在线用户基本信息实体类
- * @author jiangyn
- *
- */
 public class OnlineUser implements java.io.Serializable{
 
     /**

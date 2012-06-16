@@ -14,11 +14,7 @@ import com.kevin.common.pojo.system.PrivilegeInfo;
 import com.kevin.common.pojo.system.RoleInfo;
 import com.kevin.common.pojo.system.UserInfo;
 import com.kevin.common.service.IBaseService;
-/**
- * 系统管理-用户管理业务逻辑层接口
- * @author jiangyn
- *
- */
+
 public interface IUserInfoService extends IBaseService<UserInfo> {
     /**
      * 用户权限缓存

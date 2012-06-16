@@ -17,11 +17,6 @@ import com.kevin.common.pojo.system.UserInfo;
 import com.kevin.common.service.system.IUserInfoService;
 
 import com.opensymphony.xwork2.Action;
-/**
- * 用户管理Action,处理用户相关的请求
- * @author jiangyn
- * @since 2011-11-16 15:18:30
- */
 @Component("userInfoAction")
 @Scope("prototype")
 public class UserInfoAction extends AbstractBaseAction {
