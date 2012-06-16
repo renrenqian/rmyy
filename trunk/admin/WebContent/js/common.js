@@ -354,6 +354,7 @@ $(document).ready(function() {
                 "</ul>" +
                 "</div>");
         var sysConfigFolder = $('#sysConfigFolder');
+        alert("sysConfigFolder: " + sysConfigFolder);
         //Todo:zq-new too much?
         new Menu({
             root:sysConfigFolder
