@@ -8,6 +8,8 @@ package com.kevin.group.service.dept.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kevin.common.exception.CommonServiceException;
+import com.kevin.common.pojo.PageBean;
 import com.kevin.common.service.AbstractBaseService;
 import com.kevin.group.dao.dept.IDeptDAO;
 import com.kevin.group.pojo.dept.Dept;
@@ -30,5 +32,10 @@ public class DeptServicesImpl extends AbstractBaseService<Dept> implements IDept
         setAbsBaseDao(deptDAO);
         this.deptDAO = deptDAO;
     }
-    
+
+    @Override
+    public PageBean<Dept> list(PageBean<Dept> page)
+            throws CommonServiceException {
+        return super.list(page);
+    }
 }

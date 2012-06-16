@@ -33,7 +33,7 @@
     
     <!-- group manage start -->
     <!-- entity -->
-    <typeAlias alias="dept" type="com.kevin.group.pojo.dept.Dept" /> 
+    <typeAlias alias="Dept" type="com.kevin.group.pojo.dept.Dept" /> 
     <!-- sql map -->
     <sqlMap resource="com/kevin/group/dao/dept/maps/mysql/Dept.xml" />
     <!-- group manage start -->

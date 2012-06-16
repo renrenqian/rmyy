@@ -3,19 +3,6 @@ package com.kevin.common.pojo;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * 
- * 工程名称:  cmcpse 
- * 包名:     com.stardream.cmcpse.pojo
- * 类型名:   PageBean
- * 描述:     分页对象
- *
- * 例子:
- * @author  <a href="mailto:yaniu_jiang@stardream.tv">蒋亚牛</a>
- * @version 1.0
- * @see     
- * @since 2011-11-16 12:45:38 PM
- */
 public class PageBean<T> implements Serializable{
     /**
      * 

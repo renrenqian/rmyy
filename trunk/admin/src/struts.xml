@@ -7,7 +7,7 @@
     <constant name="struts.configuration.xml.reload" value="true" />
     <constant name="struts.objectFactory" value="spring" />
     <constant name="struts.devMode" value="true" />
-    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
     <!--ajax请求基包
     -->
     <package name="defaultj" extends="json-default">

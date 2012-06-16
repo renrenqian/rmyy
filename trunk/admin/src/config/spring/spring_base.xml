@@ -7,7 +7,7 @@
     http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
     http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context-2.5.xsd">
-    <context:component-scan base-package="com.kevin.common" />
+    <context:component-scan base-package="com.kevin" />
     <!-- property place holder post-processor -->
     <bean id="placeholderConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location">
@@ -53,7 +53,7 @@
         </tx:attributes>
     </tx:advice>
     <aop:config>
-        <aop:pointcut id="serviceMethods" expression="execution(public * com.kevin.common.service..*.*(..))" />
+        <aop:pointcut id="serviceMethods" expression="execution(public * com.kevin.*.service..*.*(..))" />
         <!-- 织入 -->
         <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods" />
     </aop:config>

@@ -10,12 +10,6 @@ import com.kevin.common.exception.BaseSqlMapException;
 import com.kevin.common.exception.CommonServiceException;
 import com.kevin.common.pojo.PageBean;
 
-/**
- * 业务逻辑层基类接口
- * @author chiang
- * @since 2011-11-16 13:07:21
- * @version 1.0
- */
 public interface IBaseService<T> {
 
     /**

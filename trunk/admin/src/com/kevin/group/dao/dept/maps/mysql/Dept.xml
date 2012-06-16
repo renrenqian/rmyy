@@ -24,7 +24,9 @@
          OD_RESEARCH_DIRECTION as dpResearch_direction
        from OFFICE_DETAIL
      ]]>
+     <!-- 
      <![CDATA[LIMIT #start#,#pageSize#]]>
+      -->
     </select>
 
     <!-- add dept -->

@@ -16,12 +16,6 @@ import com.kevin.common.exception.BaseSqlMapException;
 import com.kevin.common.exception.CommonServiceException;
 import com.kevin.common.pojo.PageBean;
 
-/**
- * 业务逻辑层基类
- * @author chiang
- * @since 2011-11-16 13:08
- * @version 1.0
- */
 public  abstract class AbstractBaseService<T> implements IBaseService<T> {
     protected final Logger logger = Logger.getLogger(AbstractBaseDAO.class.getName());
     private IBaseDAO<T> absBaseDao;
