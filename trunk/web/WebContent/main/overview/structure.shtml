@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <!--#include virtual="../master/headFile.html"-->
+</head>
+<body>
+<!--#include virtual="../master/top.html"-->
+<div class="content contentPart" style="margin-top: 3px; *margin-top: 3px;">
+    <div style="display: block; overflow: hidden;">
+        <div class="leftCol2">
+            <div class="mainPart">
+                <div class="itemBg">
+                    <div class="titleBg2">
+                        <p class="bread">
+                            <a href="/index.shtml" class="breadB">首页</a><span>></span><a href="#" class="breadN">
+                            医院概览</a><span>></span><a href="#" class="breadN">组织结构</a>
+                        </p>
+                    </div>
+                    <h2 class="titleType3">组织结构</h2>
+                    <div style="clear:both;"></div>
+                    <!-- content part -->
+                </div>
+            </div>
+        </div>
+        <!--#include virtual="../master/overviewSubTitle.html"-->
+    </div>
+</div>
+<!--#include virtual="../master/footer.html"-->
+<script src="/hospital/js/common.js"></script>
+
+</body>
+</html>
+
+

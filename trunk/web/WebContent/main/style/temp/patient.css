@@ -1,0 +1,10 @@
+﻿.queryTable {
+    width: 90%;
+    margin: 0 auto;
+}
+.queryTable tr th {
+        font-weight: bold;
+    }
+    .queryTable tr td {
+        padding: 10px;
+    }
