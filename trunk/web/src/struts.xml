@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+    <constant name="struts.configuration.xml.reload" value="true" />
+    <constant name="struts.objectFactory" value="spring" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <!--ajax请求基包
+    -->
+    <package name="defaultj" extends="json-default">
+        <interceptors>
+            <interceptor name="privilegeInterceptor" class="com.kevin.common.interceptor.PrivilegeInterceptor"></interceptor>
+            <interceptor-stack name="default">
+                <interceptor-ref name="privilegeInterceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="default"/> 
+    </package>
+    <package name="default" extends="struts-default">
+        <interceptors>
+            <interceptor name="privilegeInterceptor" class="com.kevin.common.interceptor.PrivilegeInterceptor"></interceptor>
+            <interceptor-stack name="default">
+                <interceptor-ref name="privilegeInterceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="default"/>
+    </package>
+    <!-- 登入登出 -->
+    <package name="logout" extends="struts-default">
+        <action name="logout" method="logout" class="userInfoAction">
+            <result name="success">/index.html</result>
+        </action>
+    </package>
+    <package name="login" extends="json-default">
+        
+        <action name="login" method="login" class="userInfoAction">
+            <result name="success" type="json">
+               <param name="ignoreHierarchy">false</param>
+               <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+
+    </package>
+    <include file="config/struts/system.xml" />
+    <include file="config/struts/group.xml" />
+</struts>
