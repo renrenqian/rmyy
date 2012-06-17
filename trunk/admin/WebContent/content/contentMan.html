@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../style/easyui.css" rel="stylesheet"/>
+    <link href="../style/common.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="mainSection">
+    <div class="toolBox">
+        <p>
+            <span> 工具箱:</span>
+            <a href="#" class="abled" id="J_AddContent">新增内容</a>
+            <a href="#" class="unabled unit J_DelAll" title="请先从下表中选择操作对象" id="J_LeaderDelAll">批量删除</a>
+        </p>
+    </div>
+    <div id="J_ContentListDiv" class="mt10">
+        <table id="J_ContentTable" class='display' cellpadding='0' cellspacing='0' border='0'>
+            <thead>
+            <tr>
+                <th><input type='checkbox' class='checkBoss' ctrl='J_ContentTable'/></th>
+                <th class='tl'>内容标题</th>
+                <th class='tl'>所属栏目</th>
+                <th>最后修改时间</th>
+                <th class='tl'>分享院区</th>
+                <th>作者</th>
+                <th>编辑</th>
+                <th>删除</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- leader div for add or edit -->
+<div id="J_ContentDiv" style="display:none;">
+    <form id="contentForm">
+        <table class="form w">
+            <tr>
+                <td class="rowName w1">内容标题</td>
+                <td><input type="text" class="input_type1" rule="required"/></td>
+                <td class="rowName">关键词</td>
+                <td><input type="text" class="input_type1"/></td>
+            </tr>
+            <tr>
+                <td class="rowName">所属一级栏目</td>
+                <td>
+                    <select class="selectType1">
+                        <option>医院概览</option>
+                        <option>信息中心</option>
+                        <option>患者服务中心</option>
+                        <option>科研学术</option>
+                        <option>医院文化和教育</option>
+                    </select>
+                </td>
+                <td class="rowName">所属二级栏目</td>
+                <td>
+                    <select class="selectType1">
+                        <option>医院公告</option>
+                        <option>医院新闻</option>
+                        <option>集团动态</option>
+                        <option>人才招聘</option>
+                        <option>招标采购</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="rowName">栏目置顶</td>
+                <td>
+                    <input type="radio" class="radio_Type1 ml10" id="radio.top0" name="radio.top" checked/>
+                    <label class="radio_Type1_label" for="radio.top0">不置顶</label>
+                    <input type="radio" class="radio_Type1 ml10" id="radio.top3" name="radio.top"/>
+                    <label class="radio_Type1_label" for="radio.top3">置顶3天</label>
+                    <input type="radio" class="radio_Type1" id="radio.top5" name="radio.top"/>
+                    <label class="radio_Type1_label" for="radio.top5">置顶5天</label>
+                    <input type="radio" class="radio_Type1" id="radio.top7" name="radio.top"/>
+                    <label class="radio_Type1_label" for="radio.top7">置顶7天</label>
+                </td>
+                <td class="rowName">媒体报道</td>
+                <td>
+                    <input type="radio" class="radio_Type1 ml10" id="radio.media0" name="radio.media" checked/>
+                    <label class="radio_Type1_label" for="radio.media0">否</label>
+                    <input type="radio" class="radio_Type1 ml10" id="radio.media1" name="radio.media"/>
+                    <label class="radio_Type1_label" for="radio.media1">是</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="rowName">首页图片滚动</td>
+                <td>
+                    <input type="radio" class="radio_Type1 ml10" id="radio.slide0" name="radio.slide" checked/>
+                    <label class="radio_Type1_label" for="radio.slide0">否</label>
+                    <input type="radio" class="radio_Type1 ml10" id="radio.slide1" name="radio.slide"/>
+                    <label class="radio_Type1_label" for="radio.slide1">是</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="rowName">发布院区</td>
+                <td>
+                    <select class="selectType1">
+                        <option>杭州市第一人民医院</option>
+                    </select>
+                </td>
+                <td class="rowName">分享院区</td>
+                <td>
+                    <select class="selectType1">
+                        <option>无</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="rowName">附件上传</td>
+                <td>
+                    <input type="text" class="input_type1"/>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="p10">
+                    <a class="button btn-blue" id="J_ContentOk">
+                        <span class="icon ico-bulb"></span>
+                        确认</a>
+                    <a class="button btn-grey" id="J_ContentClose">取消</a>
+            </tr>
+        </table>
+    </form>
+</div>
+<script type="text/javascript" src="../js/jquery-1.7.2.js"></script>
+<script src="../js/jquery.easyui.min.js"></script>
+<script src="../js/jquery.dataTables.js"></script>
+<script src="../js/common.js"></script>
+<script src="../plugins/form/jquery.sdForm.js"></script>
+<script src="js/contentMan.js" type="text/javascript"></script>
+</body>
+</html>

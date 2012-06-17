@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Example: Basic - jWYSIWYG</title>
+<link rel="stylesheet" type="text/css" href="/admin/plugins/jwysiwyg/blueprint/screen.css" media="screen, projection" />
+<link rel="stylesheet" type="text/css" href="/admin/plugins/jwysiwyg/blueprint/print.css" media="print" />
+<!--[if lt IE 8]><link rel="stylesheet" href="/admin/plugins/jwysiwyg/blueprint/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+<link rel="stylesheet" href="/admin/plugins/jwysiwyg/jquery.wysiwyg.css" type="text/css"/>
+<script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="/admin/plugins/jwysiwyg/jquery.wysiwyg.js"></script>
+<script type="text/javascript" src="/admin/plugins/jwysiwyg/wysiwyg.image.js"></script>
+<script type="text/javascript" src="/admin/plugins/jwysiwyg/wysiwyg.link.js"></script>
+<script type="text/javascript" src="/admin/plugins/jwysiwyg/wysiwyg.table.js"></script>
+<script type="text/javascript">
+(function($) {
+	$(document).ready(function() {
+		$('#wysiwyg').wysiwyg();
+	});
+})(jQuery);
+</script>
+</head>
+<body><div class="container">
+	<h1>jWYSIWYG</h1>
+	<h2>Example: Basic</h2>
+	<textarea id="wysiwyg" rows="5" cols="80"></textarea>
+
+	<hr/>
+	<a href="index.html">Index</a>
+</div></body>
+</html>
