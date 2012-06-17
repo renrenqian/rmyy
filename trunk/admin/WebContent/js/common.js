@@ -82,11 +82,12 @@ GLOBAL.BrowserAction = {
     },
 
     //禁止右键菜单
+    /*
     forbidContextMenu:function() {
         $(document).bind("contextmenu", function(e) {
             return false;
         });
-    },
+    },*/
 
     //阻止事件默认行为
     preDefault:function(e) {
@@ -119,9 +120,10 @@ GLOBAL.BrowserAction = {
         return true;
     }
 };
+/*
 $(document).ready(function() {
     GLOBAL.BrowserAction.forbidContextMenu();
-});
+});*/
 //=========================================================
 // zq:返回客户浏览器常见参数
 // 1.屏幕分辨率宽、高

@@ -53,7 +53,7 @@ $(document).ready(function() {
     $(".J_DeptEdit").die().live("click", function() {
         $.fn.sdResetForm("#deptForm");
         var id = $(this).parent().parent().children().eq(0).children().eq(0).val();
-        $.getJSON('../group/searchCatalogConfig.action?t=' + new Date().getTime() + '&dept.deptId=' + id, function(json) {
+        $.getJSON('../group/searchDept.action?t=' + new Date().getTime() + '&dept.deptId=' + id, function(json) {
             if (json.resultCode > 0) {
                 formUnSerialize("deptForm", "dept", json.dept);
             
@@ -86,6 +86,15 @@ $(document).ready(function() {
                 url = "../group/addDept.action";
                 var params = new StringBuffer();
                 params.append("dept.dpName=" + $("#deptName").val()).append("&");
+                params.append("dept.dpIn_charge=" + $("#dpIn_charge").val()).append("&");
+                params.append("dept.dpOd_telephone=" + $("#dpOd_telephone").val()).append("&");
+                params.append("dept.dpEmail=" + $("#dpEmail").val()).append("&");
+                params.append("dept.dpSite=" + $("#dpSite").val()).append("&");
+                params.append("dept.dpLocation=" + $("#dpLocation").val()).append("&");
+                params.append("dept.dpBed_counter=" + $("#dpBed_counter").val()).append("&");
+                params.append("dept.dpDesc=" + $("#dpDesc").val()).append("&");
+                params.append("dept.dpAcademic_position=" + $("#dpAcademic_position").val()).append("&");
+                params.append("dept.dpTech_adv=" + $("#dpTech_adv").val()).append("&");
                 params = params.toString();
                 $.post(url, params, function(json) {
                 if (json.resultCode > 0) {
@@ -136,7 +145,7 @@ $(document).ready(function() {
             if (r) {
                 var id = $(THIS).parent().parent().children().eq(0).children().eq(0).val();
                 var params = "dept.deptId=" + id;
-                $.post("../config/deleteCatalogConfig.action", params, function(json) {
+                $.post("../config/deleteDept.action", params, function(json) {
                     if (json.resultCode > 0) {
                     initDeptList();
                     } else {
@@ -245,7 +254,7 @@ function initDeptList() {
                 },
                {
                     fnRender:function(obj) {
-                        return "<span class='hidden1 tl'>" + obj.aData.sort + "</span>";
+                        return "<span>" + obj.aData.sort + "</span>";
                     }
                 },
                 {
