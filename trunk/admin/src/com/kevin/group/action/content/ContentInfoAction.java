@@ -1,9 +1,9 @@
 /**
- * DeptInfoAction.java
+ * ContentInfoAction.java
  * kevin 2012-6-16
  * @version 0.1
  */
-package com.kevin.group.action.dept;
+package com.kevin.group.action.content;
 
 import java.io.Serializable;
 import java.util.List;
@@ -14,80 +14,65 @@ import org.springframework.stereotype.Component;
 
 import com.kevin.common.action.AbstractBaseAction;
 import com.kevin.common.exception.CommonServiceException;
-import com.kevin.group.pojo.dept.Dept;
-import com.kevin.group.service.dept.IDeptServices;
+import com.kevin.group.pojo.content.ContentInfo;
+import com.kevin.group.service.content.IContentInfoService;
 import com.opensymphony.xwork2.Action;
 
 /**
  * @author kevin
  * @since jdk1.6
  */
-@Component("deptInfoAction")
+@Component("contentInfoAction")
 @Scope("prototype")
-public class DeptInfoAction extends AbstractBaseAction {
+public class ContentInfoAction extends AbstractBaseAction {
 
-    private IDeptServices deptService;
-    private Dept dept;
-    private List<Dept> deptList;
+    private IContentInfoService contInfoService;
+    private ContentInfo contInfo;
+    private List<ContentInfo> contList;
     private List<Serializable> ides;
 
     /**
-     * @return the dept
+     * @return the contInfo
      */
-    public final Dept getDept() {
-        return dept;
+    public final ContentInfo getContInfo() {
+        return contInfo;
     }
 
     /**
-     * @param dept
-     *            the dept to set
+     * @param contInfo
+     *            the contInfo to set
      */
-    public final void setDept(Dept dept) {
-        this.dept = dept;
+    public final void setContInfo(ContentInfo contInfo) {
+        this.contInfo = contInfo;
     }
 
     /**
-     * @return the deptList
+     * @return the contList
      */
-    public final List<Dept> getDeptList() {
-        return deptList;
+    public final List<ContentInfo> getContList() {
+        return contList;
     }
 
     /**
-     * @param deptList
-     *            the deptList to set
+     * @param contList
+     *            the contList to set
      */
-    public final void setDeptList(List<Dept> deptList) {
-        this.deptList = deptList;
+    public final void setContList(List<ContentInfo> contList) {
+        this.contList = contList;
     }
 
     /**
-     * @return the ides
-     */
-    public final List<Serializable> getIdes() {
-        return ides;
-    }
-
-    /**
-     * @param ides
-     *            the ides to set
-     */
-    public final void setIdes(List<Serializable> ides) {
-        this.ides = ides;
-    }
-
-    /**
-     * @param deptService
-     *            the deptService to set
+     * @param contInfoService
+     *            the contInfoService to set
      */
     @Autowired
-    public final void setDeptService(IDeptServices deptService) {
-        this.deptService = deptService;
+    public final void setContInfoService(IContentInfoService contInfoService) {
+        this.contInfoService = contInfoService;
     }
 
-    public String addDept() {// add new dept
+    public String addContent() {// add new contInfo
         try {
-            Serializable id = deptService.save(dept);
+            Serializable id = contInfoService.save(contInfo);
             setResultCode((Integer) id);
         } catch (CommonServiceException e) {
             setMessage(e.getMessage());
@@ -96,9 +81,9 @@ public class DeptInfoAction extends AbstractBaseAction {
         return Action.SUCCESS;
     }
 
-    public String searchDept() {// search dept
+    public String searchContent() {// search contInfo
         try {
-            this.dept = deptService.search(dept);
+            this.contInfo = contInfoService.search(contInfo);
             setResultCode(1);
         } catch (CommonServiceException e) {
             setMessage(e.getMessage());
@@ -107,9 +92,9 @@ public class DeptInfoAction extends AbstractBaseAction {
         return Action.SUCCESS;
     }
 
-    public String listDept() {// list all the dept
+    public String listContent() {// list all the contInfo
         try {
-            deptList = deptService.listAll();
+            contList = contInfoService.listAll();
             setResultCode(1);
         } catch (CommonServiceException e) {
             setMessage(e.getMessage());
@@ -118,9 +103,9 @@ public class DeptInfoAction extends AbstractBaseAction {
         return Action.SUCCESS;
     }
 
-    public String updateDept() {// update the dept info
+    public String updateContent() {// update the contInfo info
         try {
-            int result = deptService.update(dept);
+            int result = contInfoService.update(contInfo);
             setResultCode(result);
         } catch (CommonServiceException e) {
             setMessage(e.getMessage());
@@ -129,9 +114,9 @@ public class DeptInfoAction extends AbstractBaseAction {
         return Action.SUCCESS;
     }
 
-    public String deleteDept() {// delete the dept
+    public String deleteContent() {// delete the contInfo
         try {
-            int result = deptService.delete(dept);
+            int result = contInfoService.delete(contInfo);
             setResultCode(result);
         } catch (CommonServiceException e) {
             setMessage(e.getMessage());
@@ -140,9 +125,9 @@ public class DeptInfoAction extends AbstractBaseAction {
         return Action.SUCCESS;
     }
 
-    public String batchDeleteDept() {// bath delete the dept
+    public String batchDeleteContent() {// bath delete the contInfo
         try {
-            int result = deptService.batchDelete(ides);
+            int result = contInfoService.batchDelete(ides);
             setResultCode(result);
         } catch (CommonServiceException e) {
             setMessage(e.getMessage());

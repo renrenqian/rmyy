@@ -11,8 +11,14 @@
                 <param name="ignoreHierarchy">false</param>
                 <param name="excludeNullProperties">true</param>
             </result>
-        </action>       
+        </action>
        <action name="listDept" method="listDept" class="deptInfoAction">
+            <result name="success" type="json">
+               <param name="ignoreHierarchy">false</param>
+               <param name="excludeNullProperties">true</param>
+            </result>
+       </action>
+       <action name="searchDept" method="searchDept" class="deptInfoAction">
             <result name="success" type="json">
                <param name="ignoreHierarchy">false</param>
                <param name="excludeNullProperties">true</param>
@@ -40,5 +46,49 @@
             </result>
         </action>
  
+        <!-- content start -->
+        <!-- new content -->
+        <action name="addContent" method="addContent" class="contentInfoAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+        <!-- list content -->
+       <action name="listContent" method="listContent" class="contentInfoAction">
+            <result name="success" type="json">
+               <param name="ignoreHierarchy">false</param>
+               <param name="excludeNullProperties">true</param>
+            </result>
+       </action>
+        <!-- search content -->
+       <action name="searchContent" method="searchContent" class="contentInfoAction">
+            <result name="success" type="json">
+               <param name="ignoreHierarchy">false</param>
+               <param name="excludeNullProperties">true</param>
+            </result>
+       </action>
+        <!-- update the content info -->
+        <action name="updateContent" method="updateContent" class="contentInfoAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+        <!-- delete the content -->
+        <action name="deleteContent" method="deleteContent" class="contentInfoAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+        <!-- batch delete the content -->
+        <action name="batchDeleteContent" method="batchDeleteContent" class="contentInfoAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+        <!-- content end -->
     </package>
 </struts>

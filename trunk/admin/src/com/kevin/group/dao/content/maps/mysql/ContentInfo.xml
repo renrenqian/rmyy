@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="ContentInfo">
+
+    <!-- paginate the ContentInfo info -->
+    <select id="list"  parameterClass="ContentInfo"  resultClass="ContentInfo">
+     <![CDATA[
+       select 
+          CD_ID as contId,
+          CD_TITAL as contTital,
+          CI_HOME_PAGE as contHome_Page,
+          CI_ID as colId,
+          CD_SHOW_DAYS as contShow_Days,
+          CD_MEDIUM as contMedium,
+          CD_KEY as contKey,
+          CD_PUBLISH_TIME as contPublish_Time,
+          CD_AUDIT_RESULT as contAudit_Result,
+          CD_ORDER as contOrder,
+          GM_ID as gmId,
+          CD_AUTHOR as contAuthor,
+          CD_DETAIL as contDetail,
+          CD_ATTACHMENT as contAttachment
+       from CONTENT_DETAIL
+     ]]>
+     <!-- 
+     <![CDATA[LIMIT #start#,#pageSize#]]>
+      -->
+    </select>
+    
+    <!-- list all the ContentInfo info -->
+    <select id="listAll"  parameterClass="ContentInfo"  resultClass="ContentInfo">
+     <![CDATA[
+       select 
+          CD_ID as contId,
+          CD_TITAL as contTital,
+          CI_HOME_PAGE as contHome_Page,
+          CI_ID as colId,
+          CD_SHOW_DAYS as contShow_Days,
+          CD_MEDIUM as contMedium,
+          CD_KEY as contKey,
+          CD_PUBLISH_TIME as contPublish_Time,
+          CD_AUDIT_RESULT as contAudit_Result,
+          CD_ORDER as contOrder,
+          GM_ID as gmId,
+          CD_AUTHOR as contAuthor,
+          CD_DETAIL as contDetail,
+          CD_ATTACHMENT as contAttachment
+       from CONTENT_DETAIL
+     ]]>
+     <!-- 
+     <![CDATA[LIMIT #start#,#pageSize#]]>
+      -->
+    </select>
+
+    <!-- add ContentInfo -->
+    <insert id="insert" parameterClass="ContentInfo">
+       <![CDATA[
+          INSERT INTO CONTENT_DETAIL(CD_ID, CD_TITAL, CI_HOME_PAGE, CI_ID, CD_SHOW_DAYS, CD_MEDIUM, CD_KEY, CD_PUBLISH_TIME,CD_AUDIT_RESULT,CD_ORDER, GM_ID, CD_AUTHOR, CD_DETAIL, CD_ATTACHMENT) 
+                         VALUES(#contId#, #contTital#, #contHome_Page#, #colId#, #contShow_Days#, #contMedium#, #contKey#, #contPublish_Time#, #contAudit_Result#, #contOrder#, #gmId#, #contAuthor#, #contDetail#, #contAttachment#)
+       ]]>
+       <selectKey resultClass="int" keyProperty="contId">
+         <![CDATA[SELECT LAST_INSERT_ID();]]>
+       </selectKey> 
+    </insert>
+    
+    <!-- delete ContentInfo by id -->
+    <delete id="delete" parameterClass="ContentInfo">
+       <![CDATA[DELETE FROM CONTENT_DETAIL WHERE contId= #contId# ]]>
+    </delete>
+    
+    <!-- update the ContentInfo -->
+    <update id="update" parameterClass="ContentInfo">
+      <![CDATA[
+         UPDATE CONTENT_DETAIL 
+         SET 
+          CD_TITAL = #contTital#,
+          CI_HOME_PAGE = #contHome_Page#,
+          CI_ID = #colId#,
+          CD_SHOW_DAYS = #contShow_Days#,
+          CD_MEDIUM = #contMedium#,
+          CD_KEY = #contKey#,
+          CD_PUBLISH_TIME = #contPublish_Time#,
+          CD_AUDIT_RESULT = #contAudit_Result#,
+          CD_ORDER = #contOrder#,
+          GM_ID = #gmId#,
+          CD_AUTHOR = #contAuthor#,
+          CD_DETAIL = #contDetail#,
+          CD_ATTACHMENT = #contAttachment#
+         WHERE CD_ID = #contId#
+      ]]>
+    </update>
+</sqlMap>

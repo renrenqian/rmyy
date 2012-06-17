@@ -10,10 +10,10 @@ package com.kevin.group.pojo.dept;
  * @since jdk1.6
  */
 public class Dept {
-    private String dpId;
+    private Integer dpId;
     private String dpName;
-    private String dpOrder;
-    private String dpBelong;
+    private Integer dpOrder;
+    private Integer dpBelong;
     private String dpIn_charge;
     private String dpOd_telephone;
     private String dpEmail;
@@ -28,7 +28,7 @@ public class Dept {
     /**
      * @return the dpId
      */
-    public final String getDpId() {
+    public final Integer getDpId() {
         return dpId;
     }
 
@@ -36,7 +36,7 @@ public class Dept {
      * @param dpId
      *            the dpId to set
      */
-    public final void setDpId(String dpId) {
+    public final void setDpId(Integer dpId) {
         this.dpId = dpId;
     }
 
@@ -58,7 +58,7 @@ public class Dept {
     /**
      * @return the dpOrder
      */
-    public final String getDpOrder() {
+    public final Integer getDpOrder() {
         return dpOrder;
     }
 
@@ -66,14 +66,14 @@ public class Dept {
      * @param dpOrder
      *            the dpOrder to set
      */
-    public final void setDpOrder(String dpOrder) {
+    public final void setDpOrder(Integer dpOrder) {
         this.dpOrder = dpOrder;
     }
 
     /**
      * @return the dpBelong
      */
-    public final String getDpBelong() {
+    public final Integer getDpBelong() {
         return dpBelong;
     }
 
@@ -81,7 +81,7 @@ public class Dept {
      * @param dpBelong
      *            the dpBelong to set
      */
-    public final void setDpBelong(String dpBelong) {
+    public final void setDpBelong(Integer dpBelong) {
         this.dpBelong = dpBelong;
     }
 

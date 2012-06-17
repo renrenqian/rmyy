@@ -28,6 +28,31 @@
      <![CDATA[LIMIT #start#,#pageSize#]]>
       -->
     </select>
+    
+    <!-- list all the dept info -->
+    <select id="listAll"  parameterClass="Dept"  resultClass="Dept">
+     <![CDATA[
+       select 
+         OD_ID as dpId,
+         OD_NAME as dpName,
+         OD_ORDER as dpOrder,
+         OD_BELONG as dpBelong,
+         OD_IN_CHARGE as dpIn_charge,
+         OD_TELEPHONE as dpOd_telephone,
+         OD_EMAIL as dpEmail,
+         OD_SITE as dpSite,
+         OD_LOCATION as dpLocation,
+         OD_BED_COUNTER as dpBed_counter,
+         OD_DESC as dpDesc,
+         OD_ACADEMIC_POSITION as dpAcademic_position,
+         OD_TECH_ADV as dpTech_adv,
+         OD_RESEARCH_DIRECTION as dpResearch_direction
+       from OFFICE_DETAIL
+     ]]>
+     <!-- 
+     <![CDATA[LIMIT #start#,#pageSize#]]>
+      -->
+    </select>
 
     <!-- add dept -->
     <insert id="insert" parameterClass="Dept">
