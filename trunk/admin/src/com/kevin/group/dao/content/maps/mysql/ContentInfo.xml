@@ -58,7 +58,7 @@
     <insert id="insert" parameterClass="ContentInfo">
        <![CDATA[
           INSERT INTO CONTENT_DETAIL(CD_ID, CD_TITAL, CI_HOME_PAGE, CI_ID, CD_SHOW_DAYS, CD_MEDIUM, CD_KEY, CD_PUBLISH_TIME,CD_AUDIT_RESULT,CD_ORDER, GM_ID, CD_AUTHOR, CD_DETAIL, CD_ATTACHMENT) 
-                         VALUES(#contId#, #contTital#, #contHome_Page#, #colId#, #contShow_Days#, #contMedium#, #contKey#, #contPublish_Time#, #contAudit_Result#, #contOrder#, #gmId#, #contAuthor#, #contDetail#, #contAttachment#)
+                         VALUES(#contId#, #contTital#, #contHome_Page#, #colId#, #contShow_Days#, #contMedium#, #contKey#, sysdate(), #contAudit_Result#, #contOrder#, #gmId#, #contAuthor#, #contDetail#, #contAttachment#)
        ]]>
        <selectKey resultClass="int" keyProperty="contId">
          <![CDATA[SELECT LAST_INSERT_ID();]]>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="DoctorInfo">
+
+    <!-- paginate the DoctorInfo info -->
+    <select id="list"  parameterClass="DoctorInfo"  resultClass="DoctorInfo">
+     <![CDATA[
+       select 
+        DI_ID as diId,
+        DI_NAME as diName,
+        DI_POSITION as diPosition,
+        DI_PORTRAIT as diPortrait,
+        OS_ID as osId,
+        DI_ORDER as diOrder,
+        DI_SEX as diSex,
+        DI_EDUCATION as diEducation,
+        DI_RESUME as diResume,
+        DI_MAJOR as diMajor,
+        DI_RESEARCH_DIRECTION as diResearch_direction,
+        DI_ACCOMPLISHMENT as diAccomplishment
+       from DOCTOR_INFO
+     ]]>
+     <!-- 
+     <![CDATA[LIMIT #start#,#pageSize#]]>
+      -->
+    </select>
+    
+    <!-- list all the DoctorInfo info -->
+    <select id="listAll"  parameterClass="DoctorInfo"  resultClass="DoctorInfo">
+     <![CDATA[
+       select 
+        DI_ID as diId,
+        DI_NAME as diName,
+        DI_POSITION as diPosition,
+        DI_PORTRAIT as diPortrait,
+        OS_ID as osId,
+        DI_ORDER as diOrder,
+        DI_SEX as diSex,
+        DI_EDUCATION as diEducation,
+        DI_RESUME as diResume,
+        DI_MAJOR as diMajor,
+        DI_RESEARCH_DIRECTION as diResearch_direction,
+        DI_ACCOMPLISHMENT as diAccomplishment
+       from DOCTOR_INFO
+     ]]>
+     <!-- 
+     <![CDATA[LIMIT #start#,#pageSize#]]>
+      -->
+    </select>
+
+    <!-- add DoctorInfo -->
+    <insert id="insert" parameterClass="DoctorInfo">
+       <![CDATA[
+          INSERT INTO DOCTOR_INFO(DI_ID, DI_NAME, DI_POSITION, DI_PORTRAIT, OS_ID, DI_ORDER, DI_SEX, DI_EDUCATION, DI_RESUME, DI_MAJOR, DI_RESEARCH_DIRECTION, DI_ACCOMPLISHMENT) 
+                         VALUES(#diId#, #diName#, #diPosition#, #diPortrait#, #osId#, #diOrder#, #diSex#, #diEducation#, #diResume#, #diMajor#, #diResearch_direction#, #diAccomplishment#)
+       ]]>
+       <selectKey resultClass="int" keyProperty="diId">
+         <![CDATA[SELECT LAST_INSERT_ID();]]>
+       </selectKey> 
+    </insert>
+    
+    <!-- delete DoctorInfo by id -->
+    <delete id="delete" parameterClass="DoctorInfo">
+       <![CDATA[DELETE FROM DOCTOR_INFO WHERE DI_ID = #diId# ]]>
+    </delete>
+    
+    <!-- update the DoctorInfo -->
+    <update id="update" parameterClass="DoctorInfo">
+      <![CDATA[
+         UPDATE DOCTOR_INFO 
+         SET
+            DI_NAME = #diName#,
+            DI_POSITION = #diPosition#,
+            DI_PORTRAIT = #diPortrait#,
+            OS_ID = #osId#,
+            DI_ORDER = #diOrder#,
+            DI_SEX = #diSex#,
+            DI_EDUCATION = #diEducation#,
+            DI_RESUME = #diResume#,
+            DI_MAJOR = #diMajor#,
+            DI_RESEARCH_DIRECTION = #diResearch_direction#,
+            DI_ACCOMPLISHMENT = #diAccomplishment#s
+         WHERE DI_ID = #diId#
+      ]]>
+    </update>
+</sqlMap>

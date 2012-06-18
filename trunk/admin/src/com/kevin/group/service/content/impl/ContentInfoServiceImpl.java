@@ -8,6 +8,8 @@ package com.kevin.group.service.content.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kevin.common.exception.CommonServiceException;
+import com.kevin.common.pojo.PageBean;
 import com.kevin.common.service.AbstractBaseService;
 import com.kevin.group.dao.content.IContentInfoDAO;
 import com.kevin.group.pojo.content.ContentInfo;
@@ -32,4 +34,9 @@ public class ContentInfoServiceImpl extends AbstractBaseService<ContentInfo>
         this.contInfoDAO = contInfoDAO;
     }
 
+    @Override
+    public PageBean<ContentInfo> list(PageBean<ContentInfo> page)
+            throws CommonServiceException {
+        return super.list(page);
+    }
 }

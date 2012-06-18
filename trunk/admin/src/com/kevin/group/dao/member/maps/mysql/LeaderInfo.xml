@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="LeaderInfo">
+
+    <!-- paginate the LeaderInfo info -->
+    <select id="list"  parameterClass="LeaderInfo"  resultClass="LeaderInfo">
+     <![CDATA[
+       select 
+            LI_ID as liId,
+            LI_CATE as liCate,
+            LI_CURRENT as liCurrent,
+            LI_NAME as liName,
+            LI_HOLD_START as liHold_start,
+            LI_HOLD_END as liHold_end,
+            LI_QUARTERS as liQuarters,
+            LI_TECH_POSITION as liTech_position,
+            LI_TELEPHONE as liTelephone,
+            LI_EMAIL as liEmail,
+            LI_PORTRAIT as liPortrait,
+            LI_RANG as liRang,
+            LI_ORDER as liOrder,
+            LI_RESUME as liResume,
+            LI_DESC as liDesc
+       from LEADER_INFO
+     ]]>
+     <!-- 
+     <![CDATA[LIMIT #start#,#pageSize#]]>
+      -->
+    </select>
+    
+    <!-- list all the LeaderInfo info -->
+    <select id="listAll"  parameterClass="LeaderInfo"  resultClass="LeaderInfo">
+     <![CDATA[
+       select 
+            LI_ID as liId,
+            LI_CATE as liCate,
+            LI_CURRENT as liCurrent,
+            LI_NAME as liName,
+            LI_HOLD_START as liHold_start,
+            LI_HOLD_END as liHold_end,
+            LI_QUARTERS as liQuarters,
+            LI_TECH_POSITION as liTech_position,
+            LI_TELEPHONE as liTelephone,
+            LI_EMAIL as liEmail,
+            LI_PORTRAIT as liPortrait,
+            LI_RANG as liRang,
+            LI_ORDER as liOrder,
+            LI_RESUME as liResume,
+            LI_DESC as liDesc
+       from LEADER_INFO
+     ]]>
+     <!-- 
+     <![CDATA[LIMIT #start#,#pageSize#]]>
+      -->
+    </select>
+
+    <!-- add LeaderInfo -->
+    <insert id="insert" parameterClass="LeaderInfo">
+       <![CDATA[
+          INSERT INTO LEADER_INFO(LI_ID, LI_CATE, LI_CURRENT, LI_NAME, LI_HOLD_START, LI_HOLD_END, LI_QUARTERS, LI_TECH_POSITION, LI_TELEPHONE, LI_EMAIL, LI_PORTRAIT, LI_RANG, LI_ORDER, LI_RESUME, LI_DESC) 
+                         VALUES(#liId#, #liCate#, #liCurrent#, #liName#, #liHold_start#, #liHold_end#, #liQuarters#, #liTech_position#, #liTelephone#, #liEmail#, #liPortrait#, #liRang#, #liOrder#, #liResume#, #liDesc#)
+       ]]>
+       <selectKey resultClass="int" keyProperty="diId">
+         <![CDATA[SELECT LAST_INSERT_ID();]]>
+       </selectKey> 
+    </insert>
+    
+    <!-- delete LeaderInfo by id -->
+    <delete id="delete" parameterClass="LeaderInfo">
+       <![CDATA[DELETE FROM LEADER_INFO WHERE LI_ID = #liId#]]>
+    </delete>
+    
+    <!-- update the LeaderInfo -->
+    <update id="update" parameterClass="LeaderInfo">
+      <![CDATA[
+         UPDATE LEADER_INFO 
+         SET
+            LI_CATE = #liCate#,
+            LI_CURRENT = #liCurrent#,
+            LI_NAME = #liName#,
+            LI_HOLD_START = #liHold_start#,
+            LI_HOLD_END = #liHold_end#,
+            LI_QUARTERS = #liQuarters#,
+            LI_TECH_POSITION = #liTech_position#,
+            LI_TELEPHONE = #liTelephone#,
+            LI_EMAIL = #liEmail#,
+            LI_PORTRAIT = #liPortrait#,
+            LI_RANG = #liRang#,
+            LI_ORDER = #liOrder#,
+            LI_RESUME = #liResume#,
+            LI_DESC = #liDesc#
+         WHERE LI_ID = #liId#
+      ]]>
+    </update>
+</sqlMap>
