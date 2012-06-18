@@ -74,7 +74,7 @@
 </div>
 <!--#include virtual="../master/footer.html"-->
 <!--#include virtual="../master/demoJs.html"-->
-<script src="/rmyy/hospital/js/common.js"></script>
+<script src="/web/main/js/common.js"></script>
 
 </body>
 </html>

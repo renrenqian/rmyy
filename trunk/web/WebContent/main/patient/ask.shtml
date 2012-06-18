@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
 <head>
-    <!--#include file="/Hospital/Master/headFile.html"-->
+    <!--#include virtual="../master/headFile.html"-->
 </head>
 <body>
-<!--#include file="/Hospital/Master/top.html"-->
+<!--#include virtual="../master/top.html"-->
 <div class="content contentPart" style="margin-top: 3px; *margin-top: 3px;">
     <div style="display: block; overflow: hidden;">
         <div class="leftCol2">
@@ -101,9 +101,8 @@
         <!--#include file="/Hospital/Master/patientSubTitle.html"-->
     </div>
 </div>
-<!--#include file="/Hospital/Master/footer.html"-->
-<script src="/hospital/js/common.js"></script>
-
+<!--#include virtual="../master/footer.html"-->
+<script src="/web/main/js/common.js"></script>
 </body>
 </html>
 

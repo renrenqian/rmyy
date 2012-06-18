@@ -127,11 +127,11 @@
                 </div>
             </div>
         </div>
-        <!--#include file="/Hospital/Master/overviewSubTitle.html"-->
+        <!--#include virtual="../master/overviewSubTitle.html"-->
     </div>
 </div>
 <!--#include virtual="../master/footer.html"-->
-<script src="/hospital/js/common.js"></script>
+<script src="/web/main/js/common.js"></script>
 </body>
 </html>
 

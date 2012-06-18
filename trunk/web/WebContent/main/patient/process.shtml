@@ -20,15 +20,15 @@
                     <div style="clear:both;"></div>
                     <div class="docBody">
                         <ul class="leaderList" id="J_Process">
-                            <li><a href="#" srcLink='/Hospital/Images/lc/lc-mjz.jpg' title="门急诊就诊流程">门急诊就诊流程</a></li>
-                            <li><a href="#" srcLink='/Hospital/Images/lc/lc-dhyy.jpg' title="电话预约流程">电话预约流程</a></li>
-                            <li><a href="#" srcLink='/Hospital/Images/lc/lc-qh.jpg' title="电话预约取号流程">电话预约取号流程</a></li>
-                            <li><a href="#" srcLink='/Hospital/Images/lc/lc-cry.jpg' title="出入院流程">出入院流程</a></li>
+                            <li><a href="#" srcLink='/web/main/images/lc/lc-mjz.jpg' title="门急诊就诊流程">门急诊就诊流程</a></li>
+                            <li><a href="#" srcLink='/web/main/images/lc/lc-dhyy.jpg' title="电话预约流程">电话预约流程</a></li>
+                            <li><a href="#" srcLink='/web/main/images/lc/lc-qh.jpg' title="电话预约取号流程">电话预约取号流程</a></li>
+                            <li><a href="#" srcLink='/web/main/images/lc/lc-cry.jpg' title="出入院流程">出入院流程</a></li>
                         </ul>
                         <div style="clear:both;"></div>
                         <hr class="mb20 w"/>
                         <h3 id="J_ProcessTitle">门急诊就诊流程</h3>
-                        <img id="J_ProcessImg" src="/hospital/images/lc/lc-mjz.jpg">
+                        <img id="J_ProcessImg" src="/web/main/images/lc/lc-mjz.jpg">
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
     </div>
 </div>
 <!--#include virtual="../master/footer.html"-->
-<script src="/rmyy/hospital/js/common.js"></script>
+<script src="/web/main/js/common.js"></script>
 <script>
     $(document).ready(function () {
         $('#J_Process li a').click(function () {

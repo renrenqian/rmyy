@@ -20,11 +20,11 @@
 
                     <div style="clear: both;"></div>
                     <div class="docBody">
-                        <img src="/hospital/images/build5.jpg"/>
-                        <img src="/hospital/images/build1.jpg"/>
-                        <img src="/hospital/images/build2.jpg"/>
-                        <img src="/hospital/images/build3.jpg"/>
-                        <img src="/hospital/images/build4.jpg"/>
+                        <img src="/web/main/images/build5.jpg"/>
+                        <img src="/web/main/images/build1.jpg"/>
+                        <img src="/web/main/images/build2.jpg"/>
+                        <img src="/web/main/images/build3.jpg"/>
+                        <img src="/web/main/images/build4.jpg"/>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
 </div>
 <!--#include virtual="../master/footer.html"-->
 <!--#include virtual="../master/demoJs.html"-->
-<script src="/rmyy/hospital/js/common.js"></script>
+<script src="/web/main/js/common.js"></script>
 </body>
 </html>
 

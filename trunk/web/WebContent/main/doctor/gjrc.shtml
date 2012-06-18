@@ -182,7 +182,7 @@
     </div>
 </div>
 <!--#include virtual="../master/footer.html"-->
-<script src="/rmyy/hospital/js/common.js"></script>
+<script src="/web/main/js/common.js"></script>
 </body>
 </html>
 

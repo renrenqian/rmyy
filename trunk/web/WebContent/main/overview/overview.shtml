@@ -10,9 +10,10 @@
             <div class="mainPart">
                 <div class="itemBg">
                     <div class="titleBg2">
-                        <p class="bread">
-                            <a href="/index.shtml" class="breadB">首页</a><span>></span><a href="#" class="breadN">
-                            医院概览</a><span>></span><a href="hospital/News/NewsList.shtml" class="breadN">医院简介</a>
+                        <p class="bread J_Bread">
+                            <a href="/index.shtml" class="breadB">首页</a><span>></span>
+                            <a href="#" class="breadN">医院概览</a><span>></span>
+                            <a href="hospital/News/NewsList.shtml" class="breadN">医院简介</a>
                         </p>
                     </div>
                     <h2 class="newsMainTitle">杭州市第一人民医院简介</h2>
