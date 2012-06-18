@@ -7,7 +7,7 @@
  */
 $(document).ready(function () {
     //just for demo
-    $('.newsTitle').not('.consultList').attr('href', '/Hospital/News/NewsDetail.shtml').attr('target', '_blank');
+    $('.newsTitle').not('.consultList').attr('href', '/web/main/news/newsDetail.shtml').attr('target', '_blank');
     $('.consultList li a').attr('href', '/Hospital/Patient/Result.shtml').attr('target', '_blank');
     $('.Schedule').find('.paTr:odd').addClass('SchTrPaOdd');
     $('.Schedule').find('.paTr:even').addClass('SchTrPaEven');

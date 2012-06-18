@@ -25,7 +25,7 @@
     </div>
 </div>
 <!--#include virtual="../master/footer.html"-->
-<script src="/hospital/js/common.js"></script>
+<script src="/web/main/js/common.js"></script>
 
 </body>
 </html>
