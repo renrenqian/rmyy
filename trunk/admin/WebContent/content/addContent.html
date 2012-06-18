@@ -34,54 +34,52 @@
                 </td>
                 <td class="rowName">所属二级栏目</td>
                 <td>
-                    <select id="level2" class="selectType1">
+                    <select id="colId" class="selectType1">
                         <option value="1001">医院公告</option>
-                        <option>医院新闻</option>
-                        <option>集团动态</option>
-                        <option>人才招聘</option>
-                        <option>招标采购</option>
+                        <option value="1002">医院新闻</option>
+                        <option value="1003">集团动态</option>
+                        <option value="1004">人才招聘</option>
+                        <option value="1005">招标采购</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td class="rowName">栏目置顶</td>
                 <td>
-                    <input id="contShow_Days" type="radio" class="radio_Type1 ml10"  name="radio.top" checked/>
-                    <label class="radio_Type1_label" for="radio.top0" value="0">不置顶</label>
-                    <input type="radio" class="radio_Type1 ml10" id="radio.top3" name="radio.top"/>
-                    <label class="radio_Type1_label" for="radio.top3" value="3">置顶3天</label>
-                    <input type="radio" class="radio_Type1" id="radio.top5" name="radio.top"/>
-                    <label class="radio_Type1_label" for="radio.top5" value="5">置顶5天</label>
-                    <input type="radio" class="radio_Type1" id="radio.top7" name="radio.top"/>
-                    <label class="radio_Type1_label" for="radio.top7" value="7">置顶7天</label>
+                    <select id="contShow_Days" class="selectType1">
+                        <option value="0">不置顶</option>
+                        <option value="3">置顶3天</option>
+                        <option value="5">置顶5天</option>
+                        <option value="7">置顶7天</option>
+                    </select>
                 </td>
                 <td class="rowName">媒体报道</td>
                 <td>
-                    <input id="contMedium" type="radio" class="radio_Type1 ml10"  name="radio.media" checked/>
-                    <label class="radio_Type1_label" for="radio.media0" value="0">否</label>
-                    <input type="radio" class="radio_Type1 ml10" id="radio.media1" name="radio.media"/>
-                    <label class="radio_Type1_label" for="radio.media1" value="1">是</label>
+                    <select id="contMedium" class="selectType1">
+                        <option value="0">否</option>
+                        <option value="1">是</option>
+                    </select>
                 </td>
             </tr>
             <tr>
                 <td class="rowName">首页图片滚动</td>
                 <td>
-                    <input id="" type="radio" class="radio_Type1 ml10" name="radio.slide" checked/>
-                    <label class="radio_Type1_label" for="radio.slide0" value="0">否</label>
-                    <input type="radio" class="radio_Type1 ml10" id="radio.slide1" name="radio.slide"/>
-                    <label class="radio_Type1_label" for="radio.slide1" value="1">是</label>
+                    <select id="contHome_Page" class="selectType1">
+                        <option value="0">否</option>
+                        <option value="1">是</option>
+                    </select>
                 </td>
             </tr>
             <tr>
                 <td class="rowName">发布院区</td>
                 <td>
-                    <select class="selectType1">
-                        <option>杭州市第一人民医院</option>
+                    <select id="gmId" class="selectType1">
+                        <option value="1000">杭州市第一人民医院</option>
                     </select>
                 </td>
                 <td class="rowName">分享院区</td>
                 <td>
-                    <select id="gmId"class="selectType1">
+                    <select id="gmShareId" class="selectType1">
                         <option value="1000">无</option>
                     </select>
                 </td>

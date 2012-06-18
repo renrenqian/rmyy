@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="rmyy" basedir="../" default="all">
-    <description>ant rmyy start...</description> 
+<project name="admin" basedir="../" default="all">
+    <description>ant admin start...</description> 
     <echo message="----------- Project Name: ${ant.project.name} ------------" />
     <echo message="----------- ${ant.version}  ------------" />
     <echo message="----------- Java Home: ${java.home}  ------------" />
@@ -22,7 +22,7 @@
         <property name="web.config.dir" value="${web.dest.dir}/config" />
         <property name="tomcat.dir" value="D:\dev\server\apache-tomcat-7.0.26" />
         <property name="webapps.dir" value="${tomcat.dir}/webapps" />
-        <property name="webapps.temp" value="${tomcat.dir}/work/Catalina/localhost/rmyy" />
+        <property name="webapps.temp" value="${tomcat.dir}/work/Catalina/localhost/admin" />
     </target>
 
     <target name="clean" depends="init">
@@ -99,7 +99,7 @@
         <echo message="-------------------------------------------------------"/>  
         <echo message="  package start - Generate the war pages"/>  
         <echo message="-------------------------------------------------------"/>
-        <war warfile="${dist}/rmyy.war" webxml="${web.dir}/WEB-INF/web.xml">
+        <war warfile="${dist}/admin.war" webxml="${web.dir}/WEB-INF/web.xml">
            <classes dir = "${web.dir}/WEB-INF/classes"/>
            <fileset dir="${web.dir}">
             <include name="**/*"/>
@@ -144,15 +144,15 @@
     <target name="deploy" depends="package">
 
         <echo message="----------- Clean Deploy path Start  ------------" />
-        <delete dir="${webapps.dir}/rmyy.war" />
-        <delete dir="${webapps.dir}/rmyy" />
-        <delete dir="${tomcat.dir}/conf/Catalina/localhost/rmyy.xml" />
+        <delete dir="${webapps.dir}/admin.war" />
+        <delete dir="${webapps.dir}/admin" />
+        <delete dir="${tomcat.dir}/conf/Catalina/localhost/admin.xml" />
         <delete dir="${webapps.temp}" />
         <echo message="----------- Clean Deploy path Success  ------------" />
 
         <copy todir="${tomcat.dir}/webapps/">
             <fileset dir="${dist}">
-                <include name="rmyy.war" />
+                <include name="admin.war" />
             </fileset>
         </copy>
     </target>

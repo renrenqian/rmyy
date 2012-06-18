@@ -61,8 +61,8 @@ $(document).ready(function() {
         $.messager.confirm('删除', '是否确认删除所选内容信息?', function(r) {
             if (r) {
                 var id = $(THIS).parent().parent().children().eq(0).children().eq(0).val();
-                var params = "lc.LcId=" + id;
-                $.post("../config/deleteContent.action", params, function(json) {
+                var params = "contInfo.contId=" + id;
+                $.post("../group/deleteContent.action", params, function(json) {
                     if (json.resultCode > 0) {
                         initContentList();
                     } else {
@@ -133,8 +133,8 @@ function initContentList() {
                             });
                         }
                         //处理返回结果
-                        if (!json.lcList) {
-                            json.lcList = [];
+                        if (!json.contList) {
+                            json.contList = [];
                         }
                         fnCallback(json);
                         setTableTrColor();
@@ -155,7 +155,7 @@ function initContentList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span >" + obj.aData.colId + "</span>";
+                        return "<span >" + obj.aData.colName + "</span>";
                     }
                 },
                 {
@@ -165,7 +165,7 @@ function initContentList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span >" + obj.aData.gmId + "</span>";
+                        return "<span >" + obj.aData.gmName + "</span>";
                     }
                 },
                 {
@@ -175,7 +175,7 @@ function initContentList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<a class='del J_ContentEditor'></a>";
+                        return "<a class='edit J_ContentEdit'></a>";
                     }
                 },
                 {
@@ -201,10 +201,10 @@ function initContentList() {
                             content:json.message ? json.message : "查询列表错误!"
                         });
                     }
-                    if (!json.lcList) {
-                        json.lcList = [];
+                    if (!json.contList) {
+                        json.contList = [];
                     }
-                    contentDataTable.fnAddData(json.lcList);
+                    contentDataTable.fnAddData(json.contList);
                     setTableTrColor();
                     $('#J_ContentTable input[type=checkbox]').sdCheckBox();
                 }

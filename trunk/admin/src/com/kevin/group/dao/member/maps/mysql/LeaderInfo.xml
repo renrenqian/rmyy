@@ -6,11 +6,12 @@
 
     <!-- paginate the LeaderInfo info -->
     <select id="list"  parameterClass="LeaderInfo"  resultClass="LeaderInfo">
-     <![CDATA[
-       select 
-            LI_ID as liId,
+     <![CDATA[       
+     select 
+           li.LI_ID as liId ,
             LI_CATE as liCate,
             LI_CURRENT as liCurrent,
+            gm.GM_NAME as ligmName,
             LI_NAME as liName,
             LI_HOLD_START as liHold_start,
             LI_HOLD_END as liHold_end,
@@ -23,7 +24,9 @@
             LI_ORDER as liOrder,
             LI_RESUME as liResume,
             LI_DESC as liDesc
-       from LEADER_INFO
+       from LEADER_INFO li
+       left join LEADER_GROUP_REF lgr on lgr.LI_ID = li.LI_ID
+       left join GROUP_MEMBER gm on gm.GM_ID = lgr.GM_ID
      ]]>
      <!-- 
      <![CDATA[LIMIT #start#,#pageSize#]]>
@@ -33,10 +36,11 @@
     <!-- list all the LeaderInfo info -->
     <select id="listAll"  parameterClass="LeaderInfo"  resultClass="LeaderInfo">
      <![CDATA[
-       select 
-            LI_ID as liId,
+              select 
+           li.LI_ID as liId ,
             LI_CATE as liCate,
             LI_CURRENT as liCurrent,
+            gm.GM_NAME as ligmName,
             LI_NAME as liName,
             LI_HOLD_START as liHold_start,
             LI_HOLD_END as liHold_end,
@@ -49,7 +53,9 @@
             LI_ORDER as liOrder,
             LI_RESUME as liResume,
             LI_DESC as liDesc
-       from LEADER_INFO
+       from LEADER_INFO li
+       left join LEADER_GROUP_REF lgr on lgr.LI_ID = li.LI_ID
+       left join GROUP_MEMBER gm on gm.GM_ID = lgr.GM_ID
      ]]>
      <!-- 
      <![CDATA[LIMIT #start#,#pageSize#]]>
