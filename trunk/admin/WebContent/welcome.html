@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="style/easyui.css" rel="stylesheet"/>
+<link href="style/common.css" rel="stylesheet"/>
+<style type="text/css">
+/* welcome page*/
+.welcome { padding: 20px; }
+.welcome h1 { color: #777777; font-size: 20px; margin-bottom: 15px; }
+.welcome h1 span { color: #333; }
+.welcome p { color: #666666; font-size: 13px; line-height: 20px; margin-bottom: 15px; }
+.welcome hr { border: 0 none; clear: both; height: 1px; margin-bottom: 20px; margin-top: 10px; width: 100%; border-top: 1px solid #EEEEEE !important; }
+ul.dash { display: block; float: left; margin-bottom: 20px; margin-top: -10px; }
+ul.dash li { display: inline; float: left; margin: 0 15px 15px 0; }
+ul.dash li a { background: url("images/largebut.png") no-repeat scroll 0 0 transparent; color: #555555; display: block; height: 102px; text-decoration: none; width: 106px; cursor: pointer; }
+ul.dash li a:hover { background-position: -106px 0; }
+ul.dash li a img { display: inline; margin-left: 29px; margin-top: 20px; width: 48px; }
+ul.dash li a span { display: block; font-size: 11px; margin-top: 10px; text-align: center; width: 100%; }
+.welcome .message h2 { color: #333333; margin-bottom: 5px; margin-left: 60px; }
+.welcome .message p { color: #555555; margin-bottom: 0; margin-left: 60px; width: auto; }
+.welcome .dashPic { margin: 20px 29px 10px; width: 48px; }
+.welcome .message h2 { color: #333333; margin-bottom: 5px; margin-left: 60px; }
+.welcome .message p { color: #555555; margin-bottom: 0; margin-left: 60px; width: auto; }
+.welcome .dashPic { margin: 20px 29px 10px; width: 48px; }
+.topAreaFunc { background: url(images/header_func.png) no-repeat; text-decoration: none; height: 45px; width: 50px; display: block; float: left; }
+#topAreaFunc7 { background-position: 0 -270px; }
+#topAreaFunc8 { background-position: 0 -315px; }
+#topAreaFunc14 { background-position: 0 -585px; }
+</style>
+</head>
+<body>
+<div class="welcome">
+    <h1>Welcome, <span id="guest"></span>!</h1>
+
+    <p>今天想做些什么？试试下面的快速入口</p>
+    <ul class="dash">
+        <li name="网站内容管理" folder="contentFolder" class="J_Menu1">
+            <a name="内容管理" id="contentMan" class="J_MenuItem">
+                <span class="icon48 icon48Audit dashPic"></span>
+                <span>内容管理</span>
+            </a>
+        </li>
+        <li name="在线咨询管理" folder="consultFolder" class="J_Menu1">
+            <a name="在线咨询管理" id="consult" class="J_MenuItem">
+                <span class="icon48 icon48Release dashPic"></span>
+                <span>在线咨询管理</span>
+            </a>
+        </li>
+        <li name="人员信息管理" folder="perInfoFolder" class="J_Menu1">
+            <a id="doctor" name="医师信息管理" class="J_MenuItem">
+                <span class="icon48 icon48Profile dashPic"></span>
+                <span>医师信息管理</span>
+            </a>
+        </li>
+
+        <li name="科室信息管理" folder="deptInfoFolder" class="J_Menu1">
+            <a name="科室信息管理" id="dept" class="J_MenuItem">
+                <span class="icon48 icon48Content dashPic"></span>
+                <span>科室信息管理</span>
+            </a>
+        </li>
+          <!--<li name="编码管理" folder="encoderFolder" class="J_Menu1">-->
+            <!--<a name="编码任务管理" id="currentEncode" class="J_MenuItem">-->
+                <!--<span class="icon48 icon48Encode dashPic"></span>-->
+                <!--<span>编码任务管理</span>-->
+            <!--</a>-->
+        <!--</li>-->
+
+        <!--<li name="系统配置" folder="sysConfigFolder" class="J_Menu1">-->
+            <!--<a id="CP" name="CP配置" class="J_MenuItem">-->
+                <!--<span class="icon48 icon48CP dashPic"></span>-->
+                <!--<span>CP配置</span>-->
+            <!--</a>-->
+        <!--</li>-->
+        <li name="系统管理" folder="sysManageFolder" class="J_Menu1">
+            <a id="userManage" name="用户管理" class="J_MenuItem">
+                <span class="icon48 icon48User dashPic"></span>
+                <span>用户管理</span>
+            </a>
+        </li>
+    </ul>
+    <hr>
+</div>
+<script src="js/jquery-1.7.2.js"></script>
+<script src="js/common.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#guest").text($.cookie("cookie_admin"));
+
+        var myMenu = $('.J_Menu1');
+        for (var i = 0; i < myMenu.length; i++) {
+            (function(_i) {
+                new Menu({
+                    root:myMenu.eq(_i)
+                });
+            })(i);
+        }
+    });
+</script>
+</body>
+</html>
+
+

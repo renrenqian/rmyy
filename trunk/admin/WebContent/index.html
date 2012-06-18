@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>北京省联通视频分享平台</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+    <link href="style/common.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+    /*login part*/
+    .login_bg img { float: left; width: 25%;}
+    #login_main { position: absolute; top: 20%; left: 22%; background: url(images/login/loginForm.png) no-repeat; height: 440px; width: 725px; }
+    #login_form_div { margin-top: 150px; margin-left: 300px; }
+    #login_main table tr td { font-size: 14px; font-weight: bold; color: #369; padding: 5px; }
+    #login_main table tr td .type1{ width: 170px; height: 30px; color: #369; font-weight: bold; font-size: 16px; text-indent: 1em; line-height: 30px;border:2px solid #3399FF;}
+    #login_main table tr td label[class="error"] { font-size: 12px; color: #F30; display: inline; margin-top: 0; margin-left: 5px; }
+    .login_btn { outline: none; height: 33px; width: 95px; background: url(images/login/login_btn.png) 0 0; border: none; cursor: pointer; color: #FFF; font-weight: bold; margin-right: 15px; }
+    .login_btn:hover { background-position: 0 -33px; }
+    #login_form .focus { border: #39F solid 2px; font-weight: bold; color: #369; outline: none; box-shadow: 0 0 5px rgba(81, 203, 238, 1); -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 1); -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 1); }
+    .loginSelect { width: 100px; height: 30px; padding: 5px; color: #369; font-size: 12px; font-weight: bold; text-indent: 2px; }
+</style>
+</head>
+<body class="loginBg">
+<div class="login_bg"><img src="images/login/login_bg1.jpg"/></div>
+<div class="login_bg"><img src="images/login/login_bg2.jpg"/></div>
+<div class="login_bg"><img src="images/login/login_bg3.jpg"/></div>
+<div class="login_bg"><img src="images/login/login_bg4.jpg"/></div>
+<div id="login_main">
+    <div id="login_form_div">
+        <form id="login_form" action="#" method="post" class="validateThis">
+            <table>
+                <tr>
+                    <td class="rowName">账号</td>
+                    <td><input type="text" class="type1" id="userName" name="user.uiName" rule="required"/></td>
+                </tr>
+                <tr>
+                    <td class="rowName">密码</td>
+                    <td><input type="password" class="type1" id="password" name="user.uiPwd" rule="required"/></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="button" value="登&nbsp;录" class="login_btn" id="login_btn"/>
+                        <input type="button" value="清&nbsp;空" class="login_btn" id="clear_btn"/></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script src="js/jquery-1.7.2.js" type="text/javascript" language="javascript"></script>
+<script src="js/common.js" type="text/javascript" language="javascript"></script>
+<script src="js/md5.js" type="text/javascript" language="javascript"></script>
+<script src="plugins/form/jquery-form-plugins.js" type="text/javascript" language="javascript"></script>
+<script src="plugins/form/jquery.sdForm.js"></script>
+<script>
+    $(document).ready(function() {
+        var height = GLOBAL.ClientScreen.clientHeight();
+        $('.login_bg img').css("height", height);
+        var ctrl_input = $(".type1");
+        ctrl_input.css("opacity", 0.8);
+        ctrl_input.eq(0).addClass("focus").focus().css("opacity", 1);
+        ctrl_input.focus(function() {
+            $(this).addClass("focus");
+            $(this).animate({opacity:"1"}, 500);
+        });
+        ctrl_input.blur(function() {
+            $(this).removeClass("focus");
+            $(this).animate({opacity:"0.7"}, 500);
+        });
+        var userType = $.cookie("user_type");
+        var userName = $.cookie("cookie_admin");
+        if (userType) {
+            $('#userType').val(userType);
+        }
+        if (userName) {
+            $('#userName').val(userName);
+        }
+    });
+</script>
+<script type="text/javascript">
+    function redirect() {
+        $.cookie("cookie_admin", $("#userName").val());
+        window.location.href = "sysIndex.html";
+    }
+    $(document).ready(function() {
+        $('#clear_btn').click(function() {
+            $(':text').attr("value", "");
+            $(':password').attr("value", "");
+        });
+        $('#login_form').sdValidate();//验证表单
+        $('#login_btn').click(function() {
+            if (!$(this).sdSubmitValidate("#login_form")) {
+                return;
+            }
+            var options = {
+                beforeSubmit:function(formData, $form, options) {
+                    $(formData).each(function(i, item) {
+                        if (item.name == "user.uiPwd") {
+                            item.value = MD5(item.value);//密码加密
+                        }
+                    });
+                    return true;
+                },
+                success:function(data) {
+                    if (data.resultCode > 0) {
+                        redirect();
+                    } else {
+                        alert("用户名或密码错误");
+                    }
+                },
+                url:"login.action",
+                type:"post",
+                dataType:"json",
+                clearForm:false,
+                resetForm:false
+            };
+            $("#login_form").ajaxSubmit(options);
+        });
+        $("body").keydown(function(event) {
+            if (event.keyCode == 13) {
+                $('#login_btn').trigger("click");
+            }
+        });
+    });
+</script>
+</body>
+</html>
