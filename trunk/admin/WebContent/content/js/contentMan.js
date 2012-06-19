@@ -40,18 +40,17 @@ $(document).ready(function() {
 
     /* 编辑 */
     $(".J_LeaderEdit").die().live("click", function() {
-//        var id = $(this).parent().parent().children().eq(0).children().eq(0).val();
-//        $.getJSON('../config/searchCatalogConfig.action?t=' + new Date().getTime() + '&lc.lcId=' + id, function(json) {
-//            if (json.resultCode > 0) {
-//                formUnSerialize("contentForm", "lc", json.lc);
-//
-//            } else {
-//                $.fn.sdInfo({
-//                    type:"fail",
-//                    content:json.message ? json.message : "查询内容信息错误!"
-//                });
-//            }
-//        });
+        var id = $(this).parent().parent().children().eq(0).children().eq(0).val();
+        $.getJSON('../group/searchContent.action?t=' + new Date().getTime() + '&contInfo.contId=' + id, function(json) {
+            if (json.resultCode > 0) {
+                formUnSerialize("contentForm", "contInfo", json.contInfo);
+            } else {
+                $.fn.sdInfo({
+                    type:"fail",
+                    content:json.message ? json.message : "查询内容信息错误!"
+                });
+            }
+        });
         $(window.parent.document).find("#centerIFrame").attr("src", "content/addContent.html");
     });
 

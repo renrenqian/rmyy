@@ -91,6 +91,51 @@
         </action>
         <!-- content end -->
 
+        <!-- Column start -->
+        <!-- new Column -->
+        <action name="addColumn" method="addColumn" class="conlInfoAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+        <!-- list Column -->
+       <action name="listColumn" method="listColumn" class="conlInfoAction">
+            <result name="success" type="json">
+               <param name="ignoreHierarchy">false</param>
+               <param name="excludeNullProperties">true</param>
+            </result>
+       </action>
+        <!-- search Column -->
+       <action name="searchColumn" method="searchColumn" class="conlInfoAction">
+            <result name="success" type="json">
+               <param name="ignoreHierarchy">false</param>
+               <param name="excludeNullProperties">true</param>
+            </result>
+       </action>
+        <!-- update the Column info -->
+        <action name="updateColumn" method="updateColumn" class="conlInfoAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+        <!-- delete the Column -->
+        <action name="deleteColumn" method="deleteColumn" class="conlInfoAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+        <!-- batch delete the Column -->
+        <action name="batchDeleteColumn" method="batchDeleteColumn" class="conlInfoAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+        <!-- Column end -->
+        
         <!-- Leader start -->
         <!-- new Leader -->
         <action name="addLeader" method="addLeader" class="leaderAction">

@@ -31,6 +31,31 @@
       -->
     </select>
     
+    <!-- search the ContentInfo info -->
+    <select id="search"  parameterClass="ContentInfo"  resultClass="ContentInfo">
+     <![CDATA[
+       select 
+          CD_ID as contId,
+          CD_TITAL as contTital,
+          CI_HOME_PAGE as contHome_Page,
+          ci.CI_TITAL as colName,
+          CD_SHOW_DAYS as contShow_Days,
+          CD_MEDIUM as contMedium,
+          CD_KEY as contKey,
+          CD_PUBLISH_TIME as contPublish_Time,
+          CD_AUDIT_RESULT as contAudit_Result,
+          CD_ORDER as contOrder,
+          gm.GM_NAME as gmName,
+          CD_AUTHOR as contAuthor,
+          CD_DETAIL as contDetail,
+          CD_ATTACHMENT as contAttachment
+       from CONTENT_DETAIL  cd 
+       left join COLUMN_INFO ci on ci.CI_ID = cd.CI_ID
+       left join GROUP_MEMBER gm on gm.GM_ID = cd.GM_ID
+       WHERE CD_ID = #contId#
+     ]]>
+    </select>
+    
     <!-- list all the ContentInfo info -->
     <select id="listAll"  parameterClass="ContentInfo"  resultClass="ContentInfo">
      <![CDATA[

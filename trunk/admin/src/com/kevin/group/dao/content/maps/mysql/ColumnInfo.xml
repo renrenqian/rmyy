@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="ColumnInfo">
+
+    <!-- paginate the ColumnInfo info -->
+    <select id="list"  parameterClass="ColumnInfo"  resultClass="ColumnInfo">
+     <![CDATA[
+       select 
+         CI_ID as ciId,
+        CI_TITAL as ciTital,
+        CI_ICON as ciIcon,
+        CI_LEVEL as ciLevel,
+        CI_URL as ciUrl,
+        CI_PARENT as ciParent,
+        CI_HOME as ciHome,
+        CI_DESC as ciDesc,
+        CI_ADD_TIME as ciAdd_time,
+        CI_ADDER as ciAdder
+       from COLUMN_INFO  ci
+     ]]>
+     <!-- 
+     <![CDATA[LIMIT #start#,#pageSize#]]>
+      -->
+    </select>
+    
+    <!-- search the ColumnInfo info -->
+    <select id="search"  parameterClass="ColumnInfo"  resultClass="ColumnInfo">
+     <![CDATA[
+       select 
+         CI_ID as ciId,
+        CI_TITAL as ciTital,
+        CI_ICON as ciIcon,
+        CI_LEVEL as ciLevel,
+        CI_URL as ciUrl,
+        CI_PARENT as ciParent,
+        CI_HOME as ciHome,
+        CI_DESC as ciDesc,
+        CI_ADD_TIME as ciAdd_time,
+        CI_ADDER as ciAdder
+       from COLUMN_INFO  ci
+       where CI_ID = #ciId#
+     ]]>
+    </select>
+    
+    <!-- list all the ColumnInfo info -->
+    <select id="listAll"  parameterClass="ColumnInfo"  resultClass="ColumnInfo">
+     <![CDATA[
+       select 
+         CI_ID as ciId,
+        CI_TITAL as ciTital,
+        CI_ICON as ciIcon,
+        CI_LEVEL as ciLevel,
+        CI_URL as ciUrl,
+        CI_PARENT as ciParent,
+        CI_HOME as ciHome,
+        CI_DESC as ciDesc,
+        CI_ADD_TIME as ciAdd_time,
+        CI_ADDER as ciAdder
+       from COLUMN_INFO  ci
+     ]]>
+     <!-- 
+     <![CDATA[LIMIT #start#,#pageSize#]]>
+      -->
+    </select>
+
+    <!-- add ColumnInfo -->
+    <insert id="insert" parameterClass="ColumnInfo">
+       <![CDATA[
+          INSERT INTO COLUMN_INFO(CI_ID, CI_TITAL, CI_ICON, CI_LEVEL, CI_URL, CI_PARENT, CI_HOME, CI_DESC, CI_ADD_TIME, CI_ADDER ) 
+                         VALUES(#ciId#, #ciTital#, #ciIcon#, #ciLevel#, #ciUrl#, #ciParent#, #ciHome#, #ciDesc#, #ciAdd_time#, #ciAdder#)
+       ]]>
+       <selectKey resultClass="int" keyProperty="ciId">
+         <![CDATA[SELECT LAST_INSERT_ID();]]>
+       </selectKey> 
+    </insert>
+    
+    <!-- delete ColumnInfo by id -->
+    <delete id="delete" parameterClass="ColumnInfo">
+       <![CDATA[DELETE FROM COLUMN_INFO WHERE CI_ID= #ciId# ]]>
+    </delete>
+    
+    <!-- update the ColumnInfo -->
+    <update id="update" parameterClass="ColumnInfo">
+      <![CDATA[
+         UPDATE COLUMN_INFO 
+         SET 
+            CI_TITAL =#ciTital#,
+            CI_ICON =#ciIcon#,
+            CI_LEVEL =#ciLevel#,
+            CI_URL =#ciUrl#,
+            CI_PARENT =#ciParent#,
+            CI_HOME =#ciHome#,
+            CI_DESC =#ciDesc#,
+            CI_ADD_TIME =#ciAdd_time#,
+            CI_ADDER =#ciAdder#
+         WHERE CI_ID =#ciId#
+      ]]>
+    </update>
+</sqlMap>
