@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../style/easyui.css" rel="stylesheet"/>
+    <link href="../style/common.css" rel="stylesheet"/>
+   <link href="../plugins/calendar/calendar/calendar.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="mainSection">
+    <div class="toolBox">
+        <p>
+            <span> 工具箱:</span>
+            <a href="#" class="abled" id="J_AddLeader">新增领导</a>
+            <a href="#" class="unabled unit J_DelAll" title="请先从下表中选择操作对象" id="J_LeaderDelAll">批量删除</a>
+        </p>
+    </div>
+    <div id="J_LeaderListDiv" class="mt10">
+        <table id="J_LeaderTable" class='display' cellpadding='0' cellspacing='0' border='0'>
+            <thead>
+            <tr>
+                <th><input type='checkbox' class='checkBoss' ctrl='J_LeaderTable'/></th>
+                <th class='tl'>领导姓名</th>
+                <th class='tl'>所属院区</th>
+                <th>领导类别</th>
+                <th>排序</th>
+                <th>编辑</th>
+                <th>删除</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- leader div for add or edit -->
+<div id="J_LeaderDiv" style="display:none;">
+    <form id="leaderForm">
+        <table class="form w">
+            <tr>
+                <td class="rowName w1">领导姓名</td>
+                <td><input id="liName" type="text" class="input_type1" rule="required"/>
+                <input id="liId" type="hidden"/></td>
+                <td class="rowName w1">所属院区</td>
+                <td>
+                    <select id="ligmId" class="selectType1">
+                        <option value="1000" >杭州市第一人民医院</option>
+                        <option value="1001" >杭州市妇幼保健院</option>
+                        <option value="1002" >杭州市肿瘤医院（吴山院区）</option>
+                        <option value="1003" >杭州市老年病医院（城北院区）</option>
+                        <option value="1004" >杭州市妇女医院（钱江新城院区）</option>
+                        <option value="1005" >五云山健康管理中心</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="rowName">领导类别</td>
+                <td>
+                    <select id="liCate"  class="selectType1">
+                        <option value="1">现任领导</option>
+                        <option value="0">历任领导</option>
+                    </select>
+                </td>
+                <td class="rowName">任职时间</td>
+                <td><input id="liHold_start" type="text"  class='input_type_date ml10' readonly='readonly'  name="ac.acStartTime"/></td>
+            </tr>
+            <tr>
+                <td class="rowName">岗位</td>
+                <td><input id="liQuarters" type="text" class="input_type1"/></td>
+                <td class="rowName">技术职称</td>
+                <td><input id="liTech_position" type="text" class="input_type1"/></td>
+            </tr>
+            <tr>
+                <td class="rowName">电话</td>
+                <td><input id="liTelephone" type="text" class="input_type1"/></td>
+                <td class="rowName">电子邮件</td>
+                <td><input id="liEmail" type="text" class="input_type1"/></td>
+            </tr>
+            <tr>
+                <td class="rowName">头像上传</td>
+                <td>
+                    <input class="input_type1"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="rowName">分管范围</td>
+                <td colspan="3">
+                    <textarea id="liRang" class="textArea_type3"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="rowName">简历</td>
+                <td colspan="3">
+                    <textarea id="liResume" class="textArea_type3"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="rowName">简介</td>
+                <td colspan="3">
+                    <textarea id="liDesc"  class="textArea_type3"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="p10">
+                    <a class="button btn-blue" id="J_LeaderOk"><span class="icon ico-bulb"></span>确定</a>
+                    <a class="button btn-grey" id="J_LeaderClose">取消</a>
+                 </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<script src="../js/jquery-1.7.2.js"></script>
+<script src="../js/jquery.easyui.min.js"></script>
+<script src="../js/jquery.dataTables.js"></script>
+<script src="../js/common.js"></script>
+<script src="../plugins/form/jquery.sdForm.js"></script>
+<script src="../plugins/calendar/seed-min.js" type="text/javascript"></script>
+<script src="js/leader.js" type="text/javascript"></script>
+</body>
+</html>

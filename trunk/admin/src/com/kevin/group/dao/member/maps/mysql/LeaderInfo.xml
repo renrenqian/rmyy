@@ -33,10 +33,10 @@
       -->
     </select>
     
-    <!-- list all the LeaderInfo info -->
-    <select id="listAll"  parameterClass="LeaderInfo"  resultClass="LeaderInfo">
-     <![CDATA[
-              select 
+    <!-- search the LeaderInfo info -->
+    <select id="search"  parameterClass="LeaderInfo"  resultClass="LeaderInfo">
+     <![CDATA[       
+     select 
            li.LI_ID as liId ,
             LI_CATE as liCate,
             LI_CURRENT as liCurrent,
@@ -54,8 +54,33 @@
             LI_RESUME as liResume,
             LI_DESC as liDesc
        from LEADER_INFO li
-       left join LEADER_GROUP_REF lgr on lgr.LI_ID = li.LI_ID
-       left join GROUP_MEMBER gm on gm.GM_ID = lgr.GM_ID
+       left join GROUP_MEMBER gm on gm.GM_ID = li.LI_GM
+       where LI_ID = #liId#
+     ]]>
+    </select>
+    
+    <!-- list all the LeaderInfo info -->
+    <select id="listAll"  parameterClass="LeaderInfo"  resultClass="LeaderInfo">
+     <![CDATA[
+         select 
+           li.LI_ID as liId ,
+            LI_CATE as liCate,
+            LI_CURRENT as liCurrent,
+            gm.GM_NAME as ligmName,
+            LI_NAME as liName,
+            LI_HOLD_START as liHold_start,
+            LI_HOLD_END as liHold_end,
+            LI_QUARTERS as liQuarters,
+            LI_TECH_POSITION as liTech_position,
+            LI_TELEPHONE as liTelephone,
+            LI_EMAIL as liEmail,
+            LI_PORTRAIT as liPortrait,
+            LI_RANG as liRang,
+            LI_ORDER as liOrder,
+            LI_RESUME as liResume,
+            LI_DESC as liDesc
+       from LEADER_INFO li
+       left join GROUP_MEMBER gm on gm.GM_ID = li.LI_GM
      ]]>
      <!-- 
      <![CDATA[LIMIT #start#,#pageSize#]]>
@@ -65,10 +90,10 @@
     <!-- add LeaderInfo -->
     <insert id="insert" parameterClass="LeaderInfo">
        <![CDATA[
-          INSERT INTO LEADER_INFO(LI_ID, LI_CATE, LI_CURRENT, LI_NAME, LI_HOLD_START, LI_HOLD_END, LI_QUARTERS, LI_TECH_POSITION, LI_TELEPHONE, LI_EMAIL, LI_PORTRAIT, LI_RANG, LI_ORDER, LI_RESUME, LI_DESC) 
-                         VALUES(#liId#, #liCate#, #liCurrent#, #liName#, #liHold_start#, #liHold_end#, #liQuarters#, #liTech_position#, #liTelephone#, #liEmail#, #liPortrait#, #liRang#, #liOrder#, #liResume#, #liDesc#)
+          INSERT INTO LEADER_INFO(LI_ID, LI_CATE, LI_CURRENT, LI_NAME, LI_GM, LI_HOLD_START, LI_HOLD_END, LI_QUARTERS, LI_TECH_POSITION, LI_TELEPHONE, LI_EMAIL, LI_PORTRAIT, LI_RANG, LI_ORDER, LI_RESUME, LI_DESC) 
+                         VALUES(#liId#, #liCate#, #liCurrent#, #liName#, #ligmId#, #liHold_start#, #liHold_end#, #liQuarters#, #liTech_position#, #liTelephone#, #liEmail#, #liPortrait#, #liRang#, #liOrder#, #liResume#, #liDesc#)
        ]]>
-       <selectKey resultClass="int" keyProperty="diId">
+       <selectKey resultClass="int" keyProperty="liId">
          <![CDATA[SELECT LAST_INSERT_ID();]]>
        </selectKey> 
     </insert>
@@ -86,6 +111,7 @@
             LI_CATE = #liCate#,
             LI_CURRENT = #liCurrent#,
             LI_NAME = #liName#,
+            LI_GM = #ligmId#,
             LI_HOLD_START = #liHold_start#,
             LI_HOLD_END = #liHold_end#,
             LI_QUARTERS = #liQuarters#,

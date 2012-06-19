@@ -13,6 +13,8 @@ public class DoctorInfo {
     private Integer diId;
     private String diName;
     private String diPosition;
+    private Integer diDeptType;
+    private String diDeptName;
     private String diPortrait;
     private Integer osId;
     private String osIdName;
@@ -67,6 +69,36 @@ public class DoctorInfo {
      */
     public final void setDiPosition(String diPosition) {
         this.diPosition = diPosition;
+    }
+
+    /**
+     * @return the diDeptType
+     */
+    public final Integer getDiDeptType() {
+        return diDeptType;
+    }
+
+    /**
+     * @param diDeptType
+     *            the diDeptType to set
+     */
+    public final void setDiDeptType(Integer diDeptType) {
+        this.diDeptType = diDeptType;
+    }
+
+    /**
+     * @return the diDeptName
+     */
+    public final String getDiDeptName() {
+        return diDeptName;
+    }
+
+    /**
+     * @param diDeptName
+     *            the diDeptName to set
+     */
+    public final void setDiDeptName(String diDeptName) {
+        this.diDeptName = diDeptName;
     }
 
     /**

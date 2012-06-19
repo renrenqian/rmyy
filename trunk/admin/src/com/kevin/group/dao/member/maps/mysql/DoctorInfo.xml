@@ -10,6 +10,7 @@
        select 
         DI_ID as diId,
         DI_NAME as diName,
+        od.OD_NAME as diDeptName,
         DI_POSITION as diPosition,
         DI_PORTRAIT as diPortrait,
         OS_ID as osId,
@@ -20,11 +21,35 @@
         DI_MAJOR as diMajor,
         DI_RESEARCH_DIRECTION as diResearch_direction,
         DI_ACCOMPLISHMENT as diAccomplishment
-       from DOCTOR_INFO
+       from DOCTOR_INFO di
+       left join OFFICE_DETAIL od on od.OD_ID = di.DI_DEPTTYPE
      ]]>
      <!-- 
      <![CDATA[LIMIT #start#,#pageSize#]]>
       -->
+    </select>
+    
+    <!-- search the DoctorInfo info -->
+    <select id="search"  parameterClass="DoctorInfo"  resultClass="DoctorInfo">
+     <![CDATA[
+       select 
+        DI_ID as diId,
+        DI_NAME as diName,
+        od.OD_NAME as diDeptName,
+        DI_POSITION as diPosition,
+        DI_PORTRAIT as diPortrait,
+        OS_ID as osId,
+        DI_ORDER as diOrder,
+        DI_SEX as diSex,
+        DI_EDUCATION as diEducation,
+        DI_RESUME as diResume,
+        DI_MAJOR as diMajor,
+        DI_RESEARCH_DIRECTION as diResearch_direction,
+        DI_ACCOMPLISHMENT as diAccomplishment
+       from DOCTOR_INFO di
+       left join OFFICE_DETAIL od on od.OD_ID = di.DI_DEPTTYPE
+       where DI_ID = #diId#
+     ]]>
     </select>
     
     <!-- list all the DoctorInfo info -->
@@ -33,6 +58,7 @@
        select 
         DI_ID as diId,
         DI_NAME as diName,
+        od.OD_NAME as diDeptName,
         DI_POSITION as diPosition,
         DI_PORTRAIT as diPortrait,
         OS_ID as osId,
@@ -43,7 +69,8 @@
         DI_MAJOR as diMajor,
         DI_RESEARCH_DIRECTION as diResearch_direction,
         DI_ACCOMPLISHMENT as diAccomplishment
-       from DOCTOR_INFO
+       from DOCTOR_INFO di
+       left join OFFICE_DETAIL od on od.OD_ID = di.DI_DEPTTYPE
      ]]>
      <!-- 
      <![CDATA[LIMIT #start#,#pageSize#]]>
@@ -53,8 +80,8 @@
     <!-- add DoctorInfo -->
     <insert id="insert" parameterClass="DoctorInfo">
        <![CDATA[
-          INSERT INTO DOCTOR_INFO(DI_ID, DI_NAME, DI_POSITION, DI_PORTRAIT, OS_ID, DI_ORDER, DI_SEX, DI_EDUCATION, DI_RESUME, DI_MAJOR, DI_RESEARCH_DIRECTION, DI_ACCOMPLISHMENT) 
-                         VALUES(#diId#, #diName#, #diPosition#, #diPortrait#, #osId#, #diOrder#, #diSex#, #diEducation#, #diResume#, #diMajor#, #diResearch_direction#, #diAccomplishment#)
+          INSERT INTO DOCTOR_INFO(DI_ID, DI_NAME, DI_POSITION, DI_DEPTTYPE, DI_PORTRAIT, OS_ID, DI_ORDER, DI_SEX, DI_EDUCATION, DI_RESUME, DI_MAJOR, DI_RESEARCH_DIRECTION, DI_ACCOMPLISHMENT) 
+                         VALUES(#diId#, #diName#, #diPosition#, #diDeptType#, #diPortrait#, #osId#, #diOrder#, #diSex#, #diEducation#, #diResume#, #diMajor#, #diResearch_direction#, #diAccomplishment#)
        ]]>
        <selectKey resultClass="int" keyProperty="diId">
          <![CDATA[SELECT LAST_INSERT_ID();]]>
@@ -73,6 +100,7 @@
          SET
             DI_NAME = #diName#,
             DI_POSITION = #diPosition#,
+            DI_DEPTTYPE = #diDeptType#,
             DI_PORTRAIT = #diPortrait#,
             OS_ID = #osId#,
             DI_ORDER = #diOrder#,
@@ -81,7 +109,7 @@
             DI_RESUME = #diResume#,
             DI_MAJOR = #diMajor#,
             DI_RESEARCH_DIRECTION = #diResearch_direction#,
-            DI_ACCOMPLISHMENT = #diAccomplishment#s
+            DI_ACCOMPLISHMENT = #diAccomplishment#
          WHERE DI_ID = #diId#
       ]]>
     </update>
