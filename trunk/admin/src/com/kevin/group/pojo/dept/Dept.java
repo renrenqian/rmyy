@@ -5,6 +5,8 @@
  */
 package com.kevin.group.pojo.dept;
 
+import java.util.List;
+
 /**
  * @author kevin
  * @since jdk1.6
@@ -16,6 +18,7 @@ public class Dept {
     private Integer dpBelong;
     private String dpgmName;
     private String dpIn_charge;
+    private String dpNote;
     private String dpOd_telephone;
     private String dpEmail;
     private String dpSite;
@@ -25,6 +28,8 @@ public class Dept {
     private String dpAcademic_position;
     private String dpTech_adv;
     private String dpResearch_direction;
+    private List<DeptGenre> dgList;
+    private String dgIds;
 
     /**
      * @return the dpId
@@ -114,6 +119,21 @@ public class Dept {
      */
     public final void setDpIn_charge(String dpIn_charge) {
         this.dpIn_charge = dpIn_charge;
+    }
+
+    /**
+     * @return the dpNote
+     */
+    public final String getDpNote() {
+        return dpNote;
+    }
+
+    /**
+     * @param dpNote
+     *            the dpNote to set
+     */
+    public final void setDpNote(String dpNote) {
+        this.dpNote = dpNote;
     }
 
     /**
@@ -249,6 +269,36 @@ public class Dept {
      */
     public final void setDpResearch_direction(String dpResearch_direction) {
         this.dpResearch_direction = dpResearch_direction;
+    }
+
+    /**
+     * @return the dgList
+     */
+    public final List<DeptGenre> getDgList() {
+        return dgList;
+    }
+
+    /**
+     * @param dgList
+     *            the dgList to set
+     */
+    public final void setDgList(List<DeptGenre> dgList) {
+        this.dgList = dgList;
+    }
+
+    /**
+     * @return the dgIds
+     */
+    public final String getDgIds() {
+        return dgIds;
+    }
+
+    /**
+     * @param dgIds
+     *            the dgIds to set
+     */
+    public final void setDgIds(String dgIds) {
+        this.dgIds = dgIds;
     }
 
 }

@@ -7,12 +7,13 @@
     <!-- paginate the dept info -->
     <select id="list"  parameterClass="Dept"  resultClass="Dept">
      <![CDATA[
-        select 
-         OD_ID as dpId,
+       select 
+         od.OD_ID as dpId,
          OD_NAME as dpName,
          OD_ORDER as dpOrder,
          gm.GM_NAME as dpgmName,
          OD_IN_CHARGE as dpIn_charge,
+         OD_NOTE as dpNote,
          OD_TELEPHONE as dpOd_telephone,
          OD_EMAIL as dpEmail,
          OD_SITE as dpSite,
@@ -21,9 +22,12 @@
          OD_DESC as dpDesc,
          OD_ACADEMIC_POSITION as dpAcademic_position,
          OD_TECH_ADV as dpTech_adv,
-         OD_RESEARCH_DIRECTION as dpResearch_direction
+         OD_RESEARCH_DIRECTION as dpResearch_direction,
+         (select og.OG_ID, OG_NAME from OFFICE_GENRE og, OFFICE_REF ofr where og.OG_ID = ofr.OG_ID and ofr.OD_ID = od.OD_ID  ) as dgList
        from OFFICE_DETAIL od
        left join GROUP_MEMBER gm on gm.GM_ID = od.OD_BELONG
+       left join OFFICE_GENRE og on og.OG_ID = ofr.OG_ID
+       left join OFFICE_REF ofr on ofr.OD_ID = od.OD_ID
      ]]>
      <!-- 
      <![CDATA[LIMIT #start#,#pageSize#]]>
@@ -34,11 +38,12 @@
     <select id="listAll"  parameterClass="Dept"  resultClass="Dept">
      <![CDATA[
        select 
-         OD_ID as dpId,
+         od.OD_ID as dpId,
          OD_NAME as dpName,
          OD_ORDER as dpOrder,
          gm.GM_NAME as dpgmName,
          OD_IN_CHARGE as dpIn_charge,
+         OD_NOTE as dpNote,
          OD_TELEPHONE as dpOd_telephone,
          OD_EMAIL as dpEmail,
          OD_SITE as dpSite,
@@ -47,9 +52,12 @@
          OD_DESC as dpDesc,
          OD_ACADEMIC_POSITION as dpAcademic_position,
          OD_TECH_ADV as dpTech_adv,
-         OD_RESEARCH_DIRECTION as dpResearch_direction
+         OD_RESEARCH_DIRECTION as dpResearch_direction,
+         OG_NAME as dgList
        from OFFICE_DETAIL od
        left join GROUP_MEMBER gm on gm.GM_ID = od.OD_BELONG
+       left join OFFICE_REF ofr on ofr.OD_ID = od.OD_ID
+       left join OFFICE_GENRE og on og.OG_ID = ofr.OG_ID
      ]]>
      <!-- 
      <![CDATA[LIMIT #start#,#pageSize#]]>
@@ -59,8 +67,8 @@
     <!-- add dept -->
     <insert id="insert" parameterClass="Dept">
        <![CDATA[
-          INSERT INTO OFFICE_DETAIL(OD_ID,OD_NAME,OD_ORDER,OD_BELONG,OD_IN_CHARGE,OD_TELEPHONE,OD_EMAIL,OD_SITE,OD_LOCATION,OD_BED_COUNTER,OD_DESC,OD_ACADEMIC_POSITION,OD_TECH_ADV,OD_RESEARCH_DIRECTION) 
-                         VALUES(#dpId#, #dpName#, #dpOrder#, #dpBelong#, #dpIn_charge#, #dpOd_telephone#, #dpEmail#, #dpSite#, #dpLocation#, #dpBed_counter#, #dpDesc#, #dpAcademic_position#, #dpTech_adv#, #dpResearch_direction#)
+          INSERT INTO OFFICE_DETAIL(OD_ID,OD_NAME,OD_ORDER,OD_BELONG,OD_IN_CHARGE, OD_NOTE, OD_TELEPHONE,OD_EMAIL,OD_SITE,OD_LOCATION,OD_BED_COUNTER,OD_DESC,OD_ACADEMIC_POSITION,OD_TECH_ADV,OD_RESEARCH_DIRECTION) 
+                         VALUES(#dpId#, #dpName#, #dpOrder#, #dpBelong#, #dpIn_charge#, #dpNote#, #dpOd_telephone#, #dpEmail#, #dpSite#, #dpLocation#, #dpBed_counter#, #dpDesc#, #dpAcademic_position#, #dpTech_adv#, #dpResearch_direction#)
        ]]>
        <selectKey resultClass="int" keyProperty="dpId">
          <![CDATA[SELECT LAST_INSERT_ID();]]>
@@ -81,6 +89,7 @@
             OD_ORDER = #dpOrder#,
             OD_BELONG = #dpBelong#,
             OD_IN_CHARGE = #dpIn_charge#,
+            OD_NOTE = #dpNote#,
             OD_TELEPHONE = #dpOd_telephone#,
             OD_EMAIL = #dpEmail#,
             OD_SITE = #dpSite#,

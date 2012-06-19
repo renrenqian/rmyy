@@ -87,6 +87,7 @@ $(document).ready(function() {
                 var params = new StringBuffer();
                 params.append("dept.dpName=" + $("#deptName").val()).append("&");
                 params.append("dept.dpIn_charge=" + $("#dpIn_charge").val()).append("&");
+                params.append("dept.dpNote=" + $("#dpNote").val()).append("&");
                 params.append("dept.dpOd_telephone=" + $("#dpOd_telephone").val()).append("&");
                 params.append("dept.dpEmail=" + $("#dpEmail").val()).append("&");
                 params.append("dept.dpSite=" + $("#dpSite").val()).append("&");
@@ -245,6 +246,11 @@ function initDeptList() {
                 },
                 {
                     fnRender:function(obj) {
+                         var dglist = obj.aData.dgList;
+                         var dgNames = "";
+                         for(var i=0; i < dglist.size; i++){
+                           dgNames += dglist[i].name;
+                         }
                         return "<span>" + obj.aData.dpBelong + "</span>";
                     }
                 },
