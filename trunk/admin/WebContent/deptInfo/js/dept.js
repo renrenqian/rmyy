@@ -53,7 +53,7 @@ $(document).ready(function() {
     $(".J_DeptEdit").die().live("click", function() {
         $.fn.sdResetForm("#deptForm");
         var id = $(this).parent().parent().children().eq(0).children().eq(0).val();
-        $.getJSON('../group/searchDept.action?t=' + new Date().getTime() + '&dept.deptId=' + id, function(json) {
+        $.getJSON('../group/searchDept.action?t=' + new Date().getTime() + '&dept.dpId=' + id, function(json) {
             if (json.resultCode > 0) {
                 formUnSerialize("deptForm", "dept", json.dept);
             
@@ -84,51 +84,60 @@ $(document).ready(function() {
             if (!deptId || deptId == "") {
                 action = "新增";
                 url = "../group/addDept.action";
-                var params = new StringBuffer();
-                params.append("dept.dpName=" + $("#deptName").val()).append("&");
-                params.append("dept.dpIn_charge=" + $("#dpIn_charge").val()).append("&");
-                params.append("dept.dpNote=" + $("#dpNote").val()).append("&");
-                params.append("dept.dpOd_telephone=" + $("#dpOd_telephone").val()).append("&");
-                params.append("dept.dpEmail=" + $("#dpEmail").val()).append("&");
-                params.append("dept.dpSite=" + $("#dpSite").val()).append("&");
-                params.append("dept.dpLocation=" + $("#dpLocation").val()).append("&");
-                params.append("dept.dpBed_counter=" + $("#dpBed_counter").val()).append("&");
-                params.append("dept.dpBelong=" + $("#dpBelong").val()).append("&");
-                params.append("dept.dpDesc=" + $("#dpDesc").val()).append("&");
-                params.append("dept.dpAcademic_position=" + $("#dpAcademic_position").val()).append("&");
-                params.append("dept.dpTech_adv=" + $("#dpTech_adv").val()).append("&");
-                params = params.toString();
-                $.post(url, params, function(json) {
-                if (json.resultCode > 0) {
-                initDeptList();
-                $('#J_DeptDiv').window("close");
-                } else {
-                $.fn.sdInfo({
-                type:"fail",
-                content:json.message ? json.message : action + '科室失败!'
-                });
-                }
-                });
             
             } else {
                 action = "编辑";
                 url = "../group/updateDept.action";
-                var params = new StringBuffer();
-                params.append("dept.deptName=" + $("#deptName").val()).append("&");
-                params.append("dept.deptId=" + $("#deptId").val()).append("&");
-                params = params.toString();
-                $.post(url, params, function(json) {
-                if (json.resultCode > 0) {
-                initDeptList();
-                $('#J_DeptOk').window("close");
-                } else {
-                $.fn.sdInfo({
-                type:"fail",
-                content:json.message ? json.message : action + '科室失败!'
-                });
-                }
-                });
+//                var params = new StringBuffer();
+//                params.append("dept.dpName=" + $("#dpName").val()).append("&");
+//                params.append("dept.dpId=" + $("#dpId").val()).append("&");
+//                params = params.toString();
+//                $.post(url, params, function(json) {
+//                if (json.resultCode > 0) {
+//                initDeptList();
+//                $('#J_DeptOk').window("close");
+//                } else {
+//                $.fn.sdInfo({
+//                type:"fail",
+//                content:json.message ? json.message : action + '科室失败!'
+//                });
+//                }
+//                });
             }
+            // below is the same for add and edit
+            var params = new StringBuffer();
+            params.append("dept.dpName=" + $("#deptName").val()).append("&");
+            params.append("dept.dpIn_charge=" + $("#dpIn_charge").val()).append("&");
+            var dpTypeStr = "";
+            $("input[@type=checkbox][@checked]").each(function(){ //由于复选框一般选中的是多个,所以可以循环输出
+             //alert($(this).val());
+              dpTypeStr = $(this).val();
+             },
+             dpTypeStr += ","
+            );
+            params.append("dept.dpType=" + dpTypeStr).append("&");
+            params.append("dept.dpNote=" + $("#dpNote").val()).append("&");
+            params.append("dept.dpOd_telephone=" + $("#dpOd_telephone").val()).append("&");
+            params.append("dept.dpEmail=" + $("#dpEmail").val()).append("&");
+            params.append("dept.dpSite=" + $("#dpSite").val()).append("&");
+            params.append("dept.dpLocation=" + $("#dpLocation").val()).append("&");
+            params.append("dept.dpBed_counter=" + $("#dpBed_counter").val()).append("&");
+            params.append("dept.dpBelong=" + $("#dpBelong").val()).append("&");
+            params.append("dept.dpDesc=" + $("#dpDesc").val()).append("&");
+            params.append("dept.dpAcademic_position=" + $("#dpAcademic_position").val()).append("&");
+            params.append("dept.dpTech_adv=" + $("#dpTech_adv").val()).append("&");
+            params = params.toString();
+            $.post(url, params, function(json) {
+            if (json.resultCode > 0) {
+            initDeptList();
+            $('#J_DeptDiv').window("close");
+            } else {
+            $.fn.sdInfo({
+            type:"fail",
+            content:json.message ? json.message : action + '科室失败!'
+            });
+            }
+            });
            // var params = $("#deptForm").serialize();
         }
     });
@@ -146,7 +155,7 @@ $(document).ready(function() {
         $.messager.confirm('删除', '是否确认删除所选科室?', function(r) {
             if (r) {
                 var id = $(THIS).parent().parent().children().eq(0).children().eq(0).val();
-                var params = "dept.deptId=" + id;
+                var params = "dept.dpId=" + id;
                 $.post("../group/deleteDept.action", params, function(json) {
                     if (json.resultCode > 0) {
                     initDeptList();
@@ -173,7 +182,7 @@ $('#J_DeptDelAll').click(function() {
         });
         $.messager.confirm('批量删除', '是否确认删除所选科室?', function(r) {
             if (r) {
-                $.post("../group/batchDeleteCatalogConfig.action", ides, function(data) {
+                $.post("../group/batchDeleteDept.action", ides, function(data) {
                     if (data.resultCode && data.resultCode > 0) {
                     initDeptList();
                     } else {
@@ -246,12 +255,7 @@ function initDeptList() {
                 },
                 {
                     fnRender:function(obj) {
-                         var dglist = obj.aData.dgList;
-                         var dgNames = "";
-                         for(var i=0; i < dglist.size; i++){
-                           dgNames += dglist[i].name;
-                         }
-                        return "<span>" + obj.aData.dpBelong + "</span>";
+                        return "<span>" + obj.aData.dpType + "</span>";
                     }
                 },
                 {
