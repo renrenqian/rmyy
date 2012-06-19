@@ -92,6 +92,7 @@ $(document).ready(function() {
                 params.append("dept.dpSite=" + $("#dpSite").val()).append("&");
                 params.append("dept.dpLocation=" + $("#dpLocation").val()).append("&");
                 params.append("dept.dpBed_counter=" + $("#dpBed_counter").val()).append("&");
+                params.append("dept.dpBelong=" + $("#dpBelong").val()).append("&");
                 params.append("dept.dpDesc=" + $("#dpDesc").val()).append("&");
                 params.append("dept.dpAcademic_position=" + $("#dpAcademic_position").val()).append("&");
                 params.append("dept.dpTech_adv=" + $("#dpTech_adv").val()).append("&");
