@@ -146,7 +146,7 @@ $(document).ready(function() {
             if (r) {
                 var id = $(THIS).parent().parent().children().eq(0).children().eq(0).val();
                 var params = "dept.deptId=" + id;
-                $.post("../config/deleteDept.action", params, function(json) {
+                $.post("../group/deleteDept.action", params, function(json) {
                     if (json.resultCode > 0) {
                     initDeptList();
                     } else {
@@ -172,7 +172,7 @@ $('#J_DeptDelAll').click(function() {
         });
         $.messager.confirm('批量删除', '是否确认删除所选科室?', function(r) {
             if (r) {
-                $.post("../config/batchDeleteCatalogConfig.action", ides, function(data) {
+                $.post("../group/batchDeleteCatalogConfig.action", ides, function(data) {
                     if (data.resultCode && data.resultCode > 0) {
                     initDeptList();
                     } else {
@@ -235,27 +235,27 @@ function initDeptList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='hidden1 tl'>" + obj.aData.dpName + "</span>";
+                        return "<span'>" + obj.aData.dpName + "</span>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='hidden1 tl'>" + obj.aData.dpOrder + "</span>";
+                        return "<span>" + obj.aData.dpgmName + "</span>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='hidden1 tl'>" + obj.aData.dpBelong + "</span>";
+                        return "<span>" + obj.aData.dpBelong + "</span>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='hidden1 tl'>" + obj.aData.dpIn_charge + "</span>";
+                        return "<span>" + obj.aData.dpIn_charge + "</span>";
                     }
                 },
                {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.sort + "</span>";
+                        return "<span>" + obj.aData.dpIn_charge + "</span>";
                     }
                 },
                 {

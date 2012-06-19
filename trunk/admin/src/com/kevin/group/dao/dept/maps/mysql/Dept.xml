@@ -7,11 +7,11 @@
     <!-- paginate the dept info -->
     <select id="list"  parameterClass="Dept"  resultClass="Dept">
      <![CDATA[
-       select 
+        select 
          OD_ID as dpId,
          OD_NAME as dpName,
          OD_ORDER as dpOrder,
-         OD_BELONG as dpBelong,
+         gm.GM_NAME as dpgmName,
          OD_IN_CHARGE as dpIn_charge,
          OD_TELEPHONE as dpOd_telephone,
          OD_EMAIL as dpEmail,
@@ -22,7 +22,8 @@
          OD_ACADEMIC_POSITION as dpAcademic_position,
          OD_TECH_ADV as dpTech_adv,
          OD_RESEARCH_DIRECTION as dpResearch_direction
-       from OFFICE_DETAIL
+       from OFFICE_DETAIL od
+       left join GROUP_MEMBER gm on gm.GM_ID = od.OD_BELONG
      ]]>
      <!-- 
      <![CDATA[LIMIT #start#,#pageSize#]]>
@@ -36,7 +37,7 @@
          OD_ID as dpId,
          OD_NAME as dpName,
          OD_ORDER as dpOrder,
-         OD_BELONG as dpBelong,
+         gm.GM_NAME as dpgmName,
          OD_IN_CHARGE as dpIn_charge,
          OD_TELEPHONE as dpOd_telephone,
          OD_EMAIL as dpEmail,
@@ -47,7 +48,8 @@
          OD_ACADEMIC_POSITION as dpAcademic_position,
          OD_TECH_ADV as dpTech_adv,
          OD_RESEARCH_DIRECTION as dpResearch_direction
-       from OFFICE_DETAIL
+       from OFFICE_DETAIL od
+       left join GROUP_MEMBER gm on gm.GM_ID = od.OD_BELONG
      ]]>
      <!-- 
      <![CDATA[LIMIT #start#,#pageSize#]]>

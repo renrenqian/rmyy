@@ -14,6 +14,7 @@ public class Dept {
     private String dpName;
     private Integer dpOrder;
     private Integer dpBelong;
+    private String dpgmName;
     private String dpIn_charge;
     private String dpOd_telephone;
     private String dpEmail;
@@ -83,6 +84,21 @@ public class Dept {
      */
     public final void setDpBelong(Integer dpBelong) {
         this.dpBelong = dpBelong;
+    }
+
+    /**
+     * @return the dpgmName
+     */
+    public final String getDpgmName() {
+        return dpgmName;
+    }
+
+    /**
+     * @param dpgmName
+     *            the dpgmName to set
+     */
+    public final void setDpgmName(String dpgmName) {
+        this.dpgmName = dpgmName;
     }
 
     /**
