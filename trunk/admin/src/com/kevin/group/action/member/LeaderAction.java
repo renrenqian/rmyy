@@ -8,6 +8,7 @@ package com.kevin.group.action.member;
 import java.io.Serializable;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -79,6 +80,7 @@ public class LeaderAction extends AbstractBaseAction {
      * @param leaderService
      *            the leaderService to set
      */
+    @Autowired
     public final void setLeaderService(ILeaderService leaderService) {
         this.leaderService = leaderService;
     }

@@ -53,6 +53,7 @@ $(document).ready(function() {
     $(".J_DeptEdit").die().live("click", function() {
         $.fn.sdResetForm("#deptForm");
         var id = $(this).parent().parent().children().eq(0).children().eq(0).val();
+        $("#dpId").val(id);
         $.getJSON('../group/searchDept.action?t=' + new Date().getTime() + '&dept.dpId=' + id, function(json) {
             if (json.resultCode > 0) {
                 formUnSerialize("deptForm", "dept", json.dept);
@@ -81,7 +82,7 @@ $(document).ready(function() {
        if ($(this).sdSubmitValidate("#deptForm")) {
            var deptId = $("#dpId").val();
             var url,action;
-            if (!deptId || deptId == "") {
+            if (!deptId || undefined == deptId || deptId == "" ) {
                 action = "新增";
                 url = "../group/addDept.action";
             

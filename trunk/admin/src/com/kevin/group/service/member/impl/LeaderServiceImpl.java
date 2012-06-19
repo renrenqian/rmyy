@@ -31,6 +31,7 @@ public class LeaderServiceImpl extends AbstractBaseService<LeaderInfo>
      */
     @Autowired
     public final void setLeaderDAO(ILeaderDAO leaderDAO) {
+        setAbsBaseDao(leaderDAO);
         this.leaderDAO = leaderDAO;
     }
 

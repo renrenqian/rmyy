@@ -8,6 +8,7 @@ package com.kevin.group.action.member;
 import java.io.Serializable;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -79,6 +80,7 @@ public class DoctorAction extends AbstractBaseAction {
      * @param doctorService
      *            the doctorService to set
      */
+    @Autowired
     public final void setDoctorService(IDoctorService doctorService) {
         this.doctorService = doctorService;
     }
