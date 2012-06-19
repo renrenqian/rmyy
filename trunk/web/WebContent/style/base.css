@@ -39,7 +39,7 @@ h1, h2, h3, h4, h5, h6 { font-size: 100%;}
 .hidden{visibility:hidden;}
 .none{display:none;}
 .overhid{overflow:hidden;}
-
+.clear{clear:both;}
 /*长宽高度*/
 .w{width:100%;}
 .h{height:100%;}

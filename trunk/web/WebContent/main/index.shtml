@@ -128,7 +128,7 @@
         </div>
         <div class="centerPart">
             <ul class="centerList">
-                <li><a href="#" id="center1">
+                <li><a href="/web/cancer/index.shtml" target="_blank"  id="center1">
                     <p class="centerTitle1">杭州市癌症中心</p>
 
                     <p class="centerTitle2">Cancer Center of Hangzhou</p>

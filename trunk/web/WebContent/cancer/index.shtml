@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+<!--#include virtual="master/headFile.html"-->
+</head>
+<body>
+	<!--#include virtual="master/top.html"-->
+	<div style='overflow: hidden;' class='mt5'>
+		<div class='slider'>
+			<!--首页滑动-->
+			<div class="slider-wrapper theme-default">
+				<div id="J_TopSlider" class="nivoSlider">
+					<a href="#"> <img src="/web/cancer/images/slider1.jpg" alt=""
+						title="创建全国优质护理服务示范工程" /></a><a href="#"> <img
+						src="/web/cancer/images/slider1.jpg" alt="" title="“患者安全目标”全国行" /></a><a
+						href="#"> <img src="/web/cancer/images/slider1.jpg" alt=""
+						title="庆祝建党90周年系列活动" /></a><a href="#"> <img
+						src="/web/cancer/images/slider1.jpg" alt=""
+						title="浙江省毛发移植与头面部微创美容新进展学习班" />
+					</a> <a href="#"> <img src="/web/cancer/images/slider1.jpg" alt=""
+						title="浙江省毛发移植与头面部微创美容新进展学习班" />
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class='post'>
+			<ul class="newsItem">
+				<li><a class="newsTitle" title="浙江省毛发移植与头面部微创美容新进展学习班"
+					href="javascript:;">浙江省毛发移植与头面部微创美容新进展学习班 </a><span
+					class="newsDate">05-25 </span><span class="newIcon"></span></li>
+				<li><a class="newsTitle" title="微量营养素与孩子的健康"
+					href="javascript:;">微量营养素与孩子的健康</a><span class="newsDate">05-25</span><span
+					class="newIcon"></span></li>
+				<li><a class="newsTitle" title="第四届国际甲状腺周免费咨询活动"
+					href="javascript:;">第四届国际甲状腺周免费咨询活动 </a><span class="newsDate">05-25</span><span
+					class="newIcon"></span></li>
+				<li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
+					href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
+					class="newsDate">05-25 </span></li>
+				<li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
+					href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
+					class="newsDate">05-25 </span></li>				
+				<li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
+					href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
+					class="newsDate">05-25 </span></li>
+				<li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
+					href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
+					class="newsDate">05-25 </span></li>
+			</ul>
+		</div>
+	</div>
+	<!--#include virtual="master/footer.html"-->
+	<script src="/web/js/jquery.nivo.slider.pack.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#J_TopSlider').nivoSlider({
+				captionOpacity : 0.55,
+				pauseTime : 4000
+			});
+		});
+	</script>
+</body>
+</html>
