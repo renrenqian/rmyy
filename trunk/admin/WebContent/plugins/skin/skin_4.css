@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CSS Document */
+.focus { outline:none; border:1px solid #39F; background:#ebf5fc; }
+hr { border-top-color: #369; }
+#header { background:url(img/skin_4/header_footer_loop_4.jpg) repeat-x; }
+.menu_section { border:1px solid #99ccff; }
+.menu_section h5 { background:url(img/skin_4/left_menu_skin_4.jpg) repeat-x; }
+.menu_section h5:hover { color:#69c; }
+.menu_section2 { border:1px solid #99ccff; }
+.menu_section2 h5 { color:#69C; background:url(img/skin_4/left_menu_skin_4.jpg) repeat-x; }
+.toolBox,.advanceSearch_div { border: 1px solid #bad5e7; background-color: #f8fcff; }
+.toolBox p .abled { color:#2A3FAA; }
+.footer { background:url(img/skin_4/footerLoop.jpg) repeat-x; }
+table.display thead th { border-bottom: 1px solid #bad5e7; border-top: 1px solid #bad5e7; }
+tr.odd { background-color:#EDF5FF; }
+.index_info h1 { color: #69c; }
+.index_main_section .index_info { border: 1px solid #999; background:-moz-linear-gradient(center top, #fff 80%, #e8f4fe 100%); }
+.input_type1, .input_type2, .input_type3,.input_type_date,.selectType1, .textArea_type1, .inputArea h3,#model_Canvas_div p, #menu_section_mouseover, .main_section .nav, .dataTables_length, .dataTables_filter, .dataTables_info, .main_section h1, .toolBox p span, .menu_section h5, table.display thead th,.inputArea table tr td span,.tips,.textArea_type1{ color:#005AB5; }
+.highlight_tip .current{ background:#369; }
+.textArea .bg_left { width:55px; background:url(img/skin_4/passwd_loop_4.jpg) no-repeat; background-position:0 0; height:450px; float:left; display:inline; }
+.textArea .bg_loop { width:87%; background:url(img/skin_4/passwd_loop2_4.jpg); background-position:0 0; height:450px; float:left; display:inline; }
+.textArea .bg_right { width:56px; background:url(img/skin_4/passwd_loop_4.jpg) no-repeat; background-position:-56px 0; height:450px; float:left; display:inline; }
+.selectType2,.textArea_type2,.input_type4,.msgWriteArea p,.input_type_date{color:#369; }
+.toolBox p a:hover {color: #01214b;}

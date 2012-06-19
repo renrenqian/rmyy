@@ -34,10 +34,20 @@
     <!-- group manage start -->
     <!-- entity -->
     <typeAlias alias="Dept" type="com.kevin.group.pojo.dept.Dept" /> 
+    <typeAlias alias="LeaderInfo" type="com.kevin.group.pojo.member.LeaderInfo" /> 
+    <typeAlias alias="DoctorInfo" type="com.kevin.group.pojo.member.DoctorInfo" /> 
     <typeAlias alias="ContentInfo" type="com.kevin.group.pojo.content.ContentInfo" /> 
     <!-- sql map -->
     <sqlMap resource="com/kevin/group/dao/dept/maps/mysql/Dept.xml" />
+    <sqlMap resource="com/kevin/group/dao/member/maps/mysql/LeaderInfo.xml" />
+    <sqlMap resource="com/kevin/group/dao/member/maps/mysql/DoctorInfo.xml" />
     <sqlMap resource="com/kevin/group/dao/content/maps/mysql/ContentInfo.xml" />
-    <!-- group manage start -->
+    <!-- group manage end -->
     
+    <!-- online  manage start -->
+    <!-- entity -->
+    <typeAlias alias="Consultation" type="com.kevin.group.pojo.online.Consultation" /> 
+    <!-- sql map -->
+    <sqlMap resource="com/kevin/group/dao/online/maps/mysql/Consultation.xml" />
+    <!-- online manage end -->
 </sqlMapConfig>

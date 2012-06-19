@@ -1,0 +1,88 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+* { margin:0; padding:0; }
+.btnArea { background:#EBEBEB; width:680px; height:40px; display:none}
+#playBtn,#stopBtn{float:left; margin-left:10px; margin-top:5px;}
+#fullScreenBtn,#volumeBtn{float:right; margin-right:10px;margin-top:5px;}
+.vlcTimer { background:url(image/timer.jpg);height:18px; width:75px; float:left; margin-left:30px; line-height:18px; vertical-align:middle; margin-top:10px; text-align:center; color:#336; font-size:10px; }
+</style>
+<script language="javascript" src="../../js/jquery-1.6.1.min.js"></script>
+<script language="javascript" src="js/jquery-vlc.js"></script>
+<script language="javascript">
+            var player = null;
+            $(document).ready(function() {
+                    var search = window.location.search;
+                    var fileName = search.substring(1).split("&")[0].split("=")[1];
+                    var port = search.substring(1).split("&")[1].split("=")[1];
+                    var _url_ =  location.protocol +"//" + location.hostname;
+            	    var url = fileName.replace("/data",_url_+":"+port);
+	                document.getElementById("btn").style.display="block";
+				    player = VLCobject.embedPlayer('player', 750, 380, false);
+	                player.play(url);
+	                window.setInterval(function(){
+		                document.getElementById("totalTime").innerHTML = player.getTotalTime();
+		                document.getElementById("playTime").innerHTML = player.getPlayTime();
+	                },500);
+            });
+            function toggleMute(img){
+               if(img.src.indexOf('vlcvolumeindicatormute.png')>0){
+                 img.src='image/vlcvolumeindicator3.png'; 
+               }else{
+                 img.src='image/vlcvolumeindicatormute.png';
+               }
+               player.toggleMute();
+            }
+			$(document).ready(function(){
+				$('#playBtn').mouseover(function(){
+					$(this).attr("src","image/vlcplaybuttonpress.png");
+					$(this).css("cursor","pointer");
+				}).mousedown(function(){
+					$(this).attr("src","image/vlcplaybuttonclick.png");
+				}).mouseup(function(){
+					$(this).attr("src","image/vlcplaybutton.png");
+				}).mouseout(function(){
+					$(this).attr("src","image/vlcplaybutton.png");
+				});
+				
+				$('#stopBtn').mouseover(function(){
+					$(this).attr("src","image/vlcstopbuttonpress.png");
+					$(this).css("cursor","pointer");
+				}).mousedown(function(){
+					$(this).attr("src","image/vlcstopbuttonclick.png");
+				}).mouseup(function(){
+					$(this).attr("src","image/vlcstopbutton.png");
+				}).mouseout(function(){
+					$(this).attr("src","image/vlcstopbutton.png");
+				});
+			
+				$('#fullScreenBtn').mouseover(function(){
+					$(this).attr("src","image/vlcfullscreenbuttonpress.png");
+					$(this).css("cursor","pointer");
+				}).mousedown(function(){
+					$(this).attr("src","image/vlcfullscreenbuttonclick.png");
+				}).mouseup(function(){
+					$(this).attr("src","image/vlcfullscreenbutton.png");
+				}).mouseout(function(){
+					$(this).attr("src","image/vlcfullscreenbutton.png");
+				});
+				
+				$('#volumeBtn').mouseover(function(){
+					$(this).css("cursor","pointer");
+				});
+				
+			});
+    </script>
+</head>
+<body>
+<div id='player'></div>
+<div id="btn" class="btnArea"> 
+    <img src="image/vlcplaybutton.png" onClick="javascript:player.togglePlay()" id="playBtn"/>
+    <img src="image/vlcstopbutton.png" onClick="javascript:player.stop()" id="stopBtn"/> 
+    <div class="vlcTimer"><span id="playTime">00:00</span>/<span id="totalTime">00:00</span></div>
+    <img src="image/vlcfullscreenbutton.png" onClick="javascript:player.toggleFullscreen()" id="fullScreenBtn"/> 
+    <img src="image/vlcvolumeindicator3.png" onClick="javascript:toggleMute(this)" id="volumeBtn"/> 
+</div>
+</body>
+</html>

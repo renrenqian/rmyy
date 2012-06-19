@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Consultation">
+
+    <!-- paginate the Consultation info -->
+    <select id="list"  parameterClass="Consultation"  resultClass="Consultation">
+     <![CDATA[
+       select 
+        OC_ID as ocId,
+        OC_POST_TIME as ocPost_time,
+        OC_REQUEST_OFFICE as ocRequest_office,
+        OC_RECEIVE_OFFICE as ocReceive_office,
+        OC_POST_NAME as ocPost_name,
+        OC_POST_AGE as ocPost_age,
+        OC_POST_SUBJECT as ocPost_subject,
+        OC_DESC as ocDesc,
+        OS_ANSWERED as osAnswered,
+        OS_ANSWER_OFFICE as osAnswer_office,
+        OS_ANSWER_TIME as osAnswer_time,
+        OS_TYPICAL as osTypical
+       from ONLINE_CONSULTATION
+     ]]>
+     <!-- 
+     <![CDATA[LIMIT #start#,#pageSize#]]>
+      -->
+    </select>
+    
+    <!-- list all the Consultation info -->
+    <select id="listAll"  parameterClass="Consultation"  resultClass="Consultation">
+     <![CDATA[
+       select 
+        OC_ID as ocId,
+        OC_POST_TIME as ocPost_time,
+        OC_REQUEST_OFFICE as ocRequest_office,
+        OC_RECEIVE_OFFICE as ocReceive_office,
+        OC_POST_NAME as ocPost_name,
+        OC_POST_AGE as ocPost_age,
+        OC_POST_SUBJECT as ocPost_subject,
+        OC_DESC as ocDesc,
+        OS_ANSWERED as osAnswered,
+        OS_ANSWER_OFFICE as osAnswer_office,
+        OS_ANSWER_TIME as osAnswer_time,
+        OS_TYPICAL as osTypical
+       from ONLINE_CONSULTATION
+     ]]>
+     <!-- 
+     <![CDATA[LIMIT #start#,#pageSize#]]>
+      -->
+    </select>
+
+    <!-- add Consultation -->
+    <insert id="insert" parameterClass="Consultation">
+       <![CDATA[
+          INSERT INTO ONLINE_CONSULTATION(OC_ID, OC_POST_TIME, OC_REQUEST_OFFICE, OC_RECEIVE_OFFICE, OC_POST_NAME, OC_POST_AGE, OC_POST_SUBJECT, OC_DESC, OS_ANSWERED, OS_ANSWER_OFFICE, OS_ANSWER_TIME, OS_TYPICAL) 
+                         VALUES(#ocId#, #ocPost_time#, #ocRequest_office#, #ocReceive_office#, #ocPost_name#, #ocPost_age#, #ocPost_subject#, #ocDesc#, #osAnswered#, #osAnswer_office#, #osAnswer_time#, #osTypical#)
+       ]]>
+       <selectKey resultClass="int" keyProperty="ocId">
+         <![CDATA[SELECT LAST_INSERT_ID();]]>
+       </selectKey> 
+    </insert>
+    
+    <!-- delete Consultation by id -->
+    <delete id="delete" parameterClass="Consultation">
+       <![CDATA[DELETE FROM ONLINE_CONSULTATION WHERE OC_ID = #ocId#]]>
+    </delete>
+    
+    <!-- update the Consultation -->
+    <update id="update" parameterClass="Consultation">
+      <![CDATA[
+         UPDATE ONLINE_CONSULTATION 
+         SET 
+            OC_POST_TIME = #ocPost_time#，
+            OC_REQUEST_OFFICE = #ocRequest_office#，
+            OC_RECEIVE_OFFICE = #ocReceive_office#，
+            OC_POST_NAME = #ocPost_name#，
+            OC_POST_AGE = #ocPost_age#，
+            OC_POST_SUBJECT = #ocPost_subject#，
+            OC_DESC = #ocDesc#，
+            OS_ANSWERED = #osAnswered#，
+            OS_ANSWER_OFFICE = #osAnswer_office#，
+            OS_ANSWER_TIME = #osAnswer_time#，
+            OS_TYPICAL = #osTypical#
+         WHERE OC_ID = #ocId#
+      ]]>
+    </update>
+</sqlMap>
