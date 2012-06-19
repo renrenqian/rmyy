@@ -1,0 +1,5 @@
+ALTER TABLE hzhos.leader_info ADD LI_GM INT;
+
+ALTER TABLE hzhos.leader_info MODIFY COLUMN LI_CURRENT VARCHAR(32);
+
+ALTER TABLE hzhos.doctor_info ADD DI_DEPTTYPE INTEGER;
