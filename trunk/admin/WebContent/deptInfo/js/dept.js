@@ -119,6 +119,7 @@ $(document).ready(function() {
             params.append("dept.dpNote=" + $("#dpNote").val()).append("&");
             params.append("dept.dpOd_telephone=" + $("#dpOd_telephone").val()).append("&");
             params.append("dept.dpEmail=" + $("#dpEmail").val()).append("&");
+            params.append("dept.dpOrder=" + 1).append("&");
             params.append("dept.dpSite=" + $("#dpSite").val()).append("&");
             params.append("dept.dpLocation=" + $("#dpLocation").val()).append("&");
             params.append("dept.dpBed_counter=" + $("#dpBed_counter").val()).append("&");
@@ -265,7 +266,7 @@ function initDeptList() {
                 },
                {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.dpIn_charge + "</span>";
+                        return "<span>" + obj.aData.dpOrder + "</span>";
                     }
                 },
                 {
