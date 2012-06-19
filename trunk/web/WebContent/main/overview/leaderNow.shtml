@@ -10,10 +10,7 @@
             <div class="mainPart">
                 <div class="itemBg">
                     <div class="titleBg2">
-                        <p class="bread">
-                            <a href="/index.shtml" class="breadB">首页</a><span>></span><a href="#" class="breadN">
-                            医院概览</a><span>></span><a href="#" class="breadN">现任领导</a>
-                        </p>
+                        <p class="bread J_Bread"></p>
                     </div>
                     <h2 class="titleType3">现任领导 . 马胜林</h2>
 

@@ -10,25 +10,22 @@
             <div class="mainPart">
                 <div class="itemBg">
                     <div class="titleBg2">
-                        <p class="bread">
-                            <a href="/index.shtml" class="breadB">首页</a><span>></span><a href="#" class="breadN">
-                            患者服务中心</a><span>></span><a href="#" class="breadN">就医须知</a>
-                        </p>
+                       <p class="bread J_Bread"></p>
                     </div>
                     <h2 class="titleType3">就医须知</h2>
 
                     <div style="clear:both;"></div>
                     <div class="docBody">
                         <ul class="leaderList" id="J_Process">
-                            <li><a href="#"  title="挂号温馨提示">挂号温馨提示</a></li>
-                            <li><a href="#"  title="医保须知">医保须知</a></li>
-                            <li><a href="#"  title="社区转诊患者就诊须知">社区转诊患者就诊须知</a></li>
-                            <li><a href="#"  title="急诊须知">急诊须知</a></li>
-                            <li><a href="#"  title="电话预约挂号须知">电话预约挂号须知</a></li>
-                            <li><a href="#"  title="门诊特需疑难病会诊须知">门诊特需疑难病会诊须知</a></li>
-                            <li><a href="#"  title="夜间门诊就诊须知">夜间门诊就诊须知</a></li>
-                            <li><a href="#"  title="特需门诊就诊须知">特需门诊就诊须知</a></li>
-                            <li><a href="#"  title="患者实名制挂号与建卡须知">患者实名制挂号与建卡须知</a></li>
+                            <li style="width:180px;"><a href="#"  title="挂号温馨提示">挂号温馨提示</a></li>
+                            <li style="width:180px;"><a href="#"  title="医保须知">医保须知</a></li>
+                            <li style="width:180px;"><a href="#"  title="社区转诊患者就诊须知">社区转诊患者就诊须知</a></li>
+                            <li style="width:180px;"><a href="#"  title="急诊须知">急诊须知</a></li>
+                            <li style="width:180px;"><a href="#"  title="电话预约挂号须知">电话预约挂号须知</a></li>
+                            <li style="width:180px;"><a href="#"  title="门诊特需疑难病会诊须知">门诊特需疑难病会诊须知</a></li>
+                            <li style="width:180px;"><a href="#"  title="夜间门诊就诊须知">夜间门诊就诊须知</a></li>
+                            <li style="width:180px;"><a href="#"  title="特需门诊就诊须知">特需门诊就诊须知</a></li>
+                            <li style="width:180px;"><a href="#"  title="患者实名制挂号与建卡须知">患者实名制挂号与建卡须知</a></li>
                         </ul>
                         <div style="clear:both;"></div>
                         <hr class="mb20 w"/>

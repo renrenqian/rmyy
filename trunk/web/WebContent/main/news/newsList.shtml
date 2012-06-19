@@ -10,10 +10,7 @@
             <div class="mainPart">
                 <div class="itemBg">
                     <div class="titleBg2">
-                        <p class="bread">                       
-                            <a href="../Default.aspx" class="breadB">首页</a><span>&gt;</span><a href="#" class="breadN">
-                            信息中心</a><span>&gt;</span><a href="#" class="breadN">医院新闻</a>
-                        </p>
+                        <p class="bread J_Bread"></p>
                     </div>
                     <h2 class="titleType3">医院新闻</h2>
 

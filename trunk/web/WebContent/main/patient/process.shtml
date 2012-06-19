@@ -10,20 +10,17 @@
             <div class="mainPart">
                 <div class="itemBg">
                     <div class="titleBg2">
-                        <p class="bread">
-                            <a href="/index.shtml" class="breadB">首页</a><span>></span><a href="#" class="breadN">
-                            患者服务中心</a><span>></span><a href="#" class="breadN">就医流程</a>
-                        </p>
+                        <p class="bread J_Bread"></p>
                     </div>
                     <h2 class="titleType3">就医流程</h2>
 
                     <div style="clear:both;"></div>
                     <div class="docBody">
                         <ul class="leaderList" id="J_Process">
-                            <li><a href="#" srcLink='/web/main/images/lc/lc-mjz.jpg' title="门急诊就诊流程">门急诊就诊流程</a></li>
-                            <li><a href="#" srcLink='/web/main/images/lc/lc-dhyy.jpg' title="电话预约流程">电话预约流程</a></li>
-                            <li><a href="#" srcLink='/web/main/images/lc/lc-qh.jpg' title="电话预约取号流程">电话预约取号流程</a></li>
-                            <li><a href="#" srcLink='/web/main/images/lc/lc-cry.jpg' title="出入院流程">出入院流程</a></li>
+                            <li style='width:150px;'><a href="#" srcLink='/web/main/images/lc/lc-mjz.jpg' title="门急诊就诊流程">门急诊就诊流程</a></li>
+                            <li style='width:150px;'><a href="#" srcLink='/web/main/images/lc/lc-dhyy.jpg' title="电话预约流程">电话预约流程</a></li>
+                            <li style='width:150px;'><a href="#" srcLink='/web/main/images/lc/lc-qh.jpg' title="电话预约取号流程">电话预约取号流程</a></li>
+                            <li style='width:150px;'><a href="#" srcLink='/web/main/images/lc/lc-cry.jpg' title="出入院流程">出入院流程</a></li>
                         </ul>
                         <div style="clear:both;"></div>
                         <hr class="mb20 w"/>

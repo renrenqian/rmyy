@@ -10,10 +10,7 @@
             <div class="mainPart">
              <div class="itemBg">
         <div class="titleBg2">
-            <p class="bread">
-                <a href="../Default.aspx" class="breadB">首页</a><span>></span><a href="#" class="breadN">
-                    专家介绍</a><span>></span><a href="#" class="breadN">专家一览</a>
-            </p>
+            <p class="bread J_Bread"></p>
         </div>
         <h2 class="titleType3">专家一览</h2>
         <div style="clear: both;"></div>

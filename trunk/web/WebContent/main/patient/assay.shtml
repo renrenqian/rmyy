@@ -10,11 +10,7 @@
             <div class="mainPart">
                   <div class="itemBg">
         <div class="titleBg2">
-              <p class="bread">
-                <a href="../Default.aspx" class="breadB">首页</a><span>></span><a href="#" class="breadN">
-                    患者服务中心</a><span>></span><a href="#" class="breadN">
-                    其它服务</a><span>></span><a href="#" class="breadN">化验查询</a>
-            </p>
+             <p class="bread J_Bread"></p>
         </div>
         <h2 class="newsMainTitle">杭州市第一人民医院---化验查询系统</h2>
         <a class="greenBtn tc" style="margin-bottom: 10px;" href="http://guahao.zjol.com.cn/HospitalInfo.Aspx?ID=057101"

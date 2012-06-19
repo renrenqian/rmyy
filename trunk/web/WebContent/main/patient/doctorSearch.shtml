@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <head>
     <!--#include virtual="../master/headFile.html"-->
 </head>
@@ -10,10 +10,7 @@
             <div class="mainPart">
            <div class="itemBg">
         <div class="titleBg2">
-            <p class="bread">
-                <a href="/index.shtml" class="breadB">首页</a><span>></span><a href="#" class="breadN">
-                    患者服务中心</a><span>></span><a href="#" class="breadN">专家查询</a>
-            </p>
+             <p class="bread J_Bread"></p>
         </div>
         <h2 class="titleType3">专家查询</h2>
         <div style="clear: both;"></div>
@@ -74,7 +71,7 @@
                 <option>星期日上午</option>
                 <option>星期日下午</option>
             </select>
-            <a class="greenBtn tc" style="margin: 20px auto;" href="../doctor/mzpb.shtml" target="_blank">查询</a>
+            <a class="greenBtn tc" style="margin: 20px auto;" id="J_DocSearch">查询</a>
         </div>
     </div>
             </div>
@@ -84,6 +81,14 @@
 </div>
 <!--#include virtual="../master/footer.html"-->
 <script src="/web/main/js/common.js"></script>
+<script>
+$('document').ready(function(){
+	$('#J_DocSearch').click(function(){		
+		$.cookie('myTitle3','门诊排班信息',{ path: '/'});
+		window.location.href='../doctor/mzpb.shtml';
+	});	
+});
+</script>
 </body>
 </html>
 

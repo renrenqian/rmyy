@@ -655,14 +655,20 @@ body {
 }
 
 /* leaderNow */
-.leaderList li a{
-    display:block;
-    float:left;
-    margin-left:0;
+.leaderList li{
+	disploy:block;
+	float:left;
+	overflow:hidden;
+	width:45px;
+	margin-left:0;
     margin-right:30px;
     margin-bottom:20px;
+}
+.leaderList li a{
+    display:block;   
     color:#229B8E;
     font-weight:bold;
+    text-align:left;
 }
 .leaderList li a:hover{
     text-decoration:underline;

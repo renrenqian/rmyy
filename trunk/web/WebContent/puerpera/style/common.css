@@ -4,7 +4,7 @@
     position: relative;
 }
 .top{
-    background:url("/puerpera/images/top.jpg");
+    background:url("/web/puerpera/images/top.jpg");
     width:960px;
     height:130px;
     margin:0 auto;
@@ -17,7 +17,7 @@
     left: 0;
 }
 .banner{
-    background:url("/puerpera/images/banner.jpg");
+    background:url("/web/puerpera/images/banner.jpg");
     width:960px;
     height:209px;
     margin:0 auto;
@@ -33,7 +33,7 @@
     width:250px;
     display:block;
     overflow:hidden;
-    background:url("/puerpera/images/LMenuBg.jpg") repeat-y;
+    background:url("/web/puerpera/images/LMenuBg.jpg") repeat-y;
 }
 .LNav{
     position:absolute;
@@ -44,7 +44,7 @@
     display: block;
     width: 250px;
     height: 49px;
-    background:url("/puerpera/images/LMenu.jpg");
+    background:url("/web/puerpera/images/LMenu.jpg");
     background-position: 0 0;
     color: #FFF;
     font-size: 22px;
@@ -57,7 +57,7 @@
     background-position: 0 -49px;
 }
 .LNavBtm{
-    background:url("/puerpera/images/LMenuBtm.jpg");
+    background:url("/web/puerpera/images/LMenuBtm.jpg");
     width: 250px;
     height: 39px;
 }
@@ -74,7 +74,7 @@
     color: #333;
 }
 .bottom{
-    background:url("/puerpera/images/btmBg.jpg") repeat-x;
+    background:url("/web/puerpera/images/btmBg.jpg") repeat-x;
     width:960px;
     height:141px;
     margin:0 auto;
@@ -87,7 +87,7 @@
     color: #FFF;
 }
 .btmL{
-    background:url("/puerpera/images/btmL.jpg");
+    background:url("/web/puerpera/images/btmL.jpg");
     position: absolute;
     width: 310px;
     height: 141px;

@@ -10,10 +10,7 @@
 <div class="mainPart">
 <div class="itemBg">
 <div class="titleBg2">
-    <p class="bread">
-        <a href="../Default.aspx" class="breadB">首页</a><span>></span><a href="#" class="breadN">
-        专家介绍</a><span>></span><a href="#" class="breadN">名医门诊</a>
-    </p>
+     <p class="bread J_Bread"></p>
 </div>
 <h2 class="titleType3">名医门诊</h2>
 
@@ -24,7 +21,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="/web/main/doctor/docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -35,7 +32,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -46,7 +43,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -57,7 +54,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -68,7 +65,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -79,7 +76,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -90,7 +87,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -101,7 +98,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -112,7 +109,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -123,7 +120,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -134,7 +131,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -145,7 +142,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -156,7 +153,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -167,7 +164,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -178,7 +175,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -189,7 +186,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -200,7 +197,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -211,7 +208,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -222,7 +219,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -233,7 +230,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -244,7 +241,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -255,7 +252,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -266,7 +263,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -277,7 +274,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 
@@ -288,7 +285,7 @@
     <img src="../images/docPer.jpg" class="docPic"/>
 
     <div class="docIntro">
-        <p><a href="DocPer.aspx">梅瑾</a><span>在诊</span></p>
+        <p><a href="docPer.shtml">梅瑾</a><span>在诊</span></p>
 
         <p><span>职称：</span><span>主任医师</span></p>
 

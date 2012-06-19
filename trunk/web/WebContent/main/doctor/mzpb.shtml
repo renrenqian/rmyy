@@ -10,10 +10,7 @@
             <div class="mainPart">
            <div class="itemBg">
         <div class="titleBg2">
-            <p class="bread">
-                <a href="/index.shtml" class="breadB">首页</a><span>></span><a href="#" class="breadN">
-                    专家介绍</a><span>></span><a href="#" class="breadN">门诊排班信息</a>
-            </p>
+           <p class="bread J_Bread"></p>
         </div>
         <h2 class="titleType3">门诊排班信息</h2>
         <div style="clear: both;"></div>
@@ -74,14 +71,14 @@
                 <option>星期日上午</option>
                 <option>星期日下午</option>
             </select>
-            <a class="greenBtn tc" style="margin: 20px auto;" href="../doctor/mzpb.shtml" target="_blank">查询</a>
+            <a class="greenBtn tc" style="margin: 20px auto;" href="../doctor/mzpb.shtml">查询</a>
             <table class="Schedule">
                 <thead>
                     <tr class="totalTh">
                         <th class="w1">医生</th>
                         <th class="w1">科室</th>
-                        <th class="w3">特长</th>
-                        <th class="w4">门诊信息</th>
+                        <th class="w2">特长</th>
+                        <th class="w5">门诊信息</th>
                         <th class="w1">预约</th>
                     </tr>
                 </thead>

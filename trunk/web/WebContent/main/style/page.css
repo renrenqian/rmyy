@@ -975,8 +975,9 @@ aside, nav, article, figure {
     font-weight: bold;
     background: #fff;
     font-size: 12px;
-    text-align: center;
+    text-align: left;
     background: #b9df69;
+    padding-left:3px;
 }
 .subTh th {
     font-weight: bold;
@@ -985,10 +986,15 @@ aside, nav, article, figure {
 .SchTrPaOdd td {
     background: #ffd;
     font-size: 12px;
+    padding-left:3px;
+}
+.SchTrPaOdd td a,.SchTrPaEven td a{
+	color:#006030;
 }
 .SchTrPaEven td {
     background: #e8f5fe;
     font-size: 12px;
+    padding-left:3px;
 }
 
 
