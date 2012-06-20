@@ -10,7 +10,7 @@
         <p>
             <span> 工具箱:</span>
             <a href="#" class="abled" id="J_AddDept">新增科室</a>
-            <a href="#" class="unabled unit J_DelAll" title="请先从下表中选择操作对象" id="J_DeptDelAll">批量删除</a>
+<!--             <a href="#" class="unabled unit J_DelAll" title="请先从下表中选择操作对象" id="J_DeptDelAll">批量删除</a> -->
         </p>
     </div>
     <div id="J_DeptListDiv" class="mt10">
@@ -78,15 +78,15 @@
             <tr>
                 <td class="rowName">科室类型</td>
                 <td>
-                    <input type="checkbox" class="radio_Type1 ml10" id="dept.lc" name="dept.lc">
+                    <input type="checkbox" class="radio_Type1 ml10 J_DeptType" id="dept.lc" name="dept.Type" value='临床科室'>
                     <label class="radio_Type1_label" for="dept.lc">临床科室</label>
-                    <input type="checkbox" class="radio_Type1" id="dept.ss" name="dept.ss">
+                    <input type="checkbox" class="radio_Type1 J_DeptType" id="dept.ss" name="dept.Type" value='省市重点'>
                     <label class="radio_Type1_label" for="dept.ss">省市重点</label>
-                    <input type="checkbox" class="radio_Type1" id="dept.yj" name="dept.yj">
+                    <input type="checkbox" class="radio_Type1 J_DeptType" id="dept.yj" name="dept.Type" value='医技科室'>
                     <label class="radio_Type1_label" for="dept.yj">医技科室</label>
-                    <input type="checkbox" class="radio_Type1" id="dept.ts" name="dept.ts">
+                    <input type="checkbox" class="radio_Type1 J_DeptType" id="dept.ts" name="dept.Type" value='特色专科'>
                     <label class="radio_Type1_label" for="dept.ts">特色专科</label>
-                    <input type="checkbox" class="radio_Type1" id="dept.zn" name="dept.zn">
+                    <input type="checkbox" class="radio_Type1 J_DeptType" id="dept.zn" name="dept.Type" value='职能科室'>
                     <label class="radio_Type1_label" for="dept.zn">职能科室</label>
                 </td>
                 <td class="rowName">科室备注</td>

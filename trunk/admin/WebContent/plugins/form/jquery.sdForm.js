@@ -310,6 +310,9 @@
             var target = $(form);
             target.find('.error').remove();
             target[0].reset();
+            
+            //temp
+            $(".J_DeptType").attr("checked", false);
         }
     });
 })(jQuery);

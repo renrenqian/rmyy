@@ -1,36 +1,5 @@
 var deptDataTable;
 $(document).ready(function() {
-    //查数据字典
-// $.ajax({
-//        type: 'POST',
-//        url: "../group/listAlldepts.action",
-//        async: false,
-//        success:
-//            function(json) {
-//                if (json.resultCode > 0) {
-//                var dataDict = json.ddList;
-//                //填充页面的下拉 J_pcTransType,J_pcState
-//                var pcTransType=[]; g_pcTransType=[];
-//                var pcState=[];g_pcState=[];
-//
-//                if(dataDict){
-//                for(var i=0;i<dataDict.length;i++){
-//                if(dataDict[i].DICT_KIND=="pc_trans_type"){
-//                g_pcTransType.push(dataDict[i]);
-//                pcTransType.push("<option value='"+dataDict[i].DICT_KEY+"'>"+dataDict[i].DICT_DISVALUE+"</option>");
-//                }
-//                            if(dataDict[i].DICT_KIND=="pc_state"){
-//                            g_pcState.push(dataDict[i]);
-//                            pcState.push("<option value='"+dataDict[i].DICT_KEY+"'>"+dataDict[i].DICT_DISVALUE+"</option>");
-//                }
-//                }
-//                }
-//                $("#J_pcTransType").html(pcTransType.join(""));
-//                $("#J_pcState").html(pcState.join(""));
-//                } else {
-//                 $.fn.sdInfo({ type:"fail",content:json.message ? json.message : "查询数据字典数据错误!" });
-//                }
-//     }});
     initDeptList();//初始化列表
     $('#deptForm').sdValidate();//添加验证规则
     /* 新增 */
@@ -56,8 +25,27 @@ $(document).ready(function() {
         $("#dpId").val(id);
         $.getJSON('../group/searchDept.action?t=' + new Date().getTime() + '&dept.dpId=' + id, function(json) {
             if (json.resultCode > 0) {
-                formUnSerialize("deptForm", "dept", json.dept);
-            
+                //formUnSerialize("deptForm", "dept", json.dept);
+                var deptList = json.dept;
+                $(deptList).each(function(i, item) {                  
+                	$('#deptName').val(item.dpName);    
+                	$('#dpIn_charge').val(item.dpIn_charge);   
+                	$('#dpOd_telephone').val(item.dpOd_telephone);   
+                	$('#dpEmail').val(item.dpEmail);   
+                	$('#dpSite').val(item.dpSite);   
+                	$('#dpLocation').val(item.dpLocation);   
+                	$('#dpBed_counter').val(item.dpBed_counter);   
+                	$('#dpNote').val(item.dpNote);   
+                	$('#dpDesc').val(item.dpDesc);   
+                	$('#dpAcademic_position').val(item.dpAcademic_position);   
+                	$('#dpTech_adv').val(item.dpTech_adv);   
+                	$('#dpResearch_direction').val(item.dpResearch_direction);
+                	
+                	var dpTypeArray=item.dpType.split(',');
+                	for(var i=0;i<dpTypeArray.length;i++){
+                		$(".J_DeptType[value='"+dpTypeArray[i]+"']").attr("checked", true);
+                	}
+                });     
             } else {
                 $.fn.sdInfo({
                     type:"fail",
@@ -84,8 +72,7 @@ $(document).ready(function() {
             var url,action;
             if (!deptId || undefined == deptId || deptId == "" ) {
                 action = "新增";
-                url = "../group/addDept.action";
-            
+                url = "../group/addDept.action";            
             } else {
                 action = "编辑";
                 url = "../group/updateDept.action";
@@ -109,13 +96,10 @@ $(document).ready(function() {
             var params = new StringBuffer();
             params.append("dept.dpName=" + $("#deptName").val()).append("&");
             params.append("dept.dpIn_charge=" + $("#dpIn_charge").val()).append("&");
-            var dpTypeStr = "";
-            $("input[@type=checkbox][@checked]").each(function(){ //由于复选框一般选中的是多个,所以可以循环输出
-             //alert($(this).val());
-              dpTypeStr = $(this).val();
-             },
-             dpTypeStr += ","
-            );
+            var dpTypeStr = [];
+            $(".J_DeptType:checked").each(function(){
+            	dpTypeStr.push($(this).val());
+            });
             params.append("dept.dpType=" + dpTypeStr).append("&");
             params.append("dept.dpNote=" + $("#dpNote").val()).append("&");
             params.append("dept.dpOd_telephone=" + $("#dpOd_telephone").val()).append("&");
@@ -140,15 +124,14 @@ $(document).ready(function() {
             });
             }
             });
-           // var params = $("#deptForm").serialize();
+           // var params = $("#deptForm").serialize();                   
         }
-    });
+    });      
     
-    
-
     /* 编辑、新增科室的取消按钮 */
     $('#J_DeptClose').die().live("click", function() {
         $('#J_DeptDiv').window("close");
+        $(".J_DeptType").attr("checked", false);
     });
 
     /* del */
@@ -194,8 +177,7 @@ $('#J_DeptDelAll').click(function() {
                         });
                     }
                 });
-                $.fn.checkTest("J_DeptTable");
-                $('.checkBoss').attr("checked", false);
+                $.fn.checkTest("J_DeptTable");           
             }
         });
     }
@@ -247,22 +229,22 @@ function initDeptList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span'>" + obj.aData.dpName + "</span>";
+                        return "<span class='hidden2 tl'>" + obj.aData.dpName + "</span>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.dpgmName + "</span>";
+                        return "<span class='hidden1 tl'>" + obj.aData.dpgmName + "</span>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.dpType + "</span>";
+                        return "<span class='hidden1 tl'>" + obj.aData.dpType + "</span>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.dpIn_charge + "</span>";
+                        return "<span class='hidden2 tl'>" + obj.aData.dpIn_charge + "</span>";
                     }
                 },
                {

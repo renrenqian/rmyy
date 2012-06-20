@@ -39,7 +39,7 @@ $(document).ready(function() {
     });
 
     /* 编辑 */
-    $(".J_LeaderEdit").die().live("click", function() {
+    $(".J_ContentEdit").die().live("click", function() {
         var id = $(this).parent().parent().children().eq(0).children().eq(0).val();
         $.getJSON('../group/searchContent.action?t=' + new Date().getTime() + '&contInfo.contId=' + id, function(json) {
             if (json.resultCode > 0) {
@@ -149,7 +149,7 @@ function initContentList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.contTital + "</span>";
+                        return "<span class='hidden2 tl'>" + obj.aData.contTital + "</span>";
                     }
                 },
                 {
