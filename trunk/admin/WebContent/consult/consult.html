@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../style/easyui.css" rel="stylesheet"/>
+    <link href="../style/common.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="mainSection">
+    <div class="toolBox">
+        <p>
+            <span> 工具箱:</span>
+            <a href="#" class="unabled unit J_DelAll" title="请先从下表中选择操作对象" id="J_DoctorDelAll">批量删除</a>
+        </p>
+    </div>
+    <div id="J_ConsultListDiv" class="mt10">
+        <table id="J_ConsultTable" class='display' cellpadding='0' cellspacing='0' border='0'>
+            <thead>
+            <tr>
+                <th style="width:50px;"><input type='checkbox' class='checkBoss' ctrl='J_ConsultTable'/></th>
+                <th class='w1'>发布时间</th>
+                <th class='tl w1'>提问科室</th>
+                <th class='tl w1'>回复科室</th>
+                <th class='tl'>问题主题</th>
+                <th  style="width:50px;">回复状态</th>
+                <th  style="width:50px;">编辑</th>
+                <th  style="width:50px;">删除</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- consult div for add or edit -->
+<div id="J_ConsultDiv" style="display: none;">
+    <form id="consultForm">
+        <table class="form w">
+            <tr>
+                <td class="rowName w1">患者性别</td>
+                <td><input type="text" class="input_type1" value="女" readonly/></td>
+            </tr>
+            <tr>
+                <td class="rowName w1">患者年龄</td>
+                <td><input type="text" class="input_type1" value="32" readonly/></td>
+            </tr>
+            <tr>
+                <td class="rowName">问题主题</td>
+                <td>
+                    <input type="text" class="input_type2" value="请问我要做无创产前检测怎么预约"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="rowName">问题描述</td>
+                <td>
+                    <textarea class="textArea_type2" >人流完医生给开了两盒酮焕雌醇片避孕药,一盒有21天的量,我想问这两盒要吃完吗?吃那么多对身体有没有影响? </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="rowName">回复科室</td>
+                <td>
+                    <select class="selectType1">
+                        <option>科室选择</option>
+                        <option>心血管内科</option>
+                        <option>消化内科</option>
+                        <option>眼科</option>
+                        <option>妇科</option>
+                        <option>产科</option>
+                        <option>心血管内科</option>
+                        <option>消化内科</option>
+                        <option>眼科</option>
+                        <option>妇科</option>
+                        <option>产科</option>
+                        <option>心血管内科</option>
+                        <option>消化内科</option>
+                        <option>眼科</option>
+                        <option>妇科</option>
+                        <option>产科</option>
+                        <option>心血管内科</option>
+                        <option>消化内科</option>
+                        <option>眼科</option>
+                        <option>妇科</option>
+                        <option>产科</option>
+                        <option>心血管内科</option>
+                        <option>消化内科</option>
+                        <option>眼科</option>
+                        <option>妇科</option>
+                        <option>产科</option>
+                        <option>心血管内科</option>
+                        <option>消化内科</option>
+                        <option>眼科</option>
+                        <option>妇科</option>
+                        <option>产科</option>
+                    </select>
+                    <span class="red">说明：若此问题不在您科室范围，请选择转交科室。</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="rowName">回复内容</td>
+                <td>
+                    <textarea class="textArea_type2"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="rowName">回复对象</td>
+                <td>
+                    <select class="selectType1">
+                        <option>请选择</option>
+                        <option>提问患者</option>
+                        <option>转交科室</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="rowName">设为典型</td>
+                <td>
+                    <select class="selectType1">
+                        <option>否</option>
+                        <option>是</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="p10">
+                    <a class="button btn-blue" id="J_ConsultOk">
+                        <span class="icon ico-bulb"></span>
+                        确定</a>
+                    <a class="button btn-grey" id="J_ConsultClose">取消</a>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<script src="../js/jquery-1.7.2.js"></script>
+<script src="../js/jquery.easyui.min.js"></script>
+<script src="../js/jquery.dataTables.js"></script>
+<script src="../js/common.js"></script>
+<script src="../plugins/form/jquery.sdForm.js"></script>
+<script src="js/consult.js" type="text/javascript"></script>
+</body>
+</html>
