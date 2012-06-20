@@ -313,6 +313,7 @@
             
             //temp
             $(".J_DeptType").attr("checked", false);
+            $(".J_RcType").attr("checked", false);
         }
     });
 })(jQuery);

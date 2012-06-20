@@ -23,8 +23,8 @@
                 <th class='tl'>医师名字</th>
                 <th class='tl'>所属科室</th>
                 <th class='tl'>职称</th>
-                <th>专家门诊信息</th>
-                <th>名医门诊信息</th>
+                <th>专家门诊</th>
+                <th>名医门诊</th>
                 <th>医师排序</th>
                 <th>编辑</th>
                 <th>删除</th>
@@ -94,34 +94,34 @@
             <tr>
                 <td class="rowName">人才类型</td>
                 <td colspan="3">
-                    <input type="checkbox" class="radio_Type1_label ml10" name="radio.bd" id="radio.bd"><label
+                    <input type="checkbox" class="radio_Type1 ml10 J_RcType" name="radio.rc" id="radio.bd" value='博士生导师'><label
                         class="radio_Type1_label" for="radio.bd">博士生导师</label>
-                    <input type="checkbox" class="radio_Type1_label" name="radio.sd" id="radio.sd"><label
+                    <input type="checkbox" class="radio_Type1 J_RcType" name="radio.rc" id="radio.sd" value='硕士生导师'><label
                         class="radio_Type1_label" for="radio.sd">硕士生导师</label>
-                    <input type="checkbox" class="radio_Type1_label" name="radio.151" id="radio.151"><label
+                    <input type="checkbox" class="radio_Type1 J_RcType" name="radio.rc" id="radio.151" value='151人才'><label
                         class="radio_Type1_label" for="radio.151">151人才</label>
-                    <input type="checkbox" class="radio_Type1_label" name="radio.131" id="radio.131"><label
+                    <input type="checkbox" class="radio_Type1 J_RcType" name="radio.rc" id="radio.131" value='131人才'><label
                         class="radio_Type1_label" for="radio.131">131人才</label>
-                    <input type="checkbox" class="radio_Type1_label" name="radio.js" id="radio.js"><label
+                    <input type="checkbox" class="radio_Type1 J_RcType" name="radio.rc" id="radio.js" value='南医大教授'><label
                         class="radio_Type1_label" for="radio.js">南医大教授</label>
-                    <input type="checkbox" class="radio_Type1_label" name="radio.fjs" id="radio.fjs"><label
+                    <input type="checkbox" class="radio_Type1 J_RcType" name="radio.rc" id="radio.fjs" value='南医大副教授'><label
                         class="radio_Type1_label" for="radio.fjs">南医大副教授</label>
-                    <input type="checkbox" class="radio_Type1_label" name="radio.zjzw" id="radio.zjzw"><label
+                    <input type="checkbox" class="radio_Type1 J_RcType" name="radio.rc" id="radio.zjzw" value='浙江省医学会主委/副主委'><label
                         class="radio_Type1_label" for="radio.zjzw">浙江省医学会主委/副主委</label>
-                    <input type="checkbox" class="radio_Type1_label" name="radio.hzzw" id="radio.hzzw"><label
+                    <input type="checkbox" class="radio_Type1 J_RcType" name="radio.rc" id="radio.hzzw" value='杭州市医学会主委'><label
                         class="radio_Type1_label" for="radio.hzzw">杭州市医学会主委</label>
                 </td>
             </tr>
             <tr>
                 <td class="rowName">简历</td>
                 <td colspan="3">
-                    <textarea id="diResume" sclass="textArea_type3"></textarea>
+                    <textarea id="diResume" class="textArea_type3"></textarea>
                 </td>
             </tr>
             <tr>
                 <td class="rowName">主攻学科</td>
                 <td colspan="3">
-                    <textarea id="diMajor" sclass="textArea_type3"></textarea>
+                    <textarea id="diMajor" class="textArea_type3"></textarea>
                 </td>
             </tr>
             <tr>
@@ -155,26 +155,26 @@
             <tr>
                 <td class="rowName w1">门诊类型名称</td>
                 <td>
-                    <input type="text" class="input_type1" value="专家门诊" readonly/>
+                    <input type="text" class="input_type1" value="" id='J_TreatType' readonly/>
                 </td>
             </tr>
             <tr>
                 <td class="rowName w1">门诊时间</td>
                 <td>
-                    <input type="checkbox" class="radio_Type1" id="day1AM"/><label class="radio_Type1_label" for="day1AM">星期一上午</label>
-                    <input type="checkbox" class="radio_Type1" id="day1PM"/><label class="radio_Type1_label" for="day1PM">星期一下午</label>
-                    <input type="checkbox" class="radio_Type1" id="day2AM"/><label class="radio_Type1_label" for="day2AM">星期二上午</label>
-                    <input type="checkbox" class="radio_Type1" id="day2PM"/><label class="radio_Type1_label" for="day2PM">星期二下午</label>
-                    <input type="checkbox" class="radio_Type1" id="day3AM"/><label class="radio_Type1_label" for="day3AM">星期三上午</label>
-                    <input type="checkbox" class="radio_Type1" id="day3PM"/><label class="radio_Type1_label" for="day3PM">星期三下午</label>
-                    <input type="checkbox" class="radio_Type1" id="day4AM"/><label class="radio_Type1_label" for="day4AM">星期四上午</label>
-                    <input type="checkbox" class="radio_Type1" id="day4PM"/><label class="radio_Type1_label" for="day4PM">星期四下午</label>
-                    <input type="checkbox" class="radio_Type1" id="day5AM"/><label class="radio_Type1_label" for="day5AM">星期五上午</label>
-                    <input type="checkbox" class="radio_Type1" id="day5PM"/><label class="radio_Type1_label" for="day5PM">星期五下午</label>
-                    <input type="checkbox" class="radio_Type1" id="day6AM"/><label class="radio_Type1_label" for="day6AM">星期五上午</label>
-                    <input type="checkbox" class="radio_Type1" id="day6PM"/><label class="radio_Type1_label" for="day6PM">星期五下午</label>
-                    <input type="checkbox" class="radio_Type1" id="day7AM"/><label class="radio_Type1_label" for="day7AM">星期日上午</label>
-                    <input type="checkbox" class="radio_Type1" id="day7PM"/><label class="radio_Type1_label" for="day7PM">星期日下午</label>
+                    <input type="checkbox" class="radio_Type1 ml10" id="day1AM" value='1a'/><label class="radio_Type1_label" for="day1AM">星期一上午</label>
+                    <input type="checkbox" class="radio_Type1" id="day1PM" value='1p'/><label class="radio_Type1_label" for="day1PM">星期一下午</label>
+                    <input type="checkbox" class="radio_Type1" id="day2AM" value='2a'/><label class="radio_Type1_label" for="day2AM">星期二上午</label>
+                    <input type="checkbox" class="radio_Type1" id="day2PM" value='2p'/><label class="radio_Type1_label" for="day2PM">星期二下午</label>
+                    <input type="checkbox" class="radio_Type1" id="day3AM" value='3a'/><label class="radio_Type1_label" for="day3AM">星期三上午</label>
+                    <input type="checkbox" class="radio_Type1" id="day3PM" value='3p'/><label class="radio_Type1_label" for="day3PM">星期三下午</label>
+                    <input type="checkbox" class="radio_Type1" id="day4AM" value='4a'/><label class="radio_Type1_label" for="day4AM">星期四上午</label>
+                    <input type="checkbox" class="radio_Type1" id="day4PM" value='4p'/><label class="radio_Type1_label" for="day4PM">星期四下午</label>
+                    <input type="checkbox" class="radio_Type1" id="day5AM" value='5a'/><label class="radio_Type1_label" for="day5AM">星期五上午</label>
+                    <input type="checkbox" class="radio_Type1" id="day5PM" value='5p'/><label class="radio_Type1_label" for="day5PM">星期五下午</label>
+                    <input type="checkbox" class="radio_Type1" id="day6AM" value='6a'/><label class="radio_Type1_label" for="day6AM">星期六上午</label>
+                    <input type="checkbox" class="radio_Type1" id="day6PM" value='6p'/><label class="radio_Type1_label" for="day6PM">星期六下午</label>
+                    <input type="checkbox" class="radio_Type1" id="day7AM" value='7a'/><label class="radio_Type1_label" for="day7AM">星期日上午</label>
+                    <input type="checkbox" class="radio_Type1" id="day7PM" value='7p'/><label class="radio_Type1_label" for="day7PM">星期日下午</label>
                 </td>
             </tr>
             <tr>
