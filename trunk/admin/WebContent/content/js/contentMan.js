@@ -138,7 +138,12 @@ function initContentList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.contAuthor + "</span>";
+                       var contAuthorName = obj.aData.contAuthorName;
+                       if(undefined == contAuthorName || !contAuthorName){
+                           return "<span>未知</span>";
+                       }else {
+                           return "<span>" + obj.aData.contAuthorName + "</span>";
+                       }
                     }
                 },
                 {

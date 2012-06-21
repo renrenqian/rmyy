@@ -22,9 +22,10 @@ public class ContentInfo {
     private String contPublish_Time;
     private String contAudit_Result;
     private Integer contOrder;
-    private Integer gmId;//belong to group
+    private Integer gmId;// belong to group
     private String gmName;
-    private String contAuthor;
+    private Integer contAuthor;
+    private String contAuthorName;
     private String contDetail;
     private String contAttachment;
 
@@ -226,7 +227,7 @@ public class ContentInfo {
     /**
      * @return the contAuthor
      */
-    public final String getContAuthor() {
+    public final Integer getContAuthor() {
         return contAuthor;
     }
 
@@ -234,8 +235,22 @@ public class ContentInfo {
      * @param contAuthor
      *            the contAuthor to set
      */
-    public final void setContAuthor(String contAuthor) {
+    public final void setContAuthor(Integer contAuthor) {
         this.contAuthor = contAuthor;
+    }
+ 
+    /**
+     * @return the contAuthorName
+     */
+    public final String getContAuthorName() {
+        return contAuthorName;
+    }
+
+    /**
+     * @param contAuthorName the contAuthorName to set
+     */
+    public final void setContAuthorName(String contAuthorName) {
+        this.contAuthorName = contAuthorName;
     }
 
     /**
