@@ -6,7 +6,7 @@ $(document).ready(function() {
     $('#J_PerInfoSetOk').die().live("click", function() {
         if ($.fn.sdSubmitValidate("#form1")) {
             // validate passed : put your code here
-            var params = "user.uiName=" + $("#userName").val() + "&user.uiId=" + $("#userId").val() +
+            var params = "&user.uiAccount=" + $("#userAccount").val() + "&user.uiName=" + $("#userName").val() + "&user.uiId=" + $("#userId").val() +
                     "&user.uiOfficePhone=" + $("#officePhone").val() + "&user.uiMail=" + $("#mail").val();
 
             $.post("../system/updatePersonInfo.action", params, function(data) {
@@ -82,10 +82,12 @@ $(document).ready(function() {
 
 
 function searchUser() {
-    $.getJSON("../system/searchUserById.action", {"user.uiName":$.cookie("cookie_admin")}, function(data) {
+    $.getJSON("../system/searchUserById.action", {"user.uiAccount":$.cookie("cookie_uiAccount")}, function(data) {
         //绑定到页面
         if (data.resultCode && data.resultCode > 0) {
+        	$("#userId").val(data.user.uiId);
             $("#userName").val(data.user.uiName);
+            $("#userAccount").val(data.user.uiAccount);
             $("#uiPwd").val(data.user.uiPwd);
             $("#realPassword").val(data.user.uiPwd);
             $("#uiId_mod_pwd").val(data.user.uiId);

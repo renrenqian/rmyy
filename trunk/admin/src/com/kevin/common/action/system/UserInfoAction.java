@@ -56,7 +56,7 @@ public class UserInfoAction extends AbstractBaseAction {
     }
     public String login(){
         try {
-            userInfoService.login(user);
+            this.user = userInfoService.login(user);
             setResultCode(1);
         } catch (CommonServiceException e) {
             setResultCode(-1);

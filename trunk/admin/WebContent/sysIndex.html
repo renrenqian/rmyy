@@ -110,6 +110,7 @@
     $(document).ready(function() {
         $("#centerIFrame").attr("src", "welcome.html");
         $("#guest").text($.cookie("cookie_admin"));
+        $("#guest").attr("account", $.cookie("cookie_uiAccount"));
         showTime();
         $('#menuAccordion').accordion('select', '内容管理');
         var myMenu = $('.J_Menu');
