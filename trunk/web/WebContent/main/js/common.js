@@ -117,3 +117,26 @@ function setMyBread(){
 	}
 	$('.J_Bread').html(myBread);
 }
+
+
+
+//替换#$为%字符
+function fixP(str){
+	// add replace all function
+    var reg = new RegExp("%", "g"); // g means replace all
+    str=str.replace(reg, 'zq');
+    return str;
+}
+//替换%为#$字符
+function reP(str){
+	var reg =new RegExp("zq","g");
+	str=str.replace(reg,'%');
+	return str;
+}
+
+//修复textarea编辑文本的格式问题
+function fixTAFormat(str){
+	var reg = new RegExp("\n", "g"); // g means replace all
+	str=str.replace(reg,'</p><p>');  
+	return str;
+}
