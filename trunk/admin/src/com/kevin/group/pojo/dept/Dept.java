@@ -5,6 +5,7 @@
  */
 package com.kevin.group.pojo.dept;
 
+
 /**
  * @author kevin
  * @since jdk1.6
