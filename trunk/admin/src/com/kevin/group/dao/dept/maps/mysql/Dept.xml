@@ -93,7 +93,7 @@
     <insert id="insert" parameterClass="Dept">
        <![CDATA[
           INSERT INTO OFFICE_DETAIL(OD_ID,OD_NAME,OD_ORDER,OD_BELONG,OD_IN_CHARGE, OD_TYPE, OD_NOTE, OD_TELEPHONE,OD_EMAIL,OD_SITE,OD_LOCATION,OD_BED_COUNTER,OD_DESC,OD_ACADEMIC_POSITION,OD_TECH_ADV,OD_RESEARCH_DIRECTION) 
-                         VALUES(#dpId#, #dpName#, #dpOrder#, #dpBelong#, #dpIn_charge#, #dpType#, #dpNote#, #dpOd_telephone#, #dpEmail#, #dpSite#, #dpLocation#, #dpBed_counter#, #dpDesc,handler=com.ibatis.sqlmap.engine.type.ClobTypeHandlerCallback#, #dpAcademic_position,handler=com.ibatis.sqlmap.engine.type.ClobTypeHandlerCallback#, #dpTech_adv,handler=com.ibatis.sqlmap.engine.type.ClobTypeHandlerCallback#, #dpResearch_direction,handler=com.ibatis.sqlmap.engine.type.ClobTypeHandlerCallback#)
+                         VALUES(#dpId#, #dpName#, #dpOrder#, #dpBelong#, #dpIn_charge#, #dpType#, #dpNote#, #dpOd_telephone#, #dpEmail#, #dpSite#, #dpLocation#, #dpBed_counter#, #dpDesc#, #dpAcademic_position#, #dpTech_adv#, #dpResearch_direction#)
        ]]>
        <selectKey resultClass="int" keyProperty="dpId">
          <![CDATA[SELECT LAST_INSERT_ID();]]>
@@ -121,10 +121,10 @@
             OD_SITE = #dpSite#,
             OD_LOCATION = #dpLocation#,
             OD_BED_COUNTER = #dpBed_counter#,
-            OD_DESC = #dpDesc,handler=com.ibatis.sqlmap.engine.type.ClobTypeHandlerCallback#,
-            OD_ACADEMIC_POSITION = #dpAcademic_position,handler=com.ibatis.sqlmap.engine.type.ClobTypeHandlerCallback#,
-            OD_TECH_ADV = #dpTech_adv,handler=com.ibatis.sqlmap.engine.type.ClobTypeHandlerCallback#,
-            OD_RESEARCH_DIRECTION = #dpResearch_direction,handler=com.ibatis.sqlmap.engine.type.ClobTypeHandlerCallback#
+            OD_DESC = #dpDesc#,
+            OD_ACADEMIC_POSITION = #dpAcademic_position#,
+            OD_TECH_ADV = #dpTech_adv#,
+            OD_RESEARCH_DIRECTION = #dpResearch_direction#
          WHERE OD_ID = #dpId#
       ]]>
     </update>

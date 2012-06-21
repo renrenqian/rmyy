@@ -28,23 +28,24 @@ $(document).ready(function() {
                 //formUnSerialize("deptForm", "dept", json.dept);
                 var deptList = json.dept;
                 $(deptList).each(function(i, item) {                  
-                	$('#deptName').val(item.dpName);    
-                	$('#dpIn_charge').val(item.dpIn_charge);   
-                	$('#dpOd_telephone').val(item.dpOd_telephone);   
-                	$('#dpEmail').val(item.dpEmail);   
-                	$('#dpSite').val(item.dpSite);   
-                	$('#dpLocation').val(item.dpLocation);   
-                	$('#dpBed_counter').val(item.dpBed_counter);   
-                	$('#dpNote').val(item.dpNote);   
-                	$('#dpDesc').val(item.dpDesc);   
-                	$('#dpAcademic_position').val(item.dpAcademic_position);   
-                	$('#dpTech_adv').val(item.dpTech_adv);   
-                	$('#dpResearch_direction').val(item.dpResearch_direction);
-                	
-                	var dpTypeArray=item.dpType.split(',');
-                	for(var i=0;i<dpTypeArray.length;i++){
-                		$(".J_DeptType[value='"+dpTypeArray[i]+"']").attr("checked", true);
-                	}
+                    $('#dpId').val(item.dpId);    
+                    $('#deptName').val(item.dpName);    
+                    $('#dpIn_charge').val(item.dpIn_charge);   
+                    $('#dpOd_telephone').val(item.dpOd_telephone);   
+                    $('#dpEmail').val(item.dpEmail);   
+                    $('#dpSite').val(item.dpSite);   
+                    $('#dpLocation').val(item.dpLocation);   
+                    $('#dpBed_counter').val(item.dpBed_counter);   
+                    $('#dpNote').val(item.dpNote);   
+                    $('#dpDesc').val(item.dpDesc);   
+                    $('#dpAcademic_position').val(item.dpAcademic_position);   
+                    $('#dpTech_adv').val(item.dpTech_adv);   
+                    $('#dpResearch_direction').val(item.dpResearch_direction);
+                    
+                    var dpTypeArray=item.dpType.split(',');
+                    for(var i=0;i<dpTypeArray.length;i++){
+                        $(".J_DeptType[value='"+dpTypeArray[i]+"']").attr("checked", true);
+                    }
                 });     
             } else {
                 $.fn.sdInfo({
@@ -94,11 +95,12 @@ $(document).ready(function() {
             }
             // below is the same for add and edit
             var params = new StringBuffer();
+            params.append("dept.dpId=" + deptId).append("&");
             params.append("dept.dpName=" + $("#deptName").val()).append("&");
             params.append("dept.dpIn_charge=" + $("#dpIn_charge").val()).append("&");
             var dpTypeStr = [];
             $(".J_DeptType:checked").each(function(){
-            	dpTypeStr.push($(this).val());
+                dpTypeStr.push($(this).val());
             });
             params.append("dept.dpType=" + dpTypeStr).append("&");
             params.append("dept.dpNote=" + $("#dpNote").val()).append("&");
@@ -109,9 +111,20 @@ $(document).ready(function() {
             params.append("dept.dpLocation=" + $("#dpLocation").val()).append("&");
             params.append("dept.dpBed_counter=" + $("#dpBed_counter").val()).append("&");
             params.append("dept.dpBelong=" + $("#dpBelong").val()).append("&");
-            params.append("dept.dpDesc=" + $("#dpDesc").val()).append("&");
-            params.append("dept.dpAcademic_position=" + $("#dpAcademic_position").val()).append("&");
-            params.append("dept.dpTech_adv=" + $("#dpTech_adv").val()).append("&");
+
+            // add replace all function
+            var reg = new RegExp("%", "g"); // g means replace all
+            //dpTech_adv.replace(reg,"#$");
+            
+            params.append("dept.dpDesc=" + $("#dpDesc").val().replace(reg, '#$')).append("&");
+            params.append("dept.dpAcademic_position=" + $("#dpAcademic_position").val().replace(reg, '#$')).append("&");
+            params.append("dept.dpResearch_direction=" + $("#dpResearch_direction").val().replace(reg, '#$')).append("&");
+            params.append("dept.dpTech_adv=" + $("#dpTech_adv").val().replace(reg, '#$')).append("&"); 
+            
+            //params.append("dept.dpDesc=" + $("#dpDesc").val().replace('%', '#$')).append("&");
+            //params.append("dept.dpAcademic_position=" + $("#dpAcademic_position").val().replace('%', '#$')).append("&");
+            //params.append("dept.dpResearch_direction=" + $("#dpResearch_direction").val().replace('%', '#$')).append("&");
+            //params.append("dept.dpTech_adv=" + $("#dpTech_adv").val().replace('%', '###')).append("&");
             params = params.toString();
             $.post(url, params, function(json) {
             if (json.resultCode > 0) {

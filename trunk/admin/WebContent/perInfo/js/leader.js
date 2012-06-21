@@ -1,34 +1,34 @@
 var leaderDataTable;
 $(document).ready(function() {
     //查数据字典
-//	 $.ajax({
-//	        type: 'POST',
-//	        url: "../system/listAllDataDict.action",
-//	        async: false,
-//	        success:
+//     $.ajax({
+//            type: 'POST',
+//            url: "../system/listAllDataDict.action",
+//            async: false,
+//            success:
 //            function(json) {
 //                if (json.resultCode > 0) {
-//                	var dataDict = json.ddList;
-//                	//填充页面的下拉 J_pcTransType,J_pcState
-//                	var pcTransType=[]; g_pcTransType=[];
-//                	var pcState=[];g_pcState=[];
+//                    var dataDict = json.ddList;
+//                    //填充页面的下拉 J_pcTransType,J_pcState
+//                    var pcTransType=[]; g_pcTransType=[];
+//                    var pcState=[];g_pcState=[];
 //
-//                	if(dataDict){
-//                		for(var i=0;i<dataDict.length;i++){
-//                			if(dataDict[i].DICT_KIND=="pc_trans_type"){
-//                				g_pcTransType.push(dataDict[i]);
-//                				pcTransType.push("<option value='"+dataDict[i].DICT_KEY+"'>"+dataDict[i].DICT_DISVALUE+"</option>");
-//                			}
+//                    if(dataDict){
+//                        for(var i=0;i<dataDict.length;i++){
+//                            if(dataDict[i].DICT_KIND=="pc_trans_type"){
+//                                g_pcTransType.push(dataDict[i]);
+//                                pcTransType.push("<option value='"+dataDict[i].DICT_KEY+"'>"+dataDict[i].DICT_DISVALUE+"</option>");
+//                            }
 //                            if(dataDict[i].DICT_KIND=="pc_state"){
-//                            	g_pcState.push(dataDict[i]);
-//                            	pcState.push("<option value='"+dataDict[i].DICT_KEY+"'>"+dataDict[i].DICT_DISVALUE+"</option>");
-//                			}
-//                		}
-//                	}
-//                	$("#J_pcTransType").html(pcTransType.join(""));
-//                	$("#J_pcState").html(pcState.join(""));
+//                                g_pcState.push(dataDict[i]);
+//                                pcState.push("<option value='"+dataDict[i].DICT_KEY+"'>"+dataDict[i].DICT_DISVALUE+"</option>");
+//                            }
+//                        }
+//                    }
+//                    $("#J_pcTransType").html(pcTransType.join(""));
+//                    $("#J_pcState").html(pcState.join(""));
 //                } else {
-//                	 $.fn.sdInfo({ type:"fail",content:json.message ? json.message : "查询数据字典数据错误!" });
+//                     $.fn.sdInfo({ type:"fail",content:json.message ? json.message : "查询数据字典数据错误!" });
 //                }
 //     }});
     initLeaderList();//初始化列表
@@ -55,8 +55,20 @@ $(document).ready(function() {
         var id = $(this).parent().parent().children().eq(0).children().eq(0).val();
         $.getJSON('../member/searchLeader.action?t=' + new Date().getTime() + '&leader.liId=' + id, function(json) {
             if (json.resultCode > 0) {
-                formUnSerialize("leaderForm", "leader", json.leader);
-
+                //formUnSerialize("leaderForm", "leader", json.leader);
+                var leader = json.leader;
+                $(leader).each(function(i, item) { 
+                    $('#liId').val(item.liId); 
+                    $('#liName').val(item.liName);
+                    $('#ligmId').val(item.ligmId);
+                    $('#dpOd_telephone').val(item.dpOd_telephone);
+                    $('#liOrder').val(item.liOrder);
+                    $('#liQuarters').val(item.liQuarters);
+                    $('#liTech_position').val(item.liTech_position);
+                    $('#liRang').val(item.liRang);
+                    $('#liResume').val(item.liResume);
+                    $('#liDesc').val(item.liDesc);
+                });
             } else {
                 $.fn.sdInfo({
                     type:"fail",

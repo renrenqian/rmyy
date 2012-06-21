@@ -120,6 +120,10 @@ public class DeptInfoAction extends AbstractBaseAction {
 
     public String updateDept() {// update the dept info
         try {
+            dept.setDpAcademic_position(dept.getDpAcademic_position().replaceAll("#$", "%"));
+            dept.setDpDesc(dept.getDpDesc().replaceAll("#$", "%"));
+            dept.setDpResearch_direction(dept.getDpResearch_direction().replaceAll("#$", "%"));
+            dept.setDpTech_adv(dept.getDpTech_adv().replaceAll("#$", "%"));
             int result = deptService.update(dept);
             setResultCode(result);
         } catch (CommonServiceException e) {
