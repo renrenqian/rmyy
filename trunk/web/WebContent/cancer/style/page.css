@@ -65,3 +65,32 @@ body {
 .newsDate {
 	color: #f79927;
 }
+
+/* col */
+.col{
+	width:310px;
+	height:310px;
+	float:left;
+	border:1px solid #CCC;
+}
+.colTitle{
+	background:#f67807;
+	height:50px;	
+}
+.colTitle a{
+	color:#FFF;
+	font-size:20px;
+	line-height:50px;
+	vertical-align:middle;
+	display:block;
+	padding-left:10px;
+}
+.col .arrow{
+	width:36px;
+	height:38px;
+	display:block;
+	background: url("../images/arrow.png"); 
+	float:right;
+	margin-top:6px;
+	margin-right:6px;
+}

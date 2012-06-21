@@ -3,6 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="../style/easyui.css" rel="stylesheet" />
 <link href="../style/common.css" rel="stylesheet" />
+<link href="../plugins/calendar/calendar/calendar.css" rel="stylesheet"/>
 </head>
 <body>
 	<div class="mainSection">
@@ -10,10 +11,17 @@
 			<table class="form w mt10 mb10">
 				<tr>
 					<td class="rowName w1">内容标题</td>
-					<td><input id="contTital" type="text" class="input_type1"
+					<td><input id="contTitle" type="text" class="input_type1"
 						rule="required" /> <input id="contId" type="hidden" /></td>
 					<td class="rowName">关键词</td>
 					<td><input id="contKey" type="text" class="input_type1" /></td>
+				</tr>
+				<tr>
+					<td class="rowName w1">作者或来源</td>
+					<td><input id="contAuthor" type="text" class="input_type1"
+						rule="required" /></td>
+					<td class="rowName">发布日期</td>
+					<td><input id="contPubTime" type="text" class="input_type_date" /></td>
 				</tr>
 				<tr>
 					<td class="rowName">所属一级栏目</td>
@@ -88,12 +96,13 @@
 	<script src="../plugins/form/jquery.sdForm.js"></script>
 	<script src="../plugins/ckeditor/ckeditor.js"></script>
 	<script src="../plugins/ckeditor/adapters/jquery.js"></script>
+	<script src="../plugins/calendar/seed-min.js"></script>
 	<script src="js/addContent.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			/* 内容编辑器 */
 			$('#contDetail').ckeditor();
-		});
+		});				
 	</script>
 </body>
 </html>

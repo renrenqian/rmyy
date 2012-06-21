@@ -5,7 +5,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="../style/easyui.css" rel="stylesheet"/>
     <link href="../style/common.css" rel="stylesheet"/>
-   <link href="../plugins/calendar/calendar/calendar.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="mainSection">
@@ -62,8 +61,8 @@
                         <option value="0">历任领导</option>
                     </select>
                 </td>
-                <td class="rowName">任职时间</td>
-                <td><input id="liHold_start" type="text"  class='input_type_date ml10' readonly='readonly'  name="ac.acStartTime"/></td>
+                <td class="rowName">任职时间段</td>
+                <td><input id="liHold_start" type="text"  class='input_type1 ml10'  name="ac.acStartTime" value='eg:1921-1988'/></td>
             </tr>
             <tr>
                 <td class="rowName">岗位</td>
@@ -117,7 +116,6 @@
 <script src="../js/jquery.dataTables.js"></script>
 <script src="../js/common.js"></script>
 <script src="../plugins/form/jquery.sdForm.js"></script>
-<script src="../plugins/calendar/seed-min.js" type="text/javascript"></script>
 <script src="js/leader.js" type="text/javascript"></script>
 </body>
 </html>

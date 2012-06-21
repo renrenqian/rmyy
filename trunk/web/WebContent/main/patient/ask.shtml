@@ -94,7 +94,7 @@
     </div>
             </div>
         </div>
-        <!--#include file="/Hospital/Master/patientSubTitle.html"-->
+        <!--#include virtual="../master/patientSubTitle.html"-->
     </div>
 </div>
 <!--#include virtual="../master/footer.html"-->

@@ -51,10 +51,10 @@ jQuery.cookie = function(name, value, options) {
 $(document).ready(function () {
     //just for demo
     $('.newsTitle').not('.consultList').attr('href', '/web/main/news/newsDetail.shtml').attr('target', '_blank');
-    $('.consultList li a').attr('href', '/Hospital/Patient/Result.shtml').attr('target', '_blank');
+    $('.consultList li a').attr('href', '/web/main/patient/result.shtml').attr('target', '_blank');
     $('.Schedule').find('.paTr:odd').addClass('SchTrPaOdd');
     $('.Schedule').find('.paTr:even').addClass('SchTrPaEven');
-    $('.docIntro a').attr('href', '/Hospital/Doctor/DocPer.shtml'); 
+    $('.docIntro a').attr('href', '/web/main/doctor/docPer.shtml'); 
 });
 
 

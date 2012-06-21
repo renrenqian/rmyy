@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	 $('#contentForm').sdValidate();//添加验证规则		
     /* 编辑、新增 确认按钮 */
     $('#J_ContentOk').die().live("click", function() {
         if ($(this).sdSubmitValidate("#contentForm")) {
@@ -8,7 +9,7 @@ $(document).ready(function() {
                 action = "新增";
                 url = "../group/addContent.action";
                 var params = new StringBuffer();
-                params.append("contInfo.contTital=" + $("#contTital").val()).append("&");
+                params.append("contInfo.contTitle=" + $("#contTitle").val()).append("&");
                 params.append("contInfo.contHome_Page=" + $("#contHome_Page :selected").val()).append("&");
                 params.append("contInfo.colId=" + $("#colId").val()).append("&");
                 params.append("contInfo.contShow_Days=" + $("#contShow_Days :selected").val()).append("&");
@@ -24,8 +25,9 @@ $(document).ready(function() {
                 params = params.toString();
                 $.post(url, params, function(json) {
                     if (json.resultCode > 0) {
-                        initContentList();
-                        $('#J_ContentDiv').window("close");
+                        //initContentList();
+                       // $('#J_ContentDiv').window("close");
+                        $(window.parent.document).find("#centerIFrame").attr("src", "content/contentMan.html");
                     } else {
                         $.fn.sdInfo({
                             type:"fail",
@@ -33,13 +35,12 @@ $(document).ready(function() {
                         });
                     }
                 });
-
             } else {
                 action = "编辑";
                 url = "../group/updateContent.action";
                 var params = new StringBuffer();
                 params.append("contInfo.contId=" + contInfoId).append("&");
-                params.append("contInfo.contTital=" + $("#contTitle").val()).append("&");
+                params.append("contInfo.contTitle=" + $("#contTitle").val()).append("&");
                 params.append("contInfo.contHome_Page=" + $("#contHome_Page").val()).append("&");
                 params.append("contInfo.colId=" + $("#colId").val()).append("&");
                 params.append("contInfo.contShow_Days=" + $("#contShow_Days").val()).append("&");
@@ -55,8 +56,9 @@ $(document).ready(function() {
                 params = params.toString();
                 $.post(url, params, function(json) {
                     if (json.resultCode > 0) {
-                        initContentList();
-                        $('#J_ContentDiv').window("close");
+                        //initContentList();
+                        //$('#J_ContentDiv').window("close");
+                        $(window.parent.document).find("#centerIFrame").attr("src", "content/contentMan.html");
                     } else {
                         $.fn.sdInfo({
                             type:"fail",
@@ -66,8 +68,7 @@ $(document).ready(function() {
                 });
             }
             // var params = $("#contentForm").serialize();
-        }
-        $(window.parent.document).find("#centerIFrame").attr("src", "content/contentMan.html");
+        }       
     });
 
     /* 编辑、新增 取消按钮 */
@@ -75,3 +76,22 @@ $(document).ready(function() {
         $(window.parent.document).find("#centerIFrame").attr("src", "content/contentMan.html");
     });
 });
+
+
+//日期控件
+(function(S) {
+    KISSY.use('calendar', function(S) {
+        //创建日期
+        var cPubTime = new S.Calendar('#contPubTime', {
+            popup:true,
+           // closable:false,
+            showTime:true
+        }).on('timeSelect', function(e) {
+            var dateFormat = new DateFormat();
+            $('#contPubTime').val(dateFormat.isoDateTime(e.date));
+            dateFormat = null;
+            cPubTime.hide();
+        });
+        cPubTime.render({minDate:new Date()});
+    });
+})(KISSY);

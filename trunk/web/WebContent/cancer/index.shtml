@@ -38,7 +38,7 @@
 					class="newsDate">05-25 </span></li>
 				<li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
 					href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
-					class="newsDate">05-25 </span></li>				
+					class="newsDate">05-25 </span></li>
 				<li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
 					href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
 					class="newsDate">05-25 </span></li>
@@ -46,6 +46,17 @@
 					href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
 					class="newsDate">05-25 </span></li>
 			</ul>
+		</div>
+	</div>
+	<div style='overflow: hidden;' class='mt5'>
+		<div class='col'>
+			<div class='colTitle'>
+				<a href='#'> 患者服务<span class='arrow'></span>
+				</a>
+			</div>
+			<img src='images/colPic1.jpg' class='fr mt5 mr5'/>
+			<h2>专家团队</h2>
+			<p>专家团队栏目的介绍文字，专家团队栏目的介绍文字</p>
 		</div>
 	</div>
 	<!--#include virtual="master/footer.html"-->
