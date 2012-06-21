@@ -755,3 +755,17 @@ if ($.messager) {
     $.messager.defaults.ok = '确定';
     $.messager.defaults.cancel = '取消';
 }
+
+
+function coverP(str){
+	var reg = new RegExp("%", "g"); // g means replace all            
+	str.replace(reg, 'xyz');  
+	return str;
+}
+
+
+function fixP(str){
+  var reg = new RegExp("xyz", "g"); // g means replace all            
+  str.replace(reg, '%');   
+  return str;
+}

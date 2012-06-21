@@ -27,6 +27,7 @@ $(document).ready(function() {
             if (json.resultCode > 0) {
                 //formUnSerialize("deptForm", "dept", json.dept);
                 var deptList = json.dept;
+                                              
                 $(deptList).each(function(i, item) {                  
                     $('#dpId').val(item.dpId);    
                     $('#deptName').val(item.dpName);    
@@ -37,10 +38,13 @@ $(document).ready(function() {
                     $('#dpLocation').val(item.dpLocation);   
                     $('#dpBed_counter').val(item.dpBed_counter);   
                     $('#dpNote').val(item.dpNote);   
-                    $('#dpDesc').val(item.dpDesc);   
-                    $('#dpAcademic_position').val(item.dpAcademic_position);   
-                    $('#dpTech_adv').val(item.dpTech_adv);   
-                    $('#dpResearch_direction').val(item.dpResearch_direction);
+                                       
+//                    var reg = new RegExp("xyz", "g"); // g means replace all            
+//                    $('#dpDesc').val(item.dpDesc.replace(reg, '%'));         
+                    $('#dpDesc').val(fixP(item.dpDesc)); 
+                    $('#dpAcademic_position').val(fixP(item.dpAcademic_position));   
+                    $('#dpTech_adv').val(fixP(item.dpTech_adv));   
+                    $('#dpResearch_direction').val(fixP(item.dpResearch_direction));
                     
                     var dpTypeArray=item.dpType.split(',');
                     for(var i=0;i<dpTypeArray.length;i++){
@@ -112,14 +116,14 @@ $(document).ready(function() {
             params.append("dept.dpBed_counter=" + $("#dpBed_counter").val()).append("&");
             params.append("dept.dpBelong=" + $("#dpBelong").val()).append("&");
 
-            // add replace all function
-            var reg = new RegExp("%", "g"); // g means replace all
-            //dpTech_adv.replace(reg,"#$");
+//            // add replace all function
+//            var reg = new RegExp("%", "g"); // g means replace all
+//            //dpTech_adv.replace(reg,"#$");
             
-            params.append("dept.dpDesc=" + $("#dpDesc").val().replace(reg, '#$')).append("&");
-            params.append("dept.dpAcademic_position=" + $("#dpAcademic_position").val().replace(reg, '#$')).append("&");
-            params.append("dept.dpResearch_direction=" + $("#dpResearch_direction").val().replace(reg, '#$')).append("&");
-            params.append("dept.dpTech_adv=" + $("#dpTech_adv").val().replace(reg, '#$')).append("&"); 
+            params.append("dept.dpDesc=" + coverP($("#dpDesc").val())).append("&");
+            params.append("dept.dpAcademic_position=" + coverP($("#dpAcademic_position").val())).append("&");
+            params.append("dept.dpResearch_direction=" + coverP($("#dpResearch_direction").val())).append("&");
+            params.append("dept.dpTech_adv=" + coverP($("#dpTech_adv").val())).append("&"); 
             
             //params.append("dept.dpDesc=" + $("#dpDesc").val().replace('%', '#$')).append("&");
             //params.append("dept.dpAcademic_position=" + $("#dpAcademic_position").val().replace('%', '#$')).append("&");

@@ -1,81 +1,75 @@
 ﻿<!DOCTYPE html>
 <head>
-    <!--#include virtual="../master/headFile.html"-->
+<!--#include virtual="../master/headFile.html"-->
 </head>
 <body>
-<!--#include virtual="../master/top.html"-->
-<div class="content contentPart" style="margin-top: 3px; *margin-top: 3px;">
-    <div style="display: block; overflow: hidden;">
-        <div class="leftCol2">
-            <div class="mainPart">
-                <div class="itemBg">
-                    <div class="titleBg2">
-                         <p class="bread J_Bread"></p>
-                    </div>
-                    <h2 class="titleType3">临床科室 . 产科</h2>
+	<!--#include virtual="../master/top.html"-->
+	<div class="content contentPart"
+		style="margin-top: 3px; *margin-top: 3px;">
+		<div style="display: block; overflow: hidden;">
+			<div class="leftCol2">
+				<div class="mainPart">
+					<div class="itemBg">
+						<div class="titleBg2">
+							<p class="bread J_Bread"></p>
+						</div>
+						<h2 class="titleType3">
+							临床科室 .<span class="J_DpName"></span>
+						</h2>
 
-                    <div style="clear: both;"></div>
-                    <div class="newsBody">
-                        <h3>基本信息</h3>
+						<div style="clear: both;"></div>
+						<div class="newsBody">
+							<h3>基本信息</h3>
 
-                        <p><span class="mr50">科室名称：产科</span><span class="mr50">负责人：王志华</span><span
-                                class="mr50">床位数量：81张</span> <span>物理位置：一号楼5-7楼</span></p>
+							<p>
+								<span class="mr50">科室名称：<span class="J_DpName"></span></span> <span
+									class="mr50">负责人：<span id="J_DpIn_charge"></span></span> <span
+									class="mr50">床位数量：<span id="J_DpBed_counter"></span>张
+								</span> <span>物理位置：<span id="J_DpLocation"></span></span>
+							</p>
 
-                        <p>联系方式：87065701-10658</p>
+							<p>
+								联系方式：<span id="J_DpOd_telephone"></span>
+							</p>
 
-                        <p>电子邮箱：wangzhihua16@yahoo.com.cn</p>
+							<p>
+								电子邮箱：<span id="J_DpEmail"></span>
+							</p>
 
-                        <h3>科室简介</h3>
+							<h3>科室简介</h3>
 
-                        <p>
-                            科室现有医护人员72人，其中主任医师5人，副主任医师6人，硕士研究生导师1人，床位81张，年门诊7万余人次，年分娩量5000余人，是集医疗、教学、科研、护理为一体，提供系统产前保健、高危妊娠监测、优生优育咨询、温馨产房、母婴同室、母乳喂养咨询等项服务。拥有一支以产科专家为核心的精干的医疗队伍，追求安全高效的医疗和踏实、严谨、务实的工作作风。本科擅长于各种产科合并症及并发症的诊断和处理，尤其在危重孕产妇抢救、疑难病症诊治具有丰富的临床经验，危重孕产妇抢救成功率98%以上。20多年来在杭州地区产科质量的历次检查中始终名列前茅，多次被评为院、局先进集体，是杭州市青年文明示范岗和三八集体先进。
-                        </p>
+							<p>
+								<span id="J_DpDesc"></span>
+							</p>
 
-                        <p>
-                            承担多项省部级课题，多次举办省级继续医学教育学习班及疑难重症讨论会议。承担南京医科大学七年制硕士班、五年制本科班教学及临床实践任务，为浙江大学医学院等多所高等医学院校的临床实践教学基地和住院医师培训基地。
-                        </p>
+							<h3>学术地位</h3>
+							<p>
+								<span id="J_DpAcademic_position"></span>
+							</p>
 
-                        <p>优生优育、孕产妇保健、产前筛查、产前咨询、产前诊断以及妊娠期异常情况的诊治。</p>
+							<h3>技术优势</h3>
+							<p>
+								<span id="J_DpTech_adv"></span>
+							</p>
 
-                        <h3>学术地位</h3>
-
-                        <p>
-                            我院产科是杭州市产科质控挂靠单位，杭州地区危重孕产妇的抢救中心和会诊中心.杭州地区助产技术服务人员培训基地。依托本院强有力的综合抢救能力及产科的综合实力，承担着杭州地区乃至省内外高危孕产妇的抢救治疗工作。1993年被世界卫生组织指定为爱婴医院。
-                        </p>
-
-                        <h3>技术优势</h3>
-
-                        <p>
-                            1、妊娠合并症及并发症的诊治：我科是杭州市产科质控挂靠单位，杭州地区危重孕产妇的抢救中心和会诊中心，承担着杭州地区乃至省内外高危孕产妇的抢救治疗工作。病理产科人数占产科的20%以上，依托我院强有力的综合抢救能力及产科的综合实力，诊治各类妊娠合并症及并发症，包括：诊治妊娠合并各类心血管疾病、血液系统疾病及重症急性胰腺炎、糖尿病、甲状腺功能异常、肾病综合症及多脏器功能衰竭等疾病，诊治妊娠并发HELLP
-                            综合征、急性脂肪肝、羊水栓塞、DIC等疾病，危重孕产妇抢救成功率98%以上。与新生儿监护室密切合作，为早产等高危新生儿监护提供了便利条件。 </p>
-
-                        <p>
-                            2、产前诊断中心：胎儿医学为一新兴的学科，我科产前诊断中心着重于胎儿疾病的诊断与治疗，自妊娠开始对胎儿情况进行监测，进行胎儿先天异常的筛查，遗传性疾病的产前诊断，并可对一些胎儿异常进行宫内治疗，其中脐带血穿刺及羊膜腔穿刺进行宫内诊断和治疗
-                            。 </p>
-
-                        <p>
-                            3、温馨产房：我科与英国爱丁堡大学及杭州师范学院共同合作开设温馨产房。在温馨产房中，实行助产士和家人“二对一”陪伴分娩；对产妇采用姿势待产和非药物分娩减痛方法，分娩期提供生理、专业、情感等支持性护理，使产妇缩短分娩时间，减轻分娩疼痛，降低难产率，深受国内外孕产妇的欢迎。
-                        </p>
-
-                        <h3>研究方向</h3>
-
-                        <p>1、妊娠合并症及并发症的诊治，尤其妊娠并发HELLP 综合征、急性脂肪肝；妊娠合并重症急性胰腺炎、甲状腺功能异常及多脏器功能衰竭等疾病的诊治、研究。 </p>
-
-                        <p>2、胎儿医学：对一些异常胎儿进行宫内诊断和治疗。</p>
-
-                    </div>
-                    <a class="greenBtn tc fl" style="margin: 20px;" href="../doctor/mzpb.shtml" target="_blank">
-                        科室专家一览</a> <a class="greenBtn tc fl" style="margin: 20px;" href="#" target="_blank">
-                    科室主页</a>
-                </div>
-            </div>
-        </div>
-        <!--#include virtual="../master/deptSubTitle.html"-->
-    </div>
-</div>
-<!--#include virtual="../master/footer.html"-->
-<script src="/web/main/js/common.js"></script>
-<script src="js/deptDetail.js"></script>
+							<h3>研究方向</h3>
+							<p>
+								<span id="J_DpResearch_direction"></span>
+							</p>
+						</div>
+						<a class="greenBtn tc fl" style="margin: 20px;"
+							href="../doctor/mzpb.shtml" target="_blank"> 科室专家一览</a> <a
+							class="greenBtn tc fl" style="margin: 20px;" href="#"
+							target="_blank"> 科室主页</a>
+					</div>
+				</div>
+			</div>
+			<!--#include virtual="../master/deptSubTitle.html"-->
+		</div>
+	</div>
+	<!--#include virtual="../master/footer.html"-->
+	<script src="/web/main/js/common.js"></script>
+	<script src="js/deptDetail.js"></script>
 </body>
 </html>
 
