@@ -567,3 +567,16 @@ body {
 .PeriodList li img {
 	margin: 0; padding: 0;
 }
+
+/* 志愿者之家 */
+.J_ZYZZJ{
+	width:100px;
+	height:157px;
+	background: url("/web/main/images/zyzzj.gif") no-repeat;
+	position:fixed;
+	bottom:-187px;
+	right:10px;
+	cursor:pointer;
+	display:block;
+	overflow:hidden;
+}

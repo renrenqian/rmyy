@@ -163,6 +163,7 @@
             captionOpacity: 0.8,
             pauseTime: 8000
         });
+        $(".J_ZYZZJ").animate({bottom:"30px"},750);       
     });
 </script>
 <script src="/web/main/js/common.js"></script>
