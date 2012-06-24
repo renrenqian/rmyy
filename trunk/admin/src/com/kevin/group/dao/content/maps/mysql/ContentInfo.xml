@@ -20,11 +20,13 @@
           CD_ORDER as contOrder,
           gm.GM_NAME as gmName,
           CD_AUTHOR as contAuthor,
+          ui.ui_name as contAuthorName,
           CD_DETAIL as contDetail,
           CD_ATTACHMENT as contAttachment
        from CONTENT_DETAIL  cd 
        left join COLUMN_INFO ci on ci.CI_ID = cd.CI_ID
        left join GROUP_MEMBER gm on gm.GM_ID = cd.GM_ID
+       left join USER_INFO ui on ui.UI_ID = cd.CD_AUTHOR
      ]]>
      <!-- 
      <![CDATA[LIMIT #start#,#pageSize#]]>
@@ -47,11 +49,13 @@
           CD_ORDER as contOrder,
           gm.GM_NAME as gmName,
           CD_AUTHOR as contAuthor,
+          ui.ui_name as contAuthorName,
           CD_DETAIL as contDetail,
           CD_ATTACHMENT as contAttachment
        from CONTENT_DETAIL  cd 
        left join COLUMN_INFO ci on ci.CI_ID = cd.CI_ID
        left join GROUP_MEMBER gm on gm.GM_ID = cd.GM_ID
+       left join USER_INFO ui on ui.UI_ID = cd.CD_AUTHOR
        WHERE CD_ID = #contId#
      ]]>
     </select>
@@ -72,11 +76,13 @@
           CD_ORDER as contOrder,
           gm.GM_NAME as gmName,
           CD_AUTHOR as contAuthor,
+          ui.ui_name as contAuthorName,
           CD_DETAIL as contDetail,
           CD_ATTACHMENT as contAttachment
        from CONTENT_DETAIL  cd 
        left join COLUMN_INFO ci on ci.CI_ID = cd.CI_ID
        left join GROUP_MEMBER gm on gm.GM_ID = cd.GM_ID
+       left join USER_INFO ui on ui.UI_ID = cd.CD_AUTHOR
      ]]>
      <!-- 
      <![CDATA[LIMIT #start#,#pageSize#]]>
@@ -114,7 +120,6 @@
           CD_AUDIT_RESULT = #contAudit_Result#,
           CD_ORDER = #contOrder#,
           GM_ID = #gmId#,
-          CD_AUTHOR = #contAuthor#,
           CD_DETAIL = #contDetail#,
           CD_ATTACHMENT = #contAttachment#
          WHERE CD_ID = #contId#

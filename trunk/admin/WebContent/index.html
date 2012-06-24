@@ -32,7 +32,7 @@
             <table>
                 <tr>
                     <td class="rowName">账号</td>
-                    <td><input type="text" class="type1" id="userName" name="user.uiName" rule="required"/></td>
+                    <td><input type="text" class="type1" id="userName" name="user.uiAccount" rule="required"/></td>
                 </tr>
                 <tr>
                     <td class="rowName">密码</td>
@@ -74,13 +74,13 @@
             $('#userType').val(userType);
         }
         if (userName) {
-            $('#userName').val(userName);
+            $('#uiAccount').val(userName);
         }
     });
 </script>
 <script type="text/javascript">
     function redirect() {
-        $.cookie("cookie_admin", $("#userName").val());
+        //$.cookie("cookie_admin", $("#uiAccount").val());
         window.location.href = "sysIndex.html";
     }
     $(document).ready(function() {
@@ -104,6 +104,8 @@
                 },
                 success:function(data) {
                     if (data.resultCode > 0) {
+                        $.cookie("cookie_admin", data.user.uiName);
+                        $.cookie("cookie_uiAccount", data.user.uiAccount);
                         redirect();
                     } else {
                         alert("用户名或密码错误");

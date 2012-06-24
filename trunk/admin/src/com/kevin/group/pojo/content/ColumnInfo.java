@@ -20,6 +20,7 @@ public class ColumnInfo {
     private String ciDesc;
     private String ciAdd_time;
     private Integer ciAdder;
+    private ColumnInfo colList;
 
     /**
      * @return the ciId
@@ -169,6 +170,21 @@ public class ColumnInfo {
      */
     public final void setCiAdder(Integer ciAdder) {
         this.ciAdder = ciAdder;
+    }
+
+    /**
+     * @return the colList
+     */
+    public final ColumnInfo getColList() {
+        return colList;
+    }
+
+    /**
+     * @param colList
+     *            the colList to set
+     */
+    public final void setColList(ColumnInfo colList) {
+        this.colList = colList;
     }
 
 }
