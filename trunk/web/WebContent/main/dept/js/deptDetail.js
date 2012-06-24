@@ -1,33 +1,21 @@
 $(document).ready(function(){
-	 $.getJSON('http://124.160.67.194:8520/admin/group/searchDept.action?t=1340243950475&dept.dpId=1025&_=1340243950478', function(json) {
+	 $.getJSON('http://124.160.67.194:8520/admin/group/searchDept.action?dept.dpId=1032', function(json) {		 		 	
          if (json.resultCode > 0) {            
-//             var deptList = json.dept;
-//             $(deptList).each(function(i, item) {                  
-//             	$('#deptName').val(item.dpName);    
-//             	$('#dpIn_charge').val(item.dpIn_charge);   
-//             	$('#dpOd_telephone').val(item.dpOd_telephone);   
-//             	$('#dpEmail').val(item.dpEmail);   
-//             	$('#dpSite').val(item.dpSite);   
-//             	$('#dpLocation').val(item.dpLocation);   
-//             	$('#dpBed_counter').val(item.dpBed_counter);   
-//             	$('#dpNote').val(item.dpNote);   
-//             	$('#dpDesc').val(item.dpDesc);   
-//             	$('#dpAcademic_position').val(item.dpAcademic_position);   
-//             	$('#dpTech_adv').val(item.dpTech_adv);   
-//             	$('#dpResearch_direction').val(item.dpResearch_direction);
-//             	
-//             	var dpTypeArray=item.dpType.split(',');
-//             	for(var i=0;i<dpTypeArray.length;i++){
-//             		$(".J_DeptType[value='"+dpTypeArray[i]+"']").attr("checked", true);
-//             	}
-//             });     
-        	 console.log('1');
-         } else {
-//             $.fn.sdInfo({
-//                 type:"fail",
-//                 content:json.message ? json.message : "查询科室信息错误!"
-//             });
-        	 console.log('0');
+             var deptDetail = json.dept;
+             $(deptDetail).each(function(i, item) {                  
+             	$('.J_DpName').html(item.dpName);   
+             	$('#J_DpIn_charge').html(item.dpIn_charge); 
+             	$('#J_DpBed_counter').html(item.dpBed_counter); 
+             	$('#J_DpLocation').html(item.dpLocation); 
+             	$('#J_DpOd_telephone').html(item.dpOd_telephone); 
+             	$('#J_DpEmail').html(item.dpEmail); 
+             	
+             
+             	$('#J_DpDesc').html("<p>"+fixTAFormat(fixP(item.dpDesc))+"</p>");  
+             	$('#J_DpAcademic_position').html("<p>"+fixTAFormat(fixP(item.dpAcademic_position))+"</p>");   
+             	$('#J_DpTech_adv').html("<p>"+fixTAFormat(fixP(item.dpTech_adv))+"</p>");   
+             	$('#J_DpResearch_direction').html("<p>"+fixTAFormat(fixP(item.dpResearch_direction))+"</p>");                	           	         
+             });     
          }
 	 });
 });

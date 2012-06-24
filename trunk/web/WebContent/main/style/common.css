@@ -56,11 +56,11 @@ body {
 }
 
 .logoPart {
-	height: 98px; background: url("/web/main/images/top.jpg");
+	height: 98px; background: url("/web/main/images/top.png");
 }
 
 .nav .menuLi {
-	height: 37px; display: block; background: url("/web/main/images/navBg.jpg") no-repeat; float: left;
+	height: 37px; display: block; background: url("/web/main/images/navBg.png") no-repeat; float: left;
 }
 
 .nav .drop {
@@ -566,4 +566,17 @@ body {
 
 .PeriodList li img {
 	margin: 0; padding: 0;
+}
+
+/* 志愿者之家 */
+.J_ZYZZJ{
+	width:100px;
+	height:157px;
+	background: url("/web/main/images/zyzzj.gif") no-repeat;
+	position:fixed;
+	bottom:-187px;
+	right:10px;
+	cursor:pointer;
+	display:block;
+	overflow:hidden;
 }

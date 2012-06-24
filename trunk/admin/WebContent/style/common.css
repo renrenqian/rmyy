@@ -290,9 +290,9 @@ tr td.sel{font-weight:bolder; color:#F60;}
 .selectType1 option, .selectType2 option { height:30px; line-height:30px; }
 .selectType2 { width:133px; }
 .selectType3 { width:100px; }
-.textArea_type1, .textArea_type2, .textArea_type3 {  color:#005AB5; font-family: "微软雅黑", serif; height: 100px; width: 270px; margin-top:6px; margin-left:10px; font-size: 12px; font-weight: bold; line-height: 20px; padding:5px; }
+.textArea_type1, .textArea_type2, .textArea_type3 {color:#005AB5; font-family: "微软雅黑", serif; height: 100px; width: 270px; margin-top:6px; margin-left:10px; font-size: 12px; font-weight: bold; line-height: 20px; padding:5px; }
 .textArea_type2 { width: 588px; height: 60px; }
-.textArea_type3 { height: 100px; width: 90%; }
+.textArea_type3 { height: 150px; width: 90%; }
 /* validate */
  .error { padding-left: 16px; background: url(../plugins/form/images/unchecked.gif) no-repeat 0 0; color: #F30; font-weight: bold; margin-left: 10px; margin-top: 5px; font-size: 11px; }
 .phoneErr,.mailErr,.minErr,.maxErr,.pwdErr,.sameErr,.numErr,.IPErr,.smallErr,.bigErr{ padding-left:20px; background: url(../plugins/form/images/unchecked.gif) no-repeat 0 0; color: #F30; font-weight: bold; margin-left: 10px; margin-top: 12px; font-size: 11px; vertical-align:top; display:inline-block;  }
