@@ -140,3 +140,11 @@ function fixTAFormat(str){
 	str=str.replace(reg,'</p><p>');  
 	return str;
 }
+
+
+$(document).ready(function(){
+	var docBodyHeight=$('.rightCol2').css('height').replace('px','')-120;
+	$('.docBody').css('minHeight',docBodyHeight+'px');
+	var newsBodyHeight=$('.rightCol2').css('height').replace('px','')-120;
+	$('.newsBody').css('minHeight',newsBodyHeight+'px');
+});
