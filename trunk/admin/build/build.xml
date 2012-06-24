@@ -79,7 +79,7 @@
     <!--编译源码-->
     <target name="compile" depends="prepare">
         <echo message="-------------------------------------------------------"/>  
-        <echo message="  compile start - Generate the war pages"/>  
+        <echo message="  compile start - Compile the source code "/>  
         <echo message="-------------------------------------------------------"/>
         <javac srcdir="${src}" source="1.6" includeantruntime="on" destdir="${web.dest.dir}" debug="true" encoding="UTF-8" failonerror="false">
             <classpath>
@@ -90,7 +90,7 @@
         </javac>
         <delete file="${web.lib}/servlet-api.jar" />
         <echo message="-------------------------------------------------------"/>  
-        <echo message="  compile success - Generate the war pages"/>  
+        <echo message="  compile success - Compile the source code "/>  
         <echo message="-------------------------------------------------------"/>
     </target>
 

@@ -31,6 +31,7 @@ public class ColumnInfoServiceImpl extends AbstractBaseService<ColumnInfo>
      */
     @Autowired
     public final void setContInfoDAO(IColumnInfoDAO contInfoDAO) {
+        setAbsBaseDao(contInfoDAO);
         this.contInfoDAO = contInfoDAO;
     }
 
