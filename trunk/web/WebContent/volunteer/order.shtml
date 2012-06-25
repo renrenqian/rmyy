@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+<!--#include virtual="master/headFile.html"-->
+</head>
+<body>
+	<!--#include virtual="master/top.html"-->
+	<div class="content">
+		<h1 class="pTitle">医院多元挂号系统介绍</h1>
+		<p class='mt30 bold'>1、预约挂号</p>
+		<p>我院已加入浙江省预约挂号统一平台，预约时即可明确患者的就诊序号，真正实现分时预约挂号。</p>
+		<ul class='introList'>
+			<li>网上预约：“浙江在线”网站首页，点击“挂号”。</li>
+			<li>电信用户拨打114预约。</li>
+			<li>移动用户拨打12580预约。</li>
+			<li>96365电话和网上预约。</li>
+			<li>通过社区卫生服务中心预约。</li>
+		</ul>
+	</div>
+	<!--#include virtual="master/footer.html"-->
+</body>
+</html>

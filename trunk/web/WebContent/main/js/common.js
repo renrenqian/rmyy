@@ -143,8 +143,9 @@ function fixTAFormat(str){
 
 
 $(document).ready(function(){
-	var docBodyHeight=$('.rightCol2').css('height').replace('px','')-120;
-	$('.docBody').css('minHeight',docBodyHeight+'px');
-	var newsBodyHeight=$('.rightCol2').css('height').replace('px','')-120;
-	$('.newsBody').css('minHeight',newsBodyHeight+'px');
+	if($('.rightCol2').css('height')){
+		var bodyHeight=$('.rightCol2').css('height').replace('px','')-120;
+		$('.docBody').css('minHeight',bodyHeight+'px');
+		$('.newsBody').css('minHeight',bodyHeight+'px');
+	}	
 });

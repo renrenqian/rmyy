@@ -3,8 +3,18 @@
     margin: 0 auto;
     position: relative;
 }
+.btn{
+	height:30px;	
+	display:block;
+	margin-right:20px;
+	font-size:16px;
+	text-decoration:underline;
+	cursor:pointer;
+	color:#A42A29;	
+	padding:10px;
+}
 .top{
-    background:url("/web/volunteer/images/top.jpg");
+    background:url("/web/volunteer/images/top.gif");
     width:960px;
     height:130px;
     margin:0 auto;
@@ -15,6 +25,13 @@
     position: absolute;
     top:0;
     left: 0;
+}
+#IndexLink{
+	height: 120px;
+    width: 400px;
+    position: absolute;
+    top:0;
+    left:350px ;
 }
 .banner{
     background:url("/web/volunteer/images/banner.jpg");
@@ -27,6 +44,7 @@
     display:block;
     overflow:hidden;
     margin:0 auto;
+    min-height:600px;
 }
 .LMenu{
     float:left;
@@ -37,8 +55,7 @@
 }
 .LNav{
     position:absolute;
-    width:250px;
-    height:430px;
+    width:250px;   
 }
 .LNav ul li a{
     display: block;
@@ -102,4 +119,21 @@
     font-size: 24px;
     text-align: center;
     font-family: "Microsoft Yahei";
+}
+
+.introList li{
+	font-size:18px;
+	line-height:27px;
+	margin-bottom:20px;
+}
+
+.lanList{
+	overflow:hidden;
+}
+
+.lanList li{
+	float:left;
+	width:300px;
+	display:block;
+	font-size:18px;
 }
