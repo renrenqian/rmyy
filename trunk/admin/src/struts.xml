@@ -8,6 +8,7 @@
     <constant name="struts.objectFactory" value="spring" />
     <constant name="struts.devMode" value="true" />
     <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.multipart.maxSize" value="10000000" />
     <!--ajax请求基包
     -->
     <package name="defaultj" extends="json-default">

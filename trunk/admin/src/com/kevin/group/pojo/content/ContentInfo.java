@@ -5,14 +5,20 @@
  */
 package com.kevin.group.pojo.content;
 
+import java.io.Serializable;
+
 /**
  * @author kevin
  * @since jdk1.6
  */
-public class ContentInfo {
+public class ContentInfo implements Serializable {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -6009456313328821636L;
     private Integer contId;
-    private String contTital;
+    private String contTitle;
     private String contHome_Page;
     private Integer colId;
     private String colName;
@@ -20,7 +26,8 @@ public class ContentInfo {
     private Integer contMedium;
     private String contKey;
     private String contPublish_Time;
-    private String contAudit_Result;
+    private Integer contAudit_Result;
+    private String contAudit_DESC;
     private Integer contOrder;
     private Integer gmId;// belong to group
     private String gmName;
@@ -43,20 +50,19 @@ public class ContentInfo {
     public final void setContId(Integer contId) {
         this.contId = contId;
     }
-
+ 
     /**
-     * @return the contTital
+     * @return the contTitle
      */
-    public final String getContTital() {
-        return contTital;
+    public final String getContTitle() {
+        return contTitle;
     }
 
     /**
-     * @param contTital
-     *            the contTital to set
+     * @param contTitle the contTitle to set
      */
-    public final void setContTital(String contTital) {
-        this.contTital = contTital;
+    public final void setContTitle(String contTitle) {
+        this.contTitle = contTitle;
     }
 
     /**
@@ -167,7 +173,7 @@ public class ContentInfo {
     /**
      * @return the contAudit_Result
      */
-    public final String getContAudit_Result() {
+    public final Integer getContAudit_Result() {
         return contAudit_Result;
     }
 
@@ -175,8 +181,23 @@ public class ContentInfo {
      * @param contAudit_Result
      *            the contAudit_Result to set
      */
-    public final void setContAudit_Result(String contAudit_Result) {
+    public final void setContAudit_Result(Integer contAudit_Result) {
         this.contAudit_Result = contAudit_Result;
+    }
+
+    /**
+     * @return the contAudit_DESC
+     */
+    public final String getContAudit_DESC() {
+        return contAudit_DESC;
+    }
+
+    /**
+     * @param contAudit_DESC
+     *            the contAudit_DESC to set
+     */
+    public final void setContAudit_DESC(String contAudit_DESC) {
+        this.contAudit_DESC = contAudit_DESC;
     }
 
     /**
@@ -238,7 +259,7 @@ public class ContentInfo {
     public final void setContAuthor(Integer contAuthor) {
         this.contAuthor = contAuthor;
     }
- 
+
     /**
      * @return the contAuthorName
      */
@@ -247,7 +268,8 @@ public class ContentInfo {
     }
 
     /**
-     * @param contAuthorName the contAuthorName to set
+     * @param contAuthorName
+     *            the contAuthorName to set
      */
     public final void setContAuthorName(String contAuthorName) {
         this.contAuthorName = contAuthorName;

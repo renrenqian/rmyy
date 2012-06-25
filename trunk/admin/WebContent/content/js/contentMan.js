@@ -10,9 +10,9 @@ $(document).ready(function() {
     /* 编辑 */
     $(".J_ContentEdit").die().live("click", function() {
         var id = $(this).parent().parent().children().eq(0).children().eq(0).val();
-        $.getJSON('../group/searchContent.action?t=' + new Date().getTime() + '&contInfo.contId=' + id, function(json) {
+        $.getJSON('../group/searchContent.action?t=' + new Date().getTime() + '&continfo.contId=' + id, function(json) {
             if (json.resultCode > 0) {
-                formUnSerialize("contentForm", "contInfo", json.contInfo);
+                formUnSerialize("contentForm", "continfo", json.continfo);
             } else {
                 $.fn.sdInfo({
                     type:"fail",
@@ -29,7 +29,7 @@ $(document).ready(function() {
         $.messager.confirm('删除', '是否确认删除所选内容信息?', function(r) {
             if (r) {
                 var id = $(THIS).parent().parent().children().eq(0).children().eq(0).val();
-                var params = "contInfo.contId=" + id;
+                var params = "continfo.contId=" + id;
                 $.post("../group/deleteContent.action", params, function(json) {
                     if (json.resultCode > 0) {
                         initContentList();
@@ -118,7 +118,7 @@ function initContentList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='hidden2 tl'>" + obj.aData.contTital + "</span>";
+                        return "<span class='hidden2 tl'>" + obj.aData.contTitle + "</span>";
                     }
                 },
                 {
