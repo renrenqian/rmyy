@@ -2,7 +2,7 @@
  * CKFinder
  * ========
  * http://ckfinder.com
- * Copyright (C) 2007-2012, CKSource - Frederico Knabben. All rights reserved.
+ * Copyright (C) 2007-2011, CKSource - Frederico Knabben. All rights reserved.
  *
  * The software, this file, and its contents are subject to the CKFinder
  * License. Please read the license.txt file before using, installing, copying,
@@ -153,7 +153,6 @@ CKFinder.lang['zh-cn'] =
 	UploadLabel			: '上传文件',
 	UploadTotalFiles	: '上传总计:',
 	UploadTotalSize		: '上传总大小:',
-	UploadSend			: '上传',
 	UploadAddFiles		: '添加文件',
 	UploadClearFiles	: '清空文件',
 	UploadCancel		: '取消上传',
@@ -175,7 +174,6 @@ CKFinder.lang['zh-cn'] =
 	SetSortName		: '按文件名',
 	SetSortDate		: '按日期',
 	SetSortSize		: '按大小',
-	SetSortExtension		: '按扩展名',
 
 	// Status Bar
 	FilesCountEmpty : '<空文件夹>',
@@ -183,10 +181,8 @@ CKFinder.lang['zh-cn'] =
 	FilesCountMany	: '%1 个文件',
 
 	// Size and Speed
-	Kb				: '%1 KB',
-	Mb				: '%1 MB',
-	Gb				: '%1 GB',
-	SizePerSecond	: '%1/s',
+	Kb				: '%1 kB',
+	KbPerSecond		: '%1 kB/s',
 
 	// Connector Error Messages.
 	ErrorUnknown	: '请求的操作未能完成. (错误 %1)',
@@ -272,10 +268,5 @@ CKFinder.lang['zh-cn'] =
 	{
 		maximize : '全屏',
 		minimize : '最小化'
-	},
-
-	Gallery :
-	{
-		current : '第 {current} 个图像，共 {total} 个'
 	}
 };
