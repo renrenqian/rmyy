@@ -27,7 +27,6 @@ $(document).ready(function() {
             if (json.resultCode > 0) {
                 //formUnSerialize("deptForm", "dept", json.dept);
                 var deptList = json.dept;
-                                              
                 $(deptList).each(function(i, item) {                  
                     $('#dpId').val(item.dpId);    
                     $('#deptName').val(item.dpName);    
@@ -38,13 +37,10 @@ $(document).ready(function() {
                     $('#dpLocation').val(item.dpLocation);   
                     $('#dpBed_counter').val(item.dpBed_counter);   
                     $('#dpNote').val(item.dpNote);   
-                                       
-//                    var reg = new RegExp("xyz", "g"); // g means replace all            
-//                    $('#dpDesc').val(item.dpDesc.replace(reg, '%'));         
-                    $('#dpDesc').val(fixP(item.dpDesc)); 
-                    $('#dpAcademic_position').val(fixP(item.dpAcademic_position));   
-                    $('#dpTech_adv').val(fixP(item.dpTech_adv));   
-                    $('#dpResearch_direction').val(fixP(item.dpResearch_direction));
+                    $('#dpDesc').val(reP(item.dpDesc));   
+                    $('#dpAcademic_position').val(reP(item.dpAcademic_position));   
+                    $('#dpTech_adv').val(reP(item.dpTech_adv));   
+                    $('#dpResearch_direction').val(reP(item.dpResearch_direction));
                     
                     var dpTypeArray=item.dpType.split(',');
                     for(var i=0;i<dpTypeArray.length;i++){
@@ -116,19 +112,12 @@ $(document).ready(function() {
             params.append("dept.dpBed_counter=" + $("#dpBed_counter").val()).append("&");
             params.append("dept.dpBelong=" + $("#dpBelong").val()).append("&");
 
-//            // add replace all function
-//            var reg = new RegExp("%", "g"); // g means replace all
-//            //dpTech_adv.replace(reg,"#$");
-            
-            params.append("dept.dpDesc=" + coverP($("#dpDesc").val())).append("&");
-            params.append("dept.dpAcademic_position=" + coverP($("#dpAcademic_position").val())).append("&");
-            params.append("dept.dpResearch_direction=" + coverP($("#dpResearch_direction").val())).append("&");
-            params.append("dept.dpTech_adv=" + coverP($("#dpTech_adv").val())).append("&"); 
-            
-            //params.append("dept.dpDesc=" + $("#dpDesc").val().replace('%', '#$')).append("&");
-            //params.append("dept.dpAcademic_position=" + $("#dpAcademic_position").val().replace('%', '#$')).append("&");
-            //params.append("dept.dpResearch_direction=" + $("#dpResearch_direction").val().replace('%', '#$')).append("&");
-            //params.append("dept.dpTech_adv=" + $("#dpTech_adv").val().replace('%', '###')).append("&");
+            //以下四个字段，进行%转换
+            params.append("dept.dpDesc=" +fixP($("#dpDesc").val()) ).append("&");
+            params.append("dept.dpAcademic_position=" + fixP($("#dpAcademic_position").val())).append("&");
+            params.append("dept.dpResearch_direction=" + fixP($("#dpResearch_direction").val())).append("&");
+            params.append("dept.dpTech_adv=" + fixP($("#dpTech_adv").val())).append("&"); 
+                       
             params = params.toString();
             $.post(url, params, function(json) {
             if (json.resultCode > 0) {
@@ -280,10 +269,10 @@ function initDeptList() {
                     }
                 }
             ],
-            sPaginationType: "full_numbers"
-   //       aoColumnDefs: [
-  //             { "bSortable": false, "aTargets": [0,1,2]}
-  //         ]
+            sPaginationType: "full_numbers",
+          aoColumnDefs: [
+               { "bSortable": false, "aTargets": [0,6,7]}
+           ]
         });
     } else {
         deptDataTable.fnClearTable();

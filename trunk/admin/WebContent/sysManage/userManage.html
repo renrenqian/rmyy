@@ -26,7 +26,8 @@
             <thead>
             <tr>
                 <th><input type='checkbox' class='checkBoss' ctrl="userManList"/></th>
-                <th class='tl'>用户名</th>
+                <th class='tl'>账户</th>
+                <th class='tl'>姓名</th>
                 <th class='tl'>角色</th>
                 <th>在线状态</th>
                 <th>启用状态</th>
@@ -46,7 +47,11 @@
                 <h2>新建用户&nbsp;--&nbsp;基本信息录入</h2>
                 <table>
                     <tr>
-                        <td class="rowName">用户名</td>
+                        <td class="rowName">账户</td>
+                        <td><input type="text" class="input_type1" name="user.uiAccount" rule="required"/></td>
+                    </tr>
+                    <tr>
+                        <td class="rowName">姓名</td>
                         <td><input type="text" class="input_type1" name="user.uiName" rule="required"/></td>
                     </tr>
                     <tr>
@@ -96,11 +101,15 @@
                 <h2>用户基本信息编辑</h2>
                 <table>
                     <tr>
-                        <td class="rowName">用户名</td>
+                        <td class="rowName">账户</td>
                         <td>
-                            <input type="text" class="input_type1" rule="required" name="user.uiName"/>
+                            <input type="text" class="input_type1" rule="required" name="user.uiAccount"/>
                             <input type="hidden" name="user.uiId" id="uiId"/><a href='#' class="blue unl ml10" onclick='initPwd()'>初始化密码</a>
                         </td>
+                    </tr>
+                    <tr>
+                        <td class="rowName">姓名</td>
+                        <td><input type="text" class="input_type1" rule="required" name="user.uiName"/></td>
                     </tr>
                     <tr>
                         <td class="rowName">联系电话</td>

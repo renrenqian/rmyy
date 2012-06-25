@@ -8,6 +8,23 @@ $(document).ready(function() {
         $.fn.sdResetForm("#doctorForm");
         //$("#lcId").val("");
         $("#diId").val("");
+        //zq:填充科室下拉列表
+        $.getJSON('../group/listDept.action', function(json) {
+            if (json.resultCode > 0) {               
+                var deptList = json.deptList;
+                var optioin="<option>请选择...</option>";
+                $(deptList).each(function(i, item) { 
+                	optioin+="<option value="+item.dpId+">"+item.dpName+"</option>"
+                });  
+                $('#diDeptType').html(optioin);
+            	
+            } else {
+                $.fn.sdInfo({
+                    type:"fail",
+                    content:json.message ? json.message : "查询科室信息错误!"
+                });
+            }
+        });
         $('#J_DoctorDiv').css("display", "").window({
             title: '新增医师',
             modal: true,
@@ -46,6 +63,37 @@ $(document).ready(function() {
 //                  	for(var i=0;i<rcTypeArray.length;i++){
 //                  		$(".J_RcType[value='"+rcTypeArray[i]+"']").attr("checked", true);
 //                  	}
+                  	
+                  	 
+                    //zq:填充科室下拉列表
+                    $.getJSON('../group/listDept.action', function(json) {
+                        if (json.resultCode > 0) {
+                            //formUnSerialize("deptForm", "dept", json.dept);
+                            var deptList = json.deptList;
+                            var optioin="";
+                            $(deptList).each(function(i, item) { 
+                            	optioin+="<option>"+item.dpName+"</option>"
+                            });  
+                            $('#diDeptType').html(optioin);
+                        	
+                            //zq:根据医生ID查找该医生所在科室
+//                            $.getJSON('../group/listDeptByDoctId.action', function(json) {
+//                            	if(json.resultCode>0){
+//                            		
+//                            	}
+//                            });
+                        } else {
+                            $.fn.sdInfo({
+                                type:"fail",
+                                content:json.message ? json.message : "查询科室信息错误!"
+                            });
+                        }
+                    });
+                  	
+                  	
+                  	
+                  	
+                  	
                   });     
             } else {
                 $.fn.sdInfo({
@@ -108,13 +156,15 @@ $(document).ready(function() {
             params.append("doct.diAccomplishment=" + $("#diAccomplishment").val()).append("&");
             
 //            zq:人才类型字段取值
-//            var doctTypeStr = [];
-//            $(".J_RcType:checked").each(function(){
-//            	doctTypeStr.push($(this).val());
-//            });
-//            params.append("doct.doctType=" + doctTypeStr).append("&");
-            
+            var doctTypeStr = [];
+            $(".J_RcType:checked").each(function(){
+            	doctTypeStr.push($(this).val());
+            });
+            params.append("doct.doctType=" + doctTypeStr).append("&");            
             params = params.toString();
+            //zq:此处字符串拼接正确，但下方返回json中，无doctType信息
+            
+            
             $.post(url, params, function(json) {
                 if (json.resultCode > 0) {
                     initDoctorList();

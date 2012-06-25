@@ -756,16 +756,16 @@ if ($.messager) {
     $.messager.defaults.cancel = '取消';
 }
 
-
-function coverP(str){
-	var reg = new RegExp("%", "g"); // g means replace all            
-	str.replace(reg, 'xyz');  
-	return str;
-}
-
-
+//替换#$为%字符
 function fixP(str){
-  var reg = new RegExp("xyz", "g"); // g means replace all            
-  str.replace(reg, '%');   
-  return str;
+	// add replace all function
+    var reg = new RegExp("%", "g"); // g means replace all
+    str=str.replace(reg, 'zq');
+    return str;
+}
+//替换%为#$字符
+function reP(str){
+	var reg =new RegExp("zq","g");
+	str=str.replace(reg,'%');
+	return str;
 }

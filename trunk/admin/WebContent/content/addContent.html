@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="../style/easyui.css" rel="stylesheet" />
 <link href="../style/common.css" rel="stylesheet" />
-<link href="../plugins/calendar/calendar/calendar.css" rel="stylesheet"/>
+<link href="../plugins/calendar/calendar/calendar.css" rel="stylesheet" />
 </head>
 <body>
 	<div class="mainSection">
@@ -21,7 +21,8 @@
 					<td><input id="contAuthor" type="text" class="input_type1"
 						rule="required" /></td>
 					<td class="rowName">发布日期</td>
-					<td><input id="contPubTime" type="text" class="input_type_date" /></td>
+					<td><input id="contPubTime" type="text"
+						class="input_type_date" /></td>
 				</tr>
 				<tr>
 					<td class="rowName">所属一级栏目</td>
@@ -74,12 +75,13 @@
 				</tr>
 				<tr>
 					<td class="rowName">附件上传</td>
-					<td><input type="input" class="input_type1"/></td>
+					<td><input type="input" class="input_type1" id='xFilePath'
+						name='FilePath' /> <input type="button" value="浏览" id='J_Upload'/></td>
 				</tr>
 				<tr>
 					<td class="rowName">内容编辑</td>
 					<td colspan="3" style='padding-left: 10px;'><textarea
-							id="contDetail"></textarea></td>
+							id="contDetail" name='contDetail'></textarea></td>
 				</tr>
 				<tr>
 					<td></td>
@@ -96,13 +98,40 @@
 	<script src="../plugins/form/jquery.sdForm.js"></script>
 	<script src="../plugins/ckeditor/ckeditor.js"></script>
 	<script src="../plugins/ckeditor/adapters/jquery.js"></script>
+	<script src="../plugins/ckfinder/ckfinder.js"></script>
 	<script src="../plugins/calendar/seed-min.js"></script>
 	<script src="js/addContent.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			/* 内容编辑器 */
-			$('#contDetail').ckeditor();
-		});				
+			//$('#contDetail').ckeditor();
+			$('div[name=contDetail]').ckeditor();
+			if (CKEDITOR.instances['contDetail']) {
+				CKEDITOR.remove(CKEDITOR.instance['contDetail']);
+			}
+
+			var editor = CKEDITOR.replace('contDetail');
+			CKFinder.setupCKEditor(editor, 'ckfinder');
+
+			$('#J_Upload').click(function() {
+				// You can use the "CKFinder" class to render CKFinder in a page:
+				var finder = new CKFinder();
+				finder.basePath = '../'; // The path for the installation of CKFinder (default = "/ckfinder/").
+				finder.selectActionFunction = SetFileField;
+				finder.popup();
+
+				// It can also be done in a single line, calling the "static"
+				// popup( basePath, width, height, selectFunction ) function:
+				// CKFinder.popup( '../', null, null, SetFileField ) ;
+				//
+				// The "popup" function can also accept an object as the only argument.
+				// CKFinder.popup( { basePath : '../', selectActionFunction : SetFileField } ) ;
+			});
+		});
+
+		function SetFileField(fileUrl) {
+			document.getElementById('xFilePath').value = fileUrl;
+		}
 	</script>
 </body>
 </html>

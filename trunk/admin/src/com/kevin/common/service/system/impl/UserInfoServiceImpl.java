@@ -211,6 +211,7 @@ public class UserInfoServiceImpl extends AbstractBaseService<UserInfo>
                 condition.setUiId(user.getUiId());
                 existUser = userInfoDAO.search(condition);
                 existUser.setUiMail(user.getUiMail());
+                existUser.setUiAccount(user.getUiAccount());
                 existUser.setUiName(user.getUiName());
                 existUser.setUiOfficePhone(user.getUiOfficePhone());
                 result = userInfoDAO.update(existUser);
@@ -386,8 +387,9 @@ public class UserInfoServiceImpl extends AbstractBaseService<UserInfo>
         try {
             existUser = userInfoDAO.search(user);
             if (existUser != null) {
-                existUser.setUiMail(user.getUiMail());
+                existUser.setUiAccount(user.getUiAccount());
                 existUser.setUiName(user.getUiName());
+                existUser.setUiMail(user.getUiMail());
                 existUser.setUiOfficePhone(user.getUiOfficePhone());
                 result = userInfoDAO.update(existUser);
             } else {
@@ -421,13 +423,14 @@ public class UserInfoServiceImpl extends AbstractBaseService<UserInfo>
 
     @NoLog
     @Override
-    public int login(UserInfo userInfo) throws CommonServiceException {
-        int flag = 1;
+    public UserInfo login(UserInfo userInfo) throws CommonServiceException {
+        //int flag = 1;
         HttpServletRequest request = ServletActionContextUtil.getRequest();
         try {
             if (userInfo != null) {
                 UserInfo condition = new UserInfo();
-                condition.setUiName(userInfo.getUiName());
+                //condition.setUiName(userInfo.getUiName());
+                condition.setUiAccount(userInfo.getUiAccount());
                 UserInfo existUser = userInfoDAO.search(condition);
                 if (existUser != null
                         && existUser.getUiPwd().equals(userInfo.getUiPwd())
@@ -438,25 +441,26 @@ public class UserInfoServiceImpl extends AbstractBaseService<UserInfo>
                             existUser.getUiName());
                     session.setAttribute(SystemConstant.CURRENT_LOGIN_USER_ID,
                             existUser.getUiId());
+                    userInfo.setUiName(existUser.getUiName());// add the name to bean and return to page show on header
                     // 放入在线用户列表
                     OnlineUser onlineUser = new OnlineUser();
                     onlineUser.setUserInfo(existUser);
                     onlineUser.setSession(session);
                     IUserInfoService.ONLINEUSERMAP.put(session.getId(),
                             onlineUser);
-                    flag = 1;
+                    //flag = 1;
                 } else if (existUser != null
                         && existUser.getUiPwd().equals(userInfo.getUiPwd())
                         && existUser.getUiEnable().intValue() != SystemConstant.USER_ENABLE) {
                     throw new CommonServiceException("用户已被停用，请联系管理员");
                 }
             } else {
-                flag = -1;
+                //flag = -1;
             }
         } catch (BaseSqlMapException e) {
             throw new CommonServiceException(e.getMessage());
         }
-        return flag;
+        return userInfo.loginSuccess();
     }
 
     @NoLog

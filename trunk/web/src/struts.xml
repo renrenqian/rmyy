@@ -12,9 +12,11 @@
     -->
     <package name="defaultj" extends="json-default">
         <interceptors>
-            <interceptor name="privilegeInterceptor" class="com.kevin.common.interceptor.PrivilegeInterceptor"></interceptor>
             <interceptor-stack name="default">
+    <!-- web not need to be interceptors
+            <interceptor name="privilegeInterceptor" class="com.kevin.common.interceptor.PrivilegeInterceptor"></interceptor>
                 <interceptor-ref name="privilegeInterceptor"></interceptor-ref>
+     -->
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
@@ -22,9 +24,11 @@
     </package>
     <package name="default" extends="struts-default">
         <interceptors>
-            <interceptor name="privilegeInterceptor" class="com.kevin.common.interceptor.PrivilegeInterceptor"></interceptor>
             <interceptor-stack name="default">
+    <!-- web not need to be interceptors
+            <interceptor name="privilegeInterceptor" class="com.kevin.common.interceptor.PrivilegeInterceptor"></interceptor>
                 <interceptor-ref name="privilegeInterceptor"></interceptor-ref>
+     -->
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
@@ -48,4 +52,5 @@
     </package>
     <include file="config/struts/system.xml" />
     <include file="config/struts/group.xml" />
+    <include file="config/struts/member.xml" />
 </struts>

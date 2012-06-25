@@ -205,7 +205,7 @@ $(document).ready(function() {
                 return;
             }
             //密码加密
-            $("#uiPwd").val(MD5($("#uiPwd").val()))
+            $("#uiPwd").val(MD5($("#uiPwd").val()));
             var params = $("#addUserForm1").serialize();
             var roleIds = $("#addUserForm2").serialize();
 //            if(!roleIds || roleIds==""){
@@ -481,6 +481,11 @@ function initUserManList() {
                 {
                     fnRender:function(obj) {
                         return "<input type='checkbox' value='" + obj.aData.uiId + "'/>";
+                    }
+                },
+                {
+                    fnRender:function(obj) {
+                        return "<span class='hidden2 tl''>" + obj.aData.uiAccount + "</span>";
                     }
                 },
                 {

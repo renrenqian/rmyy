@@ -30,7 +30,7 @@ public interface IUserInfoService extends IBaseService<UserInfo> {
     * @return false不可登入,true可登入
     * @throws CommonServiceException
     */
-   int login(UserInfo user)throws CommonServiceException;
+   UserInfo login(UserInfo user)throws CommonServiceException;
    /**
     * 登出
     * @return true成功,false失败

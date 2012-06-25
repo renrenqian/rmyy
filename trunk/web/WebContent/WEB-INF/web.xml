@@ -3,7 +3,7 @@
     xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
     id="WebApp_ID" version="3.0">
-    <display-name>hzhos</display-name>
+    <display-name>qcweb</display-name>
     <welcome-file-list>
         <welcome-file>main/index.shtml</welcome-file>
     </welcome-file-list>
@@ -27,10 +27,10 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    <!-- 
     <listener>
         <listener-class>com.kevin.common.listener.SessionExpireListener</listener-class>
     </listener>
-    <!-- 
     <filter>
         <filter-name>loginFilter</filter-name>
         <filter-class>com.kevin.common.filter.LoginHtmlFilter</filter-class>

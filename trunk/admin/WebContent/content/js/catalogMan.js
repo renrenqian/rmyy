@@ -5,7 +5,34 @@ $(document).ready(function() {
     initRoleManList();
     addZTreeObj = null;
     editZTreeObj = null;
- 
+    /* 角色添加 div1 open */
+    $('#J_RoleAdd').die().live("click", function() {
+        $('#center').css({"overflow":"hidden"});
+        $('#J_RoleManageDiv').slideUp(0);
+        $('#J_AddRoleDiv1').slideDown(0);
+        $('body').append("<div class='fullWindowBtnArea none'>"
+                + "<a class='button btn-orange' id='J_AddRole1Next'>下一步</a>"
+                + "<a class='button btn-grey' id='J_AddRole1Close'>取消</a>"
+                + "</div>");
+        $('.fullWindowBtnArea').slideDown(1000);
+        $('#J_AddRoleStep01').sdValidate();
+        //清空原有数据
+        $.fn.sdResetForm("#J_AddRoleStep01");
+    });
+
+    /* 角色添加 div1 close */
+    $('#J_AddRole1Close').die().live("click", function() {
+        $('.fullWindowBtnArea').slideUp(500, function() {
+            $('.fullWindowBtnArea').remove();
+        });
+        $('#J_AddRoleDiv1').slideUp(0);
+        $('#J_RoleManageDiv').slideDown(0, function() {
+            $('#center').css({"overflow":""});
+        });
+        //清空原有数据
+        $.fn.sdResetForm("#J_AddRoleStep01");
+    });
+
     /* 角色添加 div1 next */
     $('#J_AddRole1Next').die().live("click", function() {
         if ($.fn.sdSubmitValidate("#J_AddRoleStep01")) {
@@ -16,6 +43,14 @@ $(document).ready(function() {
                     "<a class='button btn-green' id='J_AddRole2Ok'>确定</a>" +
                     "<a class='button btn-grey' id='J_AddRole2Close'>取消</a>");
         }
+    });
+
+    /* 角色添加 div2 prev */
+    $('#J_AddRole2Prev').die().live("click", function() {
+        $('#J_AddRoleDiv1').slideDown(0);
+        $('#J_AddRoleDiv2').slideUp(0);
+        $('.fullWindowBtnArea').html("<a class='button btn-orange' id='J_AddRole1Next'>下一步</a>" +
+                "<a class='button btn-grey' id='J_AddRole1Close'>取消</a>");
     });
 
     /* 角色添加 div2 ok */
@@ -126,6 +161,128 @@ $(document).ready(function() {
                 + "<a class='button btn-grey'id='J_EditRoleClose'>取消</a>"
                 + "</div>");
         $('.fullWindowBtnArea').slideDown(1000);
+    });
+
+    /* 角色编辑  ok */
+    $('#J_EditRoleOk').die().live("click", function() {
+        var name = $("#editRoleName").val();
+        var desc = $("#editRoleDesc").val();
+        var id = $("#editRoleId").val();
+        if ($(this).sdValidate("#J_EditRoleForm")) {
+            var length = editZTreeObj.getCheckedNodes().length;
+            var params = new StringBuffer();
+            params.append("ri.riId=" + id).append("&").append("ri.riName=" + name).append("&").append("ri.riDesc=" + desc).append("&");
+            for (var i = 0; i < length; i++) {
+                params.append("refList[" + i + "].privilegeInfo.piId=").append(editZTreeObj.getCheckedNodes()[i].piId).append("&");
+                params.append("refList[" + i + "].roleInfo.riId=").append($("#editRoleId").val()).append("&");
+            }
+            params = params.toString();
+            params = params.substring(0, params.length - 1);
+            $.ajax({
+                type: 'POST',
+                url: "../system/updateRole.action",
+                data: params,
+                success: function(jsonObject, statusText, xhr) {
+                    if (jsonObject.resultCode && jsonObject.resultCode > 0) {
+                        initRoleManList();
+                    } else {
+                        //错误提示
+                        if (jsonObject.message) {
+                            $.fn.sdInfo({
+                                type:"fail",
+                                content:jsonObject.message ? jsonObject.message : '编辑角色失败!'
+                            });
+                            return;
+                        }
+                    }
+                },
+                dataType: 'json'
+            });
+            $('.fullWindowBtnArea').slideUp(500, function() {
+                $('.fullWindowBtnArea').remove();
+            });
+            $('#J_RoleManageDiv').slideDown(0);
+            $('#J_EditRoleDiv').slideUp(0, function() {
+                $('#center').css({"overflow":""});
+            });
+            //$('#J_EditRoleDiv form').removeClass("validateThis");
+        }
+    });
+
+    /* 角色编辑  close*/
+    $('#J_EditRoleClose').die().live("click", function() {
+        $('.fullWindowBtnArea').slideUp(500, function() {
+            $('.fullWindowBtnArea').remove();
+        });
+        $('#J_RoleManageDiv').slideDown(0);
+        $('#J_EditRoleDiv').slideUp(0, function() {
+            $('#center').css({"overflow":""});
+        });
+    });
+    /*角色批量删除*/
+    $('.J_DelAll').die().live("click", function() {
+        if ($(this).hasClass("abled")) {
+            //获取参数
+            var checkbox = $('#roleManList input:checkbox:not(.checkBoss):checked');
+            var params = new StringBuffer();
+            var j = 0;
+            checkbox.each(function() {
+                var id = $(this).val();
+                params.append("riList[" + j + "].riId=" + id).append("&");
+                j++;
+            });
+            params = params.toString();
+            params = params.substring(0, params.length - 1);
+            $.messager.confirm('批量删除', '是否确认删除所选角色?', function(r) {
+                if (r) {
+                    $.post("../system/bacthDeleteRole.action", params, function(data) {
+                        if (data.resultCode && data.resultCode > 0) {
+                            initRoleManList();//重新获得数据
+                        } else {
+                            $.fn.sdInfo({
+                                content:data.message ? data.message : "批量删除角色失败",
+                                type:"fail"
+                            });
+                        }
+                        $.fn.checkTest('roleManList');
+                        $('.checkBoss').attr("checked", false);
+                    });
+                }
+            });
+        }
+    });
+    /* 角色删除*/
+    $('.del').die().live("click", function() {
+        var myHandle = $(this);
+        var myName = myHandle.attr("name");
+        var delId = $(this).attr("id");
+        $.messager.confirm('删除', '是否确认删除' + myName + '?', function(r) {
+            if (r) {
+                var params = new StringBuffer();
+                params.append("ri.riId=" + delId);
+                params = params.toString();
+                $.ajax({
+                    type: 'POST',
+                    url: "../system/deleteRole.action",
+                    data: params.toString(),
+                    success: function(jsonObject, statusText, xhr) {
+                        if (jsonObject.resultCode && jsonObject.resultCode > 0) {
+                            initRoleManList();
+                        } else {
+                            // 错误提示
+                            if (jsonObject.message) {
+                                $.fn.sdInfo({
+                                    content:jsonObject.message ? jsonObject.message : "删除角色失败",
+                                    type:"fail"
+                                });
+                                return;
+                            }
+                        }
+                    },
+                    dataType: 'json'
+                });
+            }
+        });
     });
 });
 function resetForm(formObjId) {

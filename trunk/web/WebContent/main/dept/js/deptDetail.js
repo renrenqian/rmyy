@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	 $.getJSON('http://124.160.67.194:8520/admin/group/searchDept.action?t=1340268677471&dept.dpId=1032&_=1340268677472', function(json) {
+	 $.getJSON('http://124.160.67.194:8520/admin/group/searchDept.action?dept.dpId=1032', function(json) {		 		 	
          if (json.resultCode > 0) {            
              var deptDetail = json.dept;
              $(deptDetail).each(function(i, item) {                  
@@ -9,11 +9,12 @@ $(document).ready(function(){
              	$('#J_DpLocation').html(item.dpLocation); 
              	$('#J_DpOd_telephone').html(item.dpOd_telephone); 
              	$('#J_DpEmail').html(item.dpEmail); 
-             	$('#J_DpDesc').html(item.dpDesc); 
-             	$('#J_DpAcademic_position').html(item.dpAcademic_position); 
-             	$('#J_DpTech_adv').html(item.dpTech_adv); 
-             	$('#J_DpResearch_direction').html(item.dpResearch_direction); 
-             	$('#J_DpIn_charge').html(item.dpIn_charge);              
+             	
+             
+             	$('#J_DpDesc').html("<p>"+fixTAFormat(fixP(item.dpDesc))+"</p>");  
+             	$('#J_DpAcademic_position').html("<p>"+fixTAFormat(fixP(item.dpAcademic_position))+"</p>");   
+             	$('#J_DpTech_adv').html("<p>"+fixTAFormat(fixP(item.dpTech_adv))+"</p>");   
+             	$('#J_DpResearch_direction').html("<p>"+fixTAFormat(fixP(item.dpResearch_direction))+"</p>");                	           	         
              });     
          }
 	 });
