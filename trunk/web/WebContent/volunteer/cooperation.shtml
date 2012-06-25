@@ -5,8 +5,11 @@
 <body>
 	<!--#include virtual="master/top.html"-->
 	<div class="content">
-		<h1 class="pTitle">协作单位介绍</h1>
-		
+		<h1 class="pTitle">协作单位</h1>
+		<p class='mt30 bold'>钱江晚报简介</p>
+		<p>自2012年6月起，常年工作日，上午8:00～中午12:00，中午13:00～下午17:00 </p>
+		<p class='mt30 bold'>英特药业简介</p>
+		<p>杭州市第一人民医院医疗服务区</p>	
 	</div>
 	<!--#include virtual="master/footer.html"-->
 </body>

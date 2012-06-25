@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+<!--#include virtual="master/headFile.html"-->
+</head>
+<body>
+	<!--#include virtual="master/top.html"-->
+	<div class="content">
+		<h1 class="pTitle">联系我们</h1>		
+		<ul class='introList'>
+			<li>地址：杭州市浣纱路261号</li>
+			<li>邮编：310006</li>
+			<li>联系电话：0571-86677011 0571-87065701 转10326</li>
+			<li>传真：0571-87914773</li>
+			<li>联系人：江女士 许先生</li>
+		</ul>
+	</div>
+	<!--#include virtual="master/footer.html"-->
+</body>
+</html>
