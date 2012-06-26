@@ -5,6 +5,9 @@
  */
 package com.kevin.group.service.dept;
 
+import java.util.List;
+
+import com.kevin.common.exception.CommonServiceException;
 import com.kevin.common.service.IBaseService;
 import com.kevin.group.pojo.dept.Dept;
 
@@ -13,5 +16,7 @@ import com.kevin.group.pojo.dept.Dept;
  * @since jdk1.6
  */
 public interface IDeptServices extends IBaseService<Dept>{
+
+    List<Dept> listDeptNames() throws CommonServiceException;
 
 }

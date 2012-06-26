@@ -148,3 +148,145 @@ $(document).ready(function(){
 		$('.newsBody').css('minHeight',bodyHeight+'px');
 	}	
 });
+
+
+
+//自定义StringBuffer类
+function StringBuffer() {
+    this._strings = [];
+    if (arguments.length == 1) {
+        this._strings.push(arguments[0]);
+    }
+}
+StringBuffer.prototype.append = function(str) {
+    this._strings.push(str);
+    return this;
+};
+StringBuffer.prototype.toString = function() {
+    return this._strings.join("");
+};
+function getSpaceValue(size) {//计算文件或目录占用空间大小
+    var value;
+    if (size < 1024) {
+        value = size + "B";
+    } else if (size < 1024 * 1024) {
+        value = ( size / 1024 ).toFixed(2) + "KB";
+    } else if (size < 1024 * 1024 * 1024) {
+        value = (size / (1024 * 1024)).toFixed(2) + "MB";
+    } else if (size < 1024 * 1024 * 1024 * 1024) {
+        value = (size / (1024 * 1024 * 1024)).toFixed(2) + "GB";
+    } else {
+        value = (size / (1024 * 1024 * 1024 * 1024)).toFixed(2) + "TB";
+    }
+    return value;
+}
+
+
+
+/* info msgBox */
+(function($) {
+    $.fn.sdInfo = function(settings) {
+        var defaultSettings = {
+            timeOut:'3000',
+            type:'success',
+            content:"操作成功！",
+            autoClose:true
+        }
+        var options = $.extend(defaultSettings, settings);
+        var eventScheduler = new EventScheduler();
+        var info = new $.Info(options);
+        if (info) {
+            info.show();
+            if (options.autoClose) {
+                eventScheduler.set(function() {
+                    info.hide();
+                    eventScheduler.clear();
+                }, options.timeOut);
+            }
+        }
+    };
+
+    /* constructor for sdTip */
+    $.Info = function(options) {
+        this._settings = $.extend(true, {}, $.Info.defaults, options);
+        this.init();
+    };
+
+    $.extend($.Info, {
+        defaults:{
+            //校正用户输入的tip颜色，若未输入或输入错误，则使用系统默认颜色
+            supportedTypes:['success','fail','warn','loading'],
+            fixType:function(obj) {
+                var hasType = false;
+                var supportedTypes = $.Info.defaults.supportedTypes;
+                for (var i = 0; i < supportedTypes.length; i++) {
+                    if (obj._settings.type == supportedTypes[i]) {
+                        hasType = true;
+                    }
+                }
+                obj._settings.type = hasType ? obj._settings.type : supportedTypes[0];
+            }
+        },
+        prototype:{
+            /* init the info */
+            init:function() {
+                this._settings.fixType(this);
+                var iconString;
+                if (this._settings.type == "success") {
+                    iconString = "<span class='gtl_ico_succ'></span>";
+                }
+                if (this._settings.type == "fail") {
+                    iconString = "<span class='gtl_ico_fail'></span>";
+                }
+                if (this._settings.type == "warn") {
+                    iconString = "<span class='gtl_ico_hits'></span>";
+                }
+                if (this._settings.type == "loading") {
+                    iconString = " <span class='gtl_ico_clear'></span><img alt='' src='build/info/loading.gif'>";
+                }
+                return this.info || (this.info = $("<div id='q_Msgbox' class='sd_msgbox_layer_wrap none'>" +
+                        "<span id='mode_tips_v2' class='sd_msgbox_layer' style='z-index: 10000;'>" +
+                        iconString +
+                        this._settings.content +
+                        " <span class='gtl_end'></span> " +
+                        "</span>" +
+                        "</div>"));
+            },
+
+            /* show tip */
+            show:function() {
+                $('body').append(this.info);
+                this.info.show();
+            },
+
+            /* hide tip */
+            hide:function() {
+                this.info.hide();
+                $('#q_Msgbox').remove();
+
+            }
+        }
+    });
+
+    /* 定时器类 */
+    function EventScheduler() {
+    }
+
+    EventScheduler.prototype = {
+        set:function(func, timeout) {
+            this.timer = setTimeout(func, timeout);
+        },
+        clear:function() {
+            clearTimeout(this.timer);
+        }
+    }
+})(jQuery);
+//$.ajaxSetup({
+//    cache: false,
+//    global: true,
+//    type: "POST"
+//});
+//if ($.messager) {
+//    $.messager.defaults.ok = '确定';
+//    $.messager.defaults.cancel = '取消';
+//}

@@ -5,9 +5,12 @@
  */
 package com.kevin.group.service.dept.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kevin.common.exception.BaseSqlMapException;
 import com.kevin.common.exception.CommonServiceException;
 import com.kevin.common.pojo.PageBean;
 import com.kevin.common.service.AbstractBaseService;
@@ -37,5 +40,14 @@ public class DeptServicesImpl extends AbstractBaseService<Dept> implements IDept
     public PageBean<Dept> list(PageBean<Dept> page)
             throws CommonServiceException {
         return super.list(page);
+    }
+
+    @Override
+    public List<Dept> listDeptNames() throws CommonServiceException   {
+          try {
+            return  deptDAO.listDeptNames();
+        } catch (BaseSqlMapException e) {
+            throw new CommonServiceException(e.getMessage());
+        }
     }
 }

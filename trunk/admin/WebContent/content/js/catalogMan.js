@@ -5,54 +5,9 @@ $(document).ready(function() {
     initRoleManList();
     addZTreeObj = null;
     editZTreeObj = null;
-    /* 角色添加 div1 open */
-    $('#J_RoleAdd').die().live("click", function() {
-        $('#center').css({"overflow":"hidden"});
-        $('#J_RoleManageDiv').slideUp(0);
-        $('#J_AddRoleDiv1').slideDown(0);
-        $('body').append("<div class='fullWindowBtnArea none'>"
-                + "<a class='button btn-orange' id='J_AddRole1Next'>下一步</a>"
-                + "<a class='button btn-grey' id='J_AddRole1Close'>取消</a>"
-                + "</div>");
-        $('.fullWindowBtnArea').slideDown(1000);
-        $('#J_AddRoleStep01').sdValidate();
-        //清空原有数据
-        $.fn.sdResetForm("#J_AddRoleStep01");
-    });
+    initRoleTree("add");
 
-    /* 角色添加 div1 close */
-    $('#J_AddRole1Close').die().live("click", function() {
-        $('.fullWindowBtnArea').slideUp(500, function() {
-            $('.fullWindowBtnArea').remove();
-        });
-        $('#J_AddRoleDiv1').slideUp(0);
-        $('#J_RoleManageDiv').slideDown(0, function() {
-            $('#center').css({"overflow":""});
-        });
-        //清空原有数据
-        $.fn.sdResetForm("#J_AddRoleStep01");
-    });
-
-    /* 角色添加 div1 next */
-    $('#J_AddRole1Next').die().live("click", function() {
-        if ($.fn.sdSubmitValidate("#J_AddRoleStep01")) {
-            $('#J_AddRoleDiv1').slideUp(0);
-            $('#J_AddRoleDiv2').slideDown(0);
-            initRoleTree("add");
-            $('.fullWindowBtnArea').html("<a class='button btn-grey' id='J_AddRole2Prev'>上一步</a>" +
-                    "<a class='button btn-green' id='J_AddRole2Ok'>确定</a>" +
-                    "<a class='button btn-grey' id='J_AddRole2Close'>取消</a>");
-        }
-    });
-
-    /* 角色添加 div2 prev */
-    $('#J_AddRole2Prev').die().live("click", function() {
-        $('#J_AddRoleDiv1').slideDown(0);
-        $('#J_AddRoleDiv2').slideUp(0);
-        $('.fullWindowBtnArea').html("<a class='button btn-orange' id='J_AddRole1Next'>下一步</a>" +
-                "<a class='button btn-grey' id='J_AddRole1Close'>取消</a>");
-    });
-
+   
     /* 角色添加 div2 ok */
     $('#J_AddRole2Ok').die().live("click", function() {
         var length = addZTreeObj.getCheckedNodes().length;
@@ -89,26 +44,9 @@ $(document).ready(function() {
                 }
             },
             dataType: 'json'
-        });
-        $('.fullWindowBtnArea').slideUp(500, function() {
-            $('.fullWindowBtnArea').remove();
-        });
-        $('#J_RoleManageDiv').slideDown(0);
-        $('#J_AddRoleDiv2').slideUp(0, function() {
-            $('#center').css({"overflow":""});
-        });
+        });     
     });
 
-    /* 角色添加 div2 close */
-    $('#J_AddRole2Close').die().live("click", function() {
-        $('.fullWindowBtnArea').slideUp(500, function() {
-            $('.fullWindowBtnArea').remove();
-        });
-        $('#J_AddRoleDiv2').slideUp(0);
-        $('#J_RoleManageDiv').slideDown(0, function() {
-            $('#center').css({"overflow":""});
-        });
-    });
 
     /* 角色编辑 */
     $('.J_RoleEdit').die().live("click", function() {
@@ -153,14 +91,7 @@ $(document).ready(function() {
                 }
             },
             dataType: 'json'
-        });
-        $('#J_EditRoleDiv').slideDown(0);
-        $('#J_RoleManageDiv').slideUp(0);
-        $('body').append("<div class='fullWindowBtnArea none'>"
-                + "<a class='button btn-green'id='J_EditRoleOk' ><span class='icon ico-blub'></span>确认</a>"
-                + "<a class='button btn-grey'id='J_EditRoleClose'>取消</a>"
-                + "</div>");
-        $('.fullWindowBtnArea').slideDown(1000);
+        });    
     });
 
     /* 角色编辑  ok */
@@ -197,178 +128,12 @@ $(document).ready(function() {
                     }
                 },
                 dataType: 'json'
-            });
-            $('.fullWindowBtnArea').slideUp(500, function() {
-                $('.fullWindowBtnArea').remove();
-            });
-            $('#J_RoleManageDiv').slideDown(0);
-            $('#J_EditRoleDiv').slideUp(0, function() {
-                $('#center').css({"overflow":""});
-            });
-            //$('#J_EditRoleDiv form').removeClass("validateThis");
+            });        
         }
     });
-
-    /* 角色编辑  close*/
-    $('#J_EditRoleClose').die().live("click", function() {
-        $('.fullWindowBtnArea').slideUp(500, function() {
-            $('.fullWindowBtnArea').remove();
-        });
-        $('#J_RoleManageDiv').slideDown(0);
-        $('#J_EditRoleDiv').slideUp(0, function() {
-            $('#center').css({"overflow":""});
-        });
-    });
-    /*角色批量删除*/
-    $('.J_DelAll').die().live("click", function() {
-        if ($(this).hasClass("abled")) {
-            //获取参数
-            var checkbox = $('#roleManList input:checkbox:not(.checkBoss):checked');
-            var params = new StringBuffer();
-            var j = 0;
-            checkbox.each(function() {
-                var id = $(this).val();
-                params.append("riList[" + j + "].riId=" + id).append("&");
-                j++;
-            });
-            params = params.toString();
-            params = params.substring(0, params.length - 1);
-            $.messager.confirm('批量删除', '是否确认删除所选角色?', function(r) {
-                if (r) {
-                    $.post("../system/bacthDeleteRole.action", params, function(data) {
-                        if (data.resultCode && data.resultCode > 0) {
-                            initRoleManList();//重新获得数据
-                        } else {
-                            $.fn.sdInfo({
-                                content:data.message ? data.message : "批量删除角色失败",
-                                type:"fail"
-                            });
-                        }
-                        $.fn.checkTest('roleManList');
-                        $('.checkBoss').attr("checked", false);
-                    });
-                }
-            });
-        }
-    });
-    /* 角色删除*/
-    $('.del').die().live("click", function() {
-        var myHandle = $(this);
-        var myName = myHandle.attr("name");
-        var delId = $(this).attr("id");
-        $.messager.confirm('删除', '是否确认删除' + myName + '?', function(r) {
-            if (r) {
-                var params = new StringBuffer();
-                params.append("ri.riId=" + delId);
-                params = params.toString();
-                $.ajax({
-                    type: 'POST',
-                    url: "../system/deleteRole.action",
-                    data: params.toString(),
-                    success: function(jsonObject, statusText, xhr) {
-                        if (jsonObject.resultCode && jsonObject.resultCode > 0) {
-                            initRoleManList();
-                        } else {
-                            // 错误提示
-                            if (jsonObject.message) {
-                                $.fn.sdInfo({
-                                    content:jsonObject.message ? jsonObject.message : "删除角色失败",
-                                    type:"fail"
-                                });
-                                return;
-                            }
-                        }
-                    },
-                    dataType: 'json'
-                });
-            }
-        });
-    });
+ 
 });
-function resetForm(formObjId) {
-    document.getElementById(formObjId).reset();
-}
-function initRoleManList() {
-    if (!dataTable) {
-        dataTable = $("#roleManList").dataTable(
-        {
-            bProcessing: false,
-            bServerSide:false,
-            bDestory:true,
-            sAjaxSource: "../system/listRole.action",
-            sAjaxDataProp: "riList",
-            oSearch: {"sSearch": ""},
-            bAutoWidth:false,
-            fnServerData:function(sSource, aoData, fnCallback) {
-                //aoData提交请求参数
-                //处理参数
-                $.ajax({
-                    dataType: 'json',
-                    type: "GET",
-                    url: sSource,
-                    data: aoData,
-                    success: function(json) {
-                        if (json.resultCode < 0) {
-                            //sendMessage(leftDocument,json.message?json.message:"查询角色列表失败",-1);
-                        }
-                        fnCallback(json);
-                        $('#roleManList input[type=checkbox]').sdCheckBox();
-                    }
-                });
-            },
-            aoColumns: [
-                {
-                    bSortable:false,
-                    fnRender:function(obj) {
-                        return "<input type='checkbox' value='" + obj.aData.riId + "'/>";
-                    }
-                },
-                { "sTitle": "角色编号",   "mDataProp": "riId" },
-//                              { "sTitle": "角色名称",  "mDataProp": "riName" },
-                {
-                    fnRender:function(obj) {
-                        return "<span class='hidden2 tl'>" + obj.aData.riName + "</span>";
-                    }
-                },
-                {
-                    fnRender:function(obj) {
-                        return obj.aData.riDesc ? "<span class='hidden1 tl'>" + obj.aData.riDesc + "</span>" : "<span class='hidden1 tl'>无</span>";
-                    }
-                },
-                {
-                    fnRender:function(obj) {
-                        return "<a class='edit J_RoleEdit' href='#' id='" + obj.aData.riId + "'></a>";
-                    }
-                },
-                {
-                    fnRender:function(obj) {
-                        return "<a class='del' href='#' name='" + obj.aData.riName + "' id='" + obj.aData.riId + "'></a>";
-                    }
-                }
-            ]
-            ,sPaginationType: "full_numbers"
-        }
-                );
-    } else {
-        //重新获取数据
-        dataTable.fnClearTable();
-        $.ajax({
-            dataType: 'json',
-            type: "GET",
-            url: '../system/listRole.action',
-            async: false,
-            success: function(json) {
-                if (json.resultCode < 0) {
-                    //sendMessage(leftDocument,json.message?json.message:"查询角色列表失败",-1);
-                }
-                dataTable.fnAddData(json.riList);
-                //dataTable.fnDraw();
-                $('#roleManList input[type=checkbox]').sdCheckBox();
-            }
-        });
-    }
-    setTableTrColor();
-}
+
 
 var addZTreeObj;
 var editZTreeObj;

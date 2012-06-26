@@ -117,6 +117,17 @@ public class DeptInfoAction extends AbstractBaseAction {
         }
         return Action.SUCCESS;
     }
+    
+    public String listDeptNames() {// list all the dept
+        try {
+            deptList = deptService.listDeptNames();
+            setResultCode(1);
+        } catch (CommonServiceException e) {
+            setMessage(e.getMessage());
+            setResultCode(-1);
+        }
+        return Action.SUCCESS;
+    }
 
     public String updateDept() {// update the dept info
         try {

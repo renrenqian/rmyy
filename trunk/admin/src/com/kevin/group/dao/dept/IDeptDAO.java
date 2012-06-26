@@ -5,7 +5,10 @@
  */
 package com.kevin.group.dao.dept;
 
+import java.util.List;
+
 import com.kevin.common.dao.IBaseDAO;
+import com.kevin.common.exception.BaseSqlMapException;
 import com.kevin.group.pojo.dept.Dept;
 
 /**
@@ -13,5 +16,7 @@ import com.kevin.group.pojo.dept.Dept;
  * @since jdk1.6
  */
 public interface IDeptDAO extends IBaseDAO<Dept> {
+
+    List<Dept> listDeptNames() throws BaseSqlMapException;
 
 }

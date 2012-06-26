@@ -14,7 +14,7 @@
         CI_LEVEL as ciLevel,
         CI_URL as ciUrl,
         CI_PARENT as ciParent,
-        CI_HOME as ciHome,
+        CI_NEWS as ciNews,
         CI_DESC as ciDesc,
         CI_ADD_TIME as ciAdd_time,
         CI_ADDER as ciAdder
@@ -35,7 +35,7 @@
         CI_LEVEL as ciLevel,
         CI_URL as ciUrl,
         CI_PARENT as ciParent,
-        CI_HOME as ciHome,
+        CI_NEWS as ciNews,
         CI_DESC as ciDesc,
         CI_ADD_TIME as ciAdd_time,
         CI_ADDER as ciAdder
@@ -54,7 +54,7 @@
         CI_LEVEL as ciLevel,
         CI_URL as ciUrl,
         CI_PARENT as ciParent,
-        CI_HOME as ciHome,
+        CI_NEWS as ciNews,
         CI_DESC as ciDesc,
         CI_ADD_TIME as ciAdd_time,
         CI_ADDER as ciAdder
@@ -68,8 +68,8 @@
     <!-- add ColumnInfo -->
     <insert id="insert" parameterClass="ColumnInfo">
        <![CDATA[
-          INSERT INTO COLUMN_INFO(CI_ID, CI_TITAL, CI_ICON, CI_LEVEL, CI_URL, CI_PARENT, CI_HOME, CI_DESC, CI_ADD_TIME, CI_ADDER ) 
-                         VALUES(#ciId#, #ciTital#, #ciIcon#, #ciLevel#, #ciUrl#, #ciParent#, #ciHome#, #ciDesc#, #ciAdd_time#, #ciAdder#)
+          INSERT INTO COLUMN_INFO(CI_ID, CI_TITAL, CI_ICON, CI_LEVEL, CI_URL, CI_PARENT, CI_NEWS, CI_DESC, CI_ADD_TIME, CI_ADDER ) 
+                         VALUES(#ciId#, #ciTital#, #ciIcon#, #ciLevel#, #ciUrl#, #ciParent#, #ciNews#, #ciDesc#, #ciAdd_time#, #ciAdder#)
        ]]>
        <selectKey resultClass="int" keyProperty="ciId">
          <![CDATA[SELECT LAST_INSERT_ID();]]>
@@ -91,7 +91,7 @@
             CI_LEVEL =#ciLevel#,
             CI_URL =#ciUrl#,
             CI_PARENT =#ciParent#,
-            CI_HOME =#ciHome#,
+            CI_NEWS = #ciNews#,
             CI_DESC =#ciDesc#,
             CI_ADD_TIME =#ciAdd_time#,
             CI_ADDER =#ciAdder#

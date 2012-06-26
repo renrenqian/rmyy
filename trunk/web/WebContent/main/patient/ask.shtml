@@ -19,72 +19,39 @@
         <div class="newsBody">
             <table class="queryTable">
                 <tr>
-                    <th>性别</th>
+                    <th>患者性别</th>
                     <td>
-                        <select class="select_type1">
-                            <option>请选择...</option>
-                            <option>男</option>
-                            <option>女</option>
+                        <select class="select_type1" id='ocSex'>
+                            <option value='-1'>请选择...</option>
+                            <option value="1">男</option>
+                            <option value="0">女</option>
                         </select>
                     </td>
-                    <th>年龄</th>
+                    <th>患者年龄</th>
                     <td>
-                        <input type="text" class="input_type1" /></td>
+                        <input type="text" class="input_type1" id='ocPost_age' rule="required"/></td>
                 </tr>
                 <tr>
                     <th>提问科室</th>
                     <td colspan="3">
-                        <select class="select_type1">
-                            <option>科室选择</option>
-                            <option class="red">若不确定科室，请选择本项</option>
-                            <option>心血管内科</option>
-                            <option>消化内科</option>
-                            <option>眼科</option>
-                            <option>妇科</option>
-                            <option>产科</option>
-                            <option>心血管内科</option>
-                            <option>消化内科</option>
-                            <option>眼科</option>
-                            <option>妇科</option>
-                            <option>产科</option>
-                            <option>心血管内科</option>
-                            <option>消化内科</option>
-                            <option>眼科</option>
-                            <option>妇科</option>
-                            <option>产科</option>
-                            <option>心血管内科</option>
-                            <option>消化内科</option>
-                            <option>眼科</option>
-                            <option>妇科</option>
-                            <option>产科</option>
-                            <option>心血管内科</option>
-                            <option>消化内科</option>
-                            <option>眼科</option>
-                            <option>妇科</option>
-                            <option>产科</option>
-                            <option>心血管内科</option>
-                            <option>消化内科</option>
-                            <option>眼科</option>
-                            <option>妇科</option>
-                            <option>产科</option>
-                        </select>
+                        <select class="select_type1" id='ocRequestOfficeName'></select>
                     </td>
                 </tr>
                 <tr>
                     <th>问题标题</th>
                     <td colspan="3">
-                        <input type="text" class="input_type2" />
+                        <input type="text" class="input_type2" id='ocPost_subject' rule="required"/>
                     </td>
                 </tr>
                 <tr>
                     <th>问题描述</th>
                     <td colspan="3">
-                        <textarea class="textArea_type1"></textarea>
+                        <textarea class="textArea_type1" id='ocDesc' rule="required"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td colspan="3"><a class="greenBtn tc fl" style="margin: 20px;" href="consultIndex.shtml">
+                    <td colspan="3"><a class="greenBtn tc fl" style="margin: 20px;" id="J_Ask">
                         确认提交</a><a class="greenBtn tc fl" style="margin: 20px;" href="consultIndex.shtml">取消
                         </a></td>
                 </tr>
@@ -99,6 +66,57 @@
 </div>
 <!--#include virtual="../master/footer.html"-->
 <script src="/web/main/js/common.js"></script>
+<script src="/web/js/form/jquery.sdForm.js"></script>
+<script>
+$(document).ready(function(){
+	//zq:填充科室下拉列表
+    $.getJSON('http://124.160.67.194:8520/admin/group/listDeptNames.action', function(json) {
+        if (json.resultCode > 0) {               
+            var deptList = json.deptList;
+            var optioin= "<option>科室选择</option><option class='red'>若不确定科室，请选择本项</option>";
+            $(deptList).each(function(i, item) { 
+            	optioin+="<option value="+item.dpId+">"+item.dpName+"</option>"
+            });  
+            $('#ocRequestOfficeName').html(optioin);
+        	
+        } else {
+            $.fn.sdInfo({
+                type:"fail",
+                content:json.message ? json.message : "查询科室信息错误!"
+            });
+        }
+    });
+	
+	/*确认按钮 */
+	$('#J_Ask').die().live("click", function() {
+		 $('.queryTable').sdValidate();//添加验证规则
+	    if ($(this).sdSubmitValidate(".queryTable")) {
+	        var ocId = $("#ocId").val();                     
+	        var  url = "http://124.160.67.194:8520/admin/online/addConsultation.action";                     
+	        var params = new StringBuffer();
+	        params.append("cons.ocSex=" + $("#ocSex").val()).append("&");
+	        params.append("cons.ocPost_age=" + $("#ocPost_age").val()).append("&");
+	        params.append("cons.ocRequestOfficeName=" + $("#ocRequestOfficeName").val()).append("&");
+	        params.append("cons.ocPost_subject=" + $("#ocPost_subject").val()).append("&");   
+	        params.append("cons.ocDesc=" + $("#ocDesc").val()).append("&");    
+	        params = params.toString();
+	        $.post(url, params, function(json) {
+	            if (json.resultCode > 0) {
+	            	$.fn.sdInfo({
+	                    type:"success",
+	                    content:'提交信息成功，请耐心等待回复!'
+	                });
+	            } else {
+	            	$.fn.sdInfo({
+	                    type:"fail",
+	                    content:'提交问题失败!'
+	                });
+	            }
+	        });
+	    }
+	});
+});
+</script>
 </body>
 </html>
 

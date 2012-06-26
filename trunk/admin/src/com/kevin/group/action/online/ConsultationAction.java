@@ -30,19 +30,18 @@ public class ConsultationAction extends AbstractBaseAction {
     private Consultation cons;
     private List<Consultation> consList;
     private List<Serializable> ides;
-
+ 
     /**
      * @return the cons
      */
-    public final Consultation getConsultation() {
+    public final Consultation getCons() {
         return cons;
     }
 
     /**
-     * @param cons
-     *            the cons to set
+     * @param cons the cons to set
      */
-    public final void setConsultation(Consultation cons) {
+    public final void setCons(Consultation cons) {
         this.cons = cons;
     }
 
