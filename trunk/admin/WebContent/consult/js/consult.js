@@ -1,36 +1,6 @@
 var consultTable;
 $(document).ready(function() {
     //查数据字典
-//	 $.ajax({
-//	        type: 'POST',
-//	        url: "../system/listAllDataDict.action",
-//	        async: false,
-//	        success:
-//            function(json) {
-//                if (json.resultCode > 0) {
-//                	var dataDict = json.ddList;
-//                	//填充页面的下拉 J_pcTransType,J_pcState
-//                	var pcTransType=[]; g_pcTransType=[];
-//                	var pcState=[];g_pcState=[];
-//
-//                	if(dataDict){
-//                		for(var i=0;i<dataDict.length;i++){
-//                			if(dataDict[i].DICT_KIND=="pc_trans_type"){
-//                				g_pcTransType.push(dataDict[i]);
-//                				pcTransType.push("<option value='"+dataDict[i].DICT_KEY+"'>"+dataDict[i].DICT_DISVALUE+"</option>");
-//                			}
-//                            if(dataDict[i].DICT_KIND=="pc_state"){
-//                            	g_pcState.push(dataDict[i]);
-//                            	pcState.push("<option value='"+dataDict[i].DICT_KEY+"'>"+dataDict[i].DICT_DISVALUE+"</option>");
-//                			}
-//                		}
-//                	}
-//                	$("#J_pcTransType").html(pcTransType.join(""));
-//                	$("#J_pcState").html(pcState.join(""));
-//                } else {
-//                	 $.fn.sdInfo({ type:"fail",content:json.message ? json.message : "查询数据字典数据错误!" });
-//                }
-//     }});
     initConsultList();//初始化列表
     $('#consultForm').sdValidate();//添加验证规则
 
@@ -134,7 +104,7 @@ $(document).ready(function() {
     });
 
     /* del */
-    $('.J_ConsultDel').die().live("click", function() {
+    $('.J_DoctorDel').die().live("click", function() {
         var THIS = this;
         $.messager.confirm('删除', '是否确认删除所选咨询信息?', function(r) {
             if (r) {
@@ -233,17 +203,17 @@ function initConsultList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.ocRequestOfficeName + "</span>";
+                        return "<span class='hidden2 tl'>" + obj.aData.ocRequestOfficeName + "</span>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.ocReceiveOfficeName + "</span>";
+                        return "<span class='hidden2 tl'>" + obj.aData.ocReceiveOfficeName + "</span>";
                     }
                 },
                       {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.ocPost_subject + "</span>";
+                        return "<span class='hidden1 tl' style='width:100%;'>" + obj.aData.ocPost_subject + "</span>";
                     }
                 },
                 {

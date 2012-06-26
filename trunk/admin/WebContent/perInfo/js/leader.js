@@ -1,36 +1,5 @@
 var leaderDataTable;
 $(document).ready(function() {
-    //查数据字典
-//     $.ajax({
-//            type: 'POST',
-//            url: "../system/listAllDataDict.action",
-//            async: false,
-//            success:
-//            function(json) {
-//                if (json.resultCode > 0) {
-//                    var dataDict = json.ddList;
-//                    //填充页面的下拉 J_pcTransType,J_pcState
-//                    var pcTransType=[]; g_pcTransType=[];
-//                    var pcState=[];g_pcState=[];
-//
-//                    if(dataDict){
-//                        for(var i=0;i<dataDict.length;i++){
-//                            if(dataDict[i].DICT_KIND=="pc_trans_type"){
-//                                g_pcTransType.push(dataDict[i]);
-//                                pcTransType.push("<option value='"+dataDict[i].DICT_KEY+"'>"+dataDict[i].DICT_DISVALUE+"</option>");
-//                            }
-//                            if(dataDict[i].DICT_KIND=="pc_state"){
-//                                g_pcState.push(dataDict[i]);
-//                                pcState.push("<option value='"+dataDict[i].DICT_KEY+"'>"+dataDict[i].DICT_DISVALUE+"</option>");
-//                            }
-//                        }
-//                    }
-//                    $("#J_pcTransType").html(pcTransType.join(""));
-//                    $("#J_pcState").html(pcState.join(""));
-//                } else {
-//                     $.fn.sdInfo({ type:"fail",content:json.message ? json.message : "查询数据字典数据错误!" });
-//                }
-//     }});
     initLeaderList();//初始化列表
     $('#leaderForm').sdValidate();//添加验证规则
     /* 新增 */
@@ -127,8 +96,6 @@ $(document).ready(function() {
             params.append("leader.liCurrent=" + $.trim( $("#liCate").find("option:selected").text())).append("&");
             params.append("leader.liOrder=" + 1).append("&");
             params.append("leader.liHold_period=" + $("#liHold_period").val()).append("&");
-            //params.append("leader.liHold_start=" + $("#liHold_start").val()).append("&");
-            //params.append("leader.liHold_end=" + $("#liHold_start").val()).append("&");
             params.append("leader.liQuarters=" + $("#liQuarters").val()).append("&");
             params.append("leader.liTelephone=" + $("#liTelephone").val()).append("&");
             params.append("leader.liEmail=" + $("#liEmail").val()).append("&");
@@ -254,12 +221,12 @@ function initLeaderList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.liName + "</span>";
+                        return "<span class='hidden1 tl'>" + obj.aData.liName + "</span>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.ligmName + "</span>";
+                        return "<span class='hidden1 tl'>" + obj.aData.ligmName + "</span>";
                     }
                 },
                 {

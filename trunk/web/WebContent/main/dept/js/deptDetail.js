@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	 $.getJSON('http://124.160.67.194:8520/admin/group/searchDept.action?dept.dpId=1032', function(json) {		 		 	
+	 $.getJSON('http://124.160.67.194:8520/admin/group/searchDept.action?dept.dpId=1031', function(json) {		 		 	
          if (json.resultCode > 0) {            
              var deptDetail = json.dept;
              $(deptDetail).each(function(i, item) {                  

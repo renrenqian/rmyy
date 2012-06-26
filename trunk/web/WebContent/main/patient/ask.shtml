@@ -92,8 +92,13 @@ $(document).ready(function(){
 		 $('.queryTable').sdValidate();//添加验证规则
 	    if ($(this).sdSubmitValidate(".queryTable")) {
 	        var ocId = $("#ocId").val();                     
-	        var  url = "http://124.160.67.194:8520/admin/online/addConsultation.action";                     
+	        var  url = "http://124.160.67.194:8520/admin/online/addConsultation.action";     
+	        var dateFormat = new DateFormat();
+	        var date = new Date();	      
+	        var isoDateTime=dateFormat.isoDateTime(date);
+	        
 	        var params = new StringBuffer();
+	        params.append("cons.ocPost_time=" + isoDateTime).append("&");
 	        params.append("cons.ocSex=" + $("#ocSex").val()).append("&");
 	        params.append("cons.ocPost_age=" + $("#ocPost_age").val()).append("&");
 	        params.append("cons.ocRequestOfficeName=" + $("#ocRequestOfficeName").val()).append("&");
@@ -104,7 +109,8 @@ $(document).ready(function(){
 	            if (json.resultCode > 0) {
 	            	$.fn.sdInfo({
 	                    type:"success",
-	                    content:'提交信息成功，请耐心等待回复!'
+	                    content:'提交信息成功，请耐心等待回复!',
+	                    callBack:reDirect
 	                });
 	            } else {
 	            	$.fn.sdInfo({
@@ -116,6 +122,11 @@ $(document).ready(function(){
 	    }
 	});
 });
+
+
+function reDirect(){
+	window.location.href='/web/main/patient/consultIndex.shtml';
+}
 </script>
 </body>
 </html>

@@ -190,8 +190,9 @@ function getSpaceValue(size) {//计算文件或目录占用空间大小
             timeOut:'3000',
             type:'success',
             content:"操作成功！",
-            autoClose:true
-        }
+            autoClose:true,
+            callBack:null
+        };
         var options = $.extend(defaultSettings, settings);
         var eventScheduler = new EventScheduler();
         var info = new $.Info(options);
@@ -201,6 +202,9 @@ function getSpaceValue(size) {//计算文件或目录占用空间大小
                 eventScheduler.set(function() {
                     info.hide();
                     eventScheduler.clear();
+                    if(defaultSettings.callBack!=null){
+                    	 defaultSettings.callBack();
+                    }                   
                 }, options.timeOut);
             }
         }
@@ -281,12 +285,51 @@ function getSpaceValue(size) {//计算文件或目录占用空间大小
         }
     }
 })(jQuery);
-//$.ajaxSetup({
-//    cache: false,
-//    global: true,
-//    type: "POST"
-//});
-//if ($.messager) {
-//    $.messager.defaults.ok = '确定';
-//    $.messager.defaults.cancel = '取消';
-//}
+
+//=========================================================
+//zq:日期格式化
+//=========================================================
+function DateFormat() {
+
+}
+DateFormat.prototype = {
+ _getHour:function(date) {
+     return date.getHours();
+ },
+ _getMin:function(date) {
+     return date.getMinutes();
+ },
+ _getSec:function(date) {
+     return date.getSeconds();
+ },
+ _getDay:function(date) {
+     return date.getDate();
+ },
+ _getMonth:function(date) {
+     return date.getMonth() + 1;
+ },
+ _getYear:function(date) {
+     return date.getFullYear();
+ },
+ isoTime:function(date) {
+     //return type:12:12:12
+     var myDate = "";
+     this._getHour(date) < 10 ? myDate = "0" + this._getHour(date) + ":" : myDate = this._getHour(date) + ":";
+     this._getMin(date) < 10 ? myDate = myDate + "0" + this._getMin(date) + ":" : myDate = myDate + this._getMin(date) + ":";
+     this._getSec(date) < 10 ? myDate = myDate + "0" + this._getSec(date) : myDate = myDate + this._getSec(date);
+     return myDate;
+ },
+ isoDate:function(date) {
+     //return type:2011-04-05
+     var myDate = this._getYear(date) + "-";
+     this._getMonth(date) < 10 ? myDate = myDate + "0" + this._getMonth(date) + "-" : myDate = myDate + this._getMonth(date) + "-";
+     this._getDay(date) < 10 ? myDate = myDate + "0" + this._getDay(date) : myDate = myDate + this._getDay(date);
+     return myDate;
+ },
+ isoDateTime:function(date) {
+     //return type:2011-09-09 12:12:12
+     var myDate = "";
+     myDate = this.isoDate(date) + " " + this.isoTime(date);
+     return myDate;
+ }
+}

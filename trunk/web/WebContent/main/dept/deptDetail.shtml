@@ -16,7 +16,7 @@
 						<h2 class="titleType3">
 							临床科室 .<span class="J_DpName"></span>
 						</h2>
-						
+
 
 						<div class='clear'></div>
 						<div class="newsBody">
@@ -36,9 +36,11 @@
 								电子邮箱：<span id="J_DpEmail"></span>
 							</p>
 							<a class="greenBtn tc fl" style="margin: 20px;"
-								href="../doctor/mzpb.shtml" target="_blank"> 科室专家一览</a>
+								href="../doctor/mzpb.shtml" target="_blank"> 科室专家一览</a> 																
+						    <a class="greenBtn tc fl" style="margin: 20px;"
+								href="../patient/consultIndex.shtml" target="_blank"> 在线咨询中心</a>
 							<!-- <a class="greenBtn tc fl" style="margin: 20px;" href="#" target="_blank"> 科室主页</a> -->
-						   <div class='clear'></div>
+							<div class='clear'></div>
 							<hr />
 							<h3>科室简介</h3>
 
