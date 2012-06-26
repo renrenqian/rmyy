@@ -40,32 +40,37 @@
         <table class="form w">
             <tr>
                 <td class="rowName w1">患者性别</td>
-                <td><input type="text" class="input_type1" value="女" readonly/></td>
+                <td>
+                    <select id="ocSex" class="selectType1">
+                        <option value="1">男</option>
+                        <option value="0">女</option>
+                    </select>
+               </td>
             </tr>
             <tr>
                 <td class="rowName w1">患者年龄</td>
-                <td><input type="text" class="input_type1" value="32" readonly/></td>
+                <td><input id="ocId" type="hidden"/><input id="ocPost_age" type="text" class="input_type1" value="32" readonly/></td>
             </tr>
             <tr>
                 <td class="rowName">问题主题</td>
                 <td>
-                    <input type="text" class="input_type2" value="请问我要做无创产前检测怎么预约"/>
+                    <input type="text" id="ocPost_subject"  class="input_type2" value="请问我要做无创产前检测怎么预约"/>
                 </td>
             </tr>
             <tr>
                 <td class="rowName">问题描述</td>
                 <td>
-                    <textarea class="textArea_type2" >人流完医生给开了两盒酮焕雌醇片避孕药,一盒有21天的量,我想问这两盒要吃完吗?吃那么多对身体有没有影响? </textarea>
+                    <textarea id="ocDesc"  class="textArea_type2" >人流完医生给开了两盒酮焕雌醇片避孕药,一盒有21天的量,我想问这两盒要吃完吗?吃那么多对身体有没有影响? </textarea>
                 </td>
             </tr>
             <tr>
                 <td class="rowName">回复科室</td>
                 <td>
-                    <select class="selectType1">
+                    <select id="ocReceive_office" class="selectType1">
                         <option>科室选择</option>
-                        <option>心血管内科</option>
-                        <option>消化内科</option>
-                        <option>眼科</option>
+                        <option value="1031">心血管内科</option>
+                        <option value="1032">消化内科</option>
+                        <option value="1033">眼科</option>
                         <option>妇科</option>
                         <option>产科</option>
                         <option>心血管内科</option>
@@ -100,34 +105,32 @@
             <tr>
                 <td class="rowName">回复内容</td>
                 <td>
-                    <textarea class="textArea_type2"></textarea>
+                    <textarea id="osAnswer" class="textArea_type2"></textarea>
                 </td>
             </tr>
             <tr>
                 <td class="rowName">回复对象</td>
                 <td>
-                    <select class="selectType1">
-                        <option>请选择</option>
-                        <option>提问患者</option>
-                        <option>转交科室</option>
+                    <select id="isAnswer" class="selectType1">
+                        <option value="0">请选择</option>
+                        <option value="1">提问患者</option>
+                        <option value="2">转交科室</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td class="rowName">设为典型</td>
                 <td>
-                    <select class="selectType1">
-                        <option>否</option>
-                        <option>是</option>
+                    <select id="osTypical" class="selectType1">
+                        <option value="0">否</option>
+                        <option value="1">是</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td></td>
                 <td class="p10">
-                    <a class="button btn-blue" id="J_ConsultOk">
-                        <span class="icon ico-bulb"></span>
-                        确定</a>
+                    <a class="button btn-blue" id="J_ConsultOk"><span class="icon ico-bulb"></span>确定</a>
                     <a class="button btn-grey" id="J_ConsultClose">取消</a>
             </tr>
         </table>

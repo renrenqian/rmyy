@@ -3,45 +3,45 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-    <package name="group" namespace="/group" extends="defaultj">
+    <package name="online" namespace="/online" extends="defaultj">
         <!-- Consultation start -->
         <!-- new Consultation -->
-        <action name="addConsultation" method="addConsultation" class="ConsultationInfoAction">
+        <action name="addConsultation" method="addConsultation" class="consultationfoAction">
             <result name="success" type="json">
                 <param name="ignoreHierarchy">false</param>
                 <param name="excludeNullProperties">true</param>
             </result>
         </action>
         <!-- list Consultation -->
-       <action name="listConsultation" method="listConsultation" class="ConsultationInfoAction">
+       <action name="listConsultation" method="listConsultation" class="consultationfoAction">
             <result name="success" type="json">
                <param name="ignoreHierarchy">false</param>
                <param name="excludeNullProperties">true</param>
             </result>
        </action>
         <!-- search Consultation -->
-       <action name="searchConsultation" method="searchConsultation" class="ConsultationInfoAction">
+       <action name="searchConsultation" method="searchConsultation" class="consultationfoAction">
             <result name="success" type="json">
                <param name="ignoreHierarchy">false</param>
                <param name="excludeNullProperties">true</param>
             </result>
        </action>
         <!-- update the Consultation info -->
-        <action name="updateConsultation" method="updateConsultation" class="ConsultationInfoAction">
+        <action name="updateConsultation" method="updateConsultation" class="consultationfoAction">
             <result name="success" type="json">
                 <param name="ignoreHierarchy">false</param>
                 <param name="excludeNullProperties">true</param>
             </result>
         </action>
         <!-- delete the Consultation -->
-        <action name="deleteConsultation" method="deleteConsultation" class="ConsultationInfoAction">
+        <action name="deleteConsultation" method="deleteConsultation" class="consultationfoAction">
             <result name="success" type="json">
                 <param name="ignoreHierarchy">false</param>
                 <param name="excludeNullProperties">true</param>
             </result>
         </action>
         <!-- batch delete the Consultation -->
-        <action name="batchDeleteConsultation" method="batchDeleteConsultation" class="ConsultationInfoAction">
+        <action name="batchDeleteConsultation" method="batchDeleteConsultation" class="consultationfoAction">
             <result name="success" type="json">
                 <param name="ignoreHierarchy">false</param>
                 <param name="excludeNullProperties">true</param>

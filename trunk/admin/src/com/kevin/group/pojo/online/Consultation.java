@@ -18,9 +18,11 @@ public class Consultation {
     private String ocReceiveOfficeName;
     private String ocPost_name;
     private Integer ocPost_age;
+    private Integer ocSex;
     private String ocPost_subject;
     private String ocDesc;
     private Integer osAnswered;
+    private String osAnswer;
     private Integer osAnswer_office;
     private String osAnswerOfficeName;
     private String osAnswer_time;
@@ -147,6 +149,21 @@ public class Consultation {
     }
 
     /**
+     * @return the ocSex
+     */
+    public final Integer getOcSex() {
+        return ocSex;
+    }
+
+    /**
+     * @param ocSex
+     *            the ocSex to set
+     */
+    public final void setOcSex(Integer ocSex) {
+        this.ocSex = ocSex;
+    }
+
+    /**
      * @return the ocPost_subject
      */
     public final String getOcPost_subject() {
@@ -189,6 +206,21 @@ public class Consultation {
      */
     public final void setOsAnswered(Integer osAnswered) {
         this.osAnswered = osAnswered;
+    }
+
+    /**
+     * @return the osAnswer
+     */
+    public final String getOsAnswer() {
+        return osAnswer;
+    }
+
+    /**
+     * @param osAnswer
+     *            the osAnswer to set
+     */
+    public final void setOsAnswer(String osAnswer) {
+        this.osAnswer = osAnswer;
     }
 
     /**

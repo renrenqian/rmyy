@@ -10,17 +10,21 @@
        select 
         OC_ID as ocId,
         OC_POST_TIME as ocPost_time,
-        OC_REQUEST_OFFICE as ocRequest_office,
-        OC_RECEIVE_OFFICE as ocReceive_office,
+        odq.OD_NAME as ocRequestOfficeName,
+        odr.OD_NAME as ocReceiveOfficeName,
         OC_POST_NAME as ocPost_name,
         OC_POST_AGE as ocPost_age,
+        OC_SEX as ocSex,
         OC_POST_SUBJECT as ocPost_subject,
         OC_DESC as ocDesc,
         OS_ANSWERED as osAnswered,
+        OS_ANSWER as osAnswer,
         OS_ANSWER_OFFICE as osAnswer_office,
         OS_ANSWER_TIME as osAnswer_time,
         OS_TYPICAL as osTypical
-       from ONLINE_CONSULTATION
+       from ONLINE_CONSULTATION oc
+       left join OFFICE_DETAIL odq on oc.OC_REQUEST_OFFICE =odq.OD_ID
+       left join OFFICE_DETAIL odr on oc.OC_RECEIVE_OFFICE =odr.OD_ID
      ]]>
      <!-- 
      <![CDATA[LIMIT #start#,#pageSize#]]>
@@ -33,17 +37,21 @@
        select 
         OC_ID as ocId,
         OC_POST_TIME as ocPost_time,
-        OC_REQUEST_OFFICE as ocRequest_office,
-        OC_RECEIVE_OFFICE as ocReceive_office,
+        odq.OD_NAME as ocRequestOfficeName,
+        odr.OD_NAME as ocReceiveOfficeName,
         OC_POST_NAME as ocPost_name,
         OC_POST_AGE as ocPost_age,
+        OC_SEX as ocSex,
         OC_POST_SUBJECT as ocPost_subject,
         OC_DESC as ocDesc,
         OS_ANSWERED as osAnswered,
+        OS_ANSWER as osAnswer,
         OS_ANSWER_OFFICE as osAnswer_office,
         OS_ANSWER_TIME as osAnswer_time,
         OS_TYPICAL as osTypical
-       from ONLINE_CONSULTATION
+       from ONLINE_CONSULTATION oc
+       left join OFFICE_DETAIL odq on oc.OC_REQUEST_OFFICE =odq.OD_ID
+       left join OFFICE_DETAIL odr on oc.OC_RECEIVE_OFFICE =odr.OD_ID
      ]]>
      <!-- 
      <![CDATA[LIMIT #start#,#pageSize#]]>
@@ -53,8 +61,8 @@
     <!-- add Consultation -->
     <insert id="insert" parameterClass="Consultation">
        <![CDATA[
-          INSERT INTO ONLINE_CONSULTATION(OC_ID, OC_POST_TIME, OC_REQUEST_OFFICE, OC_RECEIVE_OFFICE, OC_POST_NAME, OC_POST_AGE, OC_POST_SUBJECT, OC_DESC, OS_ANSWERED, OS_ANSWER_OFFICE, OS_ANSWER_TIME, OS_TYPICAL) 
-                         VALUES(#ocId#, #ocPost_time#, #ocRequest_office#, #ocReceive_office#, #ocPost_name#, #ocPost_age#, #ocPost_subject#, #ocDesc#, #osAnswered#, #osAnswer_office#, #osAnswer_time#, #osTypical#)
+          INSERT INTO ONLINE_CONSULTATION(OC_ID, OC_POST_TIME, OC_REQUEST_OFFICE, OC_RECEIVE_OFFICE, OC_POST_NAME, OC_POST_AGE, OC_SEX, OC_POST_SUBJECT, OC_DESC, OS_ANSWERED, OS_ANSWER, OS_ANSWER_OFFICE, OS_ANSWER_TIME, OS_TYPICAL) 
+                         VALUES(#ocId#, #ocPost_time#, #ocRequest_office#, #ocReceive_office#, #ocPost_name#, #ocPost_age#, #ocSex#, #ocPost_subject#, #ocDesc#, #osAnswered#, #osAnswer#, #osAnswer_office#, #osAnswer_time#, #osTypical#)
        ]]>
        <selectKey resultClass="int" keyProperty="ocId">
          <![CDATA[SELECT LAST_INSERT_ID();]]>
@@ -71,16 +79,18 @@
       <![CDATA[
          UPDATE ONLINE_CONSULTATION 
          SET 
-            OC_POST_TIME = #ocPost_time#，
-            OC_REQUEST_OFFICE = #ocRequest_office#，
-            OC_RECEIVE_OFFICE = #ocReceive_office#，
-            OC_POST_NAME = #ocPost_name#，
-            OC_POST_AGE = #ocPost_age#，
-            OC_POST_SUBJECT = #ocPost_subject#，
-            OC_DESC = #ocDesc#，
-            OS_ANSWERED = #osAnswered#，
-            OS_ANSWER_OFFICE = #osAnswer_office#，
-            OS_ANSWER_TIME = #osAnswer_time#，
+            OC_POST_TIME = #ocPost_time#,
+            OC_REQUEST_OFFICE = #ocRequest_office#,
+            OC_RECEIVE_OFFICE = #ocReceive_office#,
+            OC_POST_NAME = #ocPost_name#,
+            OC_POST_AGE = #ocPost_age#,
+            OC_SEX = #ocSex#,
+            OC_POST_SUBJECT = #ocPost_subject#,
+            OC_DESC = #ocDesc#,
+            OS_ANSWERED = #osAnswered#,
+            OS_ANSWER = #osAnswer#,
+            OS_ANSWER_OFFICE = #osAnswer_office#,
+            OS_ANSWER_TIME = #osAnswer_time#,
             OS_TYPICAL = #osTypical#
          WHERE OC_ID = #ocId#
       ]]>

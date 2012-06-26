@@ -38,9 +38,9 @@ $(document).ready(function() {
     $(".J_ConsultEdit").die().live("click", function() {
         $.fn.sdResetForm("#consultForm");
         var id = $(this).parent().parent().children().eq(0).children().eq(0).val();
-        $.getJSON('../config/searchCatalogConfig.action?t=' + new Date().getTime() + '&lc.lcId=' + id, function(json) {
+        $.getJSON('../online/searchConsultation.action?t=' + new Date().getTime() + '&cons.ocId=' + id, function(json) {
             if (json.resultCode > 0) {
-                formUnSerialize("consultForm", "lc", json.lc);
+                formUnSerialize("consultForm", "cons", json.cons);
 
             } else {
                 $.fn.sdInfo({
@@ -64,45 +64,53 @@ $(document).ready(function() {
     /* 编辑、新增 确认按钮 */
     $('#J_DoctorOk').die().live("click", function() {
         if ($(this).sdSubmitValidate("#consultForm")) {
-            var lcId = $("#lcId").val();
+            var ocId = $("#ocId").val();
             var url,action;
-            if (!lcId || lcId == "") {
+            if (!ocId || ocId == "") {
                 action = "新增";
-                url = "../config/addCatalogConfig.action";
-                var params = new StringBuffer();
-                params.append("lc.LcName=" + $("#lcName").val()).append("&");
-                params = params.toString();
-                $.post(url, params, function(json) {
-                    if (json.resultCode > 0) {
-                        initConsultList();
-                        $('#J_ConsultDiv').window("close");
-                    } else {
-                        $.fn.sdInfo({
-                            type:"fail",
-                            content:json.message ? json.message : action + '咨询信息失败!'
-                        });
-                    }
-                });
-
+                url = "../online/addConsultation.action";
             } else {
                 action = "编辑";
-                url = "../config/updateCatalogConfig.action";
-                var params = new StringBuffer();
-                params.append("lc.LcName=" + $("#lcName").val()).append("&");
-                params.append("lc.LcId=" + $("#lcId").val()).append("&");
-                params = params.toString();
-                $.post(url, params, function(json) {
-                    if (json.resultCode > 0) {
-                        initConsultList();
-                        $('#J_ConsultDiv').window("close");
-                    } else {
-                        $.fn.sdInfo({
-                            type:"fail",
-                            content:json.message ? json.message : action + '咨询信息失败!'
-                        });
-                    }
-                });
+                url = "../online/updateConsultation.action";
+//                var params = new StringBuffer();
+//                params.append("cons.consName=" + $("#consName").val()).append("&");
+//                params.append("cons.ocId=" + $("#ocId").val()).append("&");
+//                params = params.toString();
+//                $.post(url, params, function(json) {
+//                    if (json.resultCode > 0) {
+//                        initConsultList();
+//                        $('#J_ConsultDiv').window("close");
+//                    } else {
+//                        $.fn.sdInfo({
+//                            type:"fail",
+//                            content:json.message ? json.message : action + '咨询信息失败!'
+//                        });
+//                    }
+//                });
             }
+
+            var params = new StringBuffer();
+            params.append("cons.ocPost_subject=" + $("#consName").val()).append("&");
+            params.append("cons.ocPost_age=" + $("#ocPost_age").val()).append("&");
+            params.append("cons.ocSex=" + $("#ocSex").val()).append("&");
+            params.append("cons.ocDesc=" + $("#ocDesc").val()).append("&");
+            params.append("cons.osAnswer=" + $("#osAnswer").val()).append("&");
+            params.append("cons.osTypical=" + $("#osTypical").val()).append("&");
+            if(2== $("#isAnswer").val())
+                params.append("cons.ocReceive_office=" + $("#ocReceive_office").val()).append("&");
+            params = params.toString();
+            $.post(url, params, function(json) {
+                if (json.resultCode > 0) {
+                    initConsultList();
+                    $('#J_ConsultDiv').window("close");
+                } else {
+                    $.fn.sdInfo({
+                        type:"fail",
+                        content:json.message ? json.message : action + '咨询信息失败!'
+                    });
+                }
+            });
+
             // var params = $("#consultForm").serialize();
         }
     });
@@ -119,8 +127,8 @@ $(document).ready(function() {
         $.messager.confirm('删除', '是否确认删除所选咨询信息?', function(r) {
             if (r) {
                 var id = $(THIS).parent().parent().children().eq(0).children().eq(0).val();
-                var params = "lc.LcId=" + id;
-                $.post("../config/deleteCatalogConfig.action", params, function(json) {
+                var params = "cons.ocId=" + id;
+                $.post("../online/deleteConsultation.action", params, function(json) {
                     if (json.resultCode > 0) {
                         initConsultList();
                     } else {
@@ -145,7 +153,7 @@ $('#J_ConsultDelAll').click(function() {
         });
         $.messager.confirm('批量删除', '是否确认删除所选咨询信息?', function(r) {
             if (r) {
-                $.post("../config/batchDeleteCatalogConfig.action", ides, function(data) {
+                $.post("../online/batchDeleteConsultation.action", ides, function(data) {
                     if (data.resultCode && data.resultCode > 0) {
                         initConsultList();
                     } else {
@@ -172,8 +180,8 @@ function initConsultList() {
             bServerSide:false,
             bDestory:false,
             bRetrieve:true,
-            sAjaxSource:"../config/listCatalogConfig.action",
-            sAjaxDataProp: "lcList",
+            sAjaxSource:"../online/listConsultation.action",
+            sAjaxDataProp: "consList",
             oSearch: {"sSearch": ""},
             bAutoWidth:false,
             fnServerData:function(sSource, aoData, fnCallback) {
@@ -191,8 +199,8 @@ function initConsultList() {
                             });
                         }
                         //处理返回结果
-                        if (!json.lcList) {
-                            json.lcList = [];
+                        if (!json.consList) {
+                            json.consList = [];
                         }
                         fnCallback(json);
                         setTableTrColor();
@@ -203,33 +211,33 @@ function initConsultList() {
             aoColumns: [
                 {
                     fnRender:function(obj) {
-                        return "<input type='checkbox' value='" + obj.aData.lcId + "'/>";
+                        return "<input type='checkbox' value='" + obj.aData.ocId + "'/>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.lcId + "</span>";
+                        return "<span>" + obj.aData.ocPost_time + "</span>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='hidden1 tl'>" + obj.aData.lcId + "</span>";
+                        return "<span>" + obj.aData.ocRequestOfficeName + "</span>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='hidden1 tl'>" + obj.aData.lcId + "</span>";
+                        return "<span>" + obj.aData.ocReceiveOfficeName + "</span>";
                     }
                 },
                       {
                     fnRender:function(obj) {
-                        return "<span class='hidden1 tl'>" + obj.aData.lcId + "</span>";
+                        return "<span>" + obj.aData.ocPost_subject + "</span>";
                     }
                 },
                 {
                     fnRender:function(obj) {
                         var state = "未回复",className = "red";
-                        if (obj.aData.lcEnable == 0) {
+                        if (obj.aData.osAnswered == 1) {
                             state = "已回复";
                             className = "green";
                         }
@@ -255,7 +263,7 @@ function initConsultList() {
     } else {
         consultTable.fnClearTable();
         $.getJSON(
-                "../config/listCatalogConfig.action",
+                "../online/listConsultation.action",
                 function(json) {
                     if (json.resultCode > 0) {
                     } else {
@@ -264,10 +272,10 @@ function initConsultList() {
                             content:json.message ? json.message : "查询列表错误!"
                         });
                     }
-                    if (!json.lcList) {
-                        json.lcList = [];
+                    if (!json.consList) {
+                        json.consList = [];
                     }
-                    consultTable.fnAddData(json.lcList);
+                    consultTable.fnAddData(json.consList);
                     setTableTrColor();
                     $('#J_ConsultTable input[type=checkbox]').sdCheckBox();
                 }

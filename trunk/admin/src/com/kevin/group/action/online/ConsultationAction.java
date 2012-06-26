@@ -8,6 +8,7 @@ package com.kevin.group.action.online;
 import java.io.Serializable;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -79,6 +80,7 @@ public class ConsultationAction extends AbstractBaseAction {
      * @param consultationService
      *            the consultationService to set
      */
+    @Autowired
     public final void setConsultationService(
             IConsultationService consultationService) {
         this.consultationService = consultationService;
