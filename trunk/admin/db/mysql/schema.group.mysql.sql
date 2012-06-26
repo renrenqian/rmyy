@@ -153,6 +153,7 @@ CREATE TABLE LEADER_INFO  (
    LI_CATE               INTEGER,
    LI_CURRENT            INTEGER,
    LI_NAME               VARCHAR(64),
+   LI_HOLD_PERIOD        VARCHAR(32),
    LI_HOLD_START         DATE,
    LI_HOLD_END           DATE,
    LI_QUARTERS           VARCHAR(64),

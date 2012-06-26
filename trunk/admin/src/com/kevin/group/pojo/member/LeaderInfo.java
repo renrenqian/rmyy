@@ -17,6 +17,7 @@ public class LeaderInfo {
     private String ligmId;
     private String ligmName;
     private String liName;
+    private String liHold_period;
     private String liHold_start;
     private String liHold_end;
     private String liQuarters;
@@ -132,6 +133,21 @@ public class LeaderInfo {
      */
     public final void setLiName(String liName) {
         this.liName = liName;
+    }
+
+    /**
+     * @return the liHold_period
+     */
+    public final String getLiHold_period() {
+        return liHold_period;
+    }
+
+    /**
+     * @param liHold_period
+     *            the liHold_period to set
+     */
+    public final void setLiHold_period(String liHold_period) {
+        this.liHold_period = liHold_period;
     }
 
     /**

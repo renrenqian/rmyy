@@ -46,7 +46,8 @@ $(document).ready(function() {
             if (json.resultCode > 0) {
                // formUnSerialize("doctorForm", "doct", json.lc);
             	  var docList = json.doct;
-                  $(docList).each(function(i, item) {                  
+                  $(docList).each(function(i, item) {
+                    $('#diId').val(item.diId);    
                   	$('#diName').val(item.diName);    
                   	$('#diSex').val(item.diSex);   
                   	$('#diEducation').val(item.diEducation);   
@@ -79,7 +80,6 @@ $(document).ready(function() {
                             //zq:根据医生ID查找该医生所在科室
 //                            $.getJSON('../group/listDeptByDoctId.action', function(json) {
 //                            	if(json.resultCode>0){
-//                            		
 //                            	}
 //                            });
                         } else {
@@ -89,11 +89,6 @@ $(document).ready(function() {
                             });
                         }
                     });
-                  	
-                  	
-                  	
-                  	
-                  	
                   });     
             } else {
                 $.fn.sdInfo({
@@ -176,6 +171,7 @@ $(document).ready(function() {
                     });
                 }
             });
+            $('#diId').val("");//clear the edit id while open edit.
             // var params = $("#doctorForm").serialize();
         }
     });

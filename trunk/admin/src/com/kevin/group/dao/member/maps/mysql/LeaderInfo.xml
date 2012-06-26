@@ -13,8 +13,7 @@
             LI_CURRENT as liCurrent,
             gm.GM_NAME as ligmName,
             LI_NAME as liName,
-            LI_HOLD_START as liHold_start,
-            LI_HOLD_END as liHold_end,
+            LI_HOLD_PERIOD as liHold_period,
             LI_QUARTERS as liQuarters,
             LI_TECH_POSITION as liTech_position,
             LI_TELEPHONE as liTelephone,
@@ -42,8 +41,7 @@
             LI_CURRENT as liCurrent,
             gm.GM_NAME as ligmName,
             LI_NAME as liName,
-            LI_HOLD_START as liHold_start,
-            LI_HOLD_END as liHold_end,
+            LI_HOLD_PERIOD as liHold_period,
             LI_QUARTERS as liQuarters,
             LI_TECH_POSITION as liTech_position,
             LI_TELEPHONE as liTelephone,
@@ -68,8 +66,7 @@
             LI_CURRENT as liCurrent,
             gm.GM_NAME as ligmName,
             LI_NAME as liName,
-            LI_HOLD_START as liHold_start,
-            LI_HOLD_END as liHold_end,
+            LI_HOLD_PERIOD as liHold_period,
             LI_QUARTERS as liQuarters,
             LI_TECH_POSITION as liTech_position,
             LI_TELEPHONE as liTelephone,
@@ -90,8 +87,8 @@
     <!-- add LeaderInfo -->
     <insert id="insert" parameterClass="LeaderInfo">
        <![CDATA[
-          INSERT INTO LEADER_INFO(LI_ID, LI_CATE, LI_CURRENT, LI_NAME, LI_GM, LI_HOLD_START, LI_HOLD_END, LI_QUARTERS, LI_TECH_POSITION, LI_TELEPHONE, LI_EMAIL, LI_PORTRAIT, LI_RANG, LI_ORDER, LI_RESUME, LI_DESC) 
-                         VALUES(#liId#, #liCate#, #liCurrent#, #liName#, #ligmId#, #liHold_start#, #liHold_end#, #liQuarters#, #liTech_position#, #liTelephone#, #liEmail#, #liPortrait#, #liRang#, #liOrder#, #liResume#, #liDesc#)
+          INSERT INTO LEADER_INFO(LI_ID, LI_CATE, LI_CURRENT, LI_NAME, LI_GM, LI_HOLD_PERIOD, LI_QUARTERS, LI_TECH_POSITION, LI_TELEPHONE, LI_EMAIL, LI_PORTRAIT, LI_RANG, LI_ORDER, LI_RESUME, LI_DESC) 
+                         VALUES(#liId#, #liCate#, #liCurrent#, #liName#, #ligmId#, #liHold_period#, #liQuarters#, #liTech_position#, #liTelephone#, #liEmail#, #liPortrait#, #liRang#, #liOrder#, #liResume#, #liDesc#)
        ]]>
        <selectKey resultClass="int" keyProperty="liId">
          <![CDATA[SELECT LAST_INSERT_ID();]]>
@@ -112,8 +109,7 @@
             LI_CURRENT = #liCurrent#,
             LI_NAME = #liName#,
             LI_GM = #ligmId#,
-            LI_HOLD_START = #liHold_start#,
-            LI_HOLD_END = #liHold_end#,
+            LI_HOLD_PERIOD = #liHold_period#,
             LI_QUARTERS = #liQuarters#,
             LI_TECH_POSITION = #liTech_position#,
             LI_TELEPHONE = #liTelephone#,

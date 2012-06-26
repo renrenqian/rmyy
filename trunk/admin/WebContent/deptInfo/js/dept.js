@@ -27,7 +27,7 @@ $(document).ready(function() {
             if (json.resultCode > 0) {
                 //formUnSerialize("deptForm", "dept", json.dept);
                 var deptList = json.dept;
-                $(deptList).each(function(i, item) {                  
+                $(deptList).each(function(i, item) {
                     $('#dpId').val(item.dpId);    
                     $('#deptName').val(item.dpName);    
                     $('#dpIn_charge').val(item.dpIn_charge);   
@@ -130,6 +130,7 @@ $(document).ready(function() {
             });
             }
             });
+            $('#dpId').val("");//clear the edit id while open edit.
            // var params = $("#deptForm").serialize();                   
         }
     });      

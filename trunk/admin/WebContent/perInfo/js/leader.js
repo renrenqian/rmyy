@@ -64,6 +64,9 @@ $(document).ready(function() {
                     $('#dpOd_telephone').val(item.dpOd_telephone);
                     $('#liOrder').val(item.liOrder);
                     $('#liQuarters').val(item.liQuarters);
+                    $('#liHold_period').val(item.liHold_period);
+                    $('#liTelephone').val(item.liTelephone);
+                    $('#liEmail').val(item.liEmail);
                     $('#liTech_position').val(item.liTech_position);
                     $('#liRang').val(item.liRang);
                     $('#liResume').val(item.liResume);
@@ -123,9 +126,12 @@ $(document).ready(function() {
             params.append("leader.liCate=" + $("#liCate").val()).append("&");
             params.append("leader.liCurrent=" + $.trim( $("#liCate").find("option:selected").text())).append("&");
             params.append("leader.liOrder=" + 1).append("&");
-            params.append("leader.liHold_start=" + $("#liHold_start").val()).append("&");
-            params.append("leader.liHold_end=" + $("#liHold_start").val()).append("&");
+            params.append("leader.liHold_period=" + $("#liHold_period").val()).append("&");
+            //params.append("leader.liHold_start=" + $("#liHold_start").val()).append("&");
+            //params.append("leader.liHold_end=" + $("#liHold_start").val()).append("&");
             params.append("leader.liQuarters=" + $("#liQuarters").val()).append("&");
+            params.append("leader.liTelephone=" + $("#liTelephone").val()).append("&");
+            params.append("leader.liEmail=" + $("#liEmail").val()).append("&");
             params.append("leader.liTech_position=" + $("#liTech_position").val()).append("&");
             params.append("leader.liRang=" + $("#liRang").val()).append("&");
             params.append("leader.liResume=" + $("#liResume").val()).append("&");
@@ -142,6 +148,7 @@ $(document).ready(function() {
                     });
                 }
             });
+            $('#liId').val(""); //clear the edit id while open edit.
             // var params = $("#leaderForm").serialize();
         }
     });
