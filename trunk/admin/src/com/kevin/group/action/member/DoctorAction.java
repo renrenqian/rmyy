@@ -30,7 +30,7 @@ public class DoctorAction extends AbstractBaseAction {
     private DoctorInfo doct;
     private List<DoctorInfo> doctList;
     private List<Serializable> ides;
-
+ 
     /**
      * @return the doct
      */

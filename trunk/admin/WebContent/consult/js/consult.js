@@ -1,3 +1,4 @@
+var startIndex;
 var consultTable;
 $(document).ready(function() {
     //查数据字典
@@ -104,7 +105,7 @@ $(document).ready(function() {
     });
 
     /* del */
-    $('.J_DoctorDel').die().live("click", function() {
+    $('.J_ConsultDel').die().live("click", function() {
         var THIS = this;
         $.messager.confirm('删除', '是否确认删除所选咨询信息?', function(r) {
             if (r) {
@@ -167,11 +168,30 @@ function initConsultList() {
             oSearch: {"sSearch": ""},
             bAutoWidth:false,
             fnServerData:function(sSource, aoData, fnCallback) {
+                var params = [];
+                var iDisplayStart,iDisplayLength,sEcho,sSearch;
+                for (var i = 0; i < aoData.length; i++) {
+                    if (aoData[i].name == "iDisplayStart") {
+                        iDisplayStart = aoData[i].value;
+                    }
+                    if (aoData[i].name == "iDisplayLength") {
+                        iDisplayLength = aoData[i].value;
+                    }
+                    if (aoData[i].name == "sEcho") {
+                        sEcho = aoData[i].value;
+                    }
+                    if (aoData[i].name == "sSearch") {
+                        sSearch = aoData[i].value;
+                    }
+                }
+                params.push({ "name": "page.pageSize", "value": iDisplayLength });
+                var currentPageNo = Math.floor(iDisplayStart / iDisplayLength) + 1;
+                params.push({ "name": "page.currentPageNo", "value": currentPageNo });
                 $.ajax({
                     dataType: 'json',
-                    type: "GET",
+                    type: "POST",
                     url: sSource,
-                    data: aoData,
+                    data: params,
                     success: function(json) {
                         if (json.resultCode > 0) {
                         } else {
@@ -180,10 +200,16 @@ function initConsultList() {
                                 content:json.message ? json.message : "查询列表错误!"
                             });
                         }
-                        //处理返回结果
-                        if (!json.consList) {
-                            json.consList = [];
+                        if (!json.page) {
+                            json.page = {};
                         }
+                        if (!json.page.dataList) {//处理返回结果
+                            json.page.dataList = [];
+                        }
+                        //json.sEcho = sEcho;
+                        json.iTotalRecords = json.page.totalItemCount;
+                        json.iTotalDisplayRecords = json.page.totalItemCount;
+
                         fnCallback(json);
                         setTableTrColor();
                         $('#J_ConsultTable input[type=checkbox]').sdCheckBox();
@@ -203,17 +229,17 @@ function initConsultList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='hidden2 tl'>" + obj.aData.ocRequestOfficeName + "</span>";
+                        return "<span>" + obj.aData.ocRequestOfficeName + "</span>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='hidden2 tl'>" + obj.aData.ocReceiveOfficeName + "</span>";
+                        return "<span>" + obj.aData.ocReceiveOfficeName + "</span>";
                     }
                 },
                       {
                     fnRender:function(obj) {
-                        return "<span class='hidden1 tl' style='width:100%;'>" + obj.aData.ocPost_subject + "</span>";
+                        return "<span>" + obj.aData.ocPost_subject + "</span>";
                     }
                 },
                 {
@@ -233,7 +259,7 @@ function initConsultList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<a class='del J_DoctorDel'></a>";
+                        return "<a class='del J_ConsultDel'></a>";
                     }
                 }
             ],

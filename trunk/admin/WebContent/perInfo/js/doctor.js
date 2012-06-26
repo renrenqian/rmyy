@@ -47,18 +47,17 @@ $(document).ready(function() {
                // formUnSerialize("doctorForm", "doct", json.lc);
             	  var docList = json.doct;
                   $(docList).each(function(i, item) {
-                    $('#diId').val(item.diId);    
-                  	$('#diName').val(item.diName);    
-                  	$('#diSex').val(item.diSex);   
-                  	$('#diEducation').val(item.diEducation);   
-                  	$('#diPosition').val(item.diPosition);   
+                    $('#diId').val(item.diId);
+                  	$('#diName').val(item.diName);
+                  	$('#diSex').val(item.diSex);
+                  	$('#diEducation').val(item.diEducation);
+                  	$('#diPosition').val(item.diPosition);
                   	$('#diResume').val(item.dpSite);   
                   	$('#diMajor').val(item.diMajor);   
-                  	$('#diResearch_direction').val(item.diResearch_direction);   
+                  	$('#diResearch_direction').val(item.diResearch_direction);
                   	$('#diResume').val(item.diResume); 
-                  	$('#diResearch_direction').val(item.diResearch_direction); 
-                  	$('#diAccomplishment').val(item.diAccomplishment);                     
-
+                  	$('#diResearch_direction').val(item.diResearch_direction);
+                  	$('#diAccomplishment').val(item.diAccomplishment);
 //人才类型字段取值
 //                  	var rcTypeArray=item.dpType.split(',');
 //                  	for(var i=0;i<rcTypeArray.length;i++){
@@ -67,13 +66,13 @@ $(document).ready(function() {
                   	
                   	 
                     //zq:填充科室下拉列表
-                    $.getJSON('../group/listDept.action', function(json) {
+                    $.getJSON('../group/listDeptNames.action', function(json) {
                         if (json.resultCode > 0) {
                             //formUnSerialize("deptForm", "dept", json.dept);
                             var deptList = json.deptList;
                             var optioin="";
                             $(deptList).each(function(i, item) { 
-                            	optioin+="<option>"+item.dpName+"</option>"
+                               optioin+="<option value=\"" + item.dpId +"\">"+item.dpName+"</option>";
                             });  
                             $('#diDeptType').html(optioin);
                         	
@@ -149,13 +148,15 @@ $(document).ready(function() {
             params.append("doct.diMajor=" + $("#diMajor").val()).append("&");
             params.append("doct.diResearch_direction=" + $("#diResearch_direction").val()).append("&");
             params.append("doct.diAccomplishment=" + $("#diAccomplishment").val()).append("&");
-            
+
 //            zq:人才类型字段取值
-            var doctTypeStr = [];
+            var doctTypeArray = [];
+            var doctTypeStr = "";
             $(".J_RcType:checked").each(function(){
-            	doctTypeStr.push($(this).val());
+                doctTypeStr.concat($(this).val()).concat(",");
             });
-            params.append("doct.doctType=" + doctTypeStr).append("&");            
+            //alert(doctTypeStr.join(","));
+            params.append("doct.doctType=" + doctTypeStr).append("&");
             params = params.toString();
             //zq:此处字符串拼接正确，但下方返回json中，无doctType信息
             

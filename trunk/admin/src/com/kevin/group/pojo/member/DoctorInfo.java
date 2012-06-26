@@ -25,7 +25,7 @@ public class DoctorInfo {
     private String diMajor;
     private String diResearch_direction;
     private String diAccomplishment;
-
+    private String doctType;// user for id array
     /**
      * @return the diId
      */
@@ -250,5 +250,20 @@ public class DoctorInfo {
     public final void setDiAccomplishment(String diAccomplishment) {
         this.diAccomplishment = diAccomplishment;
     }
+
+    /**
+     * @return the doctType
+     */
+    public final String getDoctType() {
+        return doctType;
+    }
+
+    /**
+     * @param doctType the doctType to set
+     */
+    public final void setDoctType(String doctType) {
+        this.doctType = doctType;
+    }
+ 
 
 }

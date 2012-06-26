@@ -4,7 +4,7 @@
     "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="Consultation">
 
-    <!-- paginate the Consultation info -->
+    <!-- list the Consultation info -->
     <select id="list"  parameterClass="Consultation"  resultClass="Consultation">
      <![CDATA[
        select 
@@ -55,9 +55,18 @@
        WHERE OC_ID = #ocId#
      ]]>
     </select>
+
+        <!-- 查询咨询的总记录数 -->
+    <select id="getTotalCount" parameterClass="Consultation" resultClass="java.lang.Long">
+       <![CDATA[
+         select COUNT(OC_ID) 
+         from ONLINE_CONSULTATION
+      ]]>
+    <![CDATA[ ]]>
+    </select>
     
-    <!-- list all the Consultation info -->
-    <select id="listAll"  parameterClass="Consultation"  resultClass="Consultation">
+    <!-- paginate the Consultation info -->
+    <select id="listAllByPageBean"  parameterClass="pageBean"  resultClass="Consultation">
      <![CDATA[
        select 
         OC_ID as ocId,
@@ -78,16 +87,22 @@
        left join OFFICE_DETAIL odq on oc.OC_REQUEST_OFFICE =odq.OD_ID
        left join OFFICE_DETAIL odr on oc.OC_RECEIVE_OFFICE =odr.OD_ID
      ]]>
-     <!-- 
+        <dynamic prepend=" where ">
+        <isNotEmpty property="condition.OC_REQUEST_OFFICE">
+          <![CDATA[
+                 oc.OC_REQUEST_OFFICE = #condition.OC_REQUEST_OFFICE#
+                 ]]>
+          </isNotEmpty>
+        </dynamic>
+     <![CDATA[ORDER BY OC_POST_TIME, OS_ANSWER_TIME]]>
      <![CDATA[LIMIT #start#,#pageSize#]]>
-      -->
     </select>
 
     <!-- add Consultation -->
     <insert id="insert" parameterClass="Consultation">
        <![CDATA[
-          INSERT INTO ONLINE_CONSULTATION(OC_ID, OC_POST_TIME, OC_REQUEST_OFFICE, OC_RECEIVE_OFFICE, OC_POST_NAME, OC_POST_AGE, OC_SEX, OC_POST_SUBJECT, OC_DESC, OS_ANSWERED, OS_ANSWER, OS_ANSWER_OFFICE, OS_ANSWER_TIME, OS_TYPICAL) 
-                         VALUES(#ocId#, #ocPost_time#, #ocRequest_office#, #ocReceive_office#, #ocPost_name#, #ocPost_age#, #ocSex#, #ocPost_subject#, #ocDesc#, #osAnswered#, #osAnswer#, #osAnswer_office#, #osAnswer_time#, #osTypical#)
+          INSERT INTO ONLINE_CONSULTATION(OC_ID, OC_POST_TIME, OC_REQUEST_OFFICE, OC_RECEIVE_OFFICE, OC_POST_NAME, OC_POST_AGE, OC_SEX, OC_POST_SUBJECT, OC_DESC, OS_ANSWERED, OS_ANSWER, OS_ANSWER_OFFICE,  OS_TYPICAL) 
+                         VALUES(#ocId#, sysdate(), #ocRequest_office#, #ocReceive_office#, #ocPost_name#, #ocPost_age#, #ocSex#, #ocPost_subject#, #ocDesc#, #osAnswered#, #osAnswer#, #osAnswer_office#,  #osTypical#)
        ]]>
        <selectKey resultClass="int" keyProperty="ocId">
          <![CDATA[SELECT LAST_INSERT_ID();]]>

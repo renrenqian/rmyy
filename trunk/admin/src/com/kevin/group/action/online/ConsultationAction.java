@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import com.kevin.common.action.AbstractBaseAction;
 import com.kevin.common.exception.CommonServiceException;
+import com.kevin.common.pojo.PageBean;
 import com.kevin.group.pojo.online.Consultation;
 import com.kevin.group.service.online.IConsultationService;
 import com.opensymphony.xwork2.Action;
@@ -29,6 +30,7 @@ public class ConsultationAction extends AbstractBaseAction {
     private IConsultationService consultationService;
     private Consultation cons;
     private List<Consultation> consList;
+    private PageBean<Consultation> page;
     private List<Serializable> ides;
  
     /**
@@ -109,7 +111,10 @@ public class ConsultationAction extends AbstractBaseAction {
 
     public String listConsultation() {// list all the cons
         try {
-            consList = consultationService.listAll();
+            if(page!=null){
+                page.setCondition(cons);
+            }
+            page = consultationService.list(page);
             setResultCode(1);
         } catch (CommonServiceException e) {
             setMessage(e.getMessage());
