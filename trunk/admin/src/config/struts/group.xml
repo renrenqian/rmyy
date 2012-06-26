@@ -18,6 +18,12 @@
                <param name="excludeNullProperties">true</param>
             </result>
        </action>
+       <action name="listDeptNames" method="listDeptNames" class="deptInfoAction">
+            <result name="success" type="json">
+               <param name="ignoreHierarchy">false</param>
+               <param name="excludeNullProperties">true</param>
+            </result>
+       </action>
        <action name="searchDept" method="searchDept" class="deptInfoAction">
             <result name="success" type="json">
                <param name="ignoreHierarchy">false</param>

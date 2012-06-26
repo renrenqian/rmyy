@@ -31,6 +31,31 @@
       -->
     </select>
     
+    <!-- search the Consultation info -->
+    <select id="search"  parameterClass="Consultation"  resultClass="Consultation">
+     <![CDATA[
+       select 
+        OC_ID as ocId,
+        OC_POST_TIME as ocPost_time,
+        odq.OD_NAME as ocRequestOfficeName,
+        odr.OD_NAME as ocReceiveOfficeName,
+        OC_POST_NAME as ocPost_name,
+        OC_POST_AGE as ocPost_age,
+        OC_SEX as ocSex,
+        OC_POST_SUBJECT as ocPost_subject,
+        OC_DESC as ocDesc,
+        OS_ANSWERED as osAnswered,
+        OS_ANSWER as osAnswer,
+        OS_ANSWER_OFFICE as osAnswer_office,
+        OS_ANSWER_TIME as osAnswer_time,
+        OS_TYPICAL as osTypical
+       from ONLINE_CONSULTATION oc
+       left join OFFICE_DETAIL odq on oc.OC_REQUEST_OFFICE =odq.OD_ID
+       left join OFFICE_DETAIL odr on oc.OC_RECEIVE_OFFICE =odr.OD_ID
+       WHERE OC_ID = #ocId#
+     ]]>
+    </select>
+    
     <!-- list all the Consultation info -->
     <select id="listAll"  parameterClass="Consultation"  resultClass="Consultation">
      <![CDATA[
@@ -79,6 +104,32 @@
       <![CDATA[
          UPDATE ONLINE_CONSULTATION 
          SET 
+            OC_POST_NAME = #ocPost_name#,
+            OC_POST_AGE = #ocPost_age#,
+            OC_SEX = #ocSex#,
+            OC_POST_SUBJECT = #ocPost_subject#,
+            OC_DESC = #ocDesc#,
+            OS_ANSWERED = #osAnswered#,
+            OS_ANSWER = #osAnswer#,
+            OS_ANSWER_OFFICE = #osAnswer_office#,
+            OS_ANSWER_TIME = sysdate(),
+       ]]>
+       <dynamic prepend="">
+          <isNotEmpty property="ocReceive_office" prepend="">
+            <![CDATA[OC_RECEIVE_OFFICE = #ocReceive_office#,]]>
+          </isNotEmpty>
+       </dynamic>
+        <![CDATA[ 
+            OS_TYPICAL = #osTypical#
+         WHERE OC_ID = #ocId#
+      ]]>
+    </update>
+    
+    <!-- update all the column the Consultation -->
+    <update id="updateAll" parameterClass="Consultation">
+      <![CDATA[
+         UPDATE ONLINE_CONSULTATION 
+         SET 
             OC_POST_TIME = #ocPost_time#,
             OC_REQUEST_OFFICE = #ocRequest_office#,
             OC_RECEIVE_OFFICE = #ocReceive_office#,
@@ -90,7 +141,7 @@
             OS_ANSWERED = #osAnswered#,
             OS_ANSWER = #osAnswer#,
             OS_ANSWER_OFFICE = #osAnswer_office#,
-            OS_ANSWER_TIME = #osAnswer_time#,
+            OS_ANSWER_TIME = sysdate(),
             OS_TYPICAL = #osTypical#
          WHERE OC_ID = #ocId#
       ]]>

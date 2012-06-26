@@ -71,7 +71,7 @@ $(document).ready(function() {
     });
 
     /* 编辑、新增 确认按钮 */
-    $('#J_DoctorOk').die().live("click", function() {
+    $('#J_ConsultOk').die().live("click", function() {
         if ($(this).sdSubmitValidate("#consultForm")) {
             var ocId = $("#ocId").val();
             var url,action;
@@ -108,6 +108,8 @@ $(document).ready(function() {
             params.append("cons.osTypical=" + $("#osTypical").val()).append("&");
             if(2== $("#isAnswer").val())
                 params.append("cons.ocReceive_office=" + $("#ocReceive_office").val()).append("&");
+            else 
+                params.append("cons.osAnswered=" + 1).append("&");
             params = params.toString();
             $.post(url, params, function(json) {
                 if (json.resultCode > 0) {
