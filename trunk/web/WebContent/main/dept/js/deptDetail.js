@@ -9,12 +9,11 @@ $(document).ready(function(){
              	$('#J_DpLocation').html(item.dpLocation); 
              	$('#J_DpOd_telephone').html(item.dpOd_telephone); 
              	$('#J_DpEmail').html(item.dpEmail); 
-             	
-             
-             	$('#J_DpDesc').html("<p>"+fixTAFormat(fixP(item.dpDesc))+"</p>");  
-             	$('#J_DpAcademic_position').html("<p>"+fixTAFormat(fixP(item.dpAcademic_position))+"</p>");   
-             	$('#J_DpTech_adv').html("<p>"+fixTAFormat(fixP(item.dpTech_adv))+"</p>");   
-             	$('#J_DpResearch_direction').html("<p>"+fixTAFormat(fixP(item.dpResearch_direction))+"</p>");                	           	         
+             	               
+             	$('#J_DpDesc').html("<p>"+fixTAFormat(reP(item.dpDesc))+"</p>");  
+             	$('#J_DpAcademic_position').html("<p>"+fixTAFormat(reP(item.dpAcademic_position))+"</p>");   
+             	$('#J_DpTech_adv').html("<p>"+fixTAFormat(reP(item.dpTech_adv))+"</p>");   
+             	$('#J_DpResearch_direction').html("<p>"+fixTAFormat(reP(item.dpResearch_direction))+"</p>");                	           	         
              });     
          }
 	 });
