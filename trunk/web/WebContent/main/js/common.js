@@ -119,16 +119,15 @@ function setMyBread(){
 }
 
 
-
-//替换#$为%字符
+//替换%为#$字符
 function fixP(str){
 	// add replace all function
     var reg = new RegExp("%", "g"); // g means replace all
     str=str.replace(reg, 'zq');
     return str;
 }
-//替换%为#$字符
-function reP(str){
+//替换#$为%字符
+function reP(str){ 
 	var reg =new RegExp("zq","g");
 	str=str.replace(reg,'%');
 	return str;

@@ -12,7 +12,7 @@ body {
 
 .greenBtn {
 	width: 143px; height: 46px; background: url("/web/main/images/greenBtn.png"); border: none; cursor: pointer; color: #013334; font-weight: bold;
-	font-size: 18px; display: block; margin: 0 auto; line-height: 46px; vertical-align: middle;
+	font-size: 18px; display: block; margin: 0 auto; line-height: 46px; vertical-align: middle;text-indent:0;
 }
 
 .greenBtn:hover {
