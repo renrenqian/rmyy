@@ -91,7 +91,7 @@ CREATE TABLE COLUMN_INFO  (
    CI_LEVEL              INTEGER,
    CI_URL                VARCHAR(256),
    CI_PARENT             INTEGER,
-   CI_HOME               INTEGER,
+   CI_NEWS               INTEGER   DEFAULT '1',
    CI_DESC               VARCHAR(1024),
    CI_ADD_TIME           DATETIME,
    CI_ADDER              INTEGER,

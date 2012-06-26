@@ -40,8 +40,17 @@ $(document).ready(function() {
         var id = $(this).parent().parent().children().eq(0).children().eq(0).val();
         $.getJSON('../online/searchConsultation.action?t=' + new Date().getTime() + '&cons.ocId=' + id, function(json) {
             if (json.resultCode > 0) {
-                formUnSerialize("consultForm", "cons", json.cons);
-
+                //formUnSerialize("consultForm", "cons", json.cons);
+                var cons = json.cons;
+                $(cons).each(function(i, item) {
+                    $('#ocId').val(item.ocId);
+                    $('#ocSex').val(item.ocSex);
+                    $('#ocPost_subject').val(item.ocPost_subject);
+                    $('#ocPost_age').val(item.ocPost_age);
+                    $('#ocDesc').val(item.ocDesc);
+                    $('#osAnswer').val(item.osAnswer);
+                    $('#osTypical').val(item.osTypical);
+                });
             } else {
                 $.fn.sdInfo({
                     type:"fail",
@@ -90,6 +99,7 @@ $(document).ready(function() {
             }
 
             var params = new StringBuffer();
+            params.append("cons.ocId=" + ocId).append("&");
             params.append("cons.ocPost_subject=" + $("#consName").val()).append("&");
             params.append("cons.ocPost_age=" + $("#ocPost_age").val()).append("&");
             params.append("cons.ocSex=" + $("#ocSex").val()).append("&");
