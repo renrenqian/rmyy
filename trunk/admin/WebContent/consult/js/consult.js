@@ -100,7 +100,7 @@ $(document).ready(function() {
 
             var params = new StringBuffer();
             params.append("cons.ocId=" + ocId).append("&");
-            params.append("cons.ocPost_subject=" + $("#consName").val()).append("&");
+            params.append("cons.ocPost_subject=" + $("#ocPost_subject").val()).append("&");
             params.append("cons.ocPost_age=" + $("#ocPost_age").val()).append("&");
             params.append("cons.ocSex=" + $("#ocSex").val()).append("&");
             params.append("cons.ocDesc=" + $("#ocDesc").val()).append("&");
