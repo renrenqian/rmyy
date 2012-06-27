@@ -9,7 +9,7 @@
      <![CDATA[
        select 
         OC_ID as ocId,
-        OC_POST_TIME as ocPost_time,
+        DATE_FORMAT(OC_POST_TIME,'%Y/%m/%d %H:%m:%s') as ocPost_time,
         odq.OD_NAME as ocRequestOfficeName,
         odr.OD_NAME as ocReceiveOfficeName,
         OC_POST_NAME as ocPost_name,
@@ -20,7 +20,7 @@
         OS_ANSWERED as osAnswered,
         OS_ANSWER as osAnswer,
         OS_ANSWER_OFFICE as osAnswer_office,
-        OS_ANSWER_TIME as osAnswer_time,
+        DATE_FORMAT(OS_ANSWER_TIME,'%Y/%m/%d %H:%m:%s') as osAnswer_time,
         OS_TYPICAL as osTypical
        from ONLINE_CONSULTATION oc
        left join OFFICE_DETAIL odq on oc.OC_REQUEST_OFFICE =odq.OD_ID
@@ -36,7 +36,7 @@
      <![CDATA[
        select 
         OC_ID as ocId,
-        OC_POST_TIME as ocPost_time,
+        DATE_FORMAT(OC_POST_TIME,'%Y/%m/%d %H:%m:%s') as ocPost_time,
         odq.OD_NAME as ocRequestOfficeName,
         odr.OD_NAME as ocReceiveOfficeName,
         OC_POST_NAME as ocPost_name,
@@ -47,7 +47,7 @@
         OS_ANSWERED as osAnswered,
         OS_ANSWER as osAnswer,
         OS_ANSWER_OFFICE as osAnswer_office,
-        OS_ANSWER_TIME as osAnswer_time,
+        DATE_FORMAT(OS_ANSWER_TIME,'%Y/%m/%d %H:%m:%s') as osAnswer_time,
         OS_TYPICAL as osTypical
        from ONLINE_CONSULTATION oc
        left join OFFICE_DETAIL odq on oc.OC_REQUEST_OFFICE =odq.OD_ID
@@ -63,9 +63,29 @@
          from ONLINE_CONSULTATION
       ]]>
         <dynamic prepend=" where ">
-        <isNotEmpty property="condition.OC_REQUEST_OFFICE">
+        <isNotEmpty property="condition.ocRequest_office">
           <![CDATA[
-                 oc.OC_REQUEST_OFFICE = #condition.OC_REQUEST_OFFICE#
+                 oc.OC_REQUEST_OFFICE = #condition.ocRequest_office#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.ocReceive_office">
+          <![CDATA[
+                 oc.OC_RECEIVE_OFFICE = #condition.ocReceive_office#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.ocPostStartTime">
+          <![CDATA[
+                 oc.OS_ANSWER_TIME > #condition.ocPostStartTime#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.ocPostEndTime">
+          <![CDATA[
+                 oc.OS_ANSWER_TIME < #condition.ocPostEndTime#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.osTypical">
+          <![CDATA[
+                 oc.OS_TYPICAL = #condition.osTypical#
                  ]]>
           </isNotEmpty>
         </dynamic>
@@ -77,7 +97,7 @@
      <![CDATA[
        select 
         OC_ID as ocId,
-        OC_POST_TIME as ocPost_time,
+        DATE_FORMAT(OC_POST_TIME,'%Y/%m/%d %H:%m:%s') as ocPost_time,
         odq.OD_NAME as ocRequestOfficeName,
         odr.OD_NAME as ocReceiveOfficeName,
         OC_POST_NAME as ocPost_name,
@@ -88,16 +108,36 @@
         OS_ANSWERED as osAnswered,
         OS_ANSWER as osAnswer,
         OS_ANSWER_OFFICE as osAnswer_office,
-        OS_ANSWER_TIME as osAnswer_time,
+        DATE_FORMAT(OS_ANSWER_TIME,'%Y/%m/%d %H:%m:%s') as osAnswer_time,
         OS_TYPICAL as osTypical
        from ONLINE_CONSULTATION oc
        left join OFFICE_DETAIL odq on oc.OC_REQUEST_OFFICE =odq.OD_ID
        left join OFFICE_DETAIL odr on oc.OC_RECEIVE_OFFICE =odr.OD_ID
      ]]>
         <dynamic prepend=" where ">
-        <isNotEmpty property="condition.OC_REQUEST_OFFICE">
+        <isNotEmpty property="condition.ocRequest_office">
           <![CDATA[
-                 oc.OC_REQUEST_OFFICE = #condition.OC_REQUEST_OFFICE#
+                 oc.OC_REQUEST_OFFICE = #condition.ocRequest_office#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.ocReceive_office">
+          <![CDATA[
+                 oc.OC_RECEIVE_OFFICE = #condition.ocReceive_office#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.ocPostStartTime">
+          <![CDATA[
+                 oc.OS_ANSWER_TIME > #condition.ocPostStartTime#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.ocPostEndTime">
+          <![CDATA[
+                 oc.OS_ANSWER_TIME < #condition.ocPostEndTime#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.osTypical">
+          <![CDATA[
+                 oc.OS_TYPICAL = #condition.osTypical#
                  ]]>
           </isNotEmpty>
         </dynamic>

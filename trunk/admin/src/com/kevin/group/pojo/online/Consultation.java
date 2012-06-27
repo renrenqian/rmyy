@@ -12,6 +12,8 @@ package com.kevin.group.pojo.online;
 public class Consultation {
     private Integer ocId;
     private String ocPost_time;
+    private String ocPostStartTime;
+    private String ocPostEndTime;
     private Integer ocRequest_office;
     private String ocRequestOfficeName;
     private Integer ocReceive_office;
@@ -56,6 +58,34 @@ public class Consultation {
      */
     public final void setOcPost_time(String ocPost_time) {
         this.ocPost_time = ocPost_time;
+    }
+
+    /**
+     * @return the ocPostStartTime
+     */
+    public final String getOcPostStartTime() {
+        return ocPostStartTime;
+    }
+
+    /**
+     * @param ocPostStartTime the ocPostStartTime to set
+     */
+    public final void setOcPostStartTime(String ocPostStartTime) {
+        this.ocPostStartTime = ocPostStartTime;
+    }
+
+    /**
+     * @return the ocPostEndTime
+     */
+    public final String getOcPostEndTime() {
+        return ocPostEndTime;
+    }
+
+    /**
+     * @param ocPostEndTime the ocPostEndTime to set
+     */
+    public final void setOcPostEndTime(String ocPostEndTime) {
+        this.ocPostEndTime = ocPostEndTime;
     }
 
     /**
