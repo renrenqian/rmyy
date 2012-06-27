@@ -153,11 +153,12 @@ $(document).ready(function() {
             params.append("doct.diAccomplishment=" + $("#diAccomplishment").val()).append("&");
 
 //            zq:人才类型字段取值
-            var doctTypeArray = [];
+            //var doctTypeArray = [];
             var doctTypeStr = "";
-            $(".radio_Type1 :checked").each(function(){
-                doctTypeStr.concat($(this).val()).concat(",");
+            $(".J_RcType:checked").each(function(){
+                doctTypeStr+=$(this).val()+',';
             });
+            doctTypeStr=doctTypeStr.substr("0",doctTypeStr.length-1);
             //alert(doctTypeStr.join(","));
             params.append("doct.doctType=" + doctTypeStr);//.append("&");
             params = params.toString();
@@ -260,6 +261,14 @@ $(document).ready(function() {
             $("#osCate").val(2);
         }
         $('#J_TreatType').val(type);
+        
+        $.getJSON("../member/listOPSer.action",function(json) {
+            if (json.resultCode > 0) {
+            	console.log('success');
+            }                   
+        });
+        
+        
         $('#J_TreatDiv').css("display", "").window({
             title: type+'信息编辑',
             modal: true,
@@ -288,18 +297,20 @@ $(document).ready(function() {
             params.append("ops.doctId=" + $("#doctId").val()).append("&");
             params.append("ops.osId=" + osId).append("&");
             params.append("ops.osCate=" + $("#osCate").val()).append("&");
-            //get the time
-            //params.append("ops.osTime=" + $("#osTime").val()).append("&");
+            //get the time    
+            var osTimeStr = "";
+            $(".J_OSTime:checked").each(function(){
+            	osTimeStr+=$(this).val()+',';
+            });
+            osTimeStr=osTimeStr.substr("0",osTimeStr.length-1);
+            
+            
+            params.append("ops.osTime=" + osTimeStr).append("&");
             params.append("ops.osLocation=" + $("#osLocation").val()).append("&");
             params.append("ops.osLimit=" + $("#osLimit").val()).append("&");
             params.append("ops.osStatus=" + $("#osStatus").val()).append("&");
             params.append("ops.osCost=" + $("#osCost").val()).append("&");
-            params.append("ops.osBook_link=" + $("#osBook_link").val()).append("&");
-            var osTimeStr = "";
-            $(".radio_Type1:checked").each(function(){
-               osTimeStr.concat($(this).val()).concat(",");
-            });
-            params.append("ops.osTime=" + osTimeStr.substring(0, osTimeStr.length-1));//.append("&");
+            params.append("ops.osBook_link=" + $("#osBook_link").val()).append("&");           
             params = params.toString();
             $.post(url, params, function(json) {
                 if (json.resultCode > 0) {
@@ -395,7 +406,7 @@ function initDoctorList() {
                         //zq:此处需判断一个值，即是否为专家门诊（可对应查询是否有门诊编号，若有，是否为专家门诊），点击后允许用户新增或编辑专家门诊信息
                         var temp= obj.aData.osExpertId;
                         if(temp==0 || "" == temp || undefined == temp){
-                            return "<span class='blue'>否</span>";
+                            return "<span class='blue unl J_ZJClick'>否</span>";
                         }else{
                             return "<span class='green unl J_ZJClick'>是</span>";
                         }
@@ -407,7 +418,7 @@ function initDoctorList() {
                         //zq:此处需判断一个值，即是否为名医门诊（可对应查询是否有门诊编号，若有，是否为名医门诊），点击后允许用户新增或编辑名医门诊信息
                         var temp= obj.aData.osFamousId;// if 0 not point, if other id, true
                         if(temp==0 || "" == temp || undefined == temp){
-                            return "<span class='blue'>否</span>";
+                            return "<span class='blue unl J_MYClick'>否</span>";
                         }else{
                             return "<span class='green unl J_MYClick'>是</span>";
                         }                       
