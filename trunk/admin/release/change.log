@@ -1,0 +1,7 @@
+################################################################################
+#                   Init at 2012-06-27 by kevin                                #
+# This file include the function implemented and fixed bugs from bug list log. #
+################################################################################
+
+1000: Finished the paginate for consultation page,
+       use the db data at change to dept select option with listDeptNames action
