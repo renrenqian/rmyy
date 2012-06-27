@@ -16,8 +16,9 @@ public class DoctorInfo {
     private Integer diDeptType;
     private String diDeptName;
     private String diPortrait;
-    private Integer osId;
-    private String osIdName;
+    private Integer osExpertId;
+    private Integer osFamousId;
+//    private String osIdName;
     private String diOrder;
     private Integer diSex;
     private Integer diEducation;
@@ -26,6 +27,7 @@ public class DoctorInfo {
     private String diResearch_direction;
     private String diAccomplishment;
     private String doctType;// user for id array
+
     /**
      * @return the diId
      */
@@ -117,34 +119,49 @@ public class DoctorInfo {
     }
 
     /**
-     * @return the osId
+     * @return the osExpertId
      */
-    public final Integer getOsId() {
-        return osId;
+    public final Integer getOsExpertId() {
+        return osExpertId;
     }
 
     /**
-     * @param osId
-     *            the osId to set
+     * @param osExpertId
+     *            the osExpertId to set
      */
-    public final void setOsId(Integer osId) {
-        this.osId = osId;
+    public final void setOsExpertId(Integer osExpertId) {
+        this.osExpertId = osExpertId;
     }
 
     /**
-     * @return the osIdName
+     * @return the osFamousId
      */
-    public final String getOsIdName() {
-        return osIdName;
+    public final Integer getOsFamousId() {
+        return osFamousId;
     }
 
     /**
-     * @param osIdName
-     *            the osIdName to set
+     * @param osFamousId
+     *            the osFamousId to set
      */
-    public final void setOsIdName(String osIdName) {
-        this.osIdName = osIdName;
+    public final void setOsFamousId(Integer osFamousId) {
+        this.osFamousId = osFamousId;
     }
+
+//    /**
+//     * @return the osIdName
+//     */
+//    public final String getOsIdName() {
+//        return osIdName;
+//    }
+//
+//    /**
+//     * @param osIdName
+//     *            the osIdName to set
+//     */
+//    public final void setOsIdName(String osIdName) {
+//        this.osIdName = osIdName;
+//    }
 
     /**
      * @return the diOrder
@@ -259,11 +276,11 @@ public class DoctorInfo {
     }
 
     /**
-     * @param doctType the doctType to set
+     * @param doctType
+     *            the doctType to set
      */
     public final void setDoctType(String doctType) {
         this.doctType = doctType;
     }
- 
 
 }

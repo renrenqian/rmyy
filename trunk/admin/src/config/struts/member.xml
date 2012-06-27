@@ -93,5 +93,50 @@
             </result>
         </action>
         <!-- Doctor end -->
+        
+        <!-- OPSer start -->
+        <!-- new OPSer -->
+        <action name="addOPSer" method="addOPSer" class="opserAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+        <!-- list OPSer -->
+       <action name="listOPSer" method="listOPSer" class="opserAction">
+            <result name="success" type="json">
+               <param name="ignoreHierarchy">false</param>
+               <param name="excludeNullProperties">true</param>
+            </result>
+       </action>
+        <!-- search OPSer -->
+       <action name="searchOPSer" method="searchOPSer" class="opserAction">
+            <result name="success" type="json">
+               <param name="ignoreHierarchy">false</param>
+               <param name="excludeNullProperties">true</param>
+            </result>
+       </action>
+        <!-- update the OPSer info -->
+        <action name="updateOPSer" method="updateOPSer" class="opserAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+        <!-- delete the OPSer -->
+        <action name="deleteOPSer" method="deleteOPSer" class="opserAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+        <!-- batch delete the OPSer -->
+        <action name="batchDeleteOPSer" method="batchDeleteOPSer" class="opserAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+        <!-- Doctor end -->
     </package>
 </struts>
