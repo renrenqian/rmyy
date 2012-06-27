@@ -196,6 +196,7 @@ CREATE TABLE DOCTOR_INFO  (
    DI_POSITION           VARCHAR(64),
    DI_DEPTTYPE           INTEGER,
    DI_PORTRAIT           VARCHAR(256),
+   DI_TAL_TYPE           VARCHAR(64),
    OS_EXPERT_ID          INTEGER,
    OS_FAMOUS_ID          INTEGER,
    DI_ORDER              INTEGER,

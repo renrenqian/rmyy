@@ -155,7 +155,7 @@ $(document).ready(function() {
 //            zq:人才类型字段取值
             var doctTypeArray = [];
             var doctTypeStr = "";
-            $(".J_RcType:checked").each(function(){
+            $(".radio_Type1 :checked").each(function(){
                 doctTypeStr.concat($(this).val()).concat(",");
             });
             //alert(doctTypeStr.join(","));
@@ -394,7 +394,7 @@ function initDoctorList() {
                     fnRender:function(obj) { 
                         //zq:此处需判断一个值，即是否为专家门诊（可对应查询是否有门诊编号，若有，是否为专家门诊），点击后允许用户新增或编辑专家门诊信息
                         var temp= obj.aData.osExpertId;
-                        if(temp==0){
+                        if(temp==0 || "" == temp || undefined == temp){
                             return "<span class='blue'>否</span>";
                         }else{
                             return "<span class='green unl J_ZJClick'>是</span>";
@@ -406,7 +406,7 @@ function initDoctorList() {
                     fnRender:function(obj) { 
                         //zq:此处需判断一个值，即是否为名医门诊（可对应查询是否有门诊编号，若有，是否为名医门诊），点击后允许用户新增或编辑名医门诊信息
                         var temp= obj.aData.osFamousId;// if 0 not point, if other id, true
-                        if(temp==0){
+                        if(temp==0 || "" == temp || undefined == temp){
                             return "<span class='blue'>否</span>";
                         }else{
                             return "<span class='green unl J_MYClick'>是</span>";
