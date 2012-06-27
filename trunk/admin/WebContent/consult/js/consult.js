@@ -160,11 +160,11 @@ function initConsultList() {
     if (!consultTable) {
         consultTable = $("#J_ConsultTable").dataTable({
             bProcessing: false,
-            bServerSide:false,
+            bServerSide:true,//设置服务端分页
             bDestory:false,
-            bRetrieve:true,
+           // bRetrieve:true,
             sAjaxSource:"../online/listConsultation.action",
-            sAjaxDataProp: "consList",
+            sAjaxDataProp: "page.consList",
             oSearch: {"sSearch": ""},
             bAutoWidth:false,
             fnServerData:function(sSource, aoData, fnCallback) {
@@ -203,10 +203,10 @@ function initConsultList() {
                         if (!json.page) {
                             json.page = {};
                         }
-                        if (!json.page.dataList) {//处理返回结果
-                            json.page.dataList = [];
+                        if (!json.page.consList) {//处理返回结果
+                            json.page.consList = [];
                         }
-                        //json.sEcho = sEcho;
+                        json.sEcho = sEcho;
                         json.iTotalRecords = json.page.totalItemCount;
                         json.iTotalDisplayRecords = json.page.totalItemCount;
 
