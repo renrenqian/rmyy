@@ -62,6 +62,13 @@
          select COUNT(OC_ID) 
          from ONLINE_CONSULTATION
       ]]>
+        <dynamic prepend=" where ">
+        <isNotEmpty property="condition.OC_REQUEST_OFFICE">
+          <![CDATA[
+                 oc.OC_REQUEST_OFFICE = #condition.OC_REQUEST_OFFICE#
+                 ]]>
+          </isNotEmpty>
+        </dynamic>
     <![CDATA[ ]]>
     </select>
     

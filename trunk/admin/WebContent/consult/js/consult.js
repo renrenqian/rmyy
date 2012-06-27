@@ -21,6 +21,24 @@ $(document).ready(function() {
                     $('#ocDesc').val(item.ocDesc);
                     $('#osAnswer').val(item.osAnswer);
                     $('#osTypical').val(item.osTypical);
+
+                    //kevin: filled the option with dept id and names
+                    $.getJSON('../group/listDeptNames.action', function(json) {
+                        if (json.resultCode > 0) {
+                            var deptList = json.deptList;
+                            var optioin="";
+                            $(deptList).each(function(i, item) { 
+                               optioin+="<option value=\"" + item.dpId +"\">"+item.dpName+"</option>";
+                            });  
+                            $('#ocReceive_office').html(optioin);
+                        } else {
+                            $.fn.sdInfo({
+                                type:"fail",
+                                content:json.message ? json.message : "查询科室信息错误!"
+                            });
+                        }
+                    });
+                    
                 });
             } else {
                 $.fn.sdInfo({
@@ -164,7 +182,7 @@ function initConsultList() {
             bDestory:false,
            // bRetrieve:true,
             sAjaxSource:"../online/listConsultation.action",
-            sAjaxDataProp: "page.consList",
+            sAjaxDataProp: "page.dataList",
             oSearch: {"sSearch": ""},
             bAutoWidth:false,
             fnServerData:function(sSource, aoData, fnCallback) {
@@ -203,8 +221,8 @@ function initConsultList() {
                         if (!json.page) {
                             json.page = {};
                         }
-                        if (!json.page.consList) {//处理返回结果
-                            json.page.consList = [];
+                        if (!json.page.dataList) {//处理返回结果
+                            json.page.dataList = [];
                         }
                         json.sEcho = sEcho;
                         json.iTotalRecords = json.page.totalItemCount;

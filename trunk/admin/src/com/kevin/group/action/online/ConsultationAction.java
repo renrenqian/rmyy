@@ -63,6 +63,20 @@ public class ConsultationAction extends AbstractBaseAction {
     }
 
     /**
+     * @return the page
+     */
+    public final PageBean<Consultation> getPage() {
+        return page;
+    }
+
+    /**
+     * @param page the page to set
+     */
+    public final void setPage(PageBean<Consultation> page) {
+        this.page = page;
+    }
+
+    /**
      * @return the ides
      */
     public final List<Serializable> getIdes() {
