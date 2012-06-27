@@ -21,46 +21,9 @@
             <h3 class="newsInfo" style="color: #ff6a00;">注意：提问前，浏览下方有关科室的典型问题回复，可免去等待时间。回复内容仅供参考，请及时就诊以免耽误病情。</h3>
             <hr class="mb20 w"/>
             <h3 class="h3Type">典型问题回复<label style="margin-left: 370px;">按回复科室</label>
-                <select>
-                    <option>科室选择</option>
-                    <option>心血管内科</option>
-                    <option>消化内科</option>
-                    <option>眼科</option>
-                    <option>妇科</option>
-                    <option>产科</option>
-                    <option>心血管内科</option>
-                    <option>消化内科</option>
-                    <option>眼科</option>
-                    <option>妇科</option>
-                    <option>产科</option>
-                    <option>心血管内科</option>
-                    <option>消化内科</option>
-                    <option>眼科</option>
-                    <option>妇科</option>
-                    <option>产科</option>
-                    <option>心血管内科</option>
-                    <option>消化内科</option>
-                    <option>眼科</option>
-                    <option>妇科</option>
-                    <option>产科</option>
-                    <option>心血管内科</option>
-                    <option>消化内科</option>
-                    <option>眼科</option>
-                    <option>妇科</option>
-                    <option>产科</option>
-                    <option>心血管内科</option>
-                    <option>消化内科</option>
-                    <option>眼科</option>
-                    <option>妇科</option>
-                    <option>产科</option>
-                </select>
+                <select id='J_Dept'></select>
                 <input type="button" value="查看" /></h3>
-            <ul class="newsItem2 consultList" style="width: 100%; margin-top: 20px;">
-                <li><a class="newsTitle" href="#"><span class='ora'>【产科】</span>请问我要做无创产前检测怎么预约
-                </a><span class="newsDate">05-25</span></li>
-                <li><a class="newsTitle" href="#"><span class='ora'>【皮肤性病科】</span>医院有去斑的手术或者治疗吗？
-                </a><span class="newsDate">05-25</span></li>
-            </ul>
+            <ul class="newsItem2 consultList" style="width: 100%; margin-top: 20px;"></ul>
             <img src="../images/pager.jpg" style="margin: 20px;" />
         </div>
     </div>
@@ -72,6 +35,34 @@
 <!--#include virtual="../master/footer.html"-->
 <!--#include virtual="../master/demoJs.html"-->
 <script src="/web/main/js/common.js"></script>
+<script>
+$(document).ready(function(){
+	//zq:填充科室下拉列表
+    $.getJSON('http://124.160.67.194:8520/admin/group/listDeptNames.action', function(json) {
+        if (json.resultCode > 0) {               
+            var deptList = json.deptList;
+            var optioin="<option value='9999'>全部</option>";
+            $(deptList).each(function(i, item) { 
+            	optioin+="<option value="+item.dpId+">"+item.dpName+"</option>"
+            });  
+            $('#J_Dept').html(optioin);        	
+        } 
+    });
+    
+    
+    //全部问题列表
+    $.getJSON('http://124.160.67.194:8520/admin/online/listConsultation.action', function(json) {
+        if (json.resultCode > 0) {               
+            var consList = json.consList;   
+            var consListStr=''
+            $(consList).each(function(i, item) { 
+            	consListStr+="<li><a class='newsTitle' href='#'><span class='ora'>【"+item.ocId+"】</span>"+item.ocPost_subject+"</a><span class='newsDate'>05-25</span></li>"
+            });  
+            $('.consultList').html(consListStr);        
+        }  
+    }); 
+});
+</script>
 </body>
 </html>
 

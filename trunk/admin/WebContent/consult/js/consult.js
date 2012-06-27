@@ -22,6 +22,26 @@ $(document).ready(function() {
                     $('#osAnswer').val(item.osAnswer);
                     $('#osTypical').val(item.osTypical);
                 });
+                
+                
+                //zq:填充科室下拉列表
+                $.getJSON('../group/listDept.action', function(json) {
+                    if (json.resultCode > 0) {               
+                        var deptList = json.deptList;
+                        var optioin="";
+                        $(deptList).each(function(i, item) { 
+                        	optioin+="<option value="+item.dpId+">"+item.dpName+"</option>"
+                        });  
+                        $('#ocReceive_office').html(optioin);
+                    	
+                    } else {
+                        $.fn.sdInfo({
+                            type:"fail",
+                            content:json.message ? json.message : "查询科室信息错误!"
+                        });
+                    }
+                });
+                
             } else {
                 $.fn.sdInfo({
                     type:"fail",
@@ -160,11 +180,11 @@ function initConsultList() {
     if (!consultTable) {
         consultTable = $("#J_ConsultTable").dataTable({
             bProcessing: false,
-            bServerSide:false,
+            bServerSide:true,//设置服务端分页
             bDestory:false,
-            bRetrieve:true,
+           // bRetrieve:true,
             sAjaxSource:"../online/listConsultation.action",
-            sAjaxDataProp: "consList",
+            sAjaxDataProp: "page.consList",
             oSearch: {"sSearch": ""},
             bAutoWidth:false,
             fnServerData:function(sSource, aoData, fnCallback) {
@@ -187,11 +207,13 @@ function initConsultList() {
                 params.push({ "name": "page.pageSize", "value": iDisplayLength });
                 var currentPageNo = Math.floor(iDisplayStart / iDisplayLength) + 1;
                 params.push({ "name": "page.currentPageNo", "value": currentPageNo });
+                
+                aoData=params;
                 $.ajax({
                     dataType: 'json',
                     type: "POST",
                     url: sSource,
-                    data: params,
+                    data: aoData,
                     success: function(json) {
                         if (json.resultCode > 0) {
                         } else {
@@ -200,13 +222,13 @@ function initConsultList() {
                                 content:json.message ? json.message : "查询列表错误!"
                             });
                         }
-                        if (!json.page) {
-                            json.page = {};
-                        }
-                        if (!json.page.dataList) {//处理返回结果
-                            json.page.dataList = [];
-                        }
-                        //json.sEcho = sEcho;
+//                        if (!json.page) {
+//                            json.page = {};
+//                        }
+//                        if (!json.page.consList) {//处理返回结果
+//                            json.page.consList = [];
+//                        }
+                        json.sEcho = sEcho;
                         json.iTotalRecords = json.page.totalItemCount;
                         json.iTotalDisplayRecords = json.page.totalItemCount;
 
@@ -229,17 +251,17 @@ function initConsultList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.ocRequestOfficeName + "</span>";
+                        return "<span class='tl hidden2'>" + obj.aData.ocRequestOfficeName + "</span>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.ocReceiveOfficeName + "</span>";
+                        return "<span class='tl hidden2'>" + obj.aData.ocReceiveOfficeName + "</span>";
                     }
                 },
                       {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.ocPost_subject + "</span>";
+                        return "<span class='tl hidden1' style='width:100%;'>" + obj.aData.ocPost_subject + "</span>";
                     }
                 },
                 {
@@ -263,10 +285,10 @@ function initConsultList() {
                     }
                 }
             ],
-            sPaginationType: "full_numbers"
-            //       aoColumnDefs: [
-            //             { "bSortable": false, "aTargets": [0,1,2]}
-            //         ]
+            sPaginationType: "full_numbers",
+                   aoColumnDefs: [
+                         { "bSortable": false, "aTargets": [0,4,6,7]}
+                     ]
         });
     } else {
         consultTable.fnClearTable();

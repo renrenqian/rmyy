@@ -34,7 +34,7 @@
                 <tr>
                     <th>提问科室</th>
                     <td colspan="3">
-                        <select class="select_type1" id='ocRequestOfficeName'></select>
+                        <select class="select_type1" id='ocRequestOffice'></select>
                     </td>
                 </tr>
                 <tr>
@@ -77,7 +77,7 @@ $(document).ready(function(){
             $(deptList).each(function(i, item) { 
             	optioin+="<option value="+item.dpId+">"+item.dpName+"</option>"
             });  
-            $('#ocRequestOfficeName').html(optioin);
+            $('#ocRequestOffice').html(optioin);
         	
         } else {
             $.fn.sdInfo({
@@ -101,7 +101,7 @@ $(document).ready(function(){
 	        params.append("cons.ocPost_time=" + isoDateTime).append("&");
 	        params.append("cons.ocSex=" + $("#ocSex").val()).append("&");
 	        params.append("cons.ocPost_age=" + $("#ocPost_age").val()).append("&");
-	        params.append("cons.ocRequestOfficeName=" + $("#ocRequestOfficeName").val()).append("&");
+	        params.append("cons.ocRequestOffice=" + $("#ocRequestOffice").val()).append("&");
 	        params.append("cons.ocPost_subject=" + $("#ocPost_subject").val()).append("&");   
 	        params.append("cons.ocDesc=" + $("#ocDesc").val()).append("&");    
 	        params = params.toString();
@@ -125,7 +125,7 @@ $(document).ready(function(){
 
 
 function reDirect(){
-	window.location.href='/web/main/patient/consultIndex.shtml';
+	//window.location.href='/web/main/patient/consultIndex.shtml';
 }
 </script>
 </body>
