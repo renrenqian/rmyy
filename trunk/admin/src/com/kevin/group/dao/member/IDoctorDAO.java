@@ -6,6 +6,7 @@
 package com.kevin.group.dao.member;
 
 import com.kevin.common.dao.IBaseDAO;
+import com.kevin.common.exception.BaseSqlMapException;
 import com.kevin.group.pojo.member.DoctorInfo;
 
 /**
@@ -13,5 +14,9 @@ import com.kevin.group.pojo.member.DoctorInfo;
  * @since jdk1.6
  */
 public interface IDoctorDAO extends IBaseDAO<DoctorInfo> {
+
+    int updateExpertId(DoctorInfo doci) throws BaseSqlMapException;
+
+    int updateFamourceId(DoctorInfo doci) throws BaseSqlMapException;
 
 }

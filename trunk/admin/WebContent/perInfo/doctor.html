@@ -45,6 +45,9 @@
                 <td>
                    <input id="diName" type="text" class="input_type1" rule="required"/>
                    <input id="diId" type="hidden"/>
+                   <input id="osExpertId" type="hidden" value="0"/>
+                   <input id="osFamousId" type="hidden" value="0"/>
+                   <input id="osCate" type="hidden" value="1"/>
                 </td>
                 <td class="rowName w1">性别</td>
                 <td>
@@ -155,6 +158,8 @@
             <tr>
                 <td class="rowName w1">门诊类型名称</td>
                 <td>
+                    <input type="hidden" id="osId" value=""/>
+                    <input type="hidden" id="doctId" value=""/>
                     <input type="text" class="input_type1" value="" id='J_TreatType' readonly/>
                 </td>
             </tr>
@@ -180,41 +185,40 @@
             <tr>
                 <td class="rowName">门诊地址</td>
                 <td>
-                    <input type="text" class="input_type1"/>
+                    <input id="osLocation" type="text" class="input_type1"/>
                 </td>
             </tr>
             <tr>
                 <td class="rowName">门诊限号</td>
                 <td>
-                    <input type="text" class="input_type1"/>
+                    <input  id="osLimit" type="text" class="input_type1"/>
                 </td>
             </tr>
             <tr>
                 <td class="rowName">门诊状态</td>
                 <td>
-                    <select class="selectType1">
-                        <option>在诊</option>
-                        <option>停诊</option>
+                    <select id="osStatus" class="selectType1">
+                        <option value="1">在诊</option>
+                        <option value="0">停诊</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td class="rowName">门诊费用</td>
                 <td>
-                    <input type="text" class="input_type1"/>
+                    <input id="osCost" type="text" class="input_type1"/>
                 </td>
             </tr>
             <tr>
                 <td class="rowName">挂号链接地址</td>
                 <td>
-                    <input type="text" class="input_type1"/>
+                    <input id="osBook_link" type="text" class="input_type1"/>
                 </td>
             </tr>
             <tr>
                 <td></td>
                 <td class="p10">
-                    <a class="button btn-blue" id="J_TreatOk">
-                        <span class="icon ico-bulb"></span>确定</a>
+                    <a class="button btn-blue" id="J_TreatOk"><span class="icon ico-bulb"></span>确定</a>
                     <a class="button btn-grey" id="J_TreatClose">取消</a>
             </tr>
         </table>

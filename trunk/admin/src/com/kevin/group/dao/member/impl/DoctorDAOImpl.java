@@ -8,6 +8,7 @@ package com.kevin.group.dao.member.impl;
 import org.springframework.stereotype.Component;
 
 import com.kevin.common.dao.AbstractBaseDAO;
+import com.kevin.common.exception.BaseSqlMapException;
 import com.kevin.group.dao.member.IDoctorDAO;
 import com.kevin.group.pojo.member.DoctorInfo;
 
@@ -19,4 +20,11 @@ import com.kevin.group.pojo.member.DoctorInfo;
 public class DoctorDAOImpl extends AbstractBaseDAO<DoctorInfo> implements
         IDoctorDAO {
 
+    public int updateExpertId(DoctorInfo entity) throws BaseSqlMapException {
+        return super.update("updateExpertId", entity);
+    }
+
+    public int updateFamourceId(DoctorInfo entity) throws BaseSqlMapException {
+        return super.update("updateFamourceId", entity);
+    }
 }
