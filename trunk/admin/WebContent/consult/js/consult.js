@@ -298,10 +298,10 @@ function initConsultList() {
                             content:json.message ? json.message : "查询列表错误!"
                         });
                     }
-                    if (!json.consList) {
-                        json.consList = [];
+                    if (!json.page.dataList) {
+                        json.page.dataList = [];
                     }
-                    consultTable.fnAddData(json.consList);
+                    consultTable.fnAddData(json.page.dataList);
                     setTableTrColor();
                     $('#J_ConsultTable input[type=checkbox]').sdCheckBox();
                 }

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import com.kevin.common.action.AbstractBaseAction;
 import com.kevin.common.exception.CommonServiceException;
+import com.kevin.common.pojo.PageBean;
 import com.kevin.group.pojo.member.DoctorInfo;
 import com.kevin.group.service.member.IDoctorService;
 import com.opensymphony.xwork2.Action;
@@ -29,8 +30,23 @@ public class DoctorAction extends AbstractBaseAction {
     private IDoctorService doctorService;
     private DoctorInfo doct;
     private List<DoctorInfo> doctList;
+    private PageBean<DoctorInfo> page;
     private List<Serializable> ides;
  
+    /**
+     * @return the page
+     */
+    public final PageBean<DoctorInfo> getPage() {
+        return page;
+    }
+
+    /**
+     * @param page the page to set
+     */
+    public final void setPage(PageBean<DoctorInfo> page) {
+        this.page = page;
+    }
+
     /**
      * @return the doct
      */
@@ -109,7 +125,10 @@ public class DoctorAction extends AbstractBaseAction {
 
     public String listDoctor() {// list all the doct
         try {
-            doctList = doctorService.listAll();
+            if(page!=null){
+                page.setCondition(doct);
+            }
+            page = doctorService.list(page);
             setResultCode(1);
         } catch (CommonServiceException e) {
             setMessage(e.getMessage());

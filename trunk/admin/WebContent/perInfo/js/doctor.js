@@ -60,13 +60,11 @@ $(document).ready(function() {
                       $('#diResume').val(item.diResume); 
                       $('#diResearch_direction').val(item.diResearch_direction);
                       $('#diAccomplishment').val(item.diAccomplishment);
-//人才类型字段取值
-//                      var rcTypeArray=item.dpType.split(',');
-//                      for(var i=0;i<rcTypeArray.length;i++){
-//                          $(".J_RcType[value='"+rcTypeArray[i]+"']").attr("checked", true);
-//                      }
-                      
-                       
+                       //人才类型字段取值
+                      var rcTypeArray=item.doctType.split(',');
+                      for(var i=0;i<rcTypeArray.length;i++){
+                          $(".J_RcType[value='"+rcTypeArray[i]+"']").attr("checked", true);
+                      }
                     //zq:填充科室下拉列表
                     $.getJSON('../group/listDeptNames.action', function(json) {
                         if (json.resultCode > 0) {
@@ -349,19 +347,38 @@ function initDoctorList() {
     if (!doctorDataTable) {
         doctorDataTable = $("#J_DoctorTable").dataTable({
             bProcessing: false,
-            bServerSide:false,
+            bServerSide:true,//设置服务端分页
             bDestory:false,
-            bRetrieve:true,
+           // bRetrieve:true,
             sAjaxSource:"../member/listDoctor.action",
-            sAjaxDataProp: "doctList",
+            sAjaxDataProp: "page.dataList",
             oSearch: {"sSearch": ""},
             bAutoWidth:false,
             fnServerData:function(sSource, aoData, fnCallback) {
+                var params = [];
+                var iDisplayStart,iDisplayLength,sEcho,sSearch;
+                for (var i = 0; i < aoData.length; i++) {
+                    if (aoData[i].name == "iDisplayStart") {
+                        iDisplayStart = aoData[i].value;
+                    }
+                    if (aoData[i].name == "iDisplayLength") {
+                        iDisplayLength = aoData[i].value;
+                    }
+                    if (aoData[i].name == "sEcho") {
+                        sEcho = aoData[i].value;
+                    }
+                    if (aoData[i].name == "sSearch") {
+                        sSearch = aoData[i].value;
+                    }
+                }
+                params.push({ "name": "page.pageSize", "value": iDisplayLength });
+                var currentPageNo = Math.floor(iDisplayStart / iDisplayLength) + 1;
+                params.push({ "name": "page.currentPageNo", "value": currentPageNo });
                 $.ajax({
                     dataType: 'json',
-                    type: "GET",
+                    type: "POST",
                     url: sSource,
-                    data: aoData,
+                    data: params,
                     success: function(json) {
                         if (json.resultCode > 0) {
                         } else {
@@ -370,10 +387,16 @@ function initDoctorList() {
                                 content:json.message ? json.message : "查询列表错误!"
                             });
                         }
-                        //处理返回结果
-                        if (!json.doctList) {
-                            json.doctList = [];
+                        if (!json.page) {
+                            json.page = {};
                         }
+                        if (!json.page.dataList) {//处理返回结果
+                            json.page.dataList = [];
+                        }
+                        json.sEcho = sEcho;
+                        json.iTotalRecords = json.page.totalItemCount;
+                        json.iTotalDisplayRecords = json.page.totalItemCount;
+
                         fnCallback(json);
                         setTableTrColor();
                         $('#J_DoctorTable input[type=checkbox]').sdCheckBox();
@@ -457,10 +480,10 @@ function initDoctorList() {
                             content:json.message ? json.message : "查询列表错误!"
                         });
                     }
-                    if (!json.doctList) {
-                        json.doctList = [];
+                    if (!json.page.dataList) {
+                        json.page.dataList = [];
                     }
-                    doctorDataTable.fnAddData(json.doctList);
+                    doctorDataTable.fnAddData(json.page.dataList);
                     setTableTrColor();
                     $('#J_DoctorTable input[type=checkbox]').sdCheckBox();
                 }

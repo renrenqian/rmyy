@@ -17,6 +17,7 @@
         OS_FAMOUS_ID as osFamousId,
         DI_ORDER as diOrder,
         DI_SEX as diSex,
+        DI_TAL_TYPE as doctType,
         DI_EDUCATION as diEducation,
         DI_RESUME as diResume,
         DI_MAJOR as diMajor,
@@ -43,6 +44,7 @@
         OS_FAMOUS_ID as osFamousId,
         DI_ORDER as diOrder,
         DI_SEX as diSex,
+        DI_TAL_TYPE as doctType,
         DI_EDUCATION as diEducation,
         DI_RESUME as diResume,
         DI_MAJOR as diMajor,
@@ -54,8 +56,17 @@
      ]]>
     </select>
     
+    <!-- 查询总记录数 -->
+    <select id="getTotalCount" parameterClass="DoctorInfo" resultClass="java.lang.Long">
+       <![CDATA[
+         select COUNT(DI_ID) 
+         from DOCTOR_INFO
+      ]]>
+    <![CDATA[ ]]>
+    </select>
+    
     <!-- list all the DoctorInfo info -->
-    <select id="listAll"  parameterClass="DoctorInfo"  resultClass="DoctorInfo">
+    <select id="listAllByPageBean"  parameterClass="pageBean"  resultClass="DoctorInfo">
      <![CDATA[
        select 
         DI_ID as diId,
@@ -67,6 +78,7 @@
         OS_FAMOUS_ID as osFamousId,
         DI_ORDER as diOrder,
         DI_SEX as diSex,
+        DI_TAL_TYPE as doctType,
         DI_EDUCATION as diEducation,
         DI_RESUME as diResume,
         DI_MAJOR as diMajor,
@@ -75,16 +87,15 @@
        from DOCTOR_INFO di
        left join OFFICE_DETAIL od on od.OD_ID = di.DI_DEPTTYPE
      ]]>
-     <!-- 
+     <![CDATA[ORDER BY DI_ID, DI_ORDER]]>
      <![CDATA[LIMIT #start#,#pageSize#]]>
-      -->
     </select>
 
     <!-- add DoctorInfo -->
     <insert id="insert" parameterClass="DoctorInfo">
        <![CDATA[
-          INSERT INTO DOCTOR_INFO(DI_ID, DI_NAME, DI_POSITION, DI_DEPTTYPE, DI_PORTRAIT, OS_EXPERT_ID, OS_FAMOUS_ID, DI_ORDER, DI_SEX, DI_EDUCATION, DI_RESUME, DI_MAJOR, DI_RESEARCH_DIRECTION, DI_ACCOMPLISHMENT) 
-                         VALUES(#diId#, #diName#, #diPosition#, #diDeptType#, #diPortrait#, #osExpertId#, #osFamousId#, #diOrder#, #diSex#, #diEducation#, #diResume#, #diMajor#, #diResearch_direction#, #diAccomplishment#)
+          INSERT INTO DOCTOR_INFO(DI_ID, DI_NAME, DI_POSITION, DI_DEPTTYPE, DI_PORTRAIT, OS_EXPERT_ID, OS_FAMOUS_ID, DI_ORDER, DI_SEX, DI_TAL_TYPE, DI_EDUCATION, DI_RESUME, DI_MAJOR, DI_RESEARCH_DIRECTION, DI_ACCOMPLISHMENT) 
+                         VALUES(#diId#, #diName#, #diPosition#, #diDeptType#, #diPortrait#, #osExpertId#, #osFamousId#, #diOrder#, #diSex#, #doctType#, #diEducation#, #diResume#, #diMajor#, #diResearch_direction#, #diAccomplishment#)
        ]]>
        <selectKey resultClass="int" keyProperty="diId">
          <![CDATA[SELECT LAST_INSERT_ID();]]>
@@ -107,6 +118,7 @@
             DI_PORTRAIT = #diPortrait#,
             DI_ORDER = #diOrder#,
             DI_SEX = #diSex#,
+            DI_TAL_TYPE = #doctType#,
             DI_EDUCATION = #diEducation#,
             DI_RESUME = #diResume#,
             DI_MAJOR = #diMajor#,

@@ -65,27 +65,27 @@
         <dynamic prepend=" where ">
         <isNotEmpty property="condition.ocRequest_office">
           <![CDATA[
-                 oc.OC_REQUEST_OFFICE = #condition.ocRequest_office#
+                 oc.OC_REQUEST_OFFICE = #ocRequest_office#
                  ]]>
           </isNotEmpty>
         <isNotEmpty property="condition.ocReceive_office">
           <![CDATA[
-                 oc.OC_RECEIVE_OFFICE = #condition.ocReceive_office#
+                 oc.OC_RECEIVE_OFFICE = #ocReceive_office#
                  ]]>
           </isNotEmpty>
         <isNotEmpty property="condition.ocPostStartTime">
           <![CDATA[
-                 oc.OS_ANSWER_TIME > #condition.ocPostStartTime#
+                 oc.OS_ANSWER_TIME > #ocPostStartTime#
                  ]]>
           </isNotEmpty>
         <isNotEmpty property="condition.ocPostEndTime">
           <![CDATA[
-                 oc.OS_ANSWER_TIME < #condition.ocPostEndTime#
+                 oc.OS_ANSWER_TIME < #ocPostEndTime#
                  ]]>
           </isNotEmpty>
         <isNotEmpty property="condition.osTypical">
           <![CDATA[
-                 oc.OS_TYPICAL = #condition.osTypical#
+                 oc.OS_TYPICAL = #osTypical#
                  ]]>
           </isNotEmpty>
         </dynamic>
