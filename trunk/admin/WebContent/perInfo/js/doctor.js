@@ -72,7 +72,8 @@ $(document).ready(function() {
                             var deptList = json.deptList;
                             var optioin="";
                             $(deptList).each(function(i, item) { 
-                               optioin+="<option value=\"" + item.dpId +"\">"+item.dpName+"</option>";
+//                               optioin+="<option value=\"" + item.dpId +"\">"+item.dpName+"</option>";
+                            	 optioin+="<option value='"+item.dpId+"'>"+item.dpName+"</option>";
                             });  
                             $('#diDeptType').html(optioin);
                         	
@@ -153,9 +154,10 @@ $(document).ready(function() {
             var doctTypeArray = [];
             var doctTypeStr = "";
             $(".J_RcType:checked").each(function(){
-                doctTypeStr.concat($(this).val()).concat(",");
+               // doctTypeStr.concat($(this).val()).concat(",");
+            	doctTypeStr+=$(this).val()+',';
             });
-            //alert(doctTypeStr.join(","));
+            doctTypeStr=doctTypeStr.substr(0,doctTypeStr.length-1);
             params.append("doct.doctType=" + doctTypeStr).append("&");
             params = params.toString();
             //zq:此处字符串拼接正确，但下方返回json中，无doctType信息

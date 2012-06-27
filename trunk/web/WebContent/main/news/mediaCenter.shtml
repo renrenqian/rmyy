@@ -222,7 +222,6 @@
 	</div>
 	<!--#include virtual="../master/footer.html"-->
 	<script src="/web/js/kissy.js"></script>
-	<script src="/web/js/datalazyload-min.js"></script>
 	<script type="text/javascript" src="../js/yoxview-init.js"></script>
 	<script>
 		KISSY.use('datalazyload', function(S, DataLazyload) {

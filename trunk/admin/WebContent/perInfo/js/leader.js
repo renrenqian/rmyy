@@ -5,7 +5,7 @@ $(document).ready(function() {
     /* 新增 */
     $("#J_AddLeader").die().live("click", function() {
         $.fn.sdResetForm("#leaderForm");
-        $("#leaderId").val("");
+        $("#liId").val("");
         $('#J_LeaderDiv').css("display", "").window({
             title: '新增领导信息',
             modal: true,
