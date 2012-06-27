@@ -164,7 +164,7 @@ function initConsultList() {
             bDestory:false,
            // bRetrieve:true,
             sAjaxSource:"../online/listConsultation.action",
-            sAjaxDataProp: "page.consList",
+            sAjaxDataProp: "page.dataList",
             oSearch: {"sSearch": ""},
             bAutoWidth:false,
             fnServerData:function(sSource, aoData, fnCallback) {
@@ -203,8 +203,8 @@ function initConsultList() {
                         if (!json.page) {
                             json.page = {};
                         }
-                        if (!json.page.consList) {//处理返回结果
-                            json.page.consList = [];
+                        if (!json.page.dataList) {//处理返回结果
+                            json.page.dataList = [];
                         }
                         json.sEcho = sEcho;
                         json.iTotalRecords = json.page.totalItemCount;
