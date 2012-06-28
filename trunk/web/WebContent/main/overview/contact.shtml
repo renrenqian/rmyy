@@ -1,256 +1,251 @@
 ﻿<!DOCTYPE html>
 <head>
-    <!--#include virtual="../master/headFile.html"-->
+<!--#include virtual="../master/headFile.html"-->
 </head>
 <body>
-<!--#include virtual="../master/top.html"-->
-<div class="content contentPart" style="margin-top: 3px; *margin-top: 3px;">
-<div style="display: block; overflow: hidden;">
-<div class="leftCol2">
-<div class="mainPart">
-<div class="itemBg">
-<div class="titleBg2">
-    <p class="bread J_Bread"></p>
-</div>
-<h2 class="titleType3">联系我们</h2>
+	<!--#include virtual="../master/top.html"-->
+	<div class="content contentPart"
+		style="margin-top: 3px; *margin-top: 3px;">
+		<div style="display: block; overflow: hidden;">
+			<div class="leftCol2">
+				<div class="mainPart">
+					<div class="itemBg">
+						<div class="titleBg2">
+							<p class="bread">
+								<a href="/index.shtml" class="breadB">首页</a><span>></span><a
+									href="#" class="breadN">医院概览</a><span>></span><a
+									href="#" class="breadN">联系我们</a>
+							</p>
+						</div>
+						<h2 class="titleType3">联系我们</h2>
 
-<div style="clear:both;"></div>
-<table class="contactTable w7 bc">
-    <tr>
-        <th colspan="2">杭州市第一人民医院</th>
-    </tr>
-    <tr>
-        <td>杭州市第一人民医院</td>
-        <td>The Frist People's Hospital of Hangzhou</td>
-    </tr>
-    <tr>
-        <td>地址：杭州市浣纱路261号</td>
-        <td>Add:No.261 Huansha Road Hangzhou China.</td>
-    </tr>
-    <tr>
-        <td>邮编：310006</td>
-        <td>P.C.:310006</td>
-    </tr>
-    <tr>
-        <td>电话：0571-87065701</td>
-        <td>Tel:0571-87065701</td>
-    </tr>
-    <tr>
-        <td>传真：0571-87914773</td>
-        <td>Fax:0571-87914773</td>
-    </tr>
-    <tr>
-        <td>E-MAIL：hzsyyy1@163.com</td>
-        <td>E-MAIL:hzsyyy1@163.com</td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <a class="greenBtn tc fl" style="margin: 10px; margin-left:0;"
-               href="/hospital/patient/add.shtml">交通指南</a>
-            <a class="greenBtn tc fl" style="margin: 10px;"
-               href="/hospital/patient/building.shtml" target="_blank">楼宇分布</a>
-        </td>
-    </tr>
-</table>
-<hr class="m20"/>
-<table class="contactTable w7 bc">
-    <tr>
-        <th colspan="2">杭州市妇幼保健院</th>
-    </tr>
-    <tr>
-        <td>杭州市第一人民医院</td>
-        <td>The Frist People's Hospital of Hangzhou</td>
-    </tr>
-    <tr>
-        <td>地址：杭州市浣纱路261号</td>
-        <td>Add:No.261 Huansha Road Hangzhou China.</td>
-    </tr>
-    <tr>
-        <td>邮编：310006</td>
-        <td>P.C.:310006</td>
-    </tr>
-    <tr>
-        <td>电话：0571-87065701</td>
-        <td>Tel:0571-87065701</td>
-    </tr>
-    <tr>
-        <td>传真：0571-87914773</td>
-        <td>Fax:0571-87914773</td>
-    </tr>
-    <tr>
-        <td>E-MAIL：hzsyyy1@163.com</td>
-        <td>E-MAIL:hzsyyy1@163.com</td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <a class="greenBtn tc fl" style="margin: 10px; margin-left:0;"
-               href="../doctor/MZPB.aspx">交通指南</a>
-            <a class="greenBtn tc fl" style="margin: 10px;"
-               href="../doctor/MZPB.aspx">楼宇分布</a>
-        </td>
-    </tr>
-</table>
-<hr class="m20"/>
-<table class="contactTable w7 bc">
-    <tr>
-        <th colspan="2">杭州市肿瘤医院 （吴山院区）</th>
-    </tr>
-    <tr>
-        <td>杭州市第一人民医院</td>
-        <td>The Frist People's Hospital of Hangzhou</td>
-    </tr>
-    <tr>
-        <td>地址：杭州市浣纱路261号</td>
-        <td>Add:No.261 Huansha Road Hangzhou China.</td>
-    </tr>
-    <tr>
-        <td>邮编：310006</td>
-        <td>P.C.:310006</td>
-    </tr>
-    <tr>
-        <td>电话：0571-87065701</td>
-        <td>Tel:0571-87065701</td>
-    </tr>
-    <tr>
-        <td>传真：0571-87914773</td>
-        <td>Fax:0571-87914773</td>
-    </tr>
-    <tr>
-        <td>E-MAIL：hzsyyy1@163.com</td>
-        <td>E-MAIL:hzsyyy1@163.com</td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <a class="greenBtn tc fl" style="margin: 10px; margin-left:0;"
-               href="../doctor/MZPB.aspx">交通指南</a>
-            <a class="greenBtn tc fl" style="margin: 10px;"
-               href="../doctor/MZPB.aspx">楼宇分布</a>
-        </td>
-    </tr>
-</table>
-<hr class="m20"/>
-<table class="contactTable w7 bc">
-    <tr>
-        <th colspan="2">杭州市老年病医院 ( 城北院区 )</th>
-    </tr>
-    <tr>
-        <td>杭州市第一人民医院</td>
-        <td>The Frist People's Hospital of Hangzhou</td>
-    </tr>
-    <tr>
-        <td>地址：杭州市浣纱路261号</td>
-        <td>Add:No.261 Huansha Road Hangzhou China.</td>
-    </tr>
-    <tr>
-        <td>邮编：310006</td>
-        <td>P.C.:310006</td>
-    </tr>
-    <tr>
-        <td>电话：0571-87065701</td>
-        <td>Tel:0571-87065701</td>
-    </tr>
-    <tr>
-        <td>传真：0571-87914773</td>
-        <td>Fax:0571-87914773</td>
-    </tr>
-    <tr>
-        <td>E-MAIL：hzsyyy1@163.com</td>
-        <td>E-MAIL:hzsyyy1@163.com</td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <a class="greenBtn tc fl" style="margin: 10px; margin-left:0;"
-               href="../doctor/MZPB.aspx">交通指南</a>
-            <a class="greenBtn tc fl" style="margin: 10px;"
-               href="../doctor/MZPB.aspx">楼宇分布</a>
-        </td>
-    </tr>
-</table>
+						<div style="clear: both;"></div>
+						<table class="contactTable w7 bc">
+							<tr>
+								<th colspan="2">杭州市第一人民医院</th>
+							</tr>
+							<tr>
+								<td>杭州市第一人民医院</td>
+								<td>The Frist People's Hospital of Hangzhou</td>
+							</tr>
+							<tr>
+								<td>地址：杭州市浣纱路261号</td>
+								<td>Add:No.261 Huansha Road Hangzhou China.</td>
+							</tr>
+							<tr>
+								<td>邮编：310006</td>
+								<td>P.C.:310006</td>
+							</tr>
+							<tr>
+								<td>电话：0571-87065701</td>
+								<td>Tel:0571-87065701</td>
+							</tr>
+							<tr>
+								<td>传真：0571-87914773</td>
+								<td>Fax:0571-87914773</td>
+							</tr>
+							<tr>
+								<td>E-MAIL：hzsyyy1@163.com</td>
+								<td>E-MAIL:hzsyyy1@163.com</td>
+							</tr>
+							<tr>
+								<td colspan="2"><a class="greenBtn tc fl"
+									style="margin: 10px; margin-left: 0;"
+									href="/hospital/patient/add.shtml">交通指南</a> <a
+									class="greenBtn tc fl" style="margin: 10px;"
+									href="/hospital/patient/building.shtml" target="_blank">楼宇分布</a>
+								</td>
+							</tr>
+						</table>
+						<hr class="m5" />
+						<table class="contactTable w7 bc">
+							<tr>
+								<th colspan="2">杭州市妇幼保健院</th>
+							</tr>
+							<tr>
+								<td>杭州市第一人民医院</td>
+								<td>The Frist People's Hospital of Hangzhou</td>
+							</tr>
+							<tr>
+								<td>地址：杭州市浣纱路261号</td>
+								<td>Add:No.261 Huansha Road Hangzhou China.</td>
+							</tr>
+							<tr>
+								<td>邮编：310006</td>
+								<td>P.C.:310006</td>
+							</tr>
+							<tr>
+								<td>电话：0571-87065701</td>
+								<td>Tel:0571-87065701</td>
+							</tr>
+							<tr>
+								<td>传真：0571-87914773</td>
+								<td>Fax:0571-87914773</td>
+							</tr>
+							<tr>
+								<td>E-MAIL：hzsyyy1@163.com</td>
+								<td>E-MAIL:hzsyyy1@163.com</td>
+							</tr>
+							<tr>
+								<td colspan="2"><a class="greenBtn tc fl"
+									style="margin: 10px; margin-left: 0;"
+									href="../doctor/MZPB.aspx">交通指南</a> <a class="greenBtn tc fl"
+									style="margin: 10px;" href="../doctor/MZPB.aspx">楼宇分布</a></td>
+							</tr>
+						</table>
+						<hr class="m5" />
+						<table class="contactTable w7 bc">
+							<tr>
+								<th colspan="2">杭州市肿瘤医院 （吴山院区）</th>
+							</tr>
+							<tr>
+								<td>杭州市第一人民医院</td>
+								<td>The Frist People's Hospital of Hangzhou</td>
+							</tr>
+							<tr>
+								<td>地址：杭州市浣纱路261号</td>
+								<td>Add:No.261 Huansha Road Hangzhou China.</td>
+							</tr>
+							<tr>
+								<td>邮编：310006</td>
+								<td>P.C.:310006</td>
+							</tr>
+							<tr>
+								<td>电话：0571-87065701</td>
+								<td>Tel:0571-87065701</td>
+							</tr>
+							<tr>
+								<td>传真：0571-87914773</td>
+								<td>Fax:0571-87914773</td>
+							</tr>
+							<tr>
+								<td>E-MAIL：hzszlyy@163.com</td>
+								<td>E-MAIL:hzszlyy@163.com</td>
+							</tr>
+							<tr>
+								<td colspan="2"><a class="greenBtn tc fl"
+									style="margin: 10px; margin-left: 0;"
+									href="../doctor/MZPB.aspx">交通指南</a> <a class="greenBtn tc fl"
+									style="margin: 10px;" href="../doctor/MZPB.aspx">楼宇分布</a></td>
+							</tr>
+						</table>
+						<hr class="m5" />
+						<table class="contactTable w7 bc">
+							<tr>
+								<th colspan="2">杭州市老年病医院 ( 城北院区 )</th>
+							</tr>
+							<tr>
+								<td>杭州市第一人民医院</td>
+								<td>The Frist People's Hospital of Hangzhou</td>
+							</tr>
+							<tr>
+								<td>地址：杭州市浣纱路261号</td>
+								<td>Add:No.261 Huansha Road Hangzhou China.</td>
+							</tr>
+							<tr>
+								<td>邮编：310006</td>
+								<td>P.C.:310006</td>
+							</tr>
+							<tr>
+								<td>电话：0571-87065701</td>
+								<td>Tel:0571-87065701</td>
+							</tr>
+							<tr>
+								<td>传真：0571-87914773</td>
+								<td>Fax:0571-87914773</td>
+							</tr>
+							<tr>
+								<td>E-MAIL：hzsyyy1@163.com</td>
+								<td>E-MAIL:hzsyyy1@163.com</td>
+							</tr>
+							<tr>
+								<td colspan="2"><a class="greenBtn tc fl"
+									style="margin: 10px; margin-left: 0;"
+									href="../doctor/MZPB.aspx">交通指南</a> <a class="greenBtn tc fl"
+									style="margin: 10px;" href="../doctor/MZPB.aspx">楼宇分布</a></td>
+							</tr>
+						</table>
 
-<hr class="m20"/>
-<table class="contactTable w7 bc">
-    <tr>
-        <th colspan="2">杭州市妇女医院 ( 钱江新城院区 )</th>
-    </tr>
-    <tr>
-        <td>杭州市第一人民医院</td>
-        <td>The Frist People's Hospital of Hangzhou</td>
-    </tr>
-    <tr>
-        <td>地址：杭州市浣纱路261号</td>
-        <td>Add:No.261 Huansha Road Hangzhou China.</td>
-    </tr>
-    <tr>
-        <td>邮编：310006</td>
-        <td>P.C.:310006</td>
-    </tr>
-    <tr>
-        <td>电话：0571-87065701</td>
-        <td>Tel:0571-87065701</td>
-    </tr>
-    <tr>
-        <td>传真：0571-87914773</td>
-        <td>Fax:0571-87914773</td>
-    </tr>
-    <tr>
-        <td>E-MAIL：hzsyyy1@163.com</td>
-        <td>E-MAIL:hzsyyy1@163.com</td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <a class="greenBtn tc fl" style="margin: 10px; margin-left:0;"
-               href="../doctor/MZPB.aspx">交通指南</a>
-            <a class="greenBtn tc fl" style="margin: 10px;"
-               href="../doctor/MZPB.aspx">楼宇分布</a>
-        </td>
-    </tr>
-</table>
-<hr class="m20"/>
-<table class="contactTable w7 bc">
-    <tr>
-        <th colspan="2">五云山健康管理中心</th>
-    </tr>
-    <tr>
-        <td>杭州市第一人民医院</td>
-        <td>The Frist People's Hospital of Hangzhou</td>
-    </tr>
-    <tr>
-        <td>地址：杭州市浣纱路261号</td>
-        <td>Add:No.261 Huansha Road Hangzhou China.</td>
-    </tr>
-    <tr>
-        <td>邮编：310006</td>
-        <td>P.C.:310006</td>
-    </tr>
-    <tr>
-        <td>电话：0571-87065701</td>
-        <td>Tel:0571-87065701</td>
-    </tr>
-    <tr>
-        <td>传真：0571-87914773</td>
-        <td>Fax:0571-87914773</td>
-    </tr>
-    <tr>
-        <td>E-MAIL：hzsyyy1@163.com</td>
-        <td>E-MAIL:hzsyyy1@163.com</td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <a class="greenBtn tc fl" style="margin: 10px; margin-left:0;"
-               href="../doctor/MZPB.aspx">交通指南</a>
-            <a class="greenBtn tc fl" style="margin: 10px;"
-               href="../doctor/MZPB.aspx">楼宇分布</a>
-        </td>
-    </tr>
-</table>
-</div>
-</div>
-</div>
-<!--#include virtual="../master/overviewSubTitle.html"-->
-</div>
-</div>
-<!--#include virtual="../master/footer.html"-->
-<script src="/web/main/js/common.js"></script>
+						<hr class="m5" />
+						<table class="contactTable w7 bc">
+							<tr>
+								<th colspan="2">杭州市妇女医院 ( 钱江新城院区 )</th>
+							</tr>
+							<tr>
+								<td>杭州市第一人民医院</td>
+								<td>The Frist People's Hospital of Hangzhou</td>
+							</tr>
+							<tr>
+								<td>地址：杭州市浣纱路261号</td>
+								<td>Add:No.261 Huansha Road Hangzhou China.</td>
+							</tr>
+							<tr>
+								<td>邮编：310006</td>
+								<td>P.C.:310006</td>
+							</tr>
+							<tr>
+								<td>电话：0571-87065701</td>
+								<td>Tel:0571-87065701</td>
+							</tr>
+							<tr>
+								<td>传真：0571-87914773</td>
+								<td>Fax:0571-87914773</td>
+							</tr>
+							<tr>
+								<td>E-MAIL：hzsyyy1@163.com</td>
+								<td>E-MAIL:hzsyyy1@163.com</td>
+							</tr>
+							<tr>
+								<td colspan="2"><a class="greenBtn tc fl"
+									style="margin: 10px; margin-left: 0;"
+									href="../doctor/MZPB.aspx">交通指南</a> <a class="greenBtn tc fl"
+									style="margin: 10px;" href="../doctor/MZPB.aspx">楼宇分布</a></td>
+							</tr>
+						</table>
+						<hr class="m5" />
+						<table class="contactTable w7 bc">
+							<tr>
+								<th colspan="2">五云山健康管理中心</th>
+							</tr>
+							<tr>
+								<td>杭州市第一人民医院</td>
+								<td>The Frist People's Hospital of Hangzhou</td>
+							</tr>
+							<tr>
+								<td>地址：杭州市浣纱路261号</td>
+								<td>Add:No.261 Huansha Road Hangzhou China.</td>
+							</tr>
+							<tr>
+								<td>邮编：310006</td>
+								<td>P.C.:310006</td>
+							</tr>
+							<tr>
+								<td>电话：0571-87065701</td>
+								<td>Tel:0571-87065701</td>
+							</tr>
+							<tr>
+								<td>传真：0571-87914773</td>
+								<td>Fax:0571-87914773</td>
+							</tr>
+							<tr>
+								<td>E-MAIL：hzsyyy1@163.com</td>
+								<td>E-MAIL:hzsyyy1@163.com</td>
+							</tr>
+							<tr>
+								<td colspan="2"><a class="greenBtn tc fl"
+									style="margin: 10px; margin-left: 0;"
+									href="../doctor/MZPB.aspx">交通指南</a> <a class="greenBtn tc fl"
+									style="margin: 10px;" href="../doctor/MZPB.aspx">楼宇分布</a></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!--#include virtual="../master/overviewSubTitle.html"-->
+		</div>
+	</div>
+	<!--#include virtual="../master/footer.html"-->
+	<script src="/web/main/js/common.js"></script>
 
 </body>
 </html>

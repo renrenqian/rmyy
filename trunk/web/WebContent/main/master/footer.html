@@ -129,13 +129,13 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('.J_DeptOff').live("click", function() {
+		$('.J_DeptOff').live("mouseover", function() {
 			$(this).removeClass('J_DeptOff').addClass('J_Dept');
 			$('.J_Group').removeClass('J_Group').addClass('J_GroupOff');
 			$('#J_GroupDiv').hide(1000);
 			$('#J_DeptDiv').show(1000);
 		});
-		$('.J_GroupOff').live("click", function() {
+		$('.J_GroupOff').live("mouseover", function() {
 			$(this).removeClass('J_GroupOff').addClass('J_Group');
 			$('.J_Dept').removeClass('J_Dept').addClass('J_DeptOff');
 			$('#J_GroupDiv').show(1000);

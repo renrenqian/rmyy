@@ -75,50 +75,6 @@ $(document).ready(function(){
 	});				
 });
 
-
-setMyBread();
-function setMyBread(){
-	myTitle1=$.cookie('myTitle1');
-	
-	myTitle2=$.cookie('myTitle2');	
-
-	myTitle3=$.cookie('myTitle3');
-	
-	//设置面包导航
-	var myBread="<a href='/web/main/index.shtml' class='breadB'>首页</a>";
-	
-	if(myTitle1){
-		myBread+="<span>></span><a href='#' class='breadN'>"+myTitle1+"</a>";
-		
-//		if(myHref1){
-//			myBread+="<span>></span><a href='#' class='breadB'>"+myTitle1+"</a>";
-//		}else{
-//			myBread+="<span>></span><a href='#' class='breadN'>"+myTitle1+"</a>";
-//		}		
-	}
-	if(myTitle2){
-		myBread+="<span>></span><a href='#' class='breadN'>"+myTitle2+"</a>";
-//		
-//		if(myHref2){
-//			myBread+="<span>></span><a href='#' class='breadN'>"+myTitle2+"</a>";
-//		}else{
-//			myBread+="<span>></span><a href='#' class='breadN'>"+myTitle2+"</a>";
-//		}		
-	}
-	if(myTitle3){
-		myBread+="<span>></span><a href='#' class='breadN'>"+myTitle3+"</a>";
-		
-		
-//		if(myHref3){
-//			myBread+="<span>></span><a href='#' class='breadN'>"+myTitle3+"</a>";
-//		}else{
-//			myBread+="<span>></span><a href='#' class='breadN'>"+myTitle3+"</a>";
-//		}		
-	}
-	$('.J_Bread').html(myBread);
-}
-
-
 //替换%为#$字符
 function fixP(str){
 	// add replace all function

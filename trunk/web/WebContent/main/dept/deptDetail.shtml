@@ -11,7 +11,12 @@
 				<div class="mainPart">
 					<div class="itemBg">
 						<div class="titleBg2">
-							<p class="bread J_Bread"></p>
+					    <p class="bread">
+	                        <a class="breadB" href="/web/main/index.shtml">首页</a><span>&gt;</span>
+	                        <a class="breadN" href="#">科室导航</a><span>&gt;</span>
+	                        <a class="breadB" href="/web/main/dept/deptList.shtml">临床科室</a><span>&gt;</span>
+	                        <a class="breadN" href="#">科室详情</a>
+                        </p>
 						</div>
 						<h2 class="titleType3">
 							临床科室 .<span class="J_DpName"></span>

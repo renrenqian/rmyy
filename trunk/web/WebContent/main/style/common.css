@@ -501,11 +501,11 @@ body {
 
 /* contact */
 .contactTable tr th {
-	text-align: center; color: #006666; font-size: 20px; font-weight: bold; padding: 10px;
+	text-align: center; color: #006666; font-size: 20px; font-weight: bold; padding:5px 10px;
 }
 
 .contactTable tr td {
-	padding: 5px; font-size: 14px;
+	padding:3px 5px;font-size: 14px;
 }
 
 /* add */

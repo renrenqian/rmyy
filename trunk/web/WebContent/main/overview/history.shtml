@@ -10,7 +10,11 @@
             <div class="mainPart">
                 <div class="itemBg">
                     <div class="titleBg2">
-                       <p class="bread J_Bread"></p>
+                       <p class="bread">
+								<a href="/index.shtml" class="breadB">首页</a><span>></span><a
+									href="#" class="breadN">医院概览</a><span>></span><a
+									href="#" class="breadN">医院历史</a>
+							</p>
                     </div>
                     <h2 class="titleType3">医院历史</h2>
 

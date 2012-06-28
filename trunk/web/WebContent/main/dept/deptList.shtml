@@ -10,7 +10,11 @@
             <div class="mainPart">
                <div class="itemBg">
         <div class="titleBg2">
-              <p class="bread J_Bread"></p>
+               <p class="bread">
+	                        <a class="breadB" href="/web/main/index.shtml">首页</a><span>&gt;</span>
+	                        <a class="breadN" href="#">科室导航</a><span>&gt;</span>
+	                        <a class="breadN" href="#">临床科室</a>
+               </p>
         </div>
         <h2 class="titleType3">临床科室</h2>
         <div style="clear: both;"></div>
@@ -19,52 +23,52 @@
                 <li class="deptList"><a href="#">内科</a>
                     <hr />
                     <ul class="subDeptList">
-                        <li><a href="deptDetail.shtml" target="_blank">肿瘤内科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">心血管内科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">消化内科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">神经内科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">肾内科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">内分泌科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">感染科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">皮肤性病科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">血液内科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">儿科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">呼吸内科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">肿瘤科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">临床心理科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">感染科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">急诊科</a></li>
+                        <li><a href="deptDetail.shtml">肿瘤内科</a></li>
+                        <li><a href="deptDetail.shtml" >心血管内科</a></li>
+                        <li><a href="deptDetail.shtml" >消化内科</a></li>
+                        <li><a href="deptDetail.shtml" >神经内科</a></li>
+                        <li><a href="deptDetail.shtml" >肾内科</a></li>
+                        <li><a href="deptDetail.shtml" >内分泌科</a></li>
+                        <li><a href="deptDetail.shtml" >感染科</a></li>
+                        <li><a href="deptDetail.shtml" >皮肤性病科</a></li>
+                        <li><a href="deptDetail.shtml" >血液内科</a></li>
+                        <li><a href="deptDetail.shtml" >儿科</a></li>
+                        <li><a href="deptDetail.shtml" >呼吸内科</a></li>
+                        <li><a href="deptDetail.shtml" >肿瘤科</a></li>
+                        <li><a href="deptDetail.shtml" >临床心理科</a></li>
+                        <li><a href="deptDetail.shtml" >感染科</a></li>
+                        <li><a href="deptDetail.shtml" >急诊科</a></li>
                     </ul>
                 </li>
                  <li class="deptList"><a href="#">外科</a>
                     <hr />
                     <ul class="subDeptList">
-                        <li><a href="deptDetail.shtml" target="_blank">眼科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">妇科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">产科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">耳鼻咽喉科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">肝胆胰外科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">胃肠肛外科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">口腔科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">神经外科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">胸外科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">骨科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">肿瘤外科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">乳腺外科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">心血管外科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">医学美容科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">麻醉科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">泌尿外科</a></li>
+                        <li><a href="deptDetail.shtml" >眼科</a></li>
+                        <li><a href="deptDetail.shtml" >妇科</a></li>
+                        <li><a href="deptDetail.shtml" >产科</a></li>
+                        <li><a href="deptDetail.shtml" >耳鼻咽喉科</a></li>
+                        <li><a href="deptDetail.shtml" >肝胆胰外科</a></li>
+                        <li><a href="deptDetail.shtml" >胃肠肛外科</a></li>
+                        <li><a href="deptDetail.shtml" >口腔科</a></li>
+                        <li><a href="deptDetail.shtml" >神经外科</a></li>
+                        <li><a href="deptDetail.shtml" >胸外科</a></li>
+                        <li><a href="deptDetail.shtml" >骨科</a></li>
+                        <li><a href="deptDetail.shtml" >肿瘤外科</a></li>
+                        <li><a href="deptDetail.shtml" >乳腺外科</a></li>
+                        <li><a href="deptDetail.shtml" >心血管外科</a></li>
+                        <li><a href="deptDetail.shtml" >医学美容科</a></li>
+                        <li><a href="deptDetail.shtml" >麻醉科</a></li>
+                        <li><a href="deptDetail.shtml" >泌尿外科</a></li>
                     </ul>
                 </li>
                    <li class="deptList"><a href="#">综合</a>
                     <hr />
                     <ul class="subDeptList">
-                        <li><a href="deptDetail.shtml" target="_blank">干部保健科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">危重病医学科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">疼痛门诊</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">针灸推拿科</a></li>
-                        <li><a href="deptDetail.shtml" target="_blank">中医科</a></li>
+                        <li><a href="deptDetail.shtml" >干部保健科</a></li>
+                        <li><a href="deptDetail.shtml" >危重病医学科</a></li>
+                        <li><a href="deptDetail.shtml" >疼痛门诊</a></li>
+                        <li><a href="deptDetail.shtml" >针灸推拿科</a></li>
+                        <li><a href="deptDetail.shtml" >中医科</a></li>
                     </ul>
                 </li>
             </ul>
@@ -77,7 +81,6 @@
 </div>
 <!--#include virtual="../master/footer.html"-->
 <script src="/web/main/js/common.js"></script>
-<script src="js/deptList.js"></script>
 </body>
 </html>
 

@@ -13,7 +13,11 @@
 				<div class="mainPart">
 					<div class="itemBg">
 						<div class="titleBg2">
-							<p class="bread J_Bread"></p>
+							<p class="bread">
+								<a class="breadB" href="/web/main/index.shtml">首页</a><span>&gt;</span>
+								<a class="breadN" href="#">信息中心</a><span>&gt;</span> 
+								<a class="breadN" href="#">医院公告</a>
+							</p>
 						</div>
 						<h2 class="titleType3">医院新闻</h2>
 
