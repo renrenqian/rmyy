@@ -177,16 +177,15 @@ hr {
 }
 
 .titleType1,.titleType2,.titleType3 {
-	color: #0b5c5d; font-size: 14px; line-height: 28px; text-indent: 15px; font-family: "Microsoft Yahei"; float: left; display: block; cursor: default;
-	margin-right: 5px;
+	color: #0b5c5d; font-size: 14px; line-height: 28px; font-family: "Microsoft Yahei"; float: left; display: block; cursor: default;
+	width:80px; text-align:center;
 }
-
 .titleType2,.titleType3 {
-	color: #247a7b; text-decoration: underline; cursor: pointer; font-weight: normal; margin-right: 5px;
+	color: #247a7b; cursor: pointer; font-weight: normal; margin-right: 5px; text-decoration:underline;
 }
 
 .titleType3 {
-	font-size: 20px; margin-left: 15px; margin-bottom: 5px; text-decoration: none; color: #006666; font-weight: bold;
+	font-size: 20px; margin-left: 35px; margin-bottom: 5px; text-decoration: none; colr: #006666; font-weight: bold; width:auto;
 }
 
 .newsL {
@@ -194,7 +193,7 @@ hr {
 }
 
 .newsR {
-	width: 270px; height: 253px; float: right; display: inline; margin-top: 20px; *margin-top: 10px; padding: 3px;
+	width: 270px; height: 253px; float: right; display: inline; margin-top: -5px; *margin-top: 10px; padding: 3px;
 }
 
 .topic {

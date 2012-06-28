@@ -20,7 +20,7 @@
 						</div>
 						<h2 class="titleType3">医师简介 . 梅瑾</h2>
 						<div style="clear: both;"></div>
-						<div class="docBody">
+						<div class="newsBody">
 							<div class="perInfo">
 								<img src="../images/docPer.jpg" style="margin-top: 0;" />
 							</div>
@@ -28,11 +28,11 @@
 								<table class="docTable">
 									<tr>
 										<th>学历</th>
-										<td>大学本科</td>
+										<td id='diEducation'></td>
 										<th>所属科室</th>
-										<td>产科</td>
+										<td id='diDeptName'></td>
 										<th>职称</th>
-										<td>主任医师</td>
+										<td id='diPosition'></td>
 									</tr>
 								</table>
 								<table class="docTable">
@@ -83,21 +83,8 @@
 								</table>
 								<strong>出诊信息仅供参考，如有变动，以门诊公布为准。</strong>
 							</div>
-							<div class='clear'></div>
-							<h3 class='mt50'>简历</h3>
-							<p>
-								从事妇产科临床工作21年，担任县级医院的妇产科主任10年；从事妇女保健、孕产妇保健、产前筛查及遗传咨询10年。曾在浙江大学医学院附属妇产科医院进修妇女保健3个月，遗传咨询6个月。现为杭州市产前筛查中心副主任、杭州市产前诊断中心办公室主任。2009年度被授予浙江省妇幼保健先进工作者。
-							</p>
-							<h3>主攻学科</h3>
-							<p>优生优育、孕产妇保健、产前筛查、产前咨询、产前诊断以及妊娠期异常情况的诊治。</p>
-							<h3>研究方向</h3>
-							<p>
-								熟悉妇产科常见病多发病的诊治，对妇产科疑难重症病人的诊治具有一定的水平。尤其擅长优生优育、孕产妇保健、产前筛查、产前诊断、产前遗传咨询以及妊娠期并发症的诊治。
-							</p>
-							<h3>医疗成果</h3>
-							<p>
-								自2002年后，先后发表学术论文6篇，一级杂志二篇、二级杂志4篇。并于2006年9月完成了《妇女VDT作业与异常妊娠结局及子代出生缺陷儿关系研究》的课题，评审结果达到国内先进水平；同时还参与完成课题《围绝经期综合征个性化治疗》的研究。
-							</p>
+							<!-- 医师长信息部分 -->
+							<div class='clear' id='J_Re'></div>														
 						</div>
 					</div>
 				</div>
@@ -107,6 +94,41 @@
 	</div>
 	<!--#include virtual="../master/footer.html"-->
 	<script src="/web/main/js/common.js"></script>
+	<script>
+	$(document).ready(function(){
+		 $.getJSON('http://124.160.67.194:8520/admin/member/searchDoctor.action?doct.diId=45', function(json) {		 		 	
+	         if (json.resultCode > 0) {            
+	             var doctDetail = json.doct;
+	             $(doctDetail).each(function(i, item) {                  
+	             	$('#diEducation').html(fixPosition(item.diEducation));  
+	             	$('#diDeptName').html(item.diDeptName); 
+ 	             	$('#diPosition').html(item.diPosition); 
+ 	             	var str='';
+ 	             	$('#J_Re').after("<h3 class='mt50'>简历</h3>"+
+ 	             			"<p>"+item.diResume+"</p><hr />"+
+							"<h3>主攻学科</h3>"+
+							"<p>"+item.diMajor+"</p><hr />"+
+							"<h3>研究方向</h3>"+
+						    "<p>"+item.diResearch_direction+"</p><hr />"+
+							"<h3>医疗成果</h3>"+
+							"<p>"+item.diAccomplishment+"</p>");
+	             });     
+	         }
+		 });
+	});
+	
+	function fixPosition(str){
+		switch(str){
+		case 0:'';
+		case 1000:str='博士后';break;
+		case 1001:str='博士';break;
+		case 1002:str='硕士';break;
+		case 1003:str='大学本科';break;
+		case 1004:str='其它';break;
+		}
+		return str;
+	}
+	</script>
 </body>
 </html>
 
