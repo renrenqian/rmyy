@@ -49,27 +49,21 @@
             </tr>
             <tr>
                 <td class="rowName w1">患者年龄</td>
-                <td><input id="ocId" type="hidden"/><input id="ocPost_age" type="text" class="input_type1" value="32" readonly/></td>
+                <td><input id="ocId" type="hidden"/><input id="ocPost_age" type="text" class="input_type1" readonly/></td>
             </tr>
             <tr>
                 <td class="rowName">咨询主题</td>
                 <td>
-                    <input type="text" id="ocPost_subject"  class="input_type2" value="请问我要做无创产前检测怎么预约"/>
+                    <input type="text" id="ocPost_subject"  class="input_type2"/>
                 </td>
             </tr>
             <tr>
                 <td class="rowName">咨询描述</td>
                 <td>
-                    <textarea id="ocDesc"  class="textArea_type2" >人流完医生给开了两盒酮焕雌醇片避孕药,一盒有21天的量,我想问这两盒要吃完吗?吃那么多对身体有没有影响? </textarea>
+                    <textarea id="ocDesc"  class="textArea_type2" ></textarea>
                 </td>
             </tr>
-            <tr>
-                <td class="rowName">回复内容</td>
-                <td>
-                    <textarea id="osAnswer" class="textArea_type2"></textarea>
-                </td>
-            </tr>
-            <tr>
+             <tr>
                 <td class="rowName">回复处理</td>
                 <td>
                     <select id="isAnswer" class="selectType1">
@@ -77,21 +71,22 @@
                         <option value="1">提问患者</option>
                         <option value="2">转交科室</option>
                     </select>
+                     <span class="red">说明：若此问题不在您科室回答范围，请选择转交科室。</span>
                 </td>
             </tr>
-            <tr>
-                <td class="rowName">转交到</td>
+            <tr id='J_ReTr' style='display:none;'>
+                <td class="rowName">回复内容</td>
                 <td>
-                    <select id="ocReceive_office" class="selectType1">
-                        <option>科室选择</option>
-                        <option value="1031">心血管内科</option>
-                        <option value="1032">消化内科</option>
-                        <option value="1033">眼科</option> 
-                    </select>
-                    <span class="red">说明：若此问题不在您科室范围，请选择转交科室。</span>
+                    <textarea id="osAnswer" class="textArea_type2"></textarea>
+                </td>
+            </tr>           
+            <tr id='J_ReDept' style='display:none;'>
+                <td class="rowName">回复科室</td>
+                <td>
+                    <select id="ocReceive_office" class="selectType1"></select>                   
                 </td>
             </tr>
-            <tr>
+            <tr id='J_ReTypical' style='display:none;'>
                 <td class="rowName">设为典型</td>
                 <td>
                     <select id="osTypical" class="selectType1">

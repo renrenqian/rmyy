@@ -4,10 +4,23 @@ $(document).ready(function() {
     //查数据字典
     initConsultList();//初始化列表
     $('#consultForm').sdValidate();//添加验证规则
+    
+    //zq:根据回复处理不同，选择不同界面
+    $('#isAnswer').change(function(){
+    	if($(this).val()==1){
+    		//提问患者    	
+    		$('#J_ReTr,#J_ReTypical').show();
+    		$('#J_ReDept').hide();
+    	}else{
+    		//转交科室
+    		$('#J_ReTr,#J_ReDept').show();
+    		$('#J_ReTypical').hide();    		
+    	}
+    });
 
     /* 编辑 */
     $(".J_ConsultEdit").die().live("click", function() {
-        $.fn.sdResetForm("#consultForm");
+        $.fn.sdResetForm("#consultForm");       
         var id = $(this).parent().parent().children().eq(0).children().eq(0).val();
         $.getJSON('../online/searchConsultation.action?t=' + new Date().getTime() + '&cons.ocId=' + id, function(json) {
             if (json.resultCode > 0) {
@@ -18,10 +31,33 @@ $(document).ready(function() {
                     $('#ocSex').val(item.ocSex);
                     $('#ocPost_subject').val(item.ocPost_subject);
                     $('#ocPost_age').val(item.ocPost_age);
-                    $('#ocDesc').val(item.ocDesc);
-                    $('#osAnswer').val(item.osAnswer);
+                    $('#ocDesc').val(item.ocDesc);                  
                     $('#osTypical').val(item.osTypical);
-
+                                     
+                    $('#isAnswer option').each(function(){                    	
+                    	if($(this).val()==item.osAnswered){
+                    		$(this).attr('selected',true);
+                    	}                            	
+                    });
+                    //zq:根据osAnswered值，展现不同界面
+                    if(item.osAnswered==1){
+                    	//已回复
+                    	$('#J_ReTr,#J_ReTypical').show();
+                		$('#J_ReDept').hide();
+                		//填充回复内容
+                		$('#osAnswer').html(item.osAnswer);
+                    }else if(item.osAnswered==2){
+                    	//转交
+                    	$('#J_ReTr,#J_ReDept').show();
+                		$('#J_ReTypical').hide();  
+                		//填充转交科室的内容
+                		$('#osAnswer').html(item.osAnswer);
+                    }else{
+                    	//未选择
+                    	 $('#J_ReTr,#J_ReDept,#J_ReTypical').hide();
+                    }
+                    
+                    
                     //kevin: filled the option with dept id and names
                     $.getJSON('../group/listDeptNames.action', function(json) {
                         if (json.resultCode > 0) {
@@ -31,6 +67,12 @@ $(document).ready(function() {
                                optioin+="<option value=\"" + item.dpId +"\">"+item.dpName+"</option>";
                             });  
                             $('#ocReceive_office').html(optioin);
+                            //zq:定位科室
+                            $('#ocReceive_office option').each(function(){
+                            	if($(this).html()==item.ocReceiveOfficeName){
+                            		$(this).attr('selected',true);
+                            	}                            	
+                            });
                         } else {
                             $.fn.sdInfo({
                                 type:"fail",
@@ -89,14 +131,16 @@ $(document).ready(function() {
 
             var params = new StringBuffer();
             params.append("cons.ocId=" + ocId).append("&");
-            params.append("cons.ocPost_subject=" + $("#ocPost_subject").val()).append("&");
+            params.append("cons.ocPost_subject=" + $("#ocPost_subject").val()).append("&");          
             params.append("cons.ocPost_age=" + $("#ocPost_age").val()).append("&");
             params.append("cons.ocSex=" + $("#ocSex").val()).append("&");
             params.append("cons.ocDesc=" + $("#ocDesc").val()).append("&");
             params.append("cons.osAnswer=" + $("#osAnswer").val()).append("&");
             params.append("cons.osTypical=" + $("#osTypical").val()).append("&");
-            if(2== $("#isAnswer").val())
-                params.append("cons.ocReceive_office=" + $("#ocReceive_office").val()).append("&");
+            if(2== $("#isAnswer").val()){
+            	 params.append("cons.ocReceive_office=" + $("#ocReceive_office").val()).append("&");
+                 params.append("cons.osAnswered=" + 2).append("&");
+            }               
             else 
                 params.append("cons.osAnswered=" + 1).append("&");
             params = params.toString();
@@ -242,22 +286,22 @@ function initConsultList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.ocPost_time + "</span>";
+                        return "<span style='width:100px;'>" + obj.aData.ocPost_time + "</span>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.ocRequestOfficeName + "</span>";
+                        return "<span class='hidden2 tl'>" + obj.aData.ocRequestOfficeName + "</span>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.ocReceiveOfficeName + "</span>";
+                        return "<span class='hidden2 tl'>" + obj.aData.ocReceiveOfficeName + "</span>";
                     }
                 },
                       {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.ocPost_subject + "</span>";
+                        return "<span class='hidden1 tl w'>" + obj.aData.ocPost_subject + "</span>";
                     }
                 },
                 {
@@ -267,7 +311,7 @@ function initConsultList() {
                             state = "已回复";
                             className = "green";
                         }
-                        return "<span class='J_ReplyState unl " + className + "'>" + state + "</span>";
+                        return "<span class='" + className + "'>" + state + "</span>";
                     }
                 },
                 {
@@ -281,10 +325,10 @@ function initConsultList() {
                     }
                 }
             ],
-            sPaginationType: "full_numbers"
-            //       aoColumnDefs: [
-            //             { "bSortable": false, "aTargets": [0,1,2]}
-            //         ]
+            sPaginationType: "full_numbers",
+                   aoColumnDefs: [
+                         { "bSortable": false, "aTargets": [0,6,7]}
+                     ]
         });
     } else {
         consultTable.fnClearTable();

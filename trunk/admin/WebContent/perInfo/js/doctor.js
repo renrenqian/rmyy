@@ -75,12 +75,12 @@ $(document).ready(function() {
                                optioin+="<option value=\"" + item.dpId +"\">"+item.dpName+"</option>";
                             });  
                             $('#diDeptType').html(optioin);
-                            
-                            //zq:根据医生ID查找该医生所在科室
-//                            $.getJSON('../group/listDeptByDoctId.action', function(json) {
-//                                if(json.resultCode>0){
-//                                }
-//                            });
+                            //zq：科室定位
+                            $('#diDeptType option').each(function(){
+                            	if($(this).html()==item.diDeptName){
+                            		$(this).attr('selected',true);
+                            	}                            	
+                            });
                         } else {
                             $.fn.sdInfo({
                                 type:"fail",
@@ -159,8 +159,7 @@ $(document).ready(function() {
             doctTypeStr=doctTypeStr.substr("0",doctTypeStr.length-1);
             //alert(doctTypeStr.join(","));
             params.append("doct.doctType=" + doctTypeStr);//.append("&");
-            params = params.toString();
-            //zq:此处字符串拼接正确，但下方返回json中，无doctType信息
+            params = params.toString();       
             
             $.post(url, params, function(json) {
                 if (json.resultCode > 0) {
@@ -262,7 +261,7 @@ $(document).ready(function() {
         
         $.getJSON("../member/listOPSer.action",function(json) {
             if (json.resultCode > 0) {
-            	console.log('success');
+            	
             }                   
         });
         

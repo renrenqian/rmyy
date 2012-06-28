@@ -236,7 +236,7 @@ function initDeptList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='hidden2 tl'>" + obj.aData.dpName + "</span>";
+                        return "<span class='hidden1 tl'>" + obj.aData.dpName + "</span>";
                     }
                 },
                 {
