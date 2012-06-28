@@ -5,8 +5,11 @@
 已有doctType":"1001,1002",但是listDoctor及searchDoctor，返回信息中，均无doctType":"1001,1002"信息。
 
 
+2、医师管理头像
 
-2、编辑专家门诊信息问题：
+3、医师信息编辑打开后，医师所在科室无法定位，是否提供后台方法？
+
+4、编辑专家门诊信息问题：
 
 点击专家门诊链接，需调用listOPSer.action，显示门诊信息。调用后，返回大堆数据，不知道是不是数据库的残留数据？
 {"opsList":[{"osBook_link":"http","osCate":1,"osCost":"30","osId":1000,"osLimit":22,"osLocation":"test","osStatus":1,"osTime":""},{"osBook_link":"http","osCate":2,"osCost":"12","osId":1001,"osLimit":20,"osLocation":"yyy","osStatus":1,"osTime":""},{"osBook_link":"rtsp","osCate":2,"osCost":"20","osId":1002,"osLimit":20,"osLocation":"tata","osStatus":1,"osTime":""},{"osBook_link":"yy","osCate":2,"osCost":"23","osId":1003,"osLimit":22,"osLocation":"tata","osStatus":1,"osTime":""},{"osBook_link":"","osCate":1,"osCost":"","osId":1004,"osLocation":"","osStatus":1,"osTime":""},{"osBook_link":"","osCate":1,"osCost":"","osId":1005,"osLocation":"","osStatus":1,"osTime":""},{"osBook_link":"","osCate":1,"osCost":"","osId":1006,"osLocation":"","osStatus":1,"osTime":""},{"osBook_link":"","osCate":1,"osCost":"","osId":1007,"osLocation":"","osStatus":1,"osTime":"10, "},{"osBook_link":"","osCate":1,"osCost":"","osId":1008,"osLocation":"","osStatus":1,"osTime":"10,11, "},{"osBook_link":"","osCate":1,"osCost":"","osId":1009,"osLocation":"","osStatus":1,"osTime":"10,11"},{"osBook_link":"","osCate":1,"osCost":"","osId":1010,"osLocation":"dsf","osStatus":1,"osTime":""},{"osBook_link":"","osCate":1,"osCost":"","osId":1011,"osLocation":"","osStatus":1,"osTime":"11"}],"resultCode":1}
@@ -14,6 +17,12 @@
 另，此数据形式，是否有必要？因为osLocation、osCost、osLimit、osBook_link均确定为同一内容
 
 
-3.在线咨询管理中的listConsultation.action有问题：
+5.在线咨询管理中的listConsultation.action有问题：
 网站部分请求与后台请求相同，都只返回{"resultCode":1}，无其他数据信息。
 另：后台请求此action，网站部分，未来是否也请求这个action？网站此处也需要分页，但因不用dataTable,故与datatable，是否公用方法？
+
+6、领导管理头像
+
+7、在线咨询后台：网站处有存入，但后台未读出？
+
+8、在线咨询网站部分：返回deptID，能否同时返回deptName，或者给一个根据deptID查deptName的后台？根据deptID查询对应科室下的问题列表。根据deptID查询对应科室下的典型问题列表。根据（deptID，提问时间，deptID && 提问时间）查询问题列表
