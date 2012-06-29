@@ -20,7 +20,9 @@ $(document).ready(function() {
 
     /* 编辑 */
     $(".J_ConsultEdit").die().live("click", function() {
-        $.fn.sdResetForm("#consultForm");       
+        $.fn.sdResetForm("#consultForm");   
+        //zq:清空原填写内容
+        $('#osAnswer').html("");
         var id = $(this).parent().parent().children().eq(0).children().eq(0).val();
         $.getJSON('../online/searchConsultation.action?t=' + new Date().getTime() + '&cons.ocId=' + id, function(json) {
             if (json.resultCode > 0) {
@@ -301,7 +303,7 @@ function initConsultList() {
                 },
                       {
                     fnRender:function(obj) {
-                        return "<span class='hidden1 tl w'>" + obj.aData.ocPost_subject + "</span>";
+                        return "<span class='hidden1 tl' style='width:100%;'>" + obj.aData.ocPost_subject + "</span>";
                     }
                 },
                 {

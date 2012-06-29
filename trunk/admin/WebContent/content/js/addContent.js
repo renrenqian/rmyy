@@ -15,16 +15,14 @@ $(document).ready(function() {
         $('#contentForm').form('submit', {
           url:url,
           dataType : 'json',
-          onSubmit: function(){
-            //alert("onSubmit");
+          onSubmit: function(){            
          },
          error:function (json) {
              alert("内容异常:" + json.message) ; 
          }, 
          success:function(json){
              json = eval('(' + json + ')');
-             if (json.resultCode > 0 ) {
-                 //$('#contentForm').window("close");
+             if (json.resultCode > 0 ) {               
                  $(window.parent.document).find("#centerIFrame").attr("src", "content/contentMan.html");
                 } else  {
                     $.fn.sdInfo({
@@ -50,7 +48,6 @@ $(document).ready(function() {
         //创建日期
         var cPubTime = new S.Calendar('#contPubTime', {
             popup:true,
-           // closable:false,
             showTime:true
         }).on('timeSelect', function(e) {
             var dateFormat = new DateFormat();

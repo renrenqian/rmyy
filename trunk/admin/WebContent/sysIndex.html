@@ -2,146 +2,269 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>杭州市第一人民医院集团后台管理系统</title>
-<link rel="icon" href="/web/images/favicon.ico" type="image/x-icon"/>  
+<link rel="icon" href="/web/images/favicon.ico" type="image/x-icon" />
 <script src="js/jquery-1.7.2.js"></script>
 <script src="js/jquery.easyui.min.js"></script>
-<link href="style/common.css" rel="stylesheet"/>
+<link href="style/common.css" rel="stylesheet" />
 <style type="text/css">
 /* header section */
-#header { width: 100%; height: 75px; background: url(images/header_footer_loop_4.jpg) repeat-x; }
-.header_logo { width: 482px; float: left; display: inline; }
-#logo_pic { width: 482px; height: 75px; display: block; background: url(images/logo.jpg) no-repeat; }
-.topArea { position: relative; background: url(images/topArea.png) no-repeat; height: 55px; width: 535px; float: right; margin-right: 5px; margin-top: 5px; }
-.topAreaFunc { background: url(images/header_func.png) no-repeat; text-decoration: none; height: 45px; width: 50px; display: block; float: right;}
-#topAreaFunc7 { background-position: 0 -270px; }
-#topAreaFunc7:hover { background-position: -50px -270px; }
-#topAreaFunc8 { background-position: 0 -315px; }
-#topAreaFunc8:hover { background-position: -50px -315px; }
-#topAreaFunc10 { background-position: 0 -405px; }
-#topAreaFunc10:hover { background-position: -50px -405px; }
-#topAreaFunc13 { background-position: 0 -540px; }
-#topAreaFunc13:hover { background-position: -50px -540px; }
-#topAreaFunc14 { background-position: 0 -585px; }
-#topAreaFunc14:hover { background-position: -50px -585px; }
-.topNav { height: 36px; overflow: hidden; background: url("images/topAreaNav.png"); z-index: 9999; position: absolute; top: 65px; right:100px; }
-.topNav ul { padding-left: 10px; padding-right: 20px; }
-.topNav ul li { float: left; display: block; margin-left: 10px; overflow: hidden; margin-top: 10px; }
-.topNav ul li a { color: white; font-size: 12px; float: left; display: block; text-decoration: none; padding-left: 5px; padding-right: 5px; }
-.topNav ul li a:hover { text-decoration: underline; font-weight: bold; font-style: Italic; }
-#adminInfo { color: #DDD; font-weight: bold; font-size: 13px; margin-top: 10px; margin-left: 80px; }
-#adminInfo a { color: #DDD }
-#sysInfo { color: #DDD; font-size: 12px; margin-left: 80px; margin-top:5px; }
-#myMenu .accordion-body ul li a { color: #369; display: block; height: 30px; width: 100%; text-decoration: none; line-height: 30px; vertical-align: middle; text-align: left; text-indent: 2em; }
-#myMenu .accordion-body ul li a:hover { display: block; height: 30px; width: 200px; background: url("images/menuHover.png") no-repeat; }
-#myMenu .accordion-body ul li .choose { background: url("images/menuBg.jpg"); color: #FFF; font-weight: bold; text-indent: 3em; }
-#myMenu .accordion-body ul li .choose:hover { background: url("images/menuBg.jpg"); color: #FFF; font-weight: bold; text-indent: 3em; }
-.ft { background: url(images/footerLoop.jpg) repeat-x; height: 47px; width: 100%; }
-#ft_pic { width: 521px; height: 47px; display: block; position: absolute; background: url(images/footerR.jpg) no-repeat; bottom: 0; right: 0; }
+#header {
+	width: 100%; height: 75px; background: url(images/header_footer_loop_4.jpg) repeat-x;
+}
+
+.header_logo {
+	width: 482px; float: left; display: inline;
+}
+
+#logo_pic {
+	width: 482px; height: 75px; display: block; background: url(images/logo.jpg) no-repeat;
+}
+
+.topArea {
+	position: relative; background: url(images/topArea.png) no-repeat; height: 55px; width: 535px; float: right; margin-right: 5px; margin-top: 5px;
+}
+
+.topAreaFunc {
+	background: url(images/header_func.png) no-repeat; text-decoration: none; height: 45px; width: 50px; display: block; float: right;
+}
+
+#topAreaFunc7 {
+	background-position: 0 -270px;
+}
+
+#topAreaFunc7:hover {
+	background-position: -50px -270px;
+}
+
+#topAreaFunc8 {
+	background-position: 0 -315px;
+}
+
+#topAreaFunc8:hover {
+	background-position: -50px -315px;
+}
+
+#topAreaFunc10 {
+	background-position: 0 -405px;
+}
+
+#topAreaFunc10:hover {
+	background-position: -50px -405px;
+}
+
+#topAreaFunc13 {
+	background-position: 0 -540px;
+}
+
+#topAreaFunc13:hover {
+	background-position: -50px -540px;
+}
+
+#topAreaFunc14 {
+	background-position: 0 -585px;
+}
+
+#topAreaFunc14:hover {
+	background-position: -50px -585px;
+}
+
+.topNav {
+	height: 36px; overflow: hidden; background: url("images/topAreaNav.png"); z-index: 9999; position: absolute; top: 65px; right: 100px;
+}
+
+.topNav ul {
+	padding-left: 10px; padding-right: 20px;
+}
+
+.topNav ul li {
+	float: left; display: block; margin-left: 10px; overflow: hidden; margin-top: 10px;
+}
+
+.topNav ul li a {
+	color: white; font-size: 12px; float: left; display: block; text-decoration: none; padding-left: 5px; padding-right: 5px;
+}
+
+.topNav ul li a:hover {
+	text-decoration: underline; font-weight: bold; font-style: Italic;
+}
+
+#adminInfo {
+	color: #DDD; font-weight: bold; font-size: 13px; margin-top: 10px; margin-left: 80px;
+}
+
+#adminInfo a {
+	color: #DDD
+}
+
+#sysInfo {
+	color: #DDD; font-size: 12px; margin-left: 80px; margin-top: 5px;
+}
+
+#myMenu .accordion-body ul li a {
+	color: #369; display: block; height: 30px; width: 100%; text-decoration: none; line-height: 30px; vertical-align: middle; text-align: left;
+	text-indent: 2em;
+}
+
+#myMenu .accordion-body ul li a:hover {
+	display: block; height: 30px; width: 200px; background: url("images/menuHover.png") no-repeat;
+}
+
+#myMenu .accordion-body ul li .choose {
+	background: url("images/menuBg.jpg"); color: #FFF; font-weight: bold; text-indent: 3em;
+}
+
+#myMenu .accordion-body ul li .choose:hover {
+	background: url("images/menuBg.jpg"); color: #FFF; font-weight: bold; text-indent: 3em;
+}
+
+.ft {
+	background: url(images/footerLoop.jpg) repeat-x; height: 47px; width: 100%;
+}
+
+#ft_pic {
+	width: 521px; height: 47px; display: block; position: absolute; background: url(images/footerR.jpg) no-repeat; bottom: 0; right: 0;
+}
 </style>
 </head>
 <body class="easyui-layout">
-<div region="north" border="false">
-    <div id="header">
-        <a class="header_logo" href="#">
-            <span id="logo_pic" class="J_Menu" name="welcome">
-                <img src="images/home.png" class="pa cur none" style="left:350px; top:37px;" id="J_Home">
-            </span>
-        </a>
+	<div region="north" border="false">
+		<div id="header">
+			<a class="header_logo" href="#"> <span id="logo_pic"
+				class="J_Menu" name="welcome"> <img src="images/home.png"
+					class="pa cur none" style="left: 350px; top: 37px;" id="J_Home"></span>
+			</a>
 
-        <div class="topArea">
-            <p id="adminInfo">Hi,&nbsp;&nbsp;<a id="guest" href="#" class="J_Menu" name="perInfo"></a>!</p>
+			<div class="topArea">
+				<p id="adminInfo">
+					Hi,&nbsp;&nbsp;<a id="guest" href="#" class="J_Menu" name="perInfo"></a>!
+				</p>
 
-            <p id="sysInfo"><span id="sys_date"></span>&nbsp;&nbsp;<span id="sys_time"></span></p>
+				<p id="sysInfo">
+					<span id="sys_date"></span>&nbsp;&nbsp;<span id="sys_time"></span>
+				</p>
 
-            <div id="topAreaBtnArea" style="right:0; bottom:0;" class="pa">
-                <a class="topAreaFunc mr10 cur" id="topAreaFunc13" style="margin-top:-4px;" title="安全退出"></a>
-                <!--<a href="#" class="topAreaFunc J_Menu mr10" id="topAreaFunc14" name="help" title="帮助中心"></a>-->
-                <!--<a href="#" class="topAreaFunc J_Menu" id="topAreaFunc10" name="msg" title="我的消息"></a>-->
-                <!--<a href="#" class="topAreaFunc" id="topAreaFunc8" title="系统配置"></a>-->
-                <a href="#" class="topAreaFunc mr10" id="topAreaFunc7" title="系统管理"></a>
-            </div>
-        </div>
-    </div>
-</div>
-<div region="west" title="功能列表" style="width:200px;" border="false" id="myMenu">
-    <div class="easyui-accordion" fit="true" border="false" id="menuAccordion">
-<!--         <div title="集团信息管理" folder="groupInfoFolder" class="J_Menu" name="集团信息管理"> <ul> -->
-<!--                 <li><a href="#" id="member" name="集团成员管理" class="J_MenuItem">集团成员管理 temp</a></li> -->
-<!--             </ul> -->
-<!--         </div> -->
-         <div title="科室信息管理" folder="deptInfoFolder" class="J_Menu" name="科室信息管理"> <ul>
-<!--                 <li><a href="#" id="deptType" name="科室类型管理" class="J_MenuItem">科室类型管理 temp</a></li> -->
-                <li><a href="#" id="dept" name="科室管理" class="J_MenuItem">科室信息管理 ok</a></li>
-            </ul>
-        </div>
-         <div title="人员信息管理" folder="perInfoFolder" class="J_Menu" name="人员信息管理"> <ul>
-<!--                 <li><a href="#" id="talentType" name="人才类型管理" class="J_MenuItem">人才类型管理 temp</a></li> -->
-                <li><a href="#" id="doctor" name="医师信息管理" class="J_MenuItem">医师信息管理 ok</a></li>
-                <li><a href="#" id="leader" name="领导信息管理" class="J_MenuItem">领导信息管理 ok</a></li>
-            </ul>
-        </div>
-        <div title="网站内容管理" folder="contentFolder" class="J_Menu" name="网站内容管理">
-            <ul>
-<!--                 <li><a href="#" id="catalogMan" name="栏目管理" class="J_MenuItem">栏目管理</a></li> -->
-                <li><a href="#" id="contentMan" name="内容管理" class="J_MenuItem">内容管理 ok</a></li>
-<!--                 <li><a href="#" id="sliderPic" name="首页滚动图片管理" class="J_MenuItem">首页滚动图片管理 temp</a></li> -->
-            </ul>
-        </div>
-        <div title="在线咨询管理" folder="consultFolder" class="J_Menu" name="在线咨询管理">
-            <ul>
-                <li><a href="#" id="consult" name="在线咨询管理" class="J_MenuItem">在线咨询管理 ok</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div region="south" border="false">
-    <div class="ft"><span id="ft_pic"></span><input type="hidden" id="J_ContentType"/></div>
-</div>
-<div region="center" title="欢迎使用" id="center" border="false" style="overflow:hidden;">
-    <iframe id="centerIFrame" name="centerIFrame" class="w h" frameborder="no" border="0"
-            framespacing="0"></iframe>
-</div>
-<script src="js/common.js"></script>
-<script>
-    /* zq: system go */
-    $(document).ready(function() {
-        $("#centerIFrame").attr("src", "welcome.html");
-        $("#guest").text($.cookie("cookie_admin"));
-        showTime();
-        $('#menuAccordion').accordion('select', '内容管理');
-        var myMenu = $('.J_Menu');
-        for (var i = 0; i < myMenu.length; i++) {
-            (function(_i) {
-                new Menu({
-                    root:myMenu.eq(_i)
-                });
-            })(i);
-        }
-        $('#topAreaFunc13').live("click", function() {
-            window.location.href = "logout.action";
-        });
-        $('#logo_pic').hover(function() {
-            $('#J_Home').show();
-        }, function() {
-            $('#J_Home').hide();
-        });
-    });
+				<div id="topAreaBtnArea" style="right: 0; bottom: 0;" class="pa">
+					<a class="topAreaFunc mr10 cur" id="topAreaFunc13"
+						style="margin-top: -4px;" title="安全退出"></a>
+					<!--<a href="#" class="topAreaFunc J_Menu mr10" id="topAreaFunc14" name="help" title="帮助中心"></a>-->
+					<!--<a href="#" class="topAreaFunc J_Menu" id="topAreaFunc10" name="msg" title="我的消息"></a>-->
+					<!--<a href="#" class="topAreaFunc" id="topAreaFunc8" title="系统配置"></a>-->
+					<a href="#" class="topAreaFunc mr10" id="topAreaFunc7" title="系统管理"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div region="west" title="功能列表" style="width: 200px;" border="false"
+		id="myMenu">
+		<div class="easyui-accordion" fit="true" border="false"
+			id="menuAccordion">
+			<!--         <div title="集团信息管理" folder="groupInfoFolder" class="J_Menu" name="集团信息管理"> <ul> -->
+			<!--                 <li><a href="#" id="member" name="集团成员管理" class="J_MenuItem">集团成员管理 temp</a></li> -->
+			<!--             </ul> -->
+			<!--         </div> -->
+			<div title="科室信息管理" folder="deptInfoFolder" class="J_Menu"
+				name="科室信息管理">
+				<ul>
+					<!--                 <li><a href="#" id="deptType" name="科室类型管理" class="J_MenuItem">科室类型管理 temp</a></li> -->
+					<li><a href="#" id="dept" name="科室管理" class="J_MenuItem">科室信息管理</a></li>
+				</ul>
+			</div>
+			<div title="人员信息管理" folder="perInfoFolder" class="J_Menu"
+				name="人员信息管理">
+				<ul>
+					<!--                 <li><a href="#" id="talentType" name="人才类型管理" class="J_MenuItem">人才类型管理 temp</a></li> -->
+					<li><a href="#" id="doctor" name="医师信息管理" class="J_MenuItem">医师信息管理</a></li>
+					<li><a href="#" id="leader" name="领导信息管理" class="J_MenuItem">领导信息管理</a></li>
+				</ul>
+			</div>
+			<div title="主站内容管理" folder="contentFolder" class="J_Menu"
+				name="网站内容管理">
+				<ul>
+					<li><a href="#" id="contentMan" name="医院新闻栏目"
+						class="J_MenuItem">医院新闻栏目</a></li>
+					<li><a href="#" id="employMan" name="人才招聘栏目"
+						class="J_MenuItem">人才招聘栏目</a></li>
+					<li><a href="#" id="contentMan" name="其它栏目" class="J_MenuItem">其它栏目</a></li>				
+				</ul>
+			</div>
+			<div title="在线咨询管理" folder="consultFolder" class="J_Menu"
+				name="在线咨询管理">
+				<ul>
+					<li><a href="#" id="consult" name="在线咨询管理" class="J_MenuItem">在线咨询管理</a></li>
+				</ul>
+			</div>
+			<div title="志愿者之家管理" folder="contentFolder" class="J_Menu"
+				name="志愿者之家管理">
+				<ul>				
+					<li><a href="#" id="contentMan" name="之家动态栏目"
+						class="J_MenuItem">之家动态栏目</a></li>				
+				</ul>
+			</div>
+			<div title="癌症中心管理" folder="contentFolder" class="J_Menu"
+				name="癌症中心管理">
+			</div>
+			<div title="心脑血管病诊治中心管理" folder="contentFolder" class="J_Menu"
+				name="心脑血管病诊治中心管理">
+			</div>
+			<div title="高危孕产妇急救中心管理" folder="contentFolder" class="J_Menu"
+				name="癌症中心管理">
+			</div>
+			<div title="健康管理中心管理" folder="contentFolder" class="J_Menu"
+				name="健康管理中心管理">
+			</div>
+		</div>
+	</div>
+	<div region="south" border="false">
+		<div class="ft">
+			<span id="ft_pic"></span><input type="hidden" id="J_ContentType" />
+		</div>
+	</div>
+	<div region="center" title="欢迎使用" id="center" border="false"
+		style="overflow: hidden;">
+		<iframe id="centerIFrame" name="centerIFrame" class="w h"
+			frameborder="no" border="0" framespacing="0"></iframe>
+	</div>
+	<script src="js/common.js"></script>
+	<script>
+		/* zq: system go */
+		$(document).ready(function() {
+			$("#centerIFrame").attr("src", "welcome.html");
+			$("#guest").text($.cookie("cookie_admin"));
+			showTime();
+			$('#menuAccordion').accordion('select', '内容管理');
+			var myMenu = $('.J_Menu');
+			for ( var i = 0; i < myMenu.length; i++) {
+				(function(_i) {
+					new Menu({
+						root : myMenu.eq(_i)
+					});
+				})(i);
+			}
+			$('#topAreaFunc13').live("click", function() {
+				window.location.href = "logout.action";
+			});
+			$('#logo_pic').hover(function() {
+				$('#J_Home').show();
+			}, function() {
+				$('#J_Home').hide();
+			});
+		});
 
-    function showTime() {
-        var dateFormat = new DateFormat();
-        var date = new Date();
-        $('#sys_time').html(dateFormat.isoTime(date));
-        setInterval(function() {
-            date = new Date();
-            $('#sys_time').html(dateFormat.isoTime(date));
-            date = null;
-        }, 1000);
-        date = new Date();
-        $('#sys_date').html(dateFormat.isoDate(date));
-        date = null;
-    }
-</script>
+		function showTime() {
+			var dateFormat = new DateFormat();
+			var date = new Date();
+			$('#sys_time').html(dateFormat.isoTime(date));
+			setInterval(function() {
+				date = new Date();
+				$('#sys_time').html(dateFormat.isoTime(date));
+				date = null;
+			}, 1000);
+			date = new Date();
+			$('#sys_date').html(dateFormat.isoDate(date));
+			date = null;
+		}
+	</script>
 </body>
 </html>

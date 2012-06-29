@@ -79,9 +79,13 @@ $(document).ready(function(){
     $.getJSON('http://124.160.67.194:8520/admin/group/listDeptNames.action', function(json) {
         if (json.resultCode > 0) {               
             var deptList = json.deptList;
-            var optioin= "<option>科室选择</option><option class='red'>若不确定科室，请选择本项</option>";
+            var optioin= "<option>科室选择</option>";
             $(deptList).each(function(i, item) { 
-            	optioin+="<option value="+item.dpId+">"+item.dpName+"</option>"
+            	if(item.dpName=='咨询调节'){
+            		optioin+="<option class='red' value="+item.dpId+">若不确定科室，请选择本项</option>";
+            	}else{
+            		optioin+="<option value="+item.dpId+">"+item.dpName+"</option>";
+            	}            
             });  
             $('#ocRequestOffice').html(optioin);
         	
@@ -110,7 +114,8 @@ $(document).ready(function(){
 	        params.append("cons.ocRequest_office=" + $("#ocRequestOffice").val()).append("&");
 	        params.append("cons.ocReceive_office=" + $("#ocRequestOffice").val()).append("&");
 	        params.append("cons.ocPost_subject=" + $("#ocPost_subject").val()).append("&");   
-	        params.append("cons.ocDesc=" + $("#ocDesc").val()).append("&");    
+	        params.append("cons.ocDesc=" + $("#ocDesc").val()).append("&"); 
+	        params.append("cons.osAnswered=0").append("&"); 
 	        params = params.toString();
 	        $.post(url, params, function(json) {
 	            if (json.resultCode > 0) {
