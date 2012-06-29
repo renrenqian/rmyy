@@ -181,7 +181,7 @@ hr {
 	width:80px; text-align:center;
 }
 .titleType2,.titleType3 {
-	color: #247a7b; cursor: pointer; font-weight: normal; margin-right: 5px; text-decoration:underline;
+	color: #247a7b; cursor: pointer; font-weight: normal; text-decoration:underline;
 }
 
 .titleType3 {

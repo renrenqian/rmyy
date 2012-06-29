@@ -79,7 +79,7 @@ $(document).ready(function(){
     $.getJSON('http://124.160.67.194:8520/admin/group/listDeptNames.action', function(json) {
         if (json.resultCode > 0) {               
             var deptList = json.deptList;
-            var optioin= "<option>科室选择</option>";
+            var optioin= "<option value='0'>科室选择</option>";
             $(deptList).each(function(i, item) { 
             	if(item.dpName=='咨询调节'){
             		optioin+="<option class='red' value="+item.dpId+">若不确定科室，请选择本项</option>";
@@ -101,36 +101,42 @@ $(document).ready(function(){
 	$('#J_Ask').die().live("click", function() {
 		 $('.queryTable').sdValidate();//添加验证规则
 	    if ($(this).sdSubmitValidate(".queryTable")) {
-	        var ocId = $("#ocId").val();                     
-	        var  url = "http://124.160.67.194:8520/admin/online/addConsultation.action";     
-	        var dateFormat = new DateFormat();
-	        var date = new Date();	      
-	        var isoDateTime=dateFormat.isoDateTime(date);
-	        
-	        var params = new StringBuffer();
-	        params.append("cons.ocPost_time=" + isoDateTime).append("&");
-	        params.append("cons.ocSex=" + $("#ocSex").val()).append("&");
-	        params.append("cons.ocPost_age=" + $("#ocPost_age").val()).append("&");
-	        params.append("cons.ocRequest_office=" + $("#ocRequestOffice").val()).append("&");
-	        params.append("cons.ocReceive_office=" + $("#ocRequestOffice").val()).append("&");
-	        params.append("cons.ocPost_subject=" + $("#ocPost_subject").val()).append("&");   
-	        params.append("cons.ocDesc=" + $("#ocDesc").val()).append("&"); 
-	        params.append("cons.osAnswered=0").append("&"); 
-	        params = params.toString();
-	        $.post(url, params, function(json) {
-	            if (json.resultCode > 0) {
-	            	$.fn.sdInfo({
-	                    type:"success",
-	                    content:'提交信息成功，请耐心等待回复!',
-	                    callBack:reDirect
-	                });
-	            } else {
-	            	$.fn.sdInfo({
-	                    type:"fail",
-	                    content:'提交问题失败!'
-	                });
-	            }
-	        });
+	    	if($('#ocRequestOffice').val()!='0'){
+		        var ocId = $("#ocId").val();                     
+		        var  url = "http://124.160.67.194:8520/admin/online/addConsultation.action";     
+		        var dateFormat = new DateFormat();
+		        var date = new Date();	      
+		        var isoDateTime=dateFormat.isoDateTime(date);		        
+		        var params = new StringBuffer();
+		        params.append("cons.ocPost_time=" + isoDateTime).append("&");
+		        params.append("cons.ocSex=" + $("#ocSex").val()).append("&");
+		        params.append("cons.ocPost_age=" + $("#ocPost_age").val()).append("&");
+		        params.append("cons.ocRequest_office=" + $("#ocRequestOffice").val()).append("&");
+		        params.append("cons.ocReceive_office=" + $("#ocRequestOffice").val()).append("&");
+		        params.append("cons.ocPost_subject=" + $("#ocPost_subject").val()).append("&");   
+		        params.append("cons.ocDesc=" + $("#ocDesc").val()).append("&"); 
+		        params.append("cons.osAnswered=0").append("&"); 
+		        params = params.toString();
+		        $.post(url, params, function(json) {
+		            if (json.resultCode > 0) {
+		            	$.fn.sdInfo({
+		                    type:"success",
+		                    content:'提交信息成功，请耐心等待回复!',
+		                    callBack:reDirect
+		                });
+		            } else {
+		            	$.fn.sdInfo({
+		                    type:"fail",
+		                    content:'提交问题失败!'
+		                });
+		            }
+		        });
+	    	}else{
+	    		$.fn.sdInfo({
+                    type:"fail",
+                    content:'请选择提问科室!'
+                });
+	    	}
 	    }
 	});
 });

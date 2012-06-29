@@ -187,7 +187,7 @@ function initContentList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='hidden2 tl'>" + obj.aData.colName + "</span>";
+                        return obj.aData.colName?"<span class='hidden2 tl'>" + obj.aData.colName + "</span>":"<span class='hidden2 tl'>未选择</span>";
                     }
                 },
                 {

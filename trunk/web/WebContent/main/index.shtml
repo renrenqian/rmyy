@@ -27,7 +27,7 @@
 
                     <h1 class="titleType2 J_PanelLink">集团动态</h1>
 
-                    <h1 class="titleType2 J_PanelLink">多媒体中心</h1>                   
+<!--                     <h1 class="titleType2 J_PanelLink">多媒体中心</h1>                    -->
                 </div>
                 <hr style="border-bottom: 1px solid #d2e2e3;"/>
                 <div class="J_Panel" id='J_HosNews'>
@@ -199,10 +199,10 @@
         	if($(this).index()==1){        		 
         		$('.J_Panel').eq(1).show(); 
         	}    
-        	//多媒体中心面板
-        	if($(this).index()==2){        		
-        		$('.J_Panel').eq(2).show(); 
-        	}    
+//         	//多媒体中心面板
+//         	if($(this).index()==2){        		
+//         		$('.J_Panel').eq(2).show(); 
+//         	}    
         });
 
         // 志愿者之家

@@ -16,8 +16,7 @@ $(document).ready(function() {
                 $(deptList).each(function(i, item) { 
                     optioin+="<option value="+item.dpId+">"+item.dpName+"</option>"
                 });  
-                $('#diDeptType').html(optioin);
-                
+                $('#diDeptType').html(optioin);                
             } else {
                 $.fn.sdInfo({
                     type:"fail",
@@ -415,12 +414,12 @@ function initDoctorList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='hidden2 tl'>" + obj.aData.diDeptName + "</span>";
+                        return obj.aData.diDeptName?"<span class='hidden2 tl'>" + obj.aData.diDeptName + "</span>":"<span class='hidden2 tl'>未填</span>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='hidden2 tl'>" + obj.aData.diPosition + "</span>";
+                        return obj.aData.diPosition?"<span class='hidden2 tl'>" + obj.aData.diPosition + "</span>":"<span class='hidden2 tl'>未填</span>";
                     }
                 },
                 {
@@ -462,10 +461,10 @@ function initDoctorList() {
                     }
                 }
             ],
-            sPaginationType: "full_numbers"
-            //       aoColumnDefs: [
-            //             { "bSortable": false, "aTargets": [0,1,2]}
-            //         ]
+            sPaginationType: "full_numbers",
+                   aoColumnDefs: [
+                         { "bSortable": false, "aTargets": [0,1,2]}
+                     ]
         });
     } else {
         doctorDataTable.fnClearTable();

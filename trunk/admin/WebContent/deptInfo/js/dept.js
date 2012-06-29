@@ -246,12 +246,12 @@ function initDeptList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='hidden1 tl'>" + obj.aData.dpType + "</span>";
+                    	 return obj.aData.dpType?"<span class='hidden1 tl'>" + obj.aData.dpType + "</span>":"";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='hidden2 tl'>" + obj.aData.dpIn_charge + "</span>";
+                    	return obj.aData.dpIn_charge?"<span class='hidden2 tl'>" + obj.aData.dpIn_charge + "</span>":"";
                     }
                 },
                {
