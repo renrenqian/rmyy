@@ -240,29 +240,38 @@ $(document).ready(function() {
      * 
      */
     
-    /* 新增医师、名医信息 */
+    /* 新增/编辑 专家、名医门诊信息 */
     $(".J_ZJClick,.J_MYClick").die().live("click", function() {
         $.fn.sdResetForm("#treatForm");
         var doctId = $(this).parent().parent().children().eq(0).children().eq(0).val();
-        $("#doctId").val(doctId);
-              
+        $("#doctId").val(doctId);            
+        
         //var type=$(this).hasClass('J_ZJClick')?'专家门诊':'名医门诊';
         var type = '';
         //1:专家门诊， 2：名医门诊
         if($(this).hasClass('J_ZJClick')){
             type = '专家门诊';
+            var osExpertId = $(this).parent().parent().children().eq(0).children().eq(0).attr('osexpertid');
+            $("#osId").val(osExpertId);   
             $("#osCate").val(1); 
         } else {
             type = '名医门诊';
+            var osfamousid = $(this).parent().parent().children().eq(0).children().eq(0).attr('osfamousid');
+            $("#osId").val(osfamousid); 
             $("#osCate").val(2);
         }
         $('#J_TreatType').val(type);
         
-        $.getJSON("../member/listOPSer.action",function(json) {
-            if (json.resultCode > 0) {
-            	
-            }                   
-        });
+        if( undefined != $("#osId").val || $("#osId").val!='0'){
+        	//修改
+        	 $.getJSON('../member/searchOPSer.action?t=' + new Date().getTime() + '&ops.osId='+ $("#osId").val(),function(json) {
+        		 var ops = json.ops;
+                 if (json.resultCode > 0) {
+                 	//$('#osLocation').html(opsList.osLocation);
+                 }                   
+             });
+        }
+       
         
         
         $('#J_TreatDiv').css("display", "").window({
@@ -404,7 +413,7 @@ function initDoctorList() {
             aoColumns: [
                 {
                     fnRender:function(obj) {
-                        return "<input type='checkbox' value='" + obj.aData.diId + "'/>";
+                        return "<input type='checkbox' value='" + obj.aData.diId + "' osExpertId='"+obj.aData.osExpertId+"' osFamousId='"+obj.aData.osFamousId+"'/>";
                     }
                 },
                 {
