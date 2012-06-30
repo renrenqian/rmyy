@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="OPSer">
+
+    <!-- list the OPSer info -->
+    <select id="list"  parameterClass="OPSer"  resultClass="OPSer">
+     <![CDATA[
+     select 
+        OS_ID        as osId,
+        OS_CATE      as osCate,
+        OS_TIME      as osTime,
+        OS_LOCATION  as osLocation,
+        OS_LIMIT     as osLimit,
+        OS_STATUS    as osStatus,
+        OS_COST      as osCost,
+        OS_BOOK_LINK as osBook_link
+       from OUTPATIENT_SERVICE ops
+     ]]>
+    </select>
+    
+    <!-- search the OPSer info -->
+    <select id="search"  parameterClass="OPSer"  resultClass="OPSer">
+     <![CDATA[
+     select 
+        OS_ID        as osId,
+        OS_CATE      as osCate,
+        OS_TIME      as osTime,
+        OS_LOCATION  as osLocation,
+        OS_LIMIT     as osLimit,
+        OS_STATUS    as osStatus,
+        OS_COST      as osCost,
+        OS_BOOK_LINK as osBook_link
+       from OUTPATIENT_SERVICE ops
+       where OS_ID = #osId#
+     ]]>
+    </select>
+    
+    <!-- paginate all the OPSer info -->
+    <select id="listAll"  parameterClass="OPSer"  resultClass="OPSer">
+     <![CDATA[
+     select 
+        OS_ID        as osId,
+        OS_CATE      as osCate,
+        OS_TIME      as osTime,
+        OS_LOCATION  as osLocation,
+        OS_LIMIT     as osLimit,
+        OS_STATUS    as osStatus,
+        OS_COST      as osCost,
+        OS_BOOK_LINK as osBook_link
+       from OUTPATIENT_SERVICE ops
+     ]]>
+     <!-- 
+     <![CDATA[LIMIT #start#,#pageSize#]]>
+      -->
+    </select>
+
+    <!-- add OPSer -->
+    <insert id="insert" parameterClass="OPSer">
+       <![CDATA[
+          INSERT INTO OUTPATIENT_SERVICE(OS_ID, OS_CATE, OS_TIME, OS_LOCATION, OS_LIMIT, OS_STATUS, OS_COST, OS_BOOK_LINK) 
+                         VALUES(#osId#, #osCate#, #osTime#, #osLocation#, #osLimit#, #osStatus#, #osCost#, #osBook_link#)
+       ]]>
+       <selectKey resultClass="int" keyProperty="osId">
+         <![CDATA[SELECT LAST_INSERT_ID();]]>
+       </selectKey> 
+    </insert>
+    
+    <!-- delete OPSer by id -->
+    <delete id="delete" parameterClass="OPSer">
+       <![CDATA[DELETE FROM OUTPATIENT_SERVICE WHERE OS_ID = #osId#]]>
+    </delete>
+    
+    <!-- update the OPSer -->
+    <update id="update" parameterClass="OPSer">
+      <![CDATA[
+         UPDATE OUTPATIENT_SERVICE 
+         SET
+            OS_ID = #osId#,
+            OS_CATE = #osCate#,
+            OS_TIME = #osTime#,
+            OS_LOCATION = #osLocation#,
+            OS_LIMIT = #osLimit#,
+            OS_STATUS = #osStatus#,
+            OS_COST = #osCost#,
+            OS_BOOK_LINK = #osBook_link#
+         WHERE OS_ID = #osId#
+      ]]>
+    </update>
+</sqlMap>
