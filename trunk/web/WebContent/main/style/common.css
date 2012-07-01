@@ -84,7 +84,7 @@ body {
 }
 
 #n_item3 {
-	width: 107px; background-position: -206px 0;
+	width: 107px; background-position: -206px 0;	
 }
 
 #n_item3:hover {
@@ -478,8 +478,8 @@ body {
 
 .subTitle li a {
 	width: 204px; height: 29px; line-height: 29px; margin-bottom: 8px; margin-left: 12px; margin-top: 5px; display: block;
-	background: url("/web/main/images/itemBg.jpg"); color: #003E3E; font-size: 15px; text-indent: 20px; cursor: pointer; position: relative;
-	font-weight: bolder; letter-spacing: 2px; font-family: "宋体";
+	background: url("/web/main/images/itemBg.jpg"); color: #003E3E; font-size: 12px; text-indent: 20px; cursor: pointer; position: relative;
+	font-weight: bolder; letter-spacing: 2px; font-family:"宋体";
 }
 
 .subTitle li a:hover {

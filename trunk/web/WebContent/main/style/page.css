@@ -1,6 +1,6 @@
 /* slider cover */
 .theme-default #J_TopSlider {
-	width: 650px; height: 300px; 
+	width: 650px; height: 300px;
 }
 /* news item cover */
 .newsItem li a,.newsItem2 li a {
@@ -10,6 +10,7 @@
 .newsItem li a:hover,.newsItem2 li a:hover {
 	color: #0b4747; font-weight: bold;
 }
+
 .newsDate {
 	color: #40A2A3;
 }
@@ -149,11 +150,11 @@
 }
 
 .nav li .greybox li {
-	background: #f0fbeb; border: 1px solid #9bdf70; margin: 0px 0px 4px 0px; padding: 4px 6px 4px 6px; width: 116px; text-align: center; cursor: pointer;
+	background: #f0fbeb; border: 1px solid #9bdf70; margin: 0px; padding: 4px 6px 4px 6px; width: 116px; text-align: center; cursor: pointer;
 }
 
 .nav li .greybox li:hover {
-	background: #d4f7c4; border: 1px solid #9bdf70; padding: 4px 6px 4px 6px; margin: 0px 0px 4px 0px;
+	background: #d4f7c4;
 }
 
 /*
@@ -176,16 +177,21 @@ hr {
 	height: 55px; background: url("../images/TitleBg2.jpg") repeat-x; text-align: left;
 }
 
-.titleType1,.titleType2,.titleType3 {
-	color: #0b5c5d; font-size: 14px; line-height: 28px; font-family: "Microsoft Yahei"; float: left; display: block; cursor: default;
-	width:80px; text-align:center;
+.titleType1,.titleType2,.titleType3,.titleType4 {
+	color: #0b5c5d; font-size: 14px; line-height: 28px; font-family: "Microsoft Yahei"; float: left; display: block; cursor: default; width: 80px;
+	text-align: center;
 }
+
 .titleType2,.titleType3 {
-	color: #247a7b; cursor: pointer; font-weight: normal; text-decoration:underline;
+	color: #247a7b; cursor: pointer; font-weight: normal; text-decoration: underline;
 }
 
 .titleType3 {
-	font-size: 20px; margin-left: 35px; margin-bottom: 5px; text-decoration: none; colr: #006666; font-weight: bold; width:auto;
+	font-size: 20px; margin-left: 35px; margin-bottom: 5px; text-decoration: none; colr: #006666; font-weight: bold; width: auto;
+}
+
+.titleType4 {
+	width: auto; text-align: left; padding-left: 10px;
 }
 
 .newsL {
@@ -212,7 +218,6 @@ hr {
 .topic a:hover {
 	color: #166e6f; cursor: pointer; text-decoration: underline;
 }
-
 
 .figure {
 	overflow: hidden; margin-bottom: 10px;
@@ -259,7 +264,7 @@ hr {
 }
 
 .newsBody h3 {
-	text-align: left; color: #FF6600; margin-top: 20px; font-weight:bold; font-size:16px;
+	text-align: left; color: #FF6600; margin-top: 20px; font-weight: bold; font-size: 16px;
 }
 
 .newsBody img {
@@ -395,11 +400,9 @@ hr {
 }
 
 .queryTable tr th {
-	font-weight: bold;
-	text-align:left;
+	font-weight: bold; text-align: left;
 }
 
 .queryTable tr td {
-	padding: 10px;
-	text-align:left;
+	padding: 10px; text-align: left;
 }
