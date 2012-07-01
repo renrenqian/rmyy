@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <head>
     <!--#include virtual="../master/headFile.html"-->
+    <link href="/web/js/calendar/calendar/calendar.css" rel="stylesheet" />
 </head>
 <body>
 <!--#include virtual="../master/top.html"-->
@@ -21,45 +22,12 @@
         <h2 class="titleType3">在线咨询中心 . 查看回复</h2>
         <div style="clear: both;"></div>
         <div class="docBody">
-            <h3 class="newsInfo" style="color: #ff6a00;">注意：下方“提问科室”指您提问时所选择的科室。</h3>
+<!--             <h3 class="newsInfo" style="color: #ff6a00;">注意：下方“提问科室”指您提问时所选择的科室。</h3> -->
             <hr class="mb20 w"/>
-            <h3 class="h3Type">问题回复检索<label style="margin-left: 100px;">按提问科室</label>
-                <select>
-                    <option>科室选择</option>
-                    <option class="red">"不确定科室"</option>
-                    <option>心血管内科</option>
-                    <option>消化内科</option>
-                    <option>眼科</option>
-                    <option>妇科</option>
-                    <option>产科</option>
-                    <option>心血管内科</option>
-                    <option>消化内科</option>
-                    <option>眼科</option>
-                    <option>妇科</option>
-                    <option>产科</option>
-                    <option>心血管内科</option>
-                    <option>消化内科</option>
-                    <option>眼科</option>
-                    <option>妇科</option>
-                    <option>产科</option>
-                    <option>心血管内科</option>
-                    <option>消化内科</option>
-                    <option>眼科</option>
-                    <option>妇科</option>
-                    <option>产科</option>
-                    <option>心血管内科</option>
-                    <option>消化内科</option>
-                    <option>眼科</option>
-                    <option>妇科</option>
-                    <option>产科</option>
-                    <option>心血管内科</option>
-                    <option>消化内科</option>
-                    <option>眼科</option>
-                    <option>妇科</option>
-                    <option>产科</option>
-                </select>
-                <label style="margin-left: 20px;">按提问时间</label>
-                <input type="date" />
+            <h3 class="h3Type"><label style="margin-left: 100px;">提问科室</label>
+                <select id="J_Dept"></select>
+                <label style="margin-left: 20px;">提问时间</label>
+                <input type="text" id='J_AskDate' style='cursor:pointer;'/>
                 <input type="button" value="查看" /></h3>
             <ul class="newsItem2 consultList" style="width: 100%; margin-top: 20px;">
                 <li><a class="newsTitle" href="#"><span class='ora'>【产科】</span>请问我要做无创产前检测怎么预约
@@ -77,8 +45,41 @@
 </div>
 <!--#include virtual="../master/footer.html"-->
 <!--#include virtual="../master/demoJs.html"-->
+<script src="/web/js/seed-min.js"></script>
 <script src="/web/main/js/common.js"></script>
+<script>
+//zq:填充科室下拉列表
+$.getJSON('http://localhost:8520/admin/group/listDept.action', function(json) {
+    if (json.resultCode > 0) {               
+        var deptList = json.deptList;
+        var optioin= "<option value='0'>科室选择</option>";
+        $(deptList).each(function(i, item) { 
+        	if(item.dpName=='咨询调节'){
+        		optioin+="<option class='red' value="+item.dpId+">不确定科室</option>";
+        	}else{
+        		optioin+="<option value="+item.dpId+">"+item.dpName+"</option>";
+        	}            
+        });  
+        $('#J_Dept').html(optioin);
+    	
+    }
+});
 
+//日期控件
+(function(S) {
+    KISSY.use('calendar', function(S) {
+        //提问日期
+        var cTime1 = new S.Calendar('#J_AskDate', {
+            popup:true           
+        }).on('select', function(e) {
+            var dateFormat = new DateFormat();
+            $('#J_AskDate').val(dateFormat.isoDate(e.date));
+            dateFormat = null;
+            cTime1.hide();
+        });          
+    });
+})(KISSY);
+</script>
 </body>
 </html>
 

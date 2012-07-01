@@ -206,7 +206,7 @@ $(document).ready(function() {
     	  $.getJSON('../group/listDeptNames.action', function(json) {
               if (json.resultCode > 0) {
                   var deptList = json.deptList;
-                  var optioin="";
+                  var optioin="<option value='0'>请选择...</option>";
                   $(deptList).each(function(i, item) { 
                      optioin+="<option value=\"" + item.dpId +"\">"+item.dpName+"</option>";
                   });  
@@ -219,9 +219,7 @@ $(document).ready(function() {
              minimizable:false,
              maximizable:false,
              collapsible:false,
-             shadow:false,
-             width:GLOBAL.ClientScreen.clientWidth() * 0.9,
-             height:GLOBAL.ClientScreen.clientHeight() * 0.9
+             shadow:false           
          });
     });
     
@@ -265,7 +263,7 @@ function createCalendar(){
 	    KISSY.use('calendar', function(S) {
 	        //提问日期
 	        var cTime1 = new S.Calendar('#J_SearchTime1', {
-	            popup:true        
+	            popup:true
 	        }).on('select', function(e) {
 	            var dateFormat = new DateFormat();
 	            $('#J_SearchTime1').val(dateFormat.isoDate(e.date));
