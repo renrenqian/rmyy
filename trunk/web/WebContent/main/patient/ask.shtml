@@ -76,7 +76,7 @@
 <script>
 $(document).ready(function(){
 	//zq:填充科室下拉列表
-    $.getJSON('http://124.160.67.194:8520/admin/group/listDeptNames.action', function(json) {
+    $.getJSON('http://localhost:8520/admin/group/listDept.action', function(json) {
         if (json.resultCode > 0) {               
             var deptList = json.deptList;
             var optioin= "<option value='0'>科室选择</option>";
@@ -103,7 +103,7 @@ $(document).ready(function(){
 	    if ($(this).sdSubmitValidate(".queryTable")) {
 	    	if($('#ocRequestOffice').val()!='0'){
 		        var ocId = $("#ocId").val();                     
-		        var  url = "http://124.160.67.194:8520/admin/online/addConsultation.action";     
+		        var  url = "http://localhost:8520/admin/online/addConsultation.action";     
 		        var dateFormat = new DateFormat();
 		        var date = new Date();	      
 		        var isoDateTime=dateFormat.isoDateTime(date);		        

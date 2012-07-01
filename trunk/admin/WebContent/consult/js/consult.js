@@ -114,21 +114,6 @@ $(document).ready(function() {
             } else {
                 action = "编辑";
                 url = "../online/updateConsultation.action";
-//                var params = new StringBuffer();
-//                params.append("cons.consName=" + $("#consName").val()).append("&");
-//                params.append("cons.ocId=" + $("#ocId").val()).append("&");
-//                params = params.toString();
-//                $.post(url, params, function(json) {
-//                    if (json.resultCode > 0) {
-//                        initConsultList();
-//                        $('#J_ConsultDiv').window("close");
-//                    } else {
-//                        $.fn.sdInfo({
-//                            type:"fail",
-//                            content:json.message ? json.message : action + '咨询信息失败!'
-//                        });
-//                    }
-//                });
             }
 
             var params = new StringBuffer();
@@ -157,8 +142,6 @@ $(document).ready(function() {
                     });
                 }
             });
-
-            // var params = $("#consultForm").serialize();
         }
     });
 
@@ -188,34 +171,120 @@ $(document).ready(function() {
             }
         });
     });
+    
+    //批量删除
+  //$('#J_ConsultDelAll').click(function() {
+//  if ($(this).hasClass("abled")) {
+//      //获取参数
+//      var checkbox = $('#J_ConsultTable input:checkbox:not(.checkBoss):checked');
+//      var ides = "";
+//      checkbox.each(function() {
+//          ides = ides + "ides=" + $(this).val() + "&";
+//      });
+//      $.messager.confirm('批量删除', '是否确认删除所选咨询信息?', function(r) {
+//          if (r) {
+//              $.post("../online/batchDeleteConsultation.action", ides, function(data) {
+//                  if (data.resultCode && data.resultCode > 0) {
+//                      initConsultList();
+//                  } else {
+//                      $.fn.sdInfo({
+//                          type:"fail",
+//                          content:data.message ? data.message : "批量删除咨询信息失败"
+//                      });
+//                  }
+//              });
+//              $.fn.checkTest("J_ConsultTable");
+//              $('.checkBoss').attr("checked", false);
+//          }
+//      });
+//  }
+//});
+    
+    //高级搜索弹出
+    $('#J_Search').click(function(){
+    	  createCalendar();
+    	  $.getJSON('../group/listDeptNames.action', function(json) {
+              if (json.resultCode > 0) {
+                  var deptList = json.deptList;
+                  var optioin="";
+                  $(deptList).each(function(i, item) { 
+                     optioin+="<option value=\"" + item.dpId +"\">"+item.dpName+"</option>";
+                  });  
+                  $('#J_SearchDept1,#J_SearchDept2').html(optioin);              
+              }
+          });
+    	 $('#J_SearchDiv').css("display", "").window({
+             title: '查询咨询信息',
+             modal: true,
+             minimizable:false,
+             maximizable:false,
+             collapsible:false,
+             shadow:false,
+             width:GLOBAL.ClientScreen.clientWidth() * 0.9,
+             height:GLOBAL.ClientScreen.clientHeight() * 0.9
+         });
+    });
+    
+    /* 高级搜索确认按钮 */
+    $('#J_ConsultSearchOk').die().live("click", function() {      
+            var ocId = $("#ocId").val();
+            var url='';
+            var action='';           
+//            var params = new StringBuffer();
+//            params.append("cons.ocId=" + ocId).append("&");
+//            params.append("cons.ocPost_subject=" + $("#ocPost_subject").val()).append("&");          
+//            params.append("cons.ocPost_age=" + $("#ocPost_age").val()).append("&");
+//            params.append("cons.ocSex=" + $("#ocSex").val()).append("&");
+//            params.append("cons.ocDesc=" + $("#ocDesc").val()).append("&");
+//            params.append("cons.osAnswer=" + $("#osAnswer").val()).append("&");
+//            params.append("cons.osTypical=" + $("#osTypical").val()).append("&");        
+//            params = params.toString();
+//            $.post(url, params, function(json) {
+//                if (json.resultCode > 0) {
+//                    initConsultList();
+//                    $('#J_ConsultDiv').window("close");
+//                } else {
+//                    $.fn.sdInfo({
+//                        type:"fail",
+//                        content:json.message ? json.message : action + '咨询信息失败!'
+//                    });
+//                }
+//            });       
+    });
+    
+    /* 高级搜索取消按钮 */
+    $('#J_ConsultSearchClose').die().live("click", function() {
+        $('#J_SearchDiv').window("close");
+    });
+
 });
 
-$('#J_ConsultDelAll').click(function() {
-    if ($(this).hasClass("abled")) {
-        //获取参数
-        var checkbox = $('#J_ConsultTable input:checkbox:not(.checkBoss):checked');
-        var ides = "";
-        checkbox.each(function() {
-            ides = ides + "ides=" + $(this).val() + "&";
-        });
-        $.messager.confirm('批量删除', '是否确认删除所选咨询信息?', function(r) {
-            if (r) {
-                $.post("../online/batchDeleteConsultation.action", ides, function(data) {
-                    if (data.resultCode && data.resultCode > 0) {
-                        initConsultList();
-                    } else {
-                        $.fn.sdInfo({
-                            type:"fail",
-                            content:data.message ? data.message : "批量删除咨询信息失败"
-                        });
-                    }
-                });
-                $.fn.checkTest("J_ConsultTable");
-                $('.checkBoss').attr("checked", false);
-            }
-        });
-    }
-});
+function createCalendar(){
+	//日期控件
+	(function(S) {
+	    KISSY.use('calendar', function(S) {
+	        //提问日期
+	        var cTime1 = new S.Calendar('#J_SearchTime1', {
+	            popup:true        
+	        }).on('select', function(e) {
+	            var dateFormat = new DateFormat();
+	            $('#J_SearchTime1').val(dateFormat.isoDate(e.date));
+	            dateFormat = null;
+	            cTime1.hide();
+	        });     
+	        //回复日期
+	        var cTime2 = new S.Calendar('#J_SearchTime2', {
+	            popup:true        
+	        }).on('select', function(e) {
+	            var dateFormat = new DateFormat();
+	            $('#J_SearchTime2').val(dateFormat.isoDate(e.date));
+	            dateFormat = null;
+	            cTime2.hide();
+	        });     
+	    });
+	})(KISSY);
+}
+
 
 /**
  * 初始列表数据
