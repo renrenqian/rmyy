@@ -243,6 +243,11 @@ $(document).ready(function() {
     /* 新增/编辑 专家、名医门诊信息 */
     $(".J_ZJClick,.J_MYClick").die().live("click", function() {
         $.fn.sdResetForm("#treatForm");
+        //zq:reset    
+        $('.J_OSTime').each(function(){
+        	$(this).attr('checked',false);
+        });     
+                
         var doctId = $(this).parent().parent().children().eq(0).children().eq(0).val();
         $("#doctId").val(doctId);            
         
@@ -262,12 +267,21 @@ $(document).ready(function() {
         }
         $('#J_TreatType').val(type);
         
-        if( undefined != $("#osId").val || $("#osId").val!='0'){
+        if( undefined != $("#osId").val() && $("#osId").val()!='0'){
         	//修改
         	 $.getJSON('../member/searchOPSer.action?t=' + new Date().getTime() + '&ops.osId='+ $("#osId").val(),function(json) {
         		 var ops = json.ops;
                  if (json.resultCode > 0) {
-                 	//$('#osLocation').html(opsList.osLocation);
+                 	$('#osLocation').val(ops.osLocation);
+                 	$('#osLimit').val(ops.osLimit);
+                 	$('#osStatus').val(ops.osStatus)
+                 	$('#osCost').val(ops.osCost);
+                 	$('#osBook_link').val(ops.osBook_link);                 	
+                 	//checkbox:
+                 	var osTimeArr=ops.osTime.split(',');
+                    for(var i=0;i<osTimeArr.length;i++){
+                        $(".J_OSTime[value='"+osTimeArr[i]+"']").attr("checked", true);
+                    }                 	         
                  }                   
              });
         }
@@ -291,7 +305,7 @@ $(document).ready(function() {
         if ($(this).sdSubmitValidate("#treatForm")) {
             var osId = $("#osId").val();
             var url,action;
-            if (!osId || undefined == osId ||osId == "") {
+            if (!osId || undefined == osId ||osId == "" || osId=='0') {
                 action = "新增";
                 url = "../member/addOPSer.action"; 
             } else {
