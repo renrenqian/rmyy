@@ -5,9 +5,15 @@
  */
 package com.kevin.group.action.member;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -30,6 +36,9 @@ public class LeaderAction extends AbstractBaseAction {
     private LeaderInfo leader;
     private List<LeaderInfo> leaderList;
     private List<Serializable> ides;
+    private File file;
+    private String fileFileName;
+    private String fileContentType;
 
     /**
      * @return the leader
@@ -77,6 +86,51 @@ public class LeaderAction extends AbstractBaseAction {
     }
 
     /**
+     * @return the file
+     */
+    public final File getFile() {
+        return file;
+    }
+
+    /**
+     * @param file
+     *            the file to set
+     */
+    public final void setFile(File file) {
+        this.file = file;
+    }
+
+    /**
+     * @return the fileFileName
+     */
+    public final String getFileFileName() {
+        return fileFileName;
+    }
+
+    /**
+     * @param fileFileName
+     *            the fileFileName to set
+     */
+    public final void setFileFileName(String fileFileName) {
+        this.fileFileName = fileFileName;
+    }
+
+    /**
+     * @return the fileContentType
+     */
+    public final String getFileContentType() {
+        return fileContentType;
+    }
+
+    /**
+     * @param fileContentType
+     *            the fileContentType to set
+     */
+    public final void setFileContentType(String fileContentType) {
+        this.fileContentType = fileContentType;
+    }
+
+    /**
      * @param leaderService
      *            the leaderService to set
      */
@@ -87,9 +141,26 @@ public class LeaderAction extends AbstractBaseAction {
 
     public String addLeader() {// add new leader
         try {
+            if (null != file) {
+                // make the parent folder when each month
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMM", Locale.ENGLISH);
+                String monthlize = dateFormat.format(new Date());
+                File storeFolder = new File("/upload/leaderHeader/" + monthlize);
+                if (!storeFolder.exists())
+                    storeFolder.mkdirs();
+                File storeFile = new File(storeFolder, System.currentTimeMillis() + "_" + fileFileName);
+                String storePath = storeFile.getAbsolutePath();
+                leader.setLiPortrait(storePath.substring(storePath .indexOf("upload") - 1));
+                // FileUtils.copyFile(file, storeFile);
+                // storeFile.createNewFile();
+                FileUtils.moveFile(file, storeFile);
+            }
             Serializable id = leaderService.save(leader);
             setResultCode((Integer) id);
         } catch (CommonServiceException e) {
+            setMessage(e.getMessage());
+            setResultCode(-1);
+        } catch (IOException e) {
             setMessage(e.getMessage());
             setResultCode(-1);
         }
@@ -120,9 +191,26 @@ public class LeaderAction extends AbstractBaseAction {
 
     public String updateLeader() {// update the leader info
         try {
+            if (null != file) {
+                // make the parent folder when each month
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMM", Locale.ENGLISH);
+                String monthlize = dateFormat.format(new Date());
+                File storeFolder = new File("/upload/leaderHeader/" + monthlize);
+                if (!storeFolder.exists())
+                    storeFolder.mkdirs();
+                File storeFile = new File(storeFolder, System.currentTimeMillis() + "_" + fileFileName);
+                String storePath = storeFile.getAbsolutePath();
+                leader.setLiPortrait(storePath.substring(storePath .indexOf("upload") - 1));
+                // FileUtils.copyFile(file, storeFile);
+                // storeFile.createNewFile();
+                FileUtils.moveFile(file, storeFile);
+            }
             int result = leaderService.update(leader);
             setResultCode(result);
         } catch (CommonServiceException e) {
+            setMessage(e.getMessage());
+            setResultCode(-1);
+        } catch (IOException e) {
             setMessage(e.getMessage());
             setResultCode(-1);
         }

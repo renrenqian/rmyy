@@ -5,13 +5,6 @@
 <struts>
     <package name="member" namespace="/member" extends="defaultj"> 
         <!-- Leader start -->
-        <!-- new Leader -->
-        <action name="addLeader" method="addLeader" class="leaderAction">
-            <result name="success" type="json">
-                <param name="ignoreHierarchy">false</param>
-                <param name="excludeNullProperties">true</param>
-            </result>
-        </action>
         <!-- list Leader -->
        <action name="listLeader" method="listLeader" class="leaderAction">
             <result name="success" type="json">
@@ -26,13 +19,6 @@
                <param name="excludeNullProperties">true</param>
             </result>
        </action>
-        <!-- update the Leader info -->
-        <action name="updateLeader" method="updateLeader" class="leaderAction">
-            <result name="success" type="json">
-                <param name="ignoreHierarchy">false</param>
-                <param name="excludeNullProperties">true</param>
-            </result>
-        </action>
         <!-- delete the Leader -->
         <action name="deleteLeader" method="deleteLeader" class="leaderAction">
             <result name="success" type="json">
@@ -138,5 +124,36 @@
             </result>
         </action>
         <!-- Doctor end -->
+    </package>
+    
+    <!-- This package including the file upload -->
+    <package name="fileMember"  extends="defaultj">
+        <!-- new content -->
+        <action name="addLeader" method="addLeader" class="leaderAction">
+            <interceptor-ref name="defaultStack">
+                <!-- 10M
+                    <param name="fileUpload.allowedTypes">
+                    image/gif,image/jpeg,image/pjpeg,image/jpg,image/bmp,image/pict,image/x-photoshop,image/x-quicktime,image/tiff
+                    text/plain,
+                    application/pdf,
+                    audio/x-midi,video/quicktime,audio/x-mpeg,video/mp4,application/x-shockwave-flash,application/vnd.rn-realmedia
+                    </param>
+                    <param name="maximumSize">10485760</param>
+                -->
+            </interceptor-ref>
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+        <!-- update the content info -->
+        <action name="updateLeader" method="updateLeader" class="leaderAction">
+            <interceptor-ref name="defaultStack">
+            </interceptor-ref>
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
     </package>
 </struts>

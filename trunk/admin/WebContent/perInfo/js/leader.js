@@ -64,57 +64,66 @@ $(document).ready(function() {
     $('#J_LeaderOk').die().live("click", function() {
         if ($(this).sdSubmitValidate("#leaderForm")) {
             var leaderId = $("#liId").val();
-            var url,action;
+            var url,actionName;
             if (!leaderId || leaderId == "") {
-                action = "新增";
+                actionName = "新增";
                 url = "../member/addLeader.action";
-
             } else {
-                action = "编辑";
+               actionName = "编辑";
                 url = "../member/updateLeader.action";
-//                var params = new StringBuffer();
-//                params.append("leader.liName=" + $("#leaderName").val()).append("&");
-//                params.append("leader.liId=" + $("#leaderId").val()).append("&");
-//                params = params.toString();
-//                $.post(url, params, function(json) {
-//                    if (json.resultCode > 0) {
-//                        initLeaderList();
-//                        $('#J_LeaderDiv').window("close");
-//                    } else {
-//                        $.fn.sdInfo({
-//                            type:"fail",
-//                            content:json.message ? json.message : action + '领导信息失败!'
-//                        });
-//                    }
-//                });
             }
-            var params = new StringBuffer();
-            params.append("leader.liId=" + leaderId).append("&");
-            params.append("leader.liName=" + $("#liName").val()).append("&");
-            params.append("leader.ligmId=" + $("#ligmId").val()).append("&");
-            params.append("leader.liCate=" + $("#liCate").val()).append("&");
-            params.append("leader.liCurrent=" + $.trim( $("#liCate").find("option:selected").text())).append("&");
-            params.append("leader.liOrder=" + 1).append("&");
-            params.append("leader.liHold_period=" + $("#liHold_period").val()).append("&");
-            params.append("leader.liQuarters=" + $("#liQuarters").val()).append("&");
-            params.append("leader.liTelephone=" + $("#liTelephone").val()).append("&");
-            params.append("leader.liEmail=" + $("#liEmail").val()).append("&");
-            params.append("leader.liTech_position=" + $("#liTech_position").val()).append("&");
-            params.append("leader.liRang=" + $("#liRang").val()).append("&");
-            params.append("leader.liResume=" + $("#liResume").val()).append("&");
-            params.append("leader.liDesc=" + $("#liDesc").val()).append("&");
-            params = params.toString();
-            $.post(url, params, function(json) {
-                if (json.resultCode > 0) {
-                    initLeaderList();
-                    $('#J_LeaderDiv').window("close");
-                } else {
-                    $.fn.sdInfo({
-                        type:"fail",
-                        content:json.message ? json.message : action + '领导信息失败!'
-                    });
-                }
-            });
+
+            $('#leaderForm').form('submit', {
+              url:url,
+              dataType : 'json',
+              onSubmit: function(){
+                 //$("#contDetail").val(editor.getData()); 
+                // alert("contDetail:" + $("#contDetail").val());
+                 $("#liCurrent").val($.trim( $("#liCate").find("option:selected").text()));
+             },
+             error:function (json) {
+                 alert("内容异常:" + json.message) ; 
+             }, 
+             success:function(json){
+                 json = eval('(' + json + ')');
+                 if (json.resultCode > 0 ) {
+                     initLeaderList();
+                     $('#J_LeaderDiv').window("close");
+                    } else  {
+                        $.fn.sdInfo({
+                            type : "fail",
+                            content : json.message ? actionName+"内容错误:"+json.message : actionName+"内容错误:"
+                        });
+                    }
+             }
+         });  
+//            var params = new StringBuffer();
+//            params.append("leader.liId=" + leaderId).append("&");
+//            params.append("leader.liName=" + $("#liName").val()).append("&");
+//            params.append("leader.ligmId=" + $("#ligmId").val()).append("&");
+//            params.append("leader.liCate=" + $("#liCate").val()).append("&");
+//            params.append("leader.liCurrent=" + $.trim( $("#liCate").find("option:selected").text())).append("&");
+//            params.append("leader.liOrder=" + 1).append("&");
+//            params.append("leader.liHold_period=" + $("#liHold_period").val()).append("&");
+//            params.append("leader.liQuarters=" + $("#liQuarters").val()).append("&");
+//            params.append("leader.liTelephone=" + $("#liTelephone").val()).append("&");
+//            params.append("leader.liEmail=" + $("#liEmail").val()).append("&");
+//            params.append("leader.liTech_position=" + $("#liTech_position").val()).append("&");
+//            params.append("leader.liRang=" + $("#liRang").val()).append("&");
+//            params.append("leader.liResume=" + $("#liResume").val()).append("&");
+//            params.append("leader.liDesc=" + $("#liDesc").val()).append("&");
+//            params = params.toString();
+//            $.post(url, params, function(json) {
+//                if (json.resultCode > 0) {
+//                    initLeaderList();
+//                    $('#J_LeaderDiv').window("close");
+//                } else {
+//                    $.fn.sdInfo({
+//                        type:"fail",
+//                        content:json.message ? json.message : action + '领导信息失败!'
+//                    });
+//                }
+//            });
             $('#liId').val(""); //clear the edit id while open edit.
             // var params = $("#leaderForm").serialize();
         }

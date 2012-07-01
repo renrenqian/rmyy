@@ -35,15 +35,18 @@
 
 <!-- leader div for add or edit -->
 <div id="J_LeaderDiv" style="display:none;">
-    <form id="leaderForm">
+    <form id="leaderForm" name="leaderForm" enctype="multipart/form-data" method="post" target="hidden_frame">
         <table class="form w">
             <tr>
                 <td class="rowName w1">领导姓名</td>
-                <td><input id="liName" type="text" class="input_type1" rule="required"/>
-                <input id="liId" type="hidden"/></td>
+                <td>
+                   <input id="liName" type="text" name="leader.liName" class="input_type1" rule="required"/>
+                   <input id="liId" type="hidden"  name="leader.liId" />
+                   <input id="liOrder" type="hidden"  name="leader.liOrder" value="1"/>
+                </td>
                 <td class="rowName w1">所属院区</td>
                 <td>
-                    <select id="ligmId" class="selectType1">
+                    <select id="ligmId" name="leader.ligmId"  class="selectType1">
                         <option value="1000" >杭州市第一人民医院</option>
                         <option value="1001" >杭州市妇幼保健院</option>
                         <option value="1002" >杭州市肿瘤医院（吴山院区）</option>
@@ -56,48 +59,49 @@
             <tr>
                 <td class="rowName">领导类别</td>
                 <td>
-                    <select id="liCate"  class="selectType1">
+                    <select id="liCate" name="leader.liCate" class="selectType1">
                         <option value="1">现任领导</option>
                         <option value="0">历任领导</option>
                     </select>
+                    <input id="liCurrent" type="hidden"  name="leader.liCurrent"/>
                 </td>
                 <td class="rowName">任职时间段</td>
-                <td><input id="liHold_period" type="text"  class='input_type1 ml10'  name="liHold_period"/></td>
+                <td><input id="liHold_period" type="text"  class='input_type1 ml10'  name="leader.liHold_period"/></td>
             </tr>
             <tr>
                 <td class="rowName">岗位</td>
-                <td><input id="liQuarters" type="text" class="input_type1"/></td>
+                <td><input id="liQuarters" name="leader.liQuarters" type="text" class="input_type1"/></td>
                 <td class="rowName">技术职称</td>
-                <td><input id="liTech_position" type="text" class="input_type1"/></td>
+                <td><input id="liTech_position" name="leader.liTech_position"  type="text" class="input_type1"/></td>
             </tr>
             <tr>
                 <td class="rowName">电话</td>
-                <td><input id="liTelephone" type="text" class="input_type1"/></td>
+                <td><input id="liTelephone" name="leader.liTelephone" type="text" class="input_type1"/></td>
                 <td class="rowName">电子邮件</td>
-                <td><input id="liEmail" type="text" class="input_type1"/></td>
+                <td><input id="liEmail" name="leader.liEmail" type="text" class="input_type1"/></td>
             </tr>
             <tr>
                 <td class="rowName">头像上传</td>
                 <td>
-                    <input class="input_type1"/>
+                    <input type="file" name="file" id="indexPic_add"  class="input_type1"/>
                 </td>
             </tr>
             <tr>
                 <td class="rowName">分管范围</td>
                 <td colspan="3">
-                    <textarea id="liRang" class="textArea_type3"></textarea>
+                    <textarea id="liRang" name="leader.liRang" class="textArea_type3"></textarea>
                 </td>
             </tr>
             <tr>
                 <td class="rowName">简历</td>
                 <td colspan="3">
-                    <textarea id="liResume" class="textArea_type3"></textarea>
+                    <textarea id="liResume" name="leader.liResume" class="textArea_type3"></textarea>
                 </td>
             </tr>
             <tr>
                 <td class="rowName">简介</td>
                 <td colspan="3">
-                    <textarea id="liDesc"  class="textArea_type3"></textarea>
+                    <textarea id="liDesc" name="leader.liDesc" class="textArea_type3"></textarea>
                 </td>
             </tr>
             <tr>
@@ -110,7 +114,7 @@
         </table>
     </form>
 </div>
-
+<iframe name='hidden_frame' id="hidden_frame" style='display: none; height: 0; width: 0'></iframe>
 <script src="../js/jquery-1.7.2.js"></script>
 <script src="../js/jquery.easyui.min.js"></script>
 <script src="../js/jquery.dataTables.js"></script>

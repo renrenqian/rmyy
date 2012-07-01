@@ -87,6 +87,10 @@ public class DeptInfoAction extends AbstractBaseAction {
 
     public String addDept() {// add new dept
         try {
+            dept.setDpAcademic_position(dept.getDpAcademic_position().replaceAll("#$", "%"));
+            dept.setDpDesc(dept.getDpDesc().replaceAll("#$", "%"));
+            dept.setDpResearch_direction(dept.getDpResearch_direction().replaceAll("#$", "%"));
+            dept.setDpTech_adv(dept.getDpTech_adv().replaceAll("#$", "%"));
             Serializable id = deptService.save(dept);
             setResultCode((Integer) id);
         } catch (CommonServiceException e) {

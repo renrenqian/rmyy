@@ -34,7 +34,7 @@ $(document).ready(function() {
             }
         });
         if(contentType=='新闻'){
-   		     $(window.parent.document).find("#centerIFrame").attr("src", "content/addContent.html");
+   		     $(window.parent.document).find("#centerIFrame").attr("src", "content/addContent.html?contId=" + id);
 	   	}else{
 	   		 $(window.parent.document).find("#centerIFrame").attr("src", "content/addCommon.html");
 	   	}         
