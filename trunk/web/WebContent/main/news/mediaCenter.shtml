@@ -26,8 +26,8 @@
 						<div class="titleBg2">
 							<p class="bread">
 								<a href="/index.shtml" class="breadB">首页</a><span>></span><a
-									href="#" class="breadN"> 信息中心</a><span>></span><a
-									href="/hospital/news/newsList.shtml" class="breadN">多媒体中心</a>
+									href="#" class="breadN J_Cata1">信息中心</a><span>></span><a
+									href="/hospital/news/newsList.shtml" class="breadN J_Cata2">多媒体中心</a>
 							</p>
 						</div>
 						<h2 class="titleType3">多媒体中心</h2>
@@ -180,10 +180,11 @@
 					</div>
 				</div>
 			</div>
-			<!--#include virtual="../master/newsSubTitle.html"-->
+			<!--#include virtual="../master/commonSubTitle.html"-->
 		</div>
 	</div>
 	<!--#include virtual="../master/footer.html"-->
+	<script src="/web/main/js/master.js"></script>
 	<script src="/web/js/kissy.js"></script>
 	<script type="text/javascript" src="../js/yoxview-init.js"></script>
 	<script>

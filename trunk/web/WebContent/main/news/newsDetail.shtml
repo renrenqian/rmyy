@@ -11,9 +11,10 @@
                 <div class="itemBg">
                     <div class="titleBg2">
                         <p class="bread">
-                            <a href="/index.shtml" class="breadB">首页</a><span>></span><a href="#" class="breadN">
-                            信息中心</a><span>></span><a href="/hospital/news/newsList.shtml" class="breadB">医院新闻</a><span>>
-                </span><a href="#" class="breadN">新闻详情</a>
+                            <a href="/index.shtml" class="breadB">首页</a><span>></span>
+                            <a href="#" class="breadN J_Cata1"></a><span>></span>
+                            <a href="/web/main/news/newsList.shtml" class="breadB J_Cata2"></a><span>></span>
+                            <a href="#" class="breadN">新闻详情</a>
                         </p>
                     </div>
                     <h2 class="newsMainTitle">【媒体报道】位于钱江新城的杭州市妇女医院明年6月开张</h2>
@@ -53,11 +54,12 @@
                 </div>
             </div>
         </div>
-        <!--#include virtual="../master/newsSubTitle.html"-->
+        <!--#include virtual="../master/commonSubTitle.html"-->
     </div>
 </div>
 <!--#include virtual="../master/footer.html"-->
 <script src="/web/main/js/common.js"></script>
+<script src="/web/main/js/master.js"></script>
 </body>
 </html>
 

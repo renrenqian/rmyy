@@ -380,15 +380,22 @@ hr {
 }
 
 .SchTrPaOdd td {
-	background: #ffd; font-size: 12px; padding-left: 3px;
+	background: #ffd; font-size: 12px; padding-left: 3px;text-align:left;
 }
 
 .SchTrPaOdd td a,.SchTrPaEven td a {
 	color: #006030;
+	padding-left:5px;
 }
 
 .SchTrPaEven td {
-	background: #e8f5fe; font-size: 12px; padding-left: 3px;
+	background: #e8f5fe; font-size: 12px; padding-left: 3px;text-align:left;
+}
+.SchTrPaOdd .SechDetail th,.SchTrPaOdd .SechDetail td{
+	background: #fefebc; 
+}
+.SchTrPaEven .SechDetail th,.SchTrPaEven .SechDetail td{
+	background: #cce8fb; 
 }
 
 /*

@@ -12,11 +12,11 @@
         <div class="titleBg2">
                <p class="bread">
 	                        <a class="breadB" href="/web/main/index.shtml">首页</a><span>&gt;</span>
-	                        <a class="breadN" href="#">科室导航</a><span>&gt;</span>
-	                        <a class="breadN" href="#">临床科室</a>
+	                        <a class="breadN J_Cata1" href="#"></a><span>&gt;</span>
+	                        <a class="breadN J_Cata2" href="#"></a>
                </p>
         </div>
-        <h2 class="titleType3">临床科室</h2>
+        <h2 class="titleType3 J_Cata2">临床科室</h2>
         <div style="clear: both;"></div>
         <div class="docBody">
             <ul class="expList">

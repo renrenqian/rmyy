@@ -15,11 +15,11 @@
 						<div class="titleBg2">
 							<p class="bread">
 								<a class="breadB" href="/web/main/index.shtml">首页</a><span>&gt;</span>
-								<a class="breadN" href="#">信息中心</a><span>&gt;</span> 
-								<a class="breadN" href="#">医院公告</a>
+								<a class="breadN J_Cata1" href="#"></a><span>&gt;</span> 
+								<a class="breadN J_Cata2" href="#"></a>
 							</p>
 						</div>
-						<h2 class="titleType3">医院新闻</h2>
+						<h2 class="titleType3 J_Cata2"></h2>
 
 						<div style="clear: both;"></div>
 						<ul class="newsItem2">
@@ -115,52 +115,52 @@
 
 					</div>
 				</div>
-			</div>
-			<!--#include virtual="/web/main/master/newsSubTitle.html"-->
+			</div>			
+			<!--#include virtual='/web/main/master/commonSubTitle.html'-->									
 		</div>
 	</div>
 	<!--#include virtual="/web/main/master/footer.html"-->
 	<script src="/web/main/js/common.js"></script>
-
-	<script type="text/javascript">
-		var orderby = ""; //进行排序的依据 
-		$(document).ready(function() {
-			initData(0); //初始化数据 
-		});
-		//这个事件是在翻页时候用的 
-		function pageselectCallback(page_id, jq) {
-			initData(page_id);
-		}
-		function initData(pageIndex) {
-			var tbody = ""; //声明表格中body部分 
-			$.ajax({ //这里使用到Jquery的ajax方法
-				type : "POST",
-				dataType : "json",
-				url : 'GetData.txt', //请求的处理数据 
-				data : "pageIndex=" + (pageIndex + 1) + "&sortType=" + orderby,
-				//传入的参数，第一个参数就是分页的页数，第二个参数为排序的依据 
-				//下面的操作就是成功返回数据以后，进行数据的绑定 
-				success : function(data) {
-					$("#linkTable tr:gt(0)").remove();
-					var myData = data.Products;
-					$.each(myData, function(i, n) {
-						var trs = "";
-						trs += "<tr><td align='center'>" + n.ProductName
-								+ "</td><td>" + n.QuantityPerUnit
-								+ "</td></tr>";
-						tbody += trs;
-					});
-					$("#linkTable").append(tbody);
-				}
-			});
-			//加入分页的绑定 
-			$("#Pagination").pagination(25, {
-				num_edge_entries : 1,
-				num_display_entries : 5,
-				items_per_page : 2,
-				prev_text : "上一页"
-			});
-		}
+	<script src="/web/main/js/master.js"></script>
+	<script type="text/javascript">		
+// 		var orderby = ""; //进行排序的依据 
+// 		$(document).ready(function() {
+// 			initData(0); //初始化数据 
+// 		});
+// 		//这个事件是在翻页时候用的 
+// 		function pageselectCallback(page_id, jq) {
+// 			initData(page_id);
+// 		}
+// 		function initData(pageIndex) {
+// 			var tbody = ""; //声明表格中body部分 
+// 			$.ajax({ //这里使用到Jquery的ajax方法
+// 				type : "POST",
+// 				dataType : "json",
+// 				url : 'GetData.txt', //请求的处理数据 
+// 				data : "pageIndex=" + (pageIndex + 1) + "&sortType=" + orderby,
+// 				//传入的参数，第一个参数就是分页的页数，第二个参数为排序的依据 
+// 				//下面的操作就是成功返回数据以后，进行数据的绑定 
+// 				success : function(data) {
+// 					$("#linkTable tr:gt(0)").remove();
+// 					var myData = data.Products;
+// 					$.each(myData, function(i, n) {
+// 						var trs = "";
+// 						trs += "<tr><td align='center'>" + n.ProductName
+// 								+ "</td><td>" + n.QuantityPerUnit
+// 								+ "</td></tr>";
+// 						tbody += trs;
+// 					});
+// 					$("#linkTable").append(tbody);
+// 				}
+// 			});
+// 			//加入分页的绑定 
+// 			$("#Pagination").pagination(25, {
+// 				num_edge_entries : 1,
+// 				num_display_entries : 5,
+// 				items_per_page : 2,
+// 				prev_text : "上一页"
+// 			});
+// 		}
 	</script>
 
 </body>
