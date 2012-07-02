@@ -16,7 +16,7 @@ public class ContentInfo implements Serializable {
     /**
      * 
      */
-    private static final long serialVersionUID = -2135758770502269836L;
+    private static final long serialVersionUID = 593206827926878359L;
     private Integer contId;
     private String contTitle;
     private String contHome_Page;
@@ -26,6 +26,8 @@ public class ContentInfo implements Serializable {
     private Integer contMedium;
     private String contKey;
     private String contPublish_Time;
+    private String contSearchStartTime;
+    private String contSearchEndTime;
     private Integer contAudit_Result;
     private String contAudit_DESC;
     private Integer contOrder;
@@ -318,6 +320,34 @@ public class ContentInfo implements Serializable {
      */
     public final void setDisplayImage(String displayImage) {
         this.displayImage = displayImage;
+    }
+
+    /**
+     * @return the contSearchStartTime
+     */
+    public final String getContSearchStartTime() {
+        return contSearchStartTime;
+    }
+
+    /**
+     * @param contSearchStartTime the contSearchStartTime to set
+     */
+    public final void setContSearchStartTime(String contSearchStartTime) {
+        this.contSearchStartTime = contSearchStartTime;
+    }
+
+    /**
+     * @return the contSearchEndTime
+     */
+    public final String getContSearchEndTime() {
+        return contSearchEndTime;
+    }
+
+    /**
+     * @param contSearchEndTime the contSearchEndTime to set
+     */
+    public final void setContSearchEndTime(String contSearchEndTime) {
+        this.contSearchEndTime = contSearchEndTime;
     }
 
 }

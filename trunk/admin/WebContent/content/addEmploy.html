@@ -36,7 +36,7 @@
 				<tr>
 					<td class="rowName">招聘需求</td>
 					<td colspan="3" style='padding-left: 10px;'><textarea
-							id="contDetail" name="emp.erRequirement"></textarea></td>
+							id="erRequirement" name="emp.erRequirement"></textarea></td>
 				</tr>
 				<tr>
 					<td></td>
@@ -61,13 +61,13 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			/* 内容编辑器 */
-			//$('#contDetail').ckeditor();
-			$('div[name=contDetail]').ckeditor();
-			if (CKEDITOR.instances['contDetail']) {
-				CKEDITOR.remove(CKEDITOR.instance['contDetail']);
+			//$('#erRequirement').ckeditor();
+			$('div[name=erRequirement]').ckeditor();
+			if (CKEDITOR.instances['erRequirement']) {
+				CKEDITOR.remove(CKEDITOR.instance['erRequirement']);
 			}
 
-			var editor = CKEDITOR.replace('contDetail');
+			var editor = CKEDITOR.replace('erRequirement');
 			CKFinder.setupCKEditor(editor, 'ckfinder');
 
 			$('#J_Upload').click(function() {

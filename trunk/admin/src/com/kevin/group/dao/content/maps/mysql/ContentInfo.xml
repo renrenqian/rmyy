@@ -62,6 +62,98 @@
      ]]>
     </select>
     
+    <!-- 查询总记录数 -->
+    <select id="getTotalCount" parameterClass="ContentInfo" resultClass="java.lang.Long">
+       <![CDATA[
+         select COUNT(CD_ID) 
+         from CONTENT_DETAIL
+      ]]>
+        <dynamic prepend=" where ">
+        <isNotEmpty property="condition.contTitle">
+          <![CDATA[
+                 cd.CD_TITAL Like CONCAT('%',#condition.contTitle#,'%')
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.colId">
+          <![CDATA[
+                 cd.CI_ID = #condition.colId#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.gmId">
+          <![CDATA[
+                 cd.GM_ID > #condition.gmId#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.contSearchStartTime">
+          <![CDATA[
+                 cd.CD_PUBLISH_TIME >= #condition.contSearchStartTime#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.contSearchEndTime">
+          <![CDATA[
+                 cd.CD_PUBLISH_TIME <= #condition.contSearchEndTime#
+                 ]]>
+          </isNotEmpty>
+        </dynamic>
+    <![CDATA[ ]]>
+    </select>
+    
+    <!-- paginate the Consultation info -->
+    <select id="listAllByPageBean"  parameterClass="pageBean"  resultClass="ContentInfo">
+     <![CDATA[
+       select 
+          CD_ID as contId,
+          CD_TITAL as contTitle,
+          CI_HOME_PAGE as contHome_Page,
+          ci.CI_TITAL as colName,
+          CD_SHOW_DAYS as contShow_Days,
+          CD_MEDIUM as contMedium,
+          CD_KEY as contKey,
+          CD_PUBLISH_TIME as contPublish_Time,
+          CD_AUDIT_RESULT as contAudit_Result,
+          CD_ORDER as contOrder,
+          gm.GM_NAME as gmName,
+          CD_AUTHOR as contAuthor,
+          ui.ui_name as contAuthorName,
+          CD_DETAIL as contDetail,
+          CD_ATTACHMENT as contAttachment,
+          CD_DISPLAY_IMAGE as displayImage
+       from CONTENT_DETAIL  cd 
+       left join COLUMN_INFO ci on ci.CI_ID = cd.CI_ID
+       left join GROUP_MEMBER gm on gm.GM_ID = cd.GM_ID
+       left join USER_INFO ui on ui.UI_ID = cd.CD_AUTHOR
+     ]]>
+        <dynamic prepend=" where ">
+        <isNotEmpty property="condition.contTitle">
+          <![CDATA[
+                 cd.CD_TITAL Like CONCAT('%',#condition.contTitle#,'%')
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.colId">
+          <![CDATA[
+                 cd.CI_ID = #condition.colId#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.gmId">
+          <![CDATA[
+                 cd.GM_ID > #condition.gmId#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.contSearchStartTime">
+          <![CDATA[
+                 cd.CD_PUBLISH_TIME >= #condition.contSearchStartTime#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.contSearchEndTime">
+          <![CDATA[
+                 cd.CD_PUBLISH_TIME <= #condition.contSearchEndTime#
+                 ]]>
+          </isNotEmpty>
+        </dynamic>
+     <![CDATA[ORDER BY OC_POST_TIME, OS_ANSWER_TIME]]>
+     <![CDATA[LIMIT #start#,#pageSize#]]>
+    </select>
+    
     <!-- list all the ContentInfo info -->
     <select id="listAll"  parameterClass="ContentInfo"  resultClass="ContentInfo">
      <![CDATA[

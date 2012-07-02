@@ -11,22 +11,22 @@ package com.kevin.group.pojo.online;
  */
 public class Employee {
 
-    private String erId;
+    private Integer erId;
     private String erPosition;
     private String erLocation;
     private String erPublish_date;
     private String erSearchStart;// user for search condition
     private String erSearchEnd;// user for search condition
     private String erExpiry_date;
-    private String erRecruit_no;
-    private String erRecruit_available;
+    private Integer erRecruit_no;
+    private Integer erRecruit_available;
     private String erAttachement;
     private String erRequirement;
 
     /**
      * @return the erId
      */
-    public final String getErId() {
+    public final Integer getErId() {
         return erId;
     }
 
@@ -34,7 +34,7 @@ public class Employee {
      * @param erId
      *            the erId to set
      */
-    public final void setErId(String erId) {
+    public final void setErId(Integer erId) {
         this.erId = erId;
     }
 
@@ -131,7 +131,7 @@ public class Employee {
     /**
      * @return the erRecruit_no
      */
-    public final String getErRecruit_no() {
+    public final Integer getErRecruit_no() {
         return erRecruit_no;
     }
 
@@ -139,14 +139,14 @@ public class Employee {
      * @param erRecruit_no
      *            the erRecruit_no to set
      */
-    public final void setErRecruit_no(String erRecruit_no) {
+    public final void setErRecruit_no(Integer erRecruit_no) {
         this.erRecruit_no = erRecruit_no;
     }
 
     /**
      * @return the erRecruit_available
      */
-    public final String getErRecruit_available() {
+    public final Integer getErRecruit_available() {
         return erRecruit_available;
     }
 
@@ -154,7 +154,7 @@ public class Employee {
      * @param erRecruit_available
      *            the erRecruit_available to set
      */
-    public final void setErRecruit_available(String erRecruit_available) {
+    public final void setErRecruit_available(Integer erRecruit_available) {
         this.erRecruit_available = erRecruit_available;
     }
 

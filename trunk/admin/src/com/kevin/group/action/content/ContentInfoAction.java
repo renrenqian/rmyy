@@ -20,6 +20,7 @@ import org.springframework.stereotype.Component;
 
 import com.kevin.common.action.AbstractBaseAction;
 import com.kevin.common.exception.CommonServiceException;
+import com.kevin.common.pojo.PageBean;
 import com.kevin.group.pojo.content.ContentInfo;
 import com.kevin.group.service.content.IContentInfoService;
 import com.opensymphony.xwork2.Action;
@@ -36,6 +37,7 @@ public class ContentInfoAction extends AbstractBaseAction {
     private ContentInfo continfo;
     private List<ContentInfo> contList;
     private List<Serializable> ides;
+    private PageBean<ContentInfo> page;
     private String savePath;
     private File file[];
     private String fileFileName[];
@@ -151,7 +153,22 @@ public class ContentInfoAction extends AbstractBaseAction {
     public final void setIdes(List<Serializable> ides) {
         this.ides = ides;
     }
- 
+  
+
+    /**
+     * @return the page
+     */
+    public final PageBean<ContentInfo> getPage() {
+        return page;
+    }
+
+    /**
+     * @param page the page to set
+     */
+    public final void setPage(PageBean<ContentInfo> page) {
+        this.page = page;
+    }
+
     public String addContent() {// add new contInfo
         try {
             if (null != file) {
@@ -201,7 +218,11 @@ public class ContentInfoAction extends AbstractBaseAction {
 
     public String listContent() {// list all the contInfo
         try {
-            contList = contInfoService.listAll();
+            if (page != null) {
+                page.setCondition(continfo);
+            }
+            page = contInfoService.list(page);
+            //contList = contInfoService.listAll();
             setResultCode(1);
         } catch (CommonServiceException e) {
             setMessage(e.getMessage());

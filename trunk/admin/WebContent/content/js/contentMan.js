@@ -143,19 +143,38 @@ function initContentList() {
     	
         contentDataTable = $("#J_ContentTable").dataTable({
             bProcessing: false,
-            bServerSide:false,
+            bServerSide:true,//设置服务端分页
             bDestory:false,
-            bRetrieve:true,
+            //bRetrieve:true,
             sAjaxSource:url,
-            sAjaxDataProp: "contList",
+            sAjaxDataProp: "page.dataList",
             oSearch: {"sSearch": ""},
             bAutoWidth:false,
             fnServerData:function(sSource, aoData, fnCallback) {
+                var params = [];
+                var iDisplayStart,iDisplayLength,sEcho,sSearch;
+                for (var i = 0; i < aoData.length; i++) {
+                    if (aoData[i].name == "iDisplayStart") {
+                        iDisplayStart = aoData[i].value;
+                    }
+                    if (aoData[i].name == "iDisplayLength") {
+                        iDisplayLength = aoData[i].value;
+                    }
+                    if (aoData[i].name == "sEcho") {
+                        sEcho = aoData[i].value;
+                    }
+                    if (aoData[i].name == "sSearch") {
+                        sSearch = aoData[i].value;
+                    }
+                }
+                params.push({ "name": "page.pageSize", "value": iDisplayLength });
+                var currentPageNo = Math.floor(iDisplayStart / iDisplayLength) + 1;
+                params.push({ "name": "page.currentPageNo", "value": currentPageNo });
                 $.ajax({
                     dataType: 'json',
                     type: "GET",
                     url: sSource,
-                    data: aoData,
+                    data: params,
                     success: function(json) {
                         if (json.resultCode > 0) {
                         } else {
@@ -165,9 +184,16 @@ function initContentList() {
                             });
                         }
                         //处理返回结果
-                        if (!json.contList) {
-                            json.contList = [];
+                        if (!json.page) {
+                            json.page = {};
                         }
+                        if (!json.page.dataList) {//处理返回结果
+                            json.page.dataList = [];
+                        }
+                        json.sEcho = sEcho;
+                        json.iTotalRecords = json.page.totalItemCount;
+                        json.iTotalDisplayRecords = json.page.totalItemCount;
+
                         fnCallback(json);
                         setTableTrColor();
                         $('#J_ContentTable input[type=checkbox]').sdCheckBox();

@@ -9,14 +9,14 @@
      <![CDATA[
        select 
            ER_ID as erId,
-		   ER_POSITION as erPosition,
-		   ER_LOCATION as erLocation,
-		   DATE_FORMAT(ER_PUBLISH_DATE,'%Y/%m/%d %H:%m:%s') as erPublish_date,
-		   DATE_FORMAT(ER_EXPIRY_DATE,'%Y/%m/%d %H:%m:%s') as erExpiry_date,
-		   ER_RECRUIT_NO as erRecruit_no,
-		   ER_RECRUIT_AVAILABLE as erRecruit_available,
-		   ER_ATTACHEMENT as erAttachement,
-		   ER_REQUIREMENT as erRequirement
+           ER_POSITION as erPosition,
+           ER_LOCATION as erLocation,
+           DATE_FORMAT(ER_PUBLISH_DATE,'%Y/%m/%d %H:%m:%s') as erPublish_date,
+           DATE_FORMAT(ER_EXPIRY_DATE,'%Y/%m/%d %H:%m:%s') as erExpiry_date,
+           ER_RECRUIT_NO as erRecruit_no,
+           ER_RECRUIT_AVAILABLE as erRecruit_available,
+           ER_ATTACHEMENT as erAttachement,
+           ER_REQUIREMENT as erRequirement
        from EMPLOYEE_RECRUITMENT er
      ]]>
     </select>
@@ -48,17 +48,17 @@
         <dynamic prepend=" where ">
         <isNotEmpty property="condition.erPosition">
           <![CDATA[
-                 er.ER_POSITION Like CONCAT('%',#condition.erPosition#,'%')
+                 er.ER_POSITION Like CONCAT('%',#erPosition#,'%')
                  ]]>
           </isNotEmpty>
         <isNotEmpty property="condition.erSearchStart">
           <![CDATA[
-                 er.ER_PUBLISH_DATE > #condition.erSearchStart#
+                 er.ER_PUBLISH_DATE >= #erSearchStart#
                  ]]>
           </isNotEmpty>
         <isNotEmpty property="condition.erSearchEnd">
           <![CDATA[
-                 er.ER_PUBLISH_DATE < #condition.erSearchEnd#
+                 er.ER_PUBLISH_DATE <= #erSearchEnd#
                  ]]>
           </isNotEmpty>
         </dynamic>
@@ -88,12 +88,12 @@
           </isNotEmpty>
         <isNotEmpty property="condition.erSearchStart">
           <![CDATA[
-                 er.ER_PUBLISH_DATE > #condition.erSearchStart#
+                 er.ER_PUBLISH_DATE >= #condition.erSearchStart#
                  ]]>
           </isNotEmpty>
         <isNotEmpty property="condition.erSearchEnd">
           <![CDATA[
-                 er.ER_PUBLISH_DATE < #condition.erSearchEnd#
+                 er.ER_PUBLISH_DATE <= #condition.erSearchEnd#
                  ]]>
           </isNotEmpty>
         </dynamic>
@@ -104,8 +104,8 @@
     <!-- add Employee -->
     <insert id="insert" parameterClass="Employee">
        <![CDATA[
-          INSERT INTO EMPLOYEE_RECRUITMENT(ER_ID, ER_POSITION, ER_LOCATION, ER_PUBLISH_DATE, ER_EXPIRY_DATE, ER_RECRUIT_NO, ER_RECRUIT_AVAILABLE, ER_ATTACHEMENT) 
-                         VALUES(#erId#, #erPosition#, #erLocation#, #erPublish_date#, #erExpiry_date#, #erRecruit_no#, #erRecruit_available#, #erAttachement#)
+          INSERT INTO EMPLOYEE_RECRUITMENT(ER_POSITION, ER_LOCATION, ER_PUBLISH_DATE, ER_EXPIRY_DATE, ER_RECRUIT_NO, ER_RECRUIT_AVAILABLE, ER_ATTACHEMENT, ER_REQUIREMENT) 
+                         VALUES(#erPosition#, #erLocation#, #erPublish_date#, #erExpiry_date#, #erRecruit_no#, #erRecruit_available#, #erAttachement#, #erRequirement#)
        ]]>
        <selectKey resultClass="int" keyProperty="erId">
          <![CDATA[SELECT LAST_INSERT_ID();]]>
@@ -135,7 +135,7 @@
           </isNotEmpty>
        </dynamic>
         <![CDATA[ 
-           ER_REQUIREMENT = #erRequirement
+           ER_REQUIREMENT = #erRequirement#
          WHERE ER_ID = #erId#
       ]]>
     </update>
@@ -152,7 +152,7 @@
            ER_RECRUIT_NO = #erRecruit_no#,
            ER_RECRUIT_AVAILABLE = #erRecruit_available#,
            ER_ATTACHEMENT = #erAttachement#,
-           ER_REQUIREMENT = #erRequirement
+           ER_REQUIREMENT = #erRequirement#
          WHERE ER_ID = #erId#
       ]]>
     </update>

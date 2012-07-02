@@ -51,7 +51,9 @@
     <!-- online  manage start -->
     <!-- entity -->
     <typeAlias alias="Consultation" type="com.kevin.group.pojo.online.Consultation" /> 
+    <typeAlias alias="Employee" type="com.kevin.group.pojo.online.Employee" /> 
     <!-- sql map -->
     <sqlMap resource="com/kevin/group/dao/online/maps/mysql/Consultation.xml" />
+    <sqlMap resource="com/kevin/group/dao/online/maps/mysql/Employee.xml" />
     <!-- online manage end -->
 </sqlMapConfig>
