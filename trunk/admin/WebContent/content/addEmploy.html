@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../style/easyui.css" rel="stylesheet" />
+<link href="../style/common.css" rel="stylesheet" />
+<link href="../plugins/calendar/calendar/calendar.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="mainSection">
+		<form id="contentForm" name="contentForm" action=""
+			enctype="multipart/form-data" method="post" target="hidden_frame">
+			<table class="form w mt10 mb10">
+				<tr>
+					<td class="rowName w1">招聘信息标题</td>
+					<td><input id="contTitle" name="continfo.contTitle"
+						type="text" class="input_type1" rule="required" /> <input
+						id="contId" name="continfo.contId" type="hidden" /> <input
+						id="contOrder" name="continfo.contOrder" type="hidden" value="1" />
+					</td>
+				</tr>
+				<tr>
+					<td class="rowName">招聘人数</td>
+					<td><input type='text' class='input_type1' /></td>
+					<td class="rowName">工作地点</td>
+					<td><input type='text' class='input_type1' /></td>
+				</tr>
+				<tr>
+					<td class="rowName">发布日期</td>
+					<td><input id="contPubTime" type="text"
+						name="continfo.contPubTime" class="input_type_date" /></td>
+					<td class="rowName">截止日期</td>
+					<td><input id="contEndTime" type="text"
+						name="continfo.contEndTime" class="input_type_date" /></td>
+				</tr>
+				<tr>
+					<td class="rowName">附件上传</td>
+					<td id="file_td"><input type="file" name="file" id="file_add" style='margin:6px; margin-left:10px;'/></td>
+				</tr>
+				<tr>
+					<td class="rowName">招聘需求</td>
+					<td colspan="3" style='padding-left: 10px;'><textarea
+							id="contDetail" name="contInfo.contDetail"></textarea></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td class="p10"><a class="button btn-blue" id="J_ContentOk"><span
+							class="icon ico-bulb"></span>确认</a> <a class="button btn-grey"
+						id="J_ContentClose">取消</a>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<iframe name='hidden_frame' id="hidden_frame"
+		style='display: none; height: 0; width: 0'></iframe>
+	<script src="../js/jquery-1.7.2.js"></script>
+	<script src="../js/jquery.easyui.min.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../plugins/form/jquery.sdForm.js"></script>
+	<script src="../plugins/ckeditor/ckeditor.js"></script>
+	<script src="../plugins/ckeditor/adapters/jquery.js"></script>
+	<script src="../plugins/ckfinder/ckfinder.js"></script>
+	<script src="../plugins/calendar/seed-min.js"></script>
+	<script src="js/addEmploy.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/* 内容编辑器 */
+			//$('#contDetail').ckeditor();
+			$('div[name=contDetail]').ckeditor();
+			if (CKEDITOR.instances['contDetail']) {
+				CKEDITOR.remove(CKEDITOR.instance['contDetail']);
+			}
+
+			var editor = CKEDITOR.replace('contDetail');
+			CKFinder.setupCKEditor(editor, 'ckfinder');
+
+			$('#J_Upload').click(function() {
+				// You can use the "CKFinder" class to render CKFinder in a page:
+				var finder = new CKFinder();
+				finder.basePath = '../'; // The path for the installation of CKFinder (default = "/ckfinder/").
+				finder.selectActionFunction = SetFileField;
+				finder.popup();
+
+				// It can also be done in a single line, calling the "static"
+				// popup( basePath, width, height, selectFunction ) function:
+				// CKFinder.popup( '../', null, null, SetFileField ) ;
+				//
+				// The "popup" function can also accept an object as the only argument.
+				// CKFinder.popup( { basePath : '../', selectActionFunction : SetFileField } ) ;
+			});
+		});
+
+		function SetFileField(fileUrl) {
+			document.getElementById('xFilePath').value = fileUrl;
+		}
+	</script>
+</body>
+</html>
