@@ -5,9 +5,15 @@
  */
 package com.kevin.group.action.online;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -32,6 +38,9 @@ public class EmployeeAction extends AbstractBaseAction {
     private List<Employee> empList;
     private PageBean<Employee> page;
     private List<Serializable> ides;
+    private File file;
+    private String fileFileName;
+    private String fileContentType;
 
     /**
      * @return the emp
@@ -102,11 +111,72 @@ public class EmployeeAction extends AbstractBaseAction {
         this.empService = empService;
     }
 
+    /**
+     * @return the file
+     */
+    public final File getFile() {
+        return file;
+    }
+
+    /**
+     * @param file
+     *            the file to set
+     */
+    public final void setFile(File file) {
+        this.file = file;
+    }
+
+    /**
+     * @return the fileFileName
+     */
+    public final String getFileFileName() {
+        return fileFileName;
+    }
+
+    /**
+     * @param fileFileName
+     *            the fileFileName to set
+     */
+    public final void setFileFileName(String fileFileName) {
+        this.fileFileName = fileFileName;
+    }
+
+    /**
+     * @return the fileContentType
+     */
+    public final String getFileContentType() {
+        return fileContentType;
+    }
+
+    /**
+     * @param fileContentType
+     *            the fileContentType to set
+     */
+    public final void setFileContentType(String fileContentType) {
+        this.fileContentType = fileContentType;
+    }
+
     public String addEmployee() {// add new cons
         try {
+            if (null != file) {
+                // make the parent folder when each month
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMM", Locale.ENGLISH);
+                String monthlize = dateFormat.format(new Date());
+                File storeFolder = new File("/upload/employee/" + monthlize);
+                if(!storeFolder.exists()) storeFolder.mkdirs();
+                File storeFile = new File(storeFolder, System.currentTimeMillis() + "_" + fileFileName);
+                String storePath = storeFile.getAbsolutePath();
+                emp.setErAttachement(storePath.substring(storePath.indexOf("upload") - 1));
+                //storeFile.createNewFile();
+                //FileUtils.copyFile(file[i], storeFile);
+                FileUtils.moveFile(file, storeFile);
+            }
             Serializable id = empService.save(emp);
             setResultCode((Integer) id);
         } catch (CommonServiceException e) {
+            setMessage(e.getMessage());
+            setResultCode(-1);
+        } catch (IOException e) {
             setMessage(e.getMessage());
             setResultCode(-1);
         }
@@ -140,9 +210,25 @@ public class EmployeeAction extends AbstractBaseAction {
 
     public String updateEmployee() {// update the emp info
         try {
+            if (null != file) {
+                // make the parent folder when each month
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMM", Locale.ENGLISH);
+                String monthlize = dateFormat.format(new Date());
+                File storeFolder = new File("/upload/employee/" + monthlize);
+                if(!storeFolder.exists()) storeFolder.mkdirs();
+                File storeFile = new File(storeFolder, System.currentTimeMillis() + "_" + fileFileName);
+                String storePath = storeFile.getAbsolutePath();
+                emp.setErAttachement(storePath.substring(storePath.indexOf("upload") - 1));
+                //storeFile.createNewFile();
+                //FileUtils.copyFile(file[i], storeFile);
+                FileUtils.moveFile(file, storeFile);
+            }
             int result = empService.update(emp);
             setResultCode(result);
         } catch (CommonServiceException e) {
+            setMessage(e.getMessage());
+            setResultCode(-1);
+        } catch (IOException e) {
             setMessage(e.getMessage());
             setResultCode(-1);
         }

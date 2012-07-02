@@ -1,16 +1,16 @@
 $(document).ready(function() {
-     $('#contentForm').sdValidate();//添加验证规则        
+     $('#contentForm').sdValidate();//添加验证规则 
     /* 编辑、新增 确认按钮 */
-    $('#J_ContentOk').die().live("click", function() {
+    $('#J_EmployeeOk').die().live("click", function() {
         if ($(this).sdSubmitValidate("#contentForm")) {
-            var contInfoId = $("#continfo.contId").val();
+            var erId = $("#erId").val();
             var url,actionName;
-            if (!contInfoId || contInfoId == "") {
-            	actionName = "新增";
-                url = "../group/addContent.action"; 
+            if (!erId || erId == "") {
+                actionName = "新增";
+                url = "../online/addEmployee.action"; 
             } else {
-            	actionName = "编辑";
-                url = "../group/updateContent.action";
+                actionName = "编辑";
+                url = "../online/updateEmployee.action";
             }
         $('#contentForm').form('submit', {
           url:url,
@@ -38,7 +38,7 @@ $(document).ready(function() {
     });
 
     /* 编辑、新增 取消按钮 */
-    $('#J_ContentClose').die().live("click", function() {
+    $('#J_EmployeeClose').die().live("click", function() {
         $(window.parent.document).find("#centerIFrame").attr("src", "content/employMan.html");
     });
 });

@@ -8,84 +8,57 @@
     <select id="list"  parameterClass="Employee"  resultClass="Employee">
      <![CDATA[
        select 
-        OC_ID as ocId,
-        DATE_FORMAT(OC_POST_TIME,'%Y/%m/%d %H:%m:%s') as ocPost_time,
-        odq.OD_NAME as ocRequestOfficeName,
-        odr.OD_NAME as ocReceiveOfficeName,
-        OC_POST_NAME as ocPost_name,
-        OC_POST_AGE as ocPost_age,
-        OC_SEX as ocSex,
-        OC_POST_SUBJECT as ocPost_subject,
-        OC_DESC as ocDesc,
-        OS_ANSWERED as osAnswered,
-        OS_ANSWER as osAnswer,
-        OS_ANSWER_OFFICE as osAnswer_office,
-        DATE_FORMAT(OS_ANSWER_TIME,'%Y/%m/%d %H:%m:%s') as osAnswer_time,
-        OS_TYPICAL as osTypical
-       from EMPLOYEE_RECRUITMENT oc
-       left join OFFICE_DETAIL odq on oc.OC_REQUEST_OFFICE =odq.OD_ID
-       left join OFFICE_DETAIL odr on oc.OC_RECEIVE_OFFICE =odr.OD_ID
+           ER_ID as erId,
+		   ER_POSITION as erPosition,
+		   ER_LOCATION as erLocation,
+		   DATE_FORMAT(ER_PUBLISH_DATE,'%Y/%m/%d %H:%m:%s') as erPublish_date,
+		   DATE_FORMAT(ER_EXPIRY_DATE,'%Y/%m/%d %H:%m:%s') as erExpiry_date,
+		   ER_RECRUIT_NO as erRecruit_no,
+		   ER_RECRUIT_AVAILABLE as erRecruit_available,
+		   ER_ATTACHEMENT as erAttachement,
+		   ER_REQUIREMENT as erRequirement
+       from EMPLOYEE_RECRUITMENT er
      ]]>
-     <!-- 
-     <![CDATA[LIMIT #start#,#pageSize#]]>
-      -->
     </select>
     
     <!-- search the Employee info -->
     <select id="search"  parameterClass="Employee"  resultClass="Employee">
      <![CDATA[
        select 
-        OC_ID as ocId,
-        DATE_FORMAT(OC_POST_TIME,'%Y/%m/%d %H:%m:%s') as ocPost_time,
-        odq.OD_NAME as ocRequestOfficeName,
-        odr.OD_NAME as ocReceiveOfficeName,
-        OC_POST_NAME as ocPost_name,
-        OC_POST_AGE as ocPost_age,
-        OC_SEX as ocSex,
-        OC_POST_SUBJECT as ocPost_subject,
-        OC_DESC as ocDesc,
-        OS_ANSWERED as osAnswered,
-        OS_ANSWER as osAnswer,
-        OS_ANSWER_OFFICE as osAnswer_office,
-        DATE_FORMAT(OS_ANSWER_TIME,'%Y/%m/%d %H:%m:%s') as osAnswer_time,
-        OS_TYPICAL as osTypical
-       from EMPLOYEE_RECRUITMENT oc
-       left join OFFICE_DETAIL odq on oc.OC_REQUEST_OFFICE =odq.OD_ID
-       left join OFFICE_DETAIL odr on oc.OC_RECEIVE_OFFICE =odr.OD_ID
-       WHERE OC_ID = #ocId#
+           ER_ID as erId,
+           ER_POSITION as erPosition,
+           ER_LOCATION as erLocation,
+           DATE_FORMAT(ER_PUBLISH_DATE,'%Y/%m/%d %H:%m:%s') as erPublish_date,
+           DATE_FORMAT(ER_EXPIRY_DATE,'%Y/%m/%d %H:%m:%s') as erExpiry_date,
+           ER_RECRUIT_NO as erRecruit_no,
+           ER_RECRUIT_AVAILABLE as erRecruit_available,
+           ER_ATTACHEMENT as erAttachement,
+           ER_REQUIREMENT as erRequirement
+       from EMPLOYEE_RECRUITMENT er
+       WHERE ER_ID = #erId#
      ]]>
     </select>
 
         <!-- 查询咨询的总记录数 -->
     <select id="getTotalCount" parameterClass="Employee" resultClass="java.lang.Long">
        <![CDATA[
-         select COUNT(OC_ID) 
+         select COUNT(ER_ID) 
          from EMPLOYEE_RECRUITMENT
       ]]>
         <dynamic prepend=" where ">
-        <isNotEmpty property="condition.ocRequest_office">
+        <isNotEmpty property="condition.erPosition">
           <![CDATA[
-                 oc.OC_REQUEST_OFFICE = #ocRequest_office#
+                 er.ER_POSITION Like CONCAT('%',#condition.erPosition#,'%')
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.ocReceive_office">
+        <isNotEmpty property="condition.erSearchStart">
           <![CDATA[
-                 oc.OC_RECEIVE_OFFICE = #ocReceive_office#
+                 er.ER_PUBLISH_DATE > #condition.erSearchStart#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.ocPostStartTime">
+        <isNotEmpty property="condition.erSearchEnd">
           <![CDATA[
-                 oc.OS_ANSWER_TIME > #ocPostStartTime#
-                 ]]>
-          </isNotEmpty>
-        <isNotEmpty property="condition.ocPostEndTime">
-          <![CDATA[
-                 oc.OS_ANSWER_TIME < #ocPostEndTime#
-                 ]]>
-          </isNotEmpty>
-        <isNotEmpty property="condition.osTypical">
-          <![CDATA[
-                 oc.OS_TYPICAL = #osTypical#
+                 er.ER_PUBLISH_DATE < #condition.erSearchEnd#
                  ]]>
           </isNotEmpty>
         </dynamic>
@@ -96,69 +69,52 @@
     <select id="listAllByPageBean"  parameterClass="pageBean"  resultClass="Employee">
      <![CDATA[
        select 
-        OC_ID as ocId,
-        DATE_FORMAT(OC_POST_TIME,'%Y/%m/%d %H:%m:%s') as ocPost_time,
-        odq.OD_NAME as ocRequestOfficeName,
-        odr.OD_NAME as ocReceiveOfficeName,
-        OC_POST_NAME as ocPost_name,
-        OC_POST_AGE as ocPost_age,
-        OC_SEX as ocSex,
-        OC_POST_SUBJECT as ocPost_subject,
-        OC_DESC as ocDesc,
-        OS_ANSWERED as osAnswered,
-        OS_ANSWER as osAnswer,
-        OS_ANSWER_OFFICE as osAnswer_office,
-        DATE_FORMAT(OS_ANSWER_TIME,'%Y/%m/%d %H:%m:%s') as osAnswer_time,
-        OS_TYPICAL as osTypical
-       from EMPLOYEE_RECRUITMENT oc
-       left join OFFICE_DETAIL odq on oc.OC_REQUEST_OFFICE =odq.OD_ID
-       left join OFFICE_DETAIL odr on oc.OC_RECEIVE_OFFICE =odr.OD_ID
+           ER_ID as erId,
+           ER_POSITION as erPosition,
+           ER_LOCATION as erLocation,
+           DATE_FORMAT(ER_PUBLISH_DATE,'%Y/%m/%d %H:%m:%s') as erPublish_date,
+           DATE_FORMAT(ER_EXPIRY_DATE,'%Y/%m/%d %H:%m:%s') as erExpiry_date,
+           ER_RECRUIT_NO as erRecruit_no,
+           ER_RECRUIT_AVAILABLE as erRecruit_available,
+           ER_ATTACHEMENT as erAttachement,
+           ER_REQUIREMENT as erRequirement
+       from EMPLOYEE_RECRUITMENT er
      ]]>
         <dynamic prepend=" where ">
-        <isNotEmpty property="condition.ocRequest_office">
+        <isNotEmpty property="condition.erPosition">
           <![CDATA[
-                 oc.OC_REQUEST_OFFICE = #condition.ocRequest_office#
+                 er.ER_POSITION Like CONCAT('%',#condition.erPosition#,'%')
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.ocReceive_office">
+        <isNotEmpty property="condition.erSearchStart">
           <![CDATA[
-                 oc.OC_RECEIVE_OFFICE = #condition.ocReceive_office#
+                 er.ER_PUBLISH_DATE > #condition.erSearchStart#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.ocPostStartTime">
+        <isNotEmpty property="condition.erSearchEnd">
           <![CDATA[
-                 oc.OS_ANSWER_TIME > #condition.ocPostStartTime#
-                 ]]>
-          </isNotEmpty>
-        <isNotEmpty property="condition.ocPostEndTime">
-          <![CDATA[
-                 oc.OS_ANSWER_TIME < #condition.ocPostEndTime#
-                 ]]>
-          </isNotEmpty>
-        <isNotEmpty property="condition.osTypical">
-          <![CDATA[
-                 oc.OS_TYPICAL = #condition.osTypical#
+                 er.ER_PUBLISH_DATE < #condition.erSearchEnd#
                  ]]>
           </isNotEmpty>
         </dynamic>
-     <![CDATA[ORDER BY OC_POST_TIME, OS_ANSWER_TIME]]>
+     <![CDATA[ORDER BY ER_PUBLISH_DATE desc]]>
      <![CDATA[LIMIT #start#,#pageSize#]]>
     </select>
 
     <!-- add Employee -->
     <insert id="insert" parameterClass="Employee">
        <![CDATA[
-          INSERT INTO EMPLOYEE_RECRUITMENT(OC_ID, OC_POST_TIME, OC_REQUEST_OFFICE, OC_RECEIVE_OFFICE, OC_POST_NAME, OC_POST_AGE, OC_SEX, OC_POST_SUBJECT, OC_DESC, OS_ANSWERED, OS_ANSWER, OS_ANSWER_OFFICE,  OS_TYPICAL) 
-                         VALUES(#ocId#, sysdate(), #ocRequest_office#, #ocReceive_office#, #ocPost_name#, #ocPost_age#, #ocSex#, #ocPost_subject#, #ocDesc#, #osAnswered#, #osAnswer#, #osAnswer_office#,  #osTypical#)
+          INSERT INTO EMPLOYEE_RECRUITMENT(ER_ID, ER_POSITION, ER_LOCATION, ER_PUBLISH_DATE, ER_EXPIRY_DATE, ER_RECRUIT_NO, ER_RECRUIT_AVAILABLE, ER_ATTACHEMENT) 
+                         VALUES(#erId#, #erPosition#, #erLocation#, #erPublish_date#, #erExpiry_date#, #erRecruit_no#, #erRecruit_available#, #erAttachement#)
        ]]>
-       <selectKey resultClass="int" keyProperty="ocId">
+       <selectKey resultClass="int" keyProperty="erId">
          <![CDATA[SELECT LAST_INSERT_ID();]]>
        </selectKey> 
     </insert>
     
     <!-- delete Employee by id -->
     <delete id="delete" parameterClass="Employee">
-       <![CDATA[DELETE FROM EMPLOYEE_RECRUITMENT WHERE OC_ID = #ocId#]]>
+       <![CDATA[DELETE FROM EMPLOYEE_RECRUITMENT WHERE ER_ID = #erId#]]>
     </delete>
     
     <!-- update the Employee -->
@@ -166,24 +122,21 @@
       <![CDATA[
          UPDATE EMPLOYEE_RECRUITMENT 
          SET 
-            OC_POST_NAME = #ocPost_name#,
-            OC_POST_AGE = #ocPost_age#,
-            OC_SEX = #ocSex#,
-            OC_POST_SUBJECT = #ocPost_subject#,
-            OC_DESC = #ocDesc#,
-            OS_ANSWERED = #osAnswered#,
-            OS_ANSWER = #osAnswer#,
-            OS_ANSWER_OFFICE = #osAnswer_office#,
-            OS_ANSWER_TIME = sysdate(),
+           ER_POSITION = #erPosition#,
+           ER_LOCATION = #erLocation#,
+           ER_PUBLISH_DATE = #erPublish_date#,
+           ER_EXPIRY_DATE = #erExpiry_date#,
+           ER_RECRUIT_NO = #erRecruit_no#,
+           ER_RECRUIT_AVAILABLE = #erRecruit_available#,
        ]]>
        <dynamic prepend="">
-          <isNotEmpty property="ocReceive_office" prepend="">
-            <![CDATA[OC_RECEIVE_OFFICE = #ocReceive_office#,]]>
+          <isNotEmpty property="erAttachement" prepend="">
+            <![CDATA[ER_ATTACHEMENT = #erAttachement#,]]>
           </isNotEmpty>
        </dynamic>
         <![CDATA[ 
-            OS_TYPICAL = #osTypical#
-         WHERE OC_ID = #ocId#
+           ER_REQUIREMENT = #erRequirement
+         WHERE ER_ID = #erId#
       ]]>
     </update>
     
@@ -192,20 +145,23 @@
       <![CDATA[
          UPDATE EMPLOYEE_RECRUITMENT 
          SET 
-            OC_POST_TIME = #ocPost_time#,
-            OC_REQUEST_OFFICE = #ocRequest_office#,
-            OC_RECEIVE_OFFICE = #ocReceive_office#,
-            OC_POST_NAME = #ocPost_name#,
-            OC_POST_AGE = #ocPost_age#,
-            OC_SEX = #ocSex#,
-            OC_POST_SUBJECT = #ocPost_subject#,
-            OC_DESC = #ocDesc#,
-            OS_ANSWERED = #osAnswered#,
-            OS_ANSWER = #osAnswer#,
-            OS_ANSWER_OFFICE = #osAnswer_office#,
-            OS_ANSWER_TIME = sysdate(),
-            OS_TYPICAL = #osTypical#
-         WHERE OC_ID = #ocId#
+           ER_POSITION = #erPosition#,
+           ER_LOCATION = #erLocation#,
+           ER_PUBLISH_DATE = #erPublish_date#,
+           ER_EXPIRY_DATE = #erExpiry_date#,
+           ER_RECRUIT_NO = #erRecruit_no#,
+           ER_RECRUIT_AVAILABLE = #erRecruit_available#,
+           ER_ATTACHEMENT = #erAttachement#,
+           ER_REQUIREMENT = #erRequirement
+         WHERE ER_ID = #erId#
       ]]>
     </update>
+
+    <!-- batch delete the select ids -->
+    <delete id="deleteList" parameterClass="java.util.List">
+        <![CDATA[ DELETE FROM EMPLOYEE_RECRUITMENT WHERE ER_ID IN]]>
+        <iterate conjunction="," prepend="" open="(" close=")">
+          <![CDATA[#[]#]]>
+        </iterate>
+    </delete>
 </sqlMap>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Employee-Type" content="text/html; charset=UTF-8" />
 <link href="../style/easyui.css" rel="stylesheet" />
 <link href="../style/common.css" rel="stylesheet" />
 <link href="../plugins/calendar/calendar/calendar.css" rel="stylesheet" />
@@ -12,25 +12,22 @@
 			<table class="form w mt10 mb10">
 				<tr>
 					<td class="rowName w1">招聘信息标题</td>
-					<td><input id="contTitle" name="continfo.contTitle"
-						type="text" class="input_type1" rule="required" /> <input
-						id="contId" name="continfo.contId" type="hidden" /> <input
-						id="contOrder" name="continfo.contOrder" type="hidden" value="1" />
+					<td><input id="erPosition" name="emp.erPosition" type="text" class="input_type1" rule="required" />
+						<input id="erId" name="emp.erId" type="hidden" />
+						<input id="contOrder" name="emp.contOrder" type="hidden" value="1" />
 					</td>
 				</tr>
 				<tr>
 					<td class="rowName">招聘人数</td>
-					<td><input type='text' class='input_type1' /></td>
+					<td><input type='text' class='input_type1' id="erRecruit_no" name="emp.erRecruit_no"/></td>
 					<td class="rowName">工作地点</td>
-					<td><input type='text' class='input_type1' /></td>
+					<td><input type='text' class='input_type1' id="erLocation" name="emp.erLocation"/></td>
 				</tr>
 				<tr>
 					<td class="rowName">发布日期</td>
-					<td><input id="contPubTime" type="text"
-						name="continfo.contPubTime" class="input_type_date" /></td>
+					<td><input id="erPublish_date" type="text" name="emp.erPublish_date" class="input_type_date" /></td>
 					<td class="rowName">截止日期</td>
-					<td><input id="contEndTime" type="text"
-						name="continfo.contEndTime" class="input_type_date" /></td>
+					<td><input id="erExpiry_date" type="text" name="emp.erExpiry_date" class="input_type_date" /></td>
 				</tr>
 				<tr>
 					<td class="rowName">附件上传</td>
@@ -39,13 +36,13 @@
 				<tr>
 					<td class="rowName">招聘需求</td>
 					<td colspan="3" style='padding-left: 10px;'><textarea
-							id="contDetail" name="contInfo.contDetail"></textarea></td>
+							id="contDetail" name="emp.erRequirement"></textarea></td>
 				</tr>
 				<tr>
 					<td></td>
-					<td class="p10"><a class="button btn-blue" id="J_ContentOk"><span
+					<td class="p10"><a class="button btn-blue" id="J_EmployeeOk"><span
 							class="icon ico-bulb"></span>确认</a> <a class="button btn-grey"
-						id="J_ContentClose">取消</a>
+						id="J_EmployeeClose">取消</a>
 				</tr>
 			</table>
 		</form>

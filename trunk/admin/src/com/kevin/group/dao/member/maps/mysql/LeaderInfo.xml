@@ -132,4 +132,12 @@
          WHERE LI_ID = #liId#
       ]]>
     </update>
+    
+    <!-- batch delete the select ids -->
+    <delete id="deleteList" parameterClass="java.util.List">
+        <![CDATA[ DELETE FROM LEADER_INFO WHERE LI_ID IN]]>
+        <iterate conjunction="," prepend="" open="(" close=")">
+          <![CDATA[#[]#]]>
+        </iterate>
+    </delete>
 </sqlMap>
