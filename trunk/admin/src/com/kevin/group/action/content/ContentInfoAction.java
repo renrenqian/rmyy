@@ -287,4 +287,14 @@ public class ContentInfoAction extends AbstractBaseAction {
         }
         return Action.SUCCESS;
     }
+    public String auditorContent() {// auditor the contInfo
+        try {
+            int result = contInfoService.auditorContent(continfo);
+            setResultCode(result);
+        } catch (CommonServiceException e) {
+            setMessage(e.getMessage());
+            setResultCode(-1);
+        }
+        return Action.SUCCESS;
+    }
 }

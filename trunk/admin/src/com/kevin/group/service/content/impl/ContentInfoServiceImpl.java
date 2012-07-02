@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kevin.common.exception.BaseSqlMapException;
 import com.kevin.common.exception.CommonServiceException;
 import com.kevin.common.pojo.PageBean;
 import com.kevin.common.service.AbstractBaseService;
@@ -64,5 +65,16 @@ public class ContentInfoServiceImpl extends AbstractBaseService<ContentInfo>
         }
         return super.save(cont);
     }
-    
+
+    /* (non-Javadoc)
+     * @see com.kevin.group.service.content.IContentInfoService#auditorContent(com.kevin.group.pojo.content.ContentInfo)
+     */
+    @Override
+    public int auditorContent(ContentInfo continfo) throws CommonServiceException {
+        try {
+            return contInfoDAO.auditorContent(continfo);
+        } catch (BaseSqlMapException e) {
+            throw new CommonServiceException(e.getMessage());
+        }
+    }
 }

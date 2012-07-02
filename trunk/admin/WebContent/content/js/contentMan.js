@@ -1,23 +1,23 @@
 var contentDataTable;
 var contentType;
 $(document).ready(function() {
-	//zq：判断栏目类型是“医院新闻”，还是“其它栏目”
-	contentType=$(window.parent.document).find('.layout-panel-center .panel-title').html();
-	if(contentType=='网站内容管理&nbsp;&gt;&nbsp;其它栏目'){
-		contentType="其他";
-	}else{
-		contentType="新闻";
-	}
-	
+    //zq：判断栏目类型是“医院新闻”，还是“其它栏目”
+    contentType=$(window.parent.document).find('.layout-panel-center .panel-title').html();
+    if(contentType=='网站内容管理&nbsp;&gt;&nbsp;其它栏目'){
+        contentType="其他";
+    }else{
+        contentType="新闻";
+    }
+    
     initContentList();//初始化列表
     $('#contentForm').sdValidate();//添加验证规则
     /* 新增 */
     $("#J_AddContent").die().live("click", function() {
-    	if(contentType=='新闻'){
-    		 $(window.parent.document).find("#centerIFrame").attr("src", "content/addContent.html");
-    	}else{
-    		 $(window.parent.document).find("#centerIFrame").attr("src", "content/addCommon.html");
-    	}       
+        if(contentType=='新闻'){
+             $(window.parent.document).find("#centerIFrame").attr("src", "content/addContent.html");
+        }else{
+             $(window.parent.document).find("#centerIFrame").attr("src", "content/addCommon.html");
+        }       
     });
 
     /* 编辑 */
@@ -34,10 +34,10 @@ $(document).ready(function() {
             }
         });
         if(contentType=='新闻'){
-   		     $(window.parent.document).find("#centerIFrame").attr("src", "content/addContent.html?contId=" + id);
-	   	}else{
-	   		 $(window.parent.document).find("#centerIFrame").attr("src", "content/addCommon.html");
-	   	}         
+                $(window.parent.document).find("#centerIFrame").attr("src", "content/addContent.html?contId=" + id);
+           }else{
+                $(window.parent.document).find("#centerIFrame").attr("src", "content/addCommon.html");
+           }         
     });
 
     /* del */
@@ -65,7 +65,7 @@ $(document).ready(function() {
     /* 审核 */
     $(".J_Audit").die().live("click", function() {     
         var id = $(this).parent().parent().children().eq(0).children().eq(0).val();
-        $("#dpId").val(id);
+        $("#auditorId").val(id);
 //        $.getJSON('../group/searchDept.action?t=' + new Date().getTime() + '&dept.dpId=' + id, function(json) {
 //            if (json.resultCode > 0) {
 //                //formUnSerialize("deptForm", "dept", json.dept);
@@ -89,9 +89,21 @@ $(document).ready(function() {
     
     /* 审核确认按钮 */
     $('#J_AuditOk').die().live("click", function() { 
-    	//code here
-    	
-    	 $('#J_AuditDiv').window("close");
+        //code here
+        var auditorId = $("#auditorId").val();
+        var auditorResult = $("#auditorOption :checked").val();
+      $.getJSON('../group/auditorContent.action?t=' + new Date().getTime() + '&continfo.contId=' + auditorId + '&continfo.contAudit_Result=' + auditorResult,  function(json) {
+          if (json.resultCode > 0) {
+              //formUnSerialize("deptForm", "dept", json.dept);
+            initContentList();
+            $('#J_AuditDiv').window("close");
+          } else {
+              $.fn.sdInfo({
+                  type:"fail",
+                  content:json.message ? json.message : "审核内容错误!"
+              });
+          }
+      });
     });
     
     /* 审核取消按钮 */
@@ -133,14 +145,14 @@ $(document).ready(function() {
  */
 function initContentList() {
     if (!contentDataTable) {
-    	//zq:此处需判断栏目类型加载列表数据
-    	var url;
-    	if(contentType=='新闻'){
-    		url="../group/listContent.action";//此处需修改
-    	}else{
-    		url="../group/listContent.action";//此处需修改
-    	}
-    	
+        //zq:此处需判断栏目类型加载列表数据
+        var url;
+        if(contentType=='新闻'){
+            url="../group/listContent.action";//此处需修改
+        }else{
+            url="../group/listContent.action";//此处需修改
+        }
+        
         contentDataTable = $("#J_ContentTable").dataTable({
             bProcessing: false,
             bServerSide:true,//设置服务端分页
@@ -239,7 +251,14 @@ function initContentList() {
 //                },
                 {
                     fnRender:function(obj) {
-                        return "<a class='green unl J_Audit'>已通过</a>";
+                        var state = "不通过";
+                        className = "red";
+                        if ( 1 == obj.aData.contAudit_Result ) {
+                            state = "通过";
+                            className = "green";
+                        }
+                        return "<span class='" + className + " unl J_Audit'>" + state + "</span>";
+                        //return "<a class='green unl J_Audit'>已通过</a>";
                     }
                 },
                 {

@@ -73,14 +73,19 @@
                  oc.OC_RECEIVE_OFFICE = #ocReceive_office#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.ocPostStartTime">
+        <isNotEmpty property="condition.ocPost_time">
           <![CDATA[
-                 oc.OS_ANSWER_TIME > #ocPostStartTime#
+                 DATE_FORMAT(oc.OC_POST_TIME,'%Y/%m/%d %H:%m:%s') = #ocPost_time#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.ocPostEndTime">
+        <isNotEmpty property="condition.osAnswer_time">
           <![CDATA[
-                 oc.OS_ANSWER_TIME < #ocPostEndTime#
+                 DATE_FORMAT(oc.OS_ANSWER_TIME,'%Y/%m/%d %H:%m:%s') = #osAnswer_time#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.osAnswered">
+          <![CDATA[
+                 oc.OS_ANSWERED = #osAnswered#
                  ]]>
           </isNotEmpty>
         <isNotEmpty property="condition.osTypical">
@@ -127,12 +132,17 @@
           </isNotEmpty>
         <isNotEmpty property="condition.ocPostStartTime">
           <![CDATA[
-                 oc.OS_ANSWER_TIME > #condition.ocPostStartTime#
+                 DATE_FORMAT(oc.OC_POST_TIME,'%Y/%m/%d %H:%m:%s') = #condition.ocPostStartTime#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.ocPostEndTime">
+        <isNotEmpty property="condition.osAnswer_time">
           <![CDATA[
-                 oc.OS_ANSWER_TIME < #condition.ocPostEndTime#
+                 DATE_FORMAT(oc.OS_ANSWER_TIME,'%Y/%m/%d %H:%m:%s') = #condition.osAnswer_time#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.osAnswered">
+          <![CDATA[
+                 oc.OS_ANSWERED = #condition.osAnswered#
                  ]]>
           </isNotEmpty>
         <isNotEmpty property="condition.osTypical">

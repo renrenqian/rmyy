@@ -81,6 +81,13 @@
                 <param name="excludeNullProperties">true</param>
             </result>
         </action>
+        <!-- batch delete the content -->
+        <action name="auditorContent" method="auditorContent" class="contentInfoAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
         <!-- content end -->
 
         <!-- Column start -->

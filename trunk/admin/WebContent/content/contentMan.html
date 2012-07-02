@@ -41,11 +41,12 @@
 			<table class="form w">
 				<tr>
 					<td class="rowName">审核</td>
-					<td><select class='selectType1'>
-							<option>请选择...</option>
-							<option>通过</option>
-							<option>不通过</option>
-					</select></td>
+					<td><select id="auditorOption" class='selectType1'>
+							<option value="1">通过</option>
+							<option value="0">不通过</option>
+					    </select>
+					    <input id="auditorId" type="hidden" />
+					</td>
 				</tr>
 				<tr>
 					<td></td>

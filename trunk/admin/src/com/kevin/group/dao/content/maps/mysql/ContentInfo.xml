@@ -212,7 +212,6 @@
           CD_MEDIUM = #contMedium#,
           CD_KEY = #contKey#,
           CD_PUBLISH_TIME = #contPublish_Time#,
-          CD_AUDIT_RESULT = #contAudit_Result#,
           CD_ORDER = #contOrder#,
           GM_ID = #gmId#,
        ]]>
@@ -228,6 +227,16 @@
        </dynamic>
         <![CDATA[ 
           CD_DETAIL = #contDetail#
+         WHERE CD_ID = #contId#
+      ]]>
+    </update>
+    
+    <!-- auditorContent the ContentInfo -->
+    <update id="auditorContent" parameterClass="ContentInfo">
+      <![CDATA[
+         UPDATE CONTENT_DETAIL 
+         SET
+          CD_AUDIT_RESULT = #contAudit_Result#
          WHERE CD_ID = #contId#
       ]]>
     </update>

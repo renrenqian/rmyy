@@ -6,6 +6,7 @@
 package com.kevin.group.dao.content;
 
 import com.kevin.common.dao.IBaseDAO;
+import com.kevin.common.exception.BaseSqlMapException;
 import com.kevin.group.pojo.content.ContentInfo;
 
 /**
@@ -13,5 +14,7 @@ import com.kevin.group.pojo.content.ContentInfo;
  * @since jdk1.6
  */
 public interface IContentInfoDAO extends IBaseDAO<ContentInfo> {
+
+    int auditorContent(ContentInfo continfo) throws BaseSqlMapException;
 
 }
