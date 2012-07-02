@@ -145,7 +145,7 @@ public class LeaderAction extends AbstractBaseAction {
                 // make the parent folder when each month
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMM", Locale.ENGLISH);
                 String monthlize = dateFormat.format(new Date());
-                File storeFolder = new File("/upload/leaderHeader/" + monthlize);
+                File storeFolder = new File("/upload/member/" + monthlize);
                 if (!storeFolder.exists())
                     storeFolder.mkdirs();
                 File storeFile = new File(storeFolder, System.currentTimeMillis() + "_" + fileFileName);
@@ -195,7 +195,7 @@ public class LeaderAction extends AbstractBaseAction {
                 // make the parent folder when each month
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMM", Locale.ENGLISH);
                 String monthlize = dateFormat.format(new Date());
-                File storeFolder = new File("/upload/leaderHeader/" + monthlize);
+                File storeFolder = new File("/upload/member/" + monthlize);
                 if (!storeFolder.exists())
                     storeFolder.mkdirs();
                 File storeFile = new File(storeFolder, System.currentTimeMillis() + "_" + fileFileName);

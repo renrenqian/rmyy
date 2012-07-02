@@ -115,7 +115,13 @@
             DI_NAME = #diName#,
             DI_POSITION = #diPosition#,
             DI_DEPTTYPE = #diDeptType#,
-            DI_PORTRAIT = #diPortrait#,
+       ]]>
+       <dynamic prepend="">
+          <isNotEmpty property="diPortrait" prepend="">
+            <![CDATA[DI_PORTRAIT = #diPortrait#,]]>
+          </isNotEmpty>
+       </dynamic>
+        <![CDATA[ 
             DI_ORDER = #diOrder#,
             DI_SEX = #diSex#,
             DI_TAL_TYPE = #doctType#,

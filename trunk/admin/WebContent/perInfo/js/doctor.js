@@ -14,7 +14,7 @@ $(document).ready(function() {
                 var deptList = json.deptList;
                 var optioin="<option>请选择...</option>";
                 $(deptList).each(function(i, item) { 
-                    optioin+="<option value="+item.dpId+">"+item.dpName+"</option>"
+                    optioin+="<option value="+item.dpId+">"+item.dpName+"</option>";
                 });  
                 $('#diDeptType').html(optioin);                
             } else {
@@ -76,9 +76,9 @@ $(document).ready(function() {
                             $('#diDeptType').html(optioin);
                             //zq：科室定位
                             $('#diDeptType option').each(function(){
-                            	if($(this).html()==item.diDeptName){
-                            		$(this).attr('selected',true);
-                            	}                            	
+                                if($(this).html()==item.diDeptName){
+                                    $(this).attr('selected',true);
+                                }                                
                             });
                         } else {
                             $.fn.sdInfo({
@@ -115,62 +115,38 @@ $(document).ready(function() {
             if (!diId || undefined == diId ||diId == "") {
                 action = "新增";
                 url = "../member/addDoctor.action";
-//                var params = new StringBuffer();
-//                params.append("doct.diName=" + $("#diName").val()).append("&");
-//                params = params.toString();
-//                $.post(url, params, function(json) {
-//                    if (json.resultCode > 0) {
-//                        initDoctorList();
-//                        $('#J_DoctorDiv').window("close");
-//                    } else {
-//                        $.fn.sdInfo({
-//                            type:"fail",
-//                            content:json.message ? json.message : action + '医师信息失败!'
-//                        });
-//                    }
-//                });
             } else {
                 action = "编辑";
                 url = "../member/updateDoctor.action";
-            }
-            var params = new StringBuffer();
-            params.append("doct.diId=" + diId).append("&");
-            params.append("doct.diName=" + $("#diName").val()).append("&");
-            params.append("doct.diPosition=" + $("#diPosition").val()).append("&");
-            params.append("doct.diDeptType=" + $("#diDeptType").val()).append("&");
-            params.append("doct.diPortrait=" + $("#diPortrait").val()).append("&");
-            params.append("doct.osExpertId=" + $("#osExpertId").val()).append("&");
-            params.append("doct.osFamousId=" + $("#osFamousId").val()).append("&");
-            params.append("doct.diOrder=" + 1).append("&");
-            params.append("doct.diSex=" + $("#diSex").val()).append("&");
-            params.append("doct.diEducation=" + $("#diEducation").val()).append("&");
-            params.append("doct.diResume=" + $("#diResume").val()).append("&");
-            params.append("doct.diMajor=" + $("#diMajor").val()).append("&");
-            params.append("doct.diResearch_direction=" + $("#diResearch_direction").val()).append("&");
-            params.append("doct.diAccomplishment=" + $("#diAccomplishment").val()).append("&");
-
-//            zq:人才类型字段取值
-            //var doctTypeArray = [];
-            var doctTypeStr = "";
-            $(".J_RcType:checked").each(function(){
-                doctTypeStr+=$(this).val()+',';
-            });
-            doctTypeStr=doctTypeStr.substr("0",doctTypeStr.length-1);
-            //alert(doctTypeStr.join(","));
-            params.append("doct.doctType=" + doctTypeStr);//.append("&");
-            params = params.toString();       
-            
-            $.post(url, params, function(json) {
-                if (json.resultCode > 0) {
-                    initDoctorList();
-                    $('#J_DoctorDiv').window("close");
-                } else {
-                    $.fn.sdInfo({
-                        type:"fail",
-                        content:json.message ? json.message : action + '医师信息失败!'
-                    });
-                }
-            });
+            }  
+            $('#doctorForm').form('submit', {
+                  url:url,
+                  dataType : 'json',
+                  onSubmit: function(){
+                      // set some special column before submit
+                      var doctTypeStr = "";
+                      $(".J_RcType:checked").each(function(){
+                          doctTypeStr+=$(this).val()+',';
+                      });
+                      doctTypeStr=doctTypeStr.substr("0",doctTypeStr.length-1);
+                      $('#doctType').val(doctTypeStr);
+                 },
+                 error:function (json) {
+                     alert("内容异常:" + json.message) ; 
+                 }, 
+                 success:function(json){
+                     json = eval('(' + json + ')');
+                     if (json.resultCode > 0 ) {
+                    	 initDoctorList();
+                         $('#J_DoctorDiv').window("close");
+                        } else  {
+                            $.fn.sdInfo({
+                                type : "fail",
+                                content : json.message ? action+"内容错误:"+json.message : action+"内容错误:"
+                            });
+                        }
+                 }
+             });  
             $('#diId').val("");//clear the edit id while open edit.
             $('#osExpertId').val("0");//clear the edit id while open edit.
             $('#osFamousId').val("0");//clear the edit id while open edit.
@@ -247,7 +223,7 @@ $(document).ready(function() {
         $.fn.sdResetForm("#treatForm");
         //zq:reset    
         $('.J_OSTime').each(function(){
-        	$(this).attr('checked',false);
+            $(this).attr('checked',false);
         });     
                 
         var doctId = $(this).parent().parent().children().eq(0).children().eq(0).val();
@@ -270,20 +246,20 @@ $(document).ready(function() {
         $('#J_TreatType').val(type);
         
         if( undefined != $("#osId").val() && $("#osId").val()!='0'){
-        	//修改
-        	 $.getJSON('../member/searchOPSer.action?t=' + new Date().getTime() + '&ops.osId='+ $("#osId").val(),function(json) {
-        		 var ops = json.ops;
+            //修改
+             $.getJSON('../member/searchOPSer.action?t=' + new Date().getTime() + '&ops.osId='+ $("#osId").val(),function(json) {
+                 var ops = json.ops;
                  if (json.resultCode > 0) {
-                 	$('#osLocation').val(ops.osLocation);
-                 	$('#osLimit').val(ops.osLimit);
-                 	$('#osStatus').val(ops.osStatus)
-                 	$('#osCost').val(ops.osCost);
-                 	$('#osBook_link').val(ops.osBook_link);                 	
-                 	//checkbox:
-                 	var osTimeArr=ops.osTime.split(',');
+                     $('#osLocation').val(ops.osLocation);
+                     $('#osLimit').val(ops.osLimit);
+                     $('#osStatus').val(ops.osStatus);
+                     $('#osCost').val(ops.osCost);
+                     $('#osBook_link').val(ops.osBook_link);
+                     //checkbox:
+                     var osTimeArr=ops.osTime.split(',');
                     for(var i=0;i<osTimeArr.length;i++){
                         $(".J_OSTime[value='"+osTimeArr[i]+"']").attr("checked", true);
-                    }                 	         
+                    }                              
                  }                   
              });
         }
@@ -321,7 +297,7 @@ $(document).ready(function() {
             //get the time    
             var osTimeStr = "";
             $(".J_OSTime:checked").each(function(){
-            	osTimeStr+=$(this).val()+',';
+                osTimeStr+=$(this).val()+',';
             });
             osTimeStr=osTimeStr.substr("0",osTimeStr.length-1);
             

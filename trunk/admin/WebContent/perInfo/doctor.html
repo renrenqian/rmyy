@@ -38,21 +38,21 @@
 
 <!-- doctor div for add or edit -->
 <div id="J_DoctorDiv" style="display:none;">
-    <form id="doctorForm">
+    <form id="doctorForm" name="doctorForm" enctype="multipart/form-data" method="post" target="hidden_frame">
         <table class="form w">
             <tr>
                 <td class="rowName w1">医师姓名</td>
                 <td>
-                   <input id="diName" type="text" class="input_type1" rule="required"/>
-                   <input id="diId" type="hidden"/>
-                   <input id="osExpertId" type="hidden" value="0"/>
-                   <input id="osFamousId" type="hidden" value="0"/>
-                   <input id="osCate" type="hidden" value="1"/>
+                   <input id="diName" type="text" name="doct.diName" class="input_type1" rule="required"/>
+                   <input id="diId" type="hidden" name="doct.diId"/>
+                   <input id="osExpertId" type="hidden" value="0"  name="doct.osExpertId"/>
+                   <input id="osFamousId" type="hidden" value="0"  name="doct.osFamousId"/>
+                   <input id="osCate" type="hidden" value="1" name="doct.osCate"/>
+                   <input id="diOrder" type="hidden" value="1" name="doct.diOrder"/>
                 </td>
                 <td class="rowName w1">性别</td>
                 <td>
-                    <select id="diSex" class="selectType1">
-                        <option value="">请选择...</option>
+                    <select id="diSex"  name="doct.diSex" class="selectType1">
                         <option value="1">男</option>
                         <option value="0">女</option>
                     </select>
@@ -61,7 +61,7 @@
             <tr>
                 <td class="rowName">学位</td>
                 <td>
-                    <select id="diEducation" class="selectType1">
+                    <select id="diEducation"  name="doct.diEducation" class="selectType1">
                         <option value="0">请选择...</option>
                         <option value="1000">博士后</option>
                         <option value="1001">博士</option>
@@ -71,7 +71,7 @@
                     </select>
                 </td>
                 <td class="rowName">职称</td>
-                <td><input id="diPosition" type="text" class="input_type1"/>
+                <td><input id="diPosition"  name="doct.diPosition"  type="text" class="input_type1"/>
                 </td>
             </tr>
             <tr>
@@ -85,19 +85,20 @@
 <!--                         <option>杭州市妇女医院（钱江新城院区）</option> -->
 <!--                         <option>五云山健康管理中心</option> -->
                     </select>
-                    <select id="diDeptType" class="selectType2">
+                    <select id="diDeptType"  name="doct.diDeptType"  class="selectType2">
 <!--                         <option value="1000">妇科</option> -->
 <!--                         <option value="1001">产科</option> -->
                     </select>
                 </td>
                 <td class="rowName">头像上传</td>
                 <td>
-                <input type='text' class='input_type1'/>             
+                <input type='file' name="file" class='input_type1'/>
                 </td>
             </tr>
             <tr>
                 <td class="rowName">人才类型</td>
                 <td colspan="3">
+                    <input id="doctType" type='hidden' name="doct.doctType" />
                     <input type="checkbox" class="radio_Type1 ml10 J_RcType" name="radio.rc" id="radio.bd" value='1000'><label
                         class="radio_Type1_label" for="radio.bd">博士生导师</label>
                     <input type="checkbox" class="radio_Type1 J_RcType" name="radio.rc" id="radio.sd" value='1001'><label
@@ -119,25 +120,25 @@
             <tr>
                 <td class="rowName">简历</td>
                 <td colspan="3">
-                    <textarea id="diResume" class="textArea_type3"></textarea>
+                    <textarea id="diResume" name="doct.diResume"  class="textArea_type3"></textarea>
                 </td>
             </tr>
             <tr>
                 <td class="rowName">主攻学科</td>
                 <td colspan="3">
-                    <textarea id="diMajor" class="textArea_type3"></textarea>
+                    <textarea id="diMajor"  name="doct.diMajor" class="textArea_type3"></textarea>
                 </td>
             </tr>
             <tr>
                 <td class="rowName">研究方向</td>
                 <td colspan="3">
-                    <textarea id="diResearch_direction" class="textArea_type3"></textarea>
+                    <textarea id="diResearch_direction"  name="doct.diResearch_direction" class="textArea_type3"></textarea>
                 </td>
             </tr>
             <tr>
                 <td class="rowName">医疗成果</td>
                 <td colspan="3">
-                    <textarea id="diAccomplishment" class="textArea_type3"></textarea>
+                    <textarea id="diAccomplishment"  name="doct.diAccomplishment" class="textArea_type3"></textarea>
                 </td>
             </tr>
             <tr>
@@ -152,6 +153,8 @@
     </form>
 </div>
 
+    <iframe name='hidden_frame' id="hidden_frame"
+        style='display: none; height: 0; width: 0'></iframe>
 <!-- 门诊 div for edit -->
 <div id="J_TreatDiv" style="display:none;">
     <form id="treatForm">
