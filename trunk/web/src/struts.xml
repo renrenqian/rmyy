@@ -8,15 +8,14 @@
     <constant name="struts.objectFactory" value="spring" />
     <constant name="struts.devMode" value="true" />
     <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.multipart.maxSize" value="10000000" />
     <!--ajax请求基包
     -->
     <package name="defaultj" extends="json-default">
         <interceptors>
-            <interceptor-stack name="default">
-    <!-- web not need to be interceptors
             <interceptor name="privilegeInterceptor" class="com.kevin.common.interceptor.PrivilegeInterceptor"></interceptor>
+            <interceptor-stack name="default">
                 <interceptor-ref name="privilegeInterceptor"></interceptor-ref>
-     -->
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
@@ -24,11 +23,9 @@
     </package>
     <package name="default" extends="struts-default">
         <interceptors>
-            <interceptor-stack name="default">
-    <!-- web not need to be interceptors
             <interceptor name="privilegeInterceptor" class="com.kevin.common.interceptor.PrivilegeInterceptor"></interceptor>
+            <interceptor-stack name="default">
                 <interceptor-ref name="privilegeInterceptor"></interceptor-ref>
-     -->
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
@@ -36,6 +33,7 @@
     </package>
     <!-- 登入登出 -->
     <package name="logout" extends="struts-default">
+        
         <action name="logout" method="logout" class="userInfoAction">
             <result name="success">/index.html</result>
         </action>
@@ -52,5 +50,6 @@
     </package>
     <include file="config/struts/system.xml" />
     <include file="config/struts/group.xml" />
+    <include file="config/struts/online.xml" />
     <include file="config/struts/member.xml" />
 </struts>
