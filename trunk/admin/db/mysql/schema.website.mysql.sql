@@ -16,6 +16,7 @@ DROP TABLE CONTENT_SHARE;
 DROP TABLE CONTENT_CLICK;
 DROP TABLE COLUMN_INFO;
 DROP TABLE ONLINE_CONSULTATION;
+DROP TABLE EMPLOYEE_RECRUITMENT;
 
 /* set the db encodings */
 set names utf8;
@@ -125,19 +126,21 @@ CREATE TABLE ONLINE_CONSULTATION  (
 alter table DOCTOR_INFO auto_increment= 1000;
 
 /*==============================================================*/
-/* 表名：人才招聘表  Table Name(STAFF_RECRUITMENT)                */
+/* 表名：人才招聘表  Table Name(EMPLOYEE_RECRUITMENT)             */
 /*==============================================================*/
-CREATE TABLE STAFF_RECRUITMENT  (
-   SR_ID                 INTEGER               NOT NULL  AUTO_INCREMENT,
-   SR_POSITION           VARCHAR(128),
-   SR_LOCATION           VARCHAR(128),
-   SP_PUBLISH_DATE       DATETIME,
-   SP_EXPIRY_DATE        DATETIME,
-   SP_RECRUIT_NO         INTEGER,
-   SP_RECRUIT_AVAILABLE  INTEGER,
-   SP_ATTACHEMENT        VARCHAR(256),
-   SP_REQUIREMENT        VARCHAR(4096),
-   PRIMARY KEY (SR_ID)
+CREATE TABLE EMPLOYEE_RECRUITMENT  (
+   ER_ID                 INTEGER               NOT NULL  AUTO_INCREMENT,
+   ER_POSITION           VARCHAR(128),
+   ER_LOCATION           VARCHAR(128),
+   ER_PUBLISH_DATE       DATETIME,
+   ER_EXPIRY_DATE        DATETIME,
+   ER_RECRUIT_NO         INTEGER,
+   ER_RECRUIT_AVAILABLE  INTEGER,
+   ER_ATTACHEMENT        VARCHAR(256),
+   ER_REQUIREMENT        VARCHAR(4096),
+   PRIMARY KEY (ER_ID)
 ) type=InnoDB;
 
-alter table STAFF_RECRUITMENT auto_increment= 1000;
+alter table EMPLOYEE_RECRUITMENT auto_increment= 1000;
+
+

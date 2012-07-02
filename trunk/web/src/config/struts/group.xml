@@ -18,6 +18,12 @@
                <param name="excludeNullProperties">true</param>
             </result>
        </action>
+       <action name="listDeptNames" method="listDeptNames" class="deptInfoAction">
+            <result name="success" type="json">
+               <param name="ignoreHierarchy">false</param>
+               <param name="excludeNullProperties">true</param>
+            </result>
+       </action>
        <action name="searchDept" method="searchDept" class="deptInfoAction">
             <result name="success" type="json">
                <param name="ignoreHierarchy">false</param>
@@ -47,13 +53,6 @@
         </action>
  
         <!-- content start -->
-        <!-- new content -->
-        <action name="addContent" method="addContent" class="contentInfoAction">
-            <result name="success" type="json">
-                <param name="ignoreHierarchy">false</param>
-                <param name="excludeNullProperties">true</param>
-            </result>
-        </action>
         <!-- list content -->
        <action name="listContent" method="listContent" class="contentInfoAction">
             <result name="success" type="json">
@@ -68,13 +67,6 @@
                <param name="excludeNullProperties">true</param>
             </result>
        </action>
-        <!-- update the content info -->
-        <action name="updateContent" method="updateContent" class="contentInfoAction">
-            <result name="success" type="json">
-                <param name="ignoreHierarchy">false</param>
-                <param name="excludeNullProperties">true</param>
-            </result>
-        </action>
         <!-- delete the content -->
         <action name="deleteContent" method="deleteContent" class="contentInfoAction">
             <result name="success" type="json">
@@ -225,5 +217,36 @@
             </result>
         </action>
         <!-- Doctor end -->
+    </package>
+    
+    <package name="content"  extends="defaultj">
+        <!-- new content -->
+        <action name="addContent" method="addContent" class="contentInfoAction">
+            <interceptor-ref name="defaultStack">
+                <!-- 10M
+                    <param name="fileUpload.allowedTypes">
+                    image/gif,image/jpeg,image/pjpeg,image/jpg,image/bmp,image/pict,image/x-photoshop,image/x-quicktime,image/tiff
+                    text/plain,
+                    application/pdf,
+                    audio/x-midi,video/quicktime,audio/x-mpeg,video/mp4,application/x-shockwave-flash,application/vnd.rn-realmedia
+                    </param>
+                    <param name="maximumSize">10485760</param>
+                -->
+            </interceptor-ref>
+            <param name="savePath" >/</param> 
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+        <!-- update the content info -->
+        <action name="updateContent" method="updateContent" class="contentInfoAction">
+            <interceptor-ref name="defaultStack">
+            </interceptor-ref>
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
     </package>
 </struts>
