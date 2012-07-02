@@ -16,7 +16,7 @@ public class ContentInfo implements Serializable {
     /**
      * 
      */
-    private static final long serialVersionUID = -6009456313328821636L;
+    private static final long serialVersionUID = -2135758770502269836L;
     private Integer contId;
     private String contTitle;
     private String contHome_Page;
@@ -34,7 +34,8 @@ public class ContentInfo implements Serializable {
     private Integer contAuthor;
     private String contAuthorName;
     private String contDetail;
-    private String contAttachment;
+    private String contAttachment;// store the upload file path
+    private String displayImage;// store the upload file path
 
     /**
      * @return the contId
@@ -303,6 +304,20 @@ public class ContentInfo implements Serializable {
      */
     public final void setContAttachment(String contAttachment) {
         this.contAttachment = contAttachment;
+    }
+
+    /**
+     * @return the displayImage
+     */
+    public final String getDisplayImage() {
+        return displayImage;
+    }
+
+    /**
+     * @param displayImage the displayImage to set
+     */
+    public final void setDisplayImage(String displayImage) {
+        this.displayImage = displayImage;
     }
 
 }

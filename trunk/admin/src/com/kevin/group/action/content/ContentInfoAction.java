@@ -6,25 +6,23 @@
 package com.kevin.group.action.content;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.googlecode.jsonplugin.annotations.JSON;
 import com.kevin.common.action.AbstractBaseAction;
 import com.kevin.common.exception.CommonServiceException;
 import com.kevin.group.pojo.content.ContentInfo;
 import com.kevin.group.service.content.IContentInfoService;
 import com.opensymphony.xwork2.Action;
-import com.opensymphony.xwork2.ModelDriven;
 
 /**
  * @author kevin
@@ -32,19 +30,16 @@ import com.opensymphony.xwork2.ModelDriven;
  */
 @Component("contentInfoAction")
 @Scope("prototype")
-public class ContentInfoAction extends AbstractBaseAction implements
-        ModelDriven<ContentInfo> {
+public class ContentInfoAction extends AbstractBaseAction {
 
     private IContentInfoService contInfoService;
     private ContentInfo continfo;
     private List<ContentInfo> contList;
     private List<Serializable> ides;
-    private String attfileContentType;
     private String savePath;
-    private File file;
-    private String fileFileName;
-    private InputStream fileInputStream;
-    private String fileContentType;
+    private File file[];
+    private String fileFileName[];
+    private String fileContentType[];
 
     /**
      * @return the continfo
@@ -75,81 +70,47 @@ public class ContentInfoAction extends AbstractBaseAction implements
     public final void setContList(List<ContentInfo> contList) {
         this.contList = contList;
     }
-
+ 
     /**
      * @return the file
      */
-    public final File getFile() {
+    public final File[] getFile() {
         return file;
     }
 
     /**
-     * @param file
-     *            the file to set
+     * @param file the file to set
      */
-    public final void setFile(File file) {
+    public final void setFile(File[] file) {
         this.file = file;
     }
 
     /**
      * @return the fileFileName
      */
-    public final String getFileFileName() {
+    public final String[] getFileFileName() {
         return fileFileName;
     }
 
     /**
-     * @param fileFileName
-     *            the fileFileName to set
+     * @param fileFileName the fileFileName to set
      */
-    public final void setFileFileName(String fileFileName) {
+    public final void setFileFileName(String[] fileFileName) {
         this.fileFileName = fileFileName;
     }
 
     /**
      * @return the fileContentType
      */
-    public final String getFileContentType() {
+    public final String[] getFileContentType() {
         return fileContentType;
     }
 
     /**
-     * @param fileContentType
-     *            the fileContentType to set
+     * @param fileContentType the fileContentType to set
      */
-    public final void setFileContentType(String fileContentType) {
+    public final void setFileContentType(String[] fileContentType) {
         this.fileContentType = fileContentType;
-    }
-
-    /**
-     * @param fileInputStream
-     *            the fileInputStream to set
-     */
-    public final void setFileInputStream(InputStream fileInputStream) {
-        this.fileInputStream = fileInputStream;
-    }
-
-    /**
-     * @param attFileContentType
-     *            the attFileContentType to set
-     */
-    public final void setAttFileContentType(String attFileContentType) {
-        this.attfileContentType = attFileContentType;
-    }
-
-    /**
-     * @return the attfileContentType
-     */
-    public final String getAttfileContentType() {
-        return attfileContentType;
-    }
-
-    /**
-     * @param attfileContentType
-     *            the attfileContentType to set
-     */
-    public final void setAttfileContentType(String attfileContentType) {
-        this.attfileContentType = attfileContentType;
     }
 
     /**
@@ -176,55 +137,52 @@ public class ContentInfoAction extends AbstractBaseAction implements
         this.contInfoService = contInfoService;
     }
 
-    @JSON(serialize = false)
-    public InputStream getFileInputStream() {
-        // 以服务器的文件保存地址和原文件名建立上传文件输出流
-        try {
-            FileOutputStream fos = new FileOutputStream(this.getSavePath()
-                    + "\\" + file.getName());
-            FileInputStream fis = new FileInputStream(getFile());
-            byte[] buffer = new byte[1024];
-            int len = 0;
-            while ((len = fis.read(buffer)) > 0) {
-                fos.write(buffer, 0, len);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        // String path = getRequest().getParameter("ac.AcPostUrl");
-        // File materialFile = null;
-        // String content = getRequest().getParameter("content");
-        // try {
-        // if(content!=null && content.equals("content")){
-        // String basePath = "files";
-        // materialFile = new File(basePath,new
-        // String(path.getBytes("iso-8859-1"),"utf-8"));
-        // }else{
-        // materialFile = new File(new
-        // String(path.getBytes("iso-8859-1"),"utf-8"));
-        // }
-        // } catch (UnsupportedEncodingException e1) {
-        // setMessage("utf-8编码不支持");
-        // }
-        // try {
-        // fileInputStream = new FileInputStream(materialFile);
-        // setResultCode(1);
-        // } catch (FileNotFoundException e) {
-        // setResultCode(-1);
-        // setMessage("素材预览异常,可能要预览的素材文件丢失");
-        // }
-        return fileInputStream;
+    /**
+     * @return the ides
+     */
+    public final List<Serializable> getIdes() {
+        return ides;
     }
 
+    /**
+     * @param ides
+     *            the ides to set
+     */
+    public final void setIdes(List<Serializable> ides) {
+        this.ides = ides;
+    }
+ 
     public String addContent() {// add new contInfo
         try {
+            if (null != file) {
+                // make the parent folder when each month
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMM", Locale.ENGLISH);
+                String monthlize = dateFormat.format(new Date());
+                File storeFolder = new File("/upload/content/" + monthlize);
+                if(!storeFolder.exists()) storeFolder.mkdirs();
+                for(int i = 0;i<file.length;i++){
+                    File storeFile = new File(storeFolder, System.currentTimeMillis() + "_" + fileFileName[i]);
+                    if(0 == i){
+                        String storePath = storeFile.getAbsolutePath();
+                        continfo.setContAttachment(storePath.substring(storePath.indexOf("upload") - 1));
+                    }
+                    if(1 == i){
+                        String storePath = storeFile.getAbsolutePath();
+                        continfo.setDisplayImage(storePath.substring(storePath.indexOf("upload") - 1));
+                    }
+                    //storeFile.createNewFile();
+                    //FileUtils.copyFile(file[i], storeFile);
+                    FileUtils.moveFile(file[i], storeFile);
+                } 
+            }
             Serializable id = contInfoService.save(continfo);
             setResultCode((Integer) id);
         } catch (CommonServiceException e) {
             setMessage(e.getMessage());
+            setResultCode(-1);
+        } catch (IOException e) {
+            System.out.println("move file exception: " + e.getMessage());
+            setMessage(e.getMessage()); 
             setResultCode(-1);
         }
         return Action.SUCCESS;
@@ -254,9 +212,33 @@ public class ContentInfoAction extends AbstractBaseAction implements
 
     public String updateContent() {// update the contInfo info
         try {
+            if (null != file) {
+                // make the parent folder when each month
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMM", Locale.ENGLISH);
+                String monthlize = dateFormat.format(new Date());
+                File storeFolder = new File("/upload/content/" + monthlize);
+                if(!storeFolder.exists()) storeFolder.mkdirs();
+                for(int i = 0;i<file.length;i++){
+                    File storeFile = new File(storeFolder, System.currentTimeMillis() + "_" + fileFileName[i]);
+                    if(0 == i){
+                        String storePath = storeFile.getAbsolutePath();
+                        continfo.setContAttachment(storePath.substring(storePath.indexOf("upload") - 1));
+                    }
+                    if(1 == i){
+                        String storePath = storeFile.getAbsolutePath();
+                        continfo.setDisplayImage(storePath.substring(storePath.indexOf("upload") - 1));
+                    }
+                    //storeFile.createNewFile();
+                    //FileUtils.copyFile(file[i], storeFile);
+                    FileUtils.moveFile(file[i], storeFile);
+                } 
+            }
             int result = contInfoService.update(continfo);
             setResultCode(result);
         } catch (CommonServiceException e) {
+            setMessage(e.getMessage());
+            setResultCode(-1);
+        } catch (IOException e) {
             setMessage(e.getMessage());
             setResultCode(-1);
         }
@@ -283,11 +265,5 @@ public class ContentInfoAction extends AbstractBaseAction implements
             setResultCode(-1);
         }
         return Action.SUCCESS;
-    }
-
-    @Override
-    public ContentInfo getModel() {
-        // TODO Auto-generated method stub
-        return continfo;
     }
 }

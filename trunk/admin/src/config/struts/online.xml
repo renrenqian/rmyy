@@ -48,5 +48,50 @@
             </result>
         </action>
         <!-- Consultation end -->
+        
+        <!-- Employee start -->
+        <!-- new Employee -->
+        <action name="addEmployee" method="addEmployee" class="empAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+        <!-- list Employee -->
+       <action name="listEmployee" method="listEmployee" class="empAction">
+            <result name="success" type="json">
+               <param name="ignoreHierarchy">false</param>
+               <param name="excludeNullProperties">true</param>
+            </result>
+       </action>
+        <!-- search Employee -->
+       <action name="searchEmployee" method="searchEmployee" class="empAction">
+            <result name="success" type="json">
+               <param name="ignoreHierarchy">false</param>
+               <param name="excludeNullProperties">true</param>
+            </result>
+       </action>
+        <!-- update the Employee info -->
+        <action name="updateEmployee" method="updateEmployee" class="empAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+        <!-- delete the Employee -->
+        <action name="deleteEmployee" method="deleteEmployee" class="empAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+        <!-- batch delete the Employee -->
+        <action name="batchDeleteEmployee" method="batchDeleteEmployee" class="empAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+        <!-- Employee end -->
     </package>
 </struts>

@@ -22,7 +22,8 @@
           CD_AUTHOR as contAuthor,
           ui.ui_name as contAuthorName,
           CD_DETAIL as contDetail,
-          CD_ATTACHMENT as contAttachment
+          CD_ATTACHMENT as contAttachment,
+          CD_DISPLAY_IMAGE as displayImage
        from CONTENT_DETAIL  cd 
        left join COLUMN_INFO ci on ci.CI_ID = cd.CI_ID
        left join GROUP_MEMBER gm on gm.GM_ID = cd.GM_ID
@@ -51,7 +52,8 @@
           CD_AUTHOR as contAuthor,
           ui.ui_name as contAuthorName,
           CD_DETAIL as contDetail,
-          CD_ATTACHMENT as contAttachment
+          CD_ATTACHMENT as contAttachment,
+          CD_DISPLAY_IMAGE as displayImage
        from CONTENT_DETAIL  cd 
        left join COLUMN_INFO ci on ci.CI_ID = cd.CI_ID
        left join GROUP_MEMBER gm on gm.GM_ID = cd.GM_ID
@@ -78,7 +80,8 @@
           CD_AUTHOR as contAuthor,
           ui.ui_name as contAuthorName,
           CD_DETAIL as contDetail,
-          CD_ATTACHMENT as contAttachment
+          CD_ATTACHMENT as contAttachment,
+          CD_DISPLAY_IMAGE as displayImage
        from CONTENT_DETAIL  cd 
        left join COLUMN_INFO ci on ci.CI_ID = cd.CI_ID
        left join GROUP_MEMBER gm on gm.GM_ID = cd.GM_ID
@@ -92,8 +95,8 @@
     <!-- add ContentInfo -->
     <insert id="insert" parameterClass="ContentInfo">
        <![CDATA[
-          INSERT INTO CONTENT_DETAIL(CD_ID, CD_TITAL, CI_HOME_PAGE, CI_ID, CD_SHOW_DAYS, CD_MEDIUM, CD_KEY, CD_PUBLISH_TIME,CD_AUDIT_RESULT,CD_ORDER, GM_ID, CD_AUTHOR, CD_DETAIL, CD_ATTACHMENT) 
-                         VALUES(#contId#, #contTitle#, #contHome_Page#, #colId#, #contShow_Days#, #contMedium#, #contKey#, sysdate(), #contAudit_Result#, #contOrder#, #gmId#, #contAuthor#, #contDetail#, #contAttachment#)
+          INSERT INTO CONTENT_DETAIL(CD_ID, CD_TITAL, CI_HOME_PAGE, CI_ID, CD_SHOW_DAYS, CD_MEDIUM, CD_KEY, CD_PUBLISH_TIME,CD_AUDIT_RESULT,CD_ORDER, GM_ID, CD_AUTHOR, CD_DETAIL, CD_ATTACHMENT, CD_DISPLAY_IMAGE) 
+                         VALUES(#contId#, #contTitle#, #contHome_Page#, #colId#, #contShow_Days#, #contMedium#, #contKey#, sysdate(), #contAudit_Result#, #contOrder#, #gmId#, #contAuthor#, #contDetail#, #contAttachment#, #displayImage#)
        ]]>
        <selectKey resultClass="int" keyProperty="contId">
          <![CDATA[SELECT LAST_INSERT_ID();]]>
@@ -120,8 +123,19 @@
           CD_AUDIT_RESULT = #contAudit_Result#,
           CD_ORDER = #contOrder#,
           GM_ID = #gmId#,
-          CD_DETAIL = #contDetail#,
-          CD_ATTACHMENT = #contAttachment#
+       ]]>
+       <dynamic prepend="">
+          <isNotEmpty property="contAttachment" prepend="">
+            <![CDATA[CD_ATTACHMENT = #contAttachment#,]]>
+          </isNotEmpty>
+       </dynamic>
+       <dynamic prepend="">
+          <isNotEmpty property="displayImage" prepend="">
+            <![CDATA[CD_DISPLAY_IMAGE = #displayImage#,]]>
+          </isNotEmpty>
+       </dynamic>
+        <![CDATA[ 
+          CD_DETAIL = #contDetail#
          WHERE CD_ID = #contId#
       ]]>
     </update>

@@ -55,6 +55,7 @@ CREATE TABLE CONTENT_DETAIL  (
    CD_AUTHOR             VARCHAR(512),
    CD_DETAIL             BLOB,
    CD_ATTACHMENT         VARCHAR(512),
+   CD_DISPLAY_IMAGE      VARCHAR(256),
    PRIMARY KEY (CD_ID)
 ) type=InnoDB;
 
@@ -122,3 +123,21 @@ CREATE TABLE ONLINE_CONSULTATION  (
 ) type=InnoDB;
 
 alter table DOCTOR_INFO auto_increment= 1000;
+
+/*==============================================================*/
+/* 表名：人才招聘表  Table Name(STAFF_RECRUITMENT)                */
+/*==============================================================*/
+CREATE TABLE STAFF_RECRUITMENT  (
+   SR_ID                 INTEGER               NOT NULL  AUTO_INCREMENT,
+   SR_POSITION           VARCHAR(128),
+   SR_LOCATION           VARCHAR(128),
+   SP_PUBLISH_DATE       DATETIME,
+   SP_EXPIRY_DATE        DATETIME,
+   SP_RECRUIT_NO         INTEGER,
+   SP_RECRUIT_AVAILABLE  INTEGER,
+   SP_ATTACHEMENT        VARCHAR(256),
+   SP_REQUIREMENT        VARCHAR(4096),
+   PRIMARY KEY (SR_ID)
+) type=InnoDB;
+
+alter table STAFF_RECRUITMENT auto_increment= 1000;

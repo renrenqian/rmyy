@@ -211,3 +211,12 @@ CREATE TABLE DOCTOR_INFO  (
 
 alter table DOCTOR_INFO auto_increment= 1000;
 
+
+/*==============================================================*/
+/* 表名：用户科室表表  Table Name(USESR_DEPT_REF)                 */
+/*==============================================================*/
+CREATE TABLE USESR_DEPT_REF  (
+   UI_ID                 INTEGER,
+   OD_ID                 INTEGER
+) type=InnoDB;
+
