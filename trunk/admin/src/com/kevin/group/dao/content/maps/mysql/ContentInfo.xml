@@ -150,7 +150,7 @@
                  ]]>
           </isNotEmpty>
         </dynamic>
-     <![CDATA[ORDER BY OC_POST_TIME, OS_ANSWER_TIME]]>
+     <![CDATA[ORDER BY CD_PUBLISH_TIME desc]]>
      <![CDATA[LIMIT #start#,#pageSize#]]>
     </select>
     
