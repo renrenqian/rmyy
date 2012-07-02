@@ -146,4 +146,12 @@
          WHERE DI_ID = #diId#
       ]]>
     </update>
+
+    <!-- batch delete the select ids -->
+    <delete id="deleteList" parameterClass="java.util.List">
+        <![CDATA[ DELETE FROM DOCTOR_INFO WHERE DI_ID IN]]>
+        <iterate conjunction="," prepend="" open="(" close=")">
+          <![CDATA[#[]#]]>
+        </iterate>
+    </delete>
 </sqlMap>

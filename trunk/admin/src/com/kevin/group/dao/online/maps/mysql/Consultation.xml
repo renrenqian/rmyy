@@ -208,4 +208,12 @@
          WHERE OC_ID = #ocId#
       ]]>
     </update>
+
+    <!-- batch delete the select ids -->
+    <delete id="deleteList" parameterClass="java.util.List">
+        <![CDATA[ DELETE FROM ONLINE_CONSULTATION WHERE OC_ID IN]]>
+        <iterate conjunction="," prepend="" open="(" close=")">
+          <![CDATA[#[]#]]>
+        </iterate>
+    </delete>
 </sqlMap>

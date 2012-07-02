@@ -139,4 +139,12 @@
          WHERE CD_ID = #contId#
       ]]>
     </update>
+
+    <!-- batch delete the select ids -->
+    <delete id="deleteList" parameterClass="java.util.List">
+        <![CDATA[ DELETE FROM CONTENT_DETAIL WHERE CD_ID IN]]>
+        <iterate conjunction="," prepend="" open="(" close=")">
+          <![CDATA[#[]#]]>
+        </iterate>
+    </delete>
 </sqlMap>

@@ -138,4 +138,12 @@
          WHERE OD_ID = #dpId#
       ]]>
     </update>
+
+    <!-- batch delete the select ids -->
+    <delete id="deleteList" parameterClass="java.util.List">
+        <![CDATA[ DELETE FROM OFFICE_DETAIL WHERE OD_ID IN]]>
+        <iterate conjunction="," prepend="" open="(" close=")">
+          <![CDATA[#[]#]]>
+        </iterate>
+    </delete>
 </sqlMap>

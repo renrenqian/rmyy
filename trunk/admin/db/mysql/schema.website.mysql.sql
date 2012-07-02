@@ -50,7 +50,7 @@ CREATE TABLE CONTENT_DETAIL  (
    CD_MEDIUM             INTEGER,
    CD_KEY                VARCHAR(512),
    CD_PUBLISH_TIME       DATETIME,
-   CD_AUDIT_RESULT       INTEGER   DEFAULT '1',
+   CD_AUDIT_RESULT       INTEGER   DEFAULT '0',
    CD_ORDER              INTEGER   DEFAULT '1',
    GM_ID                 INTEGER,
    CD_AUTHOR             VARCHAR(512),

@@ -1,18 +1,18 @@
 var contentDataTable;
 $(document).ready(function() {
-    initContentList();//初始化列表
-    $('#contentForm').sdValidate();//添加验证规则
+    initEmployeeList();//初始化列表
+    //$('#contentForm').sdValidate();//添加验证规则
     /* 新增 */
-    $("#J_AddContent").die().live("click", function() {
+    $("#J_AddEmployee").die().live("click", function() {
         $(window.parent.document).find("#centerIFrame").attr("src", "content/addEmploy.html");
     });
 
     /* 编辑 */
-    $(".J_ContentEdit").die().live("click", function() {
+    $(".J_EmployeeEdit").die().live("click", function() {
         var id = $(this).parent().parent().children().eq(0).children().eq(0).val();
-        $.getJSON('../group/searchContent.action?t=' + new Date().getTime() + '&continfo.contId=' + id, function(json) {
+        $.getJSON('../online/searchEmployee.action?t=' + new Date().getTime() + '&emp.erId=' + id, function(json) {
             if (json.resultCode > 0) {
-                formUnSerialize("contentForm", "continfo", json.continfo);
+                //formUnSerialize("contentForm", "emp", json.emp);
             } else {
                 $.fn.sdInfo({
                     type:"fail",
@@ -24,15 +24,15 @@ $(document).ready(function() {
     });
 
     /* del */
-    $('.J_ContentDel').die().live("click", function() {
+    $('.J_EmployeeDel').die().live("click", function() {
         var THIS = this;
         $.messager.confirm('删除', '是否确认删除所选招聘信息?', function(r) {
             if (r) {
                 var id = $(THIS).parent().parent().children().eq(0).children().eq(0).val();
-                var params = "continfo.contId=" + id;
-                $.post("../group/deleteContent.action", params, function(json) {
+                var params = "emp.erId=" + id;
+                $.post("../online/deleteEmployee.action", params, function(json) {
                     if (json.resultCode > 0) {
-                        initContentList();
+                        initEmployeeList();
                     } else {
                         $.fn.sdInfo({
                             type:"fail",
@@ -49,15 +49,15 @@ $(document).ready(function() {
 /**
  * 初始列表数据
  */
-function initContentList() {
+function initEmployeeList() {
     if (!contentDataTable) {
-        contentDataTable = $("#J_ContentTable").dataTable({
+        contentDataTable = $("#J_EmployeeTable").dataTable({
             bProcessing: false,
             bServerSide:false,
             bDestory:false,
             bRetrieve:true,
-            sAjaxSource:"../group/listContent.action",
-            sAjaxDataProp: "contList",
+            sAjaxSource:"../online/listEmployee.action",
+            sAjaxDataProp: "empList",
             oSearch: {"sSearch": ""},
             bAutoWidth:false,
             fnServerData:function(sSource, aoData, fnCallback) {
@@ -75,49 +75,49 @@ function initContentList() {
                             });
                         }
                         //处理返回结果
-                        if (!json.contList) {
-                            json.contList = [];
+                        if (!json.empList) {
+                            json.empList = [];
                         }
                         fnCallback(json);
                         setTableTrColor();
-                        $('#J_ContentTable input[type=checkbox]').sdCheckBox();
+                        $('#J_EmployeeTable input[type=checkbox]').sdCheckBox();
                     }
                 });
             },
             aoColumns: [
                 {
                     fnRender:function(obj) {
-                        return "<input type='checkbox' value='" + obj.aData.contId + "'/>";
+                        return "<input type='checkbox' value='" + obj.aData.erId + "'/>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='hidden2 tl'>" + obj.aData.contTitle + "</span>";
+                        return "<span >" + obj.aData.erPosition + "</span>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='hidden2 tl'>20人</span>";
+                        return "<span >" + obj.aData.erRecruit_no + "</span>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.contPublish_Time + "</span>";
+                        return "<span>" + obj.aData.erPublish_date + "</span>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span>" + obj.aData.contPublish_Time + "</span>";
+                        return "<span>" + obj.aData.erExpiry_date + "</span>";
                     }
                 },           
                 {
                     fnRender:function(obj) {
-                        return "<a class='edit J_ContentEdit'></a>";
+                        return "<a class='edit J_EmployeeEdit'></a>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<a class='del J_ContentDel'></a>";
+                        return "<a class='del J_EmployeeDel'></a>";
                     }
                 }
             ],
@@ -129,7 +129,7 @@ function initContentList() {
     } else {
         contentDataTable.fnClearTable();
         $.getJSON(
-                "../group/listContent.action",
+                "../online/listEmployee.action",
                 function(json) {
                     if (json.resultCode > 0) {
                     } else {
@@ -138,12 +138,12 @@ function initContentList() {
                             content:json.message ? json.message : "查询列表错误!"
                         });
                     }
-                    if (!json.contList) {
-                        json.contList = [];
+                    if (!json.empList) {
+                        json.empList = [];
                     }
-                    contentDataTable.fnAddData(json.contList);
+                    contentDataTable.fnAddData(json.empList);
                     setTableTrColor();
-                    $('#J_ContentTable input[type=checkbox]').sdCheckBox();
+                    $('#J_EmployeeTable input[type=checkbox]').sdCheckBox();
                 }
                 );
     }

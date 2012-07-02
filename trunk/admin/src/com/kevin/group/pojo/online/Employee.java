@@ -15,6 +15,8 @@ public class Employee {
     private String erPosition;
     private String erLocation;
     private String erPublish_date;
+    private String erSearchStart;// user for search condition
+    private String erSearchEnd;// user for search condition
     private String erExpiry_date;
     private String erRecruit_no;
     private String erRecruit_available;
@@ -79,6 +81,36 @@ public class Employee {
      */
     public final void setErPublish_date(String erPublish_date) {
         this.erPublish_date = erPublish_date;
+    }
+
+    /**
+     * @return the erSearchStart
+     */
+    public final String getErSearchStart() {
+        return erSearchStart;
+    }
+
+    /**
+     * @param erSearchStart
+     *            the erSearchStart to set
+     */
+    public final void setErSearchStart(String erSearchStart) {
+        this.erSearchStart = erSearchStart;
+    }
+
+    /**
+     * @return the erSearchEnd
+     */
+    public final String getErSearchEnd() {
+        return erSearchEnd;
+    }
+
+    /**
+     * @param erSearchEnd
+     *            the erSearchEnd to set
+     */
+    public final void setErSearchEnd(String erSearchEnd) {
+        this.erSearchEnd = erSearchEnd;
     }
 
     /**
