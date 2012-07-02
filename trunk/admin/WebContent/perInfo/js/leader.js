@@ -170,15 +170,16 @@ $('#J_LeaderDelAll').click(function() {
                 $.post("../member/batchDeleteLeader.action", ides, function(data) {
                     if (data.resultCode && data.resultCode > 0) {
                         initLeaderList();
+                        $('.checkBoss').attr("checked", false);
                     } else {
                         $.fn.sdInfo({
                             type:"fail",
                             content:data.message ? data.message : "批量删除领导信息失败"
                         });
+                        $('.checkBoss').attr("checked", false);
                     }
                 });
-                $.fn.checkTest("J_LeaderTable");
-                $('.checkBoss').attr("checked", false);
+                $.fn.checkTest("J_LeaderTable");               
             }
         });
     }

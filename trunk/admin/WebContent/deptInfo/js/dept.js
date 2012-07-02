@@ -177,14 +177,16 @@ $('#J_DeptDelAll').click(function() {
                 $.post("../group/batchDeleteDept.action", ides, function(data) {
                     if (data.resultCode && data.resultCode > 0) {
                     initDeptList();
+                    $.fn.checkTest("J_DeptTable");         
                     } else {
                         $.fn.sdInfo({
                             type:"fail",
                             content:data.message ? data.message : "批量删除科室失败"
                         });
+                        $.fn.checkTest("J_DeptTable");         
                     }
                 });
-                $.fn.checkTest("J_DeptTable");           
+                  
             }
         });
     }

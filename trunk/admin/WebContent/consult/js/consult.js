@@ -173,32 +173,32 @@ $(document).ready(function() {
     });
     
     //批量删除
-  //$('#J_ConsultDelAll').click(function() {
-//  if ($(this).hasClass("abled")) {
-//      //获取参数
-//      var checkbox = $('#J_ConsultTable input:checkbox:not(.checkBoss):checked');
-//      var ides = "";
-//      checkbox.each(function() {
-//          ides = ides + "ides=" + $(this).val() + "&";
-//      });
-//      $.messager.confirm('批量删除', '是否确认删除所选咨询信息?', function(r) {
-//          if (r) {
-//              $.post("../online/batchDeleteConsultation.action", ides, function(data) {
-//                  if (data.resultCode && data.resultCode > 0) {
-//                      initConsultList();
-//                  } else {
-//                      $.fn.sdInfo({
-//                          type:"fail",
-//                          content:data.message ? data.message : "批量删除咨询信息失败"
-//                      });
-//                  }
-//              });
-//              $.fn.checkTest("J_ConsultTable");
-//              $('.checkBoss').attr("checked", false);
-//          }
-//      });
-//  }
-//});
+  $('#J_ConsultDelAll').click(function() {
+  if ($(this).hasClass("abled")) {
+      //获取参数
+      var checkbox = $('#J_ConsultTable input:checkbox:not(.checkBoss):checked');
+      var ides = "";
+      checkbox.each(function() {
+          ides = ides + "ides=" + $(this).val() + "&";
+      });
+      $.messager.confirm('批量删除', '是否确认删除所选咨询信息?', function(r) {
+          if (r) {
+              $.post("../online/batchDeleteConsultation.action", ides, function(data) {
+                  if (data.resultCode && data.resultCode > 0) {
+                      initConsultList();
+                  } else {
+                      $.fn.sdInfo({
+                          type:"fail",
+                          content:data.message ? data.message : "批量删除咨询信息失败"
+                      });
+                  }
+              });
+              $.fn.checkTest("J_ConsultTable");
+              $('.checkBoss').attr("checked", false);
+          }
+      });
+  }
+});
     
     //高级搜索弹出
     $('#J_Search').click(function(){

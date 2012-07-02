@@ -206,6 +206,7 @@ $(document).ready(function() {
     });
     
 
+    //批量删除
     $('#J_DoctorDelAll').click(function() {
         if ($(this).hasClass("abled")) {
             //获取参数
@@ -219,19 +220,20 @@ $(document).ready(function() {
                     $.post("../member/batchDeleteDoctor.action", ides, function(data) {
                         if (data.resultCode && data.resultCode > 0) {
                             initDoctorList();
+                            $.fn.checkTest("J_DoctorTable");
                         } else {
                             $.fn.sdInfo({
                                 type:"fail",
                                 content:data.message ? data.message : "批量删除医师信息失败"
                             });
+                            $.fn.checkTest("J_DoctorTable");
                         }
-                    });
-                    $.fn.checkTest("J_DoctorTable");
-                    $('.checkBoss').attr("checked", false);
+                    });                                
                 }
             });
         }
     });
+    
     
     /*
      *   门诊信息部分开始
