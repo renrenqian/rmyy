@@ -1,86 +1,81 @@
 ﻿<!DOCTYPE html>
 <head>
-    <!--#include virtual="../master/headFile.html"-->
+<!--#include virtual="../master/headFile.html"-->
 </head>
 <body>
-<!--#include virtual="../master/top.html"-->
-<div class="content contentPart" style="margin-top: 3px; *margin-top: 3px;">
-    <div style="display: block; overflow: hidden;">
-        <div class="leftCol2">
-            <div class="mainPart">
-               <div class="itemBg">
-        <div class="titleBg2">
-             <p class="bread">
+	<!--#include virtual="../master/top.html"-->
+	<div class="content contentPart"
+		style="margin-top: 3px; *margin-top: 3px;">
+		<div style="display: block; overflow: hidden;">
+			<div class="leftCol2">
+				<div class="mainPart">
+					<div class="itemBg">
+						<div class="titleBg2">
+							<p class="bread">
 								<a class="breadB" href="/web/main/index.shtml">首页</a><span>&gt;</span>
-								<a class="breadN J_Cata1" href="#"></a><span>&gt;</span> 
-								<a class="breadN J_Cata2" href="#"></a>
+								<a class="breadN J_Cata1" href="#"></a><span>&gt;</span> <a
+									class="breadN J_Cata2" href="#"></a>
 							</p>
-        </div>
-        <h2 class="titleType3 J_Cata2">临床科室</h2>
-        <div style="clear: both;"></div>
-        <div class="docBody">
-            <ul class="expList">
-                <li class="deptList"><a href="#">内科</a>
-                    <hr />
-                    <ul class="subDeptList">
-                        <li><a href="deptDetail.shtml">肿瘤内科</a></li>
-                        <li><a href="deptDetail.shtml" >心血管内科</a></li>
-                        <li><a href="deptDetail.shtml" >消化内科</a></li>
-                        <li><a href="deptDetail.shtml" >神经内科</a></li>
-                        <li><a href="deptDetail.shtml" >肾内科</a></li>
-                        <li><a href="deptDetail.shtml" >内分泌科</a></li>
-                        <li><a href="deptDetail.shtml" >感染科</a></li>
-                        <li><a href="deptDetail.shtml" >皮肤性病科</a></li>
-                        <li><a href="deptDetail.shtml" >血液内科</a></li>
-                        <li><a href="deptDetail.shtml" >儿科</a></li>
-                        <li><a href="deptDetail.shtml" >呼吸内科</a></li>
-                        <li><a href="deptDetail.shtml" >肿瘤科</a></li>
-                        <li><a href="deptDetail.shtml" >临床心理科</a></li>
-                        <li><a href="deptDetail.shtml" >感染科</a></li>
-                        <li><a href="deptDetail.shtml" >急诊科</a></li>
-                    </ul>
-                </li>
-                 <li class="deptList"><a href="#">外科</a>
-                    <hr />
-                    <ul class="subDeptList">
-                        <li><a href="deptDetail.shtml" >眼科</a></li>
-                        <li><a href="deptDetail.shtml" >妇科</a></li>
-                        <li><a href="deptDetail.shtml" >产科</a></li>
-                        <li><a href="deptDetail.shtml" >耳鼻咽喉科</a></li>
-                        <li><a href="deptDetail.shtml" >肝胆胰外科</a></li>
-                        <li><a href="deptDetail.shtml" >胃肠肛外科</a></li>
-                        <li><a href="deptDetail.shtml" >口腔科</a></li>
-                        <li><a href="deptDetail.shtml" >神经外科</a></li>
-                        <li><a href="deptDetail.shtml" >胸外科</a></li>
-                        <li><a href="deptDetail.shtml" >骨科</a></li>
-                        <li><a href="deptDetail.shtml" >肿瘤外科</a></li>
-                        <li><a href="deptDetail.shtml" >乳腺外科</a></li>
-                        <li><a href="deptDetail.shtml" >心血管外科</a></li>
-                        <li><a href="deptDetail.shtml" >医学美容科</a></li>
-                        <li><a href="deptDetail.shtml" >麻醉科</a></li>
-                        <li><a href="deptDetail.shtml" >泌尿外科</a></li>
-                    </ul>
-                </li>
-                   <li class="deptList"><a href="#">综合</a>
-                    <hr />
-                    <ul class="subDeptList">
-                        <li><a href="deptDetail.shtml" >干部保健科</a></li>
-                        <li><a href="deptDetail.shtml" >危重病医学科</a></li>
-                        <li><a href="deptDetail.shtml" >疼痛门诊</a></li>
-                        <li><a href="deptDetail.shtml" >针灸推拿科</a></li>
-                        <li><a href="deptDetail.shtml" >中医科</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-            </div>
-        </div>
-        <!--#include virtual="../master/commonSubTitle.html"-->
-    </div>
-</div>
-<!--#include virtual="../master/footer.html"-->
-<script src="/web/main/js/common.js"></script>
+						</div>
+						<h2 class="titleType3 J_Cata2"></h2>
+						<div style="clear: both;"></div>
+						<div class="docBody">
+							<ul class="expList"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--#include virtual="../master/commonSubTitle.html"-->
+		</div>
+	</div>
+	<!--#include virtual="../master/footer.html"-->
+	<script src="/web/main/js/common.js"></script>
+	<script>
+		var action = GetParameter('cata2');
+		$.getJSON(action+'.txt', function(json) {
+			if (json.resultCode > 0) {
+				var deptList = json.deptList;
+				var listItem = '';
+				if (action == 'lcks') {
+					var neiList = "";
+					var waiList = "";
+					var zList = "";				
+					$(deptList).each(
+							function(i, item) {
+								listItem = " <li><a href='deptDetail.shtml?id="+ item.dpId + "' >" + item.dpName + "</a></li>";
+								if (item.dpNote == '内科') {
+									neiList += listItem;
+								}
+								if (item.dpNote == '外科') {
+									waiList += listItem;
+								}
+								if (item.dpNote == '综合') {
+									zList += listItem;
+								}
+							});										
+					$('.expList').html("<li class='deptList'><a href='#'>内科</a>"+
+							"<hr />"+
+							"<ul class='subDeptList'>"+neiList+"</ul></li>"+
+							"<li class='deptList'><a href='#'>外科</a>"+
+							"<hr />"+
+							"<ul class='subDeptList'>"+waiList+"</ul></li>"+
+							"<li class='deptList'><a href='#'>综合</a>"+
+							"<hr />"+
+							"<ul class='subDeptList'>"+zList+"</ul></li>");					
+				}else{
+					var commonList = "";
+					$(deptList).each(							
+							function(i, item) {
+								listItem = " <li><a href='deptDetail.shtml?id="+ item.dpId + "' >" + item.dpName + "</a></li>";
+								commonList += listItem;							
+							});
+					$('.expList').html("<li class='deptList'>"+
+							"<hr />"+
+							"<ul class='subDeptList'>"+commonList+"</ul></li>");	
+				}
+			}
+		});
+	</script>
 </body>
 </html>
 
