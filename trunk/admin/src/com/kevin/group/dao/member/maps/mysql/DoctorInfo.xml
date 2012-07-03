@@ -87,7 +87,7 @@
        from DOCTOR_INFO di
        left join OFFICE_DETAIL od on od.OD_ID = di.DI_DEPTTYPE
      ]]>
-     <![CDATA[ORDER BY DI_ID, DI_ORDER]]>
+     <![CDATA[ORDER BY DI_ORDER]]>
      <![CDATA[LIMIT #start#,#pageSize#]]>
     </select>
 

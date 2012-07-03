@@ -33,6 +33,8 @@ $(document).ready(function() {
                     $('#dpOd_telephone').val(item.dpOd_telephone);
                     $('#liOrder').val(item.liOrder);
                     $('#liQuarters').val(item.liQuarters);
+                    //preview the image
+                    $("#previewDiv").css({"background-image":"url(../" + replaceStr(item.diPortrait, "\\\\", "/" ) + ")"});
                     $('#liHold_period').val(item.liHold_period);
                     $('#liTelephone').val(item.liTelephone);
                     $('#liEmail').val(item.liEmail);
@@ -192,19 +194,38 @@ function initLeaderList() {
     if (!leaderDataTable) {
         leaderDataTable = $("#J_LeaderTable").dataTable({
             bProcessing: false,
-            bServerSide:false,
+            bServerSide:true,//设置服务端分页
             bDestory:false,
-            bRetrieve:true,
+            //bRetrieve:true,
             sAjaxSource:"../member/listLeader.action",
-            sAjaxDataProp: "leaderList",
+            sAjaxDataProp: "page.dataList",
             oSearch: {"sSearch": ""},
             bAutoWidth:false,
             fnServerData:function(sSource, aoData, fnCallback) {
+                var params = [];
+                var iDisplayStart,iDisplayLength,sEcho,sSearch;
+                for (var i = 0; i < aoData.length; i++) {
+                    if (aoData[i].name == "iDisplayStart") {
+                        iDisplayStart = aoData[i].value;
+                    }
+                    if (aoData[i].name == "iDisplayLength") {
+                        iDisplayLength = aoData[i].value;
+                    }
+                    if (aoData[i].name == "sEcho") {
+                        sEcho = aoData[i].value;
+                    }
+                    if (aoData[i].name == "sSearch") {
+                        sSearch = aoData[i].value;
+                    }
+                }
+                params.push({ "name": "page.pageSize", "value": iDisplayLength });
+                var currentPageNo = Math.floor(iDisplayStart / iDisplayLength) + 1;
+                params.push({ "name": "page.currentPageNo", "value": currentPageNo });
                 $.ajax({
                     dataType: 'json',
-                    type: "GET",
+                    type: "POST",
                     url: sSource,
-                    data: aoData,
+                    data: params,
                     success: function(json) {
                         if (json.resultCode > 0) {
                         } else {
@@ -213,10 +234,16 @@ function initLeaderList() {
                                 content:json.message ? json.message : "查询列表错误!"
                             });
                         }
-                        //处理返回结果
-                        if (!json.leaderList) {
-                            json.leaderList = [];
+                        if (!json.page) {
+                            json.page = {};
                         }
+                        if (!json.page.dataList) {//处理返回结果
+                            json.page.dataList = [];
+                        }
+                        json.sEcho = sEcho;
+                        json.iTotalRecords = json.page.totalItemCount;
+                        json.iTotalDisplayRecords = json.page.totalItemCount;
+
                         fnCallback(json);
                         setTableTrColor();
                         $('#J_LeaderTable input[type=checkbox]').sdCheckBox();
@@ -277,10 +304,10 @@ function initLeaderList() {
                             content:json.message ? json.message : "查询列表错误!"
                         });
                     }
-                    if (!json.leaderList) {
-                        json.leaderList = [];
+                    if (!json.page.dataList) {
+                        json.page.dataList = [];
                     }
-                    leaderDataTable.fnAddData(json.leaderList);
+                    leaderDataTable.fnAddData(json.page.dataList);
                     setTableTrColor();
                     $('#J_LeaderTable input[type=checkbox]').sdCheckBox();
                 }

@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Locale;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -21,6 +22,7 @@ import org.springframework.stereotype.Component;
 import com.kevin.common.action.AbstractBaseAction;
 import com.kevin.common.exception.CommonServiceException;
 import com.kevin.common.pojo.PageBean;
+import com.kevin.group.constance.GroupConstance;
 import com.kevin.group.pojo.online.Employee;
 import com.kevin.group.service.online.IEmployeeService;
 import com.opensymphony.xwork2.Action;
@@ -41,6 +43,7 @@ public class EmployeeAction extends AbstractBaseAction {
     private File file;
     private String fileFileName;
     private String fileContentType;
+    private String savePath;
 
     /**
      * @return the emp
@@ -149,6 +152,20 @@ public class EmployeeAction extends AbstractBaseAction {
     }
 
     /**
+     * @return the savePath
+     */
+    public final String getSavePath() {
+        return savePath;
+    }
+
+    /**
+     * @param savePath the savePath to set
+     */
+    public final void setSavePath(String savePath) {
+        this.savePath = savePath;
+    }
+
+    /**
      * @param fileContentType
      *            the fileContentType to set
      */
@@ -162,11 +179,13 @@ public class EmployeeAction extends AbstractBaseAction {
                 // make the parent folder when each month
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMM", Locale.ENGLISH);
                 String monthlize = dateFormat.format(new Date());
-                File storeFolder = new File("/upload/employee/" + monthlize);
+                String realPath = ServletActionContext.getServletContext().getRealPath(this.getSavePath());
+                File storeFolder = new File(realPath + File.separator + GroupConstance.UPLOAD_EMPLOY + File.separator + monthlize);
+                //File storeFolder = new File("/upload/employee/" + monthlize);
                 if(!storeFolder.exists()) storeFolder.mkdirs();
                 File storeFile = new File(storeFolder, System.currentTimeMillis() + "_" + fileFileName);
                 String storePath = storeFile.getAbsolutePath();
-                emp.setErAttachement(storePath.substring(storePath.indexOf("upload") - 1));
+                emp.setErAttachement(storePath.substring(storePath.indexOf(GroupConstance.UPLOAD_ROOT)));
                 //storeFile.createNewFile();
                 //FileUtils.copyFile(file[i], storeFile);
                 FileUtils.moveFile(file, storeFile);
@@ -214,11 +233,13 @@ public class EmployeeAction extends AbstractBaseAction {
                 // make the parent folder when each month
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMM", Locale.ENGLISH);
                 String monthlize = dateFormat.format(new Date());
-                File storeFolder = new File("/upload/employee/" + monthlize);
+                String realPath = ServletActionContext.getServletContext().getRealPath(this.getSavePath());
+                File storeFolder = new File(realPath + File.separator + GroupConstance.UPLOAD_EMPLOY + File.separator + monthlize);
+                //File storeFolder = new File("/upload/employee/" + monthlize);
                 if(!storeFolder.exists()) storeFolder.mkdirs();
                 File storeFile = new File(storeFolder, System.currentTimeMillis() + "_" + fileFileName);
                 String storePath = storeFile.getAbsolutePath();
-                emp.setErAttachement(storePath.substring(storePath.indexOf("upload") - 1));
+                emp.setErAttachement(storePath.substring(storePath.indexOf(GroupConstance.UPLOAD_ROOT)));
                 //storeFile.createNewFile();
                 //FileUtils.copyFile(file[i], storeFile);
                 FileUtils.moveFile(file, storeFile);

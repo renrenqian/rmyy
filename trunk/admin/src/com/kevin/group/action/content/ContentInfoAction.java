@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Locale;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -21,6 +22,7 @@ import org.springframework.stereotype.Component;
 import com.kevin.common.action.AbstractBaseAction;
 import com.kevin.common.exception.CommonServiceException;
 import com.kevin.common.pojo.PageBean;
+import com.kevin.group.constance.GroupConstance;
 import com.kevin.group.pojo.content.ContentInfo;
 import com.kevin.group.service.content.IContentInfoService;
 import com.opensymphony.xwork2.Action;
@@ -175,17 +177,19 @@ public class ContentInfoAction extends AbstractBaseAction {
                 // make the parent folder when each month
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMM", Locale.ENGLISH);
                 String monthlize = dateFormat.format(new Date());
-                File storeFolder = new File("/upload/content/" + monthlize);
+                String realPath = ServletActionContext.getServletContext().getRealPath(this.getSavePath());
+                File storeFolder = new File(realPath + File.separator + GroupConstance.UPLOAD_NEWS + File.separator + monthlize);
+                //File storeFolder = new File("/upload/content/" + monthlize);
                 if(!storeFolder.exists()) storeFolder.mkdirs();
                 for(int i = 0;i<file.length;i++){
                     File storeFile = new File(storeFolder, System.currentTimeMillis() + "_" + fileFileName[i]);
                     if(0 == i){
                         String storePath = storeFile.getAbsolutePath();
-                        continfo.setContAttachment(storePath.substring(storePath.indexOf("upload") - 1));
+                        continfo.setContAttachment(storePath.substring(storePath.indexOf(GroupConstance.UPLOAD_ROOT)));
                     }
                     if(1 == i){
                         String storePath = storeFile.getAbsolutePath();
-                        continfo.setDisplayImage(storePath.substring(storePath.indexOf("upload") - 1));
+                        continfo.setDisplayImage(storePath.substring(storePath.indexOf(GroupConstance.UPLOAD_ROOT)));
                     }
                     //storeFile.createNewFile();
                     //FileUtils.copyFile(file[i], storeFile);
@@ -237,17 +241,19 @@ public class ContentInfoAction extends AbstractBaseAction {
                 // make the parent folder when each month
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMM", Locale.ENGLISH);
                 String monthlize = dateFormat.format(new Date());
-                File storeFolder = new File("/upload/content/" + monthlize);
+                String realPath = ServletActionContext.getServletContext().getRealPath(this.getSavePath());
+                File storeFolder = new File(realPath + File.separator + GroupConstance.UPLOAD_NEWS + File.separator +  monthlize);
+                //File storeFolder = new File("/upload/content/" + monthlize);
                 if(!storeFolder.exists()) storeFolder.mkdirs();
                 for(int i = 0;i<file.length;i++){
                     File storeFile = new File(storeFolder, System.currentTimeMillis() + "_" + fileFileName[i]);
                     if(0 == i){
                         String storePath = storeFile.getAbsolutePath();
-                        continfo.setContAttachment(storePath.substring(storePath.indexOf("upload") - 1));
+                        continfo.setContAttachment(storePath.substring(storePath.indexOf(GroupConstance.UPLOAD_ROOT)));
                     }
                     if(1 == i){
                         String storePath = storeFile.getAbsolutePath();
-                        continfo.setDisplayImage(storePath.substring(storePath.indexOf("upload") - 1));
+                        continfo.setDisplayImage(storePath.substring(storePath.indexOf(GroupConstance.UPLOAD_ROOT)));
                     }
                     //storeFile.createNewFile();
                     //FileUtils.copyFile(file[i], storeFile);

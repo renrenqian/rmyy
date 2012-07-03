@@ -59,6 +59,8 @@ $(document).ready(function() {
                       $('#diResume').val(item.diResume); 
                       $('#diResearch_direction').val(item.diResearch_direction);
                       $('#diAccomplishment').val(item.diAccomplishment);
+                      //preview the image
+                      $("#previewDiv").css({"background-image":"url(../" + replaceStr(item.diPortrait, "\\\\", "/" ) + ")"});
                        //人才类型字段取值
                       var rcTypeArray=item.doctType.split(',');
                       for(var i=0;i<rcTypeArray.length;i++){

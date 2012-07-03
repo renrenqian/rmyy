@@ -57,6 +57,41 @@
      ]]>
     </select>
     
+    <!-- 查询总记录数 -->
+    <select id="getTotalCount" parameterClass="LeaderInfo" resultClass="java.lang.Long">
+       <![CDATA[
+         select COUNT(LI_ID) 
+         from LEADER_INFO
+      ]]>
+    <![CDATA[ ]]>
+    </select>
+    
+    <!-- list all the DoctorInfo info -->
+    <select id="listAllByPageBean"  parameterClass="pageBean"  resultClass="LeaderInfo">
+     <![CDATA[
+       select 
+           li.LI_ID as liId ,
+            LI_CATE as liCate,
+            LI_CURRENT as liCurrent,
+            gm.GM_NAME as ligmName,
+            LI_NAME as liName,
+            LI_HOLD_PERIOD as liHold_period,
+            LI_QUARTERS as liQuarters,
+            LI_TECH_POSITION as liTech_position,
+            LI_TELEPHONE as liTelephone,
+            LI_EMAIL as liEmail,
+            LI_PORTRAIT as liPortrait,
+            LI_RANG as liRang,
+            LI_ORDER as liOrder,
+            LI_RESUME as liResume,
+            LI_DESC as liDesc
+       from LEADER_INFO li
+       left join GROUP_MEMBER gm on gm.GM_ID = li.LI_GM
+     ]]>
+     <![CDATA[ORDER BY LI_ORDER]]>
+     <![CDATA[LIMIT #start#,#pageSize#]]>
+    </select>
+    
     <!-- list all the LeaderInfo info -->
     <select id="listAll"  parameterClass="LeaderInfo"  resultClass="LeaderInfo">
      <![CDATA[

@@ -8,12 +8,10 @@ package com.kevin.group.action.member;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -21,6 +19,7 @@ import org.springframework.stereotype.Component;
 import com.kevin.common.action.AbstractBaseAction;
 import com.kevin.common.exception.CommonServiceException;
 import com.kevin.common.pojo.PageBean;
+import com.kevin.group.constance.GroupConstance;
 import com.kevin.group.pojo.member.DoctorInfo;
 import com.kevin.group.service.member.IDoctorService;
 import com.opensymphony.xwork2.Action;
@@ -41,6 +40,7 @@ public class DoctorAction extends AbstractBaseAction {
     private File file;
     private String fileFileName;
     private String fileContentType;
+    private String savePath;
  
     /**
      * @return the page
@@ -146,6 +146,20 @@ public class DoctorAction extends AbstractBaseAction {
     }
 
     /**
+     * @return the savePath
+     */
+    public final String getSavePath() {
+        return savePath;
+    }
+
+    /**
+     * @param savePath the savePath to set
+     */
+    public final void setSavePath(String savePath) {
+        this.savePath = savePath;
+    }
+
+    /**
      * @param fileContentType the fileContentType to set
      */
     public final void setFileContentType(String fileContentType) {
@@ -156,14 +170,17 @@ public class DoctorAction extends AbstractBaseAction {
         try {
             if (null != file) {
                 // make the parent folder when each month
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMM", Locale.ENGLISH);
-                String monthlize = dateFormat.format(new Date());
-                File storeFolder = new File("/upload/member/" + monthlize);
+                //SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMM", Locale.ENGLISH);
+                //String monthlize = dateFormat.format(new Date());
+                //File storeFolder = new File("/upload/member/" + monthlize);
+                //String realPath = ServletActionContext.getServletContext().getContextPath();
+                String realPath = ServletActionContext.getServletContext().getRealPath(this.getSavePath());
+                File storeFolder = new File(realPath + File.separator + GroupConstance.UPLOAD_DOCTOR);
                 if (!storeFolder.exists())
                     storeFolder.mkdirs();
                 File storeFile = new File(storeFolder, System.currentTimeMillis() + "_" + fileFileName);
                 String storePath = storeFile.getAbsolutePath();
-                doct.setDiPortrait(storePath.substring(storePath .indexOf("upload") - 1));
+                doct.setDiPortrait(storePath.substring(storePath .indexOf(GroupConstance.UPLOAD_ROOT)).replaceAll("\\", "/"));
                 // FileUtils.copyFile(file, storeFile);
                 // storeFile.createNewFile();
                 FileUtils.moveFile(file, storeFile);
@@ -209,14 +226,16 @@ public class DoctorAction extends AbstractBaseAction {
         try {
             if (null != file) {
                 // make the parent folder when each month
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMM", Locale.ENGLISH);
-                String monthlize = dateFormat.format(new Date());
-                File storeFolder = new File("/upload/member/" + monthlize);
+                //SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMM", Locale.ENGLISH);
+                //String monthlize = dateFormat.format(new Date());
+                //File storeFolder = new File("/upload/member/" + monthlize);
+                String realPath = ServletActionContext.getServletContext().getRealPath(this.getSavePath());
+                File storeFolder = new File(realPath + File.separator + GroupConstance.UPLOAD_DOCTOR);
                 if (!storeFolder.exists())
                     storeFolder.mkdirs();
                 File storeFile = new File(storeFolder, System.currentTimeMillis() + "_" + fileFileName);
                 String storePath = storeFile.getAbsolutePath();
-                doct.setDiPortrait(storePath.substring(storePath .indexOf("upload") - 1));
+                doct.setDiPortrait(storePath.substring(storePath .indexOf(GroupConstance.UPLOAD_ROOT)).replaceAll("\\", "/"));
                 // FileUtils.copyFile(file, storeFile);
                 // storeFile.createNewFile();
                 FileUtils.moveFile(file, storeFile);

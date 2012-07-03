@@ -127,6 +127,7 @@
                     <param name="maximumSize">10485760</param>
                 -->
             </interceptor-ref>
+            <param name="savePath">/upload</param>
             <result name="success" type="json">
                 <param name="ignoreHierarchy">false</param>
                 <param name="excludeNullProperties">true</param>
@@ -136,6 +137,7 @@
         <action name="updateLeader" method="updateLeader" class="leaderAction">
             <interceptor-ref name="defaultStack">
             </interceptor-ref>
+            <param name="savePath">/upload</param>
             <result name="success" type="json">
                 <param name="ignoreHierarchy">false</param>
                 <param name="excludeNullProperties">true</param>
@@ -143,6 +145,7 @@
         </action>
         <!-- new Doctor -->
         <action name="addDoctor" method="addDoctor" class="doctorAction">
+            <param name="savePath">/upload</param>
             <result name="success" type="json">
                 <param name="ignoreHierarchy">false</param>
                 <param name="excludeNullProperties">true</param>
@@ -150,6 +153,7 @@
         </action>
         <!-- update the Doctor info -->
         <action name="updateDoctor" method="updateDoctor" class="doctorAction">
+            <param name="savePath">/upload</param>
             <result name="success" type="json">
                 <param name="ignoreHierarchy">false</param>
                 <param name="excludeNullProperties">true</param>

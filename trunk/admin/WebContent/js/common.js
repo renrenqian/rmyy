@@ -771,3 +771,11 @@ function reP(str){
     str=str.replace(reg,'%');
     return str;
 }
+//替换字符
+function replaceStr(str, orgStr, replaceStr){
+    // add replace all function
+    var reg = new RegExp(orgStr, "g"); // g means replace all
+    //str=str.replace(reg, 'zq');
+    str=str.replace(reg, replaceStr);
+    return str;
+}
