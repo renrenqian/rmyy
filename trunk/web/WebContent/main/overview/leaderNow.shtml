@@ -10,12 +10,12 @@
             <div class="mainPart">
                 <div class="itemBg">
                     <div class="titleBg2">
-                        <p class="bread">
-								<a href="/index.shtml" class="breadB">首页</a><span>></span><a
-									href="#" class="breadN">医院概览</a><span>></span><a
-									href="#" class="breadN">领导班子</a><span>></span>
-									<a href="#" class="breadN">现任领导</a>
-							</p>
+                         <p class="bread">
+	                        <a class="breadB" href="/web/main/index.shtml">首页</a><span>&gt;</span>
+	                        <a class="breadN J_Cata1" href="#"></a><span>&gt;</span>
+	                        <a class="breadN J_Cata2" href="#"></a><span>&gt;</span>
+	                        <a class="breadN J_Cata3" href="#"></a>
+                        </p>
                     </div>
                     <h2 class="titleType3">现任领导 . 马胜林</h2>
 
@@ -128,7 +128,7 @@
                 </div>
             </div>
         </div>
-        <!--#include virtual="/web/main/master/overviewSubTitle.html"-->
+        <!--#include virtual="/web/main/master/commonSubTitle.html"-->
     </div>
 </div>
 <!--#include virtual="/web/main/master/footer.html"-->

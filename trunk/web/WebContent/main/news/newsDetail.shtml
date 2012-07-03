@@ -13,8 +13,8 @@
                         <p class="bread">
                             <a href="/index.shtml" class="breadB">首页</a><span>></span>
                             <a href="#" class="breadN J_Cata1"></a><span>></span>
-                            <a href="/web/main/news/newsList.shtml" class="breadB J_Cata2"></a><span>></span>
-                            <a href="#" class="breadN">新闻详情</a>
+                            <a href="#" class="breadB J_Cata2"></a><span>></span>
+                            <a href="#" class="breadN">内容详情</a>
                         </p>
                     </div>
                     <h2 class="newsMainTitle">【媒体报道】位于钱江新城的杭州市妇女医院明年6月开张</h2>
@@ -59,7 +59,6 @@
 </div>
 <!--#include virtual="../master/footer.html"-->
 <script src="/web/main/js/common.js"></script>
-<script src="/web/main/js/master.js"></script>
 </body>
 </html>
 

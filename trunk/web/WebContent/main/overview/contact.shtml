@@ -12,15 +12,15 @@
 					<div class="itemBg">
 						<div class="titleBg2">
 							<p class="bread">
-								<a href="/index.shtml" class="breadB">首页</a><span>></span><a
-									href="#" class="breadN">医院概览</a><span>></span><a
-									href="#" class="breadN">联系我们</a>
+								<a class="breadB" href="/web/main/index.shtml">首页</a><span>&gt;</span>
+								<a class="breadN J_Cata1" href="#"></a><span>&gt;</span> <a
+									class="breadN J_Cata2" href="#"></a>
 							</p>
 						</div>
 						<h2 class="titleType3">联系我们</h2>
 
 						<div style="clear: both;"></div>
-					<table class="contactTable w8 bc">
+						<table class="contactTable w8 bc">
 							<tr>
 								<th colspan="2">杭州市妇幼保健院</th>
 							</tr>
@@ -239,7 +239,7 @@
 					</div>
 				</div>
 			</div>
-			<!--#include virtual="../master/overviewSubTitle.html"-->
+			<!--#include virtual="../master/commonSubTitle.html"-->
 		</div>
 	</div>
 	<!--#include virtual="../master/footer.html"-->

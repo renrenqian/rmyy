@@ -486,8 +486,8 @@ body {
 	color: #006666;
 }
 
-.subTitle .now {
-	color: #844200; font-weight: bolder;
+.subTitle .now,.subTitle .now:hover {
+	color: #FF6A00; font-weight: bolder;
 }
 
 .subTitle .now span {

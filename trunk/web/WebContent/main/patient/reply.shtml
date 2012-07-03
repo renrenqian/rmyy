@@ -12,12 +12,12 @@
                <div class="itemBg">
         <div class="titleBg2">
              <p class="bread">
-								<a href="/index.shtml" class="breadB">首页</a><span>></span><a
-									href="#" class="breadN">患者服务中心</a><span>></span><a href="/web/main/patient/consultIndex.shtml"
-									class="breadB">在线咨询中心</a>
-									<span>></span><a href="#"
-									class="breadN">查看回复</a>
-							</p>
+								<a href="/index.shtml" class="breadB">首页</a><span>></span>
+								<a href="#" class="breadN J_Cata1"></a><span>></span> 
+								<a href="#" class="breadN J_Cata2"></a><span>></span> 
+								<a href="/web/main/patient/consultIndex.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx" class="breadB J_Cata3"></a><span>></span> 
+								<a href="#" class="breadN">查看回复</a>
+						</p>
         </div>
         <h2 class="titleType3">在线咨询中心 . 查看回复</h2>
         <div style="clear: both;"></div>
@@ -40,7 +40,7 @@
     </div>
             </div>
         </div>
-        <!--#include virtual="../master/patientSubTitle.html"-->
+        <!--#include virtual="../master/commonSubTitle.html"-->
     </div>
 </div>
 <!--#include virtual="../master/footer.html"-->

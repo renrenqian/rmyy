@@ -121,7 +121,6 @@
 	</div>
 	<!--#include virtual="/web/main/master/footer.html"-->
 	<script src="/web/main/js/common.js"></script>
-	<script src="/web/main/js/master.js"></script>
 	<script type="text/javascript">		
 // 		var orderby = ""; //进行排序的依据 
 // 		$(document).ready(function() {

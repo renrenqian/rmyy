@@ -1,7 +1,7 @@
 ﻿@charset "utf-8";
 /* base reset */
 body, div, a, p, ul, li, img, span, h1, h2, h3, h4, h5, h6,hr, input, textarea, select,th,td,form,figure,figcaption{ margin: 0; padding: 0; }
-body {font: 12px/1.8 'lucida grande',tahoma,verdana,arial,sans-serif,"宋体"; height:100%; }
+body {font: 12px/1.8 'lucida grande',tahoma,verdana,arial,sans-serif,"宋体"; height:100%; background:#FFF;}
 table{border-collapse:collapse;}
 html:root body, html:root input, html:root button, html:root textarea, html:root select {font-family: Tahoma,Geneva,"微软雅黑","宋体";}
 img { border: 0; }

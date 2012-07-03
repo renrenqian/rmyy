@@ -11,10 +11,10 @@
 				<div class="mainPart">
 					<div class="itemBg">
 						<div class="titleBg2">
-							<p class="bread">
+							  <p class="bread">
 								<a class="breadB" href="/web/main/index.shtml">首页</a><span>&gt;</span>
-								<a class="breadN" href="#">专家介绍</a><span>&gt;</span> <a
-									class="breadN" href="#">门诊排班</a>
+								<a class="breadN J_Cata1" href="#"></a><span>&gt;</span> 
+								<a class="breadN J_Cata2" href="#"></a>
 							</p>
 						</div>
 						<h2 class="titleType3">门诊排班信息</h2>
@@ -73,7 +73,7 @@
 								<option>星期日上午</option>
 								<option>星期日下午</option>
 							</select> <a class="greenBtn tc" style="margin: 20px auto;"
-								href="../doctor/mzpb.shtml">查询</a>
+								href="../doctor/mzpb.shtml?cata1=zjjs&cata2=mzpb">查询</a>
 							<table class="Schedule">
 								<thead>
 									<tr class="totalTh">
@@ -447,7 +447,7 @@
 					</div>
 				</div>
 			</div>
-			<!--#include virtual="../master/doctorSubTitle.html"-->
+			<!--#include virtual="../master/commonSubTitle.html"-->
 		</div>
 	</div>
 	<!--#include virtual="../master/footer.html"-->

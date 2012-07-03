@@ -10,11 +10,12 @@
             <div class="mainPart">
                   <div class="itemBg">
         <div class="titleBg2">
-             <p class="bread">
-								<a href="/index.shtml" class="breadB">首页</a><span>></span><a
-									href="#" class="breadN">患者服务中心</a><span>></span><a href="#"
-									class="breadN">化验查询</a>
-							</p>
+           <p class="bread">
+								<a href="/index.shtml" class="breadB">首页</a><span>></span>
+								<a href="#" class="breadN J_Cata1"></a><span>></span> 
+								<a href="#" class="breadN J_Cata2"></a><span>></span> 
+								<a href="#" class="breadN J_Cata3"></a>
+						</p>
         </div>
         <h2 class="newsMainTitle">杭州市第一人民医院---化验查询系统</h2>
         <a class="greenBtn tc" style="margin-bottom: 10px;" href="http://guahao.zjol.com.cn/HospitalInfo.Aspx?ID=057101"
@@ -32,7 +33,7 @@
     </div>
             </div>
         </div>
-        <!--#include virtual="../master/patientSubTitle.html"-->
+        <!--#include virtual="../master/commonSubTitle.html"-->
     </div>
 </div>
 <!--#include virtual="../master/footer.html"-->

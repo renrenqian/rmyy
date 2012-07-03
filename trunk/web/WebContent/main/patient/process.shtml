@@ -10,11 +10,12 @@
             <div class="mainPart">
                 <div class="itemBg">
                     <div class="titleBg2">
-                          <p class="bread">
-								<a href="/index.shtml" class="breadB">首页</a><span>></span><a
-									href="#" class="breadN">患者服务中心</a><span>></span><a href="#"
-									class="breadN">就医流程</a>
-							</p>
+                     	<p class="bread">
+								<a href="/index.shtml" class="breadB">首页</a><span>></span>
+								<a href="#" class="breadN J_Cata1"></a><span>></span> 
+								<a href="#" class="breadN J_Cata2"></a><span>></span> 
+								<a href="#" class="breadN J_Cata3"></a>
+						</p>
                     </div>
                     <h2 class="titleType3">就医流程</h2>
 
@@ -34,7 +35,7 @@
                 </div>
             </div>
         </div>
-        <!--#include virtual="../master/patientSubTitle.html"-->
+        <!--#include virtual="../master/commonSubTitle.html"-->
     </div>
 </div>
 <!--#include virtual="../master/footer.html"-->
