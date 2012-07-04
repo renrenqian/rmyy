@@ -2,244 +2,262 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link href="../style/easyui.css" rel="stylesheet"/>
-    <link href="../style/common.css" rel="stylesheet"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../style/easyui.css" rel="stylesheet" />
+<link href="../style/common.css" rel="stylesheet" />
+<style type="text/css">
+#previewDiv {
+	display: inline-block; width: 120px; height: 180px; background-color: #CCC;
+}
+
+#preview_fake { /* 该对象用户在IE下显示预览图片 */
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale );
+}
+
+#preview_size_fake { /* 该对象只用来在IE下获得图片的原始尺寸，无其它用途 */
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image ); visibility: hidden;
+}
+
+#preview { /* 该对象用户在FF下显示预览图片 */
+	width: 120px; height: 180px;
+}
+</style>
 </head>
 <body>
-<div class="mainSection">
-    <div class="toolBox">
-        <p>
-            <span> 工具箱:</span>
-            <a href="#" class="abled" id="J_AddDoc">新增医师</a>
-            <a href="#" class="unabled unit J_DelAll" title="请先从下表中选择操作对象" id="J_DoctorDelAll">批量删除</a>
-        </p>
-    </div>
-    <div id="J_DoctorListDiv" class="mt10">
-        <table id="J_DoctorTable" class='display' cellpadding='0' cellspacing='0' border='0'>
-            <thead>
-            <tr>
-                <th><input type='checkbox' class='checkBoss' ctrl='J_DoctorTable'/></th>
-                <th class='tl'>医师名字</th>
-                <th class='tl'>所属科室</th>
-                <th class='tl'>职称</th>
-                <th>专家门诊</th>
-                <th>名医门诊</th>
-                <th>医师排序</th>
-                <th>编辑</th>
-                <th>删除</th>
-            </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
-</div>
+	<div class="mainSection">
+		<div class="toolBox">
+			<p>
+				<span> 工具箱:</span> <a href="#" class="abled" id="J_AddDoc">新增医师</a>
+				<a href="#" class="unabled unit J_DelAll" title="请先从下表中选择操作对象"
+					id="J_DoctorDelAll">批量删除</a>
+			</p>
+		</div>
+		<div id="J_DoctorListDiv" class="mt10">
+			<table id="J_DoctorTable" class='display' cellpadding='0'
+				cellspacing='0' border='0'>
+				<thead>
+					<tr>
+						<th><input type='checkbox' class='checkBoss'
+							ctrl='J_DoctorTable' /></th>
+						<th class='tl'>医师名字</th>
+						<th class='tl'>所属科室</th>
+						<th class='tl'>职称</th>
+						<th>专家门诊</th>
+						<th>名医门诊</th>
+						<th>医师排序</th>
+						<th>编辑</th>
+						<th>删除</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+	</div>
 
 
-<!-- doctor div for add or edit -->
-<div id="J_DoctorDiv" style="display:none;">
-    <form id="doctorForm" name="doctorForm" enctype="multipart/form-data" method="post" target="hidden_frame">
-        <table class="form w">
-            <tr>
-                <td class="rowName w1">医师姓名</td>
-                <td>
-                   <input id="diName" type="text" name="doct.diName" class="input_type1" rule="required"/>
-                   <input id="diId" type="hidden" name="doct.diId"/>
-                   <input id="osExpertId" type="hidden" value="0"  name="doct.osExpertId"/>
-                   <input id="osFamousId" type="hidden" value="0"  name="doct.osFamousId"/>
-                   <input id="osCate" type="hidden" value="1" name="doct.osCate"/>
-                   <input id="diOrder" type="hidden" value="1" name="doct.diOrder"/>
-                </td>
-                <td class="rowName w1">性别</td>
-                <td>
-                    <select id="diSex"  name="doct.diSex" class="selectType1">
-                        <option value="1">男</option>
-                        <option value="0">女</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td class="rowName">学位</td>
-                <td>
-                    <select id="diEducation"  name="doct.diEducation" class="selectType1">
-                        <option value="0">请选择...</option>
-                        <option value="1000">博士后</option>
-                        <option value="1001">博士</option>
-                        <option value="1002">硕士</option>
-                        <option value="1003">本科</option>
-                        <option value="1004">其他</option>
-                    </select>
-                </td>
-                <td class="rowName">职称</td>
-                <td><input id="diPosition"  name="doct.diPosition"  type="text" class="input_type1"/>
-                </td>
-            </tr>
-            <tr>
-                <td class="rowName">头像</td>
-                <td>
-                 <div id="previewDiv" style="background:url(''); width:120px; height:180px; display:block; z-index:9999;"></div>
-                </td>
-            </tr>
-            <tr>
-                <td class="rowName">所属科室</td>
-                <td>
-                    <select class="selectType2">
-                        <option value="1000">杭州市第一人民医院</option>
-<!--                         <option>杭州市妇幼保健院</option> -->
-<!--                         <option>杭州市肿瘤医院（吴山院区）</option> -->
-<!--                         <option>杭州市老年病医院（城北院区）</option> -->
-<!--                         <option>杭州市妇女医院（钱江新城院区）</option> -->
-<!--                         <option>五云山健康管理中心</option> -->
-                    </select>
-                    <select id="diDeptType"  name="doct.diDeptType"  class="selectType2">
-<!--                         <option value="1000">妇科</option> -->
-<!--                         <option value="1001">产科</option> -->
-                    </select>
-                </td>
-                <td class="rowName">头像上传</td>
-                <td>
-                <input type='file' name="file" class='input_type1'/>
-                </td>
-            </tr>
-            <tr>
-                <td class="rowName">人才类型</td>
-                <td colspan="3">
-                    <input id="doctType" type='hidden' name="doct.doctType" />
-                    <input type="checkbox" class="radio_Type1 ml10 J_RcType" name="radio.rc" id="radio.bd" value='1000'><label
-                        class="radio_Type1_label" for="radio.bd">博士生导师</label>
-                    <input type="checkbox" class="radio_Type1 J_RcType" name="radio.rc" id="radio.sd" value='1001'><label
-                        class="radio_Type1_label" for="radio.sd">硕士生导师</label>
-                    <input type="checkbox" class="radio_Type1 J_RcType" name="radio.rc" id="radio.151" value='1002'><label
-                        class="radio_Type1_label" for="radio.151">151人才</label>
-                    <input type="checkbox" class="radio_Type1 J_RcType" name="radio.rc" id="radio.131" value='1003'><label
-                        class="radio_Type1_label" for="radio.131">131人才</label>
-                    <input type="checkbox" class="radio_Type1 J_RcType" name="radio.rc" id="radio.js" value='1004'><label
-                        class="radio_Type1_label" for="radio.js">南医大教授</label>
-                    <input type="checkbox" class="radio_Type1 J_RcType" name="radio.rc" id="radio.fjs" value='1005'><label
-                        class="radio_Type1_label" for="radio.fjs">南医大副教授</label>
-                    <input type="checkbox" class="radio_Type1 J_RcType" name="radio.rc" id="radio.zjzw" value='1006'><label
-                        class="radio_Type1_label" for="radio.zjzw">浙江省医学会主委/副主委</label>
-                    <input type="checkbox" class="radio_Type1 J_RcType" name="radio.rc" id="radio.hzzw" value='1007'><label
-                        class="radio_Type1_label" for="radio.hzzw">杭州市医学会主委</label>
-                </td>
-            </tr>
-            <tr>
-                <td class="rowName">简历</td>
-                <td colspan="3">
-                    <textarea id="diResume" name="doct.diResume"  class="textArea_type3"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td class="rowName">主攻学科</td>
-                <td colspan="3">
-                    <textarea id="diMajor"  name="doct.diMajor" class="textArea_type3"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td class="rowName">研究方向</td>
-                <td colspan="3">
-                    <textarea id="diResearch_direction"  name="doct.diResearch_direction" class="textArea_type3"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td class="rowName">医疗成果</td>
-                <td colspan="3">
-                    <textarea id="diAccomplishment"  name="doct.diAccomplishment" class="textArea_type3"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td class="p10">
-                    <a class="button btn-blue" id="J_DoctorOk">
-                        <span class="icon ico-bulb"></span>确定</a>
-                    <a class="button btn-grey" id="J_DoctorClose">取消</a>
-                </td>
-            </tr>
-        </table>
-    </form>
-</div>
+	<!-- doctor div for add or edit -->
+	<div id="J_DoctorDiv" style="display: none;">
+		<form id="doctorForm" name="doctorForm" enctype="multipart/form-data"
+			method="post" target="hidden_frame">
+			<table class="form w">
+				<tr>
+					<td class="rowName w1">医师姓名</td>
+					<td><input id="diName" type="text" name="doct.diName"
+						class="input_type1" rule="required" /> <input id="diId"
+						type="hidden" name="doct.diId" /> <input id="osExpertId"
+						type="hidden" value="0" name="doct.osExpertId" /> <input
+						id="osFamousId" type="hidden" value="0" name="doct.osFamousId" />
+						<input id="osCate" type="hidden" value="1" name="doct.osCate" />
+						<input id="diOrder" type="hidden" value="1" name="doct.diOrder" /></td>
+					<td class="rowName">头像上传</td>
+					<td><input type='file' name="file" class='input_type1' onchange="onUploadImgChange(this)" /></td>
+				</tr>
+				<tr>
+					<td class="rowName w1">性别</td>
+					<td><select id="diSex" name="doct.diSex" class="selectType1">
+							<option value="1">男</option>
+							<option value="0">女</option>
+					</select></td>
+					<td></td>
+					<td rowspan="3">
+						<!-- 头像区域 -->
+						<div id="previewDiv" class='ml10'>
+							<div id="preview_fake">
+								<img id="preview" onload="onPreviewLoad(this)" />
+							</div>
+						</div> <img id="preview_size_fake" /><span id="swh"></span>
+					</td>
+				</tr>
+				<tr>
+					<td class="rowName">学位</td>
+					<td><select id="diEducation" name="doct.diEducation"
+						class="selectType1">
+							<option value="0">请选择...</option>
+							<option value="1000">博士后</option>
+							<option value="1001">博士</option>
+							<option value="1002">硕士</option>
+							<option value="1003">本科</option>
+							<option value="1004">其他</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td class="rowName">职称</td>
+					<td><input id="diPosition" name="doct.diPosition" type="text"
+						class="input_type1" /></td>
+				</tr>
+				<tr>
+					<td class="rowName">所属科室</td>
+					<td><select class="selectType2">
+							<option value="1000">杭州市第一人民医院</option>
+					</select> <select id="diDeptType" name="doct.diDeptType" class="selectType2">
+					</select></td>
+				</tr>
+				<tr>
+					<td class="rowName">人才类型</td>
+					<td colspan="3"><input id="doctType" type='hidden'
+						name="doct.doctType" /> <input type="checkbox"
+						class="radio_Type1 ml10 J_RcType" name="radio.rc" id="radio.bd"
+						value='1000'><label class="radio_Type1_label"
+							for="radio.bd">博士生导师</label> <input type="checkbox"
+							class="radio_Type1 J_RcType" name="radio.rc" id="radio.sd"
+							value='1001'><label class="radio_Type1_label"
+								for="radio.sd">硕士生导师</label> <input type="checkbox"
+								class="radio_Type1 J_RcType" name="radio.rc" id="radio.151"
+								value='1002'><label class="radio_Type1_label"
+									for="radio.151">151人才</label> <input type="checkbox"
+									class="radio_Type1 J_RcType" name="radio.rc" id="radio.131"
+									value='1003'><label class="radio_Type1_label"
+										for="radio.131">131人才</label> <input type="checkbox"
+										class="radio_Type1 J_RcType" name="radio.rc" id="radio.js"
+										value='1004'><label class="radio_Type1_label"
+											for="radio.js">南医大教授</label> <input type="checkbox"
+											class="radio_Type1 J_RcType" name="radio.rc" id="radio.fjs"
+											value='1005'><label class="radio_Type1_label"
+												for="radio.fjs">南医大副教授</label> <input type="checkbox"
+												class="radio_Type1 J_RcType" name="radio.rc" id="radio.zjzw"
+												value='1006'><label class="radio_Type1_label"
+													for="radio.zjzw">浙江省医学会主委/副主委</label> <input
+													type="checkbox" class="radio_Type1 J_RcType"
+													name="radio.rc" id="radio.hzzw" value='1007'><label
+														class="radio_Type1_label" for="radio.hzzw">杭州市医学会主委</label></td>
+				</tr>
+				<tr>
+					<td class="rowName">简历</td>
+					<td colspan="3"><textarea id="diResume" name="doct.diResume"
+							class="textArea_type3"></textarea></td>
+				</tr>
+				<tr>
+					<td class="rowName">主攻学科</td>
+					<td colspan="3"><textarea id="diMajor" name="doct.diMajor"
+							class="textArea_type3"></textarea></td>
+				</tr>
+				<tr>
+					<td class="rowName">研究方向</td>
+					<td colspan="3"><textarea id="diResearch_direction"
+							name="doct.diResearch_direction" class="textArea_type3"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="rowName">医疗成果</td>
+					<td colspan="3"><textarea id="diAccomplishment"
+							name="doct.diAccomplishment" class="textArea_type3"></textarea></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td class="p10"><a class="button btn-blue" id="J_DoctorOk">
+							<span class="icon ico-bulb"></span>确定
+					</a> <a class="button btn-grey" id="J_DoctorClose">取消</a></td>
+				</tr>
+			</table>
+		</form>
+	</div>
 
-    <iframe name='hidden_frame' id="hidden_frame"
-        style='display: none; height: 0; width: 0'></iframe>
-<!-- 门诊 div for edit -->
-<div id="J_TreatDiv" style="display:none;">
-    <form id="treatForm">
-        <table class="form w">
-            <tr>
-                <td class="rowName w1">门诊类型名称</td>
-                <td>
-                    <input type="hidden" id="osId" value=""/>
-                    <input type="hidden" id="doctId" value=""/>
-                    <input type="text" class="input_type1" value="" id='J_TreatType' readonly/>
-                </td>
-            </tr>
-            <tr>
-                <td class="rowName w1">门诊时间</td>
-                <td>
-                    <input type="checkbox" class="radio_Type1 ml10 J_OSTime" id="day1AM" value='10'/><label class="radio_Type1_label" for="day1AM">星期一上午</label>
-                    <input type="checkbox" class="radio_Type1 J_OSTime" id="day1PM" value='11'/><label class="radio_Type1_label" for="day1PM">星期一下午</label>
-                    <input type="checkbox" class="radio_Type1 J_OSTime" id="day2AM" value='20'/><label class="radio_Type1_label" for="day2AM">星期二上午</label>
-                    <input type="checkbox" class="radio_Type1 J_OSTime" id="day2PM" value='21'/><label class="radio_Type1_label" for="day2PM">星期二下午</label>
-                    <input type="checkbox" class="radio_Type1 J_OSTime" id="day3AM" value='30'/><label class="radio_Type1_label" for="day3AM">星期三上午</label>
-                    <input type="checkbox" class="radio_Type1 J_OSTime" id="day3PM" value='31'/><label class="radio_Type1_label" for="day3PM">星期三下午</label>
-                    <input type="checkbox" class="radio_Type1 J_OSTime" id="day4AM" value='40'/><label class="radio_Type1_label" for="day4AM">星期四上午</label>
-                    <input type="checkbox" class="radio_Type1 J_OSTime" id="day4PM" value='41'/><label class="radio_Type1_label" for="day4PM">星期四下午</label>
-                    <input type="checkbox" class="radio_Type1 J_OSTime" id="day5AM" value='50'/><label class="radio_Type1_label" for="day5AM">星期五上午</label>
-                    <input type="checkbox" class="radio_Type1 J_OSTime" id="day5PM" value='51'/><label class="radio_Type1_label" for="day5PM">星期五下午</label>
-                    <input type="checkbox" class="radio_Type1 J_OSTime" id="day6AM" value='60'/><label class="radio_Type1_label" for="day6AM">星期六上午</label>
-                    <input type="checkbox" class="radio_Type1 J_OSTime" id="day6PM" value='61'/><label class="radio_Type1_label" for="day6PM">星期六下午</label>
-                    <input type="checkbox" class="radio_Type1 J_OSTime" id="day7AM" value='70'/><label class="radio_Type1_label" for="day7AM">星期日上午</label>
-                    <input type="checkbox" class="radio_Type1 J_OSTime" id="day7PM" value='71'/><label class="radio_Type1_label" for="day7PM">星期日下午</label>
-                </td>
-            </tr>
-            <tr>
-                <td class="rowName">门诊地址</td>
-                <td>
-                    <input id="osLocation" type="text" class="input_type1"/>
-                </td>
-            </tr>
-            <tr>
-                <td class="rowName">门诊限号</td>
-                <td>
-                    <input  id="osLimit" type="text" class="input_type1"/>
-                </td>
-            </tr>
-            <tr>
-                <td class="rowName">门诊状态</td>
-                <td>
-                    <select id="osStatus" class="selectType1">
-                        <option value="1">在诊</option>
-                        <option value="0">停诊</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td class="rowName">门诊费用</td>
-                <td>
-                    <input id="osCost" type="text" class="input_type1"/>
-                </td>
-            </tr>
-            <tr>
-                <td class="rowName">挂号链接地址</td>
-                <td>
-                    <input id="osBook_link" type="text" class="input_type1"/>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td class="p10">
-                    <a class="button btn-blue" id="J_TreatOk"><span class="icon ico-bulb"></span>确定</a>
-                    <a class="button btn-grey" id="J_TreatClose">取消</a>
-            </tr>
-        </table>
-    </form>
-</div>
+	<iframe name='hidden_frame' id="hidden_frame"
+		style='display: none; height: 0; width: 0'></iframe>
+	<!-- 门诊 div for edit -->
+	<div id="J_TreatDiv" style="display: none;">
+		<form id="treatForm">
+			<table class="form w">
+				<tr>
+					<td class="rowName w1">门诊类型名称</td>
+					<td><input type="hidden" id="osId" value="" /> <input
+						type="hidden" id="doctId" value="" /> <input type="text"
+						class="input_type1" value="" id='J_TreatType' readonly /></td>
+				</tr>
+				<tr>
+					<td class="rowName w1">门诊时间</td>
+					<td><input type="checkbox" class="radio_Type1 ml10 J_OSTime"
+						id="day1AM" value='10' /><label class="radio_Type1_label"
+						for="day1AM">星期一上午</label> <input type="checkbox"
+						class="radio_Type1 J_OSTime" id="day1PM" value='11' /><label
+						class="radio_Type1_label" for="day1PM">星期一下午</label> <input
+						type="checkbox" class="radio_Type1 J_OSTime" id="day2AM"
+						value='20' /><label class="radio_Type1_label" for="day2AM">星期二上午</label>
+						<input type="checkbox" class="radio_Type1 J_OSTime" id="day2PM"
+						value='21' /><label class="radio_Type1_label" for="day2PM">星期二下午</label>
+						<input type="checkbox" class="radio_Type1 J_OSTime" id="day3AM"
+						value='30' /><label class="radio_Type1_label" for="day3AM">星期三上午</label>
+						<input type="checkbox" class="radio_Type1 J_OSTime" id="day3PM"
+						value='31' /><label class="radio_Type1_label" for="day3PM">星期三下午</label>
+						<input type="checkbox" class="radio_Type1 J_OSTime" id="day4AM"
+						value='40' /><label class="radio_Type1_label" for="day4AM">星期四上午</label>
+						<input type="checkbox" class="radio_Type1 J_OSTime" id="day4PM"
+						value='41' /><label class="radio_Type1_label" for="day4PM">星期四下午</label>
+						<input type="checkbox" class="radio_Type1 J_OSTime" id="day5AM"
+						value='50' /><label class="radio_Type1_label" for="day5AM">星期五上午</label>
+						<input type="checkbox" class="radio_Type1 J_OSTime" id="day5PM"
+						value='51' /><label class="radio_Type1_label" for="day5PM">星期五下午</label>
+						<input type="checkbox" class="radio_Type1 J_OSTime" id="day6AM"
+						value='60' /><label class="radio_Type1_label" for="day6AM">星期六上午</label>
+						<input type="checkbox" class="radio_Type1 J_OSTime" id="day6PM"
+						value='61' /><label class="radio_Type1_label" for="day6PM">星期六下午</label>
+						<input type="checkbox" class="radio_Type1 J_OSTime" id="day7AM"
+						value='70' /><label class="radio_Type1_label" for="day7AM">星期日上午</label>
+						<input type="checkbox" class="radio_Type1 J_OSTime" id="day7PM"
+						value='71' /><label class="radio_Type1_label" for="day7PM">星期日下午</label>
+					</td>
+				</tr>
+				<tr>
+					<td class="rowName">门诊地址</td>
+					<td><input id="osLocation" type="text" class="input_type1" />
+					</td>
+				</tr>
+				<tr>
+					<td class="rowName">门诊限号</td>
+					<td><input id="osLimit" type="text" class="input_type1" /></td>
+				</tr>
+				<tr>
+					<td class="rowName">门诊状态</td>
+					<td><select id="osStatus" class="selectType1">
+							<option value="1">在诊</option>
+							<option value="0">停诊</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td class="rowName">门诊费用</td>
+					<td><input id="osCost" type="text" class="input_type1" /></td>
+				</tr>
+				<tr>
+					<td class="rowName">挂号链接地址</td>
+					<td><input id="osBook_link" type="text" class="input_type1" />
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td class="p10"><a class="button btn-blue" id="J_TreatOk"><span
+							class="icon ico-bulb"></span>确定</a> <a class="button btn-grey"
+						id="J_TreatClose">取消</a>
+				</tr>
+			</table>
+		</form>
+	</div>
 
-<script src="../js/jquery-1.7.2.js"></script>
-<script src="../js/jquery.easyui.min.js"></script>
-<script src="../js/jquery.dataTables.js"></script>
-<script src="../js/common.js"></script>
-<script src="../plugins/form/jquery.sdForm.js"></script>
-<script src="js/doctor.js" type="text/javascript"></script>
+	<script src="../js/jquery-1.7.2.js"></script>
+	<script src="../js/jquery.easyui.min.js"></script>
+	<script src="../js/jquery.dataTables.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../plugins/form/jquery.sdForm.js"></script>
+	<script src="js/doctor.js" type="text/javascript"></script>
+	<script src="../js/preview.js"></script>
 </body>
 </html>

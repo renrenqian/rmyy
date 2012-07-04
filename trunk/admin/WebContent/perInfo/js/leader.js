@@ -2,10 +2,13 @@ var leaderDataTable;
 $(document).ready(function() {
     initLeaderList();//初始化列表
     $('#leaderForm').sdValidate();//添加验证规则
+    
     /* 新增 */
     $("#J_AddLeader").die().live("click", function() {
         $.fn.sdResetForm("#leaderForm");
-        $("#leaderId").val("");
+        $("#liId").val("");
+        $('#preview').attr('src','');
+        $("#leaderId").val("");      
         $('#J_LeaderDiv').css("display", "").window({
             title: '新增领导信息',
             modal: true,
@@ -21,6 +24,7 @@ $(document).ready(function() {
     /* 编辑 */
     $(".J_LeaderEdit").die().live("click", function() {
         $.fn.sdResetForm("#leaderForm");
+        $("#preview").attr("src",'');
         var id = $(this).parent().parent().children().eq(0).children().eq(0).val();
         $.getJSON('../member/searchLeader.action?t=' + new Date().getTime() + '&leader.liId=' + id, function(json) {
             if (json.resultCode > 0) {
@@ -33,8 +37,10 @@ $(document).ready(function() {
                     $('#dpOd_telephone').val(item.dpOd_telephone);
                     $('#liOrder').val(item.liOrder);
                     $('#liQuarters').val(item.liQuarters);
-                    //preview the image
-                    $("#previewDiv").css({"background-image":"url(../" + replaceStr(item.diPortrait, "\\\\", "/" ) + ")"});
+                    //preview the image             
+                    if(item.liPortrait){
+                    	 $("#preview").attr({"src":"../" + replaceStr(item.liPortrait, "\\\\", "/" )});
+                    }              
                     $('#liHold_period').val(item.liHold_period);
                     $('#liTelephone').val(item.liTelephone);
                     $('#liEmail').val(item.liEmail);
@@ -67,7 +73,7 @@ $(document).ready(function() {
         if ($(this).sdSubmitValidate("#leaderForm")) {
             var leaderId = $("#liId").val();
             var url,actionName;
-            if (!leaderId || leaderId == "") {
+            if (!leaderId || undefined == leaderId || leaderId == "") {
                 actionName = "新增";
                 url = "../member/addLeader.action";
             } else {
@@ -79,8 +85,6 @@ $(document).ready(function() {
               url:url,
               dataType : 'json',
               onSubmit: function(){
-                 //$("#contDetail").val(editor.getData()); 
-                // alert("contDetail:" + $("#contDetail").val());
                  $("#liCurrent").val($.trim( $("#liCate").find("option:selected").text()));
              },
              error:function (json) {
@@ -99,35 +103,7 @@ $(document).ready(function() {
                     }
              }
          });  
-//            var params = new StringBuffer();
-//            params.append("leader.liId=" + leaderId).append("&");
-//            params.append("leader.liName=" + $("#liName").val()).append("&");
-//            params.append("leader.ligmId=" + $("#ligmId").val()).append("&");
-//            params.append("leader.liCate=" + $("#liCate").val()).append("&");
-//            params.append("leader.liCurrent=" + $.trim( $("#liCate").find("option:selected").text())).append("&");
-//            params.append("leader.liOrder=" + 1).append("&");
-//            params.append("leader.liHold_period=" + $("#liHold_period").val()).append("&");
-//            params.append("leader.liQuarters=" + $("#liQuarters").val()).append("&");
-//            params.append("leader.liTelephone=" + $("#liTelephone").val()).append("&");
-//            params.append("leader.liEmail=" + $("#liEmail").val()).append("&");
-//            params.append("leader.liTech_position=" + $("#liTech_position").val()).append("&");
-//            params.append("leader.liRang=" + $("#liRang").val()).append("&");
-//            params.append("leader.liResume=" + $("#liResume").val()).append("&");
-//            params.append("leader.liDesc=" + $("#liDesc").val()).append("&");
-//            params = params.toString();
-//            $.post(url, params, function(json) {
-//                if (json.resultCode > 0) {
-//                    initLeaderList();
-//                    $('#J_LeaderDiv').window("close");
-//                } else {
-//                    $.fn.sdInfo({
-//                        type:"fail",
-//                        content:json.message ? json.message : action + '领导信息失败!'
-//                    });
-//                }
-//            });
             $('#liId').val(""); //clear the edit id while open edit.
-            // var params = $("#leaderForm").serialize();
         }
     });
 
@@ -287,10 +263,10 @@ function initLeaderList() {
                     }
                 }
             ],
-            sPaginationType: "full_numbers"
-            //       aoColumnDefs: [
-            //             { "bSortable": false, "aTargets": [0,1,2]}
-            //         ]
+            sPaginationType: "full_numbers",
+            aoColumnDefs: [
+                { "bSortable": false, "aTargets": [0,5,6]}
+            ]
         });
     } else {
         leaderDataTable.fnClearTable();

@@ -5,6 +5,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="../style/easyui.css" rel="stylesheet" />
 <link href="../style/common.css" rel="stylesheet" />
+<style type="text/css">
+#previewDiv {
+	display: inline-block; width: 120px; height: 180px; background-color: #CCC;
+}
+
+#preview_fake { /* 该对象用户在IE下显示预览图片 */
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale );
+}
+
+#preview_size_fake { /* 该对象只用来在IE下获得图片的原始尺寸，无其它用途 */
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image ); visibility: hidden;
+}
+
+#preview { /* 该对象用户在FF下显示预览图片 */
+	width: 120px; height: 180px;
+}
+</style>
 </head>
 <body>
 	<div class="mainSection">
@@ -74,14 +91,22 @@
 					</select> <input id="liCurrent" type="hidden" name="leader.liCurrent" /></td>
 					<td class="rowName">头像上传</td>
 					<td style='vertical-align: top;'><input type="file"
-						name="file" class="input_type1" /></td>
+						name="file" class="input_type1" onchange="onUploadImgChange(this)" />
+					</td>
 				</tr>
 				<tr>
 					<td class="rowName">任职时间段</td>
 					<td><input id="liHold_period" type="text"
 						class='input_type1 ml10' name="leader.liHold_period" /></td>
+				    <td></td>
 					<td rowspan="3">
-						<div id="previewDiv"  style="background:url(''); width:120px; height:180px; display:block; z-index:9999;"></div>
+					 <!-- 头像区域 -->
+						<div id="previewDiv" class='ml10'>
+							<div id="preview_fake">
+								<img id="preview" onload="onPreviewLoad(this)" />
+							</div>
+						</div> 
+						<img id="preview_size_fake" /><span id="swh"></span>
 					</td>
 				</tr>
 				<tr>
@@ -126,5 +151,6 @@
 	<script src="../js/common.js"></script>
 	<script src="../plugins/form/jquery.sdForm.js"></script>
 	<script src="js/leader.js" type="text/javascript"></script>
+	<script src="../js/preview.js"></script>
 </body>
 </html>

@@ -8,6 +8,7 @@ $(document).ready(function() {
         $.fn.sdResetForm("#doctorForm");
         //$("#lcId").val("");
         $("#diId").val("");
+        $('#preview').attr('src','');
         //zq:填充科室下拉列表
         $.getJSON('../group/listDept.action', function(json) {
             if (json.resultCode > 0) {               
@@ -31,14 +32,15 @@ $(document).ready(function() {
             maximizable:false,
             collapsible:false,
             shadow:false,
-            width:GLOBAL.ClientScreen.clientWidth() * 0.9,
-            height:GLOBAL.ClientScreen.clientHeight() * 0.9
+            width:GLOBAL.ClientScreen.clientWidth() * 0.95,
+            height:GLOBAL.ClientScreen.clientHeight() * 0.95
         });
     });
 
     /* 编辑 */
     $(".J_DoctorEdit").die().live("click", function() {
         $.fn.sdResetForm("#doctorForm");
+        $("#preview").attr("src",'');
         var id = $(this).parent().parent().children().eq(0).children().eq(0).val();
         $("#diId").val(id);
         $.getJSON('../member/searchDoctor.action?t=' + new Date().getTime() + '&doct.diId=' + id, function(json) {
@@ -59,8 +61,11 @@ $(document).ready(function() {
                       $('#diResume').val(item.diResume); 
                       $('#diResearch_direction').val(item.diResearch_direction);
                       $('#diAccomplishment').val(item.diAccomplishment);
-                      //preview the image
-                      $("#previewDiv").css({"background-image":"url(../" + replaceStr(item.diPortrait, "\\\\", "/" ) + ")"});
+                      
+                      //preview the image             
+                      if(item.diPortrait){
+                      	 $("#preview").attr({"src":"../" + replaceStr(item.diPortrait, "\\\\", "/" )});
+                      }                          
                        //人才类型字段取值
                       var rcTypeArray=item.doctType.split(',');
                       for(var i=0;i<rcTypeArray.length;i++){
@@ -104,8 +109,8 @@ $(document).ready(function() {
             maximizable:false,
             collapsible:false,
             shadow:false,
-            width:GLOBAL.ClientScreen.clientWidth() * 0.9,
-            height:GLOBAL.ClientScreen.clientHeight() * 0.9
+            width:GLOBAL.ClientScreen.clientWidth() * 0.95,
+            height:GLOBAL.ClientScreen.clientHeight() * 0.95
         });
     });
 
@@ -123,7 +128,7 @@ $(document).ready(function() {
             }  
             $('#doctorForm').form('submit', {
                   url:url,
-                  dataType : 'json',
+                  dataType :'json',
                   onSubmit: function(){
                       // set some special column before submit
                       var doctTypeStr = "";
@@ -137,7 +142,7 @@ $(document).ready(function() {
                      alert("内容异常:" + json.message) ; 
                  }, 
                  success:function(json){
-                     json = eval('(' + json + ')');
+                	 json = eval('(' + json + ')');
                      if (json.resultCode > 0 ) {
                     	 initDoctorList();
                          $('#J_DoctorDiv').window("close");
@@ -150,9 +155,8 @@ $(document).ready(function() {
                  }
              });  
             $('#diId').val("");//clear the edit id while open edit.
-            $('#osExpertId').val("0");//clear the edit id while open edit.
-            $('#osFamousId').val("0");//clear the edit id while open edit.
-            // var params = $("#doctorForm").serialize();
+            $('#osExpertId').val("0");//clear the ExpertId id while open edit.
+            $('#osFamousId').val("0");//clear the FamousId id while open edit.
         }
     });
 
@@ -275,8 +279,8 @@ $(document).ready(function() {
             maximizable:false,
             collapsible:false,
             shadow:false,
-            width:GLOBAL.ClientScreen.clientWidth() * 0.9,
-            height:GLOBAL.ClientScreen.clientHeight() * 0.9
+            width:GLOBAL.ClientScreen.clientWidth() * 0.95,
+            height:GLOBAL.ClientScreen.clientHeight() * 0.95
         });
     });
     
@@ -466,7 +470,7 @@ function initDoctorList() {
             ],
             sPaginationType: "full_numbers",
                    aoColumnDefs: [
-                         { "bSortable": false, "aTargets": [0,1,2]}
+                         { "bSortable": false, "aTargets": [0,7,8]}
                      ]
         });
     } else {

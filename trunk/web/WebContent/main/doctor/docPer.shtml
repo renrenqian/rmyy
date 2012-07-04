@@ -89,7 +89,7 @@
 					</div>
 				</div>
 			</div>
-			<!--#include virtual="../master/doctorSubTitle.html"-->
+			<!--#include virtual="../master/commonSubTitle.html"-->
 		</div>
 	</div>
 	<!--#include virtual="../master/footer.html"-->
