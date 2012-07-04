@@ -5,15 +5,18 @@
  */
 package com.kevin.group.action.dept;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.kevin.common.action.AbstractBaseAction;
 import com.kevin.common.exception.CommonServiceException;
+import com.kevin.group.constance.GroupConstance;
 import com.kevin.group.pojo.dept.Dept;
 import com.kevin.group.service.dept.IDeptServices;
 import com.opensymphony.xwork2.Action;
@@ -30,6 +33,7 @@ public class DeptInfoAction extends AbstractBaseAction {
     private Dept dept;
     private List<Dept> deptList;
     private List<Serializable> ides;
+    private String savePath;
 
     /**
      * @return the dept
@@ -74,6 +78,20 @@ public class DeptInfoAction extends AbstractBaseAction {
      */
     public final void setIdes(List<Serializable> ides) {
         this.ides = ides;
+    }
+
+    /**
+     * @return the savePath
+     */
+    public final String getSavePath() {
+        return savePath;
+    }
+
+    /**
+     * @param savePath the savePath to set
+     */
+    public final void setSavePath(String savePath) {
+        this.savePath = savePath;
     }
 
     /**
@@ -162,6 +180,21 @@ public class DeptInfoAction extends AbstractBaseAction {
     public String batchDeleteDept() {// bath delete the dept
         try {
             int result = deptService.batchDelete(ides);
+            setResultCode(result);
+        } catch (CommonServiceException e) {
+            setMessage(e.getMessage());
+            setResultCode(-1);
+        }
+        return Action.SUCCESS;
+    }
+    
+    public String generateDeptJson() {// generate json format for the depts
+        try {
+            String realPath = ServletActionContext.getServletContext().getRealPath(this.getSavePath());
+            File storeFolder = new File(realPath);
+            if (!storeFolder.exists())
+                storeFolder.mkdirs();
+            int result = deptService.generateDeptJson(storeFolder.getAbsolutePath());
             setResultCode(result);
         } catch (CommonServiceException e) {
             setMessage(e.getMessage());

@@ -161,6 +161,28 @@ $(document).ready(function() {
             }
         });
     });
+    
+    /* GenerateDept json file at main dept folder configed at struts/group/generateDeptJson */
+    $('#J_GenerateDept').die().live("click", function() {
+    	var THIS = this;
+    	$.messager.confirm('更新', '是否确认更新前端科室页面?', function(r) {
+    		if (r) {
+    			//var id = $(THIS).parent().parent().children().eq(0).children().eq(0).val();
+    			//var params = "dept.dpId=" + id;
+    			$.post("../group/generateDeptJson.action", null, function(json) {
+    				if (json.resultCode > 0) {
+    					alert("更新完成");
+    					//initDeptList();
+    				} else {
+    					$.fn.sdInfo({
+    						type:"fail",
+    						content:json.message ? json.message : '更新前端科室失败!'
+    					});
+    				}
+    			});
+    		}
+    	});
+    });
 });
 
 /* 批量删除 */

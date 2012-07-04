@@ -5,6 +5,9 @@
  */
 package com.kevin.group.pojo.dept;
 
+import com.google.gson.Gson;
+import com.googlecode.jsonplugin.annotations.JSON;
+
 /**
  * @author kevin
  * @since jdk1.6
@@ -299,4 +302,12 @@ public class Dept {
         this.dgIds = dgIds;
     }
 
+    /**
+     * Generate the json format content
+     * @return
+     */
+    public final String generateJSON(){
+        Gson gson = new Gson();
+        return gson.toJson(this);
+    }
 }

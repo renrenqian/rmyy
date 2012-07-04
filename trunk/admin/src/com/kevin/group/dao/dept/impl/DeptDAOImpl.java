@@ -27,5 +27,4 @@ public class DeptDAOImpl extends AbstractBaseDAO<Dept> implements IDeptDAO {
         DeptNames = super.list("listDeptNames");
         return DeptNames;
     }
- 
 }

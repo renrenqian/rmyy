@@ -51,6 +51,7 @@ alter table GROUP_MEMBER auto_increment= 1020;
 CREATE TABLE OFFICE_GENRE  (
    OG_ID                 INTEGER               NOT NULL  AUTO_INCREMENT,
    OG_NAME               VARCHAR(64),
+   OG_CODE               VARCHAR(64),
    OG_DESC               VARCHAR(128),
    OG_LEVEL              INTEGER,
    OG_PARENT             INTEGER,

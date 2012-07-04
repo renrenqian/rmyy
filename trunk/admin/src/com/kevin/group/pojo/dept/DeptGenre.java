@@ -10,71 +10,102 @@ package com.kevin.group.pojo.dept;
  * @since jdk1.6
  */
 public class DeptGenre {
-    
-    private Integer id;
-    private Integer name;
-    private Integer desc;
-    private Integer level;
-    private Integer parent;
+
+    private Integer dgId;
+    private String dgName;
+    private String dgCode;
+    private String dgDesc;
+    private Integer dgLevel;
+    private Integer dgParent;
+
     /**
-     * @return the id
+     * @return the dgId
      */
-    public final Integer getId() {
-        return id;
+    public final Integer getDgId() {
+        return dgId;
     }
+
     /**
-     * @param id the id to set
+     * @param dgId
+     *            the dgId to set
      */
-    public final void setId(Integer id) {
-        this.id = id;
+    public final void setDgId(Integer dgId) {
+        this.dgId = dgId;
     }
+
     /**
-     * @return the name
+     * @return the dgName
      */
-    public final Integer getName() {
-        return name;
+    public final String getDgName() {
+        return dgName;
     }
+
     /**
-     * @param name the name to set
+     * @param dgName
+     *            the dgName to set
      */
-    public final void setName(Integer name) {
-        this.name = name;
+    public final void setDgName(String dgName) {
+        this.dgName = dgName;
     }
+
     /**
-     * @return the desc
+     * @return the dgCode
      */
-    public final Integer getDesc() {
-        return desc;
+    public final String getDgCode() {
+        return dgCode;
     }
+
     /**
-     * @param desc the desc to set
+     * @param dgCode
+     *            the dgCode to set
      */
-    public final void setDesc(Integer desc) {
-        this.desc = desc;
+    public final void setDgCode(String dgCode) {
+        this.dgCode = dgCode;
     }
+
     /**
-     * @return the level
+     * @return the dgDesc
      */
-    public final Integer getLevel() {
-        return level;
+    public final String getDgDesc() {
+        return dgDesc;
     }
+
     /**
-     * @param level the level to set
+     * @param dgDesc
+     *            the dgDesc to set
      */
-    public final void setLevel(Integer level) {
-        this.level = level;
+    public final void setDgDesc(String dgDesc) {
+        this.dgDesc = dgDesc;
     }
+
     /**
-     * @return the parent
+     * @return the dgLevel
      */
-    public final Integer getParent() {
-        return parent;
+    public final Integer getDgLevel() {
+        return dgLevel;
     }
+
     /**
-     * @param parent the parent to set
+     * @param dgLevel
+     *            the dgLevel to set
      */
-    public final void setParent(Integer parent) {
-        this.parent = parent;
+    public final void setDgLevel(Integer dgLevel) {
+        this.dgLevel = dgLevel;
+    }
+
+    /**
+     * @return the dgParent
+     */
+    public final Integer getDgParent() {
+        return dgParent;
+    }
+
+    /**
+     * @param dgParent
+     *            the dgParent to set
+     */
+    public final void setDgParent(Integer dgParent) {
+        this.dgParent = dgParent;
     }
 
 }

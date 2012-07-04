@@ -51,6 +51,13 @@
                 <param name="excludeNullProperties">true</param>
             </result>
         </action>
+        <action name="generateDeptJson" method="generateDeptJson" class="deptInfoAction">
+            <param name="savePath">/main/dept</param>
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
  
         <!-- content start -->
         <!-- list content -->
