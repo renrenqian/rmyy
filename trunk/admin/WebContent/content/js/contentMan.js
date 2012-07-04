@@ -23,16 +23,6 @@ $(document).ready(function() {
     /* 编辑 */
     $(".J_ContentEdit").die().live("click", function() {
         var id = $(this).parent().parent().children().eq(0).children().eq(0).val();
-        $.getJSON('../group/searchContent.action?t=' + new Date().getTime() + '&continfo.contId=' + id, function(json) {
-            if (json.resultCode > 0) {
-                formUnSerialize("contentForm", "continfo", json.continfo);
-            } else {
-                $.fn.sdInfo({
-                    type:"fail",
-                    content:json.message ? json.message : "查询内容信息错误!"
-                });
-            }
-        });
         if(contentType=='新闻'){
                 $(window.parent.document).find("#centerIFrame").attr("src", "content/addContent.html?contId=" + id);
            }else{
@@ -113,32 +103,32 @@ $(document).ready(function() {
 });
 
 //批量删除
-//$('#J_ContentDelAll').click(function() {
-//    if ($(this).hasClass("abled")) {
-//        //获取参数
-//        var checkbox = $('#J_ContentTable input:checkbox:not(.checkBoss):checked');
-//        var ides = "";
-//        checkbox.each(function() {
-//            ides = ides + "ides=" + $(this).val() + "&";
-//        });
-//        $.messager.confirm('批量删除', '是否确认删除所选内容信息?', function(r) {
-//            if (r) {
-//                $.post("../group/batchDeleteContent.action", ides, function(data) {
-//                    if (data.resultCode && data.resultCode > 0) {
-//                        initContentList();
-//                    } else {
-//                        $.fn.sdInfo({
-//                            type:"fail",
-//                            content:data.message ? data.message : "批量删除内容信息失败"
-//                        });
-//                    }
-//                });
-//                $.fn.checkTest("J_ContentTable");
-//                $('.checkBoss').attr("checked", false);
-//            }
-//        });
-//    }
-//});
+$('#J_ContentDelAll').click(function() {
+    if ($(this).hasClass("abled")) {
+        //获取参数
+        var checkbox = $('#J_ContentTable input:checkbox:not(.checkBoss):checked');
+        var ides = "";
+        checkbox.each(function() {
+            ides = ides + "ides=" + $(this).val() + "&";
+        });
+        $.messager.confirm('批量删除', '是否确认删除所选内容信息?', function(r) {
+            if (r) {
+                $.post("../group/batchDeleteContent.action", ides, function(data) {
+                    if (data.resultCode && data.resultCode > 0) {
+                        initContentList();
+                    } else {
+                        $.fn.sdInfo({
+                            type:"fail",
+                            content:data.message ? data.message : "批量删除内容信息失败"
+                        });
+                    }
+                });
+                $.fn.checkTest("J_ContentTable");
+                $('.checkBoss').attr("checked", false);
+            }
+        });
+    }
+});
 
 /**
  * 初始列表数据

@@ -1,136 +1,136 @@
 <!DOCTYPE html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link href="../style/easyui.css" rel="stylesheet"/>
-    <link href="../style/common.css" rel="stylesheet"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../style/easyui.css" rel="stylesheet" />
+<link href="../style/common.css" rel="stylesheet" />
 </head>
 <body>
-<div class="mainSection">
-    <div class="toolBox">
-        <p>
-            <span> 工具箱:</span>
-            <a href="#" class="abled" id="J_AddDept">新增科室</a>
-            <a href="#" class="unabled unit J_DelAll" title="请先从下表中选择操作对象" id="J_DeptDelAll">批量删除</a>
-        </p>
-    </div>
-    <div id="J_DeptListDiv" class="mt10">
-        <table id="J_DeptTable" class='display' cellpadding='0' cellspacing='0' border='0'>
-            <thead>
-            <tr>
-                <th><input type='checkbox' class='checkBoss' ctrl='J_DeptTable'/></th>
-                <th class='tl'>科室名称</th>
-                <th class='tl'>所属院区</th>
-                <th class='tl'>科室类型</th>
-                <th class='tl'>科室负责人</th>
-                <th>科室排序</th>
-                <th>编辑</th>
-                <th>删除</th>
-            </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
-</div>
-<!-- dept Config div for add or edit -->
-<div id="J_DeptDiv" style="display:none;">
-    <form id="deptForm">
-        <table class="form w">
-            <tr>
-                <td class="rowName w1">科室名称</td>
-                <td><input id="deptName" type="text" class="input_type1" rule="required"/>
-                 <input id="dpId" type="hidden" />
-                </td>
-                <td class="rowName w1">负责人</td>
-                <td><input id="dpIn_charge" type="text" class="input_type1"/>
-                </td>
-            </tr>
-            <tr>
-                <td class="rowName">科室电话</td>
-                <td><input id="dpOd_telephone" type="text" class="input_type1"/>
-                </td>
-                <td class="rowName">科室电子邮件</td>
-                <td><input id="dpEmail" type="text" class="input_type1"/>
-                </td>
-            </tr>
-            <tr>
-                <td class="rowName">科室主页</td>
-                <td><input id="dpSite" type="text" class="input_type1"/>
-                </td>
-                <td class="rowName">科室地理位置</td>
-                <td><input id="dpLocation" type="text" class="input_type1"/>
-                </td>
-            </tr>
-            <tr>
-                <td class="rowName">床位数量</td>
-                <td><input id="dpBed_counter" type="text" class="input_type1" rule='num' value="0"/></td>
-                <td class="rowName">所属院区</td>
-                <td>
-                    <select id="dpBelong" class="selectType1">
-                        <option value="1000" >杭州市第一人民医院</option>
-                        <option value="1001" >杭州市妇幼保健院</option>
-                        <option value="1002" >杭州市肿瘤医院（吴山院区）</option>
-                        <option value="1003" >杭州市老年病医院（城北院区）</option>
-                        <option value="1004" >杭州市妇女医院（钱江新城院区）</option>
-                        <option value="1005" >五云山健康管理中心</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td class="rowName">科室类型</td>
-                <td>
-                    <input type="checkbox" class="radio_Type1 ml10 J_DeptType" id="dept.lc" name="dept.Type" value='临床科室'>
-                    <label class="radio_Type1_label" for="dept.lc">临床科室</label>
-                    <input type="checkbox" class="radio_Type1 J_DeptType" id="dept.ss" name="dept.Type" value='省市重点'>
-                    <label class="radio_Type1_label" for="dept.ss">省市重点</label>
-                    <input type="checkbox" class="radio_Type1 J_DeptType" id="dept.yj" name="dept.Type" value='医技科室'>
-                    <label class="radio_Type1_label" for="dept.yj">医技科室</label>
-                    <input type="checkbox" class="radio_Type1 J_DeptType" id="dept.ts" name="dept.Type" value='特色专科'>
-                    <label class="radio_Type1_label" for="dept.ts">特色专科</label>
-                    <input type="checkbox" class="radio_Type1 J_DeptType" id="dept.zn" name="dept.Type" value='职能科室'>
-                    <label class="radio_Type1_label" for="dept.zn">职能科室</label>
-                </td>
-                <td class="rowName">科室备注</td>
-                <td><input id="dpNote" type="text" class="input_type1"  value="0"/></td>
-            </tr>
-            <tr>
-                <td class="rowName">科室简介</td>
-                <td colspan="3">
-                    <textarea id="dpDesc" class="textArea_type3"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td class="rowName">学术地位</td>
-                <td colspan="3">
-                    <textarea id="dpAcademic_position" class="textArea_type3"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td class="rowName">技术优势</td>
-                <td colspan="3">
-                    <textarea id="dpTech_adv" class="textArea_type3"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td class="rowName">研究方向</td>
-                <td colspan="3">
-                    <textarea id="dpResearch_direction" class="textArea_type3"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td class="p10">
-                    <a class="button btn-blue" id="J_DeptOk"><span class="icon ico-bulb"></span>确定</a>
-                    <a class="button btn-grey" id="J_DeptClose">取消</a>
-                 </td>
-            </tr>
-        </table>
-    </form>
-</div>
-<script src="../js/jquery-1.7.2.js"></script>
-<script src="../js/jquery.easyui.min.js"></script>
-<script src="../js/jquery.dataTables.js"></script>
-<script src="../js/common.js"></script>
-<script src="../plugins/form/jquery.sdForm.js"></script>
-<script src="js/dept.js" type="text/javascript"></script>
+	<div class="mainSection">
+		<div class="toolBox">
+			<p>
+				<span> 工具箱:</span> <a href="#" class="abled" id="J_AddDept">新增科室</a>
+				<a href="#" class="unabled unit J_DelAll" title="请先从下表中选择操作对象"
+					id="J_DeptDelAll">批量删除</a>
+			</p>
+		</div>
+		<div id="J_DeptListDiv" class="mt10">
+			<table id="J_DeptTable" class='display' cellpadding='0'
+				cellspacing='0' border='0'>
+				<thead>
+					<tr>
+						<th><input type='checkbox' class='checkBoss'
+							ctrl='J_DeptTable' /></th>
+						<th class='tl'>科室名称</th>
+						<th class='tl'>所属院区</th>
+						<th class='tl'>科室类型</th>
+						<th class='tl'>科室负责人</th>
+						<th>科室排序</th>
+						<th>编辑</th>
+						<th>删除</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+	</div>
+	<!-- dept Config div for add or edit -->
+	<div id="J_DeptDiv" style="display: none;">
+		<form id="deptForm">
+			<table class="form w">
+				<tr>
+					<td class="rowName w1">科室名称</td>
+					<td><input id="deptName" type="text" class="input_type1"
+						rule="required" /> <input id="dpId" type="hidden" /></td>
+					<td class="rowName w1">负责人</td>
+					<td><input id="dpIn_charge" type="text" class="input_type1" />
+					</td>
+				</tr>
+				<tr>
+					<td class="rowName">科室电话</td>
+					<td><input id="dpOd_telephone" type="text" class="input_type1" />
+					</td>
+					<td class="rowName">科室电子邮件</td>
+					<td><input id="dpEmail" type="text" class="input_type1" /></td>
+				</tr>
+				<tr>
+					<td class="rowName">科室主页</td>
+					<td><input id="dpSite" type="text" class="input_type1" /></td>
+					<td class="rowName">科室地理位置</td>
+					<td><input id="dpLocation" type="text" class="input_type1" />
+					</td>
+				</tr>
+				<tr>
+					<td class="rowName">床位数量</td>
+					<td><input id="dpBed_counter" type="text" class="input_type1"
+						rule='num' value="0" /></td>
+					<td class="rowName">所属院区</td>
+					<td><select id="dpBelong" class="selectType1">
+							<option value="1000">杭州市第一人民医院</option>
+							<option value="1001">杭州市妇幼保健院</option>
+							<option value="1002">杭州市肿瘤医院（吴山院区）</option>
+							<option value="1003">杭州市老年病医院（城北院区）</option>
+							<option value="1004">杭州市妇女医院（钱江新城院区）</option>
+							<option value="1005">五云山健康管理中心</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td class="rowName">科室备注</td>
+					<td><input id="dpNote" type="text" class="input_type1"
+						value="0" /></td>
+				</tr>
+				<tr>
+					<td class="rowName">科室类型</td>
+					<td colspan='3'><input type="checkbox"
+						class="radio_Type1 ml10 J_DeptType" id="dept.lc" name="dept.Type"
+						value='临床科室'> <label class="radio_Type1_label"
+						for="dept.lc">临床科室</label> <input type="checkbox"
+						class="radio_Type1 J_DeptType" id="dept.ss" name="dept.Type"
+						value='省市重点'> <label class="radio_Type1_label"
+						for="dept.ss">省市重点</label> <input type="checkbox"
+						class="radio_Type1 J_DeptType" id="dept.yj" name="dept.Type"
+						value='医技科室'> <label class="radio_Type1_label"
+						for="dept.yj">医技科室</label> <input type="checkbox"
+						class="radio_Type1 J_DeptType" id="dept.ts" name="dept.Type"
+						value='特色专科'> <label class="radio_Type1_label"
+						for="dept.ts">特色专科</label> <input type="checkbox"
+						class="radio_Type1 J_DeptType" id="dept.zn" name="dept.Type"
+						value='职能科室'> <label class="radio_Type1_label"
+						for="dept.zn">职能科室</label></td>
+				</tr>
+				<tr>
+					<td class="rowName">科室简介</td>
+					<td colspan="3"><textarea id="dpDesc" class="textArea_type3"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="rowName">学术地位</td>
+					<td colspan="3"><textarea id="dpAcademic_position"
+							class="textArea_type3"></textarea></td>
+				</tr>
+				<tr>
+					<td class="rowName">技术优势</td>
+					<td colspan="3"><textarea id="dpTech_adv"
+							class="textArea_type3"></textarea></td>
+				</tr>
+				<tr>
+					<td class="rowName">研究方向</td>
+					<td colspan="3"><textarea id="dpResearch_direction"
+							class="textArea_type3"></textarea></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td class="p10"><a class="button btn-blue" id="J_DeptOk"><span
+							class="icon ico-bulb"></span>确定</a> <a class="button btn-grey"
+						id="J_DeptClose">取消</a></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<script src="../js/jquery-1.7.2.js"></script>
+	<script src="../js/jquery.easyui.min.js"></script>
+	<script src="../js/jquery.dataTables.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../plugins/form/jquery.sdForm.js"></script>
+	<script src="js/dept.js" type="text/javascript"></script>
 </body>
 </html>

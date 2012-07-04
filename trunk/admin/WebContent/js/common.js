@@ -779,3 +779,22 @@ function replaceStr(str, orgStr, replaceStr){
     str=str.replace(reg, replaceStr);
     return str;
 }
+
+//zq:链接指定参数获取
+function GetParameter(param) {
+	var query = window.location.search;
+	var iLen = param.length;
+	var iStart = query.indexOf(param);
+	if (iStart == -1) {
+		return "";
+	}
+	// 取得开始搜索的位置。
+	iStart += iLen + 1;
+	var iEnd = query.indexOf("&", iStart);
+	// 如果只有一个参数传进来
+	if (iEnd == -1) {
+		return query.substring(iStart);
+	} else {
+		return query.substring(iStart, iEnd);
+	}
+}
