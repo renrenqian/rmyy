@@ -8,10 +8,7 @@ package com.kevin.group.action.member;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
@@ -23,7 +20,6 @@ import com.kevin.common.action.AbstractBaseAction;
 import com.kevin.common.exception.CommonServiceException;
 import com.kevin.common.pojo.PageBean;
 import com.kevin.group.constance.GroupConstance;
-import com.kevin.group.pojo.member.DoctorInfo;
 import com.kevin.group.pojo.member.LeaderInfo;
 import com.kevin.group.service.member.ILeaderService;
 import com.opensymphony.xwork2.Action;
