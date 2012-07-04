@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="DeptGenre">
+
+    <!-- paginate the dept genre info -->
+    <select id="list"  parameterClass="DeptGenre"  resultClass="DeptGenre">
+     <![CDATA[
+       select
+         OG_ID as dgId,
+         OG_NAME as dgName,
+         OG_CODE as dgCode,
+         OG_DESC as dgDesc,
+         OG_LEVEL as dgLevel,
+         OG_PARENT as dgParent
+       from OFFICE_GENRE og
+     ]]>
+    </select>
+    
+    <!-- search the dept genre info -->
+    <select id="search"  parameterClass="DeptGenre"  resultClass="DeptGenre">
+     <![CDATA[
+       select
+         OG_ID as dgId,
+         OG_NAME as dgName,
+         OG_CODE as dgCode,
+         OG_DESC as dgDesc,
+         OG_LEVEL as dgLevel,
+         OG_PARENT as dgParent
+       from OFFICE_GENRE og
+       where OG_ID =  #dgId#
+     ]]>
+    </select>
+    
+    <!-- list all the dept genre info -->
+    <select id="listDeptGenreNames"  parameterClass="DeptGenre"  resultClass="DeptGenre">
+     <![CDATA[
+       select 
+         OG_ID as dgId,
+         OG_NAME as dgName,
+       from OFFICE_GENRE
+     ]]>
+    </select>
+    
+    <!-- list all the dept genre info -->
+    <select id="listAll"  parameterClass="DeptGenre"  resultClass="DeptGenre">
+     <![CDATA[
+       select 
+         OG_ID as dgId,
+         OG_NAME as dgName,
+         OG_CODE as dgCode,
+         OG_DESC as dgDesc,
+         OG_LEVEL as dgLevel,
+         OG_PARENT as dgParent
+       from OFFICE_GENRE og
+     ]]>
+    </select>
+
+    <!-- add dept genre -->
+    <insert id="insert" parameterClass="DeptGenre">
+       <![CDATA[
+          INSERT INTO OFFICE_GENRE(OG_ID,OG_NAME,OG_CODE,OG_DESC,OG_LEVEL, OG_PARENT) 
+                         VALUES(#dgId#, #dgName#, #dgCode#, #dgDesc#, #dgLevel#, #dgParent#)
+       ]]>
+       <selectKey resultClass="int" keyProperty="dgId">
+         <![CDATA[SELECT LAST_INSERT_ID();]]>
+       </selectKey> 
+    </insert>
+    
+    <!-- delete dept genre by id -->
+    <delete id="delete" parameterClass="DeptGenre">
+       <![CDATA[DELETE FROM OFFICE_GENRE WHERE OG_ID =  #dgId# ]]>
+    </delete>
+    
+    <!-- update the dept genre -->
+    <update id="update" parameterClass="DeptGenre">
+      <![CDATA[
+         UPDATE OFFICE_GENRE 
+         SET
+         OG_ID = #dgId#,
+         OG_NAME = #dgName#,
+         OG_CODE = #dgCode#,
+         OG_DESC = #dgDesc#,
+         OG_LEVEL = #dgLevel#,
+         OG_PARENT = #dgParent#
+         WHERE OD_ID = #dgId#
+      ]]>
+    </update>
+
+    <!-- batch delete the select ids -->
+    <delete id="deleteList" parameterClass="java.util.List">
+        <![CDATA[ DELETE FROM OFFICE_GENRE WHERE OG_ID IN]]>
+        <iterate conjunction="," prepend="" open="(" close=")">
+          <![CDATA[#[]#]]>
+        </iterate>
+    </delete>
+</sqlMap>
