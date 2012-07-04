@@ -16,24 +16,45 @@
 						type="text" class="input_type1" rule="required" /> <input
 						id="contId" name="continfo.contId" type="hidden" /> <input
 						id="contOrder" name="continfo.contOrder" type="hidden" value="1" />
-					</td>		
-						<td class="rowName">分享院区</td>
+					</td>
+					<td class="rowName">分享院区</td>
 					<td><select id="gmShareId" class="selectType1"
 						name="continfo.gmShareId">
 							<option value="0">无</option>
-					</select></td>		
+					</select></td>
 				</tr>
 				<tr>
-					<td class="rowName w1">作者或来源</td>
+					<td class="rowName">作者或来源</td>
 					<td><input id="contAuthor" type="text" class="input_type1"
-						name="continfo.contAuthor"/></td>
+						name="continfo.contAuthor" /></td>
 					<td class="rowName">发布日期</td>
 					<td><input id="contPubTime" type="text"
 						name="continfo.contPubTime" class="input_type_date" /></td>
-				</tr>			
+				</tr>
+				<tr>
+					<td class="rowName">一级栏目</td>
+					<td><select id="" class="selectType1"
+						name="">
+							<option>一级栏目标题</option>
+							<option>一级栏目标题</option>
+							<option>一级栏目标题</option>
+							<option>一级栏目标题</option>
+					</select></td>
+					<td class="rowName">二级栏目</td>
+					<td><select id="" class="selectType1"
+						name="">
+							<option>二级栏目标题</option>
+							<option>二级栏目标题</option>
+							<option>二级栏目标题</option>
+							<option>二级栏目标题</option>
+							<option>二级栏目标题</option>
+							<option>二级栏目标题</option>
+					</select></td>
+				</tr>
 				<tr>
 					<td class="rowName">附件上传</td>
-					<td id="file_td"><input type="file" name="file" id="file_add" style='margin:6px; margin-left:10px;' /></td>
+					<td id="file_td"><input type="file" name="file" id="file_add"
+						style='margin: 6px; margin-left: 10px;' /></td>
 				</tr>
 				<tr>
 					<td class="rowName">内容编辑</td>
@@ -70,7 +91,7 @@
 			}
 
 			var editor = CKEDITOR.replace('contDetail');
-			
+
 			CKFinder.setupCKEditor(editor, 'ckfinder');
 
 			$('#J_Upload').click(function() {
