@@ -171,7 +171,7 @@ $(document).ready(function() {
 	var title;
 	if(cata1 == '医院概览'){
 		$('.titleType4').html('医院概览');
-		title=" <li><a href='#'>集团导航</a></li>"+
+		title=" <li><a href='http://www.baidu.com'>集团导航</a></li>"+
                 "<li><a href='/web/main/overview/overview.shtml?cata1=yygl&cata2=yyjj'>医院简介</a></li>"+
                 "<li><a href='/web/main/overview/structure.shtml?cata1=yygl&cata2=zzjg'>组织结构</a></li>"+
                 "<li><a href='/web/main/overview/dean.shtml?cata1=yygl&cata2=yzjy'>院长寄语</a></li>"+
@@ -197,12 +197,12 @@ $(document).ready(function() {
 	}
 	if(cata1 =="患者服务中心"){
 		$('.titleType4').html('患者服务中心');
-		title="<li><a href='#'>门诊查询</a>"+
+		title="<li><a href='/web/main/patient/doctorSearch.shtml?cata1=hzfwzx&cata2=mzcx&cata3=zjcx'>门诊查询</a>"+
 			        "<ul class='subMenu'>"+
 			        "<li><a href='/web/main/patient/doctorSearch.shtml?cata1=hzfwzx&cata2=mzcx&cata3=zjcx'>专家查询</a></li>"+
 			    "</ul>"+
 			"</li>"+
-			"<li><a href='#'>就诊指南</a>"+
+			"<li><a href='/web/main/patient/process.shtml?cata1=hzfwzx&cata2=jzzn&cata3=jylc'>就诊指南</a>"+
 			    "<ul class='subMenu'>"+
 			        "<li><a href='/web/main/patient/process.shtml?cata1=hzfwzx&cata2=jzzn&cata3=jylc'>就医流程</a></li>"+
 			        "<li><a href='/web/main/patient/attention.shtml?cata1=hzfwzx&cata2=jzzn&cata3=jyxz'>就医须知</a></li>"+
@@ -212,7 +212,7 @@ $(document).ready(function() {
 			        "<li><a href='/web/main/patient/add.shtml?cata1=hzfwzx&cata2=jzzn&cata3=jtzn'>交通指南</a></li>"+
 			    "</ul>"+
 			"</li>"+
-			"<li><a href='#'>其它服务</a>"+
+			"<li><a href='/web/main/patient/order.shtml?cata1=hzfwzx&cata2=qtfw&cata3=yygh'>其它服务</a>"+
 			    "<ul class='subMenu'>"+
 			        "<li><a href='/web/main/patient/order.shtml?cata1=hzfwzx&cata2=qtfw&cata3=yygh'>预约挂号</a></li>"+
 			        "<li><a href='/web/main/patient/consultIndex.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx'>在线咨询中心</a></li>"+

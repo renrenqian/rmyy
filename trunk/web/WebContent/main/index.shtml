@@ -31,7 +31,7 @@
                 </div>
                 <hr style="border-bottom: 1px solid #d2e2e3;"/>
                 <div class="J_Panel" id='J_HosNews'>
-                 <a style='line-height:28px; float:right; color:#0B5C5D;' class='unl mr15' href='/web/main/news/newsList.shtml'>更多医院新闻</a>
+                 <a style='line-height:28px; float:right; color:#0B5C5D; *margin-top:-5px;' class='unl mr15' href='/web/main/news/newsList.shtml'>更多医院新闻</a>
                     <div class="newsL">
                         <div class="topic">
                             <h2>我院多科联合抢救一例急性眶蜂窝织炎患儿</h2>
@@ -53,7 +53,7 @@
                             </a><span class="newsDate">05-25 </span></li>
                         </ul>
                     </div>
-                    <div class="newsR">
+                    <div class="newsR" style='*margin-top:-10px;'>
                         <div class="slider-wrapper theme-pascal">
                             <div id="J_InfoSlider" class="nivoSlider">
                                 <a href="hospital/news/newsDetail.shtml" target="_blank">
@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <div class="J_Panel" id='J_JTNews' style='display:none;'>
-                 <a style='line-height:28px; float:right; color:#0B5C5D;' class='unl mr15' href='/web/main/news/newsList.shtml'>更多集团动态</a>
+                 <a style='line-height:28px; float:right; color:#0B5C5D; *margin-top:-5px;' class='unl mr15' href='/web/main/news/newsList.shtml'>更多集团动态</a>
                  <div class='clear'></div>                                          
                         <ul class="newsItem">
                             <li><span class="ora fl">【城北院区】</span><a class="newsTitle" style='width:60%;' title="浙江省毛发移植与头面部微创美容新进展学习班" href="javascript:;">浙江省毛发移植与头面部微创美容新进展学习班
