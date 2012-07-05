@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<head>
+<!--#include virtual="master/headFile.html"-->
+</head>
+<body>
+	<!--#include virtual="master/top.html"-->
+	<div style='overflow: hidden;' class='mt5'>
+		<div class='slider'>
+			<!--首页滑动-->
+			<div class="slider-wrapper theme-default">
+				<div id="J_TopSlider" class="nivoSlider">
+					<a href="#"> <img src="/web/cancer/images/slider1.jpg" alt=""
+						title="创建全国优质护理服务示范工程" /></a><a href="#"> <img
+						src="/web/cancer/images/slider1.jpg" alt="" title="“患者安全目标”全国行" /></a><a
+						href="#"> <img src="/web/cancer/images/slider1.jpg" alt=""
+						title="庆祝建党90周年系列活动" /></a><a href="#"> <img
+						src="/web/cancer/images/slider1.jpg" alt=""
+						title="浙江省毛发移植与头面部微创美容新进展学习班" />
+					</a> <a href="#"> <img src="/web/cancer/images/slider1.jpg" alt=""
+						title="浙江省毛发移植与头面部微创美容新进展学习班" />
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class='post'>
+			<ul class="newsItem">
+				<li><a class="newsTitle" title="浙江省毛发移植与头面部微创美容新进展学习班"
+					href="javascript:;">浙江省毛发移植与头面部微创美容新进展学习班 </a><span
+					class="newsDate">05-25 </span><span class="newIcon"></span></li>
+				<li><a class="newsTitle" title="微量营养素与孩子的健康"
+					href="javascript:;">微量营养素与孩子的健康</a><span class="newsDate">05-25</span><span
+					class="newIcon"></span></li>
+				<li><a class="newsTitle" title="第四届国际甲状腺周免费咨询活动"
+					href="javascript:;">第四届国际甲状腺周免费咨询活动 </a><span class="newsDate">05-25</span><span
+					class="newIcon"></span></li>
+				<li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
+					href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
+					class="newsDate">05-25 </span></li>
+				<li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
+					href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
+					class="newsDate">05-25 </span></li>
+				<li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
+					href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
+					class="newsDate">05-25 </span></li>
+				<li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
+					href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
+					class="newsDate">05-25 </span></li>
+			</ul>
+		</div>
+	</div>
+	<div style='overflow: hidden;' class='mt10'>
+		<div class='col'>
+			<div class='colorTitle1'>
+				<a href='#'> 患者服务<span class='arrow'></span>
+				</a>
+			</div>
+			<img src='images/colPic1.jpg' class='fr mt5 mr5' />
+			<h2>专家团队</h2>
+			<p>专家团队栏目的介绍文字，专家团队栏目的介绍文字</p>
+			<h2>查找医生</h2>
+			<p>专家团队栏目的介绍文字，专家团队栏目的介绍文字</p>
+			<h2>预约咨询</h2>
+			<p>专家团队栏目的介绍文字，专家团队栏目的介绍文字</p>
+			<h2>外地患者</h2>
+			<p>专家团队栏目的介绍文字，专家团队栏目的介绍文字</p>
+		</div>
+		<div class='col'>
+			<div class='colorTitle1'>
+				<a href='#'> 关于癌症<span class='arrow'></span>
+				</a>
+			</div>
+			<img src='images/colPic1.jpg' class='fr mt5 mr5' />
+			<h2>血液疾病</h2>
+			<p>专家团队栏目的介绍文字，专家团队栏目的介绍文字</p>
+			<h2>头颈部癌症</h2>
+			<p>专家团队栏目的介绍文字，专家团队栏目的介绍文字</p>
+			<h2>胸部癌症</h2>
+			<p>专家团队栏目的介绍文字，专家团队栏目的介绍文字</p>
+			<h2>腹部癌症</h2>
+			<p>专家团队栏目的介绍文字，专家团队栏目的介绍文字</p>
+		</div>
+		<div class='col'>
+			<div class='colorTitle1'>
+				<a href='#'>中心特色<span class='arrow'></span>
+				</a>
+			</div>
+			<img src='images/colPic1.jpg' class='fr mt5 mr5' />
+			<h2>外科治疗</h2>
+			<p>专家团队栏目的介绍文字，专家团队栏目的介绍文字</p>
+			<h2>放射治疗、热疗与磁疗</h2>
+			<p>专家团队栏目的介绍文字，专家团队栏目的介绍文字</p>
+			<h2>化学治疗与生物治疗</h2>
+			<p>专家团队栏目的介绍文字，专家团队栏目的介绍文字</p>
+			<h2>中西医结合治疗</h2>
+			<p>专家团队栏目的介绍文字，专家团队栏目的介绍文字</p>
+		</div>
+	</div>
+	<div style='overflow: hidden;' class='mt10 mb10'>
+		<div class='col2'>
+			<div class='colorTitle2'>
+				<a href='#'> 中心新闻 </a>
+			</div>
+			<ul class="newsItem">
+				<li><a class="newsTitle" title="浙江省毛发移植与头面部微创美容新进展学习班"
+					href="javascript:;">浙江省毛发移植与头面部微创美容新进展学习班 </a><span
+					class="newsDate">05-25 </span><span class="newIcon"></span></li>
+				<li><a class="newsTitle" title="微量营养素与孩子的健康"
+					href="javascript:;">微量营养素与孩子的健康</a><span class="newsDate">05-25</span><span
+					class="newIcon"></span></li>
+				<li><a class="newsTitle" title="第四届国际甲状腺周免费咨询活动"
+					href="javascript:;">第四届国际甲状腺周免费咨询活动 </a><span class="newsDate">05-25</span><span
+					class="newIcon"></span></li>
+				<li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
+					href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
+					class="newsDate">05-25 </span></li>
+				<li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
+					href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
+					class="newsDate">05-25 </span></li>
+				<li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
+					href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
+					class="newsDate">05-25 </span></li>
+				<li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
+					href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
+					class="newsDate">05-25 </span></li>
+			</ul>
+		</div>
+		<div class='col' style='float: right; height: 245px;'>
+			<div class='colorTitle2'>
+				<a href='#'>备用栏目</a>
+			</div>
+
+		</div>
+	</div>
+	<!--#include virtual="master/footer.html"-->
+	<script src="/web/js/jquery.nivo.slider.pack.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#J_TopSlider').nivoSlider({
+				captionOpacity : 0.55,
+				pauseTime : 4000
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+body {
+	width: 960px; margin: 0 auto; position: relative;
+}
+
+.top {
+	background: url("/web/cancer/images/top.jpg"); width: 960px; height: 120px; margin: 0 auto;
+}
+
+#SYLink {
+	height: 120px; width: 350px; position: absolute; top: 0; left: 0;
+}
+/* nav style */
+.nav ul {
+	width: 100%; height: 31px; background: url("/web/cancer/images/navBg.jpg") repeat-x;
+}
+
+.nav ul li {
+	display: block; height: 31px; overflow: hidden; float: left;
+}
+
+.nav ul li a {
+	display: block; height: 31px; width: 120px; color: #FFF; font-size: 16px; text-align: center; float: left;
+}
+
+.nav ul li a:hover {
+	margin-top: -3px;
+}
+
+.navSplit {
+	display: block; float: left; height: 31px; width: 2px; background: url("/web/cancer/images/navSplit.jpg");
+}
+/* bottom style */
+.bottom {
+	background: url("/web/cancer/images/btmBg.jpg") repeat-x; width: 960px; height: 111px; margin: 0 auto; position: relative;
+}
+
+.bottom p {
+	width: 500px; margin: 5px; float: right; color: #f48512;
+}
+
+/* slider */
+.slider{
+	float:left;
+}
+.theme-default #J_TopSlider{
+	width:530px;
+	height:186px;
+}
+
+/* post */
+.post{
+	float:right;
+	width:425px;
+}
+
+/* news item cover */
+.newsItem li a{
+	color: #a95b0b;
+}
+
+.newsItem li a:hover {
+	color: #cc6f0e; font-weight: bold;
+}
+
+.newsDate {
+	color: #f79927;
+}
+
+/* col */
+.col{
+	width:308px;
+	height:310px;
+	float:left;
+	border:1px solid #CCC;
+	margin-right:10px;
+}
+.colorTitle1{
+	background:#f67807;
+	height:50px;	
+}
+.colorTitle1 a{
+	color:#FFF;
+	font-size:20px;
+	line-height:50px;
+	vertical-align:middle;
+	display:block;
+	padding-left:10px;
+}
+.col .arrow{
+	width:36px;
+	height:38px;
+	display:block;
+	background: url("../images/arrow.png"); 
+	float:right;
+	margin-top:6px;
+	margin-right:6px;
+}
+.col h2{
+	padding:10px;
+	padding-bottom:0;
+	font-size:14px;
+	color:#333;
+}
+.col h2:hover{
+	text-decoration:underline;
+	cursor:pointer;
+}
+.col p{
+	padding-left:10px;
+	padding-right:5px;
+	color:#666666;
+}
+
+/* 中心新闻 */
+.col2{
+	width:628px;
+	height:245px;
+	float:left;
+	border:1px solid #CCC;
+}
+
+.colorTitle2{
+	background:#f7f7f7;
+	border-bottom:1px solid #CCC;
+	height:50px;	
+}
+.colorTitle2 a{
+	color:#333;
+	font-size:16px;
+	line-height:50px;
+	vertical-align:middle;
+	display:block;
+	padding-left:10px;
+}
+
+.fixColor{
+	color:#333;
+}
