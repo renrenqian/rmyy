@@ -127,11 +127,11 @@ h1, h2, h3, h4, h5, h6 { font-size: 100%;}
 .toolBox p .unabled:hover { cursor: default; color: #BBB; }
 .toolBox p a:hover { color: #01214b; }
 .fullWindow { height: 98%; width: 100%; }
-.fullWindowBtnArea { overflow:hidden; width:728px; height:69px; background:url("../images/btnArea.png") no-repeat; position:fixed; z-index:9999; bottom:10px; left:50%; margin-left:-364px; text-align:center; padding-top:15px; padding-left:60px; }
+.fullWindowBtnArea { overflow:hidden; width:728px; height:69px; background:url("../../images/adminPart/btnArea.png") no-repeat; position:fixed; z-index:9999; bottom:10px; left:50%; margin-left:-364px; text-align:center; padding-top:15px; padding-left:60px; }
 .window .panel .panel-title { color:#0765ce; }
 #center .panel-body { border:1px solid #d0e7fb; }
 .layout-panel-west .layout-split-west { border-right:0 solid #fff; }
-.layout-panel-west .accordion { background:url("../images/left_menu_skin_4.jpg") repeat-y; }
+.layout-panel-west .accordion { background:url("../../images/adminPart/left_menu_skin_4.jpg") repeat-y; }
 .layout-panel-west .accordion-body { padding-top:10px; }
 /* textLength */
 .hidden1 { display:block; width:200px; padding-left:5px; white-space: nowrap; text-overflow: ellipsis; overflow:hidden; }
@@ -139,26 +139,26 @@ h1, h2, h3, h4, h5, h6 { font-size: 100%;}
 .hidden3 { display:block; width:50px; padding-left:5px; white-space: nowrap; text-overflow: ellipsis; overflow:hidden; }
 /* table icon button */
 a.edit, a.upload, a.copy, a.del, a.detail, a.view, a.film,a.per,a.use, a.default_unUse, a.default_use { height: 27px; width: 33px; display: block; margin: 0 auto; }
-a.edit { background: url(../images/icon.png) 0 0; cursor: pointer; }
+a.edit { background: url(../../images/adminPart/icon.png) 0 0; cursor: pointer; }
 a:hover.edit { background-position: 0 -27px; }
-a.upload { background: url(../images/icon.png) -33px 0; cursor: pointer; }
+a.upload { background: url(../../images/adminPart/icon.png) -33px 0; cursor: pointer; }
 a:hover.upload { background-position: -33px -27px; }
-a.copy { background: url(../images/icon.png) -66px 0; cursor: pointer; }
+a.copy { background: url(../../images/adminPart/icon.png) -66px 0; cursor: pointer; }
 a:hover.copy { background-position: -66px -27px; }
-a.del { background: url(../images/icon.png) -99px 0; cursor: pointer; }
+a.del { background: url(../../images/adminPart/icon.png) -99px 0; cursor: pointer; }
 a:hover.del { background-position: -99px -27px; }
-a.detail { background: url(../images/icon.png) -132px 0; cursor: pointer; }
+a.detail { background: url(../../images/adminPart/icon.png) -132px 0; cursor: pointer; }
 a:hover.detail { background-position: -132px -27px; }
-a.view { background: url(../images/icon.png) no-repeat -165px 0; cursor: pointer; }
+a.view { background: url(../../images/adminPart/icon.png) no-repeat -165px 0; cursor: pointer; }
 a:hover.view { background-position: -165px -27px; }
-a.film { background: url(../images/icon.png) no-repeat -198px 0; cursor: pointer; }
+a.film { background: url(../../images/adminPart/icon.png) no-repeat -198px 0; cursor: pointer; }
 a:hover.film { background-position: -198px -27px; }
-a.per { background: url(../images/icon.png) no-repeat -231px 0; cursor: pointer; }
+a.per { background: url(../../images/adminPart/icon.png) no-repeat -231px 0; cursor: pointer; }
 a:hover.per { background-position: -231px -27px; }
-a.default_use, a:hover.default_unUse { background: url(../images/bullet.png) no-repeat -32px 0; cursor: pointer; }
-a:hover.default_use, a.default_unUse { background: url(../images/bullet.png) no-repeat -128px 0; }
+a.default_use, a:hover.default_unUse { background: url(../../images/adminPart/bullet.png) no-repeat -32px 0; cursor: pointer; }
+a:hover.default_use, a.default_unUse { background: url(../../images/adminPart/bullet.png) no-repeat -128px 0; }
 /* welcome icon48 */
-.icon48 { background: url("../images/icon48.png"); height:48px; width:48px; display:block; }
+.icon48 { background: url("../../images/adminPart/icon48.png"); height:48px; width:48px; display:block; }
 .icon48Success { background-position:0 0; float:left; }
 .icon48Error { background-position:-48px 0; float:left; }
 .icon48Warn { background-position:-96px 0; float:left; }
@@ -172,14 +172,14 @@ a:hover.default_use, a.default_unUse { background: url(../images/bullet.png) no-
 .icon48CP { background-position:-480px 0; float:left; }
 .icon48User { background-position:-528px 0; float:left; }
 /* check info icon 32 */
-.pass, .passWait, .fail, .failWait, .checkDis { background: url("../images/checkInfo.png") no-repeat; height:24px; width:24px; display:block; cursor: pointer; margin-right:5px; }
+.pass, .passWait, .fail, .failWait, .checkDis { background: url("../../images/checkInfo.png") no-repeat; height:24px; width:24px; display:block; cursor: pointer; margin-right:5px; }
 .passWait { background-position:-24px 0; float:left; color:green; font-weight:bold; text-indent:2em; }
 .passWait:hover, .pass { float:left; background-position:0 0; }
 .failWait { background-position:-24px -24px; float:left; }
 .failWait:hover, .fail { float:left; background-position:0 -24px; }
 .checkDis { background-position:0 -48px; float:left; cursor: default; }
 /* button */
-.button { background:url("../images/spr_x.png") repeat-x; border-radius: 3px 3px 3px 3px; float: left; font-weight: bold; height: 28px; line-height: 29px; margin-right: 10px; overflow: hidden; padding: 0 18px; text-align: center; cursor:pointer; }
+.button { background:url("../../images/adminPart/spr_x.png") repeat-x; border-radius: 3px 3px 3px 3px; float: left; font-weight: bold; height: 28px; line-height: 29px; margin-right: 10px; overflow: hidden; padding: 0 18px; text-align: center; cursor:pointer; }
 .btn-blue { background-position:0 -185px; border: 1px solid #276DDD; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); color: #FFFFFF; text-shadow: 0 1px #276DDD; }
 .btn-blue:hover { background-position: 0 -214px; color: #FFFFFF; }
 .btn-orange { background-position:0 -344px; border: 1px solid #db6909; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); color: #FFFFFF; text-shadow: 0 1px #db6909; }
@@ -192,7 +192,7 @@ a:hover.default_use, a.default_unUse { background: url(../images/bullet.png) no-
 .btn-grey:hover { background-position:0 -634px; color: #333; }
 .btn-unable { background-position:0 -605px; border: 1px solid #dcdcdc; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); color: #666; text-shadow: 0 1px #dcdcdc; cursor:default; }
 /* button icon */
-.icon { background: url("../images/icon_main.png") no-repeat; display:block; height: 16px; line-height: 10; overflow: hidden; width: 16px; float:left; margin-top:6px; margin-right:8px; }
+.icon { background: url("../../images/adminPart/icon_main.png") no-repeat; display:block; height: 16px; line-height: 10; overflow: hidden; width: 16px; float:left; margin-top:6px; margin-right:8px; }
 .ico-bulb { background-position: 0 0; }
 .ico-add { background-position: -100px 0; }
 .ico-del { background-position: 0 -20px; }
@@ -210,7 +210,7 @@ a:hover.default_use, a.default_unUse { background: url(../images/bullet.png) no-
 .fileTable thead { text-align:left; color: #333; background:#E0ECFF; }
 .fileTable tr td { background: none repeat scroll 0 0 #EDF5FF; color: #333333; height: 35px; padding-left: 10px; }
 /*icon32*/
-.icon32 { background: url(../images/bullet.png) no-repeat; cursor: pointer; display:block; height:32px; width:32px; float:left; margin-left:5px; }
+.icon32 { background: url(../../images/bullet.png) no-repeat; cursor: pointer; display:block; height:32px; width:32px; float:left; margin-left:5px; }
 .icon32Green { background-position:0 0; }
 .icon32Red { background-position:-32px 0; }
 .icon32Blue { background-position:-64px 0; }
@@ -222,7 +222,7 @@ a:hover.default_use, a.default_unUse { background: url(../images/bullet.png) no-
 .icon32New { background-position:-256px 0; }
 .icon32Edit { background-position:-288px 0; }
 /*icon25*/
-.icon25 { background: url(../images/icon25.png) no-repeat; cursor: pointer; display:block; height:25px; width:25px; float:left; margin-left:5px; }
+.icon25 { background: url(../../images/icon25.png) no-repeat; cursor: pointer; display:block; height:25px; width:25px; float:left; margin-left:5px; }
 .icon25FileNav { background-position:0 0; }
 .icon25FileNav:hover { background-position:0 -25px; }
 .icon25Search { background-position:-25px 0; }
@@ -246,11 +246,11 @@ table.display tfoot th { padding: 3px 18px 3px 10px; border-top: 1px solid black
 table.display tr.heading2 td { border-bottom: 1px solid #aaa; }
 table.display td { text-align:center; padding-right:8px; padding-top:3px; padding-bottom:3px; }
 table.display td.center { text-align: center; }
-.sorting_asc { background: url('../images/sort_asc.png') no-repeat center right; }
-.sorting_desc { background: url('../images/sort_desc.png') no-repeat center right; }
-.sorting { background: url('../images/sort_both.png') no-repeat center right; }
-.sorting_asc_disabled { background: url('../images/sort_asc_disabled.png') no-repeat center right; }
-.sorting_desc_disabled { background: url('../images/sort_desc_disabled.png') no-repeat center right; }
+.sorting_asc { background: url('../../images/adminPart/sort_asc.png') no-repeat center right; }
+.sorting_desc { background: url('../../images/adminPart/sort_desc.png') no-repeat center right; }
+.sorting { background: url('../../images/adminPart/sort_both.png') no-repeat center right; }
+.sorting_asc_disabled { background: url('../../images/adminPart/sort_asc_disabled.png') no-repeat center right; }
+.sorting_desc_disabled { background: url('../../images/adminPart/sort_desc_disabled.png') no-repeat center right; }
 .dataTables_scroll { clear: both; }
 .top, .bottom { padding: 15px; background-color: #F5F5F5; border: 1px solid #CCCCCC; }
 .top .dataTables_info { float: none; }
@@ -276,14 +276,14 @@ table.display thead th {color:#005AB5; padding: 3px 18px 3px 10px; font-weight:b
 tr.odd { background-color:#EDF5FF; }
 tr td.sel{font-weight:bolder; color:#F60;}
 /* form */
-.form { padding: 20px; background: #fff url("../plugins/form/images/form.jpg") repeat-x; border: 1px solid #BAD5E7; -moz-box-shadow: 0 0 10px #BAD5E7; -webkit-box-shadow: 0 0 10px #BAD5E7; box-shadow: 0 0 10px #bbb; }
+.form { padding: 20px; background: #fff url("/admin/images/adminPart/form.jpg") repeat-x; border: 1px solid #BAD5E7; -moz-box-shadow: 0 0 10px #BAD5E7; -webkit-box-shadow: 0 0 10px #BAD5E7; box-shadow: 0 0 10px #bbb; }
 .form h2 { margin: 0 0 10px 0; padding-bottom: 10px; color: #005AB5; border-bottom: 1px solid #BAD5E7; }
 .textFocus { border: #39F solid 2px; font-weight: bold; color: #369; outline: none; box-shadow: 0 0 5px rgba(81, 203, 238, 1); -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 1); -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 1); }
 .rowName { vertical-align:top; padding-top:8px; font-size:11px; color:#444; font-weight:bold; text-align:left; }
 .input_type1, .input_type2, .input_type3, .input_type_date { color:#005AB5;letter-spacing:1px; font-family: "微软雅黑", serif; width: 280px; margin-top: 6px; margin-bottom: 6px; margin-left:10px; font-size: 12px; font-weight: bold; vertical-align: middle; line-height: 28px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; height: 30px; padding-left:5px; }
 .input_type2 { width: 400px; }
 .input_type3 { width: 600px; }
-.input_type_date { cursor:pointer; background: url(../plugins/form/images/calendar_edit.png) no-repeat 250px; }
+.input_type_date { cursor:pointer; background: url(/admin/js/form/images/calendar_edit.png) no-repeat 250px; }
 .radio_Type1 { margin-right: 5px; }
 .radio_Type1_label { margin-right: 10px; cursor: pointer; font-weight:bold; color:#333; }
 .selectType1, .selectType2{  color:#005AB5; font-family: "微软雅黑", serif; height: 30px; width: 280px; margin-top: 6px; margin-bottom:6px; margin-left:10px; line-height: 30px; vertical-align: middle; font-weight: bold; padding: 5px 5px 5px 3px; }
@@ -294,14 +294,14 @@ tr td.sel{font-weight:bolder; color:#F60;}
 .textArea_type2 { width: 588px; height: 60px; }
 .textArea_type3 { height: 150px; width: 90%; }
 /* validate */
- .error { padding-left: 16px; background: url(../plugins/form/images/unchecked.gif) no-repeat 0 0; color: #F30; font-weight: bold; margin-left: 10px; margin-top: 5px; font-size: 11px; }
-.phoneErr,.mailErr,.minErr,.maxErr,.pwdErr,.sameErr,.numErr,.IPErr,.smallErr,.bigErr{ padding-left:20px; background: url(../plugins/form/images/unchecked.gif) no-repeat 0 0; color: #F30; font-weight: bold; margin-left: 10px; margin-top: 12px; font-size: 11px; vertical-align:top; display:inline-block;  }
-.requiredErr { padding-left: 16px; background: url(../plugins/form/images/required_star.gif) no-repeat 0 0; color: #F30; font-weight: bold; margin-left: 10px; margin-top: 12px; font-size: 11px; vertical-align:top; display:inline-block; }
+ .error { padding-left: 16px; background: url(/admin/js/form/images/unchecked.gif) no-repeat 0 0; color: #F30; font-weight: bold; margin-left: 10px; margin-top: 5px; font-size: 11px; }
+.phoneErr,.mailErr,.minErr,.maxErr,.pwdErr,.sameErr,.numErr,.IPErr,.smallErr,.bigErr{ padding-left:20px; background: url(/admin/js/form/images/unchecked.gif) no-repeat 0 0; color: #F30; font-weight: bold; margin-left: 10px; margin-top: 12px; font-size: 11px; vertical-align:top; display:inline-block;  }
+.requiredErr { padding-left: 16px; background: url(/admin/js/form/images/required_star.gif) no-repeat 0 0; color: #F30; font-weight: bold; margin-left: 10px; margin-top: 12px; font-size: 11px; vertical-align:top; display:inline-block; }
 .errorMsgArea { margin-top:10px; margin-left:10px; padding:5px; vertical-align:middle; float:left; display:block; height:25px; width:70%; background:#feddde; border:1px solid #fcb5b6; }
-.errorMsgArea .errorMsg { display:block; padding-left:30px; background: url(../plugins/form/images/unchecked.gif) no-repeat 0 0; color: #631c1d; margin-left: 5px; margin-top: 5px; font-size: 11px; }
+.errorMsgArea .errorMsg { display:block; padding-left:30px; background: url(/admin/js/form/images/unchecked.gif) no-repeat 0 0; color: #631c1d; margin-left: 5px; margin-top: 5px; font-size: 11px; }
 .errorMsgArea .errorMsg span { font-weight:bold; margin-left:10px; margin-right:10px; }
 /* info msgBox */
-.sd_msgbox_layer, .sd_msgbox_layer .gtl_ico_succ, .sd_msgbox_layer .gtl_ico_fail, .sd_msgbox_layer .gtl_ico_hits, .sd_msgbox_layer .gtl_ico_clear, .sd_msgbox_layer .gtl_end { background-image: url("../images/checkInfo2.png"); background-repeat: no-repeat; color: #333; display: inline-block; font-size: 14px; font-weight: bold; height: 54px; line-height: 54px; }
+.sd_msgbox_layer, .sd_msgbox_layer .gtl_ico_succ, .sd_msgbox_layer .gtl_ico_fail, .sd_msgbox_layer .gtl_ico_hits, .sd_msgbox_layer .gtl_ico_clear, .sd_msgbox_layer .gtl_end { background-image: url("../../images/checkInfo2.png"); background-repeat: no-repeat; color: #333; display: inline-block; font-size: 14px; font-weight: bold; height: 54px; line-height: 54px; }
 .sd_msgbox_layer_wrap { left: 0; position: fixed; text-align: center; top: 46%; width: 100%; z-index: 65533; }
 .sd_msgbox_layer { background-position: 0 -161px; background-repeat: repeat-x; margin: 0 auto; padding: 0 18px 0 9px; position: relative; }
 .sd_msgbox_layer .gtl_ico_succ { background-position: -6px 0; left: -45px; position: absolute; top: 0; width: 45px; }

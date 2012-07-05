@@ -10,13 +10,13 @@
             <div class="slider-wrapper theme-default">
                 <div id="J_TopSlider" class="nivoSlider">
                     <a href="#">
-                    <img src="/web/main/images/slider1.jpg" alt="" title="创建全国优质护理服务示范工程"/></a><a href="#">
-                    <img src="/web/main/images/slider2.jpg" alt="" title="“患者安全目标”全国行"/></a><a href="#">
-                    <img src="/web/main/images/slider3.jpg" alt="" title="庆祝建党90周年系列活动"/></a><a href="#">
-                    <img src="/web/main/images/slider4.jpg" alt="" title="浙江省毛发移植与头面部微创美容新进展学习班"/>
+                    <img src="images/slider1.jpg" alt="" title="创建全国优质护理服务示范工程"/></a><a href="#">
+                    <img src="images/slider2.jpg" alt="" title="“患者安全目标”全国行"/></a><a href="#">
+                    <img src="images/slider3.jpg" alt="" title="庆祝建党90周年系列活动"/></a><a href="#">
+                    <img src="images/slider4.jpg" alt="" title="浙江省毛发移植与头面部微创美容新进展学习班"/>
                 </a>
                 <a href="#">
-                    <img src="/web/main/images/slider5.jpg" alt="" title="浙江省毛发移植与头面部微创美容新进展学习班"/>
+                    <img src="images/slider5.jpg" alt="" title="浙江省毛发移植与头面部微创美容新进展学习班"/>
                 </a>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                 </div>
                 <hr style="border-bottom: 1px solid #d2e2e3;"/>
                 <div class="J_Panel" id='J_HosNews'>
-                 <a style='line-height:28px; float:right; color:#0B5C5D; *margin-top:-5px;' class='unl mr15' href='/web/main/news/newsList.shtml?cata1=xxzx&cata2=yyxw'>更多医院新闻</a>
+                 <a style='line-height:28px; float:right; color:#0B5C5D; *margin-top:-5px;' class='unl mr15' href='news/newsList.shtml?cata1=xxzx&cata2=yyxw'>更多医院新闻</a>
                     <div class="newsL">
                         <div class="topic">
                             <h2>我院多科联合抢救一例急性眶蜂窝织炎患儿</h2>
@@ -57,19 +57,19 @@
                         <div class="slider-wrapper theme-pascal">
                             <div id="J_InfoSlider" class="nivoSlider">
                                 <a href="hospital/news/newsDetail.shtml" target="_blank">
-                                    <img src="/web/main/images/pic2.jpg" alt="" title="我院召开杭州地区医院、妇幼保健院工作会"/></a>
+                                    <img src="images/pic2.jpg" alt="" title="我院召开杭州地区医院、妇幼保健院工作会"/></a>
                                 <a href="hospital/news/newsDetail.shtml" target="_blank">
-                                <img src="/web/main/images/pic1.jpg" alt="" title="市一集团实体瘤多学科综合治疗研讨会"/></a>
-                                <a href="hospital/news/newsDetail.shtml" target="_blank"><img src="/web/main/images/pic3.jpg" alt="" title="位于钱江新城的杭州市妇女医院明年6月开张"/>
+                                <img src="images/pic1.jpg" alt="" title="市一集团实体瘤多学科综合治疗研讨会"/></a>
+                                <a href="hospital/news/newsDetail.shtml" target="_blank"><img src="images/pic3.jpg" alt="" title="位于钱江新城的杭州市妇女医院明年6月开张"/>
                                 </a>
-                                <a href="hospital/news/newsDetail.shtml" target="_blank"><img src="/web/main/images/pic4.jpg" alt="" title="药剂科成功举办青年药师演讲比赛"/>
+                                <a href="hospital/news/newsDetail.shtml" target="_blank"><img src="images/pic4.jpg" alt="" title="药剂科成功举办青年药师演讲比赛"/>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="J_Panel" id='J_JTNews' style='display:none;'>
-                 <a style='line-height:28px; float:right; color:#0B5C5D; *margin-top:-5px;' class='unl mr15' href='/web/main/news/newsList.shtml?cata1=xxzx&cata2=jtdt'>更多集团动态</a>
+                 <a style='line-height:28px; float:right; color:#0B5C5D; *margin-top:-5px;' class='unl mr15' href='news/newsList.shtml?cata1=xxzx&cata2=jtdt'>更多集团动态</a>
                  <div class='clear'></div>                                          
                         <ul class="newsItem">
                             <li><span class="ora fl">【城北院区】</span><a class="newsTitle" style='width:60%;' title="浙江省毛发移植与头面部微创美容新进展学习班" href="javascript:;">浙江省毛发移植与头面部微创美容新进展学习班
@@ -97,19 +97,19 @@
         </div>
         <div class="funcPart">
             <ul class="funcList">
-                <li><a href="/web/main/patient/doctorSearch.shtml" id="func1">
+                <li><a href="patient/doctorSearch.shtml" id="func1">
                     <p class="funcTitle1">专家查询</p>
                 </a></li>
-                <li><a href="/web/main/patient/process.shtml" id="func2">
+                <li><a href="patient/process.shtml" id="func2">
                     <p class="funcTitle1">就诊指南</p>
                 </a></li>
-                <li><a href="/web/main/patient/order.shtml" id="func3">
+                <li><a href="patient/order.shtml" id="func3">
                     <p class="funcTitle1">预约挂号</p>
                 </a></li>
-                <li><a href="/web/main/patient/consultIndex.shtml" id="func4">
+                <li><a href="patient/consultIndex.shtml" id="func4">
                     <p class="funcTitle1">在线咨询中心</p>
                 </a></li>
-                <li><a href="/web/main/patient/assay.shtml" id="func5">
+                <li><a href="patient/assay.shtml" id="func5">
                     <p class="funcTitle1">化验查询</p>
                 </a></li>
             </ul>
@@ -121,7 +121,7 @@
             <div class="post  itemBg">
                 <div class="titleBg">
                     <h1 class="titleType1">医院公告</h1>
-                    <a style='line-height:28px; float:right; color:#0B5C5D;' class='unl mr5' href='/web/main/news/newsList.shtml?cata1=xxzx&cata2=yygg'>更多</a>
+                    <a style='line-height:28px; float:right; color:#0B5C5D;' class='unl mr5' href='news/newsList.shtml?cata1=xxzx&cata2=yygg'>更多</a>
                 </div>
                 <ul class="newsItem">
                     <li><a class="newsTitle" title="浙江省毛发移植与头面部微创美容新进展学习班" href="javascript:;">浙江省毛发移植与头面部微创美容新进展学习班
@@ -149,22 +149,22 @@
         </div>
         <div class="centerPart">
             <ul class="centerList">
-                <li><a href="/web/cancer/index.shtml" target="_blank"  id="center1">
+                <li><a href="/admin/cancer/index.shtml" target="_blank"  id="center1">
                     <p class="centerTitle1">杭州市癌症中心</p>
 
                     <p class="centerTitle2">Cancer Center of Hangzhou</p>
                 </a></li>
-                <li><a href="/web/heart/index.shtml" target="_blank" id="center3">
+                <li><a href="/admin/heart/index.shtml" target="_blank" id="center3">
                     <p class="centerTitle1">杭州市心脑血管病诊治中心</p>
 
                     <p class="centerTitle2">Cardiovascular and cerebrovascular Center</p>
                 </a></li>
-                <li><a href="/web/puerpera/index.shtml" target="_blank" id="center4">
+                <li><a href="/admin/puerpera/index.shtml" target="_blank" id="center4">
                     <p class="centerTitle1">杭州市高危孕产妇急救中心</p>
 
                     <p class="centerTitle2">Risk Puerpera Center of Hangzhou</p>
                 </a></li>
-                <li><a href="/web/health/index.shtml" target="_blank" id="center2">
+                <li><a href="/admin/health/index.shtml" target="_blank" id="center2">
                     <p class="centerTitle1">杭州市健康管理中心</p>
 
                     <p class="centerTitle2">Health Management Center of Hangzhou</p>
@@ -173,7 +173,7 @@
         </div>
     </div>
 <!--#include file="master/footer.html"-->
-<script src="/web/js/jquery.nivo.slider.pack.js"></script>
+<script src="../js/jquery.nivo.slider.pack.js"></script>
 <script>
     $(document).ready(function () {
         $('#J_TopSlider').nivoSlider({
@@ -209,6 +209,6 @@
         $(".J_ZYZZJ").animate({bottom:"30px"},750);       
     });
 </script>
-<script src="/web/main/js/common.js"></script>
+<script src="js/common.js"></script>
 </body>
 </html>
