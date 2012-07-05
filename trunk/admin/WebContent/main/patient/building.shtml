@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<head>
+    <!--#include virtual="../master/headFile.html"-->
+</head>
+<body>
+<!--#include virtual="../master/top.html"-->
+<div class="content contentPart" style="margin-top: 3px; *margin-top: 3px;">
+    <div style="display: block; overflow: hidden;">
+        <div class="leftCol2">
+            <div class="mainPart">
+                <div class="itemBg">
+                    <div class="titleBg2">
+               <p class="bread">
+								<a href="/index.shtml" class="breadB">首页</a><span>></span>
+								<a href="#" class="breadN J_Cata1"></a><span>></span> 
+								<a href="#" class="breadN J_Cata2"></a><span>></span> 
+								<a href="#" class="breadN J_Cata3"></a>
+						</p>
+                    </div>
+                    <h2 class="titleType3">楼宇分布</h2>
+
+                    <div style="clear: both;"></div>
+                    <div class="docBody">
+                        <img src="/web/main/images/build5.jpg"/>
+                        <img src="/web/main/images/build1.jpg"/>
+                        <img src="/web/main/images/build2.jpg"/>
+                        <img src="/web/main/images/build3.jpg"/>
+                        <img src="/web/main/images/build4.jpg"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--#include virtual="../master/commonSubTitle.html"-->
+    </div>
+</div>
+<!--#include virtual="../master/footer.html"-->
+<!--#include virtual="../master/demoJs.html"-->
+<script src="/web/main/js/common.js"></script>
+</body>
+</html>
+
+
+
+

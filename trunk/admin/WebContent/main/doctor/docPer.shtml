@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<head>
+<!--#include virtual="../master/headFile.html"-->
+</head>
+<body>
+	<!--#include virtual="../master/top.html"-->
+	<div class="content contentPart"
+		style="margin-top: 3px; *margin-top: 3px;">
+		<div style="display: block; overflow: hidden;">
+			<div class="leftCol2">
+				<div class="mainPart">
+					<div class="itemBg">
+						<div class="titleBg2">
+							 <p class="bread">
+								<a class="breadB" href="/web/main/index.shtml">首页</a><span>&gt;</span>
+								<a class="breadN J_Cata1" href="#"></a><span>&gt;</span> 
+								<a class="breadN J_Cata2" href="#"></a><span>&gt;</span> 
+								<a class="breadN J_Cata3" href="#"></a>
+							</p>
+						</div>
+						<h2 class="titleType3">医师简介 . 梅瑾</h2>
+						<div style="clear: both;"></div>
+						<div class="newsBody">
+							<div class="perInfo">
+								<img src="../images/docPer.jpg" style="margin-top: 0;" />
+							</div>
+							<div style="margin-left: 20px; float: left;">
+								<table class="docTable">
+									<tr>
+										<th>学历</th>
+										<td id='diEducation'></td>
+										<th>所属科室</th>
+										<td id='diDeptName'></td>
+										<th>职称</th>
+										<td id='diPosition'></td>
+									</tr>
+								</table>
+								<table class="docTable">
+									<tr>
+										<th colspan="4">专家门诊信息</th>
+									</tr>
+									<tr>
+										<th>门诊时间</th>
+										<td>星期三上午,星期五上午</td>
+										<th>门诊地址</th>
+										<td>综合楼5楼</td>
+									</tr>
+									<tr>
+										<th>挂号费用</th>
+										<td>200元</td>
+										<th>门诊限号</th>
+										<td>20个</td>
+									</tr>
+									<tr>
+										<th>门诊状态</th>
+										<td>在诊</td>
+										<th>网上挂号</th>
+										<td><a href="#">请点击</a></td>
+									</tr>
+								</table>
+								<table class="docTable">
+									<tr>
+										<th colspan="4">名医门诊信息</th>
+									</tr>
+									<tr>
+										<th>门诊时间</th>
+										<td>星期三上午,星期五上午</td>
+										<th>门诊地址</th>
+										<td>综合楼5楼</td>
+									</tr>
+									<tr>
+										<th>挂号费用</th>
+										<td>200元</td>
+										<th>门诊限号</th>
+										<td>20个</td>
+									</tr>
+									<tr>
+										<th>门诊状态</th>
+										<td>在诊</td>
+										<th>网上挂号</th>
+										<td><a href="#">请点击</a></td>
+									</tr>
+								</table>
+								<strong>出诊信息仅供参考，如有变动，以门诊公布为准。</strong>
+							</div>
+							<!-- 医师长信息部分 -->
+							<div class='clear' id='J_Re'></div>														
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--#include virtual="../master/commonSubTitle.html"-->
+		</div>
+	</div>
+	<!--#include virtual="../master/footer.html"-->
+	<script src="/web/main/js/common.js"></script>
+	<script>
+	$(document).ready(function(){
+		 $.getJSON('http://124.160.67.194:8520/admin/member/searchDoctor.action?doct.diId=45', function(json) {		 		 	
+	         if (json.resultCode > 0) {            
+	             var doctDetail = json.doct;
+	             $(doctDetail).each(function(i, item) {                  
+	             	$('#diEducation').html(fixPosition(item.diEducation));  
+	             	$('#diDeptName').html(item.diDeptName); 
+ 	             	$('#diPosition').html(item.diPosition); 
+ 	             	var str='';
+ 	             	$('#J_Re').after("<h3 class='mt50'>简历</h3>"+
+ 	             			"<p>"+item.diResume+"</p><hr />"+
+							"<h3>主攻学科</h3>"+
+							"<p>"+item.diMajor+"</p><hr />"+
+							"<h3>研究方向</h3>"+
+						    "<p>"+item.diResearch_direction+"</p><hr />"+
+							"<h3>医疗成果</h3>"+
+							"<p>"+item.diAccomplishment+"</p>");
+	             });     
+	         }
+		 });
+	});
+	
+	function fixPosition(str){
+		switch(str){
+		case 0:'';
+		case 1000:str='博士后';break;
+		case 1001:str='博士';break;
+		case 1002:str='硕士';break;
+		case 1003:str='大学本科';break;
+		case 1004:str='其它';break;
+		}
+		return str;
+	}
+	</script>
+</body>
+</html>
+
+
+
+

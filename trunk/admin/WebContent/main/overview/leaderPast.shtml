@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<head>
+    <!--#include virtual="../master/headFile.html"-->
+</head>
+<body>
+<!--#include virtual="../master/top.html"-->
+<div class="content contentPart" style="margin-top: 3px; *margin-top: 3px;">
+    <div style="display: block; overflow: hidden;">
+        <div class="leftCol2">
+            <div class="mainPart">
+                <div class="itemBg">
+                    <div class="titleBg2">
+                         <p class="bread">
+	                        <a class="breadB" href="/web/main/index.shtml">首页</a><span>&gt;</span>
+	                        <a class="breadN J_Cata1" href="#"></a><span>&gt;</span>
+	                        <a class="breadN J_Cata2" href="#"></a><span>&gt;</span>
+	                        <a class="breadN J_Cata3" href="#"></a>
+                        </p>
+                    </div>
+                    <h2 class="titleType3">历任领导</h2>
+
+                    <div style="clear: both;"></div>
+                    <div class="docBody">
+                        <hr class="mb20 w"/>
+                        <ul class="leaderPast">
+                            <li>
+                                <img src="../images/20111116152841.jpg"/>
+                                <table class="docTable fr">
+                                    <tbody>
+                                    <tr>
+                                        <th colspan="2">胡坚勇</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="width:60px;">任职时间</th>
+                                        <td>1982-2011</td>
+                                    </tr>
+                                    <tr>
+                                        <th>简介</th>
+                                        <td class="f12">
+                                            主任医师，康复医学专业。1982年浙江医科大学杭州分校医学专业毕业，同年2月进入杭州市第一人民医院工作。1996年浙江医科大学专升本临床医学毕业，2002年浙江省委党校行政管理专业在职研究生毕业。兼任中华医学会物理医学与康复分会委员、浙江省康复医学会常务理事、浙江省医师协会康复医师分会副会长、浙江省医学会物理医学与康复分会副主任委员、杭州市医学会物理医学与康复分会主任委员。
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li>
+                                <img src="../images/20111116152841.jpg"/>
+                                <table class="docTable fr">
+                                    <tbody>
+                                    <tr>
+                                        <th colspan="2">胡坚勇</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="width:60px;">任职时间</th>
+                                        <td>1982-2011</td>
+                                    </tr>
+                                    <tr>
+                                        <th>简介</th>
+                                        <td class="f12">
+                                            主任医师，康复医学专业。1982年浙江医科大学杭州分校医学专业毕业，同年2月进入杭州市第一人民医院工作。1996年浙江医科大学专升本临床医学毕业，2002年浙江省委党校行政管理专业在职研究生毕业。兼任中华医学会物理医学与康复分会委员、浙江省康复医学会常务理事、浙江省医师协会康复医师分会副会长、浙江省医学会物理医学与康复分会副主任委员、杭州市医学会物理医学与康复分会主任委员。
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li>
+                                <img src="../images/20111116152841.jpg"/>
+                                <table class="docTable fr">
+                                    <tbody>
+                                    <tr>
+                                        <th colspan="2">胡坚勇</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="width:60px;">任职时间</th>
+                                        <td>1982-2011</td>
+                                    </tr>
+                                    <tr>
+                                        <th>简介</th>
+                                        <td class="f12">
+                                            主任医师，康复医学专业。1982年浙江医科大学杭州分校医学专业毕业，同年2月进入杭州市第一人民医院工作。1996年浙江医科大学专升本临床医学毕业，2002年浙江省委党校行政管理专业在职研究生毕业。兼任中华医学会物理医学与康复分会委员、浙江省康复医学会常务理事、浙江省医师协会康复医师分会副会长、浙江省医学会物理医学与康复分会副主任委员、杭州市医学会物理医学与康复分会主任委员。
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li>
+                                <img src="../images/20111116152841.jpg"/>
+                                <table class="docTable fr">
+                                    <tbody>
+                                    <tr>
+                                        <th colspan="2">胡坚勇</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="width:60px;">任职时间</th>
+                                        <td>1982-2011</td>
+                                    </tr>
+                                    <tr>
+                                        <th>简介</th>
+                                        <td class="f12">
+                                            主任医师，康复医学专业。1982年浙江医科大学杭州分校医学专业毕业，同年2月进入杭州市第一人民医院工作。1996年浙江医科大学专升本临床医学毕业，2002年浙江省委党校行政管理专业在职研究生毕业。兼任中华医学会物理医学与康复分会委员、浙江省康复医学会常务理事、浙江省医师协会康复医师分会副会长、浙江省医学会物理医学与康复分会副主任委员、杭州市医学会物理医学与康复分会主任委员。
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li>
+                                <img src="../images/20111116152841.jpg"/>
+                                <table class="docTable fr">
+                                    <tbody>
+                                    <tr>
+                                        <th colspan="2">胡坚勇</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="width:60px;">任职时间</th>
+                                        <td>1982-2011</td>
+                                    </tr>
+                                    <tr>
+                                        <th>简介</th>
+                                        <td class="f12">
+                                            主任医师，康复医学专业。1982年浙江医科大学杭州分校医学专业毕业，同年2月进入杭州市第一人民医院工作。1996年浙江医科大学专升本临床医学毕业，2002年浙江省委党校行政管理专业在职研究生毕业。兼任中华医学会物理医学与康复分会委员、浙江省康复医学会常务理事、浙江省医师协会康复医师分会副会长、浙江省医学会物理医学与康复分会副主任委员、杭州市医学会物理医学与康复分会主任委员。
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                        </ul>
+                        <img src="../images/pager.jpg" style="margin: 20px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--#include virtual="../master/commonSubTitle.html"-->
+    </div>
+</div>
+<!--#include virtual="../master/footer.html"-->
+<script src="/web/main/js/common.js"></script>
+</body>
+</html>
+
+
+
+
+
+

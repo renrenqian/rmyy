@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<head>
+    <!--#include virtual="/web/main/master/headFile.html"-->
+</head>
+<body>
+<!--#include virtual="/web/main/master/top.html"-->
+<div class="content contentPart" style="margin-top: 3px; *margin-top: 3px;">
+    <div style="display: block; overflow: hidden;">
+        <div class="leftCol2">
+            <div class="mainPart">
+                <div class="itemBg">
+                    <div class="titleBg2">
+                         <p class="bread">
+	                        <a class="breadB" href="/web/main/index.shtml">首页</a><span>&gt;</span>
+	                        <a class="breadN J_Cata1" href="#"></a><span>&gt;</span>
+	                        <a class="breadN J_Cata2" href="#"></a><span>&gt;</span>
+	                        <a class="breadN J_Cata3" href="#"></a>
+                        </p>
+                    </div>
+                    <h2 class="titleType3">现任领导 . 马胜林</h2>
+
+                    <div style="clear: both;"></div>
+                    <div class="docBody">
+                            <ul class="leaderList">
+                                <li><a href="#">马胜林</a> </li>
+                                <li><a href="#">黄进宇</a> </li>
+                                <li><a href="#">王小华</a> </li>
+                                <li><a href="#">张楚</a> </li>
+                                <li><a href="#">王平</a> </li>
+                                <li><a href="#">张治芬</a> </li>
+                                <li><a href="#">吴建成 </a> </li>
+                                <li><a href="#">詹利永</a> </li>
+                                <li><a href="#">郑天容</a> </li>
+                            </ul>
+                        <div style="clear:both;"></div>
+                        <hr class="mb20 w"/>
+                        <img src="../images/20110817165542.gif" style="margin:0; margin-right:20px; float:left;"/>
+
+                        <table class="docTable">
+                            <tbody>
+                            <tr>
+                                <th colspan="4">马胜林</th>
+                            </tr>
+                            <tr>
+                                <th>岗位</th>
+                                <td>院长、党委副书记</td>
+                                <th>技术职称</th>
+                                <td>教授、主任医师、博士研究生导师</td>
+                            </tr>
+                            <tr>
+                                <th>电话</th>
+                                <td>0571-87065701（转）</td>
+                                <th>电子邮件</th>
+                                <td>hzsyyy1@163.com</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="docTable">
+                            <tbody>
+                            <tr>
+                                <th colspan="4">分管范围</th>
+                            </tr>
+                            <tr>
+                                <td>主持并全面负责医院行政、医疗、行风、教学、科研、信息、保健、后勤等管理工作及集团内所属各医疗机构的管理、协调工作。</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <h3>简历</h3>
+
+                        <p>1982.9—1987.7 浙江医科大学读书</p>
+
+                        <p>1987.7—2011.1 浙江省肿瘤医院，历任分院副主任、主任、总院副院长</p>
+
+                        <p>2011.1— 杭州市第一人民医院院长、党委副书记，杭州市肿瘤医院院长、杭州市妇幼保健院院长（兼）、杭州市妇女医院院长。 </p>
+                        <p>从事恶性肿瘤的综合治疗，擅长胸部恶性肿瘤（如肺癌、食管癌等）的放化疗、热疗、生物治疗、中西医结合治疗、个体化治疗等非手术综合治疗的基础与临床研究。</p>
+
+                        <h3>社会兼职</h3>
+
+                        <table class="w7">
+                            <tr>
+                                <td>中华放射肿瘤学会热疗专业委员会</td>
+                                <td>主任委员</td>
+                            </tr>
+                            <tr>
+                                <td>中国抗癌协会放疗专业委员会</td>
+                                <td>常委</td>
+                            </tr>
+                            <tr>
+                                <td>中国药理学会肿瘤药理与化疗专业委员会</td>
+                                <td>副主任委员</td>
+                            </tr>
+                            <tr>
+                                <td>中国抗癌协会抗癌药物专业委员会</td>
+                                <td>副主任委员</td>
+                            </tr>
+                            <tr>
+                                <td>中国抗癌协会临床肿瘤协作中心脑转移肿瘤专家委员会</td>
+                                <td>副主任委员</td>
+                            </tr>
+                            <tr>
+                                <td>国家药督局药物评审中心</td>
+                                <td>新药评审专家</td>
+                            </tr>
+                            <tr>
+                                <td>亚洲肿瘤热疗学会</td>
+                                <td>理事</td>
+                            </tr>
+                            <tr>
+                                <td>浙江省抗癌协会</td>
+                                <td>副秘书长</td>
+                            </tr>
+                            <tr>
+                                <td>浙江省医学会放疗分会</td>
+                                <td>主任委员</td>
+                            </tr>
+                            <tr>
+                                <td>浙江省抗癌协会放疗专业委员会、药物专业委员会</td>
+                                <td>主任委员</td>
+                            </tr>
+                            <tr>
+                                <td>浙江省中西医结合肿瘤重点实验室　</td>
+                                <td>主任</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--#include virtual="/web/main/master/commonSubTitle.html"-->
+    </div>
+</div>
+<!--#include virtual="/web/main/master/footer.html"-->
+<script src="/web/main/js/common.js"></script>
+</body>
+</html>

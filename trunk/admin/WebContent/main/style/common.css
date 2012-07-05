@@ -1,0 +1,582 @@
+html {
+	background: url("/web/main/images/bg.jpg");
+}
+
+body {
+	width: 960px; margin: 0 auto; background: #fff;
+}
+
+.h3Type {
+	color: #006030;
+}
+
+.greenBtn {
+	width: 143px; height: 46px; background: url("/web/main/images/greenBtn.png"); border: none; cursor: pointer; color: #013334; font-weight: bold;
+	font-size: 18px; display: block; margin: 0 auto; line-height: 46px; vertical-align: middle;text-indent:0;
+}
+
+.greenBtn:hover {
+	background-position: -143px 0;
+}
+
+.textLabel {
+	font-size: 16px; color: #053D3E; font-weight: bold;
+}
+
+.input_type1 {
+	height: 35px; font-size: 16px; text-indent: 1em; margin-top: 5px; margin-bottom: 5px; line-height: 35px; vertical-align: middle;
+}
+
+.input_type2 {
+	text-indent: 1em; margin-top: 5px; margin-bottom: 5px; vertical-align: middle; width: 80%; height: 35px;
+}
+
+.select_type1 {
+	margin-top: 5px; margin-bottom: 5px; height: 35px; font-size: 16px; *margin-left: 15px;
+}
+
+.textArea_type1 {
+	width: 80%; height: 150px; padding: 10px;
+}
+/* Site.master */
+.header {
+	height: 135px; width: 100%; z-index: 100; position: relative;
+}
+
+.bread {
+	display: block; font-size: 12px; padding-top: 15px; margin-left: 10px;
+}
+
+.breadB {
+	color: red; padding: 10px; text-decoration: underline; font-weight: bold; color: #1a7474;
+}
+
+.breadN {
+	color: red; padding: 10px; font-weight: bold; color: #0b5c5d; cursor: default;
+}
+
+.logoPart {
+	height: 98px; background: url("/web/main/images/top.png");
+}
+
+.nav .menuLi {
+	height: 37px; display: block; background: url("/web/main/images/navBg.png") no-repeat; float: left;
+}
+
+.nav .drop {
+	width: 100%; height: 100%; display: block;
+}
+
+#n_item1 {
+	width: 95px; background-position: 0 0;
+}
+
+#n_item1:hover {
+	background-position: 0 -37px;
+}
+
+#n_item2 {
+	width: 111px; background-position: -95px 0;
+}
+
+#n_item2:hover {
+	background-position: -95px -37px;
+}
+
+#n_item3 {
+	width: 107px; background-position: -206px 0;	
+}
+
+#n_item3:hover {
+	background-position: -206px -37px;
+}
+
+#n_item4 {
+	width: 142px; background-position: -313px 0;
+}
+
+#n_item4:hover {
+	background-position: -313px -37px;
+}
+
+#n_item5 {
+	width: 107px; background-position: -455px 0;
+}
+
+#n_item5:hover {
+	background-position: -455px -37px;
+}
+
+#n_item6 {
+	width: 108px; background-position: -562px 0;
+}
+
+#n_item6:hover {
+	background-position: -562px -37px;
+}
+
+#n_item7 {
+	width: 109px; background-position: -670px 0;
+}
+
+#n_item7:hover {
+	background-position: -670px -37px;
+}
+
+#n_item8 {
+	width: 181px; background-position: -779px 0;
+}
+
+#n_item8:hover {
+	background-position: -779px -37px;
+}
+
+.contentPart {
+	overflow: hidden; display: inline-block;
+}
+/*  集团成员部分  */
+.group {
+	height: 210px; width: 958px; overflow: hidden; border-left: 1px solid #9bdf70; border-right: 1px solid #9bdf70;
+}
+
+.groupNav {
+	background: url("/web/main/images/groupTitleBg.jpg") repeat-x; height: 38px;
+}
+
+.J_Group,.J_GroupOff,.J_Dept,.J_DeptOff {
+	background: url("/web/main/images/groupNav.jpg"); width: 176px; height: 37px; cursor: pointer; background-position: 0 0; float: left;
+	margin-left: -1px;
+}
+
+.J_GroupOff {
+	background-position: 0 -37px;
+}
+
+.J_Dept {
+	background-position: -176px -37px; margin-left: 0;
+}
+
+.J_DeptOff {
+	background-position: -176px 0; margin-left: 0;
+}
+
+.groupBg {
+	background: url("/web/main/images/groupBg.jpg") repeat-x; height: 172px;
+}
+
+.groupTitle {
+	background: url("/web/main/images/groupTitle.jpg"); width: 18px; height: 179px; float: left; margin-left: 8px;
+}
+
+.groupTitle span {
+	margin-bottom: -8px; display: block;
+}
+
+.groupItem {
+	background: url("/web/main/images/groupItem.jpg"); height: 158px; width: 148px; float: right; cursor: pointer; margin-top: 5px; margin-right: 10px;
+}
+
+.groupItem .pic {
+	width: 123px; height: 103px; background: black; margin-top: 10px; margin-left: 13px; position: relative;
+	background: url(/web/main/images/group.jpg) no-repeat 0px 0px;
+}
+
+.groupItem #pic1 {
+	background-position: 0px 0px;
+}
+
+.groupItem #pic2 {
+	background-position: -123px 0px;
+}
+
+.groupItem #pic3 {
+	background-position: -246px 0px;
+}
+
+.groupItem #pic4 {
+	background-position: -369px 0px;
+}
+
+.groupItem #pic5 {
+	background-position: -492px 0px;
+}
+
+.groupItem #pic6 {
+	background-position: -615px 0px;
+}
+
+.groupItem #picGK {
+	background: url(/web/main/images/GK.png) no-repeat 0px 0px;
+}
+
+.groupItem #picYCF {
+	background: url(/web/main/images/YCF.png) no-repeat 0px 0px;
+}
+
+.groupItem #picYXMR {
+	background: url(/web/main/images/YXMR.png) no-repeat 0px 0px;
+}
+
+.groupItem .mask1,.groupItem .mask2 {
+	display: block; width: 100%; height: 8px; background: #338b8a; position: absolute; bottom: 0; left: 0;
+}
+
+.groupItem .mask2 {
+	background: #7bc053;
+}
+
+.groupItem .title1 {
+	color: #000; font-size: 13px; font-weight: bold; text-align: center; letter-spacing: 2px;
+}
+
+.groupItem .title2 {
+	color: #0B5C5D; font-size: 12px; font-weight: bold; text-align: center; margin-top: -6px; letter-spacing: 1px;
+}
+
+.footer {
+	height: 124px; background: url("/web/main/images/footerBg.jpg") repeat-x; overflow: hidden; display: block; position: relative;;
+}
+
+.footerLogo {
+	background: url("/web/main/images/footerLogo.jpg"); height: 124px; width: 306px; margin-left: 10px; display: block; float: left;
+}
+
+.footerInfo {
+	float: right; width: 500px; margin-top: 20px; margin-right: 90px;
+}
+
+.footerInfo tr td {
+	color: #d9e6d2;
+}
+
+.footerInfo ul li {
+	display: block; float: left;
+}
+
+.footerInfo ul li a {
+	display: block; float: left; margin-right: 20px; color: #ffffcc;
+}
+
+.footerInfo ul li a:hover {
+	text-decoration: underline;
+}
+
+.zw1 {
+	width: 151px; height: 52px; display: block; position: absolute; right: 80px; top: 10px; background: url("/web/main/images/zw.jpg");
+}
+
+.zw2 {
+	width: 61px; height: 59px; display: block; position: absolute; right: 20px; top: 7px; background: url("/web/main/images/zw2.jpg");
+}
+
+/* type1.master */
+.leftCol {
+	width: 650px; float: left; overflow: hidden; display: inline-block;
+}
+
+.leftCol2 {
+	width: 720px; float: left; overflow: hidden; display: inline-block;
+}
+
+.mainPart {
+	margin: 0; display: block; overflow: hidden;
+	/*height: 610px;*/
+}
+
+.rightCol {
+	width: 300px; float: left; margin-left: 10px; overflow: hidden; display: inline-block;
+}
+
+.rightCol2 {
+	width: 230px; float: left; margin-left: 10px; overflow: hidden; display: inline-block;
+}
+
+.centerPart {
+	height: 410px; width: 300px; margin-top: 10px;
+}
+
+.centerList li a {
+	display: block; height: 91px; width: 300px; margin-bottom: 7px; background: url("/web/main/images/center.jpg"); overflow: hidden;
+}
+
+#center1 {
+	background-position: 0 0;
+}
+
+#center1:hover {
+	background-position: -300px 0;
+}
+
+#center2 {
+	background-position: 0 -91px;
+}
+
+#center2:hover {
+	background-position: -300px -91px;
+}
+
+#center3 {
+	background-position: 0 -182px;
+}
+
+#center3:hover {
+	background-position: -300px -182px;
+}
+
+#center4 {
+	background-position: 0 -273px;
+}
+
+#center4:hover {
+	background-position: -300px -273px;
+}
+
+.centerTitle1 {
+	font-size: 18px; color: #000; margin: 5px 0 0 15px; font-family: "Microsoft Yahei";
+}
+
+.centerTitle11 {
+	font-size: 16px; color: #000; margin: 5px 0 0 15px; font-family: "Microsoft Yahei";
+}
+
+.centerTitle2 {
+	font-size: 14px; color: #999; margin-left: 15px;
+}
+
+.centerTitle3 {
+	font-size: 11px; color: #999; margin-left: 15px;
+}
+
+.funcPart {
+	height: 100px; width: 660px; overflow: hidden;
+}
+
+.funcList {
+	margin-left: 10px;
+}
+
+.funcPart li {
+	overflow: hidden; float: left; width: 115px; margin-right: 15px;
+}
+
+.funcPart li a {
+	display: block; height: 100px; width: 115px; margin-bottom: 7px; background: url("/web/main/images/funcBg.jpg"); overflow: hidden; text-align: center;
+}
+
+#func1 {
+	background-position: 0 0;
+}
+
+#func1:hover {
+	background-position: 0 -100px;
+}
+
+#func2 {
+	background-position: -115px 0;
+}
+
+#func2:hover {
+	background-position: -115px -100px;
+}
+
+#func3 {
+	background-position: -230px 0;
+}
+
+#func3:hover {
+	background-position: -230px -100px;
+}
+
+#func4 {
+	background-position: -345px 0;
+}
+
+#func4:hover {
+	background-position: -345px -100px;
+}
+
+#func5 {
+	background-position: -460px 0;
+}
+
+#func5:hover {
+	background-position: -460px -100px;
+}
+
+.funcTitle1 {
+	font-size: 12px; color: #5B4B00; margin-top: 75px; font-family: "Microsoft Yahei"; font-weight: bold;
+}
+
+/*Type2.master*/
+.funcPart2 {
+	width: 230px; height: 325px; margin-top: 20px; margin-bottom: 20px;
+}
+
+.funcPart2 .funcList {
+	margin: 0;
+}
+
+.funcPart2 li {
+	overflow: hidden; float: left; width: 115px;
+}
+
+.funcPart2 li a {
+	display: block; height: 100px; width: 115px; margin-bottom: 7px; background: url("/web/main/images/funcBg.jpg"); overflow: hidden; text-align: center;
+}
+
+.centerPart2 {
+	height: 320px; width: 230px; margin-top: 10px;
+}
+
+.centerList2 li a {
+	display: block; height: 71px; width: 230px; margin-bottom: 10px; background: url("/web/main/images/center2.jpg"); overflow: hidden;
+}
+
+.centerList2 #center1 {
+	background-position: 0 0;
+}
+
+.centerList2 #center1:hover {
+	background-position: -230px 0;
+}
+
+.centerList2 #center2 {
+	background-position: 0 -71px;
+}
+
+.centerList2 #center2:hover {
+	background-position: -230px -71px;
+}
+
+.centerList2 #center3 {
+	background-position: 0 -142px;
+}
+
+.centerList2 #center3:hover {
+	background-position: -230px -142px;
+}
+
+.centerList2 #center4 {
+	background-position: 0 -213px;
+}
+
+.centerList2 #center4:hover {
+	background-position: -230px -213px;
+}
+/* Default.aspx */
+.slider {
+	background: url("/web/main/images/slider.jpg"); height: 300px; width: 650px;
+}
+
+.news {
+	height: 287px; width: 648px; margin-top: 10px; border: 1px solid #c1e1e0; border-top: none
+}
+
+.post {
+	height: 300px; width: 298px; top: 10px;
+}
+
+.subTitle li a {
+	width: 204px; height: 29px; line-height: 29px; margin-bottom: 8px; margin-left: 12px; margin-top: 5px; display: block;
+	background: url("/web/main/images/itemBg.jpg"); color: #003E3E; font-size: 12px; text-indent: 20px; cursor: pointer; position: relative;
+	font-weight: bolder; letter-spacing: 2px; font-family:"宋体";
+}
+
+.subTitle li a:hover {
+	color: #006666;
+}
+
+.subTitle .now,.subTitle .now:hover {
+	color: #FF6A00; font-weight: bolder;
+}
+
+.subTitle .now span {
+	height: 24px; width: 24px; display: block; background: url("/web/main/images/itemNow.jpg"); position: absolute; top: 2px; right: 30px;
+}
+
+.subMenu li a {
+	color: #229b8e; font-size: 12px; text-indent: 30px; cursor: pointer; position: relative; font-weight: bolder; letter-spacing: 2px; font-family: "宋体";
+	background: none;
+}
+
+/* contact */
+.contactTable tr th {
+	text-align: center; color: #006666; font-size: 20px; font-weight: bold; padding:5px 10px;
+}
+
+.contactTable tr td {
+	padding:3px 5px;font-size: 14px;
+}
+
+/* add */
+.addTable tr th {
+	font-weight: bold;
+}
+
+.addTable  .odd th,.addTable .odd td {
+	background: none repeat scroll 0 0 #E8F5FE; padding: 10px;
+}
+
+.addTable  .even th,.addTable .even td {
+	background: none repeat scroll 0 0 #fff; padding: 10px;
+}
+
+/* 现任领导 */
+.leaderList li {
+	disploy: block; float: left; overflow: hidden; width: 45px; margin-left: 0; margin-right: 30px; margin-bottom: 20px;
+}
+
+.leaderList li a {
+	display: block; color: #229B8E; font-weight: bold; text-align: left;
+}
+
+.leaderList li a:hover {
+	text-decoration: underline; color: #003E3E;
+}
+
+/* 历任领导 */
+.leaderPast li {
+	display: block; overflow: hidden; margin-bottom: 10px;
+}
+
+.leaderPast img {
+	margin: 0; float: left; width: 101px; height: 138px;
+}
+
+.leaderPast table {
+	width: 560px;
+}
+
+/* 期刊 */
+.PeriodList {
+	margin: 0 auto; display: block; overflow: hidden;
+}
+
+.PeriodList li {
+	display: block; overflow: hidden; width: 100px; padding: 0; float: left; margin-left: 15px; margin-right: 15px; margin-bottom: 20px; height: 200px;
+}
+
+.PeriodList li a {
+	text-align: center; display: block; color: #229B8E;
+}
+
+.PeriodList li a:hover {
+	text-decoration: underline;
+}
+
+.PeriodList li img {
+	margin: 0; padding: 0;
+}
+
+/* 志愿者之家 */
+.J_ZYZZJ{
+	width:100px;
+	height:157px;
+	background: url("/web/main/images/zyzzj.gif") no-repeat;
+	position:fixed;
+	bottom:-187px;
+	right:10px;
+	cursor:pointer;
+	display:block;
+	overflow:hidden;
+}

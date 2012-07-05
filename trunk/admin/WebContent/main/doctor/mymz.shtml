@@ -1,0 +1,415 @@
+﻿<!DOCTYPE html>
+<head>
+<!--#include virtual="../master/headFile.html"-->
+</head>
+<body>
+	<!--#include virtual="../master/top.html"-->
+	<div class="content contentPart"
+		style="margin-top: 3px; *margin-top: 3px;">
+		<div style="display: block; overflow: hidden;">
+			<div class="leftCol2">
+				<div class="mainPart">
+					<div class="itemBg">
+						<div class="titleBg2">
+						  <p class="bread">
+								<a class="breadB" href="/web/main/index.shtml">首页</a><span>&gt;</span>
+								<a class="breadN J_Cata1" href="#"></a><span>&gt;</span> 
+								<a class="breadN J_Cata2" href="#"></a>
+							</p>
+						</div>
+						<h2 class="titleType3">名医门诊</h2>
+
+						<div style="clear: both;"></div>
+						<div class="docBody">
+							<ul class="picDocList">
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="/web/main/doctor/docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+								<li><img src="../images/docPer.jpg" class="docPic" />
+
+									<div class="docIntro">
+										<p>
+											<a href="docPer.shtml">梅瑾</a><span>在诊</span>
+										</p>
+
+										<p>
+											<span>职称：</span><span>主任医师</span>
+										</p>
+
+										<p>
+											<span>科室：</span><span>产科</span>
+										</p>
+									</div></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--#include virtual="../master/commonSubTitle.html"-->
+		</div>
+	</div>
+	<!--#include virtual="../master/footer.html"-->
+	<script src="/web/main/js/common.js"></script>
+</body>
+</html>
+
+
+
+

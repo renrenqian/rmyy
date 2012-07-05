@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head>
+    <!--#include virtual="../master/headFile.html"-->
+</head>
+<body>
+<!--#include virtual="../master/top.html"-->
+<div class="content contentPart" style="margin-top: 3px; *margin-top: 3px;">
+    <div style="display: block; overflow: hidden;">
+        <div class="leftCol2">
+            <div class="mainPart">
+                <div class="itemBg">
+                    <div class="titleBg2">
+                        <p class="bread">
+                            <a href="/index.shtml" class="breadB">首页</a><span>></span>
+                            <a href="#" class="breadN J_Cata1"></a><span>></span>
+                            <a href="#" class="breadB J_Cata2"></a><span>></span>
+                            <a href="#" class="breadN">内容详情</a>
+                        </p>
+                    </div>
+                    <h2 class="newsMainTitle">【媒体报道】位于钱江新城的杭州市妇女医院明年6月开张</h2>
+
+                    <h3 class="newsInfo"><span>发布日期：</span>2012年6月1日 <span>浏览量：</span> 158 次 <span>来源：</span>杭州市第一人民医院
+                    </h3>
+                    <hr/>
+                    <div class="newsBody">
+                        <p>浙江在线03月08日讯今天是三八妇女节，昨天从钱江新城管委会传来好消息位于钱江新城上城区的杭州市妇女医院即将于明年6月份投入使用，今起全社会公开征集医院标识设计方案。
+                        </p>
+                        <img src="../images/newsPic.jpg"/>
+
+                        <p>杭州市妇女医院是一家集医疗、保健、教学、科研于一体的三级甲等公立医院，也是杭州市属第一家三级甲等妇幼保健医院。</p>
+
+                        <p>
+                            杭州市妇女医院由钱江新城管委会出资建设，并与市一医院合作筹建。医院总投资8亿元，总建筑面积9.6万平方米。医院位于钱江新城富春路与观潮路交叉口，临近市文广中心、市消防指挥中心、望江公园等，周边交通也很方便，紧邻地铁四号线婺江路站出口。
+                        </p>
+
+                        <p>
+                            妇女医院主楼22层，其中1楼至9楼是不育等门诊，10楼至22楼是病房；裙楼6层，是门诊楼，有产科、妇科、美容科、VIP门诊等。医院地下两层(局部三层)，地上停车位15个，地下停车位340个。
+                        </p>
+
+                        <p>目前，医院已经完成主体工程，开展精装修施工，预计明年3月完成设备调试和后期扫尾工作，明年6月投入使用。</p>
+
+                        <p>
+                            医院设计床位数600张，实际可开放床位数653张，开设妇科、产科、生殖与计划生育科、新生儿科、妇幼保健部和整形美容科等临床科室，以市一医院的整体实力为依托，引进国内外专家，重点发展妇科肿瘤、辅助生殖、妇科内分泌、高端医疗服务、整形美容和杭州地区妇幼保健统筹管理和技术指导，建成后能够满足杭州市及周边地区居民的基本医疗保健服务，和高端医疗服务需求。
+                        </p>
+
+                        <p>随着医院即将投入使用，怎样让市民一眼就能识别出妇女医院，钱江新城管委会、市一医院从今天开始公开征集医院的标识设计方案，时间为期一个月，要求简洁明了、意蕴丰富、主题突出、创意独特。
+                        </p>
+
+                        <p>
+                            有意向参与的市民可以在4月7日前提交设计方案，钱江新城管委会还对应征作品设置入围奖和优胜奖，其中入围奖10个，每个奖励人民币2000元；一等奖1个，奖励人民币10000元。具体可登录钱江新城管委会门户网站(www.hzcbd.com)了解详细的征集要求。
+                        </p>
+                    </div>
+                    <div class="newsLink"></div>
+                </div>
+            </div>
+        </div>
+        <!--#include virtual="../master/commonSubTitle.html"-->
+    </div>
+</div>
+<!--#include virtual="../master/footer.html"-->
+<script src="/web/main/js/common.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<head>
+    <!--#include virtual="../master/headFile.html"-->
+</head>
+<body>
+<!--#include virtual="../master/top.html"-->
+<div class="content contentPart" style="margin-top: 3px; *margin-top: 3px;">
+    <div style="display: block; overflow: hidden;">
+        <div class="leftCol2">
+            <div class="mainPart">
+               <div class="itemBg tc">
+        <div class="titleBg2">
+            	<p class="bread">
+								<a href="/index.shtml" class="breadB">首页</a><span>></span>
+								<a href="#" class="breadN J_Cata1"></a><span>></span> 
+								<a href="#" class="breadN J_Cata2"></a><span>></span> 
+								<a href="#" class="breadN J_Cata3"></a>
+						</p>
+        </div>
+            <img src="../images/order.png"  class="tc"/>
+            <a class="greenBtn" style="margin-bottom: 10px;" href="http://guahao.zjol.com.cn/HospitalInfo.Aspx?ID=057101"
+                target="_blank">点击进入</a>
+        <hr />
+        <div class="newsBody">
+            <p class="green f14">
+                杭州市第一人民医院已加入浙江省预约挂号统一平台：预约时就明确了您的就诊序号，真正实现分时预约挂号。
+            </p>
+            <p>
+                一．网上预约："<span class="green f14">浙江在线</span>"网站首页，点击"挂号"。 二．电信用户打114预约。 三． 移动用户打12580预约。
+                四．96365电话和网上预约。
+            </p>
+            <h4>预约挂号用户须知：</h4>
+            <p>
+                1.预约挂号一律采用实名制，预约者的注册信息必须是真实的，必须提供身份证号码。（儿童的身份证号码请看户口簿，<span class="green f14">省级单位子女统筹患儿目前只能用医保病历首页的医保证号代替身份证号
+                </span>）否则预约无效，因此造成的责任自负。预约挂号先推出专家门诊。<span class="green f14">患者最早可在提前一周的下午2点钟预约专家号，就诊前一天下午2点钟以后停止预约第二天的专家号。
+                </span>
+            </p>
+            <p>
+                2.预约成功后预约平台会有提示短信发到，短信包含了取号密码和取号时间，预约成功者请在看病当天带上身份证按短信提示的时间到我院一号楼一楼七、八、九号收费窗口（<span
+                    class="green f14">周一至周五增加一楼门诊服务中心3号位置</span>）支付挂号费并取号。当天专家号的取号时间限定：上午号--当天8:00-10:00；下午号--当天14:00-15:00，因此您不必很早来排队取号。因就医病人多，过时预约号额将不予保留。
+            </p>
+            <p>目前，医院已经完成主体工程，开展精装修施工，预计明年3月完成设备调试和后期扫尾工作，明年6月投入使用。</p>
+            <p>
+                3．预约者到挂号处取号时，请出示您预约时使用的<span class="green f14">身份证、取号密码和病历卡、市民卡、医保卡。（如果发现因姓名或身份证号码与预约登记的资料不符，则无法取号。请直接与114或12580联系或上浙江在线网修改您的登记资料。浙江在线网客服电话：400-666-2020，85311127，85310428，负责解决取号密码问题。
+                </span>）
+            </p>
+            <p>
+                4．如遇专家临时有事门诊时间有变更，医院会及时将停诊信息上传浙江省预约挂号统一平台，由省平台根据市民注册时留下的电话与之沟通，请留意手机短信。为了确保能与您取得联系，如有家庭地址或电话等的变化，需及时上网更改注册信息或拨打114或12580预约电话修改。
+            </p>
+            <p>5．如果预约者不能准时到医院就诊，请于看病当天早晨7时之前通过网上或预约电话取消预约，否则会影响您在医院预约就诊的信誉。</p>
+        </div>
+    </div>
+            </div>
+        </div>
+        <!--#include virtual="../master/commonSubTitle.html"-->
+    </div>
+</div>
+<!--#include virtual="../master/footer.html"-->
+<script src="/web/main/js/common.js"></script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<head>
+<!--#include virtual="../master/headFile.html"-->
+</head>
+<body>
+	<!--#include virtual="../master/top.html"-->
+	<div class="content contentPart"
+		style="margin-top: 3px; *margin-top: 3px;">
+		<div style="display: block; overflow: hidden;">
+			<div class="leftCol2">
+				<div class="mainPart">
+					<div class="itemBg">
+						<div class="titleBg2">
+					   <p class="bread">
+								<a class="breadB" href="/web/main/index.shtml">首页</a><span>&gt;</span>
+								<a class="breadN J_Cata1" href="#"></a><span>&gt;</span> 
+								<a class="breadN J_Cata2" href="#"></a><span>&gt;</span> 
+								<a class="breadN J_Cata3" href="#"></a>
+							</p>
+						</div>
+						<h2 class="titleType3">
+							临床科室 .<span class="J_DpName"></span>
+						</h2>
+
+
+						<div class='clear'></div>
+						<div class="newsBody">
+							<h3>基本信息</h3>
+
+							<p>
+								<span class="mr50">科室名称：<span class="J_DpName"></span></span> <span
+									class="mr50">负责人：<span id="J_DpIn_charge"></span></span> <span
+									class="mr50">床位数量：<span id="J_DpBed_counter"></span>张
+								</span> <span>物理位置：<span id="J_DpLocation"></span></span>
+							</p>
+							<p>
+								联系方式：<span id="J_DpOd_telephone"></span>
+							</p>
+
+							<p>
+								电子邮箱：<span id="J_DpEmail"></span>
+							</p>
+							<a class="greenBtn tc fl" style="margin: 20px;"
+								href="../doctor/mzpb.shtml" target="_blank"> 科室专家一览</a> 																
+						    <a class="greenBtn tc fl" style="margin: 20px;"
+								href="../patient/consultIndex.shtml" target="_blank"> 在线咨询中心</a>
+							<!-- <a class="greenBtn tc fl" style="margin: 20px;" href="#" target="_blank"> 科室主页</a> -->
+							<div class='clear'></div>
+							<hr />
+							<h3>科室简介</h3>
+
+							<div id="J_DpDesc"></div>
+							<hr />
+
+							<h3>学术地位</h3>
+							<div id="J_DpAcademic_position"></div>
+							<hr />
+							<h3>技术优势</h3>
+							<div id="J_DpTech_adv"></div>
+							<hr />
+							<h3>研究方向</h3>
+							<div id="J_DpResearch_direction"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--#include virtual="../master/commonSubTitle.html"-->
+		</div>
+	</div>
+	<!--#include virtual="../master/footer.html"-->
+	<script src="/web/main/js/common.js"></script>
+	<script src="js/deptDetail.js"></script>
+</body>
+</html>
