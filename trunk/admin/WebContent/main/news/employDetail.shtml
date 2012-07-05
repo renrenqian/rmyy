@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+<!--#include virtual="../master/headFile.html"-->
+</head>
+<body>
+	<!--#include virtual="../master/top.html"-->
+	<div class="content contentPart"
+		style="margin-top: 3px; *margin-top: 3px;">
+		<div style="display: block; overflow: hidden;">
+			<div class="leftCol2">
+				<div class="mainPart">
+					<div class="itemBg">
+						<div class="titleBg2">
+							<p class="bread">
+								<a href="/index.shtml" class="breadB">首页</a><span>></span> <a
+									href="#" class="breadN J_Cata1"></a><span>></span> <a
+									href="/web/main/news/newsList.shtml?cata1=xxzx&cata2=rczp" class="breadB J_Cata2"></a><span>></span>
+								   <a href="#" class="breadN cata3">招聘详情</a>
+							</p>
+						</div>
+						<h2 class="newsMainTitle">杭州市第一人民医院招聘感染内科医生的公告</h2>
+
+						<h3 class="newsInfo">
+							<span>发布日期：</span>2012年6月1日 <span>浏览量：</span> 158 次 <span>来源：</span>杭州市第一人民医院
+						</h3>
+						<hr/>
+						<div class="newsBody">
+							<h3>招聘人数：感染内科2名</h3>
+							<h3>工作地点：杭州市第一人民医院</h3>
+							<h3>截止日期：2012年5月11日</h3>
+							<hr class='mt30' >
+							<p>招聘基本条件：</p>
+							<p>年龄35周岁以下，本科及以上学历，要求相关专业主治医师及以上职称（高级职称者年龄可放宽到45周岁），具有适应岗位要求的身体条件，有科研等能力或业绩突出者优先。</p>
+							<p>报名方法：</p>
+							<p>报名时间截止到2012年5月11日。</p>
+							<p>报名形式：报名者请携带杭州市第一人民医院应聘申请表（表格到杭州市第一人民医院网站www.hz-hospital.com下载中心下载）、本人身份证、毕业证书、学位证书、职称证书、执业证书、荣誉证书等有关材料的复印件和近期正面免冠1寸照片1张，到杭州市孝女路2—2号杭州市第一人民医院综合楼5楼人事科报名，也可将上述材料寄纸质件到杭州市浣纱路261号杭州市第一人民医院人事科收，截止时间以邮戳为准。</p>
+
+							<p>杭州市第一人民医院咨询电话：87065701—87508</p>
+							<p>联系人： 陈先生</p>
+						</div>
+						<div class="newsLink"></div>
+					</div>
+				</div>
+			</div>
+			<!--#include virtual="../master/commonSubTitle.html"-->
+		</div>
+	</div>
+	<!--#include virtual="../master/footer.html"-->
+	<script src="/web/main/js/common.js"></script>
+</body>
+</html>
+
+
