@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+<!--#include virtual="master/headFile.html"-->
+</head>
+<body>
+	<!--#include virtual="master/top.html"-->
+	<div class="content">
+		<h1 class="pTitle">志愿者培训内容</h1>
+		<p>
+			所有“市一志愿者之家”的志愿者将统一接收专题培训后上岗服务，培训内容包括“市一志愿者”服务项目介绍、志愿者理念培训、服务礼仪培训、心肺复苏培训和考核、院感知识培训等。</p>	
+		<div>
+			<a href="deptGuide.shtml" target='_blank' class='btn'>医院常见门诊检查科室及项目导引</a>
+			<a href="order.shtml" target='_blank' class='btn'>医院多元挂号系统介绍</a>
+			<a href="specification.shtml" target='_blank' class='btn'>志愿者行为规范</a>
+			<a href="urgent.shtml" target='_blank' class='btn'>应急情况处理预案</a> <a
+				href="language.shtml" target='_blank' class='btn'>志愿者语言规范</a>
+		</div>
+	</div>
+	<!--#include virtual="master/footer.html"-->
+</body>
+</html>
