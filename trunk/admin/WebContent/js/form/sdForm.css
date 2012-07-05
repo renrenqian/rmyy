@@ -1,0 +1,29 @@
+ /*form*/
+.form { padding: 20px; background: #fff url("images/form.jpg") repeat-x; border: 1px solid #BAD5E7; -moz-box-shadow: 0 0 10px #BAD5E7; -webkit-box-shadow: 0 0 10px #BAD5E7; box-shadow: 0 0 10px #bbb; }
+.form h2 { margin: 0 0 20px 0; padding-bottom: 10px; color: #005AB5; border-bottom: 1px solid #BAD5E7; }
+.textFocus { border: #39F solid 2px; font-weight: bold; color: #369; outline: none; box-shadow: 0 0 5px rgba(81, 203, 238, 1); -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 1); -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 1); }
+.rowName { vertical-align:top; padding-top:8px; font-size:11px; color:#444; font-weight:bold; text-align:left;}
+.input_type1, .input_type2, .input_type3, .input_type_date {letter-spacing:1px; font-family: "微软雅黑", serif; width: 280px; margin-top: 6px; margin-bottom: 6px; margin-left:10px; font-size: 12px; font-weight: bold; vertical-align: middle; line-height: 28px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; height: 30px; padding-left:5px; border:1px solid #CCC; }
+.input_type2 { width: 400px; }
+.input_type3 { width: 600px; }
+.input_type_date { cursor:pointer; background: url(images/calendar_edit.png) no-repeat 250px; }
+.radio_Type1 { margin-right: 5px; }
+.radio_Type1_label { margin-right: 10px; cursor: pointer; }
+.selectType1, .selectType2 { font-family: "微软雅黑", serif; height: 30px; width: 280px; margin-top: 6px; margin-bottom:6px; margin-left:10px; line-height: 30px; vertical-align: middle; font-weight: bold; padding: 5px 5px 5px 3px; }
+.selectType1 option, .selectType2 option { height:30px; line-height:30px; }
+.selectType2 { width:133px; }
+.textArea_type1, .textArea_type2, .textArea_type3 {font-family: "微软雅黑", serif; height: 100px; width: 270px; margin-top:6px; margin-left:10px; font-size: 12px; font-weight: bold; line-height: 20px; padding:5px; border:1px solid #CCC; }
+.textArea_type2 { width: 588px; Fheight: 100px; }
+.textArea_type3 { height: 100px; width: 90%; }
+
+/* hidden textLength */
+.hidden1{ display:block; width:200px; padding-left:5px;}
+.hidden2{ display:block; width:100px; padding-left:5px;}
+.hidden3{ display:block; width:50px; padding-left:5px;}
+
+/* validate */
+.phoneErr,.mailErr,.minErr,.maxErr,.pwdErr,.sameErr,.numErr{ padding-left: 16px; background: url(images/unchecked.gif) no-repeat 0 0; color: #F30; font-weight: bold; margin-left: 10px; margin-top: 6px; font-size: 11px; vertical-align:top; display:inline-block;  }
+.requiredErr { padding-left: 16px; background: url(images/required_star.gif) no-repeat 0 0; color: #F30; font-weight: bold; margin-left: 10px; margin-top: 6px; font-size: 11px; vertical-align:top; display:inline-block; }
+.errorMsgArea { margin-top:10px; margin-left:10px; padding:5px; vertical-align:middle; float:left; display:block; height:25px; width:70%; background:#feddde; border:1px solid #fcb5b6; }
+.errorMsgArea .errorMsg { display:block; padding-left:30px; background: url(images/unchecked.gif) no-repeat 0 0; color: #631c1d; margin-left: 5px; margin-top: 5px; font-size: 11px; }
+.errorMsgArea .errorMsg span { font-weight:bold; margin-left:10px; margin-right:10px; }
