@@ -14,7 +14,7 @@
 								<a href="/index.shtml" class="breadB">首页</a><span>></span>
 								<a href="#" class="breadN J_Cata1"></a><span>></span> 
 								<a href="#" class="breadN J_Cata2"></a><span>></span> 
-								<a href="/web/main/patient/consultIndex.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx" class="breadB J_Cata3"></a><span>></span> 
+								<a href="/admin/main/patient/consultIndex.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx" class="breadB J_Cata3"></a><span>></span> 
 								<a href="#" class="breadN">我要提问</a>
 						</p>		
         </div>
@@ -58,7 +58,7 @@
                 <tr>
                     <td></td>
                     <td colspan="3"><a class="greenBtn tc fl" style="margin: 20px;" id="J_Ask">
-                        确认提交</a><a class="greenBtn tc fl" style="margin: 20px;" href="/web/main/patient/consultIndex.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx">取消
+                        确认提交</a><a class="greenBtn tc fl" style="margin: 20px;" href="/admin/main/patient/consultIndex.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx">取消
                         </a></td>
                 </tr>
             </table>
@@ -71,8 +71,8 @@
     </div>
 </div>
 <!--#include virtual="../master/footer.html"-->
-<script src="/web/main/js/common.js"></script>
-<script src="/web/js/form/jquery.sdForm.js"></script>
+<script src="../js/common.js"></script>
+<script src="/admin/js/form/jquery.sdForm.js"></script>
 <script>
 $(document).ready(function(){
 	//zq:填充科室下拉列表
@@ -143,7 +143,7 @@ $(document).ready(function(){
 
 
 function reDirect(){
-	window.location.href='/web/main/patient/consultIndex.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx';
+	window.location.href='/admin/main/patient/consultIndex.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx';
 }
 </script>
 </body>

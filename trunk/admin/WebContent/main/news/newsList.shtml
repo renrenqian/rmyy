@@ -1,11 +1,11 @@
 ﻿<!DOCTYPE html>
 <head>
-<!--#include virtual="/web/main/master/headFile.html"-->
-<link rel="stylesheet" href="/web/style/pagination.css" />
-<script type="text/javascript" src="/web/js/jquery.pagination.js"></script>
+<!--#include virtual="../master/headFile.html"-->
+<link rel="stylesheet" href="../../style/webPart/pagination.css" />
+<script type="text/javascript" src="../../js/webPart/jquery.pagination.js"></script>
 </head>
 <body>
-	<!--#include virtual="/web/main/master/top.html"-->
+	<!--#include virtual="/admin/main/master/top.html"-->
 	<div class="content contentPart"
 		style="margin-top: 3px; *margin-top: 3px;">
 		<div style="display: block; overflow: hidden;">
@@ -116,11 +116,11 @@
 					</div>
 				</div>
 			</div>			
-			<!--#include virtual='/web/main/master/commonSubTitle.html'-->									
+			<!--#include virtual='/admin/main/master/commonSubTitle.html'-->									
 		</div>
 	</div>
-	<!--#include virtual="/web/main/master/footer.html"-->
-	<script src="/web/main/js/common.js"></script>
+	<!--#include virtual="/admin/main/master/footer.html"-->
+	<script src="../js/common.js"></script>
 	<script type="text/javascript">		
 // 		var orderby = ""; //进行排序的依据 
 // 		$(document).ready(function() {

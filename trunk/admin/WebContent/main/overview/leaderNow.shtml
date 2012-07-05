@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <head>
-    <!--#include virtual="/web/main/master/headFile.html"-->
+    <!--#include virtual="../master/headFile.html"-->
 </head>
 <body>
-<!--#include virtual="/web/main/master/top.html"-->
+<!--#include virtual="../master/top.html"-->
 <div class="content contentPart" style="margin-top: 3px; *margin-top: 3px;">
     <div style="display: block; overflow: hidden;">
         <div class="leftCol2">
@@ -128,10 +128,10 @@
                 </div>
             </div>
         </div>
-        <!--#include virtual="/web/main/master/commonSubTitle.html"-->
+        <!--#include virtual="../master/commonSubTitle.html"-->
     </div>
 </div>
-<!--#include virtual="/web/main/master/footer.html"-->
-<script src="/web/main/js/common.js"></script>
+<!--#include virtual="../master/footer.html"-->
+<script src="../js/common.js"></script>
 </body>
 </html>

@@ -451,7 +451,7 @@
 		</div>
 	</div>
 	<!--#include virtual="../master/footer.html"-->
-	<script src="/web/main/js/common.js"></script>
+	<script src="../js/common.js"></script>
 </body>
 </html>
 

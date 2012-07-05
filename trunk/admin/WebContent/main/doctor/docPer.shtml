@@ -93,7 +93,7 @@
 		</div>
 	</div>
 	<!--#include virtual="../master/footer.html"-->
-	<script src="/web/main/js/common.js"></script>
+	<script src="../js/common.js"></script>
 	<script>
 	$(document).ready(function(){
 		 $.getJSON('http://124.160.67.194:8520/admin/member/searchDoctor.action?doct.diId=45', function(json) {		 		 	

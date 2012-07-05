@@ -1,0 +1,223 @@
+﻿/* news item style */
+.newsItem {
+	width: 95%; display: block; margin: 0 auto;
+}
+
+.newsItem li {
+	line-height: 26px; *line-height: 24px; height: 26px; *height: 24px; display: block; border-bottom: 1px dashed #CCC; cursor: pointer;
+	letter-spacing: 1px;
+}
+
+.newsItem2 {
+	width: 90%; display: block; margin: 0 auto; text-align: left;
+}
+
+.newsItem2 li {
+	line-height: 30px; *line-height: 28px; height: 30px; *height: 28px; display: block; border-bottom: 1px dashed #CCC; cursor: pointer;
+}
+
+.newsTitle {
+	width: 75%; height: 26px; display: block; float: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; word-break: break-all;
+}
+
+.newIcon {
+	background: url("../../images/newIcon.gif"); display: block; height: 11px; width: 27px; float: right; margin-top: 10px; margin-right: 5px;
+}
+
+.newsDate {
+	float: right; display: block; overflow: hidden;
+}
+
+/* slider style */
+.theme-default .nivoSlider {
+	position: relative; background: #fff url(defaultSlider/loading.gif) no-repeat 50% 50%; -webkit-box-shadow: 0px 1px 5px 0px #4a4a4a;
+	-moz-box-shadow: 0px 1px 5px 0px #4a4a4a; box-shadow: 0px 1px 5px 0px #4a4a4a;
+}
+
+.theme-default .nivoSlider img {
+	position: absolute; top: 0px; left: 0px; display: none;
+}
+
+.theme-default .nivoSlider a {
+	border: 0; display: block;
+}
+
+.theme-default .nivo-controlNav {
+	position: absolute; right: 5%; bottom: 10px; margin-left: -40px;
+	/* Tweak this to center bullets */
+}
+
+.theme-default .nivo-controlNav a {
+	display: block; width: 22px; height: 22px; background: url(defaultSlider/bullets.png) no-repeat; text-indent: -9999px; border: 0;
+	margin-right: 3px; float: left;
+}
+
+.theme-default .nivo-controlNav a.active {
+	background-position: 0 -22px;
+}
+
+.theme-default .nivo-directionNav a {
+	display: block; width: 30px; height: 30px; background: url(defaultSlider/arrows.png) no-repeat; text-indent: -9999px; border: 0;
+}
+
+.theme-default a.nivo-nextNav {
+	background-position: -30px 0; right: 15px;
+}
+
+.theme-default a.nivo-prevNav {
+	left: 15px;
+}
+
+.theme-default .nivo-caption a {
+	color: #fff; font-size: 16px; font-weight: bold;
+}
+
+.theme-default .nivo-caption a:hover {
+	color: #fff;
+}
+
+
+
+.theme-pascal.slider-wrapper {
+	background: url(pascalSlider/slider.png) no-repeat; width: 253px; height: 167px; margin: 0 auto; padding-top: 12px; position: relative;
+}
+
+.theme-pascal .nivoSlider {
+	position: relative; width: 233px; height: 142px; margin-left: 10px; background: url(defaultSlider/loading.gif) no-repeat 50% 50%;
+}
+
+.theme-pascal .nivoSlider img {
+	position: absolute; top: 0px; left: 0px; display: none; width: 233px;
+	/* Make sure your images are the same size */ height: 142px;
+	/* Make sure your images are the same size */
+}
+
+.theme-pascal .nivoSlider a {
+	border: 0; display: block;
+}
+
+.theme-pascal .nivo-controlNav {
+	background: url(pascalSlider/controlnav.png) no-repeat; width: 251px; height: 40px; position: absolute; left: 0px;
+	/* Tweak this to center bullets */ top: 140px; padding: 8px 0 0 82px; z-index: 20; margin-left: -8px;
+}
+
+.theme-pascal .nivo-controlNav a {
+	display: block; width: 22px; height: 22px; background: url(defaultSlider/bullets.png) no-repeat; text-indent: -9999px; border: 0;
+	margin-right: 3px; float: left;
+}
+
+.theme-pascal .nivo-controlNav a.active {
+	background-position: 0 -22px;
+}
+
+.theme-pascal .nivo-directionNav a {
+	display: none;
+}
+
+.theme-pascal .nivo-caption {
+	bottom: 6%; left: 0px; right: 0px; width: auto; max-width: 630px; overflow: hidden; background: #fff; text-shadow: none; font-family: arial, serif;
+	color: #4c4b4b; height: 20px; position: absolute; bottom: -70px;
+}
+
+.theme-pascal .nivo-caption p {
+	padding: 5px 15px; color: #333; font-weight: bold; font-size: 12px; text-transform: uppercase;
+}
+
+.theme-pascal .nivo-caption a {
+	color: #333; font-weight: bold; font-size: 27px; text-transform: uppercase;
+}
+
+/* The Nivo Slider styles */
+.nivoSlider {
+	position: relative;
+}
+
+.nivoSlider img {
+	position: absolute; top: 0px; left: 0px;
+}
+/* If an image is wrapped in a link */
+.nivoSlider a.nivo-imageLink {
+	position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; z-index: 6; display: none;
+}
+/* The slices and boxes in the Slider */
+.nivo-slice {
+	display: block; position: absolute; z-index: 5; height: 100%;
+}
+
+.nivo-box {
+	display: block; position: absolute; z-index: 5;
+}
+/* Caption styles */
+.nivo-caption {
+	position: absolute; left: 0px; bottom: 0px; background: #000; color: #fff; opacity: 0.8; /* Overridden by captionOpacity setting */ width: 100%;
+	height: 49px; z-index: 8;
+}
+
+.nivo-caption p {
+	padding: 5px; margin: 0; color: #fff; font-size: 16px; font-weight: bold; margin-top: 5px; margin-left: 10px; font-family: "΢���ź�", SimHei;
+	letter-spacing: 1px;
+}
+
+#J_InfoSlider .nivo-caption p {
+	padding: 0; margin: 0; text-align: center;
+}
+
+.nivo-caption a {
+	display: inline !important;
+}
+
+.nivo-html-caption {
+	display: none;
+}
+/* Direction nav styles (e.g. Next & Prev) */
+.nivo-directionNav a {
+	position: absolute; top: 45%; z-index: 9; cursor: pointer;
+}
+
+.nivo-prevNav {
+	left: 0px;
+}
+
+.nivo-nextNav {
+	right: 0px;
+}
+/* Control nav styles (e.g. 1,2,3...) */
+.nivo-controlNav a {
+	position: relative; z-index: 9; cursor: pointer;
+}
+
+.nivo-controlNav a.active {
+	font-weight: bold;
+}
+
+/* HTML5 tags */
+header,section,footer,aside,nav,article,figure {
+	display: block;
+}
+
+#dev7link {
+	position: absolute; top: 0; left: 50px; background: url(images/dev7logo.png) no-repeat; width: 60px; height: 67px; border: 0; display: block;
+	text-indent: -9999px;
+}
+
+.theme-pascal.slider-wrapper,.theme-orman.slider-wrapper {
+	margin-top: 0;
+}
+
+/* validate */
+ .error { padding-left: 16px; background: url(/admin/js/form/images/unchecked.gif) no-repeat 0 0; color: #F30; font-weight: bold; margin-left: 10px; margin-top: 5px; font-size: 11px; }
+.phoneErr,.mailErr,.minErr,.maxErr,.pwdErr,.sameErr,.numErr,.IPErr,.smallErr,.bigErr{ padding-left:20px; background: url(/admin/js/form/images/unchecked.gif) no-repeat 0 0; color: #F30; font-weight: bold; margin-left: 10px; margin-top: 12px; font-size: 11px; vertical-align:top; display:inline-block;  }
+.requiredErr { padding-left: 16px; background: url(/admin/js/form/images/required_star.gif) no-repeat 0 0; color: #F30; font-weight: bold; margin-left: 10px; margin-top: 12px; font-size:12px; vertical-align:top; display:inline-block; }
+.errorMsgArea { margin-top:10px; margin-left:10px; padding:5px; vertical-align:middle; float:left; display:block; height:25px; width:70%; background:#feddde; border:1px solid #fcb5b6; }
+.errorMsgArea .errorMsg { display:block; padding-left:30px; background: url(/admin/js/form/images/unchecked.gif) no-repeat 0 0; color: #631c1d; margin-left: 5px; margin-top: 5px; font-size: 11px; }
+.errorMsgArea .errorMsg span { font-weight:bold; margin-left:10px; margin-right:10px; }
+/* info msgBox */
+.sd_msgbox_layer, .sd_msgbox_layer .gtl_ico_succ, .sd_msgbox_layer .gtl_ico_fail, .sd_msgbox_layer .gtl_ico_hits, .sd_msgbox_layer .gtl_ico_clear, .sd_msgbox_layer .gtl_end { background-image: url("../images/checkInfo2.png"); background-repeat: no-repeat; color: #333; display: inline-block; font-size: 14px; font-weight: bold; height: 54px; line-height: 54px; }
+.sd_msgbox_layer_wrap { left: 0; position: fixed; text-align: center; top: 46%; width: 100%; z-index: 65533; }
+.sd_msgbox_layer { background-position: 0 -161px; background-repeat: repeat-x; margin: 0 auto; padding: 0 18px 0 9px; position: relative; }
+.sd_msgbox_layer .gtl_ico_succ { background-position: -6px 0; left: -45px; position: absolute; top: 0; width: 45px; }
+.sd_msgbox_layer .gtl_end { background-position: 0 0; position: absolute; right: -6px; top: 0; width: 6px; }
+.sd_msgbox_layer .gtl_ico_fail { background-position: -6px -108px; left: -45px; position: absolute; top: 0; width: 45px; }
+.sd_msgbox_layer .gtl_ico_hits { background-position: -6px -54px; left: -45px; position: absolute; top: 0; width: 45px; }
+.sd_msgbox_layer .gtl_ico_clear { background-position: -6px 0; left: -5px; position: absolute; top: 0; width: 5px; }
+.sd_msgbox_layer img { float: left; margin: 19px 10px 0 5px; }

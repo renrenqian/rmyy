@@ -76,7 +76,7 @@
 </div>
 <!--#include virtual="../master/footer.html"-->
 <!--#include virtual="../master/demoJs.html"-->
-<script src="/web/main/js/common.js"></script>
+<script src="../js/common.js"></script>
 </body>
 </html>
 

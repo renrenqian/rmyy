@@ -4,7 +4,7 @@
     position: relative;
 }
 .top{
-    background:url("/web/health/images/top.jpg");
+    background:url("/admin/health/images/top.jpg");
     width:960px;
     height:130px;
     margin:0 auto;
@@ -17,7 +17,7 @@
     left: 0;
 }
 .banner{
-    background:url("/web/health/images/banner.jpg");
+    background:url("/admin/health/images/banner.jpg");
     width:960px;
     height:209px;
     margin:0 auto;
@@ -33,7 +33,7 @@
     width:250px;
     display:block;
     overflow:hidden;
-    background:url("/web/health/images/LMenuBg.jpg") repeat-y;
+    background:url("/admin/health/images/LMenuBg.jpg") repeat-y;
 }
 .LNav{
     position:absolute;
@@ -44,7 +44,7 @@
     display: block;
     width: 250px;
     height: 49px;
-    background:url("/web/health/images/LMenu.jpg");
+    background:url("/admin/health/images/LMenu.jpg");
     background-position: 0 0;
     color: #FFF;
     font-size: 22px;
@@ -57,7 +57,7 @@
     background-position: 0 -49px;
 }
 .LNavBtm{
-    background:url("/web/health/images/LMenuBtm.jpg");
+    background:url("/admin/health/images/LMenuBtm.jpg");
     width: 250px;
     height: 39px;
 }
@@ -74,7 +74,7 @@
     color: #333;
 }
 .bottom{
-    background:url("/web/health/images/btmBg.jpg") repeat-x;
+    background:url("/admin/health/images/btmBg.jpg") repeat-x;
     width:960px;
     height:141px;
     margin:0 auto;
@@ -87,7 +87,7 @@
     color: #FFF;
 }
 .btmL{
-    background:url("/web/health/images/btmL.jpg");
+    background:url("/admin/health/images/btmL.jpg");
     position: absolute;
     width: 310px;
     height: 141px;

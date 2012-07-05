@@ -14,7 +14,7 @@
 	padding:10px;
 }
 .top{
-    background:url("/web/volunteer/images/top.gif");
+    background:url("/admin/volunteer/images/top.gif");
     width:960px;
     height:130px;
     margin:0 auto;
@@ -34,7 +34,7 @@
     left:350px ;
 }
 .banner{
-    background:url("/web/volunteer/images/banner.jpg");
+    background:url("/admin/volunteer/images/banner.jpg");
     width:960px;
     height:207px;
     margin:0 auto;
@@ -51,7 +51,7 @@
     width:250px;
     display:block;
     overflow:hidden;
-    background:url("/web/volunteer/images/LMenuBg.jpg") repeat-y;
+    background:url("/admin/volunteer/images/LMenuBg.jpg") repeat-y;
 }
 .LNav{
     position:absolute;
@@ -61,7 +61,7 @@
     display: block;
     width: 250px;
     height: 49px;
-    background:url("/web/volunteer/images/LMenu.jpg");
+    background:url("/admin/volunteer/images/LMenu.jpg");
     background-position: 0 0;
     color: #FFF;
     font-size: 22px;
@@ -74,7 +74,7 @@
     background-position: 0 -49px;
 }
 .LNavBtm{
-    background:url("/web/volunteer/images/LMenuBtm.jpg");
+    background:url("/admin/volunteer/images/LMenuBtm.jpg");
     width: 250px;
     height: 39px;
 }
@@ -91,7 +91,7 @@
     color: #333;
 }
 .bottom{
-    background:url("/web/volunteer/images/btmBg.jpg") repeat-x;
+    background:url("/admin/volunteer/images/btmBg.jpg") repeat-x;
     width:960px;
     height:141px;
     margin:0 auto;
@@ -104,7 +104,7 @@
     color: #FFF;
 }
 .btmL{
-    background:url("/web/volunteer/images/btmL.jpg");
+    background:url("/admin/volunteer/images/btmL.jpg");
     position: absolute;
     width: 250px;
     height: 141px;

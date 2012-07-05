@@ -9,14 +9,14 @@
 			<!--首页滑动-->
 			<div class="slider-wrapper theme-default">
 				<div id="J_TopSlider" class="nivoSlider">
-					<a href="#"> <img src="/web/cancer/images/slider1.jpg" alt=""
+					<a href="#"> <img src="/admin/cancer/images/slider1.jpg" alt=""
 						title="创建全国优质护理服务示范工程" /></a><a href="#"> <img
-						src="/web/cancer/images/slider1.jpg" alt="" title="“患者安全目标”全国行" /></a><a
-						href="#"> <img src="/web/cancer/images/slider1.jpg" alt=""
+						src="/admin/cancer/images/slider1.jpg" alt="" title="“患者安全目标”全国行" /></a><a
+						href="#"> <img src="/admin/cancer/images/slider1.jpg" alt=""
 						title="庆祝建党90周年系列活动" /></a><a href="#"> <img
-						src="/web/cancer/images/slider1.jpg" alt=""
+						src="/admin/cancer/images/slider1.jpg" alt=""
 						title="浙江省毛发移植与头面部微创美容新进展学习班" />
-					</a> <a href="#"> <img src="/web/cancer/images/slider1.jpg" alt=""
+					</a> <a href="#"> <img src="/admin/cancer/images/slider1.jpg" alt=""
 						title="浙江省毛发移植与头面部微创美容新进展学习班" />
 					</a>
 				</div>
@@ -132,7 +132,7 @@
 		</div>
 	</div>
 	<!--#include virtual="master/footer.html"-->
-	<script src="/web/js/jquery.nivo.slider.pack.js"></script>
+	<script src="/admin/js/jquery.nivo.slider.pack.js"></script>
 	<script>
 		$(document).ready(function() {
 			$('#J_TopSlider').nivoSlider({

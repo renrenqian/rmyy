@@ -3,7 +3,7 @@ body {
 }
 
 .top {
-	background: url("/web/cancer/images/top.jpg"); width: 960px; height: 120px; margin: 0 auto;
+	background: url("/admin/cancer/images/top.jpg"); width: 960px; height: 120px; margin: 0 auto;
 }
 
 #SYLink {
@@ -11,7 +11,7 @@ body {
 }
 /* nav style */
 .nav ul {
-	width: 100%; height: 31px; background: url("/web/cancer/images/navBg.jpg") repeat-x;
+	width: 100%; height: 31px; background: url("/admin/cancer/images/navBg.jpg") repeat-x;
 }
 
 .nav ul li {
@@ -27,11 +27,11 @@ body {
 }
 
 .navSplit {
-	display: block; float: left; height: 31px; width: 2px; background: url("/web/cancer/images/navSplit.jpg");
+	display: block; float: left; height: 31px; width: 2px; background: url("/admin/cancer/images/navSplit.jpg");
 }
 /* bottom style */
 .bottom {
-	background: url("/web/cancer/images/btmBg.jpg") repeat-x; width: 960px; height: 111px; margin: 0 auto; position: relative;
+	background: url("/admin/cancer/images/btmBg.jpg") repeat-x; width: 960px; height: 111px; margin: 0 auto; position: relative;
 }
 
 .bottom p {

@@ -1,5 +1,5 @@
 html {
-	background: url("/web/main/images/bg.jpg");
+	background: url("../images/bg.jpg");
 }
 
 body {
@@ -11,7 +11,7 @@ body {
 }
 
 .greenBtn {
-	width: 143px; height: 46px; background: url("/web/main/images/greenBtn.png"); border: none; cursor: pointer; color: #013334; font-weight: bold;
+	width: 143px; height: 46px; background: url("../images/greenBtn.png"); border: none; cursor: pointer; color: #013334; font-weight: bold;
 	font-size: 18px; display: block; margin: 0 auto; line-height: 46px; vertical-align: middle;text-indent:0;
 }
 
@@ -56,11 +56,11 @@ body {
 }
 
 .logoPart {
-	height: 98px; background: url("/web/main/images/top.png");
+	height: 98px; background: url("../images/top.png");
 }
 
 .nav .menuLi {
-	height: 37px; display: block; background: url("/web/main/images/navBg.png") no-repeat; float: left;
+	height: 37px; display: block; background: url("../images/navBg.png") no-repeat; float: left;
 }
 
 .nav .drop {
@@ -140,11 +140,11 @@ body {
 }
 
 .groupNav {
-	background: url("/web/main/images/groupTitleBg.jpg") repeat-x; height: 38px;
+	background: url("../images/groupTitleBg.jpg") repeat-x; height: 38px;
 }
 
 .J_Group,.J_GroupOff,.J_Dept,.J_DeptOff {
-	background: url("/web/main/images/groupNav.jpg"); width: 176px; height: 37px; cursor: pointer; background-position: 0 0; float: left;
+	background: url("../images/groupNav.jpg"); width: 176px; height: 37px; cursor: pointer; background-position: 0 0; float: left;
 	margin-left: -1px;
 }
 
@@ -161,11 +161,11 @@ body {
 }
 
 .groupBg {
-	background: url("/web/main/images/groupBg.jpg") repeat-x; height: 172px;
+	background: url("../images/groupBg.jpg") repeat-x; height: 172px;
 }
 
 .groupTitle {
-	background: url("/web/main/images/groupTitle.jpg"); width: 18px; height: 179px; float: left; margin-left: 8px;
+	background: url("../images/groupTitle.jpg"); width: 18px; height: 179px; float: left; margin-left: 8px;
 }
 
 .groupTitle span {
@@ -173,12 +173,12 @@ body {
 }
 
 .groupItem {
-	background: url("/web/main/images/groupItem.jpg"); height: 158px; width: 148px; float: right; cursor: pointer; margin-top: 5px; margin-right: 10px;
+	background: url("../images/groupItem.jpg"); height: 158px; width: 148px; float: right; cursor: pointer; margin-top: 5px; margin-right: 10px;
 }
 
 .groupItem .pic {
 	width: 123px; height: 103px; background: black; margin-top: 10px; margin-left: 13px; position: relative;
-	background: url(/web/main/images/group.jpg) no-repeat 0px 0px;
+	background: url(../images/group.jpg) no-repeat 0px 0px;
 }
 
 .groupItem #pic1 {
@@ -206,15 +206,15 @@ body {
 }
 
 .groupItem #picGK {
-	background: url(/web/main/images/GK.png) no-repeat 0px 0px;
+	background: url(../images/GK.png) no-repeat 0px 0px;
 }
 
 .groupItem #picYCF {
-	background: url(/web/main/images/YCF.png) no-repeat 0px 0px;
+	background: url(../images/YCF.png) no-repeat 0px 0px;
 }
 
 .groupItem #picYXMR {
-	background: url(/web/main/images/YXMR.png) no-repeat 0px 0px;
+	background: url(../images/YXMR.png) no-repeat 0px 0px;
 }
 
 .groupItem .mask1,.groupItem .mask2 {
@@ -234,11 +234,11 @@ body {
 }
 
 .footer {
-	height: 124px; background: url("/web/main/images/footerBg.jpg") repeat-x; overflow: hidden; display: block; position: relative;;
+	height: 124px; background: url("../images/footerBg.jpg") repeat-x; overflow: hidden; display: block; position: relative;;
 }
 
 .footerLogo {
-	background: url("/web/main/images/footerLogo.jpg"); height: 124px; width: 306px; margin-left: 10px; display: block; float: left;
+	background: url("../images/footerLogo.jpg"); height: 124px; width: 306px; margin-left: 10px; display: block; float: left;
 }
 
 .footerInfo {
@@ -262,11 +262,11 @@ body {
 }
 
 .zw1 {
-	width: 151px; height: 52px; display: block; position: absolute; right: 80px; top: 10px; background: url("/web/main/images/zw.jpg");
+	width: 151px; height: 52px; display: block; position: absolute; right: 80px; top: 10px; background: url("../images/zw.jpg");
 }
 
 .zw2 {
-	width: 61px; height: 59px; display: block; position: absolute; right: 20px; top: 7px; background: url("/web/main/images/zw2.jpg");
+	width: 61px; height: 59px; display: block; position: absolute; right: 20px; top: 7px; background: url("../images/zw2.jpg");
 }
 
 /* type1.master */
@@ -296,7 +296,7 @@ body {
 }
 
 .centerList li a {
-	display: block; height: 91px; width: 300px; margin-bottom: 7px; background: url("/web/main/images/center.jpg"); overflow: hidden;
+	display: block; height: 91px; width: 300px; margin-bottom: 7px; background: url("../images/center.jpg"); overflow: hidden;
 }
 
 #center1 {
@@ -360,7 +360,7 @@ body {
 }
 
 .funcPart li a {
-	display: block; height: 100px; width: 115px; margin-bottom: 7px; background: url("/web/main/images/funcBg.jpg"); overflow: hidden; text-align: center;
+	display: block; height: 100px; width: 115px; margin-bottom: 7px; background: url("../images/funcBg.jpg"); overflow: hidden; text-align: center;
 }
 
 #func1 {
@@ -421,7 +421,7 @@ body {
 }
 
 .funcPart2 li a {
-	display: block; height: 100px; width: 115px; margin-bottom: 7px; background: url("/web/main/images/funcBg.jpg"); overflow: hidden; text-align: center;
+	display: block; height: 100px; width: 115px; margin-bottom: 7px; background: url("../images/funcBg.jpg"); overflow: hidden; text-align: center;
 }
 
 .centerPart2 {
@@ -429,7 +429,7 @@ body {
 }
 
 .centerList2 li a {
-	display: block; height: 71px; width: 230px; margin-bottom: 10px; background: url("/web/main/images/center2.jpg"); overflow: hidden;
+	display: block; height: 71px; width: 230px; margin-bottom: 10px; background: url("../images/center2.jpg"); overflow: hidden;
 }
 
 .centerList2 #center1 {
@@ -465,7 +465,7 @@ body {
 }
 /* Default.aspx */
 .slider {
-	background: url("/web/main/images/slider.jpg"); height: 300px; width: 650px;
+	background: url("../images/slider.jpg"); height: 300px; width: 650px;
 }
 
 .news {
@@ -478,7 +478,7 @@ body {
 
 .subTitle li a {
 	width: 204px; height: 29px; line-height: 29px; margin-bottom: 8px; margin-left: 12px; margin-top: 5px; display: block;
-	background: url("/web/main/images/itemBg.jpg"); color: #003E3E; font-size: 12px; text-indent: 20px; cursor: pointer; position: relative;
+	background: url("../images/itemBg.jpg"); color: #003E3E; font-size: 12px; text-indent: 20px; cursor: pointer; position: relative;
 	font-weight: bolder; letter-spacing: 2px; font-family:"宋体";
 }
 
@@ -491,7 +491,7 @@ body {
 }
 
 .subTitle .now span {
-	height: 24px; width: 24px; display: block; background: url("/web/main/images/itemNow.jpg"); position: absolute; top: 2px; right: 30px;
+	height: 24px; width: 24px; display: block; background: url("../images/itemNow.jpg"); position: absolute; top: 2px; right: 30px;
 }
 
 .subMenu li a {
@@ -572,7 +572,7 @@ body {
 .J_ZYZZJ{
 	width:100px;
 	height:157px;
-	background: url("/web/main/images/zyzzj.gif") no-repeat;
+	background: url("../images/zyzzj.gif") no-repeat;
 	position:fixed;
 	bottom:-187px;
 	right:10px;

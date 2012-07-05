@@ -45,8 +45,8 @@
 </div>
 <!--#include virtual="../master/footer.html"-->
 <!--#include virtual="../master/demoJs.html"-->
-<script src="/web/js/seed-min.js"></script>
-<script src="/web/main/js/common.js"></script>
+<script src="/admin/js/seed-min.js"></script>
+<script src="../js/common.js"></script>
 <script>
 //zq:填充科室下拉列表
 $.getJSON('http://localhost:8520/admin/group/listDept.action', function(json) {
