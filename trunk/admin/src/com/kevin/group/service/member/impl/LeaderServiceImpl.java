@@ -59,13 +59,12 @@ public class LeaderServiceImpl extends AbstractBaseService<LeaderInfo>
             LeaderInfo leader = new LeaderInfo();
             // get the current leader info
             leader.setLiCate(1);
-            List<LeaderInfo> leaderList1 = leaderDAO.list(leader);
             StringBuilder jsonBuff = null;
             String CTRF = "\r\n";
             jsonBuff = new StringBuilder();
+            List<LeaderInfo> leaderList1 = leaderDAO.list(leader);
             jsonBuff.append("{").append(CTRF);
             if(null != leaderList1){
-                jsonBuff = new StringBuilder();
                 jsonBuff.append("\"leaderList1\":[");
                 for(LeaderInfo lead: leaderList1)
                     jsonBuff.append(CTRF).append(lead.generateJSON()).append(",");
@@ -77,13 +76,12 @@ public class LeaderServiceImpl extends AbstractBaseService<LeaderInfo>
             leader.setLiCate(0);
             List<LeaderInfo> leaderList0 = leaderDAO.list(leader);
             if(null != leaderList0){
-                jsonBuff = new StringBuilder();
                 jsonBuff.append("\"leaderList0\":[");
                 for(LeaderInfo lead: leaderList0)
                     jsonBuff.append(CTRF).append(lead.generateJSON()).append(",");
                 if(leaderList0.size() > 0)
                     jsonBuff.deleteCharAt(jsonBuff.length() -1);
-                jsonBuff.append(CTRF).append("],").append(CTRF).append("\"resultCode\": 1}");
+                jsonBuff.append(CTRF).append("],").append(CTRF).append("\"resultCode\": 1}").append(CTRF);
             }
             writeJsonFile(absolutePath, jsonBuff);
             jsonBuff.setLength(0);//clear the buffer

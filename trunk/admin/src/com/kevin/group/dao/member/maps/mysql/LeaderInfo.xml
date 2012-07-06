@@ -8,7 +8,7 @@
     <select id="list"  parameterClass="LeaderInfo"  resultClass="LeaderInfo">
      <![CDATA[       
      select 
-            li.LI_ID as liId ,
+            LI_ID as liId,
             LI_CURRENT as liCurrent,
             LI_NAME as liName
        from LEADER_INFO

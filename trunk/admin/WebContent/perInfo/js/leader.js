@@ -39,7 +39,7 @@ $(document).ready(function() {
                     $('#liQuarters').val(item.liQuarters);
                     //preview the image             
                     if(item.liPortrait){
-                    	 $("#preview").attr({"src":"../" + replaceStr(item.liPortrait, "\\\\", "/" )});
+                         $("#preview").attr({"src":"../" + replaceStr(item.liPortrait, "\\\\", "/" )});
                     }              
                     $('#liHold_period').val(item.liHold_period);
                     $('#liTelephone').val(item.liTelephone);
@@ -123,6 +123,28 @@ $(document).ready(function() {
                 $.post("../member/deleteLeader.action", params, function(json) {
                     if (json.resultCode > 0) {
                         initLeaderList();
+                    } else {
+                        $.fn.sdInfo({
+                            type:"fail",
+                            content:json.message ? json.message : '删除领导信息失败!'
+                        });
+                    }
+                });
+            }
+        });
+    });
+    
+    /* del */
+    $('#J_GenerateDeptJson').die().live("click", function() {
+        var THIS = this;
+        $.messager.confirm('更新', '是否确认更新前端页面?', function(r) {
+            if (r) {
+                var id = $(THIS).parent().parent().children().eq(0).children().eq(0).val();
+                var params = "leader.liId=" + id;
+                $.post("../member/generateDeptJson.action", params, function(json) {
+                    if (json.resultCode > 0) {
+                        alert("更新完成");
+                        //initLeaderList();
                     } else {
                         $.fn.sdInfo({
                             type:"fail",
