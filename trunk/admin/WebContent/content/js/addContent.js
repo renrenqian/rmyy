@@ -28,10 +28,13 @@ $(document).ready(function() {
        //  alert("contDetail:" + editor.getData());
         $('#contentForm').form('submit', {
           url:url,
-          dataType : 'json',
-          onSubmit: function(){
-             //$("#contDetail").val(editor.getData()); 
-            // alert("contDetail:" + $("#contDetail").val());
+          dataType : 'json',        
+          onSubmit: function(){    
+        	  if($('#contPublish_Time').val()==""){
+        		  var date=new Date();
+        		  var dateFormat=new DateFormat();
+        		  $('#contPublish_Time').val(dateFormat.isoDateTime(date));
+        	  }        	
          },
          error:function (json) {
              alert("内容异常:" + json.message) ; 
@@ -62,12 +65,12 @@ $(document).ready(function() {
 (function(S) {
     KISSY.use('calendar', function(S) {
         //创建日期
-        var cPubTime = new S.Calendar('#contPubTime', {
+        var cPubTime = new S.Calendar('#contPublish_Time', {
             popup:true,
             showTime:true
         }).on('timeSelect', function(e) {
             var dateFormat = new DateFormat();
-            $('#contPubTime').val(dateFormat.isoDateTime(e.date));
+            $('#contPublish_Time').val(dateFormat.isoDateTime(e.date));
             dateFormat = null;
             cPubTime.hide();
         });
