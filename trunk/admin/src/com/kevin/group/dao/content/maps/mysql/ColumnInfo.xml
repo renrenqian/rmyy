@@ -16,7 +16,7 @@
         CI_PARENT as ciParent,
         CI_NEWS as ciNews,
         CI_DESC as ciDesc,
-        CI_ADD_TIME as ciAdd_time,
+        DATE_FORMAT(CI_ADD_TIME,'%Y/%m/%d %H:%m:%s') as ciAdd_time,
         CI_ADDER as ciAdder
        from COLUMN_INFO  ci
      ]]>
@@ -37,7 +37,7 @@
         CI_PARENT as ciParent,
         CI_NEWS as ciNews,
         CI_DESC as ciDesc,
-        CI_ADD_TIME as ciAdd_time,
+        DATE_FORMAT(CI_ADD_TIME,'%Y/%m/%d %H:%m:%s') as ciAdd_time,
         CI_ADDER as ciAdder
        from COLUMN_INFO  ci
        where CI_ID = #ciId#
@@ -56,7 +56,7 @@
         CI_PARENT as ciParent,
         CI_NEWS as ciNews,
         CI_DESC as ciDesc,
-        CI_ADD_TIME as ciAdd_time,
+        DATE_FORMAT(CI_ADD_TIME,'%Y/%m/%d %H:%m:%s') as ciAdd_time,
         CI_ADDER as ciAdder
        from COLUMN_INFO  ci
      ]]>
