@@ -276,4 +276,21 @@ public class LeaderAction extends AbstractBaseAction {
         }
         return Action.SUCCESS;
     }
+    
+
+    public String generateDeptJson() {// generate json format for the depts
+        try {
+            String realPath = ServletActionContext.getServletContext().getRealPath(this.getSavePath());
+            File storeFile = new File(realPath);
+            File storeFolder = storeFile.getParentFile();
+            if (!storeFolder.exists())
+                storeFolder.mkdirs();
+            int result = leaderService.generateLeaderJson(storeFile.getAbsolutePath());
+            setResultCode(result);
+        } catch (CommonServiceException e) {
+            setMessage(e.getMessage());
+            setResultCode(-1);
+        }
+        return Action.SUCCESS;
+    }
 }

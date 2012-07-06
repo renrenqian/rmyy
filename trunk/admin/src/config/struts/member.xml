@@ -33,6 +33,14 @@
                 <param name="excludeNullProperties">true</param>
             </result>
         </action>
+        <!-- batch delete the Leader -->
+        <action name="generateDeptJson" method="generateDeptJson" class="leaderAction">
+            <param name="savePath">/main/overview/leadinfo</param>
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
         <!-- Leader end -->
 
         <!-- Doctor start -->

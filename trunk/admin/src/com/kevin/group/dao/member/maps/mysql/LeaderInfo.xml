@@ -8,28 +8,12 @@
     <select id="list"  parameterClass="LeaderInfo"  resultClass="LeaderInfo">
      <![CDATA[       
      select 
-           li.LI_ID as liId ,
-            LI_CATE as liCate,
+            li.LI_ID as liId ,
             LI_CURRENT as liCurrent,
-            gm.GM_NAME as ligmName,
-            LI_NAME as liName,
-            LI_HOLD_PERIOD as liHold_period,
-            LI_QUARTERS as liQuarters,
-            LI_TECH_POSITION as liTech_position,
-            LI_TELEPHONE as liTelephone,
-            LI_EMAIL as liEmail,
-            LI_PORTRAIT as liPortrait,
-            LI_RANG as liRang,
-            LI_ORDER as liOrder,
-            LI_RESUME as liResume,
-            LI_DESC as liDesc
-       from LEADER_INFO li
-       left join LEADER_GROUP_REF lgr on lgr.LI_ID = li.LI_ID
-       left join GROUP_MEMBER gm on gm.GM_ID = lgr.GM_ID
+            LI_NAME as liName
+       from LEADER_INFO
+       where LI_CATE = #liCate#
      ]]>
-     <!-- 
-     <![CDATA[LIMIT #start#,#pageSize#]]>
-      -->
     </select>
     
     <!-- search the LeaderInfo info -->
