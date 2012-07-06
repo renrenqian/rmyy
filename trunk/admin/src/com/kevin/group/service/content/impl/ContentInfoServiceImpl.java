@@ -54,15 +54,15 @@ public class ContentInfoServiceImpl extends AbstractBaseService<ContentInfo>
      */
     @Override
     public Serializable save(ContentInfo cont) throws CommonServiceException {
-        HttpServletRequest request = ServletActionContextUtil.getRequest();
-        HttpSession session = request.getSession(false);
-        //session.getId();
-        OnlineUser onlineUser = IUserInfoService.ONLINEUSERMAP.get(session.getId());
-        if(null == onlineUser){
-            cont.setContAuthor(0);
-        } else {
-            cont.setContAuthor(onlineUser.getUserInfo().getUiId());
-        }
+//        HttpServletRequest request = ServletActionContextUtil.getRequest();
+//        HttpSession session = request.getSession(false);
+//        //session.getId();
+//        OnlineUser onlineUser = IUserInfoService.ONLINEUSERMAP.get(session.getId());
+//        if(null == onlineUser){
+//            cont.setContAuthor(0);
+//        } else {
+//            cont.setContAuthor(onlineUser.getUserInfo().getUiId());
+//        }
         return super.save(cont);
     }
 
