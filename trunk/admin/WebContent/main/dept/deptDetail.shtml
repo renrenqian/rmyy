@@ -12,55 +12,16 @@
 					<div class="itemBg">
 						<div class="titleBg2">
 					   <p class="bread">
-								<a class="breadB" href="/web/main/index.shtml">首页</a><span>&gt;</span>
+								<a class="breadB" href="/admin/main/index.shtml">首页</a><span>&gt;</span>
 								<a class="breadN J_Cata1" href="#"></a><span>&gt;</span> 
-								<a class="breadN J_Cata2" href="#"></a><span>&gt;</span> 
-								<a class="breadN J_Cata3" href="#"></a>
+								<a class="breadB J_Cata2" href="#"></a>
 							</p>
 						</div>
 						<h2 class="titleType3">
-							临床科室 .<span class="J_DpName"></span>
+							<span class='J_Cata2'></span> . <span class="J_DpName"></span>
 						</h2>
-
-
 						<div class='clear'></div>
-						<div class="newsBody">
-							<h3>基本信息</h3>
-
-							<p>
-								<span class="mr50">科室名称：<span class="J_DpName"></span></span> <span
-									class="mr50">负责人：<span id="J_DpIn_charge"></span></span> <span
-									class="mr50">床位数量：<span id="J_DpBed_counter"></span>张
-								</span> <span>物理位置：<span id="J_DpLocation"></span></span>
-							</p>
-							<p>
-								联系方式：<span id="J_DpOd_telephone"></span>
-							</p>
-
-							<p>
-								电子邮箱：<span id="J_DpEmail"></span>
-							</p>
-							<a class="greenBtn tc fl" style="margin: 20px;"
-								href="../doctor/mzpb.shtml" target="_blank"> 科室专家一览</a> 																
-						    <a class="greenBtn tc fl" style="margin: 20px;"
-								href="../patient/consultIndex.shtml" target="_blank"> 在线咨询中心</a>
-							<!-- <a class="greenBtn tc fl" style="margin: 20px;" href="#" target="_blank"> 科室主页</a> -->
-							<div class='clear'></div>
-							<hr />
-							<h3>科室简介</h3>
-
-							<div id="J_DpDesc"></div>
-							<hr />
-
-							<h3>学术地位</h3>
-							<div id="J_DpAcademic_position"></div>
-							<hr />
-							<h3>技术优势</h3>
-							<div id="J_DpTech_adv"></div>
-							<hr />
-							<h3>研究方向</h3>
-							<div id="J_DpResearch_direction"></div>
-						</div>
+						<div class="newsBody"></div>
 					</div>
 				</div>
 			</div>
@@ -71,23 +32,45 @@
 	<script src="../js/common.js"></script>
 	<script>
 	$(document).ready(function(){
-		var dpId= GetParameter('id');
+		var dpId= GetParameter('id');		
 		 $.getJSON('http://124.160.67.194:8520/admin/group/searchDept.action?dept.dpId='+dpId, function(json) {		 		 	
 	         if (json.resultCode > 0) {            
 	             var deptDetail = json.dept;
-	             $(deptDetail).each(function(i, item) {                  
-	             	$('.J_DpName').html(item.dpName);   
-	             	$('#J_DpIn_charge').html(item.dpIn_charge); 
-	             	$('#J_DpBed_counter').html(item.dpBed_counter); 
-	             	$('#J_DpLocation').html(item.dpLocation); 
-	             	$('#J_DpOd_telephone').html(item.dpOd_telephone); 
-	             	$('#J_DpEmail').html(item.dpEmail); 
-	             	               
-	             	$('#J_DpDesc').html("<p>"+fixTAFormat(reP(item.dpDesc))+"</p>");  
-	             	$('#J_DpAcademic_position').html("<p>"+fixTAFormat(reP(item.dpAcademic_position))+"</p>");   
-	             	$('#J_DpTech_adv').html("<p>"+fixTAFormat(reP(item.dpTech_adv))+"</p>");   
-	             	$('#J_DpResearch_direction').html("<p>"+fixTAFormat(reP(item.dpResearch_direction))+"</p>");                	           	         
-	             });     
+	             $('.J_DpName').html(deptDetail.dpName);
+	             var dpStr="<h3>基本信息</h3><p><span class='mr50'>科室名称："+deptDetail.dpName+"</span>";
+			     if(deptDetail.dpIn_charge){
+			    	 dpStr+="<span class='mr50'>负责人:"+deptDetail.dpIn_charge+"</span>";
+				 }
+			     if(deptDetail.dpBed_counter){
+			    	 dpStr+="<span class='mr50'>床位数量:"+deptDetail.dpBed_counter+"张</span> ";
+			     }
+				 if(deptDetail.dpLocation){
+					dpStr+="<span>物理位置："+deptDetail.dpLocation+"</span></p>";
+				 }					
+				 if(deptDetail.dpOd_telephone){
+					 dpStr+="<p>联系方式："+deptDetail.dpOd_telephone+"</p>";
+				 }
+				if(deptDetail.dpEmail){
+					 dpStr+="<p>电子邮箱："+deptDetail.dpEmail+"</p>";
+				}	
+				if(deptDetail.dpType!="职能科室"){
+					dpStr+="<div class='clear'></div><a class='greenBtn tc fl' style='margin: 20px;' href='../doctor/mzpb.shtml' target='_blank'> 科室专家一览</a>"+
+					"<a class='greenBtn tc fl' style='margin: 20px;' href='../patient/consultIndex.shtml' target='_blank'> 在线咨询中心</a>"+
+					"<div class='clear'></div><hr />";
+				}				
+				if(deptDetail.dpDesc){
+					dpStr+="<h3>科室简介</h3><p>"+fixTAFormat(reP(deptDetail.dpDesc))+"</p><hr />";
+				}
+				if(deptDetail.dpAcademic_position){
+					dpStr+="<h3>科室简介</h3><p>"+fixTAFormat(reP(deptDetail.dpDesc))+"</p><hr />";
+				}
+				if(deptDetail.dpTech_adv){
+					dpStr+="<h3>技术优势</h3><p>"+fixTAFormat(reP(deptDetail.dpTech_adv))+"</p><hr />";
+				}
+				if(deptDetail.dpResearch_direction){
+					dpStr+="<h3>研究方向</h3><p>"+fixTAFormat(reP(deptDetail.dpResearch_direction))+"</p>";
+				}			            
+	            $('.newsBody').html(dpStr);
 	         }
 		 });
 	});

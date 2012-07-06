@@ -12,7 +12,7 @@
 					<div class="itemBg">
 						<div class="titleBg2">
 							<p class="bread">
-								<a class="breadB" href="/web/main/index.shtml">首页</a><span>&gt;</span>
+								<a class="breadB" href="/admin/main/index.shtml">首页</a><span>&gt;</span>
 								<a class="breadN J_Cata1" href="#"></a><span>&gt;</span> <a
 									class="breadN J_Cata2" href="#"></a>
 							</p>
@@ -32,7 +32,7 @@
 	<script src="../js/common.js"></script>
 	<script>
 		var action = GetParameter('cata2');
-		$.getJSON(action+'.txt', function(json) {
+		$.getJSON(action, function(json) {
 			if (json.resultCode > 0) {
 				var deptList = json.deptList;
 				var listItem = '';
@@ -42,7 +42,7 @@
 					var zList = "";				
 					$(deptList).each(
 							function(i, item) {
-								listItem = " <li><a href='deptDetail.shtml?id="+ item.dpId + "' >" + item.dpName + "</a></li>";
+								listItem = " <li><a href='deptDetail.shtml?id="+ item.dpId + "&cata1=ksdh&cata2=lcks'>" + item.dpName + "</a></li>";
 								if (item.dpNote == '内科') {
 									neiList += listItem;
 								}
@@ -66,7 +66,7 @@
 					var commonList = "";
 					$(deptList).each(							
 							function(i, item) {
-								listItem = " <li><a href='deptDetail.shtml?id="+ item.dpId + "' >" + item.dpName + "</a></li>";
+								listItem = " <li><a href='deptDetail.shtml?id="+ item.dpId + "&cata1=ksdh&cata2="+action+"'>" + item.dpName + "</a></li>";
 								commonList += listItem;							
 							});
 					$('.expList').html("<li class='deptList'>"+

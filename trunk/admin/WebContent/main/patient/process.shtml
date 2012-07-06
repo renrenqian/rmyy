@@ -29,12 +29,16 @@
 							</ul>
 							<div style="clear: both;"></div>
 							<hr class="mb20 w" />
-							<h3 id="J_ProcessTitle">门急诊就诊流程</h3>
+							<h3 id="J_ProcessTitle">门诊就诊流程</h3>
 							<div class='J_Lc'>
-								
+								<img src='../images/lc/lc-mz.jpg' alt='门诊就诊流程'/>
 							</div>
 							<div class='J_Lc' style='display:none;'>
-								2222								
+								<img alt='发热门诊流程'/>	
+								<p>温馨提示：</p>
+                                <p>1、有特殊情况，如怀孕等请主动告知医师。</p>
+                                <p>2、为避免交叉感染，谢绝家属陪伴，若遇特殊请戴口罩。</p>
+                                <p>3、皮试期间请勿外出，自己物品请保管好。</p>													
 							</div>
 							<div class='J_Lc' style='display:none;'>
 								3333
@@ -55,7 +59,10 @@
 		$(document).ready(function() {
 			$('#J_Process li').click(function(){	 			
 				var index=$(this).index();
-				$('#J_ProcessTitle').html($(this).find('a').attr("title"));				
+				$('#J_ProcessTitle').html($(this).find('a').attr("title"));					
+				if(index==1){
+					$('.J_Lc').eq(1).find('img').attr("src",'../images/lc/lc-frmz.jpg');
+				}
 				$('.J_Lc').hide();				
 				$('.J_Lc').eq(index).show();				
 			});			
