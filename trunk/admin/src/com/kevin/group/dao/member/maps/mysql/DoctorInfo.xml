@@ -9,26 +9,10 @@
      <![CDATA[
        select 
         DI_ID as diId,
-        DI_NAME as diName,
-        od.OD_NAME as diDeptName,
-        DI_POSITION as diPosition,
-        DI_PORTRAIT as diPortrait,
-        OS_EXPERT_ID as osExpertId,
-        OS_FAMOUS_ID as osFamousId,
-        DI_ORDER as diOrder,
-        DI_SEX as diSex,
-        DI_TAL_TYPE as doctType,
-        DI_EDUCATION as diEducation,
-        DI_RESUME as diResume,
-        DI_MAJOR as diMajor,
-        DI_RESEARCH_DIRECTION as diResearch_direction,
-        DI_ACCOMPLISHMENT as diAccomplishment
-       from DOCTOR_INFO di
-       left join OFFICE_DETAIL od on od.OD_ID = di.DI_DEPTTYPE
+        DI_NAME as diName
+       from DOCTOR_INFO
+       where DI_DEPTTYPE = #diDeptType#
      ]]>
-     <!-- 
-     <![CDATA[LIMIT #start#,#pageSize#]]>
-      -->
     </select>
     
     <!-- search the DoctorInfo info -->

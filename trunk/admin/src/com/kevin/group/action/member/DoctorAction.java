@@ -273,4 +273,20 @@ public class DoctorAction extends AbstractBaseAction {
         }
         return Action.SUCCESS;
     }
+    
+    public String generateDoctJson() {// bath delete the doct
+        try {
+            String realPath = ServletActionContext.getServletContext().getRealPath(this.getSavePath());
+            File storeFile = new File(realPath);
+            File storeFolder = storeFile.getParentFile();
+            if (!storeFolder.exists())
+                storeFolder.mkdirs();
+            int result = doctorService.generateDoctJson(storeFile.getAbsolutePath());
+            setResultCode(result);
+        } catch (CommonServiceException e) {
+            setMessage(e.getMessage());
+            setResultCode(-1);
+        }
+        return Action.SUCCESS;
+    }
 }

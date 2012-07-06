@@ -5,6 +5,8 @@
  */
 package com.kevin.group.pojo.member;
 
+import com.google.gson.Gson;
+
 /**
  * @author kevin
  * @since jdk1.6
@@ -281,6 +283,15 @@ public class DoctorInfo {
      */
     public final void setDoctType(String doctType) {
         this.doctType = doctType;
+    }
+    
+    /**
+     * Generate the json format Doct
+     * @return
+     */
+    public Object generateJSON() {
+        Gson gson = new Gson();
+        return gson.toJson(this);
     }
 
 }

@@ -101,7 +101,7 @@ public class DeptServicesImpl extends AbstractBaseService<Dept> implements IDept
         throw new CommonServiceException(e.getMessage());
     }
     }
-    
+
     private void writeJsonFile(String filePath, StringBuilder fileContent) throws CommonServiceException{
         try {
             FileOutputStream fos = new FileOutputStream(filePath);
@@ -116,6 +116,5 @@ public class DeptServicesImpl extends AbstractBaseService<Dept> implements IDept
         } catch (IOException e) {
             throw new CommonServiceException("文件流关闭失败。");
         }
-        
     }
 }

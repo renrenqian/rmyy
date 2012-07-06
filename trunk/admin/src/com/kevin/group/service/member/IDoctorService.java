@@ -5,6 +5,7 @@
  */
 package com.kevin.group.service.member;
 
+import com.kevin.common.exception.CommonServiceException;
 import com.kevin.common.service.IBaseService;
 import com.kevin.group.pojo.member.DoctorInfo;
 
@@ -13,5 +14,7 @@ import com.kevin.group.pojo.member.DoctorInfo;
  * @since jdk1.6
  */
 public interface IDoctorService extends IBaseService<DoctorInfo> {
+
+    int generateDoctJson(String savePath) throws CommonServiceException;
 
 }

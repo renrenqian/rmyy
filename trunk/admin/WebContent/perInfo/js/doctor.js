@@ -64,7 +64,7 @@ $(document).ready(function() {
                       
                       //preview the image             
                       if(item.diPortrait){
-                      	 $("#preview").attr({"src":"../" + replaceStr(item.diPortrait, "\\\\", "/" )});
+                           $("#preview").attr({"src":"../" + replaceStr(item.diPortrait, "\\\\", "/" )});
                       }                          
                        //人才类型字段取值
                       var rcTypeArray=item.doctType.split(',');
@@ -142,9 +142,9 @@ $(document).ready(function() {
                      alert("内容异常:" + json.message) ; 
                  }, 
                  success:function(json){
-                	 json = eval('(' + json + ')');
+                     json = eval('(' + json + ')');
                      if (json.resultCode > 0 ) {
-                    	 initDoctorList();
+                         initDoctorList();
                          $('#J_DoctorDiv').window("close");
                         } else  {
                             $.fn.sdInfo({
@@ -176,6 +176,28 @@ $(document).ready(function() {
                 $.post("../member/deleteDoctor.action", params, function(json) {
                     if (json.resultCode > 0) {
                         initDoctorList();
+                    } else {
+                        $.fn.sdInfo({
+                            type:"fail",
+                            content:json.message ? json.message : '删除医师信息失败!'
+                        });
+                    }
+                });
+            }
+        });
+    });
+    
+    /* J_GenerateDoctJson */
+    $('#J_GenerateDoctJson').die().live("click", function() {
+        var THIS = this;
+        $.messager.confirm('更新', '是否确认更新前端页面?', function(r) {
+            if (r) {
+                var id = $(THIS).parent().parent().children().eq(0).children().eq(0).val();
+                var params = "doct.diId=" + id;
+                $.post("../member/generateDoctJson.action", params, function(json) {
+                    if (json.resultCode > 0) {
+                        alert("更新完成");
+                        //initDoctorList();
                     } else {
                         $.fn.sdInfo({
                             type:"fail",

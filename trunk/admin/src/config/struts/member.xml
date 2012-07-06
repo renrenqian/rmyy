@@ -64,6 +64,14 @@
                 <param name="excludeNullProperties">true</param>
             </result>
         </action>
+        <!-- generateDoctJson for the Doctor -->
+        <action name="generateDoctJson" method="generateDoctJson" class="doctorAction">
+            <param name="savePath">/main/doctor/zjyl.txt</param>
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
         <!-- Doctor end -->
         
         <!-- OPSer start -->

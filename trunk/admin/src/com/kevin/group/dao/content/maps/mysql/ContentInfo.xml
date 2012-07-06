@@ -20,7 +20,6 @@
           CD_ORDER as contOrder,
           gm.GM_NAME as gmName,
           CD_AUTHOR as contAuthor,
-          CD_DETAIL as contDetail,
           CD_ATTACHMENT as contAttachment,
           CD_DISPLAY_IMAGE as displayImage
        from CONTENT_DETAIL  cd 
@@ -111,7 +110,6 @@
           CD_ORDER as contOrder,
           gm.GM_NAME as gmName,
           CD_AUTHOR as contAuthor,
-          CD_DETAIL as contDetail,
           CD_ATTACHMENT as contAttachment,
           CD_DISPLAY_IMAGE as displayImage
        from CONTENT_DETAIL  cd 
