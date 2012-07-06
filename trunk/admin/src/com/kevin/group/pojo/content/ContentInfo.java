@@ -33,8 +33,7 @@ public class ContentInfo implements Serializable {
     private Integer contOrder;
     private Integer gmId;// belong to group
     private String gmName;
-    private Integer contAuthor;
-    private String contAuthorName;
+    private String contAuthor;
     private String contDetail;
     private String contAttachment;// store the upload file path
     private String displayImage;// store the upload file path
@@ -247,35 +246,19 @@ public class ContentInfo implements Serializable {
     public final void setGmName(String gmName) {
         this.gmName = gmName;
     }
-
+ 
     /**
      * @return the contAuthor
      */
-    public final Integer getContAuthor() {
+    public final String getContAuthor() {
         return contAuthor;
     }
 
     /**
-     * @param contAuthor
-     *            the contAuthor to set
+     * @param contAuthor the contAuthor to set
      */
-    public final void setContAuthor(Integer contAuthor) {
+    public final void setContAuthor(String contAuthor) {
         this.contAuthor = contAuthor;
-    }
-
-    /**
-     * @return the contAuthorName
-     */
-    public final String getContAuthorName() {
-        return contAuthorName;
-    }
-
-    /**
-     * @param contAuthorName
-     *            the contAuthorName to set
-     */
-    public final void setContAuthorName(String contAuthorName) {
-        this.contAuthorName = contAuthorName;
     }
 
     /**
