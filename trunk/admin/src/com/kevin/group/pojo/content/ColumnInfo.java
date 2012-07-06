@@ -16,7 +16,7 @@ public class ColumnInfo {
     private Integer ciLevel;
     private String ciUrl;
     private Integer ciParent;
-    private Integer ciNews;
+    private Integer ciCate;
     private String ciDesc;
     private String ciAdd_time;
     private Integer ciAdder;
@@ -113,18 +113,18 @@ public class ColumnInfo {
     }
 
     /**
-     * @return the ciNews
+     * @return the ciCate
      */
-    public final Integer getCiNews() {
-        return ciNews;
+    public final Integer getCiCate() {
+        return ciCate;
     }
 
     /**
-     * @param ciNews
-     *            the ciNews to set
+     * @param ciCate
+     *            the ciCate to set
      */
-    public final void setCiNews(Integer ciNews) {
-        this.ciNews = ciNews;
+    public final void setCiCate(Integer ciCate) {
+        this.ciCate = ciCate;
     }
 
     /**
