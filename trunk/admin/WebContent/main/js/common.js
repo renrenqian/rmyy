@@ -119,11 +119,11 @@ $(document).ready(function() {
 			case 'mzcx':myCata2 = '门诊查询';break;
 			case 'jzzn':myCata2 = '就诊指南';break;
 			case 'qtfw':myCata2 = '其它服务';break;
-			case 'lcks':myCata2 = '临床科室';break;
-			case 'sszd':myCata2 = '省市重点';break;
-			case 'tszk':myCata2 = '特色专科';break;
-			case 'yjks':myCata2 = '医技科室';break;
-			case 'znks':myCata2 = '职能科室';break;
+			case 'lcks':myCata2 = '临床科室';myCata2Href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=lcks';break;
+			case 'sszd':myCata2 = '省市重点';myCata2Href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=sszd';break;
+			case 'tszk':myCata2 = '特色专科';myCata2Href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=tszk';break;
+			case 'yjks':myCata2 = '医技科室';myCata2Href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=yjks';break;
+			case 'znks':myCata2 = '职能科室';myCata2Href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=znks';break;
 			case 'zjyl':myCata2 = '专家一览';break;
 			case 'mymz':myCata2 = '名医门诊';break;
 			case 'gjrc':myCata2 = '各级人才';break;

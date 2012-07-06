@@ -210,12 +210,12 @@ function initContentList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='hidden1 tl'>" + obj.aData.contTitle + "</span>";
+                        return "<span class='hidden1 tl' style='width:100%;'>" + obj.aData.contTitle + "</span>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return obj.aData.colName?"<span class='hidden2 tl'>" + obj.aData.colName + "</span>":"<span class='hidden2 tl'>未选择</span>";
+                        return obj.aData.colName?"<span class='hidden3 tl'>" + obj.aData.colName + "</span>":"<span class='hidden2 tl'>未选择</span>";
                     }
                 },
                 {
@@ -225,7 +225,7 @@ function initContentList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='hidden2 tl' style='width:100%;'>" + obj.aData.gmName + "</span>";
+                        return "<span class='hidden3 tl'>" + obj.aData.contAuthorName + "</span>";
                     }
                 },
                 //隐藏作者列
@@ -241,14 +241,13 @@ function initContentList() {
 //                },
                 {
                     fnRender:function(obj) {
-                        var state = "不通过";
+                        var state = "未通过";
                         className = "red";
                         if ( 1 == obj.aData.contAudit_Result ) {
-                            state = "通过";
+                            state = "已通过";
                             className = "green";
                         }
-                        return "<span class='" + className + " unl J_Audit'>" + state + "</span>";
-                        //return "<a class='green unl J_Audit'>已通过</a>";
+                        return "<span class='" + className + " unl J_Audit'>" + state + "</span>";                       
                     }
                 },
                 {

@@ -165,7 +165,7 @@ $(document).ready(function() {
     /* GenerateDept json file at main dept folder configed at struts/group/generateDeptJson */
     $('#J_GenerateDept').die().live("click", function() {
     	var THIS = this;
-    	$.messager.confirm('更新', '是否确认更新前端科室页面?', function(r) {
+    	$.messager.confirm('更新', '是否确认更新网站数据?', function(r) {
     		if (r) {
     			//var id = $(THIS).parent().parent().children().eq(0).children().eq(0).val();
     			//var params = "dept.dpId=" + id;
@@ -176,7 +176,7 @@ $(document).ready(function() {
     				} else {
     					$.fn.sdInfo({
     						type:"fail",
-    						content:json.message ? json.message : '更新前端科室失败!'
+    						content:json.message ? json.message : '更新网站数据失败!'
     					});
     				}
     			});
