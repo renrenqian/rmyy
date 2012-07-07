@@ -73,16 +73,17 @@ public class LeaderServiceImpl extends AbstractBaseService<LeaderInfo>
                 jsonBuff.append(CTRF).append("],").append(CTRF);
             }
             // get the passed leader info
-            leader.setLiCate(0);
-            List<LeaderInfo> leaderList0 = leaderDAO.list(leader);
-            if(null != leaderList0){
-                jsonBuff.append("\"leaderList0\":[");
-                for(LeaderInfo lead: leaderList0)
-                    jsonBuff.append(CTRF).append(lead.generateJSON()).append(",");
-                if(leaderList0.size() > 0)
-                    jsonBuff.deleteCharAt(jsonBuff.length() -1);
-                jsonBuff.append(CTRF).append("],").append(CTRF).append("\"resultCode\": 1}").append(CTRF);
-            }
+//            leader.setLiCate(0);
+//            List<LeaderInfo> leaderList0 = leaderDAO.list(leader);
+//            if(null != leaderList0){
+//                jsonBuff.append("\"leaderList0\":[");
+//                for(LeaderInfo lead: leaderList0)
+//                    jsonBuff.append(CTRF).append(lead.generateJSON()).append(",");
+//                if(leaderList0.size() > 0)
+//                    jsonBuff.deleteCharAt(jsonBuff.length() -1);
+//                jsonBuff.append(CTRF).append("],").append(CTRF);
+//            }
+            jsonBuff.append("\"resultCode\": 1}").append(CTRF);
             writeJsonFile(absolutePath, jsonBuff);
             jsonBuff.setLength(0);//clear the buffer
             return 1;
