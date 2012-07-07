@@ -75,9 +75,7 @@
            DATE_FORMAT(ER_PUBLISH_DATE,'%Y/%m/%d %H:%m:%s') as erPublish_date,
            DATE_FORMAT(ER_EXPIRY_DATE,'%Y/%m/%d %H:%m:%s') as erExpiry_date,
            ER_RECRUIT_NO as erRecruit_no,
-           ER_RECRUIT_AVAILABLE as erRecruit_available,
-           ER_ATTACHEMENT as erAttachement,
-           ER_REQUIREMENT as erRequirement
+           ER_RECRUIT_AVAILABLE as erRecruit_available
        from EMPLOYEE_RECRUITMENT er
      ]]>
         <dynamic prepend=" where ">

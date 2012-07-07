@@ -63,11 +63,7 @@
         DI_ORDER as diOrder,
         DI_SEX as diSex,
         DI_TAL_TYPE as doctType,
-        DI_EDUCATION as diEducation,
-        DI_RESUME as diResume,
-        DI_MAJOR as diMajor,
-        DI_RESEARCH_DIRECTION as diResearch_direction,
-        DI_ACCOMPLISHMENT as diAccomplishment
+        DI_EDUCATION as diEducation
        from DOCTOR_INFO di
        left join OFFICE_DETAIL od on od.OD_ID = di.DI_DEPTTYPE
      ]]>

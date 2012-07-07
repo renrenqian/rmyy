@@ -6,7 +6,7 @@
 
     <!-- paginate the LeaderInfo info -->
     <select id="list"  parameterClass="LeaderInfo"  resultClass="LeaderInfo">
-     <![CDATA[       
+     <![CDATA[
      select 
             LI_ID as liId,
             LI_CURRENT as liCurrent,
@@ -47,6 +47,16 @@
          select COUNT(LI_ID) 
          from LEADER_INFO
       ]]>
+       <dynamic prepend="where">
+          <isNotEmpty property="liCate" prepend=" AND ">
+            <![CDATA[LI_CATE = #liCate#]]>
+          </isNotEmpty>
+       </dynamic>
+       <dynamic>
+          <isNotEmpty property="liName" prepend=" AND ">
+            <![CDATA[LI_NAME Like CONCAT('%',#liName#,'%')]]>
+          </isNotEmpty>
+       </dynamic>
     <![CDATA[ ]]>
     </select>
     
@@ -59,19 +69,20 @@
             LI_CURRENT as liCurrent,
             gm.GM_NAME as ligmName,
             LI_NAME as liName,
-            LI_HOLD_PERIOD as liHold_period,
-            LI_QUARTERS as liQuarters,
-            LI_TECH_POSITION as liTech_position,
-            LI_TELEPHONE as liTelephone,
-            LI_EMAIL as liEmail,
-            LI_PORTRAIT as liPortrait,
-            LI_RANG as liRang,
-            LI_ORDER as liOrder,
-            LI_RESUME as liResume,
-            LI_DESC as liDesc
+            LI_ORDER as liOrder
        from LEADER_INFO li
        left join GROUP_MEMBER gm on gm.GM_ID = li.LI_GM
      ]]>
+       <dynamic prepend="where">
+          <isNotEmpty property="condition.liCate" prepend="AND">
+            <![CDATA[LI_CATE = #condition.liCate#]]>
+          </isNotEmpty>
+       </dynamic>
+       <dynamic>
+          <isNotEmpty property="condition.liName" prepend="AND">
+            <![CDATA[LI_NAME Like CONCAT('%',#condition.liName#,'%')]]>
+          </isNotEmpty>
+       </dynamic>
      <![CDATA[ORDER BY LI_ORDER]]>
      <![CDATA[LIMIT #start#,#pageSize#]]>
     </select>
@@ -98,6 +109,16 @@
        from LEADER_INFO li
        left join GROUP_MEMBER gm on gm.GM_ID = li.LI_GM
      ]]>
+       <dynamic prepend="where">
+          <isNotEmpty property="liCate" prepend="">
+            <![CDATA[LI_CATE = #liCate#]]>
+          </isNotEmpty>
+       </dynamic>
+       <dynamic>
+          <isNotEmpty property="condition.liName" prepend="AND">
+            <![CDATA[LI_NAME Like CONCAT('%',#condition.liName#,'%')]]>
+          </isNotEmpty>
+       </dynamic>
      <!-- 
      <![CDATA[LIMIT #start#,#pageSize#]]>
       -->

@@ -65,29 +65,29 @@
          from CONTENT_DETAIL
       ]]>
         <dynamic prepend=" where ">
-        <isNotEmpty property="condition.contTitle">
+        <isNotEmpty property="contTitle">
           <![CDATA[
-                 cd.CD_TITAL Like CONCAT('%',#condition.contTitle#,'%')
+                 cd.CD_TITAL Like CONCAT('%',#contTitle#,'%')
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.colId">
+        <isNotEmpty property="colId">
           <![CDATA[
-                 cd.CI_ID = #condition.colId#
+                 cd.CI_ID = #colId#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.gmId">
+        <isNotEmpty property="gmId">
           <![CDATA[
-                 cd.GM_ID > #condition.gmId#
+                 cd.GM_ID > #gmId#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.contSearchStartTime">
+        <isNotEmpty property="contSearchStartTime">
           <![CDATA[
-                 cd.CD_PUBLISH_TIME >= #condition.contSearchStartTime#
+                 cd.CD_PUBLISH_TIME >= #contSearchStartTime#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.contSearchEndTime">
+        <isNotEmpty property="contSearchEndTime">
           <![CDATA[
-                 cd.CD_PUBLISH_TIME <= #condition.contSearchEndTime#
+                 cd.CD_PUBLISH_TIME <= #contSearchEndTime#
                  ]]>
           </isNotEmpty>
         </dynamic>
@@ -100,18 +100,13 @@
        select 
           CD_ID as contId,
           CD_TITAL as contTitle,
-          CI_HOME_PAGE as contHome_Page,
           ci.CI_TITAL as colName,
           CD_SHOW_DAYS as contShow_Days,
-          CD_MEDIUM as contMedium,
-          CD_KEY as contKey,
           DATE_FORMAT(CD_PUBLISH_TIME,'%Y/%m/%d %H:%m:%s') as contPublish_Time,
           CD_AUDIT_RESULT as contAudit_Result,
           CD_ORDER as contOrder,
           gm.GM_NAME as gmName,
-          CD_AUTHOR as contAuthor,
-          CD_ATTACHMENT as contAttachment,
-          CD_DISPLAY_IMAGE as displayImage
+          CD_AUTHOR as contAuthor
        from CONTENT_DETAIL  cd 
        left join COLUMN_INFO ci on ci.CI_ID = cd.CI_ID
        left join GROUP_MEMBER gm on gm.GM_ID = cd.GM_ID
