@@ -37,6 +37,13 @@ $(document).ready(function() {
                     $('#dpOd_telephone').val(item.dpOd_telephone);
                     $('#liOrder').val(item.liOrder);
                     $('#liQuarters').val(item.liQuarters);
+                    
+                    if(item.liCurrent=='现任领导'){
+                    	 $('#liCate').val(1);
+                    }else{
+                    	$('#liCate').val(0);
+                    }
+                   
                     //preview the image             
                     if(item.liPortrait){
                          $("#preview").attr({"src":"../" + replaceStr(item.liPortrait, "\\\\", "/" )});

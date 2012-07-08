@@ -18,4 +18,5 @@ CKEDITOR.editorConfig = function( config )
     config.filebrowserWindowHeight = '700';
     config.language =  "zh-cn" ;
     config.image_previewText = "preview the image, my dear!";
+	config.height=800;
 };

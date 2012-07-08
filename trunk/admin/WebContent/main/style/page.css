@@ -290,7 +290,7 @@ hr {
 }
 
 .docTable tr td {
-	background: #f2fddb; padding: 5px;
+	background: #f2fddb; padding: 10px;text-align:left;
 }
 
 .docTable tr th {
