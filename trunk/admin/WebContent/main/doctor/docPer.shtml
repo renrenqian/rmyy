@@ -11,80 +11,11 @@
 				<div class="mainPart">
 					<div class="itemBg">
 						<div class="titleBg2">
-							 <p class="bread">
+							<p class="bread">
 								<a class="breadB" href="/web/main/index.shtml">首页</a><span>&gt;</span>
-								<a class="breadN J_Cata1" href="#"></a><span>&gt;</span> 
-								<a class="breadN J_Cata2" href="#"></a><span>&gt;</span> 
-								<a class="breadN J_Cata3" href="#"></a>
+								<a class="breadN J_Cata1" href="#"></a><span>&gt;</span> <a
+									class="breadN J_Cata2" href="#"></a>
 							</p>
-						</div>
-						<h2 class="titleType3">医师简介 . 梅瑾</h2>
-						<div style="clear: both;"></div>
-						<div class="newsBody">
-							<div class="perInfo">
-								<img src="../images/docPer.jpg" style="margin-top: 0;" />
-							</div>
-							<div style="margin-left: 20px; float: left;">
-								<table class="docTable">
-									<tr>
-										<th>学历</th>
-										<td id='diEducation'></td>
-										<th>所属科室</th>
-										<td id='diDeptName'></td>
-										<th>职称</th>
-										<td id='diPosition'></td>
-									</tr>
-								</table>
-								<table class="docTable">
-									<tr>
-										<th colspan="4">专家门诊信息</th>
-									</tr>
-									<tr>
-										<th>门诊时间</th>
-										<td>星期三上午,星期五上午</td>
-										<th>门诊地址</th>
-										<td>综合楼5楼</td>
-									</tr>
-									<tr>
-										<th>挂号费用</th>
-										<td>200元</td>
-										<th>门诊限号</th>
-										<td>20个</td>
-									</tr>
-									<tr>
-										<th>门诊状态</th>
-										<td>在诊</td>
-										<th>网上挂号</th>
-										<td><a href="#">请点击</a></td>
-									</tr>
-								</table>
-								<table class="docTable">
-									<tr>
-										<th colspan="4">名医门诊信息</th>
-									</tr>
-									<tr>
-										<th>门诊时间</th>
-										<td>星期三上午,星期五上午</td>
-										<th>门诊地址</th>
-										<td>综合楼5楼</td>
-									</tr>
-									<tr>
-										<th>挂号费用</th>
-										<td>200元</td>
-										<th>门诊限号</th>
-										<td>20个</td>
-									</tr>
-									<tr>
-										<th>门诊状态</th>
-										<td>在诊</td>
-										<th>网上挂号</th>
-										<td><a href="#">请点击</a></td>
-									</tr>
-								</table>
-								<strong>出诊信息仅供参考，如有变动，以门诊公布为准。</strong>
-							</div>
-							<!-- 医师长信息部分 -->
-							<div class='clear' id='J_Re'></div>														
 						</div>
 					</div>
 				</div>
@@ -95,39 +26,150 @@
 	<!--#include virtual="../master/footer.html"-->
 	<script src="../js/common.js"></script>
 	<script>
-	$(document).ready(function(){
-		 $.getJSON('http://124.160.67.194:8520/admin/member/searchDoctor.action?doct.diId=45', function(json) {		 		 	
-	         if (json.resultCode > 0) {            
-	             var doctDetail = json.doct;
-	             $(doctDetail).each(function(i, item) {                  
-	             	$('#diEducation').html(fixPosition(item.diEducation));  
-	             	$('#diDeptName').html(item.diDeptName); 
- 	             	$('#diPosition').html(item.diPosition); 
- 	             	var str='';
- 	             	$('#J_Re').after("<h3 class='mt50'>简历</h3>"+
- 	             			"<p>"+item.diResume+"</p><hr />"+
-							"<h3>主攻学科</h3>"+
-							"<p>"+item.diMajor+"</p><hr />"+
-							"<h3>研究方向</h3>"+
-						    "<p>"+item.diResearch_direction+"</p><hr />"+
-							"<h3>医疗成果</h3>"+
-							"<p>"+item.diAccomplishment+"</p>");
-	             });     
-	         }
-		 });
-	});
-	
-	function fixPosition(str){
-		switch(str){
-		case 0:'';
-		case 1000:str='博士后';break;
-		case 1001:str='博士';break;
-		case 1002:str='硕士';break;
-		case 1003:str='大学本科';break;
-		case 1004:str='其它';break;
+		$(document).ready(function() {
+					var diId = GetParameter('diId');
+					var str='';
+					$.getJSON('/admin/member/searchDoctor.action?doct.diId='+ diId, function(json) {
+						if (json.resultCode > 0) {
+							var doctDetail = json.doct;
+							str+="<h2 class='titleType3'>"+
+							"医师简介 . <span>"+doctDetail.diName+"</span></h2>"+
+							"<div style='clear: both;'></div><div class='newsBody'><div class='perInfo'>"+
+                             "<img id='diPortrait' style='margin-top: 0;' width='120' height='180'/></div><div style='margin-left: 20px; float: left;'>"+
+							"<table class='docTable' id='J_Table1'><tr><th>学历</th>"+
+							"<td>"+fixPosition(doctDetail.diEducation)+"</td>"+
+							"<th>所属科室</th>"+
+							"<td>"+doctDetail.diDeptName+"</td>"+
+							"<th>职称</th>"+
+							"<td>"+doctDetail.diPosition+"</td></tr></table> ";
+								
+							if(doctDetail.osExpertId){
+								str+="<div id='J_osExpert'></div>";								
+							}	
+							if(doctDetail.osFamousId){
+								str+="<div id='J_osFamous'></div>";								
+							}	
+							
+							str+="<strong>出诊信息仅供参考，如有变动，以门诊公布为准。</strong></div><div class='clear'></div>";									    
+							//长信息部分
+							if(doctDetail.diResume){
+								str+="<h3 class='mt50'>简历</h3><p>"+ doctDetail.diResume+ "</p><hr />";
+							}
+							if(doctDetail.diMajor){
+								str+="<h3>主攻学科</h3><p>" + doctDetail.diMajor+ "</p><hr />";
+							}
+							if(doctDetail.diResearch_direction){
+								str+="<h3>研究方向</h3><p>"+ doctDetail.diResearch_direction+ "</p><hr />";
+							}
+							if(doctDetail.diAccomplishment){
+								str+="<h3>医疗成果</h3><p>"+ doctDetail.diAccomplishment+ "</p></div>";
+							}													
+							$('.titleBg2').after(str);														
+							
+							//专家门诊信息填充
+							if(doctDetail.osExpertId){
+			 					$.getJSON('/admin/member/searchOPSer.action?ops.osId='+doctDetail.osExpertId,function(json){
+			 						if(json.resultCode > 0){
+			 							var ops=json.ops;
+			 							var osTime=ops.osTime?fixDate(ops.osTime):'';
+			 							var osLocation=ops.osLocation?ops.osLocation:'';
+			 							var osCost=ops.osCost?ops.osCost+'元':'';
+			 							var osLimit=ops.osLimit?ops.osLimit+'个':'';
+			 							var osStatus=ops.osStatus?'在诊':'停诊';
+			 							$('#J_osExpert').html("<table class='docTable'><tr><th colspan='4'>专家门诊信息</th></tr>"+
+			 							"<tr><th width='15%'>门诊时间</th>"+
+					 						"<td width='35%'>"+osTime+"</td>"+
+					 						"<th width='15%'>门诊地址</th>"+
+					 						"<td width='35%'>"+osLocation+"</td></tr>"+
+					 					"<tr><th>挂号费用</th>"+
+					 						 "<td>"+osCost+"</td>"+
+					 						 "<th>门诊限号</th>"+
+					 						 "<td>"+osLimit+"</td></tr>"+
+					 						 "<tr><th>门诊状态</th>"+
+					 						    "<td>"+osStatus+"</td><th>网上挂号</th>"+
+					 							"<td><a href='#'>请点击</a></td></tr></table>");											
+			 						}																		
+		 					    });		
+							}
+							//名医门诊信息填充
+							if(doctDetail.osFamousId){
+			 					$.getJSON('/admin/member/searchOPSer.action?ops.osId='+doctDetail.osFamousId,function(json){
+			 						if(json.resultCode > 0){
+			 							var ops=json.ops;
+			 							var osTime=ops.osTime?fixDate(ops.osTime):'';
+			 							var osLocation=ops.osLocation?ops.osLocation:'';
+			 							var osCost=ops.osCost?ops.osCost+'元':'';
+			 							var osLimit=ops.osLimit?ops.osLimit+'个':'';
+			 							var osStatus=ops.osStatus?'在诊':'停诊';
+			 							$('#J_osFamous').html("<table class='docTable'><tr><th colspan='4'>名医门诊信息</th></tr>"+
+			 							"<tr><th width='15%'>门诊时间</th>"+
+					 						"<td width='35%'>"+osTime+"</td>"+
+					 						"<th width='15%'>门诊地址</th>"+
+					 						"<td width='35%'>"+osLocation+"</td></tr>"+
+					 					"<tr><th>挂号费用</th>"+
+					 						 "<td>"+osCost+"</td>"+
+					 						 "<th>门诊限号</th>"+
+					 						 "<td>"+osLimit+"</td></tr>"+
+					 						 "<tr><th>门诊状态</th>"+
+					 						    "<td>"+osStatus+"</td><th>网上挂号</th>"+
+					 							"<td><a href='#'>请点击</a></td></tr></table>");											
+			 						}																				
+		 					    });		
+							}
+							
+							if(doctDetail.diPortrait){
+								$('#diPortrait').attr('src','/admin/'+doctDetail.diPortrait).attr('alt','医师简介-'+doctDetail.diName+'头像');
+							}	
+						}					
+					});		
+				});
+
+		function fixDate(str){
+			var array=str.split(',');
+			var myStr='';
+			$(array).each(function(i,item){
+				switch(item){
+				case '10':item='星期一上午';break;
+				case '11':item='星期一下午';break;
+				case '20':item='星期二上午';break;
+				case '21':item='星期二下午';break;
+				case '30':item='星期三上午';break;
+				case '31':item='星期三下午';break;
+				case '40':item='星期四上午';break;
+				case '41':item='星期四下午';break;
+				case '50':item='星期五上午';break;
+				case '51':item='星期五下午';break;
+				case '60':item='星期六上午';break;
+				case '61':item='星期六下午';break;
+				case '70':item='星期日上午';break;
+				case '70':item='星期日下午';break;
+			    }
+				myStr+=item+'，';
+			});
+			return myStr.substr(0,myStr.length-1);
 		}
-		return str;
-	}
+		function fixPosition(str) {
+			switch (str) {
+			case 0:
+				'';
+			case 1000:
+				str = '博士后';
+				break;
+			case 1001:
+				str = '博士';
+				break;
+			case 1002:
+				str = '硕士';
+				break;
+			case 1003:
+				str = '大学本科';
+				break;
+			case 1004:
+				str = '其它';
+				break;
+			}
+			return str;
+		}
 	</script>
 </body>
 </html>

@@ -183,7 +183,8 @@ hr {
 }
 
 .titleType2,.titleType3 {
-	color: #247a7b; cursor: pointer; font-weight: normal; text-decoration: underline;
+	color: #247a7b; font-weight: normal; text-decoration: underline;
+/* 	cursor: pointer;  医师详情中，顶部医师姓名部分，不需要*/ 
 }
 
 .titleType3 {
