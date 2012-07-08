@@ -4,7 +4,7 @@
     "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="DoctorInfo">
 
-    <!-- paginate the DoctorInfo info -->
+    <!-- list the DoctorInfo info -->
     <select id="list"  parameterClass="DoctorInfo"  resultClass="DoctorInfo">
      <![CDATA[
        select 
@@ -12,6 +12,32 @@
         DI_NAME as diName
        from DOCTOR_INFO
        where DI_DEPTTYPE = #diDeptType#
+     ]]>
+    </select>
+    
+    <!-- list the DoctorInfo info -->
+    <select id="listzjyl"  parameterClass="DoctorInfo"  resultClass="DoctorInfo">
+     <![CDATA[
+       select 
+        DI_ID as diId,
+        DI_NAME as diName
+       from DOCTOR_INFO
+       where DI_DEPTTYPE = #diDeptType# and OS_EXPERT_ID != 0
+     ]]>
+    </select>
+    
+    <!-- paginate the DoctorInfo info -->
+    <select id="listmymz"  parameterClass="DoctorInfo"  resultClass="DoctorInfo">
+     <![CDATA[
+       select 
+        DI_ID as diId,
+        DI_NAME as diName,
+        DI_PORTRAIT as diPortrait,
+        od.OD_NAME as diDeptName,
+        DI_NAME as DI_POSITION
+       from DOCTOR_INFO di
+       left join OFFICE_DETAIL od on od.OD_ID = di.DI_DEPTTYPE
+       where DI_DEPTTYPE = #diDeptType# and OS_FAMOUS_ID !=0
      ]]>
     </select>
     

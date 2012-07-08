@@ -25,4 +25,7 @@ public class GroupConstance {
     
     /** upload content file store folder news path **/
     public static final String UPLOAD_NEWS = "news";
+    
+    /** upload content file store folder news path **/
+    public static final String CTRF = "\r\n";
 }
