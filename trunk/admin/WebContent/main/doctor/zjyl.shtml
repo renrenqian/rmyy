@@ -166,48 +166,59 @@
 	<script src="../js/common.js"></script>
 	<script>
 		var action = GetParameter('cata2');
-		$.getJSON(action+'.txt', function(json) {
-			if (json.resultCode > 0) {
-				var deptList = json.deptList;
-				var listItem = '';
-				if (action == 'lcks') {
-					var neiList = "";
-					var waiList = "";
-					var zList = "";				
-					$(deptList).each(
-							function(i, item) {
-								listItem = " <li><a href='deptDetail.shtml?id="+ item.dpId + "' >" + item.dpName + "</a></li>";
-								if (item.dpNote == '内科') {
-									neiList += listItem;
-								}
-								if (item.dpNote == '外科') {
-									waiList += listItem;
-								}
-								if (item.dpNote == '综合') {
-									zList += listItem;
-								}
-							});										
-					$('.expList').html("<li class='deptList'><a href='#'>内科</a>"+
-							"<hr />"+
-							"<ul class='subDeptList'>"+neiList+"</ul></li>"+
-							"<li class='deptList'><a href='#'>外科</a>"+
-							"<hr />"+
-							"<ul class='subDeptList'>"+waiList+"</ul></li>"+
-							"<li class='deptList'><a href='#'>综合</a>"+
-							"<hr />"+
-							"<ul class='subDeptList'>"+zList+"</ul></li>");					
-				}else{
-					var commonList = "";
-					$(deptList).each(							
-							function(i, item) {
-								listItem = " <li><a href='deptDetail.shtml?id="+ item.dpId + "' >" + item.dpName + "</a></li>";
-								commonList += listItem;							
-							});
-					$('.expList').html("<li class='deptList'>"+
-							"<hr />"+
-							"<ul class='subDeptList'>"+commonList+"</ul></li>");	
-				}
+		$.getJSON(action, function(json) {
+			if(json.resultCode>0){
+				var deptIds=json.deptIds;
+				$(deptIds).each(function(i,item){
+					console.log(item);
+				});
 			}
+			
+			
+			
+			
+			
+// 			if (json.resultCode > 0) {
+// 				var deptList = json.deptList;
+// 				var listItem = '';
+// 				if (action == 'lcks') {
+// 					var neiList = "";
+// 					var waiList = "";
+// 					var zList = "";				
+// 					$(deptList).each(
+// 							function(i, item) {
+// 								listItem = " <li><a href='deptDetail.shtml?id="+ item.dpId + "' >" + item.dpName + "</a></li>";
+// 								if (item.dpNote == '内科') {
+// 									neiList += listItem;
+// 								}
+// 								if (item.dpNote == '外科') {
+// 									waiList += listItem;
+// 								}
+// 								if (item.dpNote == '综合') {
+// 									zList += listItem;
+// 								}
+// 							});										
+// 					$('.expList').html("<li class='deptList'><a href='#'>内科</a>"+
+// 							"<hr />"+
+// 							"<ul class='subDeptList'>"+neiList+"</ul></li>"+
+// 							"<li class='deptList'><a href='#'>外科</a>"+
+// 							"<hr />"+
+// 							"<ul class='subDeptList'>"+waiList+"</ul></li>"+
+// 							"<li class='deptList'><a href='#'>综合</a>"+
+// 							"<hr />"+
+// 							"<ul class='subDeptList'>"+zList+"</ul></li>");					
+// 				}else{
+// 					var commonList = "";
+// 					$(deptList).each(							
+// 							function(i, item) {
+// 								listItem = " <li><a href='deptDetail.shtml?id="+ item.dpId + "' >" + item.dpName + "</a></li>";
+// 								commonList += listItem;							
+// 							});
+// 					$('.expList').html("<li class='deptList'>"+
+// 							"<hr />"+
+// 							"<ul class='subDeptList'>"+commonList+"</ul></li>");	
+// 				}
+// 			}
 		});
 	</script>
 </body>

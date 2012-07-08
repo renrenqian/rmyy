@@ -1,32 +1,128 @@
 <!DOCTYPE html>
 <head>
-    <!--#include virtual="../master/headFile.html"-->
+<!--#include virtual="../master/headFile.html"-->
+<style>
+.znDept,.lcDept {
+	width: 100px;
+	height: auto;
+	float: left;
+	border: 1px solid #D1E2CD;
+	background: #F4F9F4;
+	padding: 10px;
+	margin-right: 20px;
+}
+
+.lcDept {
+	width: 250px;
+}
+
+.znDeptList li,.lcDeptList li {
+	display: block;
+	float: left;
+	width: 100%;
+	height: 30px;
+}
+
+.lcDeptList li {
+	width: 45%;
+	margin-right: 10px;
+}
+
+.znDeptList li a ,.lcDeptList li a{
+	color: #000;
+}
+
+.znDeptList li a:hover,.lcDeptList li a:hover {
+	text-decoration: underline;
+}
+</style>
 </head>
 <body>
-<!--#include virtual="../master/top.html"-->
-<div class="content contentPart" style="margin-top: 3px; *margin-top: 3px;">
-    <div style="display: block; overflow: hidden;">
-        <div class="leftCol2">
-            <div class="mainPart">
-                <div class="itemBg">
-                    <div class="titleBg2">
-                       <p class="bread">
+	<!--#include virtual="../master/top.html"-->
+	<div class="content contentPart"
+		style="margin-top: 3px; *margin-top: 3px;">
+		<div style="display: block; overflow: hidden;">
+			<div class="leftCol2">
+				<div class="mainPart">
+					<div class="itemBg">
+						<div class="titleBg2">
+							<p class="bread">
 								<a class="breadB" href="/web/main/index.shtml">首页</a><span>&gt;</span>
 								<a class="breadN J_Cata1" href="#"></a><span>&gt;</span> <a
 									class="breadN J_Cata2" href="#"></a>
 							</p>
-                    </div>
-                    <h2 class="titleType3">组织结构</h2>
-                    <div style="clear:both;"></div>
-                    <!-- content part -->
-                </div>
-            </div>
-        </div>
-        <!--#include virtual="../master/commonSubTitle.html"-->
-    </div>
-</div>
-<!--#include virtual="../master/footer.html"-->
-<script src="../js/common.js"></script>
+						</div>
+						<h2 class="titleType3">组织结构</h2>
+						<div style="clear: both;"></div>
+						<div class='docBody'>
+							<img alt="组织结构" src="../images/StructureBg.jpg" width='700' />
+							<!--职能科室 -->
+							<div class='znDept'>
+								<ul class='znDeptList'>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+								</ul>
+							</div>
+							<!--临床科室 -->
+							<div class='lcDept'>
+								<ul class='lcDeptList'>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+								</ul>
+							</div>
+								<!--职能科室 -->
+							<div class='znDept'>
+								<ul class='znDeptList'>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>党委综合办公室</a></li>
+								</ul>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--#include virtual="../master/commonSubTitle.html"-->
+		</div>
+	</div>
+	<!--#include virtual="../master/footer.html"-->
+	<script src="../js/common.js"></script>
 
 </body>
 </html>

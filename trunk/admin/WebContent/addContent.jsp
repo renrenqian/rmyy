@@ -35,10 +35,12 @@
      var contId=GetParameter('contId');     
      $.getJSON('group/searchContent.action?t=' + new Date().getTime() + '&continfo.contId=' + contId, function(json) {
          if (json.resultCode > 0) {
-             formUnSerialize("contentForm", "continfo", json.continfo);
+             //formUnSerialize("contentForm", "continfo", json.continfo);
              //CKEDITOR.replace('contDetail');
-             CKEDITOR.instances.setData($("#contDetail").val());
+            // CKEDITOR.instances.setData($("#contDetail").val());
             // CKEDITOR.instances.caseText.setData($("#contDetail").val());
+            
+            
          } else {
              $.fn.sdInfo({
                  type:"fail",
@@ -59,18 +61,12 @@
                 actionName = "编辑";
                 url = "group/updateContent.action";
             }
-          //alert("contDetail:" + editor.getData());
-          alert("contDetail:" + CKEDITOR.instances.editor1.getData());
         $('#contentForm').form('submit', {
           url:url,
           dataType : 'json',
-          onSubmit: function(){
-             //$("#contDetail").val(editor.getData()); 
-            //CKEDITOR.instances.content.getData();
-             var content=CKEDITOR.instances.editor1.getData();
-             //alert("CKEDITOR:" + CKEDITOR.instances.editor1.getText());
-             $("#contDetail").val(editor.getData()); 
-              //alert("content:\r\n" + content) ;
+          onSubmit: function(){        	
+        	  $("#contDetail").val(CKEDITOR.instances.editor1.getData());
+        	  console.log($("#contDetail").val());
          },
          error:function (json) {
              alert("内容异常:" + json.message) ; 
@@ -177,8 +173,8 @@
 					<td class="rowName">内容编辑</td>
 					<td colspan="3" style='padding-left: 10px;'>
 					   <textarea id="contDetail" name="continfo.contDetail" style="visibility: hidden; display: none;"></textarea> 
-            <ckfinder:setupCKEditor editor="editor1" basePath="ckfinder/" />
-            <ckeditor:editor  basePath="ckeditor/" editor="editor1" value=" " /> 
+                       <ckfinder:setupCKEditor editor="editor1" basePath="ckfinder/" />
+                       <ckeditor:editor  basePath="ckeditor/" editor="editor1" value=" " /> 
 					</td>
 				</tr>
 				<tr>

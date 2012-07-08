@@ -256,7 +256,7 @@ hr {
 }
 
 .newsBody {
-	color: #333333; text-indent: 2em; font-size: 14px; padding: 20px; font-family: Tahoma, Geneva, "宋体"; text-align: center; overflow: hidden;;
+	color: #333333; text-indent: 2em; font-size: 14px; padding: 20px; font-family: Tahoma, Geneva, "宋体";  overflow: hidden;;
 }
 
 .newsBody p {
