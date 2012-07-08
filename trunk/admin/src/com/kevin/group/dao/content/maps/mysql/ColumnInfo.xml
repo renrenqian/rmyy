@@ -25,6 +25,18 @@
       -->
     </select>
     
+    <!-- listColumnNames ColumnInfo info -->
+    <select id="listColumnNames" parameterClass="ColumnInfo"  resultClass="ColumnInfo">
+     <![CDATA[
+       select 
+         CI_ID as ciId,
+         CI_TITAL as ciTital,
+         CI_LEVEL as ciLevel,
+         CI_PARENT as ciParent
+       from COLUMN_INFO
+     ]]>
+    </select>
+    
     <!-- search the ColumnInfo info -->
     <select id="search"  parameterClass="ColumnInfo"  resultClass="ColumnInfo">
      <![CDATA[

@@ -5,6 +5,8 @@
  */
 package com.kevin.group.dao.member.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import com.kevin.common.dao.AbstractBaseDAO;
@@ -24,7 +26,35 @@ public class DoctorDAOImpl extends AbstractBaseDAO<DoctorInfo> implements
         return super.update("updateExpertId", entity);
     }
 
-    public int updateFamourceId(DoctorInfo entity) throws BaseSqlMapException {
-        return super.update("updateFamourceId", entity);
+    public int updateFamourceId(DoctorInfo entity) throws BaseSqlMapException{
+        try {
+            return super.update("updateFamourceId", entity);
+        } catch (BaseSqlMapException e) {
+            throw new BaseSqlMapException(e.getMessage());
+        }
+    }
+
+    /* (non-Javadoc)
+     * @see com.kevin.group.dao.member.IDoctorDAO#listzjyl(com.kevin.group.pojo.member.DoctorInfo)
+     */
+    @Override
+    public List<DoctorInfo> listzjyl(DoctorInfo doct) throws BaseSqlMapException {
+        try {
+            return super.list("listzjyl", doct);
+        } catch (BaseSqlMapException e) {
+            throw new BaseSqlMapException(e.getMessage());
+        }
+    }
+
+    /* (non-Javadoc)
+     * @see com.kevin.group.dao.member.IDoctorDAO#listmymz(com.kevin.group.pojo.member.DoctorInfo)
+     */
+    @Override
+    public List<DoctorInfo> listmymz(DoctorInfo doct) throws BaseSqlMapException {
+        try {
+            return super.list("listmymz", doct);
+        } catch (BaseSqlMapException e) {
+            throw new BaseSqlMapException(e.getMessage());
+        }
     }
 }

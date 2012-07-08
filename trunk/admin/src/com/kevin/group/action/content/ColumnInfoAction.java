@@ -118,6 +118,17 @@ public class ColumnInfoAction extends AbstractBaseAction {
         return Action.SUCCESS;
     }
 
+    public String listColumnNames() {// list all the col
+        try {
+            colList = colInfoService.listColumnNames();
+            setResultCode(1);
+        } catch (CommonServiceException e) {
+            setMessage(e.getMessage());
+            setResultCode(-1);
+        }
+        return Action.SUCCESS;
+    }
+
     public String updateColumn() {// update the col info
         try {
             int result = colInfoService.update(col);
