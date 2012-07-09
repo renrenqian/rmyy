@@ -361,12 +361,16 @@ hr {
 }
 
 .docIntro {
-	float: right; font-size: 12px;
+	float: right; font-size: 12px; margin-top:-10px;
 }
 
 .docIntro a {
 	font-weight: bold; margin-right: 10px; color: #006030; font-size: 14px;
 }
+.docIntro a:hover{
+	text-decoration:underline;
+} 
+
 /*排班信息表*/
 .Schedule,.SechDetail {
 	width: 100%;

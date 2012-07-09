@@ -190,7 +190,7 @@ $(document).ready(function() {
     /* J_GenerateDoctJson */
     $('#J_GenerateDoctJson').die().live("click", function() {
         var THIS = this;
-        $.messager.confirm('更新', '是否确认更新前端页面?', function(r) {
+        $.messager.confirm('更新', '是否确认更新网站数据?', function(r) {
             if (r) {
                 var id = $(THIS).parent().parent().children().eq(0).children().eq(0).val();
                 var params = "doct.diId=" + id;
