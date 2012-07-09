@@ -152,7 +152,7 @@ CREATE TABLE LEADER_GROUP_REF  (
 CREATE TABLE LEADER_INFO  (
    LI_ID                 INTEGER               NOT NULL  AUTO_INCREMENT,
    LI_CATE               INTEGER,
-   LI_CURRENT            INTEGER,
+   LI_CURRENT            VARCHAR(32),
    LI_NAME               VARCHAR(64),
    LI_HOLD_PERIOD        VARCHAR(32),
    LI_HOLD_START         DATE,

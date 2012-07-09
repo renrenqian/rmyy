@@ -112,6 +112,13 @@
                <param name="excludeNullProperties">true</param>
             </result>
        </action>
+        <!-- list Column -->
+       <action name="listColumnNames" method="listColumnNames" class="conlInfoAction">
+            <result name="success" type="json">
+               <param name="ignoreHierarchy">false</param>
+               <param name="excludeNullProperties">true</param>
+            </result>
+       </action>
         <!-- search Column -->
        <action name="searchColumn" method="searchColumn" class="conlInfoAction">
             <result name="success" type="json">

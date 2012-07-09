@@ -5,6 +5,7 @@
  */
 package com.kevin.group.service.member;
 
+import com.kevin.common.exception.CommonServiceException;
 import com.kevin.common.service.IBaseService;
 import com.kevin.group.pojo.member.LeaderInfo;
 
@@ -13,5 +14,7 @@ import com.kevin.group.pojo.member.LeaderInfo;
  * @since jdk1.6
  */
 public interface ILeaderService extends IBaseService<LeaderInfo> {
+
+    int generateLeaderJson(String absolutePath) throws CommonServiceException;
 
 }

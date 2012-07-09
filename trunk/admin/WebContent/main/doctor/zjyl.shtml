@@ -20,141 +20,7 @@
 						<h2 class="titleType3">专家一览</h2>
 						<div style="clear: both;"></div>
 						<div class="docBody">
-							<ul class="expList">
-								<li class="deptList"><a href="#">产科</a>
-									<hr />
-									<ul class="perList">
-										<li><a href="docPer.shtml" target="_blank">吴虹</a></li>
-										<li><a href="docPer.shtml" target="_blank">翟洪波</a></li>
-										<li><a href="docPer.shtml" target="_blank">王志华</a></li>
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-										<li><a href="docPer.shtml" target="_blank">林晓峰</a></li>
-										<li><a href="docPer.shtml" target="_blank">李和江</a></li>
-									</ul></li>
-								<li class="deptList"><a href="#">儿科</a>
-									<hr />
-									<ul class="perList">
-										<li><a href="docPer.shtml" target="_blank">陆茵</a></li>
-										<li><a href="docPer.shtml" target="_blank">黄先玫</a></li>
-										<li><a href="docPer.shtml" target="_blank">周国汉</a></li>
-										<li><a href="docPer.shtml" target="_blank">包建秀</a></li>
-										<li><a href="docPer.shtml" target="_blank">戴明娟</a></li>
-										<li><a href="docPer.shtml" target="_blank">沈桂芳</a></li>
-										<li><a href="docPer.shtml" target="_blank">宋培红</a></li>
-										<li><a href="docPer.shtml" target="_blank">王洁华</a></li>
-										<li><a href="docPer.shtml" target="_blank">宋培红</a></li>
-										<li><a href="docPer.shtml" target="_blank">杨五一</a></li>
-										<li><a href="docPer.shtml" target="_blank">郎亚琴</a></li>
-										<li><a href="docPer.shtml" target="_blank">张艺</a></li>
-										<li><a href="docPer.shtml" target="_blank">徐芳</a></li>
-										<li><a href="docPer.shtml" target="_blank">冯梅</a></li>
-										<li><a href="docPer.shtml" target="_blank">黄晖</a></li>
-										<li><a href="docPer.shtml" target="_blank">杜建民</a></li>
-										<li><a href="docPer.shtml" target="_blank">何内华</a></li>
-										<li><a href="docPer.shtml" target="_blank">应爱娟</a></li>
-										<li><a href="docPer.shtml" target="_blank">盛文彬</a></li>
-										<li><a href="docPer.shtml" target="_blank">刘雅丽</a></li>
-										<li><a href="docPer.shtml" target="_blank">芦惠</a></li>
-										<li><a href="docPer.shtml" target="_blank">梁冰</a></li>
-										<li><a href="docPer.shtml" target="_blank">杨一华</a></li>
-										<li><a href="docPer.shtml" target="_blank">冯亚男</a></li>
-										<li><a href="docPer.shtml" target="_blank">徐文静</a></li>
-										<li><a href="docPer.shtml" target="_blank">沈新囡</a></li>
-									</ul></li>
-								<li class="deptList"><a href="#">产科</a>
-									<hr />
-									<ul class="perList">
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-									</ul></li>
-								<li class="deptList"><a href="#">儿科</a>
-									<hr />
-									<ul class="perList">
-										<li><a href="docPer.shtml" target="_blank">陆茵</a></li>
-										<li><a href="docPer.shtml" target="_blank">黄先玫</a></li>
-										<li><a href="docPer.shtml" target="_blank">周国汉</a></li>
-										<li><a href="docPer.shtml" target="_blank">包建秀</a></li>
-										<li><a href="docPer.shtml" target="_blank">戴明娟</a></li>
-										<li><a href="docPer.shtml" target="_blank">沈桂芳</a></li>
-										<li><a href="docPer.shtml" target="_blank">宋培红</a></li>
-										<li><a href="docPer.shtml" target="_blank">王洁华</a></li>
-										<li><a href="docPer.shtml" target="_blank">宋培红</a></li>
-										<li><a href="docPer.shtml" target="_blank">杨五一</a></li>
-										<li><a href="docPer.shtml" target="_blank">郎亚琴</a></li>
-										<li><a href="docPer.shtml" target="_blank">张艺</a></li>
-										<li><a href="docPer.shtml" target="_blank">徐芳</a></li>
-										<li><a href="docPer.shtml" target="_blank">冯梅</a></li>
-										<li><a href="docPer.shtml" target="_blank">黄晖</a></li>
-										<li><a href="docPer.shtml" target="_blank">杜建民</a></li>
-										<li><a href="docPer.shtml" target="_blank">何内华</a></li>
-										<li><a href="docPer.shtml" target="_blank">应爱娟</a></li>
-										<li><a href="docPer.shtml" target="_blank">盛文彬</a></li>
-										<li><a href="docPer.shtml" target="_blank">刘雅丽</a></li>
-										<li><a href="docPer.shtml" target="_blank">芦惠</a></li>
-										<li><a href="docPer.shtml" target="_blank">梁冰</a></li>
-										<li><a href="docPer.shtml" target="_blank">杨一华</a></li>
-										<li><a href="docPer.shtml" target="_blank">冯亚男</a></li>
-										<li><a href="docPer.shtml" target="_blank">徐文静</a></li>
-										<li><a href="docPer.shtml" target="_blank">沈新囡</a></li>
-									</ul></li>
-								<li class="deptList"><a href="#">产科</a>
-									<hr />
-									<ul class="perList">
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-									</ul></li>
-								<li class="deptList"><a href="#">儿科</a>
-									<hr />
-									<ul class="perList">
-										<li><a href="docPer.shtml" target="_blank">陆茵</a></li>
-										<li><a href="docPer.shtml" target="_blank">黄先玫</a></li>
-										<li><a href="docPer.shtml" target="_blank">周国汉</a></li>
-										<li><a href="docPer.shtml" target="_blank">包建秀</a></li>
-										<li><a href="docPer.shtml" target="_blank">戴明娟</a></li>
-										<li><a href="docPer.shtml" target="_blank">沈桂芳</a></li>
-										<li><a href="docPer.shtml" target="_blank">宋培红</a></li>
-										<li><a href="docPer.shtml" target="_blank">王洁华</a></li>
-										<li><a href="docPer.shtml" target="_blank">宋培红</a></li>
-										<li><a href="docPer.shtml" target="_blank">杨五一</a></li>
-										<li><a href="docPer.shtml" target="_blank">郎亚琴</a></li>
-										<li><a href="docPer.shtml" target="_blank">张艺</a></li>
-										<li><a href="docPer.shtml" target="_blank">徐芳</a></li>
-										<li><a href="docPer.shtml" target="_blank">冯梅</a></li>
-										<li><a href="docPer.shtml" target="_blank">黄晖</a></li>
-										<li><a href="docPer.shtml" target="_blank">杜建民</a></li>
-										<li><a href="docPer.shtml" target="_blank">何内华</a></li>
-										<li><a href="docPer.shtml" target="_blank">应爱娟</a></li>
-										<li><a href="docPer.shtml" target="_blank">盛文彬</a></li>
-										<li><a href="docPer.shtml" target="_blank">刘雅丽</a></li>
-										<li><a href="docPer.shtml" target="_blank">芦惠</a></li>
-										<li><a href="docPer.shtml" target="_blank">梁冰</a></li>
-										<li><a href="docPer.shtml" target="_blank">杨一华</a></li>
-										<li><a href="docPer.shtml" target="_blank">冯亚男</a></li>
-										<li><a href="docPer.shtml" target="_blank">徐文静</a></li>
-										<li><a href="docPer.shtml" target="_blank">沈新囡</a></li>
-									</ul></li>
-								<li class="deptList"><a href="#">产科</a>
-									<hr />
-									<ul class="perList">
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-										<li><a href="docPer.shtml" target="_blank">梅瑾</a></li>
-									</ul></li>
-							</ul>
+							<ul class="expList"></ul>
 						</div>
 					</div>
 				</div>
@@ -166,48 +32,26 @@
 	<script src="../js/common.js"></script>
 	<script>
 		var action = GetParameter('cata2');
-		$.getJSON(action+'.txt', function(json) {
-			if (json.resultCode > 0) {
-				var deptList = json.deptList;
-				var listItem = '';
-				if (action == 'lcks') {
-					var neiList = "";
-					var waiList = "";
-					var zList = "";				
-					$(deptList).each(
-							function(i, item) {
-								listItem = " <li><a href='deptDetail.shtml?id="+ item.dpId + "' >" + item.dpName + "</a></li>";
-								if (item.dpNote == '内科') {
-									neiList += listItem;
-								}
-								if (item.dpNote == '外科') {
-									waiList += listItem;
-								}
-								if (item.dpNote == '综合') {
-									zList += listItem;
-								}
-							});										
-					$('.expList').html("<li class='deptList'><a href='#'>内科</a>"+
-							"<hr />"+
-							"<ul class='subDeptList'>"+neiList+"</ul></li>"+
-							"<li class='deptList'><a href='#'>外科</a>"+
-							"<hr />"+
-							"<ul class='subDeptList'>"+waiList+"</ul></li>"+
-							"<li class='deptList'><a href='#'>综合</a>"+
-							"<hr />"+
-							"<ul class='subDeptList'>"+zList+"</ul></li>");					
-				}else{
-					var commonList = "";
-					$(deptList).each(							
-							function(i, item) {
-								listItem = " <li><a href='deptDetail.shtml?id="+ item.dpId + "' >" + item.dpName + "</a></li>";
-								commonList += listItem;							
-							});
-					$('.expList').html("<li class='deptList'>"+
-							"<hr />"+
-							"<ul class='subDeptList'>"+commonList+"</ul></li>");	
-				}
-			}
+		$.getJSON(action, function(json) {
+			if(json.resultCode>0){
+				var deptList='';
+				var docList='';
+				var deptIds=json.deptIds;
+				$(deptIds).each(function(i,item){
+					var doctListItera =  "doctList_" +item.dpId;
+					if(json[doctListItera]!=''){
+						//当前科室下有专家门诊信息
+						docList='';
+						deptList+="<li class='deptList'><a>"+item.dpName+"</a><hr /><ul class='perList'>";	
+						$(json[doctListItera]).each(function(i,item){
+							docList+="<li><a href='docPer.shtml?cata1=zjjs&cata2=zjyl&diId="+item.diId+"' target='_blank'>"+item.diName+"</a></li>";
+						});
+						deptList+=docList;
+						deptList+="</ul></li>";						
+					}							
+					$('.expList').html(deptList);
+				});
+			}			
 		});
 	</script>
 </body>

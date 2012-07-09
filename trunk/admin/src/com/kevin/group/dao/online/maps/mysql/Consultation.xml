@@ -63,32 +63,32 @@
          from ONLINE_CONSULTATION
       ]]>
         <dynamic prepend=" where ">
-        <isNotEmpty property="condition.ocRequest_office">
+        <isNotEmpty property="ocRequest_office">
           <![CDATA[
                  oc.OC_REQUEST_OFFICE = #ocRequest_office#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.ocReceive_office">
+        <isNotEmpty property="ocReceive_office">
           <![CDATA[
                  oc.OC_RECEIVE_OFFICE = #ocReceive_office#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.ocPost_time">
+        <isNotEmpty property="ocPost_time">
           <![CDATA[
                  DATE_FORMAT(oc.OC_POST_TIME,'%Y/%m/%d %H:%m:%s') = #ocPost_time#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.osAnswer_time">
+        <isNotEmpty property="osAnswer_time">
           <![CDATA[
                  DATE_FORMAT(oc.OS_ANSWER_TIME,'%Y/%m/%d %H:%m:%s') = #osAnswer_time#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.osAnswered">
+        <isNotEmpty property="osAnswered">
           <![CDATA[
                  oc.OS_ANSWERED = #osAnswered#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.osTypical">
+        <isNotEmpty property="osTypical">
           <![CDATA[
                  oc.OS_TYPICAL = #osTypical#
                  ]]>
@@ -110,8 +110,7 @@
         OC_SEX as ocSex,
         OC_POST_SUBJECT as ocPost_subject,
         OC_DESC as ocDesc,
-        OS_ANSWERED as osAnswered,
-        OS_ANSWER as osAnswer,
+        OS_ANSWERED as osAnswered
         OS_ANSWER_OFFICE as osAnswer_office,
         DATE_FORMAT(OS_ANSWER_TIME,'%Y/%m/%d %H:%m:%s') as osAnswer_time,
         OS_TYPICAL as osTypical

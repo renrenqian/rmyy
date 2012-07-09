@@ -5,6 +5,8 @@
  */
 package com.kevin.group.pojo.member;
 
+import com.google.gson.Gson;
+
 /**
  * @author kevin
  * @since jdk1.6
@@ -313,6 +315,11 @@ public class LeaderInfo {
      */
     public final void setLiDesc(String liDesc) {
         this.liDesc = liDesc;
+    }
+
+    public final String generateJSON() {
+        Gson gson = new Gson();
+        return gson.toJson(this);
     }
 
 }

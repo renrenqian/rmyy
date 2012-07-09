@@ -14,9 +14,9 @@ $(document).ready(function() {
     /* 新增 */
     $("#J_AddContent").die().live("click", function() {
         if(contentType=='新闻'){
-             $(window.parent.document).find("#centerIFrame").attr("src", "content/addContent.html");
+             $(window.parent.document).find("#centerIFrame").attr("src", "addContent.jsp");
         }else{
-             $(window.parent.document).find("#centerIFrame").attr("src", "content/addCommon.html");
+             $(window.parent.document).find("#centerIFrame").attr("src", "addCommon.jsp");
         }       
     });
 
@@ -24,9 +24,9 @@ $(document).ready(function() {
     $(".J_ContentEdit").die().live("click", function() {
         var id = $(this).parent().parent().children().eq(0).children().eq(0).val();
         if(contentType=='新闻'){
-                $(window.parent.document).find("#centerIFrame").attr("src", "content/addContent.html?contId=" + id);
+                $(window.parent.document).find("#centerIFrame").attr("src", "addContent.jsp?contId=" + id);
            }else{
-                $(window.parent.document).find("#centerIFrame").attr("src", "content/addCommon.html");
+                $(window.parent.document).find("#centerIFrame").attr("src", "addCommon.jsp");
            }         
     });
 

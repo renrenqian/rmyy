@@ -183,7 +183,8 @@ hr {
 }
 
 .titleType2,.titleType3 {
-	color: #247a7b; cursor: pointer; font-weight: normal; text-decoration: underline;
+	color: #247a7b; font-weight: normal; text-decoration: underline;
+/* 	cursor: pointer;  医师详情中，顶部医师姓名部分，不需要*/ 
 }
 
 .titleType3 {
@@ -256,7 +257,7 @@ hr {
 }
 
 .newsBody {
-	color: #333333; text-indent: 2em; font-size: 14px; padding: 20px; font-family: Tahoma, Geneva, "宋体"; text-align: center; overflow: hidden;;
+	color: #333333; text-indent: 2em; font-size: 14px; padding: 20px; font-family: Tahoma, Geneva, "宋体";  overflow: hidden;;
 }
 
 .newsBody p {
@@ -290,7 +291,7 @@ hr {
 }
 
 .docTable tr td {
-	background: #f2fddb; padding: 5px;
+	background: #f2fddb; padding: 10px;text-align:left;
 }
 
 .docTable tr th {
