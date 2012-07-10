@@ -21,6 +21,7 @@ public class ContentInfo implements Serializable {
     private String contTitle;
     private String contHome_Page;
     private Integer colId;
+    private Integer ciCate;
     private String colName;
     private Integer contShow_Days;
     private Integer contMedium;
@@ -95,6 +96,20 @@ public class ContentInfo implements Serializable {
      */
     public final void setColId(Integer colId) {
         this.colId = colId;
+    }
+
+    /**
+     * @return the ciCate
+     */
+    public final Integer getCiCate() {
+        return ciCate;
+    }
+
+    /**
+     * @param ciCate the ciCate to set
+     */
+    public final void setCiCate(Integer ciCate) {
+        this.ciCate = ciCate;
     }
 
     /**
