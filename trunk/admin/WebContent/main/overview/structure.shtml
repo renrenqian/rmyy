@@ -2,37 +2,49 @@
 <head>
 <!--#include virtual="../master/headFile.html"-->
 <style>
-.znDept,.lcDept {
+.strucBox1,.strucBox2,.strucBox3 {
 	width: 100px;
 	height: auto;
 	float: left;
 	border: 1px solid #D1E2CD;
 	background: #F4F9F4;
 	padding: 10px;
-	margin-right: 20px;
+	margin-right:5px;
+	margin-top:-5px;
+	font-size:12px;
+	text-align:left;
+}
+.strong{
+    color:#003E3E;
 }
 
-.lcDept {
-	width: 250px;
+.strucBox2 {
+	width: 210px;
+	border:1px solid #FBDDB5;
+	background: #FDFCF0;
+}
+.strucBox3{
+    border:1px solid #FCE9FC;
+	background: #FEF5FD;
 }
 
-.znDeptList li,.lcDeptList li {
+.strucBox1 li,.strucBox2 li,.strucBox3 li {
 	display: block;
 	float: left;
 	width: 100%;
 	height: 30px;
 }
 
-.lcDeptList li {
-	width: 45%;
-	margin-right: 10px;
+.strucBox2 li {
+	width: 46%;
+	margin-right:5px;
 }
 
-.znDeptList li a ,.lcDeptList li a{
+.strucBox1 li a,.strucBox2 li a ,.strucBox3 li a{
 	color: #000;
 }
 
-.znDeptList li a:hover,.lcDeptList li a:hover {
+.strucBox1 li a:hover,.strucBox2 li a:hover,.strucBox3 li a:hover {
 	text-decoration: underline;
 }
 </style>
@@ -55,29 +67,18 @@
 						<h2 class="titleType3">组织结构</h2>
 						<div style="clear: both;"></div>
 						<div class='docBody'>
-							<img alt="组织结构" src="../images/StructureBg.jpg" width='700' />
+							<img alt="组织结构" src="../images/zzjg.gif" width='700' />
 							<!--职能科室 -->
-							<div class='znDept'>
-								<ul class='znDeptList'>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-								</ul>
+							<div class='strucBox1' style='margin-left:20px;'>
+								<ul class='znDeptList'></ul>
 							</div>
 							<!--临床科室 -->
-							<div class='lcDept'>
-								<ul class='lcDeptList'>
+							<div class='strucBox2' style='margin-left:15px;'>
+								<ul class='lcDeptList'></ul>
+							</div>
+							<!--职能科室 -->
+							<div class='strucBox3' style='margin-left:10px;'>
+								<ul class=''>
 									<li><a href='#'>党委综合办公室</a></li>
 									<li><a href='#'>党委综合办公室</a></li>
 									<li><a href='#'>党委综合办公室</a></li>
@@ -94,9 +95,9 @@
 									<li><a href='#'>党委综合办公室</a></li>
 								</ul>
 							</div>
-								<!--职能科室 -->
-							<div class='znDept'>
-								<ul class='znDeptList'>
+	                        <!--职能科室 -->
+							<div class='strucBox3' style='margin-left:10px;'>
+								<ul class=''>
 									<li><a href='#'>党委综合办公室</a></li>
 									<li><a href='#'>党委综合办公室</a></li>
 									<li><a href='#'>党委综合办公室</a></li>
@@ -113,7 +114,6 @@
 									<li><a href='#'>党委综合办公室</a></li>
 								</ul>
 							</div>
-							
 						</div>
 					</div>
 				</div>
@@ -123,7 +123,65 @@
 	</div>
 	<!--#include virtual="../master/footer.html"-->
 	<script src="../js/common.js"></script>
+	<script>
+		//临床科室
+		$.getJSON("../dept/lcks", function(json) {
+			if (json.resultCode > 0) {
+				var deptList = json.deptList;
+				var listItem= '';
+				var neiList= '';
+				var waiList= '';
+				$(deptList).each(
+						function(i, item) {
+							listItem = " <li><a href='/admin/main/dept/deptDetail.shtml?id="
+									+ item.dpId + "&cata1=ksdh&cata2=lcks' target='_blank'>"
+									+ item.dpName + "</a></li>";
+							if (item.dpNote == '内科') {
+								neiList += listItem;
+							}
+							if (item.dpNote == '外科') {
+								waiList += listItem;
+							}							
+						});
+				$('.lcDeptList').html(
+						"<li><strong>非手术科室</strong></li><li></li>" + neiList+
+						"<li><hr/></li><li><hr/></li><li><strong>手术科室</strong></li><li></li>"+waiList+"<li><hr/></li><li><hr/></li>");
 
+			}
+		});
+		
+		//诊治相关科室(医技科室)
+		$.getJSON("../dept/yjks", function(json) {
+			if (json.resultCode > 0) {
+				var deptList = json.deptList;
+				var listItem= '';
+				$(deptList).each(
+						function(i, item) {
+							listItem+=" <li><a href='/admin/main/dept/deptDetail.shtml?id="
+									+ item.dpId + "&cata1=ksdh&cata2=yjks' target='_blank'>"
+									+ item.dpName + "</a></li>";											
+						});
+				$('.lcDeptList').append(
+						"<li><strong>诊治相关科室</strong></li><li></li>" + listItem);
+
+			}
+		});
+		
+		//职能科室
+		$.getJSON("../dept/znks", function(json) {
+			if (json.resultCode > 0) {
+				var deptList = json.deptList;
+				var listItem= '';
+				$(deptList).each(
+						function(i, item) {
+							listItem+="<li><a href='/admin/main/dept/deptDetail.shtml?id="
+								+ item.dpId + "&cata1=ksdh&cata2=znks' target='_blank'>"+ item.dpName +"</a></li>";											
+						});
+				$('.znDeptList').append(listItem);
+
+			}
+		});
+	</script>
 </body>
 </html>
 
