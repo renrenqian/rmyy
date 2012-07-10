@@ -55,13 +55,13 @@ jQuery.cookie = function(name, value, options) {
 $(document).ready(function() {
 					// just for demo
 					var myCata2=GetParameter('cata2');
-					if(myCata2=='rczp'){
-						$('.newsTitle').not('.consultList').attr('href',
-						'/admin/main/news/employDetail.shtml?cata1=xxzx&cata2='+myCata2);
-					}else{
-						$('.newsTitle').not('.consultList').attr('href',
-						'/admin/main/news/newsDetail.shtml?cata1=xxzx&cata2='+myCata2);
-					}
+//					if(myCata2=='rczp'){
+//						$('.newsTitle').not('.consultList').attr('href',
+//						'/admin/main/news/employDetail.shtml?cata1=xxzx&cata2='+myCata2);
+//					}else{
+//						$('.newsTitle').not('.consultList').attr('href',
+//						'/admin/main/news/newsDetail.shtml?cata1=xxzx&cata2='+myCata2);
+//					}
 					
 					$('.consultList li a').attr('href',
 							'/admin/main/patient/result.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx').attr('target',
@@ -116,6 +116,7 @@ $(document).ready(function() {
 			case 'dmtzx':myCata2 = '多媒体中心';break;
 			case 'rczp':myCata2 = '人才招聘';break;
 			case 'zbcg':myCata2 = '招标采购';myCata2Href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=zbcg';break;	
+			case 'xzzx':myCata2 = '下载中心';break;	
 			case 'mzcx':myCata2 = '门诊查询';break;
 			case 'jzzn':myCata2 = '就诊指南';break;
 			case 'qtfw':myCata2 = '其它服务';break;
@@ -193,7 +194,8 @@ $(document).ready(function() {
 		"<li><a href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=jtdt'>集团动态</a></li>"+
 		"<li><a href='/admin/main/news/mediaCenter.shtml?cata1=xxzx&cata2=dmtzx'>多媒体中心</a></li>"+
 		"<li><a href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=rczp'>人才招聘</a></li>"+
-		"<li><a href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=zbcg'>招标采购</a></li>";
+		"<li><a href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=zbcg'>招标采购</a></li>"+
+		"<li><a href='/admin/main/news/download.shtml?cata1=xxzx&cata2=xzzx'>下载中心</a></li>";
 	}
 	if(cata1 =="患者服务中心"){
 		$('.titleType4').html('患者服务中心');

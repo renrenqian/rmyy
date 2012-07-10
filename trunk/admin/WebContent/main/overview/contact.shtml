@@ -25,8 +25,8 @@
 								<th colspan="2">杭州市第一人民医院</th>
 							</tr>
 							<tr>
-								<td>杭州市第一人民医院</td>
-								<td>The Frist People's Hospital of Hangzhou</td>
+								<th colspan="2" style='font-size: 14px;'>The Frist People's
+									Hospital of Hangzhou</th>
 							</tr>
 							<tr>
 								<td>地址：杭州市浣纱路261号</td>
@@ -51,8 +51,9 @@
 							<tr>
 								<td colspan="2"><a class="greenBtn tc fl"
 									style="margin: 10px; margin-left: 0;"
-									href="/web/main/patient/add.shtml?cata1=hzfwzx&cata2=jzzn&cata3=jtzn">交通指南</a> <a class="greenBtn tc fl"
-									style="margin: 10px;" href="/web/main/patient/building.shtml?cata1=hzfwzx&cata2=jzzn&cata3=lyfb">楼宇分布</a></td>
+									href="/admin/main/patient/add.shtml?cata1=hzfwzx&cata2=jzzn&cata3=jtzn">交通指南</a>
+									<a class="greenBtn tc fl" style="margin: 10px;"
+									href="/admin/main/patient/building.shtml?cata1=hzfwzx&cata2=jzzn&cata3=lyfb">楼宇分布</a></td>
 							</tr>
 						</table>
 						<hr class="m10" />
@@ -61,8 +62,8 @@
 								<th colspan="2">杭州市妇幼保健院</th>
 							</tr>
 							<tr>
-								<td>杭州市妇幼保健院</td>
-								<td>Hangzhou Health Center for Women and Children</td>
+								<th colspan="2" style='font-size: 14px;'>Hangzhou Health
+									Center for Women and Children</th>
 							</tr>
 							<tr>
 								<td>地址：杭州市浣纱路261号</td>
@@ -84,12 +85,7 @@
 								<td>电子邮件：hzsyyy1@163.com</td>
 								<td>E-MAIL:hzsyyy1@163.com</td>
 							</tr>
-<!-- 							<tr> -->
-<!-- 								<td colspan="2"><a class="greenBtn tc fl" -->
-<!-- 									style="margin: 10px; margin-left: 0;" -->
-<!-- 									href="../doctor/MZPB.aspx">交通指南</a> <a class="greenBtn tc fl" -->
-<!-- 									style="margin: 10px;" href="../doctor/MZPB.aspx">楼宇分布</a></td> -->
-<!-- 							</tr> -->
+
 						</table>
 						<hr class="m10" />
 						<table class="contactTable w8 bc">
@@ -97,12 +93,7 @@
 								<th colspan="2">杭州市肿瘤医院 （吴山院区）</th>
 							</tr>
 							<tr>
-								<td>杭州市肿瘤医院 （吴山院区）</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>地址：杭州市上城区中山南路严官巷34号（万松岭隧道东侧）</td>
-								<td></td>
+								<td colspan="2">地址：杭州市上城区中山南路严官巷34号（万松岭隧道东侧）</td>
 							</tr>
 							<tr>
 								<td>邮编：310002</td>
@@ -117,14 +108,15 @@
 								<td>Fax:0571-86062281</td>
 							</tr>
 							<tr>
-								<td>电子邮件：</td>
-								<td>E-MAIL:</td>
+								<td>电子邮件：hzszlyy@163.com</td>
+								<td>E-MAIL:hzszlyy@163.com</td>
 							</tr>
 							<tr>
 								<td colspan="2"><a class="greenBtn tc fl"
 									style="margin: 10px; margin-left: 0;"
-									href="http://www.hzszlyy.com/jtzn.aspx?parid=2" target='_blank'>交通指南</a> <a class="greenBtn tc fl"
-									style="margin: 10px;" href="http://www.hzszlyy.com/yyfb.aspx?parid=2" target='_blank'>楼宇分布</a></td>
+									href="http://www.hzszlyy.com/jtzn.aspx?parid=2" target='_blank'>交通指南</a>
+									<a class="greenBtn tc fl" style="margin: 10px;"
+									href="http://www.hzszlyy.com/yyfb.aspx?parid=2" target='_blank'>楼宇分布</a></td>
 							</tr>
 						</table>
 						<hr class="m10" />
@@ -133,72 +125,64 @@
 								<th colspan="2">杭州市老年病医院 ( 城北院区 )</th>
 							</tr>
 							<tr>
-								<td>杭州市老年病医院 ( 城北院区 )</td>
+								<td colspan='2'>地址：拱墅区沈半路469号（320国道，杭玻旁）</td>
 								<td></td>
 							</tr>
 							<tr>
-								<td>地址：</td>
-								<td>Add:</td>
+								<td>邮编：310022</td>
+								<td>P.C.: 310022</td>
 							</tr>
 							<tr>
-								<td>邮编：</td>
-								<td>P.C.:</td>
+								<td>电话：88146489（日）、88134465-830\805、88148800、88125393（夜及双休日）</td>
+								<td>Tel:88146489（日）、88134465-830\805、88148800、88125393（夜及双休日）</td>
 							</tr>
 							<tr>
-								<td>电话：</td>
-								<td>Tel:</td>
+								<td>传真：88145997</td>
+								<td>Fax: 88145997</td>
 							</tr>
 							<tr>
-								<td>传真：</td>
-								<td>Fax:</td>
+								<td>电子邮件：hzsyfy@163.com</td>
+								<td>E-MAIL:hzsyfy@163.com</td>
 							</tr>
 							<tr>
-								<td>电子邮件：</td>
-								<td>E-MAIL:</td>
+								<td colspan="2"><a class="greenBtn tc fl"
+									style="margin: 10px; margin-left: 0;"
+									href="http://www.hzdyyyfy.com/cbyq/about/contact.aspx"
+									target='_blank'>交通指南</a></td>
 							</tr>
-<!-- 							<tr> -->
-<!-- 								<td colspan="2"><a class="greenBtn tc fl" -->
-<!-- 									style="margin: 10px; margin-left: 0;" -->
-<!-- 									href="../doctor/MZPB.aspx">交通指南</a> <a class="greenBtn tc fl" -->
-<!-- 									style="margin: 10px;" href="../doctor/MZPB.aspx">楼宇分布</a></td> -->
-<!-- 							</tr> -->
 						</table>
 
 						<hr class="m10" />
 						<table class="contactTable w8 bc">
 							<tr>
-								<th colspan="2">杭州市妇女医院  ( 钱江新城院区 )  </th>
-							</tr>
-							<tr>
-								<td>杭州市妇女医院 ( 钱江新城院区  )</td>
-								<td></td>
+								<th colspan="2">杭州市妇女医院 ( 钱江新城院区 )</th>
 							</tr>
 							<tr>
 								<td>地址：杭州市鲲鹏路369号</td>
 								<td></td>
 							</tr>
 							<tr>
-								<td>邮编：</td>
-								<td>P.C.:</td>
+								<td>邮编：310000</td>
+								<td>P.C.: 310000</td>
 							</tr>
 							<tr>
 								<td>电话：0571-28960602</td>
 								<td>Tel: 0571-28960602</td>
 							</tr>
-							<tr>
-								<td>传真：</td>
-								<td>Fax:</td>
-							</tr>
-							<tr>
-								<td>电子邮件：</td>
-								<td>E-MAIL:</td>
-							</tr>
 <!-- 							<tr> -->
-<!-- 								<td colspan="2"><a class="greenBtn tc fl" -->
-<!-- 									style="margin: 10px; margin-left: 0;" -->
-<!-- 									href="../doctor/MZPB.aspx">交通指南</a> <a class="greenBtn tc fl" -->
-<!-- 									style="margin: 10px;" href="../doctor/MZPB.aspx">楼宇分布</a></td> -->
+<!-- 								<td>传真：</td> -->
+<!-- 								<td>Fax:</td> -->
 <!-- 							</tr> -->
+<!-- 							<tr> -->
+<!-- 								<td>电子邮件：</td> -->
+<!-- 								<td>E-MAIL:</td> -->
+<!-- 							</tr> -->
+							<tr>
+								<td colspan="2"><a class="greenBtn tc fl"
+									style="margin: 10px; margin-left: 0;"
+									href="http://www.hzwmhp.com/index.php/Index/contact"
+									target='_blank'>交通指南</a></td>
+							</tr>
 						</table>
 						<hr class="m10" />
 						<table class="contactTable w8 bc mb20">
@@ -206,12 +190,7 @@
 								<th colspan="2">五云山健康管理中心</th>
 							</tr>
 							<tr>
-								<td>五云山健康管理中心</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>地址：杭州市九溪五云东路6号</td>
-								<td>Add:</td>
+								<td colspan="2">地址：杭州市九溪五云东路6号</td>								
 							</tr>
 							<tr>
 								<td>邮编：310008</td>
@@ -226,15 +205,14 @@
 								<td>Fax:0571-86591257</td>
 							</tr>
 							<tr>
-								<td>电子邮件：hzwys@sina.com </td>
-								<td>E-MAIL:hzwys@sina.com </td>
+								<td>电子邮件：hzwys@sina.com</td>
+								<td>E-MAIL:hzwys@sina.com</td>
 							</tr>
-<!-- 							<tr> -->
-<!-- 								<td colspan="2"><a class="greenBtn tc fl" -->
-<!-- 									style="margin: 10px; margin-left: 0;" -->
-<!-- 									href="../doctor/MZPB.aspx">交通指南</a> <a class="greenBtn tc fl" -->
-<!-- 									style="margin: 10px;" href="../doctor/MZPB.aspx">楼宇分布</a></td> -->
-<!-- 							</tr> -->
+							<tr>
+								<td colspan="2">
+								<a class="greenBtn tc fl" style="margin: 10px; margin-left: 0;"
+									href="http://www.hzwyslyy.com/contact.asp?bigclassid=20" target='_blank'>交通指南</a></td>
+							 </tr>
 						</table>
 					</div>
 				</div>

@@ -75,6 +75,7 @@
              json = eval('(' + json + ')');
              if (json.resultCode > 0 ) {
                  $(window.parent.document).find("#centerIFrame").attr("src", "content/contentMan.html");
+                 return false;
                 } else  {
                     $.fn.sdInfo({
                         type : "fail",

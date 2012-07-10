@@ -22,7 +22,8 @@
 						<h2 class="titleType3 J_Cata2"></h2>
 
 						<div style="clear: both;"></div>
-						<ul class="newsItem2">
+						<div class='newsBody'>
+							<ul class="newsItem2">
 							<li><a class="newsTitle" title="浙江省毛发移植与头面部微创美容新进展学习班"
 								href="/hospital/news/newsDetail.shtml" target="_blank">浙江省毛发移植与头面部微创美容新进展学习班
 							</a><span class="newsDate">05-25 </span><span class="newIcon"></span></li>
@@ -108,11 +109,8 @@
 								href="/News/NewsDetail.aspx" target="_blank">我院顾俊杰等五位同志获市“十佳护士”、“百名优秀护士”
 							</a><span class="newsDate">05-25</span></li>
 						</ul>
-						<!--                     <img src="../images/pager.jpg" style="margin: 20px;"> -->
-						<div id="Pagination" class="pagination">
-							<!-- 这里显示分页 -->
-						</div>
-
+						</div>										
+						<div id="Pagination" class="pagination"></div>
 					</div>
 				</div>
 			</div>			

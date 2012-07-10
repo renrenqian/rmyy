@@ -42,7 +42,7 @@ $(document).ready(function() {
          success:function(json){
              json = eval('(' + json + ')');
              if (json.resultCode > 0 ) {
-                 $(window.parent.document).find("#centerIFrame").attr("src", "content/contentMan.html");
+                // $(window.parent.document).find("#centerIFrame").attr("src", "content/contentMan.html");
                 } else  {
                     $.fn.sdInfo({
                         type : "fail",

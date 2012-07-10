@@ -121,10 +121,11 @@
     font-family: "Microsoft Yahei";
 }
 
-.introList li{
-	font-size:18px;
-	line-height:27px;
-	margin-bottom:20px;
+.itemList li{
+	font-size:14px;
+	line-height:40px;
+	vertical-align:middle;
+	border-bottom:1px dashed #666;
 }
 
 .lanList{

@@ -9,7 +9,7 @@
 }
 
 .newsItem2 {
-	width: 90%; display: block; margin: 0 auto; text-align: left;
+	display: block; margin: 0 auto; text-align: left; font-size:12px;font-family:Tahoma,Geneva,"微软雅黑","宋体";
 }
 
 .newsItem2 li {

@@ -6,7 +6,7 @@
 	<!--#include virtual="master/top.html"-->
 	<div class="content">
 		<h1 class="pTitle">联系我们</h1>		
-		<ul class='introList'>
+		<ul class='itemList'>
 			<li>地址：杭州市浣纱路261号</li>
 			<li>邮编：310006</li>
 			<li>联系电话：0571-86677011 0571-87065701 转10326</li>
