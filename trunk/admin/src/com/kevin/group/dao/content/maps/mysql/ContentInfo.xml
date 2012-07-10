@@ -62,32 +62,38 @@
     <select id="getTotalCount" parameterClass="ContentInfo" resultClass="java.lang.Long">
        <![CDATA[
          select COUNT(CD_ID) 
-         from CONTENT_DETAIL
+         from CONTENT_DETAIL cd
+         left join COLUMN_INFO ci on ci.CI_ID = cd.CI_ID
       ]]>
         <dynamic prepend=" where ">
-        <isNotEmpty property="contTitle">
+        <isNotEmpty property="contTitle" prepend="AND">
           <![CDATA[
                  cd.CD_TITAL Like CONCAT('%',#contTitle#,'%')
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="colId">
+        <isNotEmpty property="colId" prepend="AND">
           <![CDATA[
                  cd.CI_ID = #colId#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="gmId">
+        <isNotEmpty property="gmId" prepend="AND">
           <![CDATA[
                  cd.GM_ID > #gmId#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="contSearchStartTime">
+        <isNotEmpty property="contSearchStartTime" prepend="AND">
           <![CDATA[
                  cd.CD_PUBLISH_TIME >= #contSearchStartTime#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="contSearchEndTime">
+        <isNotEmpty property="contSearchEndTime" prepend="AND">
           <![CDATA[
                  cd.CD_PUBLISH_TIME <= #contSearchEndTime#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="ciCate" prepend="AND">
+          <![CDATA[
+                 ci.CI_CATE = #ciCate#
                  ]]>
           </isNotEmpty>
         </dynamic>
@@ -107,12 +113,12 @@
           CD_ORDER as contOrder,
           gm.GM_NAME as gmName,
           CD_AUTHOR as contAuthor
-       from CONTENT_DETAIL  cd 
+       from CONTENT_DETAIL  cd
        left join COLUMN_INFO ci on ci.CI_ID = cd.CI_ID
        left join GROUP_MEMBER gm on gm.GM_ID = cd.GM_ID
      ]]>
         <dynamic prepend=" where ">
-        <isNotEmpty property="condition.contTitle">
+        <isNotEmpty property="condition.contTitle" >
           <![CDATA[
                  cd.CD_TITAL Like CONCAT('%',#condition.contTitle#,'%')
                  ]]>
@@ -132,9 +138,9 @@
                  cd.CD_PUBLISH_TIME >= #condition.contSearchStartTime#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.contSearchEndTime">
+        <isNotEmpty property="condition.ciCate">
           <![CDATA[
-                 cd.CD_PUBLISH_TIME <= #condition.contSearchEndTime#
+                 ci.CI_CATE = #condition.ciCate#
                  ]]>
           </isNotEmpty>
         </dynamic>

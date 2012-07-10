@@ -32,9 +32,22 @@
          CI_ID as ciId,
          CI_TITAL as ciTital,
          CI_LEVEL as ciLevel,
+         CI_CATE as ciCate,
          CI_PARENT as ciParent
        from COLUMN_INFO
      ]]>
+        <dynamic prepend=" where ">
+        <isNotEmpty property="ciTital">
+          <![CDATA[
+                 ci.CI_TITAL Like CONCAT('%',#ciTital#,'%')
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="ciTital">
+          <![CDATA[
+                 ci.CI_CATE = #ciCate#
+                 ]]>
+          </isNotEmpty>
+        </dynamic>
     </select>
     
     <!-- search the ColumnInfo info -->
@@ -72,6 +85,18 @@
         CI_ADDER as ciAdder
        from COLUMN_INFO  ci
      ]]>
+        <dynamic prepend=" where ">
+        <isNotEmpty property="ciTital">
+          <![CDATA[
+                 ci.CI_TITAL Like CONCAT('%',#ciTital#,'%')
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="ciTital">
+          <![CDATA[
+                 ci.CI_CATE = #ciCate#
+                 ]]>
+          </isNotEmpty>
+        </dynamic>
      <!-- 
      <![CDATA[LIMIT #start#,#pageSize#]]>
       -->
