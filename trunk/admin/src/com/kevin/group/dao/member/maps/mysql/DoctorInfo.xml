@@ -34,9 +34,11 @@
         DI_NAME as diName,
         DI_PORTRAIT as diPortrait,
         od.OD_NAME as diDeptName,
-        DI_NAME as DI_POSITION
+        ops.OS_STATUS as osFamousStatus,
+        DI_NAME as diPosition
        from DOCTOR_INFO di
        left join OFFICE_DETAIL od on od.OD_ID = di.DI_DEPTTYPE
+       left join OUTPATIENT_SERVICE ops on ops.OS_ID = di.OS_FAMOUS_ID
        where DI_DEPTTYPE = #diDeptType# and OS_FAMOUS_ID !=0
      ]]>
     </select>

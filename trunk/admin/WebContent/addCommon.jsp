@@ -10,7 +10,7 @@
 <html>
     <head>
         <base href="<%=basePath%>"/>
-        <title>在线编辑器</title>
+        <title>内容编辑</title>
         <meta http-equiv="pragma" content="no-cache" />
         <meta http-equiv="cache-control" content="no-cache"/>
         <meta http-equiv="expires" content="0"/>
