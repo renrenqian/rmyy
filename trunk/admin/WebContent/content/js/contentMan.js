@@ -225,7 +225,7 @@ function initContentList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='hidden3 tl'>" + obj.aData.contAuthorName + "</span>";
+                        return obj.aData.contAuthor?"<span class='hidden3 tl'>" + obj.aData.contAuthor + "</span>":"<span class='hidden3 tl'>未填写</span>";
                     }
                 },
                 //隐藏作者列

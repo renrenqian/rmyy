@@ -22,49 +22,27 @@
                     <div style="clear:both;"></div>
                     <div class="docBody">
                         <ul class="leaderList" id="J_Process">
-                            <li style="width:180px;"><a href="#"  title="挂号温馨提示">挂号温馨提示</a></li>
-                            <li style="width:180px;"><a href="#"  title="医保须知">医保须知</a></li>
-                            <li style="width:180px;"><a href="#"  title="社区转诊患者就诊须知">社区转诊患者就诊须知</a></li>
-                            <li style="width:180px;"><a href="#"  title="急诊须知">急诊须知</a></li>
-                            <li style="width:180px;"><a href="#"  title="电话预约挂号须知">电话预约挂号须知</a></li>
-                            <li style="width:180px;"><a href="#"  title="门诊特需疑难病会诊须知">门诊特需疑难病会诊须知</a></li>
-                            <li style="width:180px;"><a href="#"  title="夜间门诊就诊须知">夜间门诊就诊须知</a></li>
-                            <li style="width:180px;"><a href="#"  title="特需门诊就诊须知">特需门诊就诊须知</a></li>
-                            <li style="width:180px;"><a href="#"  title="患者实名制挂号与建卡须知">患者实名制挂号与建卡须知</a></li>
+                            <li style="width:180px;"><a href="#"  title="双休日辅助科室工作情况">双休日辅助科室工作情况</a></li>                                         
                         </ul>
                         <div style="clear:both;"></div>
                         <hr class="mb20 w"/>
-                        <h3 id="J_ProcessTitle">挂号温馨提示</h3>
-                        <h4>挂号须知</h4>
-
-                        <p>1、首次挂号请购买门诊手册，并出示有效证件 </p>
-
-                        <p> 2、儿科患者请先到门诊大厅儿科分诊台取号后挂号 </p>
-
-                        <p> 3、挂号后请仔细核对挂号条姓名、科别、医师、就诊时间等信息是否正确</p>
-
-                        <p>4、号一经挂出不予退、换</p>
-
-                        <p>5、门诊号一经挂出，患者姓名一律不许修改</p>
-
-                        <p>6、专家号、教授号每次限挂一个</p>
-                        <p>7、挂号有效时间：挂号后半日内使用有效</p>
-                        <h4>挂号费标准</h4>
-
-                        <p>专家号：14元 </p>
-
-                        <p> 正教授号：9元 </p>
-
-                        <p> 副教授号：7元</p>
-
-                        <p> 主治医师号：5元</p>
-
-                        <p> 住院医师号：4.5元</p>
-
-                        <p> 门诊手册：0.5元</p>
-                        <h4>有效证件的种类</h4>
-
-                        <p>身份证、 户口本、驾驶证、医保手册、社保卡</p>
+                        <h3 id="J_ProcessTitle">双休日辅助科室工作情况</h3>
+                        <div class='J_Lc'>
+							<p><strong>胃镜室</strong>：双休日不做胃镜，也不预约。</p>
+							<p><strong>心电图</strong>：双休日普通心电图做。动态血压、动态心电图周六做，周日不做。</p>
+							<p><strong>CT室</strong>： 周一到周五，二楼做CT。 双休日，一楼划价做CT（胸腹部不做）其他部位都做。</p>
+							<p><strong>磁共振</strong>：双休日只做头、颈、腰、膝部的平扫，其他部位不做。</p>
+							<p><strong>脑电图(颅脑多普勒)</strong>:周六上午做,周日停诊。</p>
+							<p><strong>理疗科</strong>：周六上午门诊、治疗。其余停诊。</p>
+							<p><strong>B超室</strong>：双休日只做彩超，任何部位都做。</p>
+							<p><strong>注射室</strong>：双休日肌注、静脉注射、洁尿培养、手指血糖、导尿灌肠、关节腔注射。</p>
+							<p><strong>气雾室</strong>：双休日均开放。</p>
+							<p><strong>检验科</strong>：双休日均开放。</p>
+							<p><strong>肺功能室</strong>：周一、三、五上午半天；周二、四全天。</p>						
+						</div>
+						<div class='J_Lc' style='display:none;'>
+								222
+						</div>
                     </div>
                 </div>
             </div>
@@ -74,6 +52,16 @@
 </div>
 <!--#include virtual="../master/footer.html"-->
 <script src="../js/common.js"></script>
+<script>
+		$(document).ready(function() {
+			$('#J_Process li').click(function(){	 			
+				var index=$(this).index();
+				$('#J_ProcessTitle').html($(this).find('a').attr("title"));										
+				$('.J_Lc').hide();				
+				$('.J_Lc').eq(index).show();				
+			});			
+		});
+	</script>
 </body>
 </html>
 

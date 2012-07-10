@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, h6 { font-size: 100%;}
 .unl{text-decoration:underline; cursor:pointer;}
 .no_unl{text-decoration:none;}
 .cur{cursor:pointer;}
-.green { color: #390; font-weight: bold; }
+.green { color: #060; font-weight: bold; }
 .red { color: #C00; font-weight: bold; }
 .blue { color: #36C; font-weight: bold; }
 .ora { color: #ff6a00; font-weight: bold; }
