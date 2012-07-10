@@ -20,6 +20,7 @@ public class DoctorInfo {
     private String diPortrait;
     private Integer osExpertId;
     private Integer osFamousId;
+    private Integer osFamousStatus;
 //    private String osIdName;
     private String diOrder;
     private Integer diSex;
@@ -164,6 +165,20 @@ public class DoctorInfo {
 //    public final void setOsIdName(String osIdName) {
 //        this.osIdName = osIdName;
 //    }
+
+    /**
+     * @return the osFamousStatus
+     */
+    public final Integer getOsFamousStatus() {
+        return osFamousStatus;
+    }
+
+    /**
+     * @param osFamousStatus the osFamousStatus to set
+     */
+    public final void setOsFamousStatus(Integer osFamousStatus) {
+        this.osFamousStatus = osFamousStatus;
+    }
 
     /**
      * @return the diOrder

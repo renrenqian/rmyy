@@ -4,12 +4,25 @@
     "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="LeaderInfo">
 
-    <!-- paginate the LeaderInfo info -->
+    <!-- list the LeaderInfo info -->
     <select id="list"  parameterClass="LeaderInfo"  resultClass="LeaderInfo">
      <![CDATA[
      select 
             LI_ID as liId,
             LI_CURRENT as liCurrent,
+            LI_NAME as liName
+       from LEADER_INFO
+       where LI_CATE = #liCate#
+     ]]>
+    </select>
+    
+    <!-- listHistory the LeaderInfo info -->
+    <select id="listHistory"  parameterClass="LeaderInfo"  resultClass="LeaderInfo">
+     <![CDATA[
+     select 
+            LI_ID as liId,
+            LI_CURRENT as liCurrent,
+            LI_PORTRAIT as liPortrait,
             LI_NAME as liName
        from LEADER_INFO
        where LI_CATE = #liCate#
@@ -67,9 +80,12 @@
            li.LI_ID as liId ,
             LI_CATE as liCate,
             LI_CURRENT as liCurrent,
+            LI_HOLD_PERIOD as liHold_period,
             gm.GM_NAME as ligmName,
+            LI_PORTRAIT as liPortrait,
             LI_NAME as liName,
-            LI_ORDER as liOrder
+            LI_ORDER as liOrder,
+            LI_DESC as liDesc
        from LEADER_INFO li
        left join GROUP_MEMBER gm on gm.GM_ID = li.LI_GM
      ]]>

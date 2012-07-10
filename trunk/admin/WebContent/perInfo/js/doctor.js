@@ -17,7 +17,7 @@ $(document).ready(function() {
                 $(deptList).each(function(i, item) { 
                     optioin+="<option value="+item.dpId+">"+item.dpName+"</option>";
                 });  
-                $('#diDeptType').html(optioin);                
+                $('#diDeptType').html(optioin);
             } else {
                 $.fn.sdInfo({
                     type:"fail",

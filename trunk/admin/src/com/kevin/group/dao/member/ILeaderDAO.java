@@ -5,7 +5,10 @@
  */
 package com.kevin.group.dao.member;
 
+import java.util.List;
+
 import com.kevin.common.dao.IBaseDAO;
+import com.kevin.common.exception.BaseSqlMapException;
 import com.kevin.group.pojo.member.LeaderInfo;
 
 /**
@@ -13,5 +16,7 @@ import com.kevin.group.pojo.member.LeaderInfo;
  * @since jdk1.6
  */
 public interface ILeaderDAO extends IBaseDAO<LeaderInfo> {
+
+    List<LeaderInfo> listHistory(LeaderInfo leader) throws BaseSqlMapException;
 
 }

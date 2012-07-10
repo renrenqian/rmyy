@@ -10,7 +10,7 @@
 <html>
     <head>
         <base href="<%=basePath%>"/>
-        <title>在线编辑器</title>
+        <title>内容编辑</title>
         <meta http-equiv="pragma" content="no-cache" />
         <meta http-equiv="cache-control" content="no-cache"/>
         <meta http-equiv="expires" content="0"/>
@@ -32,7 +32,8 @@
 	  $(document).ready(function() {
      $('#contentForm').sdValidate();//添加验证规则 
       // here to get the contId passed from parent page contentMan.page and js file, then search the page fileds.
-     var contId=GetParameter('contId');     
+      
+     var contId=GetParameter('contId'); 
      $.getJSON('group/searchContent.action?t=' + new Date().getTime() + '&continfo.contId=' + contId, function(json) {
          if (json.resultCode > 0) {
              //formUnSerialize("contentForm", "continfo", json.continfo);
