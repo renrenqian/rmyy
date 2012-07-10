@@ -26,7 +26,7 @@ $(document).ready(function() {
         if(contentType=='新闻'){
                 $(window.parent.document).find("#centerIFrame").attr("src", "addContent.jsp?contId=" + id);
            }else{
-                $(window.parent.document).find("#centerIFrame").attr("src", "addCommon.jsp");
+                $(window.parent.document).find("#centerIFrame").attr("src", "addCommon.jsp?contId=" + id);
            }         
     });
 
@@ -138,9 +138,9 @@ function initContentList() {
         //zq:此处需判断栏目类型加载列表数据
         var url;
         if(contentType=='新闻'){
-            url="../group/listContent.action";//此处需修改
+            url="../group/listContent.action?continfo.ciCate=1000";//医院新闻
         }else{
-            url="../group/listContent.action";//此处需修改
+            url="../group/listContent.action?continfo.ciCate=2000";//其它栏目
         }
         
         contentDataTable = $("#J_ContentTable").dataTable({
@@ -252,6 +252,11 @@ function initContentList() {
                 },
                 {
                     fnRender:function(obj) {
+                        return "<a class='view' href='/admin/main/news/newsDetail.shtml?contId="+obj.aData.contId+"' target='_blank'></a>";
+                    }
+                },
+                {
+                    fnRender:function(obj) {
                         return "<a class='edit J_ContentEdit'></a>";
                     }
                 },
@@ -263,7 +268,7 @@ function initContentList() {
             ],
             sPaginationType: "full_numbers",
                    aoColumnDefs: [
-                         { "bSortable": false, "aTargets": [0,6,7]}
+                         { "bSortable": false, "aTargets": [0,6,7,8]}
                      ]
         });
     } else {

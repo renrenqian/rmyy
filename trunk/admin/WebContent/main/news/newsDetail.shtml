@@ -32,7 +32,8 @@
 <!--#include virtual="../master/footer.html"-->
 <script src="../js/common.js"></script>
 <script>
-$.getJSON('/admin/group/searchContent.action?continfo.contId=1066', function(json) {
+var contId = GetParameter('contId');
+$.getJSON('/admin/group/searchContent.action?continfo.contId='+contId, function(json) {
 	if (json.resultCode > 0) {
 		var continfo = json.continfo;		
 		$('#J_ContAuthor').after(continfo.contAuthor);		
