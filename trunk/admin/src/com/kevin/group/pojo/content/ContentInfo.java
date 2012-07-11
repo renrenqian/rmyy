@@ -7,6 +7,8 @@ package com.kevin.group.pojo.content;
 
 import java.io.Serializable;
 
+import com.google.gson.Gson;
+
 /**
  * @author kevin
  * @since jdk1.6
@@ -348,4 +350,8 @@ public class ContentInfo implements Serializable {
         this.contSearchEndTime = contSearchEndTime;
     }
 
+    public String generateJSON() {
+        Gson gson = new Gson();
+        return gson.toJson(this);
+    }
 }

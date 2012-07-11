@@ -293,9 +293,27 @@ public class ContentInfoAction extends AbstractBaseAction {
         }
         return Action.SUCCESS;
     }
+
     public String auditorContent() {// auditor the contInfo
         try {
             int result = contInfoService.auditorContent(continfo);
+            setResultCode(result);
+        } catch (CommonServiceException e) {
+            setMessage(e.getMessage());
+            setResultCode(-1);
+        }
+        return Action.SUCCESS;
+    }
+
+    public String generateHomeJson() {// auditor the contInfo
+        try {
+            String realPath = ServletActionContext.getServletContext().getRealPath(this.getSavePath());
+            //File storeFile = new File(realPath);
+            //File storeFolder = storeFile.getParentFile();
+            File storeFolder = new File(realPath);
+            if (!storeFolder.exists())
+                storeFolder.mkdirs();
+            int result = contInfoService.generateHomeJson(storeFolder.getAbsolutePath());
             setResultCode(result);
         } catch (CommonServiceException e) {
             setMessage(e.getMessage());

@@ -1,7 +1,7 @@
 var contentDataTable;
 var contentType;
 $(document).ready(function() {
-    //zq：判断栏目类型是“医院新闻”，还是“其它栏目”
+    //zq：判断栏目类型是"医院新闻"，还是"其它栏目"
     contentType=$(window.parent.document).find('.layout-panel-center .panel-title').html();
     if(contentType=='网站内容管理&nbsp;&gt;&nbsp;其它栏目'){
         contentType="其他";
@@ -49,6 +49,27 @@ $(document).ready(function() {
                 });
             }
         });
+    });
+    
+    /* J_GenerateHomeJson */
+    $('#J_GenerateHomeJson').die().live("click", function() {
+    	var THIS = this;
+    	$.messager.confirm('更新', '是否确认网站首页新闻?', function(r) {
+    		if (r) {
+    			var id = $(THIS).parent().parent().children().eq(0).children().eq(0).val();
+    			var params = "continfo.contId=" + id;
+    			$.post("../group/generateHomeJson.action", params, function(json) {
+    				if (json.resultCode > 0) {
+                        alert("更新完成");
+    				} else {
+    					$.fn.sdInfo({
+    						type:"fail",
+    						content:json.message ? json.message : '更新网站新闻失败!'
+    					});
+    				}
+    			});
+    		}
+    	});
     });
     
     

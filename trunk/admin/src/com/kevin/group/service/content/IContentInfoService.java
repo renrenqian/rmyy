@@ -17,4 +17,6 @@ public interface IContentInfoService extends IBaseService<ContentInfo> {
 
     int auditorContent(ContentInfo continfo) throws CommonServiceException;
 
+    int generateHomeJson(String string) throws CommonServiceException;
+
 }

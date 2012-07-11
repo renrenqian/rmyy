@@ -175,6 +175,33 @@
      <![CDATA[LIMIT #start#,#pageSize#]]>
       -->
     </select>
+    
+    <!-- list all the yyxw info -->
+    <select id="generateHomeyyxwJson"  parameterClass="ContentInfo"  resultClass="ContentInfo">
+     <![CDATA[
+       select 
+          CD_ID as contId,
+          CD_TITAL as contTitle,
+          CD_PUBLISH_TIME as contPublish_Time,
+          CD_DETAIL as contDetail
+       from CONTENT_DETAIL  cd 
+       where CD_ID = 1201
+       order by contPublish_Time desc
+     ]]>
+    </select>
+    
+    <!-- list all the yygg info -->
+    <select id="generateHomeyyggJson"  parameterClass="ContentInfo"  resultClass="ContentInfo">
+     <![CDATA[
+       select 
+          CD_ID as contId,
+          CD_TITAL as contTitle,
+          CD_PUBLISH_TIME as contPublish_Time
+       from CONTENT_DETAIL  cd 
+       where CD_ID = 1202
+       order by contPublish_Time desc
+     ]]>
+    </select>
 
     <!-- add ContentInfo -->
     <insert id="insert" parameterClass="ContentInfo">

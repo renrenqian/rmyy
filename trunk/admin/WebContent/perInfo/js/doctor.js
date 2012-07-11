@@ -201,7 +201,7 @@ $(document).ready(function() {
                     } else {
                         $.fn.sdInfo({
                             type:"fail",
-                            content:json.message ? json.message : '删除医师信息失败!'
+                            content:json.message ? json.message : '更新医师信息失败!'
                         });
                     }
                 });
