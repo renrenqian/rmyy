@@ -32,7 +32,8 @@
 	display: block;
 	float: left;
 	width: 100%;
-	height: 30px;
+	line-height:28px;
+	vertical-align:middle;
 }
 
 .strucBox2 li {
@@ -98,7 +99,7 @@
 	                        <!--职能科室 -->
 							<div class='strucBox3' style='margin-left:10px;'>
 								<ul class=''>
-									<li><a href='#'>党委综合办公室</a></li>
+									<li><a href='#'>杭州市院内感染管理质控中心</a></li>
 									<li><a href='#'>党委综合办公室</a></li>
 									<li><a href='#'>党委综合办公室</a></li>
 									<li><a href='#'>党委综合办公室</a></li>
@@ -144,8 +145,8 @@
 							}							
 						});
 				$('.lcDeptList').html(
-						"<li><strong>非手术科室</strong></li><li></li>" + neiList+
-						"<li><hr/></li><li><hr/></li><li><strong>手术科室</strong></li><li></li>"+waiList+"<li><hr/></li><li><hr/></li>");
+						"<li><strong>非手术科室</strong></li><li><br/></li>" + neiList+
+						"<li><hr/></li><li><hr/></li><li><strong>手术科室</strong></li><li><br/></li>"+waiList+"<li><hr/></li><li><hr/></li>");
 
 			}
 		});
@@ -162,7 +163,7 @@
 									+ item.dpName + "</a></li>";											
 						});
 				$('.lcDeptList').append(
-						"<li><strong>诊治相关科室</strong></li><li></li>" + listItem);
+						"<li><strong>诊治相关科室</strong></li><li><br/></li>" + listItem);
 
 			}
 		});

@@ -1,18 +1,53 @@
 <!DOCTYPE html>
 <head>
     <!--#include virtual="master/headFile.html"-->
+    <style>
+        .tcList li{width: 182px;height: 185px; display: block; background: url("images/tjtc.jpg") no-repeat; list-style: none; float: left; margin:10px 20px; cursor: pointer;}
+        #tc1{background-position: 0 0;}
+        #tc2{background-position: -182px 0;}
+        #tc3{background-position: -364px 0;}
+        #tc4{background-position: 0 -185px;}
+        #tc5{background-position: -182px -185px;}
+        #tc6{background-position: -364px -185px;}
+        #tc7{background-position: 0 -370px;}
+        #tc8{background-position: -182px -370px;}
+        #tc9{background-position: -364px -370px;}
+        .tcList li a{height: 100%; width:100%; display: block;}
+    </style>
 </head>
 <body>
 <!--#include virtual="master/top.html"-->
 <div class="content">
-  <h1 class="pTitle">体检套餐</h1>		
-		<ul class='itemList'>
-			<li>地址：</li>
-			<li>邮编：</li>
-			<li>联系电话：</li>
-			<li>传真：</li>
-			<li>交通：</li>
+    <h1 class="pTitle">体检套餐</h1>
+    <ul class='itemList'>
+        <li>1、下述套餐价格，根据男女检查项目的不同，有一定上下调整，具体费用可点击套餐查看</li>
+        <li>2、个人体检从B套餐开始</li>
+    </ul>
+		<ul class='tcList'>
+			<li id="tc1"><a href="package/packageA.shtml"></a></li>
+			<li id="tc2"><a href="package/packageB.shtml"></a></li>
+			<li id="tc3"><a href="package/packageC.shtml"></a></li>
+			<li id="tc4"><a href="package/packageD.shtml"></a></li>
+			<li id="tc5"><a href="package/packageE.shtml"></a></li>
+            <li id="tc6"><a href="package/packageF.shtml"></a></li>
+            <li id="tc7"><a href="package/packageG.shtml"></a></li>
+            <li id="tc8"><a href="package/packageH.shtml"></a></li>
+            <li id="tc9"><a href="package/packageI.shtml"></a></li>
 		</ul>
+    <ul class='itemList'>
+        <li class="f18"><strong>可根据需要增加检查项目：</strong></li>
+        <li>性激素全套（185元）</li>
+        <li>妇科特需检查：HPV-DNA检测(4项)140元，HPV-DNA分型检测(大于15项)300元</li>
+        <li>经直肠或阴道B超60元，乳房B超60元，甲状腺B超60元</li>
+        <li>尿素［13C］呼气试验130元</li>
+        <li>肺部CT（不含片）180元，头部CT（不含片）180元</li>
+        <li>胃镜(含病理)318元</li>
+        <li>风湿全套36元</li>
+        <li>活化淋巴细胞亚群400元；TBNK（细胞免疫）250元</li>
+        <li>肺功能115元；肺功能（含弥散）165元</li>
+        <li>健康评估120元（9种疾病）</li>
+        </li>
+    </ul>
 </div>
 <!--#include virtual="master/footer.html"-->
 </body>

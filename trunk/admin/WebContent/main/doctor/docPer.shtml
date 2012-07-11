@@ -33,7 +33,7 @@
 						if (json.resultCode > 0) {
 							var doctDetail = json.doct;
 							str+="<h2 class='titleType3'>"+
-							"医师简介 . <span>"+doctDetail.diName+"</span></h2>"+
+							"医师简介 • <span>"+doctDetail.diName+"</span></h2>"+
 							"<div style='clear: both;'></div><div class='newsBody'><div class='perInfo'>"+
                              "<img id='diPortrait' style='margin-top: 0;' width='120' height='180'/></div><div style='margin-left: 20px; float: left;'>"+
 							"<table class='docTable' id='J_Table1'><tr><th>学历</th>"+

@@ -17,7 +17,7 @@
 	                        <a class="breadN J_Cata3" href="#"></a>
                         </p>
                     </div>
-                    <h2 class="titleType3">现任领导 . 马胜林</h2>
+                    <h2 class="titleType3">现任领导 • <span id='J_LeaderName'></span></h2>
 
                     <div style="clear: both;"></div>
                     <div class="docBody">
@@ -64,6 +64,7 @@ $.getJSON(action,function(json){
     "<p>"+leader.liDesc+"</p>";
 		$('.docBody').append(liDetail);		
  		$('#J_LiPortrait').attr('src','/admin/'+leader.liPortrait);
+ 		$('#J_LeaderName').html(leader.liName);
 	}	
 });
 
