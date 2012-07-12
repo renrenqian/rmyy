@@ -30,6 +30,7 @@ public class Consultation {
     private String osAnswer_time;
     private Integer osTypical;
 
+    private Integer consClick;
     /**
      * @return the ocId
      */
@@ -311,6 +312,20 @@ public class Consultation {
      */
     public final void setOsTypical(Integer osTypical) {
         this.osTypical = osTypical;
+    }
+
+    /**
+     * @return the consClick
+     */
+    public final Integer getConsClick() {
+        return consClick;
+    }
+
+    /**
+     * @param consClick the consClick to set
+     */
+    public final void setConsClick(Integer consClick) {
+        this.consClick = consClick;
     }
 
 }

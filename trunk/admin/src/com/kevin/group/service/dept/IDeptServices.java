@@ -21,4 +21,6 @@ public interface IDeptServices extends IBaseService<Dept>{
 
     int generateDeptJson(String savePath) throws CommonServiceException;
 
+    List<Dept> listClinicalNames() throws CommonServiceException;
+
 }

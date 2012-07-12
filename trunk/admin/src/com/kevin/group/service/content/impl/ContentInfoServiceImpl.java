@@ -82,6 +82,18 @@ public class ContentInfoServiceImpl extends AbstractBaseService<ContentInfo>
     }
 
     /* (non-Javadoc)
+     * @see com.kevin.group.service.content.IContentInfoService#updateClickContent(com.kevin.group.pojo.content.ContentInfo)
+     */
+    @Override
+    public int updateClickContent(ContentInfo continfo) throws CommonServiceException {
+        try {
+            return contInfoDAO.updateClickContent(continfo);
+        } catch (BaseSqlMapException e) {
+            throw new CommonServiceException(e.getMessage());
+        }
+    }
+
+    /* (non-Javadoc)
      * @see com.kevin.group.service.content.IContentInfoService#generateHomeJson(com.kevin.group.pojo.content.ContentInfo)
      */
     @Override

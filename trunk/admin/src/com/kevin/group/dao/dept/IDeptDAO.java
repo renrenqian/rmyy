@@ -19,4 +19,6 @@ public interface IDeptDAO extends IBaseDAO<Dept> {
 
     List<Dept> listDeptNames() throws BaseSqlMapException;
 
+    List<Dept> listClinicalNames() throws BaseSqlMapException;
+
 }

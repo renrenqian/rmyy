@@ -6,6 +6,7 @@
 package com.kevin.group.dao.online;
 
 import com.kevin.common.dao.IBaseDAO;
+import com.kevin.common.exception.BaseSqlMapException;
 import com.kevin.group.pojo.online.Consultation;
 
 /**
@@ -13,5 +14,7 @@ import com.kevin.group.pojo.online.Consultation;
  * @since jdk1.6
  */
 public interface IConsultationDAO extends IBaseDAO<Consultation> {
+
+    int updateClickCons(Consultation cons) throws BaseSqlMapException;
 
 }

@@ -23,4 +23,6 @@ public interface IContentInfoDAO extends IBaseDAO<ContentInfo> {
 
     List<ContentInfo> generateHomeyyxwJson(ContentInfo continfo) throws BaseSqlMapException;
 
+    int updateClickContent(ContentInfo continfo) throws BaseSqlMapException;
+
 }

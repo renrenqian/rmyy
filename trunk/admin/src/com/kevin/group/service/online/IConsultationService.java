@@ -5,6 +5,7 @@
  */
 package com.kevin.group.service.online;
 
+import com.kevin.common.exception.CommonServiceException;
 import com.kevin.common.service.IBaseService;
 import com.kevin.group.pojo.online.Consultation;
 
@@ -13,5 +14,7 @@ import com.kevin.group.pojo.online.Consultation;
  * @since jdk1.6
  */
 public interface IConsultationService extends IBaseService<Consultation> {
+
+    int updateClickCons(Consultation cons) throws CommonServiceException;
 
 }
