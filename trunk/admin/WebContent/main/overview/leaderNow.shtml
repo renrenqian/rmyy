@@ -11,7 +11,7 @@
                 <div class="itemBg">
                     <div class="titleBg2">
                          <p class="bread">
-	                        <a class="breadB" href="/web/main/index.shtml">首页</a><span>&gt;</span>
+	                        <a class="breadB" href="/admin/main/index.shtml">首页</a><span>&gt;</span>
 	                        <a class="breadN J_Cata1" href="#"></a><span>&gt;</span>
 	                        <a class="breadN J_Cata2" href="#"></a><span>&gt;</span>
 	                        <a class="breadN J_Cata3" href="#"></a>

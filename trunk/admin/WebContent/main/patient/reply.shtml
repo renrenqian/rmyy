@@ -1,7 +1,9 @@
 ﻿<!DOCTYPE html>
 <head>
     <!--#include virtual="../master/headFile.html"-->
-    <link href="/web/js/calendar/calendar/calendar.css" rel="stylesheet" />
+    <link href="/admin/js/calendar/calendar/calendar.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../style/webPart/pagination.css"/>
+    <script type="text/javascript" src="../../js/webPart/jquery.pagination.js"></script>
 </head>
 <body>
 <!--#include virtual="../master/top.html"-->
@@ -12,10 +14,10 @@
                <div class="itemBg">
         <div class="titleBg2">
              <p class="bread">
-								<a href="/index.shtml" class="breadB">首页</a><span>></span>
+								<a href="/admin/main/index.shtml" class="breadB">首页</a><span>></span>
 								<a href="#" class="breadN J_Cata1"></a><span>></span> 
 								<a href="#" class="breadN J_Cata2"></a><span>></span> 
-								<a href="/web/main/patient/consultIndex.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx" class="breadB J_Cata3"></a><span>></span> 
+								<a href="/admin/main/patient/consultIndex.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx" class="breadB J_Cata3"></a><span>></span>
 								<a href="#" class="breadN">查看回复</a>
 						</p>
         </div>
@@ -28,14 +30,9 @@
                 <select id="J_Dept"></select>
                 <label style="margin-left: 20px;">提问时间</label>
                 <input type="text" id='J_AskDate' style='cursor:pointer;'/>
-                <input type="button" value="查看" /></h3>
-            <ul class="newsItem2 consultList" style="width: 100%; margin-top: 20px;">
-                <li><a class="newsTitle" href="#"><span class='ora'>【产科】</span>请问我要做无创产前检测怎么预约
-                </a><span class="newsDate">05-25</span></li>
-                <li><a class="newsTitle" href="#"><span class='ora'>【皮肤性病科】</span>医院有去斑的手术或者治疗吗？
-                </a><span class="newsDate">05-25</span></li>
-            </ul>
-            <img src="../images/pager.jpg" style="margin: 20px;" />
+                <input type="button" value="查看" id="J_Search"/></h3>
+            <ul class="newsItem2 consultList" style="width: 100%; margin-top: 20px;"></ul>
+            <div id="Pagination" class="pagination" style="margin-top: 20px;"></div>
         </div>
     </div>
             </div>
@@ -49,10 +46,10 @@
 <script src="../js/common.js"></script>
 <script>
 //zq:填充科室下拉列表
-$.getJSON('http://localhost:8520/admin/group/listDept.action', function(json) {
+$.getJSON('/admin/main/dept/lcks', function(json) {
     if (json.resultCode > 0) {               
         var deptList = json.deptList;
-        var optioin= "<option value='0'>科室选择</option>";
+        var optioin= "<option value='0'>全部科室</option>";
         $(deptList).each(function(i, item) { 
         	if(item.dpName=='咨询调节'){
         		optioin+="<option class='red' value="+item.dpId+">不确定科室</option>";
@@ -61,7 +58,6 @@ $.getJSON('http://localhost:8520/admin/group/listDept.action', function(json) {
         	}            
         });  
         $('#J_Dept').html(optioin);
-    	
     }
 });
 
@@ -79,6 +75,67 @@ $.getJSON('http://localhost:8520/admin/group/listDept.action', function(json) {
         });          
     });
 })(KISSY);
+</script>
+
+<script>
+    var params = [];
+    params.push({ "name":"page.pageSize", "value":10});    //每页最大条数
+    params.push({ "name":"page.currentPageNo", "value":1});//当前显示第几页
+    var totalSize;
+    var action='';
+
+    //这个事件是在翻页时候用的
+    function pageselectCallback(page_id, jq) {
+        initData(page_id + 1,action);
+    }
+
+    function initData(index,action) {
+        params[1].value = index;
+        var str = '';
+        $.ajax({ //这里使用到Jquery的ajax方法
+            type:"POST",
+            dataType:"json",
+            url:action, //请求的处理数据
+            data:params,
+            //下面的操作就是成功返回数据以后，进行数据的绑定
+            success:function (data) {
+                if (data.resultCode > 0) {
+                    totalSize=data.page.totalItemCount;
+                    var ansList = data.page.dataList;
+                    var str = "";
+                    $(ansList).each(function (i, item) {
+                        str += "<li><a class='newsTitle' target='_blank' href='result.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx&ocId="+item.ocId+"'><span class='ora'>【" + item.ocReceiveOfficeName + "】</span>" + item.ocPost_subject + "</a><span class='newsDate'>" + item.ocPost_time + "</span></li>";
+                    });
+                    $('.consultList').html(str);
+                }
+                if ($("#Pagination").html().length == '') {
+                    $("#Pagination").pagination(totalSize, {
+                        items_per_page:params[0].value,
+                        num_display_entries:10,
+                        num_edge_entries:2,
+                        prev_text:"上一页",
+                        next_text:"下一页",
+                        callback:pageselectCallback
+                    });
+                }
+            }
+        });
+    }
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('#J_Search').click(function(){
+            $("#Pagination").html("");
+            var deptId=$('#J_Dept').val();
+            if(deptId==0){
+                action="/admin/online/listConsultation.action";
+            }else{
+                action="/admin/online/listConsultation.action?cons.ocReceive_office="+deptId;
+            }
+            initData(1,action);
+        });
+    });
 </script>
 </body>
 </html>

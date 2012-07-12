@@ -4,7 +4,7 @@
 </head>
 <body>
 <!--#include virtual="/admin/cancer/master/top.html"-->
-<div style='overflow: hidden;'>
+<div style='overflow: hidden;' class="mt5">
     <div class="leftPart">
         <img src="../images/lPic.jpg"/>
         <h2 class="lTitle">关于中心</h2>

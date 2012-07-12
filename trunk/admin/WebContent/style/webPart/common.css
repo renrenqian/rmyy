@@ -212,7 +212,7 @@ header,section,footer,aside,nav,article,figure {
 .errorMsgArea .errorMsg { display:block; padding-left:30px; background: url(/admin/js/form/images/unchecked.gif) no-repeat 0 0; color: #631c1d; margin-left: 5px; margin-top: 5px; font-size: 11px; }
 .errorMsgArea .errorMsg span { font-weight:bold; margin-left:10px; margin-right:10px; }
 /* info msgBox */
-.sd_msgbox_layer, .sd_msgbox_layer .gtl_ico_succ, .sd_msgbox_layer .gtl_ico_fail, .sd_msgbox_layer .gtl_ico_hits, .sd_msgbox_layer .gtl_ico_clear, .sd_msgbox_layer .gtl_end { background-image: url("../images/checkInfo2.png"); background-repeat: no-repeat; color: #333; display: inline-block; font-size: 14px; font-weight: bold; height: 54px; line-height: 54px; }
+.sd_msgbox_layer, .sd_msgbox_layer .gtl_ico_succ, .sd_msgbox_layer .gtl_ico_fail, .sd_msgbox_layer .gtl_ico_hits, .sd_msgbox_layer .gtl_ico_clear, .sd_msgbox_layer .gtl_end { background-image: url("/admin/images/checkInfo2.png"); background-repeat: no-repeat; color: #333; display: inline-block; font-size: 14px; font-weight: bold; height: 54px; line-height: 54px; }
 .sd_msgbox_layer_wrap { left: 0; position: fixed; text-align: center; top: 46%; width: 100%; z-index: 65533; }
 .sd_msgbox_layer { background-position: 0 -161px; background-repeat: repeat-x; margin: 0 auto; padding: 0 18px 0 9px; position: relative; }
 .sd_msgbox_layer .gtl_ico_succ { background-position: -6px 0; left: -45px; position: absolute; top: 0; width: 45px; }

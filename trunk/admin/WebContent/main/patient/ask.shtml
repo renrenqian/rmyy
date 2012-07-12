@@ -76,7 +76,7 @@
 <script>
 $(document).ready(function(){
 	//zq:填充科室下拉列表
-    $.getJSON('http://localhost:8520/admin/group/listDept.action', function(json) {
+    $.getJSON('/admin/main/dept/lcks', function(json) {
         if (json.resultCode > 0) {               
             var deptList = json.deptList;
             var optioin= "<option value='0'>科室选择</option>";
@@ -103,7 +103,7 @@ $(document).ready(function(){
 	    if ($(this).sdSubmitValidate(".queryTable")) {
 	    	if($('#ocRequestOffice').val()!='0'){
 		        var ocId = $("#ocId").val();                     
-		        var  url = "http://localhost:8520/admin/online/addConsultation.action";     
+		        var  url = "/admin/online/addConsultation.action";
 		        var dateFormat = new DateFormat();
 		        var date = new Date();	      
 		        var isoDateTime=dateFormat.isoDateTime(date);		        
@@ -121,7 +121,7 @@ $(document).ready(function(){
 		            if (json.resultCode > 0) {
 		            	$.fn.sdInfo({
 		                    type:"success",
-		                    content:'提交信息成功，请耐心等待回复!',
+		                    content:'问题提交成功，请耐心等待回复!',
 		                    callBack:reDirect
 		                });
 		            } else {

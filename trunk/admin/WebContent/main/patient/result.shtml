@@ -1,6 +1,9 @@
 ﻿<!DOCTYPE html>
 <head>
     <!--#include virtual="../master/headFile.html"-->
+    <style>
+        .paTr{background: #E8F5FE;}
+    </style>
 </head>
 <body>
 <!--#include virtual="../master/top.html"-->
@@ -8,53 +11,25 @@
     <div style="display: block; overflow: hidden;">
         <div class="leftCol2">
             <div class="mainPart">
-              <div class="itemBg">
-        <div class="titleBg2">
-             <p class="bread">
-								<a href="/index.shtml" class="breadB">首页</a><span>></span>
-								<a href="#" class="breadN J_Cata1"></a><span>></span> 
-								<a href="#" class="breadN J_Cata2"></a><span>></span> 
-								<a href="/web/main/patient/consultIndex.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx" class="breadB J_Cata3"></a><span>></span> 
-								<a href="#" class="breadN J_Cata4">回复详情</a>
-						</p>
-        </div>
-        <h2 class="titleType3">在线咨询中心</h2>
-        <div style="clear: both;"></div>
-        <h2 class="newsMainTitle">请问我要做无创产前检测怎么预约</h2>
-        <h3 class="newsInfo"><span style="margin: 0; margin-right: 30px;">提问时间：2012-05-04</span><span style="margin: 0; margin-right: 30px;">回复科室：产科</span><span style="margin: 0; ">浏览量：35次</span></h3>
-        <div class="docBody">
-            <hr class="mb20 w" />
-            <table class="Schedule">
-                <thead>
-                    <tr class="totalTh">
-                        <th class="w">问题描述</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="paTr">
-                        <td class="p20">
-                            人流完医生给开了两盒酮焕雌醇片避孕药,一盒有21天的量,我想问这两盒要吃完吗?吃那么多对身体有没有影响?
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="Schedule mt10">
-                <thead>
-                    <tr class="totalTh">
-                        <th class="w">回复内容</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="paTr">
-                        <td class="p20">
-
-您好，医生一般按照您的病情需要开药的量，如果不放心的话，可以来门诊再复查一下。一盒有21天的量是一个月经周期的量，如果不愿意服用的话 请采用避孕套避孕。不要突然断药，要按周期服用，要么一个周期全吃 要么一个周期全不吃。
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+                <div class="itemBg">
+                    <div class="titleBg2">
+                        <p class="bread">
+                            <a href="/admin/main/index.shtml" class="breadB">首页</a><span>></span>
+                            <a href="#" class="breadN J_Cata1"></a><span>></span>
+                            <a href="#" class="breadN J_Cata2"></a><span>></span>
+                            <a href="/admin/main/patient/consultIndex.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx"
+                               class="breadB J_Cata3"></a><span>></span>
+                            <a href="#" class="breadN J_Cata4">回复详情</a>
+                        </p>
+                    </div>
+                    <h2 class="titleType3">在线咨询中心</h2>
+                    <div style="clear: both;"></div>
+                    <h2 class="newsMainTitle"></h2>
+                    <h3 class="newsInfo"><span style="margin: 0; margin-right: 30px;" id="J_OsAnswer_time"></span><span
+                            style="margin: 0; margin-right: 30px;" id="J_OcRequestOfficeName"></span><span
+                            style="margin: 0; ">浏览量：35次</span></h3>
+                    <div class="docBody"></div>
+                </div>
             </div>
         </div>
         <!--#include virtual="../master/commonSubTitle.html"-->
@@ -62,6 +37,22 @@
 </div>
 <!--#include virtual="../master/footer.html"-->
 <script src="../js/common.js"></script>
+<script>
+    var ocId = GetParameter('ocId');
+    $.getJSON('/admin/online/searchConsultation.action?cons.ocId=' + ocId, function (json) {
+        if (json.resultCode > 0) {
+            var cons = json.cons;
+            $('.newsMainTitle').html(cons.ocPost_subject);
+            $('#J_OsAnswer_time').html("提问时间:" + cons.osAnswer_time);
+            $('#J_OcRequestOfficeName').html("回复科室:" + cons.ocRequestOfficeName);
+            var str = "<hr class='mb20 w'/><table class='Schedule'><thead><tr class='totalTh'><th class='w'>问题描述</th></tr></thead>" +
+                    "<tbody><tr class='paTr'><td class='p20 tl'>" + cons.ocDesc + "</td></tr></tbody></table>" +
+                    "<table class='Schedule mt10'><thead><tr class='totalTh'><th class='w'>回复内容</th></tr></thead>" +
+                    "<tbody><tr class='paTr'><td class='p20 tl'>" + cons.osAnswer + "</td></tr></tbody></table>";
+            $('.docBody').html(str);
+        }
+    });
+</script>
 </body>
 </html>
 

@@ -1,6 +1,8 @@
 ﻿<!DOCTYPE html>
 <head>
     <!--#include virtual="../master/headFile.html"-->
+    <link rel="stylesheet" href="../../style/webPart/pagination.css"/>
+    <script type="text/javascript" src="../../js/webPart/jquery.pagination.js"></script>
 </head>
 <body>
 <!--#include virtual="../master/top.html"-->
@@ -8,67 +10,34 @@
     <div style="display: block; overflow: hidden;">
         <div class="leftCol2">
             <div class="mainPart">
-               <div class="itemBg">
-        <div class="titleBg2">
-          <p class="bread">
-								<a href="/index.shtml" class="breadB">首页</a><span>></span>
-								<a href="#" class="breadN J_Cata1"></a><span>></span> 
-								<a href="#" class="breadN J_Cata2"></a><span>></span> 
-								<a href="#" class="breadN J_Cata3"></a>
-						</p>
-        </div>
-        <h2 class="titleType3">在线咨询中心</h2>
-        <div style="clear: both;"></div>
-        <div class="docBody">
-            <a class="greenBtn tc fl" style="margin-right: 30px;" href="ask.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx">我要提问</a>
-            <a class="greenBtn tc fl" style="margin-right: 30px;" href="reply.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx">查看回复</a>
-            <div style="clear: both;"></div>
-            <h3 class="newsInfo" style="color: #ff6a00;">注意：提问前，浏览下方有关科室的典型问题回复，可免去等待时间。回复内容仅供参考，请及时就诊以免耽误病情。</h3>
-            <hr class="mb20 w"/>
-            <h3 class="h3Type">典型问题回复<label style="margin-left: 370px;">按回复科室</label>
-                <select>
-                    <option>科室选择</option>
-                    <option>心血管内科</option>
-                    <option>消化内科</option>
-                    <option>眼科</option>
-                    <option>妇科</option>
-                    <option>产科</option>
-                    <option>心血管内科</option>
-                    <option>消化内科</option>
-                    <option>眼科</option>
-                    <option>妇科</option>
-                    <option>产科</option>
-                    <option>心血管内科</option>
-                    <option>消化内科</option>
-                    <option>眼科</option>
-                    <option>妇科</option>
-                    <option>产科</option>
-                    <option>心血管内科</option>
-                    <option>消化内科</option>
-                    <option>眼科</option>
-                    <option>妇科</option>
-                    <option>产科</option>
-                    <option>心血管内科</option>
-                    <option>消化内科</option>
-                    <option>眼科</option>
-                    <option>妇科</option>
-                    <option>产科</option>
-                    <option>心血管内科</option>
-                    <option>消化内科</option>
-                    <option>眼科</option>
-                    <option>妇科</option>
-                    <option>产科</option>
-                </select>
-                <input type="button" value="查看" /></h3>
-            <ul class="newsItem2 consultList" style="width: 100%; margin-top: 20px;">
-                <li><a class="newsTitle" href="#"><span class='ora'>【产科】</span>请问我要做无创产前检测怎么预约
-                </a><span class="newsDate">05-25</span></li>
-                <li><a class="newsTitle" href="#"><span class='ora'>【皮肤性病科】</span>医院有去斑的手术或者治疗吗？
-                </a><span class="newsDate">05-25</span></li>
-            </ul>
-            <img src="../images/pager.jpg" style="margin: 20px;" />
-        </div>
-    </div>
+                <div class="itemBg">
+                    <div class="titleBg2">
+                        <p class="bread">
+                            <a href="/admin/main/index.shtml" class="breadB">首页</a><span>></span>
+                            <a href="#" class="breadN J_Cata1"></a><span>></span>
+                            <a href="#" class="breadN J_Cata2"></a><span>></span>
+                            <a href="#" class="breadN J_Cata3"></a>
+                        </p>
+                    </div>
+                    <h2 class="titleType3">在线咨询中心</h2>
+                    <div style="clear: both;"></div>
+                    <div class="docBody">
+                        <a class="greenBtn tc fl" style="margin-right: 30px;"
+                           href="ask.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx">我要提问</a>
+                        <a class="greenBtn tc fl" style="margin-right: 30px;"
+                           href="reply.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx">查看回复</a>
+
+                        <div style="clear: both;"></div>
+                        <h3 class="newsInfo" style="color: #ff6a00;">
+                            注意：提问前，浏览下方有关科室的典型问题回复，可免去等待时间。回复内容仅供参考，请及时就诊以免耽误病情。</h3>
+                        <hr class="mb20 w"/>
+                        <h3 class="h3Type">典型问题回复<label style="margin-left: 350px;">按回复科室</label>
+                            <select id="J_Dept"></select>
+                            <input type="button" value="查看" id="J_Search"/></h3>
+                        <ul class="newsItem2 consultList" style="width: 100%; margin-top: 20px;"></ul>
+                        <div id="Pagination" class="pagination" style="margin-top: 20px;"></div>
+                    </div>
+                </div>
             </div>
         </div>
         <!--#include virtual="../master/commonSubTitle.html"-->
@@ -77,6 +46,91 @@
 <!--#include virtual="../master/footer.html"-->
 <!--#include virtual="../master/demoJs.html"-->
 <script src="../js/common.js"></script>
+<script>
+    $(document).ready(function () {
+        //zq:填充科室下拉列表
+        $.getJSON('/admin/main/dept/lcks', function (json) {
+            if (json.resultCode > 0) {
+                var deptList = json.deptList;
+                var optioin = "<option value='0'>全部科室</option>";
+                $(deptList).each(function (i, item) {
+                    if (item.dpName == '咨询调节') {
+                        //屏蔽咨询调节科室
+                    } else {
+                        optioin += "<option value=" + item.dpId + ">" + item.dpName + "</option>";
+                    }
+                });
+                $('#J_Dept').html(optioin);
+            }
+        });
+    });
+</script>
+
+<script>
+    var params = [];
+    params.push({ "name":"page.pageSize", "value":10});    //每页最大条数
+    params.push({ "name":"page.currentPageNo", "value":1});//当前显示第几页
+    var totalSize;
+    var action='';
+
+    $(document).ready(function () {
+        action="/admin/online/listConsultation.action?cons.osTypical=1";
+        initData(1,action); //初始化数据
+    });
+
+    //这个事件是在翻页时候用的
+    function pageselectCallback(page_id, jq) {
+        initData(page_id + 1,action);
+    }
+
+    function initData(index,action) {
+        params[1].value = index;
+        var str = '';
+        $.ajax({ //这里使用到Jquery的ajax方法
+            type:"POST",
+            dataType:"json",
+            url:action, //请求的处理数据
+            data:params,
+            //下面的操作就是成功返回数据以后，进行数据的绑定
+            success:function (data) {
+                if (data.resultCode > 0) {
+                    totalSize=data.page.totalItemCount;
+                    var ansList = data.page.dataList;
+                    var str = "";
+                    $(ansList).each(function (i, item) {
+                        str += "<li><a class='newsTitle' target='_blank' href='result.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx&ocId="+item.ocId+"'><span class='ora'>【" + item.ocReceiveOfficeName + "】</span>" + item.ocPost_subject + "</a><span class='newsDate'>" + item.ocPost_time + "</span></li>";
+                    });
+                    $('.consultList').html(str);
+                }
+                if ($("#Pagination").html().length == '') {
+                    $("#Pagination").pagination(totalSize, {
+                        items_per_page:params[0].value,
+                        num_display_entries:10,
+                        num_edge_entries:2,
+                        prev_text:"上一页",
+                        next_text:"下一页",
+                        callback:pageselectCallback
+                    });
+                }
+            }
+        });
+    }
+</script>
+
+<script>
+    $(document).ready(function(){
+       $('#J_Search').click(function(){
+           $("#Pagination").html("");
+           var deptId=$('#J_Dept').val();
+           if(deptId==0){
+               action="/admin/online/listConsultation.action?cons.osTypical=1";
+           }else{
+               action="/admin/online/listConsultation.action?cons.osTypical=1&cons.ocReceive_office="+deptId;
+           }
+           initData(1,action);
+       });
+    });
+</script>
 </body>
 </html>
 
