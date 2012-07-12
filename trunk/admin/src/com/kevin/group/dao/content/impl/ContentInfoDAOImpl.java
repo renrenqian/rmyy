@@ -40,6 +40,20 @@ public class ContentInfoDAOImpl extends AbstractBaseDAO<ContentInfo> implements
         return updateResult;
     }
 
+    /* (non-Javadoc)
+     * @see com.kevin.group.dao.content.IContentInfoDAO#updateClickContent(com.kevin.group.pojo.content.ContentInfo)
+     */
+    @Override
+    public int updateClickContent(ContentInfo continfo) throws BaseSqlMapException {
+        int updateResult = 0;
+        try {
+            updateResult = super.update("updateClickContent", continfo);
+        } catch (BaseSqlMapException e) {
+            throw new BaseSqlMapException(e.getMessage());
+        }
+        return updateResult;
+    }
+
     /*
      * (non-Javadoc)
      * 

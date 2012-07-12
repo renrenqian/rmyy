@@ -149,6 +149,17 @@ public class DeptInfoAction extends AbstractBaseAction {
         }
         return Action.SUCCESS;
     }
+    
+    public String listClinicalNames() {// list all the dept for web
+        try {
+            deptList = deptService.listClinicalNames();
+            setResultCode(1);
+        } catch (CommonServiceException e) {
+            setMessage(e.getMessage());
+            setResultCode(-1);
+        }
+        return Action.SUCCESS;
+    }
 
     public String updateDept() {// update the dept info
         try {

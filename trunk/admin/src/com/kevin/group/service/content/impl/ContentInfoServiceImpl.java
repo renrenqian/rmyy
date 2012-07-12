@@ -82,6 +82,18 @@ public class ContentInfoServiceImpl extends AbstractBaseService<ContentInfo>
     }
 
     /* (non-Javadoc)
+     * @see com.kevin.group.service.content.IContentInfoService#updateClickContent(com.kevin.group.pojo.content.ContentInfo)
+     */
+    @Override
+    public int updateClickContent(ContentInfo continfo) throws CommonServiceException {
+        try {
+            return contInfoDAO.updateClickContent(continfo);
+        } catch (BaseSqlMapException e) {
+            throw new CommonServiceException(e.getMessage());
+        }
+    }
+
+    /* (non-Javadoc)
      * @see com.kevin.group.service.content.IContentInfoService#generateHomeJson(com.kevin.group.pojo.content.ContentInfo)
      */
     @Override
@@ -94,7 +106,7 @@ public class ContentInfoServiceImpl extends AbstractBaseService<ContentInfo>
             String CTRF = GroupConstance.CTRF;
             if(null != contList) {
                 jsonBuff = new StringBuilder();
-                jsonBuff.append("{\"news_yygg\":[");
+                jsonBuff.append("{\"newsyygg\":[");
                 for(ContentInfo anounce : contList){
                     jsonBuff.append(CTRF).append(anounce.generateJSON()).append(",");
                 }
@@ -107,16 +119,18 @@ public class ContentInfoServiceImpl extends AbstractBaseService<ContentInfo>
             if(null != contList) {
                 // add the detail info
                 int contSize = 0;
-                jsonBuff.append("\"news_yyxw0\":[");
+                jsonBuff.append("\"newsyyxw0\":[");
                 if(contList.size() > 0){
                     jsonBuff.append(CTRF).append(contList.get(0).generateJSON());
                 }
                 jsonBuff.append(CTRF).append("],").append(CTRF);
                 // do the next list data
-                jsonBuff.append("\"news_yyxw\":[");
+                jsonBuff.append("\"newsyyxw\":[");
                 int total = contList.size() - 1;
                 for(contSize = 1; contSize < total; contSize++){
-                    jsonBuff.append(CTRF).append(contList.get(contSize).generateJSON()).append(",");
+                    cont = contList.get(contSize);
+                    cont.setContDetail(null);
+                    jsonBuff.append(CTRF).append(cont.generateJSON()).append(",");
                 }
                 if(contList.size() > 0)
                     jsonBuff.deleteCharAt(jsonBuff.length() -1 );

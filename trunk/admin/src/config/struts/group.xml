@@ -24,6 +24,12 @@
                <param name="excludeNullProperties">true</param>
             </result>
        </action>
+       <action name="listClinicalNames" method="listClinicalNames" class="deptInfoAction">
+            <result name="success" type="json">
+               <param name="ignoreHierarchy">false</param>
+               <param name="excludeNullProperties">true</param>
+            </result>
+       </action>
        <action name="searchDept" method="searchDept" class="deptInfoAction">
             <result name="success" type="json">
                <param name="ignoreHierarchy">false</param>
@@ -90,6 +96,13 @@
         </action>
         <!-- batch delete the content -->
         <action name="auditorContent" method="auditorContent" class="contentInfoAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
+        <!--  click times the content -->
+        <action name="updateClickContent" method="updateClickContent" class="contentInfoAction">
             <result name="success" type="json">
                 <param name="ignoreHierarchy">false</param>
                 <param name="excludeNullProperties">true</param>

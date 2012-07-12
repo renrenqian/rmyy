@@ -282,6 +282,17 @@ public class ContentInfoAction extends AbstractBaseAction {
         }
         return Action.SUCCESS;
     }
+    
+    public String updateClickContent() {// click the contInfo counter
+        try {
+            int result = contInfoService.updateClickContent(continfo);
+            setResultCode(result);
+        } catch (CommonServiceException e) {
+            setMessage(e.getMessage());
+            setResultCode(-1);
+        }
+        return Action.SUCCESS;
+    }
 
     public String batchDeleteContent() {// bath delete the contInfo
         try {

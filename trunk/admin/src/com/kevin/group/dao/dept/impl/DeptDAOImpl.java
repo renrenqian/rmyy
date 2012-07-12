@@ -27,4 +27,15 @@ public class DeptDAOImpl extends AbstractBaseDAO<Dept> implements IDeptDAO {
         DeptNames = super.list("listDeptNames");
         return DeptNames;
     }
+
+    /* (non-Javadoc)
+     * @see com.kevin.group.dao.dept.IDeptDAO#listClinicalNames()
+     */
+    @Override
+    public List<Dept> listClinicalNames() throws BaseSqlMapException {
+        List<Dept> DeptNames = null;
+        DeptNames = super.list("listClinicalNames");
+        return DeptNames;
+    }
+    
 }

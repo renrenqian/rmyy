@@ -70,6 +70,18 @@ public class DeptServicesImpl extends AbstractBaseService<Dept> implements IDept
     }
 
     /* (non-Javadoc)
+     * @see com.kevin.group.service.dept.IDeptServices#listClinicalNames()
+     */
+    @Override
+    public List<Dept> listClinicalNames() throws CommonServiceException {
+          try {
+            return  deptDAO.listClinicalNames();
+        } catch (BaseSqlMapException e) {
+            throw new CommonServiceException(e.getMessage());
+        }
+    }
+
+    /* (non-Javadoc)
      * @see com.kevin.group.service.dept.IDeptServices#generateDeptJson()
      */
     @Override

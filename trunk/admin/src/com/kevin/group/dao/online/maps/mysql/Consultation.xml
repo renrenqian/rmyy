@@ -18,6 +18,7 @@
         OC_POST_SUBJECT as ocPost_subject,
         OC_DESC as ocDesc,
         OS_ANSWERED as osAnswered,
+        OS_CLICKS as consClick,
         OS_ANSWER as osAnswer,
         OS_ANSWER_OFFICE as osAnswer_office,
         DATE_FORMAT(OS_ANSWER_TIME,'%Y/%m/%d %H:%m:%s') as osAnswer_time,
@@ -45,6 +46,7 @@
         OC_POST_SUBJECT as ocPost_subject,
         OC_DESC as ocDesc,
         OS_ANSWERED as osAnswered,
+        OS_CLICKS as consClick,
         OS_ANSWER as osAnswer,
         OS_ANSWER_OFFICE as osAnswer_office,
         DATE_FORMAT(OS_ANSWER_TIME,'%Y/%m/%d %H:%m:%s') as osAnswer_time,
@@ -60,35 +62,35 @@
     <select id="getTotalCount" parameterClass="Consultation" resultClass="java.lang.Long">
        <![CDATA[
          select COUNT(OC_ID) 
-         from ONLINE_CONSULTATION
+         from ONLINE_CONSULTATION oc
       ]]>
         <dynamic prepend=" where ">
-        <isNotEmpty property="ocRequest_office">
+        <isNotEmpty property="ocRequest_office" prepend=" AND ">
           <![CDATA[
                  oc.OC_REQUEST_OFFICE = #ocRequest_office#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="ocReceive_office">
+        <isNotEmpty property="ocReceive_office" prepend=" AND ">
           <![CDATA[
                  oc.OC_RECEIVE_OFFICE = #ocReceive_office#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="ocPost_time">
+        <isNotEmpty property="ocPost_time" prepend=" AND ">
           <![CDATA[
                  DATE_FORMAT(oc.OC_POST_TIME,'%Y/%m/%d %H:%m:%s') = #ocPost_time#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="osAnswer_time">
+        <isNotEmpty property="osAnswer_time" prepend=" AND ">
           <![CDATA[
                  DATE_FORMAT(oc.OS_ANSWER_TIME,'%Y/%m/%d %H:%m:%s') = #osAnswer_time#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="osAnswered">
+        <isNotEmpty property="osAnswered" prepend=" AND ">
           <![CDATA[
                  oc.OS_ANSWERED = #osAnswered#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="osTypical">
+        <isNotEmpty property="osTypical" prepend=" AND ">
           <![CDATA[
                  oc.OS_TYPICAL = #osTypical#
                  ]]>
@@ -110,7 +112,8 @@
         OC_SEX as ocSex,
         OC_POST_SUBJECT as ocPost_subject,
         OC_DESC as ocDesc,
-        OS_ANSWERED as osAnswered
+        OS_ANSWERED as osAnswered,
+        OS_CLICKS as consClick,
         OS_ANSWER_OFFICE as osAnswer_office,
         DATE_FORMAT(OS_ANSWER_TIME,'%Y/%m/%d %H:%m:%s') as osAnswer_time,
         OS_TYPICAL as osTypical
@@ -119,38 +122,38 @@
        left join OFFICE_DETAIL odr on oc.OC_RECEIVE_OFFICE =odr.OD_ID
      ]]>
         <dynamic prepend=" where ">
-        <isNotEmpty property="condition.ocRequest_office">
+        <isNotEmpty property="condition.ocRequest_office" prepend=" AND ">
           <![CDATA[
                  oc.OC_REQUEST_OFFICE = #condition.ocRequest_office#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.ocReceive_office">
+        <isNotEmpty property="condition.ocReceive_office" prepend=" AND ">
           <![CDATA[
                  oc.OC_RECEIVE_OFFICE = #condition.ocReceive_office#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.ocPostStartTime">
+        <isNotEmpty property="condition.ocPostStartTime" prepend=" AND ">
           <![CDATA[
                  DATE_FORMAT(oc.OC_POST_TIME,'%Y/%m/%d %H:%m:%s') = #condition.ocPostStartTime#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.osAnswer_time">
+        <isNotEmpty property="condition.osAnswer_time" prepend=" AND ">
           <![CDATA[
                  DATE_FORMAT(oc.OS_ANSWER_TIME,'%Y/%m/%d %H:%m:%s') = #condition.osAnswer_time#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.osAnswered">
+        <isNotEmpty property="condition.osAnswered" prepend=" AND ">
           <![CDATA[
                  oc.OS_ANSWERED = #condition.osAnswered#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.osTypical">
+        <isNotEmpty property="condition.osTypical" prepend=" AND ">
           <![CDATA[
                  oc.OS_TYPICAL = #condition.osTypical#
                  ]]>
           </isNotEmpty>
         </dynamic>
-     <![CDATA[ORDER BY OC_POST_TIME, OS_ANSWER_TIME]]>
+     <![CDATA[ORDER BY OC_POST_TIME, OS_ANSWER_TIME desc]]>
      <![CDATA[LIMIT #start#,#pageSize#]]>
     </select>
 
@@ -192,6 +195,15 @@
        </dynamic>
         <![CDATA[ 
             OS_TYPICAL = #osTypical#
+         WHERE OC_ID = #ocId#
+      ]]>
+    </update>
+    <!-- update click the Consultation -->
+    <update id="updateClickCons" parameterClass="Consultation">
+      <![CDATA[
+         UPDATE ONLINE_CONSULTATION 
+         SET 
+            OS_CLICKS = OS_CLICKS + 1,
          WHERE OC_ID = #ocId#
       ]]>
     </update>

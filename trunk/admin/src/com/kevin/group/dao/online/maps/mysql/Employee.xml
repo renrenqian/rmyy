@@ -46,17 +46,17 @@
          from EMPLOYEE_RECRUITMENT
       ]]>
         <dynamic prepend=" where ">
-        <isNotEmpty property="condition.erPosition">
+        <isNotEmpty property="condition.erPosition" prepend=" AND ">
           <![CDATA[
                  er.ER_POSITION Like CONCAT('%',#erPosition#,'%')
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.erSearchStart">
+        <isNotEmpty property="condition.erSearchStart" prepend=" AND ">
           <![CDATA[
                  er.ER_PUBLISH_DATE >= #erSearchStart#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.erSearchEnd">
+        <isNotEmpty property="condition.erSearchEnd" prepend=" AND ">
           <![CDATA[
                  er.ER_PUBLISH_DATE <= #erSearchEnd#
                  ]]>
@@ -79,17 +79,17 @@
        from EMPLOYEE_RECRUITMENT er
      ]]>
         <dynamic prepend=" where ">
-        <isNotEmpty property="condition.erPosition">
+        <isNotEmpty property="condition.erPosition" prepend=" AND ">
           <![CDATA[
                  er.ER_POSITION Like CONCAT('%',#condition.erPosition#,'%')
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.erSearchStart">
+        <isNotEmpty property="condition.erSearchStart" prepend=" AND ">
           <![CDATA[
                  er.ER_PUBLISH_DATE >= #condition.erSearchStart#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.erSearchEnd">
+        <isNotEmpty property="condition.erSearchEnd" prepend=" AND ">
           <![CDATA[
                  er.ER_PUBLISH_DATE <= #condition.erSearchEnd#
                  ]]>

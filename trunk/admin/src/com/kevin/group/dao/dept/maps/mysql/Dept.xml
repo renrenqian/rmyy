@@ -57,6 +57,17 @@
     </select>
     
     <!-- list all the dept info -->
+    <select id="listClinicalNames"  parameterClass="Dept"  resultClass="Dept">
+     <![CDATA[
+       select 
+         OD_ID as dpId,
+         OD_NAME as dpName
+       from OFFICE_DETAIL
+       where OD_TYPE Like CONCAT('%临床科室%')
+     ]]>
+    </select>
+    
+    <!-- list all the dept info -->
     <select id="listAll"  parameterClass="Dept"  resultClass="Dept">
      <![CDATA[
        select 

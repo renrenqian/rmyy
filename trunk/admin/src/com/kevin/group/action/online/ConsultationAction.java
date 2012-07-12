@@ -147,6 +147,17 @@ public class ConsultationAction extends AbstractBaseAction {
         }
         return Action.SUCCESS;
     }
+    
+    public String updateClickCons() {// update the cons info
+        try {
+            int result = consultationService.updateClickCons(cons);
+            setResultCode(result);
+        } catch (CommonServiceException e) {
+            setMessage(e.getMessage());
+            setResultCode(-1);
+        }
+        return Action.SUCCESS;
+    }
 
     public String deleteConsultation() {// delete the cons
         try {

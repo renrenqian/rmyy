@@ -41,6 +41,8 @@ public class ContentInfo implements Serializable {
     private String contAttachment;// store the upload file path
     private String displayImage;// store the upload file path
 
+    
+    private Integer clickTimes;// store the upload file path
     /**
      * @return the contId
      */
@@ -348,6 +350,20 @@ public class ContentInfo implements Serializable {
      */
     public final void setContSearchEndTime(String contSearchEndTime) {
         this.contSearchEndTime = contSearchEndTime;
+    }
+
+    /**
+     * @return the clickTimes
+     */
+    public final Integer getClickTimes() {
+        return clickTimes;
+    }
+
+    /**
+     * @param clickTimes the clickTimes to set
+     */
+    public final void setClickTimes(Integer clickTimes) {
+        this.clickTimes = clickTimes;
     }
 
     public String generateJSON() {

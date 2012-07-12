@@ -8,6 +8,7 @@ package com.kevin.group.service.online.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kevin.common.exception.BaseSqlMapException;
 import com.kevin.common.exception.CommonServiceException;
 import com.kevin.common.pojo.PageBean;
 import com.kevin.common.service.AbstractBaseService;
@@ -40,4 +41,19 @@ public class ConsultationServiceImpl extends AbstractBaseService<Consultation>
             throws CommonServiceException {
         return super.list(page);
     }
+
+    /* (non-Javadoc)
+     * @see com.kevin.group.service.online.IConsultationService#updateClickCons(com.kevin.group.pojo.online.Consultation)
+     */
+    @Override
+    public int updateClickCons(Consultation cons) throws CommonServiceException {
+        int clicks;
+        try {
+            clicks = consultationDAO.updateClickCons(cons);
+        } catch (BaseSqlMapException e) {
+            throw new CommonServiceException(e.getMessage());
+        }
+        return clicks;
+    }
+    
 }

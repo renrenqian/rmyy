@@ -33,6 +33,13 @@
                 <param name="excludeNullProperties">true</param>
             </result>
         </action>
+        <!-- update the click info -->
+        <action name="updateClickCons" method="updateClickCons" class="consultationfoAction">
+            <result name="success" type="json">
+                <param name="ignoreHierarchy">false</param>
+                <param name="excludeNullProperties">true</param>
+            </result>
+        </action>
         <!-- delete the Consultation -->
         <action name="deleteConsultation" method="deleteConsultation" class="consultationfoAction">
             <result name="success" type="json">

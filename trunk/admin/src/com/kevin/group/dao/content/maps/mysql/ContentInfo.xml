@@ -18,6 +18,7 @@
           DATE_FORMAT(CD_PUBLISH_TIME,'%Y/%m/%d %H:%m:%s') as contPublish_Time,
           CD_AUDIT_RESULT as contAudit_Result,
           CD_ORDER as contOrder,
+          CD_CLICKS as clickTimes,
           gm.GM_NAME as gmName,
           CD_AUTHOR as contAuthor,
           CD_ATTACHMENT as contAttachment,
@@ -46,6 +47,7 @@
           DATE_FORMAT(CD_PUBLISH_TIME,'%Y/%m/%d %H:%m:%s') as contPublish_Time,
           CD_AUDIT_RESULT as contAudit_Result,
           CD_ORDER as contOrder,
+          CD_CLICKS as clickTimes,
           gm.GM_NAME as gmName,
           CD_AUTHOR as contAuthor,
           CD_DETAIL as contDetail,
@@ -111,6 +113,7 @@
           DATE_FORMAT(CD_PUBLISH_TIME,'%Y/%m/%d %H:%m:%s') as contPublish_Time,
           CD_AUDIT_RESULT as contAudit_Result,
           CD_ORDER as contOrder,
+          CD_CLICKS as clickTimes,
           gm.GM_NAME as gmName,
           CD_AUTHOR as contAuthor
        from CONTENT_DETAIL  cd
@@ -162,6 +165,7 @@
           CD_PUBLISH_TIME as contPublish_Time,
           CD_AUDIT_RESULT as contAudit_Result,
           CD_ORDER as contOrder,
+          CD_CLICKS as clickTimes,
           gm.GM_NAME as gmName,
           CD_AUTHOR as contAuthor,
           CD_DETAIL as contDetail,
@@ -185,7 +189,7 @@
           CD_PUBLISH_TIME as contPublish_Time,
           CD_DETAIL as contDetail
        from CONTENT_DETAIL  cd 
-       where CD_ID = 1201
+       where CI_ID = 1202
        order by contPublish_Time desc
      ]]>
     </select>
@@ -198,7 +202,7 @@
           CD_TITAL as contTitle,
           CD_PUBLISH_TIME as contPublish_Time
        from CONTENT_DETAIL  cd 
-       where CD_ID = 1202
+       where CI_ID = 1201
        order by contPublish_Time desc
      ]]>
     </select>
@@ -257,6 +261,16 @@
          UPDATE CONTENT_DETAIL 
          SET
           CD_AUDIT_RESULT = #contAudit_Result#
+         WHERE CD_ID = #contId#
+      ]]>
+    </update>
+    
+    <!-- updateClickContent the ContentInfo -->
+    <update id="updateClickContent" parameterClass="ContentInfo">
+      <![CDATA[
+         UPDATE CONTENT_DETAIL 
+         SET
+          CD_CLICKS = CD_CLICKS + 1
          WHERE CD_ID = #contId#
       ]]>
     </update>
