@@ -185,7 +185,7 @@
           CD_PUBLISH_TIME as contPublish_Time,
           CD_DETAIL as contDetail
        from CONTENT_DETAIL  cd 
-       where CD_ID = 1201
+       where CI_ID = 1202
        order by contPublish_Time desc
      ]]>
     </select>
@@ -198,7 +198,7 @@
           CD_TITAL as contTitle,
           CD_PUBLISH_TIME as contPublish_Time
        from CONTENT_DETAIL  cd 
-       where CD_ID = 1202
+       where CI_ID = 1201
        order by contPublish_Time desc
      ]]>
     </select>
