@@ -103,7 +103,7 @@ $(document).ready(function() {
         //code here
         var auditorId = $("#auditorId").val();
         var auditorResult = $("#auditorOption :checked").val();
-      $.getJSON('../group/auditorContent.action?t=' + new Date().getTime() + '&continfo.contId=' + auditorId + '&continfo.contAudit_Result=' + auditorResult,  function(json) {
+      $.getJSON('../group/auditorContent.action?t=' + new Date().getTime() + '&continfo.contId=' + auditorId + '&continfo.contAuditResult=' + auditorResult,  function(json) {
           if (json.resultCode > 0) {
               //formUnSerialize("deptForm", "dept", json.dept);
             initContentList();
@@ -163,7 +163,7 @@ function initContentList() {
         }else{
             url="../group/listContent.action?continfo.ciCate=2000";//其它栏目
         }
-        
+        url = url + "&continfo.contAuditResult=-1";// admin manager list all the content with set -1, and site list only the audit success content without this
         contentDataTable = $("#J_ContentTable").dataTable({
             bProcessing: false,
             bServerSide:true,//设置服务端分页
@@ -264,7 +264,7 @@ function initContentList() {
                     fnRender:function(obj) {
                         var state = "未通过";
                         className = "red";
-                        if ( 1 == obj.aData.contAudit_Result ) {
+                        if ( 1 == obj.aData.contAuditResult ) {
                             state = "已通过";
                             className = "green";
                         }

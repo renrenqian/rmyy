@@ -31,12 +31,10 @@
                          <input id="contId" name="continfo.contId" type="hidden" />
                          <input id="colId" name="continfo.colId" type="hidden" value='1202'/>
                          <input id="contOrder" name="continfo.contOrder" type="hidden" value="1" />
-                         <input id="contAudit_Result" name="continfo.contAudit_Result" type="hidden" value="0" />
+                         <input id="contAuditResult" name="continfo.contAuditResult" type="hidden" value="0" />
                     </td>
                     <td class="rowName">关键词</td>
-                    <td><input id="contKey" type="text" name="continfo.contKey"
-                        class="input_type1" /> <input id="contAudit_Result" type="hidden"
-                        name="continfo.contAudit_Result" value="1" /></td>
+                    <td><input id="contKey" type="text" name="continfo.contKey" class="input_type1" /></td>
                 </tr>
                 <tr>
                     <td class="rowName w1">作者或来源</td>
@@ -75,6 +73,12 @@
 <!--                 </tr> -->
                 <tr>
                 <td><input type='hidden' value=''/></td>
+                </tr>
+                <tr>
+                   <td class="rowName">内容概要</td>
+                    <td colspan="3" style='padding-left: 10px;'>
+                       <textarea id="contCont" name="continfo.contCont" ></textarea> 
+                   </td>
                 </tr>
                 <tr>
                     <td class="rowName">内容编辑</td>
@@ -139,6 +143,7 @@
                   $('#contPublish_Time').val(dateFormat.isoDateTime(date));
               }      
               $("#contDetail").val(CKEDITOR.instances.editor1.getData());
+              //$("#contCont").val(CKEDITOR.instances.editor1.get.getData());
          },
          error:function (json) {
              

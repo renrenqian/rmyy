@@ -21,7 +21,7 @@ public class DoctorInfo {
     protected Integer osExpertId;
     protected Integer osFamousId;
     protected Integer osFamousStatus;
-//    protected String osIdName;
+    // protected String osIdName;
     protected String diOrder;
     protected Integer diSex;
     protected Integer diEducation;
@@ -30,6 +30,9 @@ public class DoctorInfo {
     protected String diResearch_direction;
     protected String diAccomplishment;
     protected String doctType;// user for id array
+
+    private Integer isfamWork; // is work same with the opser osStatus
+    private Integer isexpWork; // is work same with the opser osStatus
 
     /**
      * @return the diId
@@ -151,20 +154,20 @@ public class DoctorInfo {
         this.osFamousId = osFamousId;
     }
 
-//    /**
-//     * @return the osIdName
-//     */
-//    public final String getOsIdName() {
-//        return osIdName;
-//    }
-//
-//    /**
-//     * @param osIdName
-//     *            the osIdName to set
-//     */
-//    public final void setOsIdName(String osIdName) {
-//        this.osIdName = osIdName;
-//    }
+    // /**
+    // * @return the osIdName
+    // */
+    // public final String getOsIdName() {
+    // return osIdName;
+    // }
+    //
+    // /**
+    // * @param osIdName
+    // * the osIdName to set
+    // */
+    // public final void setOsIdName(String osIdName) {
+    // this.osIdName = osIdName;
+    // }
 
     /**
      * @return the osFamousStatus
@@ -174,7 +177,8 @@ public class DoctorInfo {
     }
 
     /**
-     * @param osFamousStatus the osFamousStatus to set
+     * @param osFamousStatus
+     *            the osFamousStatus to set
      */
     public final void setOsFamousStatus(Integer osFamousStatus) {
         this.osFamousStatus = osFamousStatus;
@@ -299,9 +303,38 @@ public class DoctorInfo {
     public final void setDoctType(String doctType) {
         this.doctType = doctType;
     }
-    
+ 
+    /**
+     * @return the isfamWork
+     */
+    public final Integer getIsfamWork() {
+        return isfamWork;
+    }
+
+    /**
+     * @param isfamWork the isfamWork to set
+     */
+    public final void setIsfamWork(Integer isfamWork) {
+        this.isfamWork = isfamWork;
+    }
+
+    /**
+     * @return the isexpWork
+     */
+    public final Integer getIsexpWork() {
+        return isexpWork;
+    }
+
+    /**
+     * @param isexpWork the isexpWork to set
+     */
+    public final void setIsexpWork(Integer isexpWork) {
+        this.isexpWork = isexpWork;
+    }
+
     /**
      * Generate the json format Doct
+     * 
      * @return
      */
     public Object generateJSON() {

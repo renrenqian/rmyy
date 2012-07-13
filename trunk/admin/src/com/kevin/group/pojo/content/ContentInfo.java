@@ -31,17 +31,17 @@ public class ContentInfo implements Serializable {
     private String contPublish_Time;
     private String contSearchStartTime;
     private String contSearchEndTime;
-    private Integer contAudit_Result;
     private String contAudit_DESC;
     private Integer contOrder;
     private Integer gmId;// belong to group
     private String gmName;
     private String contAuthor;
-    private String contDetail;
+    private String contDetail; // with format and image
+    private String contCont; // just the conte ,without any format
     private String contAttachment;// store the upload file path
     private String displayImage;// store the upload file path
 
-    
+    private Integer contAuditResult;
     private Integer clickTimes;// store the upload file path
     /**
      * @return the contId
@@ -190,22 +190,7 @@ public class ContentInfo implements Serializable {
     public final void setContPublish_Time(String contPublish_Time) {
         this.contPublish_Time = contPublish_Time;
     }
-
-    /**
-     * @return the contAudit_Result
-     */
-    public final Integer getContAudit_Result() {
-        return contAudit_Result;
-    }
-
-    /**
-     * @param contAudit_Result
-     *            the contAudit_Result to set
-     */
-    public final void setContAudit_Result(Integer contAudit_Result) {
-        this.contAudit_Result = contAudit_Result;
-    }
-
+ 
     /**
      * @return the contAudit_DESC
      */
@@ -296,6 +281,20 @@ public class ContentInfo implements Serializable {
     }
 
     /**
+     * @return the contCont
+     */
+    public final String getContCont() {
+        return contCont;
+    }
+
+    /**
+     * @param contCont the contCont to set
+     */
+    public final void setContCont(String contCont) {
+        this.contCont = contCont;
+    }
+
+    /**
      * @return the contAttachment
      */
     public final String getContAttachment() {
@@ -364,6 +363,20 @@ public class ContentInfo implements Serializable {
      */
     public final void setClickTimes(Integer clickTimes) {
         this.clickTimes = clickTimes;
+    }
+
+    /**
+     * @return the contAuditResult
+     */
+    public final Integer getContAuditResult() {
+        return contAuditResult;
+    }
+
+    /**
+     * @param contAuditResult the contAuditResult to set
+     */
+    public final void setContAuditResult(Integer contAuditResult) {
+        this.contAuditResult = contAuditResult;
     }
 
     public String generateJSON() {

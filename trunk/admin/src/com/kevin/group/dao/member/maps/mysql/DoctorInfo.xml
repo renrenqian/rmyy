@@ -43,6 +43,25 @@
      ]]>
     </select>
     
+    <!-- list the listgjrc info -->
+    <select id="listgjrc"  parameterClass="DoctorInfo"  resultClass="DoctorInfo">
+     <![CDATA[
+       select 
+        DI_ID as diId,
+        DI_PORTRAIT as diPortrait,
+        DI_NAME as diName,
+        od.OD_NAME as diDeptName,
+        DI_POSITION as diPosition,
+        opse.OS_STATUS as isexpWork,
+        opsf.OS_STATUS as isfamWork
+       from DOCTOR_INFO di
+       left join OFFICE_DETAIL od on od.OD_ID = di.DI_DEPTTYPE
+       left join OUTPATIENT_SERVICE opse on opse.OS_ID = di.OS_EXPERT_ID
+       left join OUTPATIENT_SERVICE opsf on opsf.OS_ID = di.OS_FAMOUS_ID
+       where DI_TAL_TYPE Like CONCAT('%',#doctType#,'%')
+     ]]>
+    </select>
+    
     <!-- search the DoctorInfo info -->
     <select id="search"  parameterClass="DoctorInfo"  resultClass="DoctorInfo">
      <![CDATA[

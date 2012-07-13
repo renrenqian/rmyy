@@ -17,6 +17,7 @@ DROP TABLE CONTENT_CLICK;
 DROP TABLE COLUMN_INFO;
 DROP TABLE ONLINE_CONSULTATION;
 DROP TABLE EMPLOYEE_RECRUITMENT;
+DROP TABLE WEB_FILE;
 
 /* set the db encodings */
 set names utf8;
@@ -55,7 +56,8 @@ CREATE TABLE CONTENT_DETAIL  (
    CD_ORDER              INTEGER   DEFAULT '1',
    GM_ID                 INTEGER,
    CD_AUTHOR             VARCHAR(512),
-   CD_DETAIL             BLOB,
+   CD_DETAIL             VARCHAR(512),
+   CD_CONTENT            VARCHAR(512),
    CD_ATTACHMENT         VARCHAR(512),
    CD_DISPLAY_IMAGE      VARCHAR(256),
    PRIMARY KEY (CD_ID)
@@ -144,5 +146,18 @@ CREATE TABLE EMPLOYEE_RECRUITMENT  (
 ) type=InnoDB;
 
 alter table EMPLOYEE_RECRUITMENT auto_increment= 1000;
+
+/*==============================================================*/
+/* 表名：网站文件名称表  Table Name(WEB_FILE)                     */
+/*==============================================================*/
+CREATE TABLE WEB_FILE  (
+   WF_ID                 INTEGER               NOT NULL  AUTO_INCREMENT,
+   WF_NAME               VARCHAR(64),
+   WF_CODE               INTEGER,
+   WF_CATE               INTEGER,
+   PRIMARY KEY (WF_ID)
+) type=InnoDB;
+
+alter table WEB_FILE auto_increment= 1000;
 
 

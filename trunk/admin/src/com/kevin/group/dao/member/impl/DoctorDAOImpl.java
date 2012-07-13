@@ -57,4 +57,17 @@ public class DoctorDAOImpl extends AbstractBaseDAO<DoctorInfo> implements
             throw new BaseSqlMapException(e.getMessage());
         }
     }
+
+    /* (non-Javadoc)
+     * @see com.kevin.group.dao.member.IDoctorDAO#listgjrc(com.kevin.group.pojo.member.DoctorInfo)
+     */
+    @Override
+    public List<DoctorInfo> listgjrc(DoctorInfo doct) throws BaseSqlMapException {
+        try {
+            return super.list("listgjrc", doct);
+        } catch (BaseSqlMapException e) {
+            throw new BaseSqlMapException(e.getMessage());
+        }
+    }
+    
 }
