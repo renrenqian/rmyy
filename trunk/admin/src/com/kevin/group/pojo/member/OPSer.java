@@ -9,7 +9,7 @@ package com.kevin.group.pojo.member;
  * @author kevin
  * @since jdk1.6
  */
-public class OPSer {
+public class OPSer extends DoctorInfo {
 
     private Integer osId;
     private Integer osCate;
@@ -20,6 +20,16 @@ public class OPSer {
     private String osCost;
     private String osBook_link;
     private Integer doctId;
+
+    private Integer diDeptId;
+ 
+    // for list paginate of famous only
+    private Integer osfCate;
+    private String osfTime;
+    private String osfLocation;
+    private Integer osfLimit;
+    private Integer osfStatus;
+    private String osfCost;
 
     /**
      * @return the osId
@@ -35,7 +45,7 @@ public class OPSer {
     public final void setOsId(Integer osId) {
         this.osId = osId;
     }
- 
+
     /**
      * @return the osCate
      */
@@ -44,7 +54,8 @@ public class OPSer {
     }
 
     /**
-     * @param osCate the osCate to set
+     * @param osCate
+     *            the osCate to set
      */
     public final void setOsCate(Integer osCate) {
         this.osCate = osCate;
@@ -153,6 +164,105 @@ public class OPSer {
      */
     public final void setDoctId(Integer doctId) {
         this.doctId = doctId;
+    }
+
+    /**
+     * @return the diDeptId
+     */
+    public final Integer getDiDeptId() {
+        return diDeptId;
+    }
+
+    /**
+     * @param diDeptId
+     *            the diDeptId to set
+     */
+    public final void setDiDeptId(Integer diDeptId) {
+        this.diDeptId = diDeptId;
+    }
+
+    /**
+     * @return the osfCate
+     */
+    public final Integer getOsfCate() {
+        return osfCate;
+    }
+
+    /**
+     * @param osfCate the osfCate to set
+     */
+    public final void setOsfCate(Integer osfCate) {
+        this.osfCate = osfCate;
+    }
+
+    /**
+     * @return the osfTime
+     */
+    public final String getOsfTime() {
+        return osfTime;
+    }
+
+    /**
+     * @param osfTime the osfTime to set
+     */
+    public final void setOsfTime(String osfTime) {
+        this.osfTime = osfTime;
+    }
+
+    /**
+     * @return the osfLocation
+     */
+    public final String getOsfLocation() {
+        return osfLocation;
+    }
+
+    /**
+     * @param osfLocation the osfLocation to set
+     */
+    public final void setOsfLocation(String osfLocation) {
+        this.osfLocation = osfLocation;
+    }
+
+    /**
+     * @return the osfLimit
+     */
+    public final Integer getOsfLimit() {
+        return osfLimit;
+    }
+
+    /**
+     * @param osfLimit the osfLimit to set
+     */
+    public final void setOsfLimit(Integer osfLimit) {
+        this.osfLimit = osfLimit;
+    }
+
+    /**
+     * @return the osfStatus
+     */
+    public final Integer getOsfStatus() {
+        return osfStatus;
+    }
+
+    /**
+     * @param osfStatus the osfStatus to set
+     */
+    public final void setOsfStatus(Integer osfStatus) {
+        this.osfStatus = osfStatus;
+    }
+
+    /**
+     * @return the osfCost
+     */
+    public final String getOsfCost() {
+        return osfCost;
+    }
+
+    /**
+     * @param osfCost the osfCost to set
+     */
+    public final void setOsfCost(String osfCost) {
+        this.osfCost = osfCost;
     }
 
 }
