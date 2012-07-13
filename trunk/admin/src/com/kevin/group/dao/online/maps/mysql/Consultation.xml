@@ -153,7 +153,7 @@
                  ]]>
           </isNotEmpty>
         </dynamic>
-     <![CDATA[ORDER BY OC_POST_TIME, OS_ANSWER_TIME desc]]>
+     <![CDATA[ORDER BY OC_POST_TIME desc, OS_ANSWER_TIME desc]]>
      <![CDATA[LIMIT #start#,#pageSize#]]>
     </select>
 
@@ -203,7 +203,7 @@
       <![CDATA[
          UPDATE ONLINE_CONSULTATION 
          SET 
-            OS_CLICKS = OS_CLICKS + 1,
+            OS_CLICKS = OS_CLICKS + 1
          WHERE OC_ID = #ocId#
       ]]>
     </update>

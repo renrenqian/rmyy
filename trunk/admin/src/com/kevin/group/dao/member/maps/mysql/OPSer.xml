@@ -56,6 +56,78 @@
       -->
     </select>
 
+    <!-- 查询总记录数 -->
+    <select id="getTotalCount" parameterClass="OPSer" resultClass="java.lang.Long">
+       <![CDATA[
+         select COUNT(DI_ID) 
+         from DOCTOR_INFO
+      ]]>
+        <dynamic prepend=" where ">
+        <isNotEmpty property="diName" prepend="AND">
+          <![CDATA[
+                 di.DI_NAME Like CONCAT('%',#diName#,'%')
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="diDeptType" prepend="AND">
+          <![CDATA[
+                 di.DI_DEPTTYPE = #diDeptType#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="osTime" prepend="AND">
+          <![CDATA[
+                 famops.OS_TIME Like CONCAT('%',#osTime#,'%')  or perops.OS_TIME Like CONCAT('%',#osTime#,'%') 
+                 ]]>
+          </isNotEmpty>
+        </dynamic>
+    </select>
+    
+    <!-- list all the DoctorInfo info -->
+    <select id="listAllByPageBean"  parameterClass="pageBean"  resultClass="OPSer">
+     <![CDATA[
+       select 
+        DI_ID as diId,
+        DI_NAME as diName,
+        od.OD_ID as diDeptId,
+        od.OD_NAME as diDeptName,
+        DI_MAJOR as diMajor,
+        famops.OS_CATE as osfCate,
+        famops.OS_TIME as osfTime,
+        famops.OS_LOCATION  as osfLocation,
+        famops.OS_COST as osfCost,
+        famops.OS_LIMIT as osfLimit,
+        famops.OS_STATUS as osfStatus
+        perops.OS_CATE as osCate,
+        perops.OS_TIME as osTime,
+        perops.OS_LOCATION  as osLocation,
+        perops.OS_COST as osCost,
+        perops.OS_LIMIT as osLimit,
+        perops.OS_STATUS as osStatus
+       from DOCTOR_INFO di
+       left join OUTPATIENT_SERVICE famops on famops.OS_ID = di.OS_FAMOUS_ID
+       left join OUTPATIENT_SERVICE perops on perops.OS_ID = di.OS_EXPERT_ID
+       left join OFFICE_DETAIL od on od.OD_ID = di.DI_DEPTTYPE
+     ]]>
+        <dynamic prepend=" where ">
+        <isNotEmpty property="condition.diName" prepend="AND">
+          <![CDATA[
+                 di.DI_NAME Like CONCAT('%',#condition.diName#,'%')
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.diDeptType" prepend="AND">
+          <![CDATA[
+                 di.DI_DEPTTYPE = #condition.diDeptType#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.osTime" prepend="AND">
+          <![CDATA[
+                 famops.OS_TIME Like CONCAT('%',#condition.osTime#,'%')  or perops.OS_TIME Like CONCAT('%',#condition.osTime#,'%') 
+                 ]]>
+          </isNotEmpty>
+        </dynamic>
+     <![CDATA[ORDER BY DI_ORDER]]>
+     <![CDATA[LIMIT #start#,#pageSize#]]>
+    </select>
+
     <!-- add OPSer -->
     <insert id="insert" parameterClass="OPSer">
        <![CDATA[

@@ -2,6 +2,7 @@
  * PrivilegeInterceptor.java
  */
 package com.kevin.common.interceptor;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
@@ -33,10 +34,21 @@ public class PrivilegeInterceptor extends MethodFilterInterceptor{
     @Override
     protected String doIntercept(ActionInvocation actioninvocation)
             throws Exception {
+        String actionname = actioninvocation.getProxy().getActionName();
+        
+        HttpServletRequest request = ServletActionContext.getRequest();
+        // filter for web access start added @2012/7/13 16:22
+        if("1".equals(request.getParameter("web"))){
+            if(logger.isDebugEnabled()){
+                logger.debug("***************************web用户访问("+actionname+")****************************");
+            }
+            return actioninvocation.invoke();
+        }
+        // filter for web access end added @2012/7/13 16:22
         if(userService == null){//获得业务逻辑bean
             userService = (IUserInfoService)ServletActionContextUtil.getBean("userInfoService");
         }
-        String actionname = actioninvocation.getProxy().getActionName();
+        //String actionname = actioninvocation.getProxy().getActionName();
         AbstractBaseAction myaction =    (AbstractBaseAction)actioninvocation.getAction();//被拦截的Action对象
         if(logger.isDebugEnabled()){
             logger.debug("******************************Action Class:"+myaction.getClass().getSimpleName() +" action name:"+actionname+"  menthod:"+ actioninvocation.getProxy().getMethod()+"*******************************");
@@ -51,7 +63,7 @@ public class PrivilegeInterceptor extends MethodFilterInterceptor{
         
         
         //判断是否会话超时开始
-        HttpSession session = ServletActionContext.getRequest().getSession(false);
+        HttpSession session = request.getSession(false);
         if(session == null){
             myaction.setResultCode(SystemConstant.SESSION_TIMEOUT);
             myaction.setMessage("会话已过期,请重新登陆");//408 time out

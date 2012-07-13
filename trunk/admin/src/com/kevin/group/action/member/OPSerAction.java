@@ -14,6 +14,8 @@ import org.springframework.stereotype.Component;
 
 import com.kevin.common.action.AbstractBaseAction;
 import com.kevin.common.exception.CommonServiceException;
+import com.kevin.common.pojo.PageBean;
+import com.kevin.group.pojo.member.LeaderInfo;
 import com.kevin.group.pojo.member.OPSer;
 import com.kevin.group.service.member.IOPSerService;
 import com.opensymphony.xwork2.Action;
@@ -30,6 +32,7 @@ public class OPSerAction extends AbstractBaseAction {
     private OPSer ops;
     private List<OPSer> opsList;
     private List<Serializable> ides;
+    private PageBean<OPSer> page;
 
     /**
      * @param opserService
@@ -109,7 +112,10 @@ public class OPSerAction extends AbstractBaseAction {
 
     public String listOPSer() {// list all the ops
         try {
-            opsList = opserService.listAll();
+            if(page!=null){
+                page.setCondition(ops);
+            }
+            page = opserService.list(page);
             setResultCode(1);
         } catch (CommonServiceException e) {
             setMessage(e.getMessage());
