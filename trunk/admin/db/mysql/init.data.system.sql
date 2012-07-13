@@ -1,7 +1,7 @@
 ﻿set names utf8;
 /*For login user table*/
 truncate table USER_INFO;
-INSERT INTO USER_INFO(UI_ID, UI_ACCOUNT, UI_NAME, UI_PWD, UI_ENABLE, UI_DESC, UI_OFFIC_PHONE, UI_CELL_PHONE, UI_MAIL, UI_HOME, UI_COMPANY,UI_SHOW) VALUES(1000, 'admin', '管理员', '1b3231655cebb7a1f783eddf27d254ca', 1, 'super user', '', '10086', '', '', 'lovezq',0);
+INSERT INTO USER_INFO(UI_ID, UI_ACCOUNT, UI_NAME, UI_PWD, UI_ENABLE, UI_DESC, UI_OFFIC_PHONE, UI_CELL_PHONE, UI_MAIL, UI_HOME, UI_COMPANY,UI_SHOW) VALUES(1000, 'admin', '管理员', '1b3231655cebb7a1f783eddf27d254ca', 1, 'super user', '', '10086', '', '', 'dearzq',0);
 /* role */
 truncate table ROLE_INFO;
 INSERT INTO ROLE_INFO (RI_ID, RI_NAME, RI_PARENT, RI_LEVEL, RI_DESC, RI_SHOW) VALUES (1000, '超级管理员', 0, 1, '拥有所有权限', 0);
