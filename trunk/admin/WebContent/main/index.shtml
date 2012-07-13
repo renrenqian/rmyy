@@ -185,7 +185,7 @@
     $.getJSON("homeNews", function (json) {
         if (json.resultCode > 0) {
             //医院公告部分
-            var yygg = json.news_yygg;
+            var yygg = json.newsyygg;
             var ggStr='';
             $(yygg).each(function (i, item) {
                 if(i<3){
@@ -199,7 +199,7 @@
             $('#J_GG').html(ggStr);
 
             //医院新闻部分
-            var yyxw = json.news_yyxw;
+            var yyxw = json.newsyyxw;
             var xwStr='';
             $(yyxw).each(function (i, item) {
                 if(i<3){
@@ -213,7 +213,7 @@
             $('#J_XW').html(xwStr);
 
             //头条新闻部分
-            var ttxw = json.news_yyxw0;
+            var ttxw = json.newsyyxw0;
         //    console.log(ttxw[0].contDetail);
            // var  temp =GetFireFoxInnerHTML(ttxw[0].contDetail);        //html是一个要去除html标记的文档
       //      console.log(temp);

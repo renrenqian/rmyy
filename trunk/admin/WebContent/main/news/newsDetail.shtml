@@ -33,7 +33,10 @@
 <script src="../js/common.js"></script>
 <script>
 var contId = GetParameter('contId');
-$.getJSON('/admin/group/searchContent.action?continfo.contId='+contId, function(json) {
+//浏览量
+$.getJSON('/admin/group/updateClickContent.action?web=1&continfo.contId=' + contId,function(json){});
+//详细内容
+$.getJSON('/admin/group/searchContent.action?web=1&continfo.contId='+contId, function(json) {
 	if (json.resultCode > 0) {
 		var continfo = json.continfo;		
 		$('#J_ContAuthor').after(continfo.contAuthor);		

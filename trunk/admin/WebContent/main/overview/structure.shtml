@@ -77,43 +77,13 @@
 							<div class='strucBox2' style='margin-left:15px;'>
 								<ul class='lcDeptList'></ul>
 							</div>
-							<!--职能科室 -->
+							<!--质控中心 -->
 							<div class='strucBox3' style='margin-left:10px;'>
-								<ul class=''>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-								</ul>
+								<ul class='zkDeptList'></ul>
 							</div>
-	                        <!--职能科室 -->
+	                        <!--诊疗中心 -->
 							<div class='strucBox3' style='margin-left:10px;'>
-								<ul class=''>
-									<li><a href='#'>杭州市院内感染管理质控中心</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-								</ul>
+								<ul class='zlDeptList'></ul>
 							</div>
 						</div>
 					</div>
@@ -182,6 +152,35 @@
 
 			}
 		});
+
+        //质控中心
+        $.getJSON("../dept/zkzx", function(json) {
+            if (json.resultCode > 0) {
+                var deptList = json.deptList;
+                var listItem= '';
+                $(deptList).each(
+                        function(i, item) {
+                            listItem+="<li><a href='/admin/main/dept/deptDetail.shtml?id="
+                                    + item.dpId + "&cata1=ksdh&cata2=zkzx' target='_blank'>"+ item.dpName +"</a></li>";
+                        });
+                $('.zkDeptList').append(listItem);
+
+            }
+        });
+        //诊疗中心
+        $.getJSON("../dept/zlzx", function(json) {
+            if (json.resultCode > 0) {
+                var deptList = json.deptList;
+                var listItem= '';
+                $(deptList).each(
+                        function(i, item) {
+                            listItem+="<li><a href='/admin/main/dept/deptDetail.shtml?id="
+                                    + item.dpId + "&cata1=ksdh&cata2=zlzx' target='_blank'>"+ item.dpName +"</a></li>";
+                        });
+                $('.zlDeptList').append(listItem);
+
+            }
+        });
 	</script>
 </body>
 </html>

@@ -55,7 +55,7 @@
 		$.ajax({ //这里使用到Jquery的ajax方法
 			type : "POST",
 			dataType : "json",
-			url : '/admin/member/listLeader.action?leader.liCate=0', //请求的处理数据 
+			url : '/admin/member/listLeader.action?web=1&leader.liCate=0', //请求的处理数据
 			data : params,			
 			//下面的操作就是成功返回数据以后，进行数据的绑定 
 			success : function(data) {	

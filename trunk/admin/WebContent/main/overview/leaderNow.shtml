@@ -40,7 +40,7 @@ var liId=GetParameter('liId');
 if(liId==''){
 	liId=26;
 }
-var action='/admin/member/searchLeader.action?leader.liId='+liId;
+var action='/admin/member/searchLeader.action?web=1&leader.liId='+liId;
 $.getJSON(action,function(json){
 	if(json.leader){
 		var leader=json.leader;
@@ -74,7 +74,7 @@ $.getJSON('leadinfo', function(json) {
 		var str="";
 		var leaderList1=json.leaderList1;
 		$(leaderList1).each(function(i,item){
-			str+="<li><a href='/admin/main/overview/leaderNow.shtml?cata1=yygl&cata2=ldbz&cata3=xrld&liId="+item.liId+"'>"+item.liName+"</a></li>";
+			str+="<li><a href='/admin/main/overview/leaderNow.shtml?web=1&cata1=yygl&cata2=ldbz&cata3=xrld&liId="+item.liId+"'>"+item.liName+"</a></li>";
 		});
 		$('.leaderList').html(str);
 	}

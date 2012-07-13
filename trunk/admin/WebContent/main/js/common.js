@@ -95,7 +95,7 @@ $(document).ready(function() {
 		switch (myCata1) {
 			case 'yygl':myCata1 = '医院概览';break;
 			case 'xxzx':myCata1 = '信息中心';break;
-			case 'hzfwzx':myCata1 = '患者服务中心';break;
+			case 'hzfwzx':myCata1 ='患者服务中心';break;
 			case 'ksdh':myCata1 = '科室导航';break;
 			case 'zjjs':myCata1 = '专家介绍';break;
 			case 'kyxs':myCata1 = '科研学术';break;
@@ -125,6 +125,8 @@ $(document).ready(function() {
 			case 'tszk':myCata2 = '特色专科';myCata2Href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=tszk';break;
 			case 'yjks':myCata2 = '医技科室';myCata2Href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=yjks';break;
 			case 'znks':myCata2 = '职能科室';myCata2Href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=znks';break;
+			case 'zkzx':myCata2 = '杭州市质控中心';myCata2Href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=zkzx';break;
+			case 'zlzx':myCata2 = '杭州市诊疗中心';myCata2Href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=zlzx';break;
 			case 'zjyl':myCata2 = '专家一览';break;
 			case 'mymz':myCata2 = '名医门诊';break;
 			case 'gjrc':myCata2 = '各级人才';break;
@@ -228,7 +230,9 @@ $(document).ready(function() {
 		"<li><a href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=sszd'>省市重点</a></li>"+
 		"<li><a href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=tszk'>特色专科</a></li>"+
 		"<li><a href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=yjks'>医技科室</a></li>"+
-		"<li><a href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=znks'>职能科室</a></li>";
+		"<li><a href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=znks'>职能科室</a></li>"+
+		"<li><a href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=zkzx'>杭州市质控中心</a></li>"+
+		"<li><a href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=zlzx'>杭州市诊疗中心</a></li>";
 	}
 	if(cata1 =="专家介绍"){
 		$('.titleType4').html('专家介绍');

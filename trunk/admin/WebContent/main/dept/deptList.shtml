@@ -72,7 +72,7 @@
 					var commonList = "";
 					$(deptList).each(							
 							function(i, item) {
-								listItem = " <li><a href='deptDetail.shtml?id="+ item.dpId + "&cata1=ksdh&cata2="+action+"'>" + item.dpName + "</a></li>";
+								listItem = " <li><a href='deptDetail.shtml?web=1&id="+ item.dpId + "&cata1=ksdh&cata2="+action+"'>" + item.dpName + "</a></li>";
 								commonList += listItem;							
 							});
 					$('.expList').html("<li class='deptList'>"+

@@ -74,7 +74,7 @@
     var action='';
 
     $(document).ready(function () {
-        action="/admin/online/listConsultation.action?cons.osTypical=1";
+        action="/admin/online/listConsultation.action?web=1&cons.osTypical=1";
         initData(1,action); //初始化数据
     });
 
@@ -123,9 +123,9 @@
            $("#Pagination").html("");
            var deptId=$('#J_Dept').val();
            if(deptId==0){
-               action="/admin/online/listConsultation.action?cons.osTypical=1";
+               action="/admin/online/listConsultation.action?web=1&cons.osTypical=1";
            }else{
-               action="/admin/online/listConsultation.action?cons.osTypical=1&cons.ocReceive_office="+deptId;
+               action="/admin/online/listConsultation.action?web=1&cons.osTypical=1&cons.ocReceive_office="+deptId;
            }
            initData(1,action);
        });

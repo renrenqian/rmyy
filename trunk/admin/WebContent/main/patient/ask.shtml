@@ -103,7 +103,7 @@ $(document).ready(function(){
 	    if ($(this).sdSubmitValidate(".queryTable")) {
 	    	if($('#ocRequestOffice').val()!='0'){
 		        var ocId = $("#ocId").val();                     
-		        var  url = "/admin/online/addConsultation.action";
+		        var  url = "/admin/online/addConsultation.action?web=1";
 		        var dateFormat = new DateFormat();
 		        var date = new Date();	      
 		        var isoDateTime=dateFormat.isoDateTime(date);		        

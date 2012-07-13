@@ -29,7 +29,7 @@
 		$(document).ready(function() {
 					var diId = GetParameter('diId');
 					var str='';
-					$.getJSON('/admin/member/searchDoctor.action?doct.diId='+ diId, function(json) {
+					$.getJSON('/admin/member/searchDoctor.action?web=1&doct.diId='+ diId, function(json) {
 						if (json.resultCode > 0) {
 							var doctDetail = json.doct;
 							str+="<h2 class='titleType3'>"+
@@ -68,7 +68,7 @@
 							
 							//专家门诊信息填充
 							if(doctDetail.osExpertId){
-			 					$.getJSON('/admin/member/searchOPSer.action?ops.osId='+doctDetail.osExpertId,function(json){
+			 					$.getJSON('/admin/member/searchOPSer.action?web=1&ops.osId='+doctDetail.osExpertId,function(json){
 			 						if(json.resultCode > 0){
 			 							var ops=json.ops;
 			 							var osTime=ops.osTime?fixDate(ops.osTime):'';
@@ -93,7 +93,7 @@
 							}
 							//名医门诊信息填充
 							if(doctDetail.osFamousId){
-			 					$.getJSON('/admin/member/searchOPSer.action?ops.osId='+doctDetail.osFamousId,function(json){
+			 					$.getJSON('/admin/member/searchOPSer.action?web=1&ops.osId='+doctDetail.osFamousId,function(json){
 			 						if(json.resultCode > 0){
 			 							var ops=json.ops;
 			 							var osTime=ops.osTime?fixDate(ops.osTime):'';
