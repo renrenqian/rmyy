@@ -182,7 +182,8 @@ public class ContentInfoAction extends AbstractBaseAction {
                 //File storeFolder = new File("/upload/content/" + monthlize);
                 if(!storeFolder.exists()) storeFolder.mkdirs();
                 for(int i = 0;i<file.length;i++){
-                    File storeFile = new File(storeFolder, System.currentTimeMillis() + "_" + fileFileName[i]);
+                    SimpleDateFormat dateFormatFile = new SimpleDateFormat("yyyyMMddHHmmss", Locale.ENGLISH);
+                    File storeFile = new File(storeFolder, dateFormatFile + "_" + fileFileName[i]);
                     if(0 == i){
                         String storePath = storeFile.getAbsolutePath();
                         continfo.setContAttachment(storePath.substring(storePath.indexOf(GroupConstance.UPLOAD_ROOT)));
@@ -246,7 +247,8 @@ public class ContentInfoAction extends AbstractBaseAction {
                 //File storeFolder = new File("/upload/content/" + monthlize);
                 if(!storeFolder.exists()) storeFolder.mkdirs();
                 for(int i = 0;i<file.length;i++){
-                    File storeFile = new File(storeFolder, System.currentTimeMillis() + "_" + fileFileName[i]);
+                    SimpleDateFormat dateFormatFile = new SimpleDateFormat("yyyyMMddHHmmss", Locale.ENGLISH);
+                    File storeFile = new File(storeFolder, dateFormatFile + "_" + fileFileName[i]);
                     if(0 == i){
                         String storePath = storeFile.getAbsolutePath();
                         continfo.setContAttachment(storePath.substring(storePath.indexOf(GroupConstance.UPLOAD_ROOT)));
