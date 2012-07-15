@@ -143,8 +143,20 @@
 				var listItem= '';
 				$(deptList).each(
 						function(i, item) {
-							listItem+="<li><a href='/admin/main/dept/deptDetail.shtml?id="
-								+ item.dpId + "&cata1=ksdh&cata2=znks' target='_blank'>"+ item.dpName +"</a></li>";											
+                            if(item.dpName=='医院办公室'){
+                                listItem+="<li><a href='/admin/main/dept/deptDetail.shtml?id="
+                                        + item.dpId + "&cata1=ksdh&cata2=znks' target='_blank'>"+ item.dpName +"</a></li>";
+                                listItem+="<li style='margin-left: 15px; list-style-type: square; cursor: default;'>综合档案室</li>";
+                                listItem+="<li style='margin-left: 15px; list-style-type: square; cursor: default;'>文印室</li>";
+                            }else if(item.dpName=='人事科'){
+                                listItem+="<li style='margin-left: 15px; list-style-type: square; cursor: default;'>离退休办公室</li>";
+                            }else if(item.dpName=='质量管理科'){
+                                listItem+="<li style='margin-left: 15px; list-style-type: square; cursor: default;'>病案室</li>";
+                                listItem+="<li style='margin-left: 15px; list-style-type: square; cursor: default;'>统计室</li>";
+                            }else{
+                                listItem+="<li><a href='/admin/main/dept/deptDetail.shtml?id="
+                                        + item.dpId + "&cata1=ksdh&cata2=znks' target='_blank'>"+ item.dpName +"</a></li>";
+                            }
 						});
 				$('.znDeptList').append(listItem);
 			}
