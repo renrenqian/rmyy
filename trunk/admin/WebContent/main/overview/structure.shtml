@@ -77,43 +77,13 @@
 							<div class='strucBox2' style='margin-left:15px;'>
 								<ul class='lcDeptList'></ul>
 							</div>
-							<!--职能科室 -->
+							<!--杭州市质控中心 -->
 							<div class='strucBox3' style='margin-left:10px;'>
-								<ul class=''>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-								</ul>
+								<ul class='zkzxDeptList'></ul>
 							</div>
-	                        <!--职能科室 -->
+	                        <!--杭州市诊疗中心 -->
 							<div class='strucBox3' style='margin-left:10px;'>
-								<ul class=''>
-									<li><a href='#'>杭州市院内感染管理质控中心</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-									<li><a href='#'>党委综合办公室</a></li>
-								</ul>
+								<ul class='zlzxDeptList'></ul>
 							</div>
 						</div>
 					</div>
@@ -147,7 +117,6 @@
 				$('.lcDeptList').html(
 						"<li><strong>非手术科室</strong></li><li><br/></li>" + neiList+
 						"<li><hr/></li><li><hr/></li><li><strong>手术科室</strong></li><li><br/></li>"+waiList+"<li><hr/></li><li><hr/></li>");
-
 			}
 		});
 		
@@ -164,7 +133,6 @@
 						});
 				$('.lcDeptList').append(
 						"<li><strong>诊治相关科室</strong></li><li><br/></li>" + listItem);
-
 			}
 		});
 		
@@ -179,9 +147,35 @@
 								+ item.dpId + "&cata1=ksdh&cata2=znks' target='_blank'>"+ item.dpName +"</a></li>";											
 						});
 				$('.znDeptList').append(listItem);
-
 			}
 		});
+
+        //质控中心
+        $.getJSON("../dept/zkzx", function(json) {
+            if (json.resultCode > 0) {
+                var deptList = json.deptList;
+                var listItem= '';
+                $(deptList).each(
+                        function(i, item) {
+                            listItem+="<li><a href='/admin/main/dept/deptDetail.shtml?id="
+                                    + item.dpId + "&cata1=ksdh&cata2=zkzx' target='_blank'>"+ item.dpName +"</a></li>";
+                        });
+                $('.zkzxDeptList').append(listItem);
+            }
+        });
+        //诊疗中心
+        $.getJSON("../dept/zlzx", function(json) {
+            if (json.resultCode > 0) {
+                var deptList = json.deptList;
+                var listItem= '';
+                $(deptList).each(
+                        function(i, item) {
+                            listItem+="<li><a href='/admin/main/dept/deptDetail.shtml?id="
+                                    + item.dpId + "&cata1=ksdh&cata2=zlzx' target='_blank'>"+ item.dpName +"</a></li>";
+                        });
+                $('.zlzxDeptList').append(listItem);
+            }
+        });
 	</script>
 </body>
 </html>

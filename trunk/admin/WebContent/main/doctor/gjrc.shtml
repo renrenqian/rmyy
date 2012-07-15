@@ -1,269 +1,97 @@
 ﻿<!DOCTYPE html>
 <head>
-<!--#include virtual="../master/headFile.html"-->
+    <!--#include virtual="../master/headFile.html"-->
 </head>
 <body>
-	<!--#include virtual="../master/top.html"-->
-	<div class="content contentPart"
-		style="margin-top: 3px; *margin-top: 3px;">
-		<div style="display: block; overflow: hidden;">
-			<div class="leftCol2">
-				<div class="mainPart">
-					<div class="itemBg">
-						<div class="titleBg2">
-							  <p class="bread">
-								<a class="breadB" href="/admin/main/index.shtml">首页</a><span>&gt;</span>
-								<a class="breadN J_Cata1" href="#"></a><span>&gt;</span> 
-								<a class="breadN J_Cata2" href="#"></a><span>&gt;</span> 
-								<a class="breadN J_Cata3" href="#"></a>
-							</p>
-						</div>
-						<h2 class="titleType3">各级人才 . <span class='J_Cata3'></span></h2>
-						<div style="clear: both;"></div>
-						<div class="docBody">
-							<h3 class="newsInfo">
-								<span>“151人才”简介：</span>151人才的介绍文字，151人才的介绍文字151人才的介绍文字，151人才的介绍文字。151人才的介绍文字，151人才的介绍文字151人才的介绍文字，151人才的介绍文字。
-							</h3>
-							<hr class="mb20" />
-							<ul class="picDocList">
-								<li><img src="../images/docPer.jpg" class="docPic" />
-									<div class="docIntro">
-										<p>
-											<a href="DocPer.aspx">梅瑾</a><span>在诊</span>
-										</p>
-										<p>
-											<span>职称：</span><span>主任医师</span>
-										</p>
-										<p>
-											<span>科室：</span><span>产科</span>
-										</p>
-									</div></li>
-								<li><img src="../images/docPer.jpg" class="docPic" />
-									<div class="docIntro">
-										<p>
-											<a href="DocPer.aspx">梅瑾</a><span>在诊</span>
-										</p>
-										<p>
-											<span>职称：</span><span>主任医师</span>
-										</p>
-										<p>
-											<span>科室：</span><span>产科</span>
-										</p>
-									</div></li>
-								<li><img src="../images/docPer.jpg" class="docPic" />
-									<div class="docIntro">
-										<p>
-											<a href="DocPer.aspx">梅瑾</a><span>在诊</span>
-										</p>
-										<p>
-											<span>职称：</span><span>主任医师</span>
-										</p>
-										<p>
-											<span>科室：</span><span>产科</span>
-										</p>
-									</div></li>
-								<li><img src="../images/docPer.jpg" class="docPic" />
-									<div class="docIntro">
-										<p>
-											<a href="DocPer.aspx">梅瑾</a><span>在诊</span>
-										</p>
-										<p>
-											<span>职称：</span><span>主任医师</span>
-										</p>
-										<p>
-											<span>科室：</span><span>产科</span>
-										</p>
-									</div></li>
-								<li><img src="../images/docPer.jpg" class="docPic" />
-									<div class="docIntro">
-										<p>
-											<a href="DocPer.aspx">梅瑾</a><span>在诊</span>
-										</p>
-										<p>
-											<span>职称：</span><span>主任医师</span>
-										</p>
-										<p>
-											<span>科室：</span><span>产科</span>
-										</p>
-									</div></li>
-								<li><img src="../images/docPer.jpg" class="docPic" />
-									<div class="docIntro">
-										<p>
-											<a href="DocPer.aspx">梅瑾</a><span>在诊</span>
-										</p>
-										<p>
-											<span>职称：</span><span>主任医师</span>
-										</p>
-										<p>
-											<span>科室：</span><span>产科</span>
-										</p>
-									</div></li>
-								<li><img src="../images/docPer.jpg" class="docPic" />
-									<div class="docIntro">
-										<p>
-											<a href="DocPer.aspx">梅瑾</a><span>在诊</span>
-										</p>
-										<p>
-											<span>职称：</span><span>主任医师</span>
-										</p>
-										<p>
-											<span>科室：</span><span>产科</span>
-										</p>
-									</div></li>
-								<li><img src="../images/docPer.jpg" class="docPic" />
-									<div class="docIntro">
-										<p>
-											<a href="DocPer.aspx">梅瑾</a><span>在诊</span>
-										</p>
-										<p>
-											<span>职称：</span><span>主任医师</span>
-										</p>
-										<p>
-											<span>科室：</span><span>产科</span>
-										</p>
-									</div></li>
-								<li><img src="../images/docPer.jpg" class="docPic" />
-									<div class="docIntro">
-										<p>
-											<a href="DocPer.aspx">梅瑾</a><span>在诊</span>
-										</p>
-										<p>
-											<span>职称：</span><span>主任医师</span>
-										</p>
-										<p>
-											<span>科室：</span><span>产科</span>
-										</p>
-									</div></li>
-								<li><img src="../images/docPer.jpg" class="docPic" />
-									<div class="docIntro">
-										<p>
-											<a href="DocPer.aspx">梅瑾</a><span>在诊</span>
-										</p>
-										<p>
-											<span>职称：</span><span>主任医师</span>
-										</p>
-										<p>
-											<span>科室：</span><span>产科</span>
-										</p>
-									</div></li>
-								<li><img src="../images/docPer.jpg" class="docPic" />
-									<div class="docIntro">
-										<p>
-											<a href="DocPer.aspx">梅瑾</a><span>在诊</span>
-										</p>
-										<p>
-											<span>职称：</span><span>主任医师</span>
-										</p>
-										<p>
-											<span>科室：</span><span>产科</span>
-										</p>
-									</div></li>
-								<li><img src="../images/docPer.jpg" class="docPic" />
-									<div class="docIntro">
-										<p>
-											<a href="DocPer.aspx">梅瑾</a><span>在诊</span>
-										</p>
-										<p>
-											<span>职称：</span><span>主任医师</span>
-										</p>
-										<p>
-											<span>科室：</span><span>产科</span>
-										</p>
-									</div></li>
-								<li><img src="../images/docPer.jpg" class="docPic" />
-									<div class="docIntro">
-										<p>
-											<a href="DocPer.aspx">梅瑾</a><span>在诊</span>
-										</p>
-										<p>
-											<span>职称：</span><span>主任医师</span>
-										</p>
-										<p>
-											<span>科室：</span><span>产科</span>
-										</p>
-									</div></li>
-								<li><img src="../images/docPer.jpg" class="docPic" />
-									<div class="docIntro">
-										<p>
-											<a href="DocPer.aspx">梅瑾</a><span>在诊</span>
-										</p>
-										<p>
-											<span>职称：</span><span>主任医师</span>
-										</p>
-										<p>
-											<span>科室：</span><span>产科</span>
-										</p>
-									</div></li>
-								<li><img src="../images/docPer.jpg" class="docPic" />
-									<div class="docIntro">
-										<p>
-											<a href="DocPer.aspx">梅瑾</a><span>在诊</span>
-										</p>
-										<p>
-											<span>职称：</span><span>主任医师</span>
-										</p>
-										<p>
-											<span>科室：</span><span>产科</span>
-										</p>
-									</div></li>
-								<li><img src="../images/docPer.jpg" class="docPic" />
-									<div class="docIntro">
-										<p>
-											<a href="DocPer.aspx">梅瑾</a><span>在诊</span>
-										</p>
-										<p>
-											<span>职称：</span><span>主任医师</span>
-										</p>
-										<p>
-											<span>科室：</span><span>产科</span>
-										</p>
-									</div></li>
-								<li><img src="../images/docPer.jpg" class="docPic" />
-									<div class="docIntro">
-										<p>
-											<a href="DocPer.aspx">梅瑾</a><span>在诊</span>
-										</p>
-										<p>
-											<span>职称：</span><span>主任医师</span>
-										</p>
-										<p>
-											<span>科室：</span><span>产科</span>
-										</p>
-									</div></li>
-								<li><img src="../images/docPer.jpg" class="docPic" />
-									<div class="docIntro">
-										<p>
-											<a href="DocPer.aspx">梅瑾</a><span>在诊</span>
-										</p>
-										<p>
-											<span>职称：</span><span>主任医师</span>
-										</p>
-										<p>
-											<span>科室：</span><span>产科</span>
-										</p>
-									</div></li>
-								<li><img src="../images/docPer.jpg" class="docPic" />
-									<div class="docIntro">
-										<p>
-											<a href="DocPer.aspx">梅瑾</a><span>在诊</span>
-										</p>
-										<p>
-											<span>职称：</span><span>主任医师</span>
-										</p>
-										<p>
-											<span>科室：</span><span>产科</span>
-										</p>
-									</div></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--#include virtual="../master/commonSubTitle.html"-->
-		</div>
-	</div>
-	<!--#include virtual="../master/footer.html"-->
-	<script src="../js/common.js"></script>
+<!--#include virtual="../master/top.html"-->
+<div class="content contentPart"
+     style="margin-top: 3px; *margin-top: 3px;">
+    <div style="display: block; overflow: hidden;">
+        <div class="leftCol2">
+            <div class="mainPart">
+                <div class="itemBg">
+                    <div class="titleBg2">
+                        <p class="bread">
+                            <a class="breadB" href="/admin/main/index.shtml">首页</a><span>&gt;</span>
+                            <a class="breadN J_Cata1" href="#"></a><span>&gt;</span>
+                            <a class="breadN J_Cata2" href="#"></a><span>&gt;</span>
+                            <a class="breadN J_Cata3" href="#"></a>
+                        </p>
+                    </div>
+                    <h2 class="titleType3">各级人才 . <span class='J_Cata3'></span></h2>
+
+                    <div style="clear: both;"></div>
+                    <div class="docBody">
+                        <h3 class="newsInfo"></h3>
+                        <hr class="mb20"/>
+                        <ul class="picDocList"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--#include virtual="../master/commonSubTitle.html"-->
+    </div>
+</div>
+<!--#include virtual="../master/footer.html"-->
+<script src="../js/common.js"></script>
+<script src="/admin/js/kissy.js"></script>
+<script>
+    var action = GetParameter('cata2');
+    var rclx = GetParameter('cata3');
+    var tgId="doctList_";
+    var rcjs=[
+        {title:"“博士生导师”简介",desc:"151人才的介绍文字，151人才的介绍文字151人才的介绍文字，151人才的介绍文字。151人才的介绍文字，151人才的介绍文字151人才的介绍文字，151人才的介绍文字。",tgId:"1000"},
+        {title:"“硕士生导师”简介",desc:"151人才的介绍文字，151人才的介绍文字151人才的介绍文字，151人才的介绍文字。151人才的介绍文字，151人才的介绍文字151人才的介绍文字，151人才的介绍文字。",tgId:"1001"},
+        {title:"“151人才”简介",desc:"151人才的介绍文字，151人才的介绍文字151人才的介绍文字，151人才的介绍文字。151人才的介绍文字，151人才的介绍文字151人才的介绍文字，151人才的介绍文字。",tgId:"1002"},
+        {title:"“131人才”简介",desc:"151人才的介绍文字，151人才的介绍文字151人才的介绍文字，151人才的介绍文字。151人才的介绍文字，151人才的介绍文字151人才的介绍文字，151人才的介绍文字。",tgId:"1003"},
+        {title:"“南医大教授”简介",desc:"151人才的介绍文字，151人才的介绍文字151人才的介绍文字，151人才的介绍文字。151人才的介绍文字，151人才的介绍文字151人才的介绍文字，151人才的介绍文字。",tgId:"1004"},
+        {title:"“南医大副教授”简介",desc:"151人才的介绍文字，151人才的介绍文字151人才的介绍文字，151人才的介绍文字。151人才的介绍文字，151人才的介绍文字151人才的介绍文字，151人才的介绍文字。",tgId:"1005"},
+        {title:"“浙江省医学会主委/副主委”简介",desc:"151人才的介绍文字，151人才的介绍文字151人才的介绍文字，151人才的介绍文字。151人才的介绍文字，151人才的介绍文字151人才的介绍文字，151人才的介绍文字。",tgId:"1006"},
+        {title:"“杭州市医学会主委”简介",desc:"131人才的介绍文字，151人才的介绍文字151人才的介绍文字，151人才的介绍文字。151人才的介绍文字，151人才的介绍文字151人才的介绍文字，151人才的介绍文字。",tgId:"1007"}
+    ];
+    switch(rclx){
+        case 'bssds':$('.newsInfo').html("<span>"+rcjs[0].title+"："+rcjs[0].desc+"</span>");tgId+=rcjs[0].tgId;break;
+        case 'sssds':$('.newsInfo').html("<span>"+rcjs[1].title+"："+rcjs[1].desc+"</span>");tgId+=rcjs[1].tgId;break;
+        case '151':$('.newsInfo').html("<span>"+rcjs[2].title+"："+rcjs[2].desc+"</span>");tgId+=rcjs[2].tgId;break;
+        case '131':$('.newsInfo').html("<span>"+rcjs[3].title+"："+rcjs[3].desc+"</span>");tgId+=rcjs[3].tgId;break;
+        case 'nydjs':$('.newsInfo').html("<span>"+rcjs[4].title+"："+rcjs[4].desc+"</span>");tgId+=rcjs[4].tgId;break;
+        case 'nydfjs':$('.newsInfo').html("<span>"+rcjs[5].title+"："+rcjs[5].desc+"</span>");tgId+=rcjs[5].tgId;break;
+        case 'zjsyxh':$('.newsInfo').html("<span>"+rcjs[6].title+"："+rcjs[6].desc+"</span>");tgId+=rcjs[6].tgId;break;
+        case 'hzsyxh':$('.newsInfo').html("<span>"+rcjs[7].title+"："+rcjs[7].desc+"</span>");tgId+=rcjs[7].tgId;break;
+    }
+
+    $.getJSON(action, function (json) {
+        if (json.resultCode > 0) {
+            var doctList = json[tgId];
+            var str = '';
+            $(doctList).each(function (i, item) {
+                str += "<li><img src='/admin/"+item.diPortrait+"' class='docPic'/>"+
+                "<div class='docIntro'>"+
+                        "<p>"+
+                        "<a href='docPer.shtml?cata1=zjjs&cata2=mymz&diId="+item.diId+"'>"+item.diName+"</a><span>在诊</span>"+
+                        "</p>"+
+                        "<p>"+
+                        "<span>职称：</span><span>"+item.diPosition+"</span>"+
+                        "</p>"+
+                        "<p>"+
+                        "<span>科室：</span><span>"+item.diDeptName+"</span>"+
+                        "</p>"+
+                        "</div>"+
+                "</li>";
+                $('.picDocList').html(str);
+            });
+        }
+    });
+
+    KISSY.use('datalazyload', function (S, DataLazyload) {
+        S.ready(function (S) {
+            DataLazyload({
+                mode:'manual',
+                diff:'100'
+            });
+        });
+    });
+</script>
 </body>
 </html>
 

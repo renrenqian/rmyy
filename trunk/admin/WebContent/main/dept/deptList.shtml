@@ -49,19 +49,7 @@
 								if (item.dpNote == '外科') {
 									waiList += listItem;
 								}
-// 								if (item.dpNote == '综合') {
-// 									zList += listItem;
-// 								}
-							});										
-// 					$('.expList').html("<li class='deptList'><a href='#'>非手术科室</a>"+
-// 							"<hr />"+
-// 							"<ul class='subDeptList'>"+neiList+"</ul></li>"+
-// 							"<li class='deptList'><a href='#'>手术科室</a>"+
-// 							"<hr />"+
-// 							"<ul class='subDeptList'>"+waiList+"</ul></li>"+
-// 							"<li class='deptList'><a href='#'>诊治相关科室</a>"+
-// 							"<hr />"+
-// 							"<ul class='subDeptList'>"+zList+"</ul></li>");			
+							});											
 					$('.expList').html("<li class='deptList'><a href='#'>非手术科室</a>"+
 							"<hr />"+
 							"<ul class='subDeptList'>"+neiList+"</ul></li>"+
