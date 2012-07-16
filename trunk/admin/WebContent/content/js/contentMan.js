@@ -3,7 +3,7 @@ var contentType;
 $(document).ready(function() {
     //zq：判断栏目类型是"医院新闻"，还是"其它栏目"
     contentType=$(window.parent.document).find('.layout-panel-center .panel-title').html();
-    if(contentType=='网站内容管理&nbsp;&gt;&nbsp;其它栏目'){
+    if(contentType!='主站内容管理&nbsp;&gt;&nbsp;医院新闻'){
         contentType="其他";
     }else{
         contentType="新闻";
