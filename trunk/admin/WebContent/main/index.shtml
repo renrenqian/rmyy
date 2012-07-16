@@ -29,7 +29,7 @@
             <hr style="border-bottom: 1px solid #d2e2e3;"/>
             <div class="J_Panel" id='J_HosNews'>
                 <a style='line-height:28px; float:right; color:#0B5C5D; *margin-top:-5px;' class='unl mr15'
-                   href='news/newsList.shtml?cata1=xxzx&cata2=yyxw'>更多医院新闻</a>
+                   href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=yyxw&colId=1202'>更多医院新闻</a>
 
                 <div class="newsL">
                     <div class="topic"></div>
@@ -55,38 +55,10 @@
             </div>
             <div class="J_Panel" id='J_JTNews' style='display:none;'>
                 <a style='line-height:28px; float:right; color:#0B5C5D; *margin-top:-5px;' class='unl mr15'
-                   href='news/newsList.shtml?cata1=xxzx&cata2=jtdt'>更多集团动态</a>
+                   href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=jtdt&colId=1203'>更多集团动态</a>
 
                 <div class='clear'></div>
-                <ul class="newsItem">
-                    <li><span class="ora fl">【城北院区】</span><a class="newsTitle" style='width:60%;'
-                                                             title="浙江省毛发移植与头面部微创美容新进展学习班" href="javascript:;">浙江省毛发移植与头面部微创美容新进展学习班
-                    </a><span class="newsDate">05-25 </span><span class="newIcon"></span></li>
-                    <li><span class="ora fl">【城北院区】</span><a class="newsTitle" style='width:60%;' title="微量营养素与孩子的健康"
-                                                             href="javascript:;">微量营养素与孩子的健康</a><span
-                            class="newsDate">05-25</span><span class="newIcon"></span></li>
-                    <li><span class="ora fl">【吴山院区】</span><a class="newsTitle" style='width:60%;'
-                                                             title="第四届国际甲状腺周免费咨询活动" href="javascript:;">第四届国际甲状腺周免费咨询活动
-                    </a><span class="newsDate">05-25</span><span class="newIcon"></span></li>
-                    <li><span class="ora fl">【城北院区】</span><a class="newsTitle" style='width:60%;'
-                                                             title="2012年操作技能考前培训班（临床类）通知" href="javascript:;">2012年操作技能考前培训班（临床类）通知
-                    </a><span class="newsDate">05-25 </span></li>
-                    <li><span class="ora fl">【吴山院区】</span><a class="newsTitle" style='width:60%;'
-                                                             title="2012年操作技能考前培训班（临床类）通知" href="javascript:;">2012年操作技能考前培训班（临床类）通知
-                    </a><span class="newsDate">05-25 </span></li>
-                    <li><span class="ora fl">【城北院区】</span><a class="newsTitle" style='width:60%;'
-                                                             title="浙江省毛发移植与头面部微创美容新进展学习班" href="javascript:;">浙江省毛发移植与头面部微创美容新进展学习班
-                    </a><span class="newsDate">05-25 </span></li>
-                    <li><span class="ora fl">【城北院区】</span><a class="newsTitle" style='width:60%;' title="微量营养素与孩子的健康"
-                                                             href="javascript:;">微量营养素与孩子的健康</a><span
-                            class="newsDate">05-25</span></li>
-                    <li><span class="ora fl">【吴山院区】</span><a class="newsTitle" style='width:60%;'
-                                                             title="第四届国际甲状腺周免费咨询活动" href="javascript:;">第四届国际甲状腺周免费咨询活动
-                    </a><span class="newsDate">05-25</span></li>
-                </ul>
-            </div>
-            <div class="J_Panel" style="display: none;">
-                panel3
+                <ul class="newsItem" id="J_JT"></ul>
             </div>
         </div>
     </div>
@@ -117,7 +89,7 @@
             <div class="titleBg">
                 <h1 class="titleType1">医院公告</h1>
                 <a style='line-height:28px; float:right; color:#0B5C5D;' class='unl mr5'
-                   href='news/newsList.shtml?cata1=xxzx&cata2=yygg'>更多</a>
+                   href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=yygg&colId=1201'>更多</a>
             </div>
             <ul class="newsItem" id="J_GG"></ul>
         </div>
@@ -214,56 +186,27 @@
 
             //头条新闻部分
             var ttxw = json.newsyyxw0;
-        //    console.log(ttxw[0].contDetail);
-           // var  temp =GetFireFoxInnerHTML(ttxw[0].contDetail);        //html是一个要去除html标记的文档
-      //      console.log(temp);
+            var str="<h2>"+ttxw[0].contTitle+"</h2>" +
+                    "<p>" +
+                    "<a style='width: 352px; height: 65px; overflow: hidden;' href='/admin/main/news/newsDetail.shtml?cata1=xxzx&cata2=yyxw&contId="+ttxw[0].contId+"'>"+ttxw[0].contCont+"</a>" +
+                    "</p>";
+            $('.topic').html(str);
 
-//            var str="<h2>"+ttxw[0].contTitle+"</h2>" +
-//                    "<p>" +
-//                    "<a style='width: 352px; height: 65px; overflow: hidden;'>"+ttxw[0].contDetail+"</a>" +
-//                    "</p>";
-
-
-            //$('.topic').html(str);
+            //集团动态部分
+            var jtdt = json.newsjtdt;
+            var jtStr='';
+            $(jtdt).each(function (i, item) {
+                if(i<3){
+                    jtStr+="  <li><a class='newsTitle' title='"+item.contTitle+"' href='/admin/main/news/newsDetail.shtml?cata1=xxzx&cata2=jtdt&contId="+item.contId+"'>"+item.contTitle+
+                            "</a><span class='newsDate'>"+item.contPublish_Time.substr(5,5)+"</span><span class='newIcon'></span></li>";
+                }else{
+                    jtStr+="  <li><a class='newsTitle' title='"+item.contTitle+"' href='/admin/main/news/newsDetail.shtml?cata1=xxzx&cata2=jtdt&contId="+item.contId+"'>"+item.contTitle+
+                            "</a><span class='newsDate'>"+item.contPublish_Time.substr(5,5)+"</span></li>";
+                }
+            });
+            $('#J_JT').html(jtStr);
         }
     });
-
-
-    function GetFireFoxInnerHTML(str)
-    {
-        var result='';
-        var node;
-        for (var i = 0; i < nodes.length; i++)
-        {
-            node=nodes[i];
-            if(node.nodeValue)  //纯文本节点还原。
-            {
-                result+=node.nodeValue;
-            }
-            else if(node.tagName)
-            {
-                result+="<"+node.tagName;
-                if(node.innerHTML)
-                {
-                    //属性还原。
-                    if(node.attributes && node.attributes.length>1)
-                    {
-                        for(var j=0;j<node.attributes.length-1;j++) // 忽略最后一个，最后一个是FirFox自己的节点。
-                        {
-                            result+=' '+node.attributes[j].name+"='"+node.attributes[j].value+"'";
-                        }
-                    }
-                    result+=">"+node.innerHTML+"</"+node.tagName+">";
-                }
-                else
-                {
-                    result+=" />";
-                }
-
-            }
-        }
-        return result;
-    }
 </script>
 </body>
 </html>
