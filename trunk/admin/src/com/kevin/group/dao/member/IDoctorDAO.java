@@ -25,4 +25,6 @@ public interface IDoctorDAO extends IBaseDAO<DoctorInfo> {
 
     List<DoctorInfo> listzjyl(DoctorInfo doct) throws BaseSqlMapException;
 
+    List<DoctorInfo> listgjrc(DoctorInfo doct) throws BaseSqlMapException;
+
 }

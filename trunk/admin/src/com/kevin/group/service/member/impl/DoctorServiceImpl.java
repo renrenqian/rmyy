@@ -24,8 +24,10 @@ import com.kevin.common.service.AbstractBaseService;
 import com.kevin.group.constance.GroupConstance;
 import com.kevin.group.dao.dept.IDeptDAO;
 import com.kevin.group.dao.member.IDoctorDAO;
+import com.kevin.group.dao.member.ITalentTypeDAO;
 import com.kevin.group.pojo.dept.Dept;
 import com.kevin.group.pojo.member.DoctorInfo;
+import com.kevin.group.pojo.member.TalentType;
 import com.kevin.group.service.member.IDoctorService;
 
 /**
@@ -37,6 +39,7 @@ public class DoctorServiceImpl extends AbstractBaseService<DoctorInfo> implement
         IDoctorService {
      private IDoctorDAO  doctorDAO;
      private IDeptDAO  deptDAO;
+     private ITalentTypeDAO tatDAO;
 
     /**
      * @param doctorDAO the doctorDAO to set
@@ -53,6 +56,14 @@ public class DoctorServiceImpl extends AbstractBaseService<DoctorInfo> implement
      @Autowired
     public final void setDeptDAO(IDeptDAO deptDAO) {
         this.deptDAO = deptDAO;
+    }
+
+    /**
+     * @param tatDAO the tatDAO to set
+     */
+     @Autowired
+    public final void setTatDAO(ITalentTypeDAO tatDAO) {
+        this.tatDAO = tatDAO;
     }
 
     @Override
@@ -77,6 +88,7 @@ public class DoctorServiceImpl extends AbstractBaseService<DoctorInfo> implement
              jsonBuff.append(CTRF).append("],").append(CTRF);
              result = zjylDoctJson(deptList, jsonBuff.toString(), savePath);
              result = mymzDoctJson(deptList, jsonBuff.toString(), savePath);
+             gjrcDoctJson(savePath);
 //             DoctorInfo doct = new DoctorInfo();
 //             for(Dept dept : deptList){
 //                 doct.setDiDeptType(dept.getDpId());
@@ -152,6 +164,44 @@ public class DoctorServiceImpl extends AbstractBaseService<DoctorInfo> implement
              }
              jsonBuff.append(" \"resultCode\": 1}");
              writeJsonFile(savePath + File.separator + "mymz", jsonBuff);// generate the mymz file
+             jsonBuff.setLength(0);//clear the buffer
+             return 1;
+         }catch (BaseSqlMapException e) {
+             throw new CommonServiceException(e.getMessage());
+         } catch (CommonServiceException e) {
+             throw new CommonServiceException(e.getMessage());
+         }
+     }
+     private int gjrcDoctJson(String savePath) throws CommonServiceException{
+         try {
+             List<TalentType> tatList = tatDAO.list(new TalentType());
+             String CTRF = GroupConstance.CTRF;
+             StringBuilder jsonBuff = new StringBuilder();
+             jsonBuff.append("{\" tatList\":[");
+             if(null != tatList){
+                 for(TalentType tat : tatList)
+                     jsonBuff.append(CTRF).append(tat.generateJSON()).append(",");
+                 if(tatList.size() > 0)
+                     jsonBuff.deleteCharAt(jsonBuff.length() -1);
+             }
+             jsonBuff.append(CTRF).append("],").append(CTRF);
+                 
+             DoctorInfo doct = new DoctorInfo();
+             for(TalentType tat : tatList){
+                 doct.setDoctType(tat.getTgId().toString());
+                 jsonBuff.append("\"doctList_" + tat.getTgId() + "\":[");
+                 List<DoctorInfo> doctList = doctorDAO.listgjrc(doct);
+                 if(null!= doctList){
+                     for(DoctorInfo doctj : doctList) 
+                         jsonBuff.append(CTRF).append(doctj.generateJSON()).append(",");
+                     if(doctList.size() > 0)
+                         jsonBuff.deleteCharAt(jsonBuff.length() -1);
+                 }
+                 jsonBuff.append(CTRF).append("],").append(CTRF);
+                 
+             }
+             jsonBuff.append(" \"resultCode\": 1}");
+             writeJsonFile(savePath + File.separator + "gjrc", jsonBuff);// generate the mymz file
              jsonBuff.setLength(0);//clear the buffer
              return 1;
          }catch (BaseSqlMapException e) {

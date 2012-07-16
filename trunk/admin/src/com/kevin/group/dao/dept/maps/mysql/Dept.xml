@@ -95,6 +95,66 @@
       -->
     </select>
 
+    <!-- 查询总记录数 -->
+    <select id="getTotalCount" parameterClass="Dept" resultClass="java.lang.Long">
+       <![CDATA[
+         select COUNT(DI_ID) 
+         from DOCTOR_INFO
+      ]]>
+        <dynamic prepend=" where ">
+        <isNotEmpty property="dpName" prepend="AND">
+          <![CDATA[
+                 od.OD_NAME Like CONCAT('%',#dpName#,'%')
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="dpBelong" prepend="AND">
+          <![CDATA[
+                 od.OD_BELONG =  #dpBelong#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="dpType" prepend="AND">
+          <![CDATA[
+                 od.OD_TYPE Like CONCAT('%',#dpType#,'%')
+                 ]]>
+          </isNotEmpty>
+        </dynamic>
+    </select>
+    
+    <!-- list all the DoctorInfo info -->
+    <select id="listAllByPageBean"  parameterClass="pageBean"  resultClass="Dept">
+     <![CDATA[
+       select 
+         od.OD_ID as dpId,
+         OD_NAME as dpName,
+         OD_ORDER as dpOrder,
+         gm.GM_NAME as dpgmName,
+         OD_IN_CHARGE as dpIn_charge,
+         OD_TYPE as dpType,
+         OD_NOTE as dpNote
+       from OFFICE_DETAIL od
+       left join GROUP_MEMBER gm on gm.GM_ID = od.OD_BELONG
+     ]]>
+        <dynamic prepend=" where ">
+        <isNotEmpty property="condition.dpName" prepend="AND">
+          <![CDATA[
+                 od.OD_NAME Like CONCAT('%',#condition.dpName#,'%')
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.dpBelong" prepend="AND">
+          <![CDATA[
+                 od.OD_BELONG =  #condition.dpBelong#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.dpType" prepend="AND">
+          <![CDATA[
+                 od.OD_TYPE Like CONCAT('%',#condition.dpType#,'%')
+                 ]]>
+          </isNotEmpty>
+        </dynamic>
+     <![CDATA[ORDER BY OD_ORDER desc]]>
+     <![CDATA[LIMIT #start#,#pageSize#]]>
+    </select>
+
     <!-- add dept -->
     <insert id="insert" parameterClass="Dept">
        <![CDATA[

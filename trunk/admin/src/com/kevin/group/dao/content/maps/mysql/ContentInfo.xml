@@ -16,7 +16,7 @@
           CD_MEDIUM as contMedium,
           CD_KEY as contKey,
           DATE_FORMAT(CD_PUBLISH_TIME,'%Y/%m/%d %H:%m:%s') as contPublish_Time,
-          CD_AUDIT_RESULT as contAudit_Result,
+          CD_AUDIT_RESULT as contAuditResult,
           CD_ORDER as contOrder,
           CD_CLICKS as clickTimes,
           gm.GM_NAME as gmName,
@@ -45,12 +45,13 @@
           CD_MEDIUM as contMedium,
           CD_KEY as contKey,
           DATE_FORMAT(CD_PUBLISH_TIME,'%Y/%m/%d %H:%m:%s') as contPublish_Time,
-          CD_AUDIT_RESULT as contAudit_Result,
+          CD_AUDIT_RESULT as contAuditResult,
           CD_ORDER as contOrder,
           CD_CLICKS as clickTimes,
           gm.GM_NAME as gmName,
           CD_AUTHOR as contAuthor,
           CD_DETAIL as contDetail,
+          CD_CONTENT as contCont,
           CD_ATTACHMENT as contAttachment,
           CD_DISPLAY_IMAGE as displayImage
        from CONTENT_DETAIL  cd 
@@ -98,6 +99,11 @@
                  ci.CI_CATE = #ciCate#
                  ]]>
           </isNotEmpty>
+          <isEmpty property="contAuditResult"  prepend="AND">
+           <![CDATA[
+                 cd.CD_AUDIT_RESULT = 1
+                 ]]>
+          </isEmpty>
         </dynamic>
     <![CDATA[ ]]>
     </select>
@@ -111,7 +117,7 @@
           ci.CI_TITAL as colName,
           CD_SHOW_DAYS as contShow_Days,
           DATE_FORMAT(CD_PUBLISH_TIME,'%Y/%m/%d %H:%m:%s') as contPublish_Time,
-          CD_AUDIT_RESULT as contAudit_Result,
+          CD_AUDIT_RESULT as contAuditResult,
           CD_ORDER as contOrder,
           CD_CLICKS as clickTimes,
           gm.GM_NAME as gmName,
@@ -121,31 +127,36 @@
        left join GROUP_MEMBER gm on gm.GM_ID = cd.GM_ID
      ]]>
         <dynamic prepend=" where ">
-        <isNotEmpty property="condition.contTitle" >
+        <isNotEmpty property="condition.contTitle"  prepend="AND">
           <![CDATA[
                  cd.CD_TITAL Like CONCAT('%',#condition.contTitle#,'%')
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.colId">
+        <isNotEmpty property="condition.colId" prepend="AND">
           <![CDATA[
                  cd.CI_ID = #condition.colId#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.gmId">
+        <isNotEmpty property="condition.gmId" prepend="AND">
           <![CDATA[
                  cd.GM_ID > #condition.gmId#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.contSearchStartTime">
+        <isNotEmpty property="condition.contSearchStartTime" prepend="AND">
           <![CDATA[
                  cd.CD_PUBLISH_TIME >= #condition.contSearchStartTime#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.ciCate">
+        <isNotEmpty property="condition.ciCate" prepend="AND">
           <![CDATA[
                  ci.CI_CATE = #condition.ciCate#
                  ]]>
           </isNotEmpty>
+          <isEmpty property="condition.contAuditResult"  prepend="AND">
+           <![CDATA[
+                 cd.CD_AUDIT_RESULT = 1
+                 ]]>
+          </isEmpty>
         </dynamic>
      <![CDATA[ORDER BY CD_PUBLISH_TIME desc]]>
      <![CDATA[LIMIT #start#,#pageSize#]]>
@@ -163,12 +174,11 @@
           CD_MEDIUM as contMedium,
           CD_KEY as contKey,
           CD_PUBLISH_TIME as contPublish_Time,
-          CD_AUDIT_RESULT as contAudit_Result,
+          CD_AUDIT_RESULT as contAuditResult,
           CD_ORDER as contOrder,
           CD_CLICKS as clickTimes,
           gm.GM_NAME as gmName,
           CD_AUTHOR as contAuthor,
-          CD_DETAIL as contDetail,
           CD_ATTACHMENT as contAttachment,
           CD_DISPLAY_IMAGE as displayImage
        from CONTENT_DETAIL  cd 
@@ -187,10 +197,11 @@
           CD_ID as contId,
           CD_TITAL as contTitle,
           CD_PUBLISH_TIME as contPublish_Time,
-          CD_DETAIL as contDetail
+          CD_CONTENT as contCont
        from CONTENT_DETAIL  cd 
        where CI_ID = 1202
        order by contPublish_Time desc
+       LIMIT 0,7
      ]]>
     </select>
     
@@ -204,14 +215,43 @@
        from CONTENT_DETAIL  cd 
        where CI_ID = 1201
        order by contPublish_Time desc
+       LIMIT 0,10
+     ]]>
+    </select>
+    
+    <!-- list all the jtdt info -->
+    <select id="generateHomejtdtJson"  parameterClass="ContentInfo"  resultClass="ContentInfo">
+     <![CDATA[
+       select 
+          CD_ID as contId,
+          CD_TITAL as contTitle,
+          CD_PUBLISH_TIME as contPublish_Time
+       from CONTENT_DETAIL  cd 
+       where CI_ID = 1203
+       order by contPublish_Time desc
+       LIMIT 0,8
+     ]]>
+    </select>
+
+    <!-- list all the jtdt info -->
+    <select id="generateHomeRollJson"  parameterClass="ContentInfo"  resultClass="ContentInfo">
+     <![CDATA[
+       select 
+          CD_ID as contId,
+          CD_TITAL as contTitle,
+          CD_DISPLAY_IMAGE as displayImage
+       from CONTENT_DETAIL  cd 
+       where CI_HOME_PAGE = 1
+       order by contPublish_Time desc
+       LIMIT 0,4
      ]]>
     </select>
 
     <!-- add ContentInfo -->
     <insert id="insert" parameterClass="ContentInfo">
        <![CDATA[
-          INSERT INTO CONTENT_DETAIL(CD_ID, CD_TITAL, CI_HOME_PAGE, CI_ID, CD_SHOW_DAYS, CD_MEDIUM, CD_KEY, CD_PUBLISH_TIME,CD_AUDIT_RESULT,CD_ORDER, GM_ID, CD_AUTHOR, CD_DETAIL, CD_ATTACHMENT, CD_DISPLAY_IMAGE) 
-                         VALUES(#contId#, #contTitle#, #contHome_Page#, #colId#, #contShow_Days#, #contMedium#, #contKey#, #contPublish_Time#, #contAudit_Result#, #contOrder#, #gmId#, #contAuthor#, #contDetail#, #contAttachment#, #displayImage#)
+          INSERT INTO CONTENT_DETAIL(CD_ID, CD_TITAL, CI_HOME_PAGE, CI_ID, CD_SHOW_DAYS, CD_MEDIUM, CD_KEY, CD_PUBLISH_TIME,CD_AUDIT_RESULT,CD_ORDER, GM_ID, CD_AUTHOR, CD_DETAIL, CD_CONTENT, CD_ATTACHMENT, CD_DISPLAY_IMAGE) 
+                         VALUES(#contId#, #contTitle#, #contHome_Page#, #colId#, #contShow_Days#, #contMedium#, #contKey#, #contPublish_Time#, #contAuditResult#, #contOrder#, #gmId#, #contAuthor#, #contDetail#, #contCont#, #contAttachment#, #displayImage#)
        ]]>
        <selectKey resultClass="int" keyProperty="contId">
          <![CDATA[SELECT LAST_INSERT_ID();]]>
@@ -250,7 +290,8 @@
           </isNotEmpty>
        </dynamic>
         <![CDATA[ 
-          CD_DETAIL = #contDetail#
+          CD_DETAIL = #contDetail#,
+          CD_CONTENT = #contCont#
          WHERE CD_ID = #contId#
       ]]>
     </update>
@@ -260,7 +301,7 @@
       <![CDATA[
          UPDATE CONTENT_DETAIL 
          SET
-          CD_AUDIT_RESULT = #contAudit_Result#
+          CD_AUDIT_RESULT = #contAuditResult#
          WHERE CD_ID = #contId#
       ]]>
     </update>

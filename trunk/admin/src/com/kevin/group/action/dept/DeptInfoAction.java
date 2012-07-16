@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 
 import com.kevin.common.action.AbstractBaseAction;
 import com.kevin.common.exception.CommonServiceException;
+import com.kevin.common.pojo.PageBean;
 import com.kevin.group.pojo.dept.Dept;
 import com.kevin.group.service.dept.IDeptServices;
 import com.opensymphony.xwork2.Action;
@@ -31,6 +32,7 @@ public class DeptInfoAction extends AbstractBaseAction {
     private IDeptServices deptService;
     private Dept dept;
     private List<Dept> deptList;
+    private PageBean<Dept> page;
     private List<Serializable> ides;
     private String savePath;
 
@@ -77,6 +79,20 @@ public class DeptInfoAction extends AbstractBaseAction {
      */
     public final void setIdes(List<Serializable> ides) {
         this.ides = ides;
+    }
+
+    /**
+     * @return the page
+     */
+    public final PageBean<Dept> getPage() {
+        return page;
+    }
+
+    /**
+     * @param page the page to set
+     */
+    public final void setPage(PageBean<Dept> page) {
+        this.page = page;
     }
 
     /**
@@ -131,6 +147,20 @@ public class DeptInfoAction extends AbstractBaseAction {
     public String listDept() {// list all the dept
         try {
             deptList = deptService.listAll();
+            setResultCode(1);
+        } catch (CommonServiceException e) {
+            setMessage(e.getMessage());
+            setResultCode(-1);
+        }
+        return Action.SUCCESS;
+    }
+
+    public String listDeptPage() {// list all the dept by paginate
+        try {
+            if(null != page)
+                page.setCondition(dept);
+            page = deptService.list(page);
+            //deptList = deptService.listAll();
             setResultCode(1);
         } catch (CommonServiceException e) {
             setMessage(e.getMessage());

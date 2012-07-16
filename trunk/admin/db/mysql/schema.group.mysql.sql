@@ -115,6 +115,7 @@ CREATE TABLE TALENT_GENRE  (
    TG_ID                 INTEGER               NOT NULL  AUTO_INCREMENT,
    TG_TYPE               INTEGER,
    TG_NAME               VARCHAR(64),
+   TG_CODE               VARCHAR(16),
    TG_DESC               VARCHAR(64),
    PRIMARY KEY (TG_ID)
 ) type=InnoDB;

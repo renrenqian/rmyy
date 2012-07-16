@@ -15,7 +15,6 @@ import org.springframework.stereotype.Component;
 import com.kevin.common.action.AbstractBaseAction;
 import com.kevin.common.exception.CommonServiceException;
 import com.kevin.common.pojo.PageBean;
-import com.kevin.group.pojo.member.LeaderInfo;
 import com.kevin.group.pojo.member.OPSer;
 import com.kevin.group.service.member.IOPSerService;
 import com.opensymphony.xwork2.Action;

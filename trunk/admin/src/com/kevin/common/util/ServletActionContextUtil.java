@@ -17,19 +17,6 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.kevin.common.constant.SystemConstant;
-/**
- * 
- * 工程名称:  vsp
- * 包名:     com.kevin.common.util
- * 类型名:   ServletActionContextUtil
- * 描述:     有关HttpServletRequest,HttpSession的工具类
- *
- * 例子:
- * @author  <a href="mailto:yaniu_jiang@stardream.tv">蒋亚牛</a>
- * @version 2011-11-16 15:28:21
- * @see     
- * @since
- */
 @SuppressWarnings("unchecked")
 public class ServletActionContextUtil {
      private static transient WebApplicationContext context;

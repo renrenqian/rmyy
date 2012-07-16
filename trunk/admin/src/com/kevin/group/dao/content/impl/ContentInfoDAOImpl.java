@@ -90,4 +90,32 @@ public class ContentInfoDAOImpl extends AbstractBaseDAO<ContentInfo> implements
         return continfoList;
     }
 
+    /* (non-Javadoc)
+     * @see com.kevin.group.dao.content.IContentInfoDAO#generateHomejtdtJson(com.kevin.group.pojo.content.ContentInfo)
+     */
+    @Override
+    public List<ContentInfo> generateHomejtdtJson(ContentInfo cont) throws BaseSqlMapException {
+        List<ContentInfo> continfoList = null;
+        try {
+            continfoList = super.list("generateHomejtdtJson", cont);
+        } catch (BaseSqlMapException e) {
+            throw new BaseSqlMapException(e.getMessage());
+        }
+        return continfoList;
+    }
+
+    /* (non-Javadoc)
+     * @see com.kevin.group.dao.content.IContentInfoDAO#generateHomeScrollJson(com.kevin.group.pojo.content.ContentInfo)
+     */
+    @Override
+    public List<ContentInfo> generateHomeRollJson(ContentInfo cont) throws BaseSqlMapException {
+        List<ContentInfo> continfoList = null;
+        try {
+            continfoList = super.list("generateHomeRollJson", cont);
+        } catch (BaseSqlMapException e) {
+            throw new BaseSqlMapException(e.getMessage());
+        }
+        return continfoList;
+    }
+
 }

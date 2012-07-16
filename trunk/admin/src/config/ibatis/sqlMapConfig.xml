@@ -37,6 +37,7 @@
     <typeAlias alias="DeptGenre" type="com.kevin.group.pojo.dept.DeptGenre" /> 
     <typeAlias alias="LeaderInfo" type="com.kevin.group.pojo.member.LeaderInfo" /> 
     <typeAlias alias="DoctorInfo" type="com.kevin.group.pojo.member.DoctorInfo" /> 
+    <typeAlias alias="TalentType" type="com.kevin.group.pojo.member.TalentType" /> 
     <typeAlias alias="OPSer" type="com.kevin.group.pojo.member.OPSer" /> 
     <typeAlias alias="ContentInfo" type="com.kevin.group.pojo.content.ContentInfo" /> 
     <typeAlias alias="ColumnInfo" type="com.kevin.group.pojo.content.ColumnInfo" /> 
@@ -45,6 +46,7 @@
     <sqlMap resource="com/kevin/group/dao/dept/maps/mysql/DeptGenre.xml" />
     <sqlMap resource="com/kevin/group/dao/member/maps/mysql/LeaderInfo.xml" />
     <sqlMap resource="com/kevin/group/dao/member/maps/mysql/DoctorInfo.xml" />
+    <sqlMap resource="com/kevin/group/dao/member/maps/mysql/TalentType.xml" />
     <sqlMap resource="com/kevin/group/dao/member/maps/mysql/OPSer.xml" />
     <sqlMap resource="com/kevin/group/dao/content/maps/mysql/ContentInfo.xml" />
     <sqlMap resource="com/kevin/group/dao/content/maps/mysql/ColumnInfo.xml" />

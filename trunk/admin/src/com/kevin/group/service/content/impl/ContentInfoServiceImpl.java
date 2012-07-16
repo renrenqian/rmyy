@@ -129,8 +129,32 @@ public class ContentInfoServiceImpl extends AbstractBaseService<ContentInfo>
                 int total = contList.size() - 1;
                 for(contSize = 1; contSize < total; contSize++){
                     cont = contList.get(contSize);
-                    cont.setContDetail(null);
+                    cont.setContCont(null);
                     jsonBuff.append(CTRF).append(cont.generateJSON()).append(",");
+                }
+                if(contList.size() > 0)
+                    jsonBuff.deleteCharAt(jsonBuff.length() -1 );
+                jsonBuff.append(CTRF).append("],").append(CTRF);
+            }
+            cont.setColId(1203);// 集团动态
+            contList = contInfoDAO.generateHomejtdtJson(cont);
+            if(null != contList) {
+                // add the detail info
+                jsonBuff.append("\"newsjtdt\":[");
+                for(ContentInfo anounce : contList){
+                    jsonBuff.append(CTRF).append(anounce.generateJSON()).append(",");
+                }
+                if(contList.size() > 0)
+                    jsonBuff.deleteCharAt(jsonBuff.length() -1 );
+                jsonBuff.append(CTRF).append("],").append(CTRF);
+            }
+            cont.setColId(0);// 首页滚动图片
+            contList = contInfoDAO.generateHomeRollJson(cont);
+            if(null != contList) {
+                // add the detail info
+                jsonBuff.append("\"newsroll\":[");
+                for(ContentInfo anounce : contList){
+                    jsonBuff.append(CTRF).append(anounce.generateJSON()).append(",");
                 }
                 if(contList.size() > 0)
                     jsonBuff.deleteCharAt(jsonBuff.length() -1 );
