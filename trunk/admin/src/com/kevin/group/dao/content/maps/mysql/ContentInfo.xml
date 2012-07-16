@@ -214,7 +214,7 @@
           CD_PUBLISH_TIME as contPublish_Time
        from CONTENT_DETAIL  cd 
        where CI_ID = 1201
-       order by contPublish_Time desc
+       order by CD_PUBLISH_TIME desc
        LIMIT 0,10
      ]]>
     </select>
@@ -228,7 +228,7 @@
           CD_PUBLISH_TIME as contPublish_Time
        from CONTENT_DETAIL  cd 
        where CI_ID = 1203
-       order by contPublish_Time desc
+       order by CD_PUBLISH_TIME desc
        LIMIT 0,8
      ]]>
     </select>
@@ -242,7 +242,7 @@
           CD_DISPLAY_IMAGE as displayImage
        from CONTENT_DETAIL  cd 
        where CI_HOME_PAGE = 1
-       order by contPublish_Time desc
+       order by CD_PUBLISH_TIME desc
        LIMIT 0,4
      ]]>
     </select>
