@@ -65,6 +65,20 @@ public class OPSerAction extends AbstractBaseAction {
     }
 
     /**
+     * @return the page
+     */
+    public final PageBean<OPSer> getPage() {
+        return page;
+    }
+
+    /**
+     * @param page the page to set
+     */
+    public final void setPage(PageBean<OPSer> page) {
+        this.page = page;
+    }
+
+    /**
      * @param opsList
      *            the opsList to set
      */

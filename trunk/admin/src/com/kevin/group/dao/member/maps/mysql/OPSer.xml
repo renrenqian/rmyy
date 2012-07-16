@@ -95,7 +95,7 @@
         famops.OS_LOCATION  as osfLocation,
         famops.OS_COST as osfCost,
         famops.OS_LIMIT as osfLimit,
-        famops.OS_STATUS as osfStatus
+        famops.OS_STATUS as osfStatus,
         perops.OS_CATE as osCate,
         perops.OS_TIME as osTime,
         perops.OS_LOCATION  as osLocation,

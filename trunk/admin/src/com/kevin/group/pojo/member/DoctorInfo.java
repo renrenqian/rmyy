@@ -12,24 +12,24 @@ import com.google.gson.Gson;
  * @since jdk1.6
  */
 public class DoctorInfo {
-    protected Integer diId;
-    protected String diName;
-    protected String diPosition;
-    protected Integer diDeptType;
-    protected String diDeptName;
-    protected String diPortrait;
-    protected Integer osExpertId;
-    protected Integer osFamousId;
-    protected Integer osFamousStatus;
-    // protected String osIdName;
-    protected String diOrder;
-    protected Integer diSex;
-    protected Integer diEducation;
-    protected String diResume;
-    protected String diMajor;
-    protected String diResearch_direction;
-    protected String diAccomplishment;
-    protected String doctType;// user for id array
+    private Integer diId;
+    private String diName;
+    private String diPosition;
+    private Integer diDeptType;
+    private String diDeptName;
+    private String diPortrait;
+    private Integer osExpertId;
+    private Integer osFamousId;
+    private Integer osFamousStatus;
+    // private String osIdName;
+    private String diOrder;
+    private Integer diSex;
+    private Integer diEducation;
+    private String diResume;
+    private String diMajor;
+    private String diResearch_direction;
+    private String diAccomplishment;
+    private String doctType;// user for id array
 
     private Integer isfamWork; // is work same with the opser osStatus
     private Integer isexpWork; // is work same with the opser osStatus

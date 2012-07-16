@@ -186,12 +186,12 @@ public class ContentInfoAction extends AbstractBaseAction {
                     File storeFile = new File(storeFolder, dateFormatFile + "_" + fileFileName[i]);
                     if(0 == i){
                         String storePath = storeFile.getAbsolutePath();
-                        continfo.setContAttachment(storePath.substring(storePath.indexOf(GroupConstance.UPLOAD_ROOT)));
-                    }
-                    if(1 == i){
-                        String storePath = storeFile.getAbsolutePath();
                         continfo.setDisplayImage(storePath.substring(storePath.indexOf(GroupConstance.UPLOAD_ROOT)));
                     }
+//                    if(1 == i){
+//                        String storePath = storeFile.getAbsolutePath();
+//                        continfo.setContAttachment(storePath.substring(storePath.indexOf(GroupConstance.UPLOAD_ROOT)));
+//                    }
                     //storeFile.createNewFile();
                     //FileUtils.copyFile(file[i], storeFile);
                     FileUtils.moveFile(file[i], storeFile);
@@ -251,12 +251,12 @@ public class ContentInfoAction extends AbstractBaseAction {
                     File storeFile = new File(storeFolder, dateFormatFile + "_" + fileFileName[i]);
                     if(0 == i){
                         String storePath = storeFile.getAbsolutePath();
-                        continfo.setContAttachment(storePath.substring(storePath.indexOf(GroupConstance.UPLOAD_ROOT)));
-                    }
-                    if(1 == i){
-                        String storePath = storeFile.getAbsolutePath();
                         continfo.setDisplayImage(storePath.substring(storePath.indexOf(GroupConstance.UPLOAD_ROOT)));
                     }
+//                    if(1 == i){
+//                        String storePath = storeFile.getAbsolutePath();
+//                        continfo.setContAttachment(storePath.substring(storePath.indexOf(GroupConstance.UPLOAD_ROOT)));
+//                    }
                     //storeFile.createNewFile();
                     //FileUtils.copyFile(file[i], storeFile);
                     FileUtils.moveFile(file[i], storeFile);
