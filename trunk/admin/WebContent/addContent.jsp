@@ -32,6 +32,7 @@
                          <input id="colId" name="continfo.colId" type="hidden" value='1202'/>
                          <input id="contOrder" name="continfo.contOrder" type="hidden" value="1" />
                          <input id="contAuditResult" name="continfo.contAuditResult" type="hidden" value="0" />
+                         <input id="contCont" name="continfo.contCont" type="hidden"></input> 
                     </td>
                     <td class="rowName">关键词</td>
                     <td><input id="contKey" type="text" name="continfo.contKey" class="input_type1" /></td>
@@ -64,22 +65,13 @@
                             <option value="0">否</option>
                             <option value="1">是</option>
                     </select></td>
-                    <td class='rowName' id='J_IndexPic'>展示图片上传</td>
-                    <td><input type="file" name="file" id="indexPic_add" style='margin:6px; margin-left:10px;' /></td>
+                    <td class='rowName' id='J_IndexPic' style='display:none;'>展示图片上传</td>
+                    <td><input type="file" name="file" id="indexPic_add" style='margin:6px; margin-left:10px; display:none;' /></td>
                 </tr>
 <!--                 <tr> -->
 <!--                     <td class="rowName">附件上传</td> -->
 <!--                     <td id="file_td"><input type="file" name="file" id="file_add" style='margin:6px; margin-left:10px;' /></td> -->
-<!--                 </tr> -->
-                <tr>
-                <td><input type='hidden' value=''/></td>
-                </tr>
-                <tr>
-                   <td class="rowName">内容概要</td>
-                    <td colspan="3" style='padding-left: 10px;'>
-                       <textarea id="contCont" name="continfo.contCont" ></textarea> 
-                   </td>
-                </tr>
+<!--                 </tr> -->                            
                 <tr>
                     <td class="rowName">内容编辑</td>
                     <td colspan="3" style='padding-left: 10px;'>
@@ -111,14 +103,22 @@
      $.getJSON('group/searchContent.action?t=' + new Date().getTime() + '&continfo.contId=' + contId, function(json) {
          if (json.resultCode > 0) {
              formUnSerialize("contentForm", "continfo", json.continfo);
-             CKEDITOR.instances.editor1.setData($("#contDetail").val());
-            
+             CKEDITOR.instances.editor1.setData($("#contDetail").val());           
          } else {
              $.fn.sdInfo({
                  type:"fail",
                  content:json.message ? json.message : "查询内容信息错误!"
              });
          }
+     });
+     
+     //首页滚动图片上传入口动态
+     $('#contHome_Page').change(function(){
+    	 if($(this).val()==0){
+    		 $('#J_IndexPic,#indexPic_add').hide();
+    	 }else{
+    		 $('#J_IndexPic,#indexPic_add').show();
+    	 }
      });
      
     /* 编辑、新增 确认按钮 */
@@ -142,8 +142,9 @@
                   var dateFormat=new DateFormat();
                   $('#contPublish_Time').val(dateFormat.isoDateTime(date));
               }      
-              $("#contDetail").val(CKEDITOR.instances.editor1.getData());
-              //$("#contCont").val(CKEDITOR.instances.editor1.get.getData());
+              $("#contDetail").val(CKEDITOR.instances.editor1.getData());  
+            
+              $("#contCont").val(CKEDITOR.instances.editor1.document.getBody().getText().substr(0,400));                
          },
          error:function (json) {
              
