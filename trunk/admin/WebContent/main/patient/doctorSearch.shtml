@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <head>
 <!--#include virtual="../master/headFile.html"-->
+<link rel="stylesheet" href="../../style/webPart/pagination.css" />
+<script type="text/javascript" src="../../js/webPart/jquery.pagination.js"></script>
 </head>
 <body>
 	<!--#include virtual="../master/top.html"-->
@@ -75,6 +77,8 @@
 								<option>星期日下午</option>
 							</select> <a class="greenBtn tc" style="margin: 20px auto;"
 								id="J_DocSearch">查询</a>
+
+                            <div id="Pagination" class="pagination mt20"></div>
 						</div>
 					</div>
 				</div>
@@ -84,6 +88,58 @@
 	</div>
 	<!--#include virtual="../master/footer.html"-->
 	<script src="../js/common.js"></script>
+    <script>
+        var params = [];
+        params.push({ "name": "page.pageSize", "value":25});	//每页最大条数
+        params.push({ "name": "page.currentPageNo", "value":1});//当前显示第几页
+        var totalSize;
+        var colId = GetParameter('colId');
+
+        $(document).ready(function() {
+            initData(1); //初始化数据
+        });
+
+        //这个事件是在翻页时候用的
+        function pageselectCallback(page_id, jq) {
+            initData(page_id+1);
+        }
+
+        function initData(index) {
+            params[1].value=index;
+            var str='';
+            $.ajax({ //这里使用到Jquery的ajax方法
+                type : "POST",
+                dataType : "json",
+                url : '/admin/member/listOPSer.action?web=1&ops.diName=test&ops.diDeptType=1002&ops.osTime=61', //请求的处理数据
+                data : params,
+                //下面的操作就是成功返回数据以后，进行数据的绑定
+                success : function(data) {
+                    if(data.resultCode>0){
+//                        totalSize=data.page.totalItemCount;
+//                        var continfo=data.page.dataList;
+//                        $(continfo).each(function(i,item){
+//                            str+="<li><a class='newsTitle' title='"+item.contTitle+"'"+
+//                                    "href='/admin/main/news/newsDetail.shtml?cata1=xxzx&cata2=yyxw&contId="+item.contId+"'>"+item.contTitle+
+//                                    "</a><span class='newsDate'>"+item.contPublish_Time.substr(0,10)+"</span><span class='newIcon'></span></li>";
+//                        });
+//                        $('.newsItem2').html(str);
+                    }
+                    if($("#Pagination").html().length == ''){
+                        $("#Pagination").pagination(totalSize, {
+                            items_per_page      : params[0].value,
+                            num_display_entries : 10,
+                            num_edge_entries    : 2,
+                            prev_text           : "上一页",
+                            next_text           : "下一页",
+                            callback:pageselectCallback
+                        });
+                    }
+                }
+            });
+
+        }
+    </script>
+
 	<script>
 		$('document').ready(function() {
 			$('#J_DocSearch').click(function() {

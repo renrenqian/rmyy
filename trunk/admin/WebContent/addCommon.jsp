@@ -30,12 +30,10 @@
 					     <input id="contTitle" name="continfo.contTitle" type="text" class="input_type1" rule="required" />
                          <input id="contId" name="continfo.contId" type="hidden" />                       
                          <input id="contOrder" name="continfo.contOrder" type="hidden" value="1" />
-                         <input id="contAudit_Result" name="continfo.contAudit_Result" type="hidden" value="0" />
+                         <input id="contAuditResult" name="continfo.contAuditResult" type="hidden" value="0" />
 					</td>
 					<td class="rowName">关键词</td>
-					<td><input id="contKey" type="text" name="continfo.contKey"
-						class="input_type1" /> <input id="contAudit_Result" type="hidden"
-						name="continfo.contAudit_Result" value="1" /></td>
+					<td><input id="contKey" type="text" name="continfo.contKey" class="input_type1" /></td>
 				</tr>
 				<tr>
 					<td class="rowName w1">一级栏目</td>

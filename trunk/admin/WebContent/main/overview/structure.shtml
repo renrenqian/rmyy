@@ -77,13 +77,13 @@
 							<div class='strucBox2' style='margin-left:15px;'>
 								<ul class='lcDeptList'></ul>
 							</div>
-							<!--质控中心 -->
+							<!--杭州市质控中心 -->
 							<div class='strucBox3' style='margin-left:10px;'>
-								<ul class='zkDeptList'></ul>
+								<ul class='zkzxDeptList'></ul>
 							</div>
-	                        <!--诊疗中心 -->
+	                        <!--杭州市诊疗中心 -->
 							<div class='strucBox3' style='margin-left:10px;'>
-								<ul class='zlDeptList'></ul>
+								<ul class='zlzxDeptList'></ul>
 							</div>
 						</div>
 					</div>
@@ -117,7 +117,6 @@
 				$('.lcDeptList').html(
 						"<li><strong>非手术科室</strong></li><li><br/></li>" + neiList+
 						"<li><hr/></li><li><hr/></li><li><strong>手术科室</strong></li><li><br/></li>"+waiList+"<li><hr/></li><li><hr/></li>");
-
 			}
 		});
 		
@@ -134,7 +133,6 @@
 						});
 				$('.lcDeptList').append(
 						"<li><strong>诊治相关科室</strong></li><li><br/></li>" + listItem);
-
 			}
 		});
 		
@@ -145,11 +143,22 @@
 				var listItem= '';
 				$(deptList).each(
 						function(i, item) {
-							listItem+="<li><a href='/admin/main/dept/deptDetail.shtml?id="
-								+ item.dpId + "&cata1=ksdh&cata2=znks' target='_blank'>"+ item.dpName +"</a></li>";											
+                            if(item.dpName=='医院办公室'){
+                                listItem+="<li><a href='/admin/main/dept/deptDetail.shtml?id="
+                                        + item.dpId + "&cata1=ksdh&cata2=znks' target='_blank'>"+ item.dpName +"</a></li>";
+                                listItem+="<li style='margin-left: 15px; list-style-type: square; cursor: default;'>综合档案室</li>";
+                                listItem+="<li style='margin-left: 15px; list-style-type: square; cursor: default;'>文印室</li>";
+                            }else if(item.dpName=='人事科'){
+                                listItem+="<li style='margin-left: 15px; list-style-type: square; cursor: default;'>离退休办公室</li>";
+                            }else if(item.dpName=='质量管理科'){
+                                listItem+="<li style='margin-left: 15px; list-style-type: square; cursor: default;'>病案室</li>";
+                                listItem+="<li style='margin-left: 15px; list-style-type: square; cursor: default;'>统计室</li>";
+                            }else{
+                                listItem+="<li><a href='/admin/main/dept/deptDetail.shtml?id="
+                                        + item.dpId + "&cata1=ksdh&cata2=znks' target='_blank'>"+ item.dpName +"</a></li>";
+                            }
 						});
 				$('.znDeptList').append(listItem);
-
 			}
 		});
 
@@ -163,8 +172,7 @@
                             listItem+="<li><a href='/admin/main/dept/deptDetail.shtml?id="
                                     + item.dpId + "&cata1=ksdh&cata2=zkzx' target='_blank'>"+ item.dpName +"</a></li>";
                         });
-                $('.zkDeptList').append(listItem);
-
+                $('.zkzxDeptList').append(listItem);
             }
         });
         //诊疗中心
@@ -177,8 +185,7 @@
                             listItem+="<li><a href='/admin/main/dept/deptDetail.shtml?id="
                                     + item.dpId + "&cata1=ksdh&cata2=zlzx' target='_blank'>"+ item.dpName +"</a></li>";
                         });
-                $('.zlDeptList').append(listItem);
-
+                $('.zlzxDeptList').append(listItem);
             }
         });
 	</script>

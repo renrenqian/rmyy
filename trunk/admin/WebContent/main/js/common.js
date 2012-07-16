@@ -110,12 +110,12 @@ $(document).ready(function() {
 			case 'yyls':myCata2 = '医院历史';break;
 			case 'zdjs':myCata2 = '重大记事';break;
 			case 'lxwm':myCata2 = '联系我们';break;
-			case 'yygg':myCata2 = '医院公告';myCata2Href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=yygg';break;
-			case 'yyxw':myCata2 = '医院新闻';myCata2Href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=yyxw';break;
-			case 'jtdt':myCata2 = '集团动态';myCata2Href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=jtdt';break;
+			case 'yygg':myCata2 = '医院公告';myCata2Href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=yygg&colId=1201';break;
+			case 'yyxw':myCata2 = '医院新闻';myCata2Href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=yyxw&colId=1202';break;
+			case 'jtdt':myCata2 = '集团动态';myCata2Href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=jtdt&colId=1203';break;
 			case 'dmtzx':myCata2 = '多媒体中心';break;
 			case 'rczp':myCata2 = '人才招聘';break;
-			case 'zbcg':myCata2 = '招标采购';myCata2Href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=zbcg';break;	
+			case 'zbcg':myCata2 = '招标采购';myCata2Href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=zbcg&colId=1206';break;	
 			case 'xzzx':myCata2 = '下载中心';break;	
 			case 'mzcx':myCata2 = '门诊查询';break;
 			case 'jzzn':myCata2 = '就诊指南';break;
@@ -150,7 +150,7 @@ $(document).ready(function() {
 			case 'jyxz':myCata3 = '就医须知';break;
 			case 'lyfb':myCata3 = '楼宇分布';break;
 			case 'yygz':myCata3 = '医院规章';myCata2Href='/admin/main/news/newsList2.shtml?cata1=hzfwzx&cata2=yygz';break;
-			case 'tsfw':myCata3 = '特色服务';myCata2Href='/admin/main/news/newsList2.shtml?cata1=hzfwzx&cata2=tsfw';break;
+			case 'tsfw':myCata3 = '特色服务';myCata2Href='/admin/main/news/newsList2.shtml?cata1=hzfwzx&cata2=tsfw&colId=1306';break;
 			case 'jtzn':myCata3 = '交通指南';break;
 			case 'yygh':myCata3 = '预约挂号';break;
 			case 'zxzxzx':myCata3 = '在线咨询中心';break;
@@ -184,19 +184,19 @@ $(document).ready(function() {
                         "<li><a href='/admin/main/overview/leaderPast.shtml?cata1=yygl&cata2=ldbz&cata3=lrld'>历任领导</a></li>"+
                     "</ul>"+
                 "</li>"+
-                "<li><a href='/admin/main/news/newsList.shtml?cata1=yygl&cata2=ywgk'>院务公开</a></li>"+
+                "<li><a href='/admin/main/news/newsList.shtml?cata1=yygl&cata2=ywgk&colId=1107'>院务公开</a></li>"+
                 "<li><a href='/admin/main/overview/history.shtml?cata1=yygl&cata2=yyls'>医院历史</a></li>"+
-                "<li><a href='/admin/main/news/newsList.shtml?cata1=yygl&cata2=zdjs'>重大记事</a></li>"+
+                "<li><a href='/admin/main/news/newsList.shtml?cata1=yygl&cata2=zdjs&colId=1109'>重大记事</a></li>"+
                 "<li><a href='/admin/main/overview/contact.shtml?cata1=yygl&cata2=lxwm'>联系我们</a></li>";
 	}
 	if(cata1 =="信息中心"){
 		$('.titleType4').html('信息中心');
-		title="<li><a href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=yygg'>医院公告</a></li>"+
-		"<li><a href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=yyxw'>医院新闻</a></li>"+
-		"<li><a href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=jtdt'>集团动态</a></li>"+
+		title="<li><a href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=yygg&colId=1201'>医院公告</a></li>"+
+		"<li><a href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=yyxw&colId=1202'>医院新闻</a></li>"+
+		"<li><a href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=jtdt&colId=1203'>集团动态</a></li>"+
 		"<li><a href='/admin/main/news/mediaCenter.shtml?cata1=xxzx&cata2=dmtzx'>多媒体中心</a></li>"+
-		"<li><a href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=rczp'>人才招聘</a></li>"+
-		"<li><a href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=zbcg'>招标采购</a></li>"+
+		"<li><a href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=rczp&colId=1205'>人才招聘</a></li>"+
+		"<li><a href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=zbcg&colId=1206'>招标采购</a></li>"+
 		"<li><a href='/admin/main/news/download.shtml?cata1=xxzx&cata2=xzzx'>下载中心</a></li>";
 	}
 	if(cata1 =="患者服务中心"){
@@ -211,8 +211,8 @@ $(document).ready(function() {
 			        "<li><a href='/admin/main/patient/process.shtml?cata1=hzfwzx&cata2=jzzn&cata3=jylc'>就医流程</a></li>"+
 			        "<li><a href='/admin/main/patient/attention.shtml?cata1=hzfwzx&cata2=jzzn&cata3=jyxz'>就医须知</a></li>"+
 			        "<li><a href='/admin/main/patient/building.shtml?cata1=hzfwzx&cata2=jzzn&cata3=lyfb'>楼宇分布</a></li>"+
-			        "<li><a href='/admin/main/news/newsList2.shtml?cata1=hzfwzx&cata2=jzzn&cata3=yygz'>医院规章</a></li>"+                       
-			        "<li><a href='/admin/main/news/newsList2.shtml?cata1=hzfwzx&cata2=jzzn&cata3=tsfw'>特色服务</a></li>"+
+			        "<li><a href='/admin/main/news/newsList2.shtml?cata1=hzfwzx&cata2=jzzn&cata3=yygz&colId=1305'>医院规章</a></li>"+                       
+			        "<li><a href='/admin/main/news/newsList2.shtml?cata1=hzfwzx&cata2=jzzn&cata3=tsfw&colId=1306'>特色服务</a></li>"+
 			        "<li><a href='/admin/main/patient/add.shtml?cata1=hzfwzx&cata2=jzzn&cata3=jtzn'>交通指南</a></li>"+
 			    "</ul>"+
 			"</li>"+
@@ -253,20 +253,20 @@ $(document).ready(function() {
 	}
 	if(cata1 =="科研学术"){
 		$('.titleType4').html('科研学术');
-		title="<li><a href='/admin/main/news/newsList.shtml?cata1=kyxs&cata2=kydt'>科研动态</a></li>"+
-		"<li><a href='/admin/main/news/newsList.shtml?cata1=kyxs&cata2=kjcg'>科技成果</a></li>"+
-		"<li><a href='/admin/main/news/newsList.shtml?cata1=kyxs&cata2=gxsb'>高新设备</a></li>"+
-		"<li><a href='/admin/main/news/newsList.shtml?cata1=kyxs&cata2=xsjl'>学术交流</a></li>";		
+		title="<li><a href='/admin/main/news/newsList.shtml?cata1=kyxs&cata2=kydt&colId=1601'>科研动态</a></li>"+
+		"<li><a href='/admin/main/news/newsList.shtml?cata1=kyxs&cata2=kjcg&colId=1602'>科技成果</a></li>"+
+		"<li><a href='/admin/main/news/newsList.shtml?cata1=kyxs&cata2=gxsb&colId=1603'>高新设备</a></li>"+
+		"<li><a href='/admin/main/news/newsList.shtml?cata1=kyxs&cata2=xsjl&colId=1604'>学术交流</a></li>";		
 	}
 	if(cata1 =="医院文化和教育"){
 		$('.titleType4').html('医院文化和教育');
-		title="<li><a href='/admin/main/news/newsList.shtml?cata1=yywh&cata2=djtj'>党建团建</a></li>"+
+		title="<li><a href='/admin/main/news/newsList.shtml?cata1=yywh&cata2=djtj&colId=1701'>党建团建</a></li>"+
 		       "<li><a href='/admin/volunteer/index.shtml' target='_blank'>志愿者之家</a></li>"+
-			   "<li><a href='/admin/main/news/newsList.shtml?cata1=yywh&cata2=hltd'>护理天地</a></li>"+
-			   "<li><a href='/admin/main/news/newsList.shtml?cata1=yywh&cata2=qnwmh'>青年文明号</a></li>"+
+			   "<li><a href='/admin/main/news/newsList.shtml?cata1=yywh&cata2=hltd&colId=1703'>护理天地</a></li>"+
+			   "<li><a href='/admin/main/news/newsList.shtml?cata1=yywh&cata2=qnwmh&colId=1704'>青年文明号</a></li>"+
 			   "<li><a href='/admin/main/culture/periodical.shtml?cata1=yywh&cata2=yyqk'>医苑期刊</a></li>"+
-			   "<li><a href='/admin/main/news/newsList.shtml?cata1=yywh&cata2=jkdjt'>健康大讲堂</a></li>"+
-			   "<li><a href='/admin/main/news/newsList.shtml?cata1=yywh&cata2=kfsl'>康复沙龙</a></li>";		
+			   "<li><a href='/admin/main/news/newsList.shtml?cata1=yywh&cata2=jkdjt&colId=1706'>健康大讲堂</a></li>"+
+			   "<li><a href='/admin/main/news/newsList.shtml?cata1=yywh&cata2=kfsl&colId=1707'>康复沙龙</a></li>";		
 	}
 	
 	$('#J_TitleLi').html(title);

@@ -261,7 +261,7 @@ hr {
 }
 
 .newsBody p {
-	display: block; margin-top: 5px; margin-bottom: 10px; text-align: left;
+	display: block; margin-top: 5px; margin-bottom: 10px; text-align: left;text-indent: 2em;
 }
 
 .newsBody h3 {
@@ -353,7 +353,7 @@ hr {
 
 /*名医门诊、各级人才等图片列表*/
 .picDocList li {
-	overflow: hidden; display: block; width: 150px; height: 100px; float: left; margin-right: 25px; margin-left: 25px; margin-bottom: 20px;
+	overflow: hidden; display: block; width: 170px; height: 100px; float: left; margin-right: 25px; margin-left: 25px; margin-bottom: 20px;
 }
 
 .picDocList .docPic {
@@ -361,7 +361,7 @@ hr {
 }
 
 .docIntro {
-	float: right; font-size: 12px; margin-top:-10px;
+	float: right; font-size: 12px; margin-top:-10px;width:100px;
 }
 
 .docIntro a {
