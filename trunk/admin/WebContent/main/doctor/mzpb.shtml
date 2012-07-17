@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!--#include virtual="../master/headFile.html"-->
     <link rel="stylesheet" href="../../style/webPart/pagination.css"/>
     <script type="text/javascript" src="../../js/webPart/jquery.pagination.js"></script>
@@ -69,11 +70,11 @@
     var name;
     var deptId;
     var time;
-    var action='/admin/member/listOPSer.action?web=1';
+    //var action='/admin/member/listOPSer.action?web=1';
     var totalSize;
-    var params = [];
-    params.push({ "name":"page.pageSize", "value":10});    //每页最大条数
-    params.push({ "name":"page.currentPageNo", "value":1});//当前显示第几页
+    //var params = [];
+    //params.push({ "name":"page.pageSize", "value":10});    //每页最大条数
+    //params.push({ "name":"page.currentPageNo", "value":1});//当前显示第几页
 
     //zq:填充科室下拉列表
     $.getJSON('/admin/main/dept/lcks', function (json) {
@@ -101,30 +102,9 @@
 
 <script>
     //搜索按钮
-    $(document).ready(function () {
+    $(document).ready(function () { 
         $('#J_Search').click(function () {
-            var params = [];
-            params.push({ "name":"page.pageSize", "value":10});
-            $("#Pagination").html('');
-            if(!params[2]){
-                params.push({ "name":"ops.diName","value":""});    //每页最大条数
-            }
-            if(!params[3]){
-                params.push({ "name":"ops.diDeptType","value":""});    //每页最大条数
-            }
-            if(!params[4]){
-                params.push({ "name":"ops.osTime","value":""});    //每页最大条数
-            }
-            params[2].value=$('#J_Name').val();
-            params[3].value=$('#J_DeptSelect').val();
-            params[4].value=$('#J_TimeSelect').val();
-            if($('#J_DeptSelect').val()=='0'){
-                delete params[3];
-            }
-            if($('#J_TimeSelect').val()=='0'){
-                delete params[4];
-            }
-            initData(1);
+           initData(1);
         });
     });
 </script>
@@ -137,10 +117,31 @@
     }
 
     function initData(index) {
-        params[1].value = index;
+        var action='/admin/member/listOPSer.action?web=1';
         var str = '';
+        var params = [];
+        //params[1].value = index;
+        params.push({ "name":"page.pageSize", "value":10});    //每页最大条数
+        params.push({ "name":"page.currentPageNo", "value":1});//当前显示第几页
+        var diName = $('#J_Name').val();
+        //var diName = encodeURI($('#J_Name').val());
+        if(null != diName && "" != diName && diName.length != 0){
+           action = action + "&ops.diName=" + diName;
+           //params.push({ "name":"ops.diName","value":diName});
+        }
+        var diDeptType = $('#J_DeptSelect').val();
+        if(null != diDeptType && "0" != diDeptType && diDeptType.length != 0){
+           action = action + "&ops.diDeptType=" + diDeptType;
+           //params.push({ "name":"ops.diDeptType","value":diDeptType});
+        }
+        var osTime = $('#J_TimeSelect').val();
+        if(null != osTime && "0" != osTime && osTime.length != 0){
+           action = action + "&ops.osTime=" + osTime;
+           //params.push({ "name":"ops.diDeptType","value":osTime});
+        }
+        //action = encodeURI(action);
         $.ajax({ //这里使用到Jquery的ajax方法
-            type:"POST",
+            type:"GET",
             dataType:"json",
             url:action, //请求的处理数据
             data:params,
