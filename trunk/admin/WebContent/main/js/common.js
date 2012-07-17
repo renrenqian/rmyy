@@ -571,7 +571,7 @@ function fixDate(str){
             case '60':item='星期六上午';break;
             case '61':item='星期六下午';break;
             case '70':item='星期日上午';break;
-            case '70':item='星期日下午';break;
+            case '71':item='星期日下午';break;
         }
         myStr+=item+'，';
     });

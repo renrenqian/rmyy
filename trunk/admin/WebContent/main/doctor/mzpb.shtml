@@ -70,11 +70,7 @@
     var name;
     var deptId;
     var time;
-    //var action='/admin/member/listOPSer.action?web=1';
     var totalSize;
-    //var params = [];
-    //params.push({ "name":"page.pageSize", "value":10});    //每页最大条数
-    //params.push({ "name":"page.currentPageNo", "value":1});//当前显示第几页
 
     //zq:填充科室下拉列表
     $.getJSON('/admin/main/dept/lcks', function (json) {
@@ -104,6 +100,7 @@
     //搜索按钮
     $(document).ready(function () { 
         $('#J_Search').click(function () {
+            $("#Pagination").html("");
            initData(1);
         });
     });
@@ -120,24 +117,19 @@
         var action='/admin/member/listOPSer.action?web=1';
         var str = '';
         var params = [];
-        //params[1].value = index;
-        params.push({ "name":"page.pageSize", "value":10});    //每页最大条数
-        params.push({ "name":"page.currentPageNo", "value":1});//当前显示第几页
+        params.push({ "name":"page.pageSize", "value":5});    //每页最大条数
+        params.push({ "name":"page.currentPageNo", "value":index});//当前显示第几页
         var diName = $('#J_Name').val();
-        //var diName = encodeURI($('#J_Name').val());
         if(null != diName && "" != diName && diName.length != 0){
            action = action + "&ops.diName=" + diName;
-           //params.push({ "name":"ops.diName","value":diName});
         }
         var diDeptType = $('#J_DeptSelect').val();
         if(null != diDeptType && "0" != diDeptType && diDeptType.length != 0){
            action = action + "&ops.diDeptType=" + diDeptType;
-           //params.push({ "name":"ops.diDeptType","value":diDeptType});
         }
         var osTime = $('#J_TimeSelect').val();
         if(null != osTime && "0" != osTime && osTime.length != 0){
            action = action + "&ops.osTime=" + osTime;
-           //params.push({ "name":"ops.diDeptType","value":osTime});
         }
         //action = encodeURI(action);
         $.ajax({ //这里使用到Jquery的ajax方法
