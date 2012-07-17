@@ -60,9 +60,16 @@
     <select id="getTotalCount" parameterClass="OPSer" resultClass="java.lang.Long">
        <![CDATA[
          select COUNT(DI_ID) 
-         from DOCTOR_INFO
+         from DOCTOR_INFO di
+       left join OUTPATIENT_SERVICE famops on famops.OS_ID = di.OS_FAMOUS_ID
+       left join OUTPATIENT_SERVICE perops on perops.OS_ID = di.OS_EXPERT_ID
       ]]>
         <dynamic prepend=" where ">
+        <isNotEmpty property="diId" prepend="AND">
+          <![CDATA[
+                 di.DI_ID  = #diId#
+                 ]]>
+          </isNotEmpty>
         <isNotEmpty property="diName" prepend="AND">
           <![CDATA[
                  di.DI_NAME Like CONCAT('%',#diName#,'%')
@@ -108,6 +115,11 @@
        left join OFFICE_DETAIL od on od.OD_ID = di.DI_DEPTTYPE
      ]]>
         <dynamic prepend=" where ">
+        <isNotEmpty property="condition.diId" prepend="AND">
+          <![CDATA[
+                 di.DI_ID  = #condition.diId#
+                 ]]>
+          </isNotEmpty>
         <isNotEmpty property="condition.diName" prepend="AND">
           <![CDATA[
                  di.DI_NAME Like CONCAT('%',#condition.diName#,'%')
