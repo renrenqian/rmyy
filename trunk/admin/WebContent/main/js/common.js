@@ -66,8 +66,8 @@ $(document).ready(function() {
 					$('.consultList li a').attr('href',
 							'/admin/main/patient/result.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx').attr('target',
 							'_blank');
-					$('.Schedule').find('.paTr:odd').addClass('SchTrPaOdd');
-					$('.Schedule').find('.paTr:even').addClass('SchTrPaEven');
+//					$('.Schedule').find('.paTr:odd').addClass('SchTrPaOdd');
+//					$('.Schedule').find('.paTr:even').addClass('SchTrPaEven');
 					$('.docIntro a').attr('href',
 							'/admin/main/doctor/docPer.shtml');
 				});
@@ -174,7 +174,7 @@ $(document).ready(function() {
 	var title;
 	if(cata1 == '医院概览'){
 		$('.titleType4').html('医院概览');
-		title=" <li><a href='http://www.baidu.com'>集团导航</a></li>"+
+		title=" <li><a href='/admin/jtIndex.html' target='_blank'>集团导航</a></li>"+
                 "<li><a href='/admin/main/overview/overview.shtml?cata1=yygl&cata2=yyjj'>医院简介</a></li>"+
                 "<li><a href='/admin/main/overview/structure.shtml?cata1=yygl&cata2=zzjg'>组织结构</a></li>"+
                 "<li><a href='/admin/main/overview/dean.shtml?cata1=yygl&cata2=yzjy'>院长寄语</a></li>"+
@@ -550,4 +550,30 @@ DateFormat.prototype = {
 		myDate = this.isoDate(date) + " " + this.isoTime(date);
 		return myDate;
 	}
+}
+
+
+function fixDate(str){
+    var array=str.split(',');
+    var myStr='';
+    $(array).each(function(i,item){
+        switch(item){
+            case '10':item='星期一上午';break;
+            case '11':item='星期一下午';break;
+            case '20':item='星期二上午';break;
+            case '21':item='星期二下午';break;
+            case '30':item='星期三上午';break;
+            case '31':item='星期三下午';break;
+            case '40':item='星期四上午';break;
+            case '41':item='星期四下午';break;
+            case '50':item='星期五上午';break;
+            case '51':item='星期五下午';break;
+            case '60':item='星期六上午';break;
+            case '61':item='星期六下午';break;
+            case '70':item='星期日上午';break;
+            case '70':item='星期日下午';break;
+        }
+        myStr+=item+'，';
+    });
+    return myStr.substr(0,myStr.length-1);
 }

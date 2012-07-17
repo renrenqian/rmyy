@@ -124,30 +124,6 @@
 					});		
 				});
 
-		function fixDate(str){
-			var array=str.split(',');
-			var myStr='';
-			$(array).each(function(i,item){
-				switch(item){
-				case '10':item='星期一上午';break;
-				case '11':item='星期一下午';break;
-				case '20':item='星期二上午';break;
-				case '21':item='星期二下午';break;
-				case '30':item='星期三上午';break;
-				case '31':item='星期三下午';break;
-				case '40':item='星期四上午';break;
-				case '41':item='星期四下午';break;
-				case '50':item='星期五上午';break;
-				case '51':item='星期五下午';break;
-				case '60':item='星期六上午';break;
-				case '61':item='星期六下午';break;
-				case '70':item='星期日上午';break;
-				case '70':item='星期日下午';break;
-			    }
-				myStr+=item+'，';
-			});
-			return myStr.substr(0,myStr.length-1);
-		}
 		function fixPosition(str) {
 			switch (str) {
 			case 0:

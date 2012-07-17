@@ -25,40 +25,10 @@
 						<div class="docBody">
 							<h3 class="newsInfo">重要说明：出诊信息仅供参考，如有变动，以门诊公布为准。（挂号费单位：人民币元）</h3>
 							<hr class="mb20 w" />
-							<label class="bold">专家名：</label> <input type="text"
-								style="margin-right: 20px;" /> <label class="bold">科室：</label> <select
-								style="margin-right: 20px;">
-								<option>科室选择</option>
-								<option>心血管内科</option>
-								<option>消化内科</option>
-								<option>眼科</option>
-								<option>妇科</option>
-								<option>产科</option>
-								<option>心血管内科</option>
-								<option>消化内科</option>
-								<option>眼科</option>
-								<option>妇科</option>
-								<option>产科</option>
-								<option>心血管内科</option>
-								<option>消化内科</option>
-								<option>眼科</option>
-								<option>妇科</option>
-								<option>产科</option>
-								<option>心血管内科</option>
-								<option>消化内科</option>
-								<option>眼科</option>
-								<option>妇科</option>
-								<option>产科</option>
-								<option>心血管内科</option>
-								<option>消化内科</option>
-								<option>眼科</option>
-								<option>妇科</option>
-								<option>产科</option>
-								<option>心血管内科</option>
-								<option>消化内科</option>
-								<option>眼科</option>
-								<option>妇科</option>
-								<option>产科</option>
+							<label class="bold">专家名：</label>
+                            <input type="text" style="margin-right: 20px;" /> <label class="bold">科室：</label>
+                            <select style="margin-right: 20px;">
+
 							</select> <label class="bold">门诊时间：</label> <select>
 								<option>门诊时间选择</option>
 								<option>星期一上午</option>
@@ -88,58 +58,6 @@
 	</div>
 	<!--#include virtual="../master/footer.html"-->
 	<script src="../js/common.js"></script>
-    <script>
-        var params = [];
-        params.push({ "name": "page.pageSize", "value":25});	//每页最大条数
-        params.push({ "name": "page.currentPageNo", "value":1});//当前显示第几页
-        var totalSize;
-        var colId = GetParameter('colId');
-
-        $(document).ready(function() {
-            initData(1); //初始化数据
-        });
-
-        //这个事件是在翻页时候用的
-        function pageselectCallback(page_id, jq) {
-            initData(page_id+1);
-        }
-
-        function initData(index) {
-            params[1].value=index;
-            var str='';
-            $.ajax({ //这里使用到Jquery的ajax方法
-                type : "POST",
-                dataType : "json",
-                url : '/admin/member/listOPSer.action?web=1&ops.diName=test&ops.diDeptType=1002&ops.osTime=61', //请求的处理数据
-                data : params,
-                //下面的操作就是成功返回数据以后，进行数据的绑定
-                success : function(data) {
-                    if(data.resultCode>0){
-//                        totalSize=data.page.totalItemCount;
-//                        var continfo=data.page.dataList;
-//                        $(continfo).each(function(i,item){
-//                            str+="<li><a class='newsTitle' title='"+item.contTitle+"'"+
-//                                    "href='/admin/main/news/newsDetail.shtml?cata1=xxzx&cata2=yyxw&contId="+item.contId+"'>"+item.contTitle+
-//                                    "</a><span class='newsDate'>"+item.contPublish_Time.substr(0,10)+"</span><span class='newIcon'></span></li>";
-//                        });
-//                        $('.newsItem2').html(str);
-                    }
-                    if($("#Pagination").html().length == ''){
-                        $("#Pagination").pagination(totalSize, {
-                            items_per_page      : params[0].value,
-                            num_display_entries : 10,
-                            num_edge_entries    : 2,
-                            prev_text           : "上一页",
-                            next_text           : "下一页",
-                            callback:pageselectCallback
-                        });
-                    }
-                }
-            });
-
-        }
-    </script>
-
 	<script>
 		$('document').ready(function() {
 			$('#J_DocSearch').click(function() {
