@@ -38,18 +38,7 @@
                 </div>
                 <div class="newsR" style='*margin-top:-10px;'>
                     <div class="slider-wrapper theme-pascal">
-                        <div id="J_InfoSlider" class="nivoSlider">
-                            <a href="hospital/news/newsDetail.shtml" target="_blank">
-                                <img src="images/pic2.jpg" alt="" title="我院召开杭州地区医院、妇幼保健院工作会"/></a>
-                            <a href="hospital/news/newsDetail.shtml" target="_blank">
-                                <img src="images/pic1.jpg" alt="" title="市一集团实体瘤多学科综合治疗研讨会"/></a>
-                            <a href="hospital/news/newsDetail.shtml" target="_blank"><img src="images/pic3.jpg" alt=""
-                                                                                          title="位于钱江新城的杭州市妇女医院明年6月开张"/>
-                            </a>
-                            <a href="hospital/news/newsDetail.shtml" target="_blank"><img src="images/pic4.jpg" alt=""
-                                                                                          title="药剂科成功举办青年药师演讲比赛"/>
-                            </a>
-                        </div>
+                        <div id="J_InfoSlider" class="nivoSlider"></div>
                     </div>
                 </div>
             </div>
@@ -128,11 +117,6 @@
             pauseTime:4000
         });
 
-        $('#J_InfoSlider').nivoSlider({
-            captionOpacity:0.8,
-            pauseTime:8000
-        });
-
         //信息中心面板切换
         $('.J_PanelLink').mouseover(function () {
             $('.J_PanelLink').attr('class', 'titleType2 J_PanelLink');
@@ -206,6 +190,18 @@
             });
             $('#J_JT').html(jtStr);
         }
+
+        //首页滚动图片
+        var slidePic=json.newsroll;
+        var slideStr='';
+        $(slidePic).each(function (i, item) {
+            slideStr+="<a href='/admin/main/news/newsDetail.shtml?cata1=xxzx&cata2=jtdt&contId="+item.contId+"' target='_blank'><img src='/admin/"+item.displayImage+"' alt='"+item.contTitle+"' title='"+item.contTitle+"'/></a>";
+        });
+        $('#J_InfoSlider').html(slideStr);
+        $('#J_InfoSlider').nivoSlider({
+            captionOpacity:0.8,
+            pauseTime:8000
+        });
     });
 </script>
 </body>
