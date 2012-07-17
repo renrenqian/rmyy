@@ -1,457 +1,211 @@
 ﻿<!DOCTYPE html>
 <head>
-<!--#include virtual="../master/headFile.html"-->
+    <!--#include virtual="../master/headFile.html"-->
+    <link rel="stylesheet" href="../../style/webPart/pagination.css"/>
+    <script type="text/javascript" src="../../js/webPart/jquery.pagination.js"></script>
 </head>
 <body>
-	<!--#include virtual="../master/top.html"-->
-	<div class="content contentPart"
-		style="margin-top: 3px; *margin-top: 3px;">
-		<div style="display: block; overflow: hidden;">
-			<div class="leftCol2">
-				<div class="mainPart">
-					<div class="itemBg">
-						<div class="titleBg2">
-							  <p class="bread">
-								<a class="breadB" href="/admin/main/index.shtml">首页</a><span>&gt;</span>
-								<a class="breadN J_Cata1" href="#"></a><span>&gt;</span> 
-								<a class="breadN J_Cata2" href="#"></a>
-							</p>
-						</div>
-						<h2 class="titleType3">门诊排班信息</h2>
-						<div style="clear: both;"></div>
-						<div class="docBody">
-							<h3 class="newsInfo">重要说明：出诊信息仅供参考，如有变动，以门诊公布为准。（挂号费单位：人民币元）</h3>
-							<hr class="mb20 w" />
-							<label class="bold">专家名：</label> <input type="text"
-								style="margin-right: 20px;" /> <label class="bold">科室：</label> <select
-								style="margin-right: 20px;">
-								<option>科室选择</option>
-								<option>心血管内科</option>
-								<option>消化内科</option>
-								<option>眼科</option>
-								<option>妇科</option>
-								<option>产科</option>
-								<option>心血管内科</option>
-								<option>消化内科</option>
-								<option>眼科</option>
-								<option>妇科</option>
-								<option>产科</option>
-								<option>心血管内科</option>
-								<option>消化内科</option>
-								<option>眼科</option>
-								<option>妇科</option>
-								<option>产科</option>
-								<option>心血管内科</option>
-								<option>消化内科</option>
-								<option>眼科</option>
-								<option>妇科</option>
-								<option>产科</option>
-								<option>心血管内科</option>
-								<option>消化内科</option>
-								<option>眼科</option>
-								<option>妇科</option>
-								<option>产科</option>
-								<option>心血管内科</option>
-								<option>消化内科</option>
-								<option>眼科</option>
-								<option>妇科</option>
-								<option>产科</option>
-							</select> <label class="bold">门诊时间：</label> <select>
-								<option>门诊时间选择</option>
-								<option>星期一上午</option>
-								<option>星期一下午</option>
-								<option>星期二上午</option>
-								<option>星期二下午</option>
-								<option>星期三上午</option>
-								<option>星期三下午</option>
-								<option>星期四上午</option>
-								<option>星期四下午</option>
-								<option>星期五上午</option>
-								<option>星期五下午</option>
-								<option>星期六上午</option>
-								<option>星期六下午</option>
-								<option>星期日上午</option>
-								<option>星期日下午</option>
-							</select> <a class="greenBtn tc" style="margin: 20px auto;"
-								href="../doctor/mzpb.shtml?cata1=zjjs&cata2=mzpb">查询</a>
-							<table class="Schedule">
-								<thead>
-									<tr class="totalTh">
-										<th class="w1">医生</th>
-										<th class="w1">科室</th>
-										<th class="w3">特长</th>
-										<th class="w4">门诊信息</th>
-										<th class="w1">预约</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr class="paTr">
-										<td><a href="docPer.shtml" class="bold" target="_blank">梅瑾</a></td>
-										<td><a href="../dept/deptDetail.shtml" class="bold"
-											target="_blank">产科</a></td>
-										<td style="text-align: left;">优生优育、孕产妇保健、产前筛查、产前咨询、产前诊断以及妊娠期异常情况的诊治。</td>
-										<td>
-											<table class="SechDetail">
-												<tr class="subTh">
-													<th class='w4'>出诊类别</th>
-													<th class='w2'>时间</th>
-													<th class='w1'>地点</th>
-													<th class='w2'>挂号费</th>
-													<th class='w1'>限号</th>
-												</tr>
-												<tr>
-													<td>产科专家门诊</td>
-													<td>周三上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-												<tr>
-													<td>产科专家门诊</td>
-													<td>周三下午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-												<tr>
-													<td>产科名医门诊</td>
-													<td>周五上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-												<tr>
-													<td>产科名医门诊</td>
-													<td>周五上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-											</table>
-										</td>
-										<td><a
-											href="http://guahao.zjol.com.cn/HospitalInfo.Aspx?ID=057101"
-											target="_blank"> 预约</a></td>
-									</tr>
-									<tr class="paTr">
-										<td><a href="docPer.shtml" class="bold" target="_blank">翟洪波</a></td>
-										<td><a href="../dept/deptDetail.shtml" class="bold"
-											target="_blank">产科</a></td>
-										<td style="text-align: left;">优生优育、孕产妇保健、产前筛查、产前咨询、产前诊断以及妊娠期异常情况的诊治。</td>
-										<td>
-											<table class="SechDetail">
-												<tr class="subTh">
-													<th class='w4'>出诊类别</th>
-													<th class='w2'>时间</th>
-													<th class='w1'>地点</th>
-													<th class='w2'>挂号费</th>
-													<th class='w1'>限号</th>
-												</tr>
-												<tr>
-													<td>产科专家门诊</td>
-													<td>周一上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-												<tr>
-													<td>遗传咨询专家门诊</td>
-													<td>周六上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-											</table>
-										</td>
-										<td><a
-											href="http://guahao.zjol.com.cn/HospitalInfo.Aspx?ID=057101"
-											target="_blank"> 预约</a></td>
-									</tr>
-									<tr class="paTr">
-										<td><a href="docPer.shtml" class="bold" target="_blank">吴虹</a></td>
-										<td><a href="../dept/deptDetail.shtml" class="bold"
-											target="_blank">产科</a></td>
-										<td style="text-align: left;">优生优育、孕产妇保健、产前筛查、产前咨询、产前诊断以及妊娠期异常情况的诊治。</td>
-										<td>
-											<table class="SechDetail">
-												<tr class="subTh">
-													<th class='w4'>出诊类别</th>
-													<th class='w2'>时间</th>
-													<th class='w1'>地点</th>
-													<th class='w2'>挂号费</th>
-													<th class='w1'>限号</th>
-												</tr>
-												<tr>
-													<td>专家门诊</td>
-													<td>周三上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-												<tr>
-													<td>专家门诊</td>
-													<td>周三下午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-												<tr>
-													<td>名医门诊</td>
-													<td>周五上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-												<tr>
-													<td>名医门诊</td>
-													<td>周五上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-											</table>
-										</td>
-										<td><a
-											href="http://guahao.zjol.com.cn/HospitalInfo.Aspx?ID=057101"
-											target="_blank"> 预约</a></td>
-									</tr>
-									<tr class="paTr">
-										<td><a href="docPer.shtml" class="bold" target="_blank">王志华</a></td>
-										<td><a href="../dept/deptDetail.shtml" class="bold"
-											target="_blank">产科</a></td>
-										<td style="text-align: left;">优生优育、孕产妇保健、产前筛查、产前咨询、产前诊断以及妊娠期异常情况的诊治。</td>
-										<td>
-											<table class="SechDetail">
-												<tr class="subTh">
-													<th class='w4'>出诊类别</th>
-													<th class='w2'>时间</th>
-													<th class='w1'>地点</th>
-													<th class='w2'>挂号费</th>
-													<th class='w1'>限号</th>
-												</tr>
-												<tr>
-													<td>专家门诊</td>
-													<td>周三上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-												<tr>
-													<td>专家门诊</td>
-													<td>周三下午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-												<tr>
-													<td>名医门诊</td>
-													<td>周五上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-												<tr>
-													<td>名医门诊</td>
-													<td>周五上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-											</table>
-										</td>
-										<td><a
-											href="http://guahao.zjol.com.cn/HospitalInfo.Aspx?ID=057101"
-											target="_blank"> 预约</a></td>
-									</tr>
-									<tr class="paTr">
-										<td><a href="docPer.shtml" class="bold" target="_blank">梅瑾</a></td>
-										<td><a href="../dept/deptDetail.shtml" class="bold"
-											target="_blank">产科</a></td>
-										<td style="text-align: left;">优生优育、孕产妇保健、产前筛查、产前咨询、产前诊断以及妊娠期异常情况的诊治。</td>
-										<td>
-											<table class="SechDetail">
-												<tr class="subTh">
-													<th class='w4'>出诊类别</th>
-													<th class='w2'>时间</th>
-													<th class='w1'>地点</th>
-													<th class='w2'>挂号费</th>
-													<th class='w1'>限号</th>
-												</tr>
-												<tr>
-													<td>产科专家门诊</td>
-													<td>周三上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-												<tr>
-													<td>产科专家门诊</td>
-													<td>周三下午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-												<tr>
-													<td>产科名医门诊</td>
-													<td>周五上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-												<tr>
-													<td>产科名医门诊</td>
-													<td>周五上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-											</table>
-										</td>
-										<td><a
-											href="http://guahao.zjol.com.cn/HospitalInfo.Aspx?ID=057101"
-											target="_blank"> 预约</a></td>
-									</tr>
-									<tr class="paTr">
-										<td><a href="docPer.shtml" class="bold" target="_blank">翟洪波</a></td>
-										<td><a href="../dept/deptDetail.shtml" class="bold"
-											target="_blank">产科</a></td>
-										<td style="text-align: left;">优生优育、孕产妇保健、产前筛查、产前咨询、产前诊断以及妊娠期异常情况的诊治。</td>
-										<td>
-											<table class="SechDetail">
-												<tr class="subTh">
-													<th class='w4'>出诊类别</th>
-													<th class='w2'>时间</th>
-													<th class='w1'>地点</th>
-													<th class='w2'>挂号费</th>
-													<th class='w1'>限号</th>
-												</tr>
-												<tr>
-													<td>产科专家门诊</td>
-													<td>周一上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-												<tr>
-													<td>遗传咨询专家门诊</td>
-													<td>周六上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-											</table>
-										</td>
-										<td><a
-											href="http://guahao.zjol.com.cn/HospitalInfo.Aspx?ID=057101"
-											target="_blank"> 预约</a></td>
-									</tr>
-									<tr class="paTr">
-										<td><a href="docPer.shtml" class="bold" target="_blank">吴虹</a></td>
-										<td><a href="../dept/deptDetail.shtml" class="bold"
-											target="_blank">产科</a></td>
-										<td style="text-align: left;">优生优育、孕产妇保健、产前筛查、产前咨询、产前诊断以及妊娠期异常情况的诊治。</td>
-										<td>
-											<table class="SechDetail">
-												<tr class="subTh">
-													<th class='w4'>出诊类别</th>
-													<th class='w2'>时间</th>
-													<th class='w1'>地点</th>
-													<th class='w2'>挂号费</th>
-													<th class='w1'>限号</th>
-												</tr>
-												<tr>
-													<td>专家门诊</td>
-													<td>周三上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-												<tr>
-													<td>专家门诊</td>
-													<td>周三下午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-												<tr>
-													<td>名医门诊</td>
-													<td>周五上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-												<tr>
-													<td>名医门诊</td>
-													<td>周五上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-											</table>
-										</td>
-										<td><a
-											href="http://guahao.zjol.com.cn/HospitalInfo.Aspx?ID=057101"
-											target="_blank"> 预约</a></td>
-									</tr>
-									<tr class="paTr">
-										<td><a href="DocPer.aspx" class="bold" target="_blank">王志华</a></td>
-										<td><a href="../dept/deptDetail.shtml" class="bold"
-											target="_blank">产科</a></td>
-										<td style="text-align: left;">优生优育、孕产妇保健、产前筛查、产前咨询、产前诊断以及妊娠期异常情况的诊治。</td>
-										<td>
-											<table class="SechDetail">
-												<tr class="subTh">
-													<th class='w4'>出诊类别</th>
-													<th class='w2'>时间</th>
-													<th class='w1'>地点</th>
-													<th class='w2'>挂号费</th>
-													<th class='w1'>限号</th>
-												</tr>
-												<tr>
-													<td>专家门诊</td>
-													<td>周三上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-												<tr>
-													<td>专家门诊</td>
-													<td>周三下午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-												<tr>
-													<td>名医门诊</td>
-													<td>周五上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-												<tr>
-													<td>名医门诊</td>
-													<td>周五上午</td>
-													<td>7东</td>
-													<td>200</td>
-													<td>25</td>
-												</tr>
-											</table>
-										</td>
-										<td><a
-											href="http://guahao.zjol.com.cn/HospitalInfo.Aspx?ID=057101"
-											target="_blank"> 预约</a></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--#include virtual="../master/commonSubTitle.html"-->
-		</div>
-	</div>
-	<!--#include virtual="../master/footer.html"-->
-	<script src="../js/common.js"></script>
+<!--#include virtual="../master/top.html"-->
+<div class="content contentPart" style="margin-top: 3px; *margin-top: 3px;width: 100%;">
+    <div style="display: block; overflow: hidden;">
+        <div>
+            <div class="mainPart">
+                <div class="itemBg">
+                    <div class="titleBg2">
+                        <p class="bread">
+                            <a class="breadB" href="/admin/main/index.shtml">首页</a><span>&gt;</span>
+                            <a class="breadN J_Cata1" href="#"></a><span>&gt;</span>
+                            <a class="breadN J_Cata2" href="#"></a>
+                        </p>
+                    </div>
+                    <h2 class="titleType3">门诊排班信息</h2>
+
+                    <div style="clear: both;"></div>
+                    <div class="docBody">
+                        <h3 class="newsInfo">重要说明：出诊信息仅供参考，如有变动，以门诊公布为准。（挂号费单位：人民币元）</h3>
+                        <hr class="mb20 w"/>
+                        <label class="bold">专家名：</label> <input type="text" style="margin-right: 20px;" id="J_Name"/>
+                        <label class="bold">科室：</label> <select style="margin-right: 20px;" id="J_DeptSelect"></select>
+                        <label class="bold">门诊时间：</label>
+                        <select id="J_TimeSelect">
+                            <option value="0">门诊时间选择</option>
+                            <option value="10">星期一上午</option>
+                            <option value="11">星期一下午</option>
+                            <option value="20">星期二上午</option>
+                            <option value="21">星期二下午</option>
+                            <option value="30">星期三上午</option>
+                            <option value="31">星期三下午</option>
+                            <option value="40">星期四上午</option>
+                            <option value="41">星期四下午</option>
+                            <option value="50">星期五上午</option>
+                            <option value="51">星期五下午</option>
+                            <option value="60">星期六上午</option>
+                            <option value="61">星期六下午</option>
+                            <option value="70">星期日上午</option>
+                            <option value="71">星期日下午</option>
+                        </select> <a class="greenBtn tc" style="margin: 20px auto;" id="J_Search">查询</a>
+                        <table class="Schedule">
+                            <thead>
+                            <tr class="totalTh">
+                                <th style="width: 50px;">医生</th>
+                                <th style="width: 100px;">科室</th>
+                                <th>特长</th>
+                                <th style="width: 500px;">门诊信息</th>
+                                <th style="width: 50px;">预约</th>
+                            </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <div id="Pagination" class="pagination mt20"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--#include virtual="../master/footer.html"-->
+<script src="../js/common.js"></script>
+<script>
+    var name;
+    var deptId;
+    var time;
+    var action='/admin/member/listOPSer.action?web=1';
+    var totalSize;
+    var params = [];
+    params.push({ "name":"page.pageSize", "value":10});    //每页最大条数
+    params.push({ "name":"page.currentPageNo", "value":1});//当前显示第几页
+
+    //zq:填充科室下拉列表
+    $.getJSON('/admin/main/dept/lcks', function (json) {
+        if (json.resultCode > 0) {
+            var deptList = json.deptList;
+            var optioin = "<option value='0'>科室选择</option>";
+            $(deptList).each(function (i, item) {
+                optioin += "<option value=" + item.dpId + ">" + item.dpName + "</option>";
+            });
+            $('#J_DeptSelect').html(optioin);
+
+        } else {
+            $.fn.sdInfo({
+                type:"fail",
+                content:json.message ? json.message : "查询科室信息错误!"
+            });
+        }
+    });
+
+    //初始化数据
+    $(document).ready(function () {
+        initData(1);
+    });
+</script>
+
+<script>
+    //搜索按钮
+    $(document).ready(function () {
+        $('#J_Search').click(function () {
+            var params = [];
+            params.push({ "name":"page.pageSize", "value":10});
+            $("#Pagination").html('');
+            if(!params[2]){
+                params.push({ "name":"ops.diName","value":""});    //每页最大条数
+            }
+            if(!params[3]){
+                params.push({ "name":"ops.diDeptType","value":""});    //每页最大条数
+            }
+            if(!params[4]){
+                params.push({ "name":"ops.osTime","value":""});    //每页最大条数
+            }
+            params[2].value=$('#J_Name').val();
+            params[3].value=$('#J_DeptSelect').val();
+            params[4].value=$('#J_TimeSelect').val();
+            if($('#J_DeptSelect').val()=='0'){
+                delete params[3];
+            }
+            if($('#J_TimeSelect').val()=='0'){
+                delete params[4];
+            }
+            initData(1);
+        });
+    });
+</script>
+
+<script>
+    //这个事件是在翻页时候用的
+    function pageselectCallback(page_id, jq) {
+        initData(page_id + 1);
+        return false;
+    }
+
+    function initData(index) {
+        params[1].value = index;
+        var str = '';
+        $.ajax({ //这里使用到Jquery的ajax方法
+            type:"POST",
+            dataType:"json",
+            url:action, //请求的处理数据
+            data:params,
+            //下面的操作就是成功返回数据以后，进行数据的绑定
+            success:function (data) {
+                if (data.resultCode > 0) {
+                    totalSize = data.page.totalItemCount;
+                    var doctinfo = data.page.dataList;
+                    $(doctinfo).each(function (i, item) {
+                        str += "<tr class='paTr'>" +
+                                "<td><a href='/admin/main/doctor/docPer.shtml?cata1=zjjs&cata2=zjyl&diId=" + item.diId + "' class='bold' target='_blank'>" + item.diName + "</a></td>" +
+                                "<td><a href='/admin/main/dept/deptDetail.shtml?cata1=ksdh&cata2=lcks&id=" + item.diDeptId + "' class='bold' target='_blank'>" + item.diDeptName + "</a></td>" +
+                                "<td style='text-align: left;'>" + item.diMajor + "</td>" +
+                                "<td>" +
+                                "<table class='SechDetail'>" +
+                                "<tr class='subTh'>" +
+                                "<th class='w2'>出诊类别</th>" +
+                                "<th class='w3'>时间</th>" +
+                                "<th class='w3'>地点</th>" +
+                                "<th class='w1'>挂号费</th>" +
+                                "<th class='w1'>限号</th>" +
+                                "</tr>";
+                        if (item.osCate == 1) {
+                            var limit = item.osLimit ? item.osLimit : "";
+                            str += "<tr>" +
+                                    "<td>专家门诊</td>" +
+                                    "<td>" + fixDate(item.osTime) + "</td>" +
+                                    "<td>" + item.osLocation + "</td>" +
+                                    "<td>" + item.osCost + "</td>" +
+                                    "<td>" + limit + "</td>" +
+                                    "</tr>";
+                        }
+                        if (item.osfCate == 2) {
+                            var limit = item.osLimit ? item.osLimit : "";
+                            str += "<tr>" +
+                                    "<td>名医门诊</td>" +
+                                    "<td>" + fixDate(item.osfTime) + "</td>" +
+                                    "<td>" + item.osfLocation + "</td>" +
+                                    "<td>" + item.osfCost + "</td>" +
+                                    "<td>" + limit + "</td>" +
+                                    "</tr>";
+                        }
+                        str += "</table>" +
+                                "</td>" +
+                                "<td><a href='http://guahao.zjol.com.cn/HospitalInfo.Aspx?ID=057101' target='_blank'> 预约</a></td>" +
+                                "</tr>";
+                    });
+                    $('.Schedule tbody').html(str);
+                    $('.Schedule').find('.paTr:odd').addClass('SchTrPaOdd');
+                    $('.Schedule').find('.paTr:even').addClass('SchTrPaEven');
+                }
+                if ($("#Pagination").html().length == '') {
+                    $("#Pagination").pagination(totalSize, {
+                        items_per_page:params[0].value,
+                        num_display_entries:10,
+                        num_edge_entries:2,
+                        prev_text:"上一页",
+                        next_text:"下一页",
+                        callback:pageselectCallback
+                    });
+                }
+            }
+        });
+    }
+</script>
 </body>
 </html>
 
