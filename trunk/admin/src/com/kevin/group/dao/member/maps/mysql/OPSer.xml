@@ -82,7 +82,7 @@
           </isNotEmpty>
         <isNotEmpty property="osTime" prepend="AND">
           <![CDATA[
-                 famops.OS_TIME Like CONCAT('%',#osTime#,'%')  or perops.OS_TIME Like CONCAT('%',#osTime#,'%') 
+                 (famops.OS_TIME Like CONCAT('%',#osTime#,'%')  or perops.OS_TIME Like CONCAT('%',#osTime#,'%'))
                  ]]>
           </isNotEmpty>
         </dynamic>
@@ -132,7 +132,7 @@
           </isNotEmpty>
         <isNotEmpty property="condition.osTime" prepend="AND">
           <![CDATA[
-                 famops.OS_TIME Like CONCAT('%',#condition.osTime#,'%')  or perops.OS_TIME Like CONCAT('%',#condition.osTime#,'%') 
+                 (famops.OS_TIME Like CONCAT('%',#condition.osTime#,'%')  or perops.OS_TIME Like CONCAT('%',#condition.osTime#,'%')) 
                  ]]>
           </isNotEmpty>
         </dynamic>
