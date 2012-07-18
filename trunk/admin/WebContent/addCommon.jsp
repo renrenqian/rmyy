@@ -52,7 +52,7 @@
 				<tr>
 					<td class="rowName w1">作者或来源</td>
 					<td><input id="contAuthor" type="text" class="input_type1"
-						name="continfo.contAuthor"/></td>
+						name="continfo.contAuthor" value="市一医院"/></td>
 					<td class="rowName">发布日期</td>
 					<td><input id="contPublish_Time" type="text"
 						name="continfo.contPublish_Time" class="input_type_date" /></td>
@@ -123,7 +123,6 @@
          if (json.resultCode > 0) {
              formUnSerialize("contentForm", "continfo", json.continfo);
              CKEDITOR.instances.editor1.setData($("#contDetail").val());
-            
          } else {
              $.fn.sdInfo({
                  type:"fail",
@@ -168,7 +167,9 @@
              
          }, 
          success:function(json){
-             json = eval('(' + json + ')');
+             // as it have exception while use eval, so not check the result.
+             $(window.parent.document).find("#centerIFrame").attr("src", "content/contentMan.html");
+             /*json = eval('(' + json + ')');
              if (json.resultCode > 0 ) {
                  $(window.parent.document).find("#centerIFrame").attr("src", "content/contentMan.html");                 
                 } else  {
@@ -176,7 +177,7 @@
                         type : "fail",
                         content : json.message ? actionName+"内容错误:"+json.message : actionName+"内容错误:"
                     });
-                }
+                } */
          }
      });  
         }       
@@ -203,7 +204,7 @@
 	             dateFormat = null;
 	             cPubTime.hide();
 	         });
-	         cPubTime.render({minDate:new Date()});
+	         //cPubTime.render({minDate:new Date()});
 	     });
 	 })(KISSY);
 	 </script>

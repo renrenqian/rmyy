@@ -38,7 +38,7 @@
 //获取当前领导详情
 var liId=GetParameter('liId');
 if(liId==''){
-	liId=26;
+	liId=32;
 }
 var action='/admin/member/searchLeader.action?web=1&leader.liId='+liId;
 $.getJSON(action,function(json){
@@ -57,12 +57,17 @@ $.getJSON(action,function(json){
     "<table class='docTable'><tbody><tr><th colspan='4'>分管范围</th></tr><tr>"+
             "<td>"+leader.liRang+"</td>"+
         "</tr></tbody</table>";
-        $('.docBody').append(liDetail);		
-       liDetail= "<h3>简历</h3>"+
-    "<p>"+leader.liResume+"</p>"+
-    "<h3>社会兼职</h3>"+
-    "<p>"+leader.liDesc+"</p>";
-		$('.docBody').append(liDetail);		
+        $('.docBody').append(liDetail);
+        var liDetail2='';
+        if(leader.liResume){
+            liDetail2+= "<h3>简历</h3>"+
+                    "<p>"+fixTAFormat(leader.liResume)+"</p>";
+        }
+        if(leader.liDesc){
+            liDetail2+="<h3>社会兼职</h3>"+
+                    "<p>"+fixTAFormat(leader.liDesc)+"</p>";
+        }
+		$('.docBody').append(liDetail2);
  		$('#J_LiPortrait').attr('src','/admin/'+leader.liPortrait);
  		$('#J_LeaderName').html(leader.liName);
 	}	

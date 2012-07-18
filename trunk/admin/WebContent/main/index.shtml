@@ -170,11 +170,14 @@
 
             //头条新闻部分
             var ttxw = json.newsyyxw0;
-            var str="<h2>"+ttxw[0].contTitle+"</h2>" +
-                    "<p>" +
-                    "<a style='width: 352px; height: 65px; overflow: hidden;' href='/admin/main/news/newsDetail.shtml?cata1=xxzx&cata2=yyxw&contId="+ttxw[0].contId+"'>"+ttxw[0].contCont+"</a>" +
-                    "</p>";
-            $('.topic').html(str);
+            if(ttxw.length!=0){
+                var str="<h2>"+ttxw[0].contTitle+"</h2>" +
+                        "<p>" +
+                        "<a style='width: 352px; height: 65px; overflow: hidden;' href='/admin/main/news/newsDetail.shtml?cata1=xxzx&cata2=yyxw&contId="+ttxw[0].contId+"'>"+ttxw[0].contCont+"</a>" +
+                        "</p>";
+                $('.topic').html(str);
+
+            }
 
             //集团动态部分
             var jtdt = json.newsjtdt;
@@ -182,10 +185,10 @@
             $(jtdt).each(function (i, item) {
                 if(i<3){
                     jtStr+="  <li><a class='newsTitle' title='"+item.contTitle+"' href='/admin/main/news/newsDetail.shtml?cata1=xxzx&cata2=jtdt&contId="+item.contId+"'>"+item.contTitle+
-                            "</a><span class='newsDate'>"+item.contPublish_Time.substr(5,5)+"</span><span class='newIcon'></span></li>";
+                            "</a><span class='newsDate'>"+item.contPublish_Time.substr(0,10)+"</span><span class='newIcon'></span></li>";
                 }else{
                     jtStr+="  <li><a class='newsTitle' title='"+item.contTitle+"' href='/admin/main/news/newsDetail.shtml?cata1=xxzx&cata2=jtdt&contId="+item.contId+"'>"+item.contTitle+
-                            "</a><span class='newsDate'>"+item.contPublish_Time.substr(5,5)+"</span></li>";
+                            "</a><span class='newsDate'>"+item.contPublish_Time.substr(0,10)+"</span></li>";
                 }
             });
             $('#J_JT').html(jtStr);
@@ -195,7 +198,7 @@
         var slidePic=json.newsroll;
         var slideStr='';
         $(slidePic).each(function (i, item) {
-            slideStr+="<a href='/admin/main/news/newsDetail.shtml?cata1=xxzx&cata2=jtdt&contId="+item.contId+"' target='_blank'><img src='/admin/"+item.displayImage+"' alt='"+item.contTitle+"' title='"+item.contTitle+"'/></a>";
+            slideStr+="<a href='/admin/main/news/newsDetail.shtml?cata1=xxzx&cata2=yyxw&contId="+item.contId+"' target='_blank'><img src='/admin/"+item.displayImage+"' width='233' height='142' alt='"+item.contTitle+"' title='"+item.contTitle+"'/></a>";
         });
         $('#J_InfoSlider').html(slideStr);
         $('#J_InfoSlider').nivoSlider({

@@ -36,7 +36,7 @@
 <script src="../js/common.js"></script>
 <script>
     var params = [];
-	params.push({ "name": "page.pageSize", "value":2});	//每页最大条数
+	params.push({ "name": "page.pageSize", "value":4});	//每页最大条数
 	params.push({ "name": "page.currentPageNo", "value":1});//当前显示第几页
 	var totalSize;
 	

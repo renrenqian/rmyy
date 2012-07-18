@@ -40,7 +40,7 @@
                 <tr>
                     <td class="rowName w1">作者或来源</td>
                     <td><input id="contAuthor" type="text" class="input_type1"
-                        name="continfo.contAuthor"/></td>
+                        name="continfo.contAuthor" value="市一医院"/></td>
                     <td class="rowName">发布日期</td>
                     <td><input id="contPublish_Time" type="text"
                         name="continfo.contPublish_Time" class="input_type_date" /></td>
@@ -142,9 +142,9 @@
                   var dateFormat=new DateFormat();
                   $('#contPublish_Time').val(dateFormat.isoDateTime(date));
               }      
-              $("#contDetail").val(CKEDITOR.instances.editor1.getData());  
+              $("#contDetail").val(reP(CKEDITOR.instances.editor1.getData()));
             
-              $("#contCont").val(CKEDITOR.instances.editor1.document.getBody().getText().substr(0,400));                
+              $("#contCont").val(reP(CKEDITOR.instances.editor1.document.getBody().getText().substr(0,400)));
          },
          error:function (json) {
              
@@ -188,7 +188,7 @@
                  dateFormat = null;
                  cPubTime.hide();
              });
-             cPubTime.render({minDate:new Date()});
+            // cPubTime.render({minDate:new Date()});
          });
      })(KISSY);
      </script>

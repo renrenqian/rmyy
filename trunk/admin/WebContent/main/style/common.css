@@ -132,7 +132,7 @@ body {
 }
 
 .contentPart {
-	overflow: hidden; display: inline-block;
+	display: inline-block;overflow: hidden;
 }
 /*  集团成员部分  */
 .group {

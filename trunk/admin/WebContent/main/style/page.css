@@ -260,8 +260,9 @@ hr {
 	color: #333333; font-size: 14px; padding: 20px; font-family: Tahoma, Geneva, "宋体";  overflow: hidden;;
 }
 
+/* 新闻栏目下，不允许缩进 */
 .newsBody p {
-	display: block; margin-top: 5px; margin-bottom: 10px; text-align: left;text-indent: 2em;
+	display: block; margin-top: 5px; margin-bottom: 10px; text-align: left;
 }
 
 .newsBody h3 {

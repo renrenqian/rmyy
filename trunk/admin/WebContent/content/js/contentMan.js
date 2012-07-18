@@ -102,7 +102,7 @@ $(document).ready(function() {
     $('#J_AuditOk').die().live("click", function() { 
         //code here
         var auditorId = $("#auditorId").val();
-        var auditorResult = $("#auditorOption :checked").val();
+        var auditorResult = $("#auditorOption").val();
       $.getJSON('../group/auditorContent.action?t=' + new Date().getTime() + '&continfo.contId=' + auditorId + '&continfo.contAuditResult=' + auditorResult,  function(json) {
           if (json.resultCode > 0) {
               //formUnSerialize("deptForm", "dept", json.dept);
