@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!--#include virtual="../master/headFile.html"-->
+    <style type="text/css">
+        .docBody p{text-indent: 2em;}
+    </style>
+</head>
+<body>
+<!--#include virtual="../master/top.html"-->
+<div class="content contentPart" style="margin-top: 3px; *margin-top: 3px;width: 100%;">
+    <div style="display: block; overflow: hidden;">
+        <div>
+            <div class="mainPart">
+                <div class="itemBg">
+                    <h2 class="titleType3 mt30">免责条款</h2>
+
+                    <div style="clear: both;"></div>
+                    <div class="docBody" style="min-height: 400px;">
+                        <p>杭州市第一人民医院网站所有信息均来各自医院各科室及院办提供的信息或其它网站的摘录，本站保证信息编辑与转载信息的来源合法性、保证所有信息均不涉及任何国家法律禁止刊登、转播的内容。</p>
+                        <p>杭州市第一人民医院网站欢迎对我们平台上的内容和功能提出质疑和批评。在发布相关信息时请秉承“诚信”，为您自己的行为负责，如有虚假信息等行为所造成的一切后果本网均不承担任何责任。请在应用我们的平台前，认真、仔细阅读相关帮助文档，如有问题请及时和我们联系。</p>
+                        <p>杭州市第一人民医院网站在线咨询仅为方便医患交流而设，请在发布信息时遵守国家相关法律、法规。</p>
+                        <p>杭州市第一人民医院网站不保证为向用户提供便利而设置的外部链接的准确性和完整性。</p>
+                        <p>如上述免责条款有任何疑问请发电子邮件给我们：hzsyyy1@163.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--#include virtual="../master/footer.html"-->
+<script src="../js/common.js"></script>
+</body>
+</html>
+
+
+
+
+
+

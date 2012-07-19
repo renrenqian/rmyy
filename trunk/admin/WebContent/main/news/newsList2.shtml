@@ -25,7 +25,7 @@
 						<div style="clear: both;"></div>
 						<div class='newsBody'>
 							<ul class="newsItem2"></ul>
-                            <div id="Pagination" class="pagination"></div>
+                            <div id="Pagination" class="pagination mt20"></div>
 						</div>
 					</div>
 				</div>
@@ -42,6 +42,9 @@
         var totalSize;
         var colId = GetParameter('colId');
 
+        var cata1 = GetParameter('cata1');
+        var cata2 = GetParameter('cata2');
+        var cata3 = GetParameter('cata3');
         $(document).ready(function() {
             initData(1); //初始化数据
         });
@@ -65,9 +68,15 @@
                         totalSize=data.page.totalItemCount;
                         var continfo=data.page.dataList;
                         $(continfo).each(function(i,item){
-                            str+="<li><a class='newsTitle' title='"+item.contTitle+"'"+
-                                    "href='/admin/main/news/newsDetail.shtml?cata1=xxzx&cata2=yyxw&contId="+item.contId+"'>"+item.contTitle+
-                                    "</a><span class='newsDate'>"+item.contPublish_Time.substr(0,10)+"</span><span class='newIcon'></span></li>";
+                            if(i<3){
+                                str+="<li><a class='newsTitle' title='"+item.contTitle+"'"+
+                                        "href='/admin/main/news/newsDetail2.shtml?cata1="+cata1+"&cata2="+cata2+"&contId="+item.contId+"&cata3="+cata3+"'>"+item.contTitle+
+                                        "</a><span class='newsDate'>"+item.contPublish_Time.substr(0,10)+"</span><span class='newIcon'></span></li>";
+                            }else{
+                                str+="<li><a class='newsTitle' title='"+item.contTitle+"'"+
+                                        "href='/admin/main/news/newsDetail2.shtml?cata1="+cata1+"&cata2="+cata2+"&contId="+item.contId+"&cata3="+cata3+"'>"+item.contTitle+
+                                        "</a><span class='newsDate'>"+item.contPublish_Time.substr(0,10)+"</span></li>";
+                            }
                         });
                         $('.newsItem2').html(str);
                     }

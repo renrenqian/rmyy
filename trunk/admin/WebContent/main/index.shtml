@@ -53,7 +53,7 @@
     </div>
     <div class="funcPart">
         <ul class="funcList">
-            <li><a href="patient/doctorSearch.shtml?cata1=hzfwzx&cata2=mzcx&cata3=zjcx" id="func1">
+            <li><a href="doctor/mzpb.shtml?cata1=zjjs&cata2=mzpb" id="func1">
                 <p class="funcTitle1">专家查询</p>
             </a></li>
             <li><a href="patient/process.shtml?cata1=hzfwzx&cata2=jzzn&cata3=jylc" id="func2">

@@ -58,11 +58,19 @@
 							"<ul class='subDeptList'>"+waiList+"</ul></li>");			
 				}else{
 					var commonList = "";
-					$(deptList).each(							
-							function(i, item) {
-								listItem = " <li><a href='deptDetail.shtml?web=1&id="+ item.dpId + "&cata1=ksdh&cata2="+action+"'>" + item.dpName + "</a></li>";
-								commonList += listItem;							
-							});
+                    if(action=='tszk'||action=='zkzx'||action=='zlzx'){
+                        $(deptList).each(
+                                function(i, item) {
+                                    listItem = " <li class='longDeptName'><a href='deptDetail.shtml?web=1&id="+ item.dpId + "&cata1=ksdh&cata2="+action+"'>" + item.dpName + "</a></li>";
+                                    commonList += listItem;
+                                });
+                    }else{
+                        $(deptList).each(
+                                function(i, item) {
+                                    listItem = " <li><a href='deptDetail.shtml?web=1&id="+ item.dpId + "&cata1=ksdh&cata2="+action+"'>" + item.dpName + "</a></li>";
+                                    commonList += listItem;
+                                });
+                    }
 					$('.expList').html("<li class='deptList'>"+
 							"<hr />"+
 							"<ul class='subDeptList'>"+commonList+"</ul></li>");	

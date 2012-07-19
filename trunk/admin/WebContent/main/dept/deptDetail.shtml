@@ -6,7 +6,7 @@
 	<!--#include virtual="../master/top.html"-->
 	<div class="content contentPart"
 		style="margin-top: 3px; *margin-top: 3px;">
-		<div style="display: block; overflow: hidden;">
+		<div style="display: block; overflow: hidden; position: relative;">
 			<div class="leftCol2">
 				<div class="mainPart">
 					<div class="itemBg">
@@ -20,7 +20,7 @@
 						<h2 class="titleType3">
 							<span class='J_Cata2'></span> • <span class="J_DpName"></span>
 						</h2>
-						<div class='clear'></div>
+                        <div class="clear"></div>
 						<div class="newsBody"></div>
 					</div>
 				</div>
@@ -37,25 +37,25 @@
 	         if (json.resultCode > 0) {            
 	             var deptDetail = json.dept;
 	             $('.J_DpName').html(deptDetail.dpName);
-	             var dpStr="<h3>基本信息</h3><p><span class='mr50'>科室名称："+deptDetail.dpName+"</span>";
+	             var dpStr="<h3>基本信息</h3><p><span class='mr50'><strong>【科室名称】</strong>："+deptDetail.dpName+"</span>";
 			     if(deptDetail.dpIn_charge){
-			    	 dpStr+="<span class='mr50'>负责人:"+deptDetail.dpIn_charge+"</span>";
+			    	 dpStr+="<span class='mr50'><strong>【负责人】</strong>："+deptDetail.dpIn_charge+"</span>";
 				 }
-			     if(deptDetail.dpBed_counter){
-			    	 dpStr+="<span class='mr50'>床位数量:"+deptDetail.dpBed_counter+"张</span> ";
+			     if(deptDetail.dpBed_counter && (deptDetail.dpType=="临床科室"||deptDetail.dpType=="临床科室,省市重点")){
+			    	 dpStr+="<span class='mr50'><strong>【床位数量】</strong>："+deptDetail.dpBed_counter+"张</span></p>";
 			     }
 				 if(deptDetail.dpLocation){
-					dpStr+="<span>物理位置："+deptDetail.dpLocation+"</span></p>";
+					dpStr+="<p><strong>【物理位置】</strong>："+deptDetail.dpLocation+"</p>";
 				 }					
 				 if(deptDetail.dpOd_telephone){
-					 dpStr+="<p>联系方式："+deptDetail.dpOd_telephone+"</p>";
+					 dpStr+="<p><strong>【联系方式】</strong>："+deptDetail.dpOd_telephone+"</p>";
 				 }
 				if(deptDetail.dpEmail){
-					 dpStr+="<p>电子邮箱："+deptDetail.dpEmail+"</p>";
+					 dpStr+="<p><strong>【电子邮箱】</strong>："+deptDetail.dpEmail+"</p>";
 				}	
-				if(deptDetail.dpType!="职能科室"){
-					dpStr+="<div class='clear'></div><a class='greenBtn tc fl' style='margin: 20px;' href='../doctor/mzpb.shtml' target='_blank'> 科室专家一览</a>"+
-					"<a class='greenBtn tc fl' style='margin: 20px;' href='../patient/consultIndex.shtml' target='_blank'> 在线咨询中心</a>"+
+				if(deptDetail.dpType=="临床科室"||deptDetail.dpType=="临床科室,省市重点"){
+					dpStr+="<div class='clear'></div><a class='greenBtn tc fl' style='margin: 20px;' href='/admin/main/doctor/mzpb.shtml?cata1=zjjs&cata2=mzpb&dept="+deptDetail.dpId+"' target='_blank'> 科室专家一览</a>"+
+					"<a class='greenBtn tc fl' style='margin: 20px;' href='/admin/main/patient/consultIndex.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx' target='_blank'> 在线咨询中心</a>"+
 					"<div class='clear'></div><hr />";
 				}				
 				if(deptDetail.dpDesc){

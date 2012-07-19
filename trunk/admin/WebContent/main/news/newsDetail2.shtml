@@ -13,13 +13,14 @@
                         <p class="bread">
                             <a href="/admin/main/index.shtml" class="breadB">首页</a><span>></span>
                             <a href="#" class="breadN J_Cata1"></a><span>></span>
-                            <a href="#" class="breadB J_Cata2"></a><span>></span>
+                            <a href="#" class="breadN J_Cata2"></a><span>></span>
+                            <a href="#" class="breadB J_Cata3"></a><span>></span>
                             <a href="#" class="breadN">内容详情</a>
                         </p>
                     </div>
                     <h2 class="newsMainTitle" id='J_ContTitle'></h2>
 
-                    <h3 class="newsInfo"><span id="J_PubTime">发布日期：</span><span id="J_ClickTimes">浏览量：</span> 次 <span id='J_ContAuthor'>来源：</span></h3>
+                    <h3 class="newsInfo"><span>发布日期：</span>2012年6月1日 <span id="J_ClickTimes">浏览量：</span> 次 <span id='J_ContAuthor'>来源：</span></h3>
                     <hr/>
                     <div class="newsBody"></div>
                 </div>
@@ -36,15 +37,10 @@ var contId = GetParameter('contId');
 $.getJSON('/admin/group/updateClickContent.action?web=1&continfo.contId=' + contId,function(json){});
 $.getJSON('/admin/group/searchContent.action?web=1&continfo.contId='+contId, function(json) {
 	if (json.resultCode > 0) {
-		var continfo = json.continfo;
-        $('#J_PubTime').after(continfo.contPublish_Time.substr(0,10).replace('/','-').replace('/','-'));
+		var continfo = json.continfo;		
 		$('#J_ContAuthor').after(continfo.contAuthor);
         $('#J_ClickTimes').after(continfo.clickTimes);
-		var title=''
-		if(continfo.contMedium==1){
-			title+='【媒体报道】';
-		}
-		$('#J_ContTitle').html(title+continfo.contTitle);
+		$('#J_ContTitle').html(continfo.contTitle);
 		$('.newsBody').html(continfo.contDetail);
 	}
 });

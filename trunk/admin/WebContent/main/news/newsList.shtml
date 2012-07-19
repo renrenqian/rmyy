@@ -40,6 +40,7 @@
 	params.push({ "name": "page.currentPageNo", "value":1});//当前显示第几页
 	var totalSize;
 	var colId = GetParameter('colId');
+    var cata1 = GetParameter('cata1');
     var cata2 = GetParameter('cata2');
 	
     $(document).ready(function() {
@@ -67,11 +68,11 @@
 					$(continfo).each(function(i,item){
                         if(i<3){
                             str+="<li><a class='newsTitle' title='"+item.contTitle+"'"+
-                                    "href='/admin/main/news/newsDetail.shtml?cata1=xxzx&cata2="+cata2+"&contId="+item.contId+"'>"+item.contTitle+
+                                    "href='/admin/main/news/newsDetail.shtml?cata1="+cata1+"&cata2="+cata2+"&contId="+item.contId+"'>"+item.contTitle+
                                     "</a><span class='newsDate'>"+item.contPublish_Time.substr(0,10)+"</span><span class='newIcon'></span></li>";
                         }else{
                             str+="<li><a class='newsTitle' title='"+item.contTitle+"'"+
-                                    "href='/admin/main/news/newsDetail.shtml?cata1=xxzx&cata2="+cata2+"&contId="+item.contId+"'>"+item.contTitle+
+                                    "href='/admin/main/news/newsDetail.shtml?cata1="+cata1+"&cata2="+cata2+"&contId="+item.contId+"'>"+item.contTitle+
                                     "</a><span class='newsDate'>"+item.contPublish_Time.substr(0,10)+"</span></li>";
                         }
 					});				

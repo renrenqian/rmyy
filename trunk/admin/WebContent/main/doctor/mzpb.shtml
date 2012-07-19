@@ -71,27 +71,28 @@
     var deptId;
     var time;
     var totalSize;
-
-    //zq:填充科室下拉列表
-    $.getJSON('/admin/main/dept/lcks', function (json) {
-        if (json.resultCode > 0) {
-            var deptList = json.deptList;
-            var optioin = "<option value='0'>科室选择</option>";
-            $(deptList).each(function (i, item) {
-                optioin += "<option value=" + item.dpId + ">" + item.dpName + "</option>";
-            });
-            $('#J_DeptSelect').html(optioin);
-
-        } else {
-            $.fn.sdInfo({
-                type:"fail",
-                content:json.message ? json.message : "查询科室信息错误!"
-            });
-        }
-    });
+    var dept=GetParameter('dept');
 
     //初始化数据
     $(document).ready(function () {
+        //zq:填充科室下拉列表
+        $.getJSON('/admin/main/dept/lcks', function (json) {
+            if (json.resultCode > 0) {
+                var deptList = json.deptList;
+                var optioin = "<option value='0'>科室选择</option>";
+                $(deptList).each(function (i, item) {
+                    optioin += "<option value=" + item.dpId + ">" + item.dpName + "</option>";
+                });
+                $('#J_DeptSelect').html(optioin);
+                //若已有科室，则定位
+                $('#J_DeptSelect').val(dept);
+            } else {
+                $.fn.sdInfo({
+                    type:"fail",
+                    content:json.message ? json.message : "查询科室信息错误!"
+                });
+            }
+        });
         initData(1);
     });
 </script>

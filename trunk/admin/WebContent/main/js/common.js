@@ -62,12 +62,10 @@ $(document).ready(function() {
 //						$('.newsTitle').not('.consultList').attr('href',
 //						'/admin/main/news/newsDetail.shtml?cata1=xxzx&cata2='+myCata2);
 //					}
-					
+
 					$('.consultList li a').attr('href',
 							'/admin/main/patient/result.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx').attr('target',
 							'_blank');
-//					$('.Schedule').find('.paTr:odd').addClass('SchTrPaOdd');
-//					$('.Schedule').find('.paTr:even').addClass('SchTrPaEven');
 					$('.docIntro a').attr('href',
 							'/admin/main/doctor/docPer.shtml');
 				});
@@ -84,14 +82,14 @@ $(document).ready(function() {
 		} else {
 			window.location.href = href;
 		}
-	});	
-	
+	});
+
 	// 设置bread
 	if (window.location.search) {
 		var myCata1 = GetParameter('cata1');
 		var myCata2 = GetParameter('cata2');
 		var myCata3 = GetParameter('cata3');
-		var myCata2Href;
+		var myCata2Href,myCata3Href;
 		switch (myCata1) {
 			case 'yygl':myCata1 = '医院概览';break;
 			case 'xxzx':myCata1 = '信息中心';break;
@@ -101,22 +99,22 @@ $(document).ready(function() {
 			case 'kyxs':myCata1 = '科研学术';break;
 			case 'yywh':myCata1 = '医院文化和教育';break;
 		}
-		switch (myCata2) {		
+		switch (myCata2) {
 			case 'yyjj':myCata2 = '医院简介';break;
 			case 'zzjg':myCata2 = '组织结构';break;
 			case 'yzjy':myCata2 = '院长寄语';break;
 			case 'ldbz':myCata2 = '领导班子';break;
-			case 'ywgk':myCata2 = '院务公开';break;
+			case 'ywgk':myCata2 = '院务公开';myCata2Href='/admin/main/news/newsList.shtml?cata1=yygl&cata2=ywgk&colId=1107';break;
 			case 'yyls':myCata2 = '医院历史';break;
-			case 'zdjs':myCata2 = '重大记事';break;
+			case 'zdjs':myCata2 = '重大记事';myCata2Href='/admin/main/news/newsList.shtml?cata1=yygl&cata2=zdjs&colId=1109';break;
 			case 'lxwm':myCata2 = '联系我们';break;
 			case 'yygg':myCata2 = '医院公告';myCata2Href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=yygg&colId=1201';break;
 			case 'yyxw':myCata2 = '医院新闻';myCata2Href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=yyxw&colId=1202';break;
 			case 'jtdt':myCata2 = '集团动态';myCata2Href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=jtdt&colId=1203';break;
 			case 'dmtzx':myCata2 = '多媒体中心';break;
 			case 'rczp':myCata2 = '人才招聘';break;
-			case 'zbcg':myCata2 = '招标采购';myCata2Href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=zbcg&colId=1206';break;	
-			case 'xzzx':myCata2 = '下载中心';break;	
+			case 'zbcg':myCata2 = '招标采购';myCata2Href='/admin/main/news/newsList.shtml?cata1=xxzx&cata2=zbcg&colId=1206';break;
+			case 'xzzx':myCata2 = '下载中心';break;
 			case 'mzcx':myCata2 = '门诊查询';break;
 			case 'jzzn':myCata2 = '就诊指南';break;
 			case 'qtfw':myCata2 = '其它服务';break;
@@ -130,17 +128,17 @@ $(document).ready(function() {
 			case 'zjyl':myCata2 = '专家一览';break;
 			case 'mymz':myCata2 = '名医门诊';break;
 			case 'gjrc':myCata2 = '各级人才';break;
-			case 'mzpb':myCata2 = '门诊排班信息';break;
-			case 'kydt':myCata2 = '科研动态';break;
-			case 'kjcg':myCata2 = '科技成果';break;
-			case 'gxsb':myCata2 = '高新设备';break;
-			case 'xsjl':myCata2 = '学术交流';break;
-			case 'djtj':myCata2 = '党建团建';break;
-			case 'hltd':myCata2 = '护理天地';break;
-			case 'qnwmh':myCata2 = '青年文明号';break;
+			case 'mzpb':myCata2 = '专家查询';break;
+			case 'kydt':myCata2 = '科研动态';myCata2Href='/admin/main/news/newsList.shtml?cata1=kyxs&cata2=kydt&colId=1601';break;
+			case 'kjcg':myCata2 = '科技成果';myCata2Href='/admin/main/news/newsList.shtml?cata1=kyxs&cata2=kjcg&colId=1602';break;
+			case 'gxsb':myCata2 = '高新设备及技术';myCata2Href='/admin/main/news/newsList.shtml?cata1=kyxs&cata2=gxsb&colId=1603';break;
+			case 'xsjl':myCata2 = '学术交流';myCata2Href='/admin/main/news/newsList.shtml?cata1=kyxs&cata2=xsjl&colId=1604';break;
+			case 'djtj':myCata2 = '党建团建';myCata2Href='/admin/main/news/newsList.shtml?cata1=yywh&cata2=djtj&colId=1701';break;
+			case 'hltd':myCata2 = '护理天地';myCata2Href='/admin/main/news/newsList.shtml?cata1=yywh&cata2=hltd&colId=1703';break;
+			case 'qnwmh':myCata2 = '青年文明号';myCata2Href='/admin/main/news/newsList.shtml?cata1=yywh&cata2=qnwmh&colId=1704';break;
 			case 'yyqk':myCata2 = '医院期刊';break;
-			case 'jkdjt':myCata2 = '健康大讲堂';break;
-			case 'kfsl':myCata2 = '康复沙龙';break;
+			case 'jkdjt':myCata2 = '健康大讲堂';myCata2Href='/admin/main/news/newsList.shtml?cata1=yywh&cata2=jkdjt&colId=1706';break;
+			case 'kfsl':myCata2 = '康复沙龙';myCata2Href='/admin/main/news/newsList.shtml?cata1=yywh&cata2=kfsl&colId=1707';break;
 		}
 		switch (myCata3) {
 			case 'xrld':myCata3 = '现任领导';break;
@@ -149,26 +147,26 @@ $(document).ready(function() {
 			case 'jylc':myCata3 = '就医流程';break;
 			case 'jyxz':myCata3 = '就医须知';break;
 			case 'lyfb':myCata3 = '楼宇分布';break;
-			case 'yygz':myCata3 = '医院规章';myCata2Href='/admin/main/news/newsList2.shtml?cata1=hzfwzx&cata2=yygz';break;
-			case 'tsfw':myCata3 = '特色服务';myCata2Href='/admin/main/news/newsList2.shtml?cata1=hzfwzx&cata2=tsfw&colId=1306';break;
+			case 'yygz':myCata3 = '医院规章';myCata3Href='/admin/main/news/newsList2.shtml?cata1=hzfwzx&cata2=jzzn&cata3=yygz&colId=1305';break;
+			case 'tsfw':myCata3 = '特色服务';myCata3Href='/admin/main/news/newsList2.shtml?cata1=hzfwzx&cata2=jzzn&cata3=tsfw&colId=1306';break;
 			case 'jtzn':myCata3 = '交通指南';break;
 			case 'yygh':myCata3 = '预约挂号';break;
 			case 'zxzxzx':myCata3 = '在线咨询中心';break;
 			case 'hycx':myCata3 = '化验查询';break;
-			case 'bssds':myCata3 = '博士生导师';break;	
-			case 'sssds':myCata3 = '硕士生导师';break;	
-			case '151':myCata3 = '151人才';break;	
-			case '131':myCata3 = '131人才';break;	
-			case 'nydjs':myCata3 = '南医大教授';break;	
-			case 'nydfjs':myCata3 = '南医大副教授';break;	
-			case 'zjsyxh':myCata3 = '浙江省医学会主委/副主委';break;	
-			case 'hzsyxh':myCata3 = '杭州市医学会主委';break;	
+			case 'bssds':myCata3 = '博士生导师';break;
+			case 'sssds':myCata3 = '硕士生导师';break;
+			case '151':myCata3 = '151人才';break;
+			case '131':myCata3 = '131人才';break;
+			case 'nydjs':myCata3 = '南医大教授';break;
+			case 'nydfjs':myCata3 = '南医大副教授';break;
+			case 'zjsyxh':myCata3 = '浙江省医学会主委/副主委';break;
+			case 'hzsyxh':myCata3 = '杭州市医学会主委';break;
 		}
 		$('.J_Cata1').html(myCata1);
-		$('.J_Cata2').html(myCata2).attr('href',myCata2Href);	
-		$('.J_Cata3').html(myCata3);	
+		$('.J_Cata2').html(myCata2).attr('href',myCata2Href);
+		$('.J_Cata3').html(myCata3).attr('href',myCata3Href);
 	}
-	
+
 	//设置右侧导航
 	var cata1 = $('.J_Cata1').html();
 	var title;
@@ -201,9 +199,9 @@ $(document).ready(function() {
 	}
 	if(cata1 =="患者服务中心"){
 		$('.titleType4').html('患者服务中心');
-		title="<li><a href='/admin/main/patient/doctorSearch.shtml?cata1=hzfwzx&cata2=mzcx&cata3=zjcx'>门诊查询</a>"+
+		title="<li><a href='/admin/main/doctor/mzpb.shtml?cata1=zjjs&cata2=mzpb'>门诊查询</a>"+
 			        "<ul class='subMenu'>"+
-			        "<li><a href='/admin/main/patient/doctorSearch.shtml?cata1=hzfwzx&cata2=mzcx&cata3=zjcx'>专家查询</a></li>"+
+			        "<li><a href='/admin/main/doctor/mzpb.shtml?cata1=zjjs&cata2=mzpb'>专家查询</a></li>"+
 			    "</ul>"+
 			"</li>"+
 			"<li><a href='/admin/main/patient/process.shtml?cata1=hzfwzx&cata2=jzzn&cata3=jylc'>就诊指南</a>"+
@@ -211,7 +209,7 @@ $(document).ready(function() {
 			        "<li><a href='/admin/main/patient/process.shtml?cata1=hzfwzx&cata2=jzzn&cata3=jylc'>就医流程</a></li>"+
 			        "<li><a href='/admin/main/patient/attention.shtml?cata1=hzfwzx&cata2=jzzn&cata3=jyxz'>就医须知</a></li>"+
 			        "<li><a href='/admin/main/patient/building.shtml?cata1=hzfwzx&cata2=jzzn&cata3=lyfb'>楼宇分布</a></li>"+
-			        "<li><a href='/admin/main/news/newsList2.shtml?cata1=hzfwzx&cata2=jzzn&cata3=yygz&colId=1305'>医院规章</a></li>"+                       
+			        "<li><a href='/admin/main/news/newsList2.shtml?cata1=hzfwzx&cata2=jzzn&cata3=yygz&colId=1305'>医院规章</a></li>"+
 			        "<li><a href='/admin/main/news/newsList2.shtml?cata1=hzfwzx&cata2=jzzn&cata3=tsfw&colId=1306'>特色服务</a></li>"+
 			        "<li><a href='/admin/main/patient/add.shtml?cata1=hzfwzx&cata2=jzzn&cata3=jtzn'>交通指南</a></li>"+
 			    "</ul>"+
@@ -231,6 +229,7 @@ $(document).ready(function() {
 		"<li><a href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=tszk'>特色专科</a></li>"+
 		"<li><a href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=yjks'>医技科室</a></li>"+
 		"<li><a href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=znks'>职能科室</a></li>"+
+        "<li><a href='/admin/main/news/newsDetail2.shtml?cata1=hzfwzx&cata2=jzzn&cata3=tsfw&contId=1221'>各科优势治疗</a></li>"+
 		"<li><a href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=zkzx'>杭州市质控中心</a></li>"+
 		"<li><a href='/admin/main/dept/deptList.shtml?cata1=ksdh&cata2=zlzx'>杭州市诊疗中心</a></li>";
 	}
@@ -249,14 +248,14 @@ $(document).ready(function() {
 						"<li><a href='../doctor/gjrc.shtml?cata1=zjjs&cata2=gjrc&cata3=zjsyxh'>浙江省医学会主委/副主委</a></li>"+
 						"<li><a href='../doctor/gjrc.shtml?cata1=zjjs&cata2=gjrc&cata3=hzsyxh'>杭州市医学会主委</a></li>"+
 					"</ul></li>"+
-				"<li><a href='../doctor/mzpb.shtml?cata1=zjjs&cata2=mzpb'>门诊排班信息</a></li>";		
+				"<li><a href='../doctor/mzpb.shtml?cata1=zjjs&cata2=mzpb'>专家查询</a></li>";
 	}
 	if(cata1 =="科研学术"){
 		$('.titleType4').html('科研学术');
 		title="<li><a href='/admin/main/news/newsList.shtml?cata1=kyxs&cata2=kydt&colId=1601'>科研动态</a></li>"+
 		"<li><a href='/admin/main/news/newsList.shtml?cata1=kyxs&cata2=kjcg&colId=1602'>科技成果</a></li>"+
-		"<li><a href='/admin/main/news/newsList.shtml?cata1=kyxs&cata2=gxsb&colId=1603'>高新设备</a></li>"+
-		"<li><a href='/admin/main/news/newsList.shtml?cata1=kyxs&cata2=xsjl&colId=1604'>学术交流</a></li>";		
+		"<li><a href='/admin/main/news/newsList.shtml?cata1=kyxs&cata2=xsjl&colId=1604'>学术交流</a></li>"+
+        "<li><a href='/admin/main/news/newsList.shtml?cata1=kyxs&cata2=gxsb&colId=1603'>高新设备及技术</a></li>";
 	}
 	if(cata1 =="医院文化和教育"){
 		$('.titleType4').html('医院文化和教育');
@@ -266,12 +265,12 @@ $(document).ready(function() {
 			   "<li><a href='/admin/main/news/newsList.shtml?cata1=yywh&cata2=qnwmh&colId=1704'>青年文明号</a></li>"+
 			   "<li><a href='/admin/main/culture/periodical.shtml?cata1=yywh&cata2=yyqk'>医苑期刊</a></li>"+
 			   "<li><a href='/admin/main/news/newsList.shtml?cata1=yywh&cata2=jkdjt&colId=1706'>健康大讲堂</a></li>"+
-			   "<li><a href='/admin/main/news/newsList.shtml?cata1=yywh&cata2=kfsl&colId=1707'>康复沙龙</a></li>";		
+			   "<li><a href='/admin/main/news/newsList.shtml?cata1=yywh&cata2=kfsl&colId=1707'>康复沙龙</a></li>";
 	}
-	
+
 	$('#J_TitleLi').html(title);
-	
-	//右侧导航当前项定位	
+
+	//右侧导航当前项定位
 	$('#J_TitleLi li a').each(function(){
 		var myCata2 = GetParameter('cata2');
 		var myCata3 = GetParameter('cata3');
@@ -279,15 +278,15 @@ $(document).ready(function() {
 		if($(this).parent().parent().hasClass('subMenu')){
 			isCata3=true;
 		}
-		if(myCata3 && isCata3){			
+		if(myCata3 && isCata3){
 			if(getParaStr($(this).attr('href'),'cata3')==myCata3){
-				$(this).addClass('now');					
-			}		
+				$(this).addClass('now');
+			}
 		}
-		if(myCata2 && !isCata3){				
+		if(myCata2 && !isCata3){
 			if(getParaStr($(this).attr('href'),'cata2')==myCata2){
-				$(this).addClass('now');				
-			}	
+				$(this).addClass('now');
+			}
 		}
 	});
 });
