@@ -29,7 +29,7 @@
                         <label class="bold">科室：</label> <select style="margin-right: 20px;" id="J_DeptSelect"></select>
                         <label class="bold">门诊时间：</label>
                         <select id="J_TimeSelect">
-                            <option value="0">门诊时间选择</option>
+                            <option value="0">全部时间</option>
                             <option value="10">星期一上午</option>
                             <option value="11">星期一下午</option>
                             <option value="20">星期二上午</option>
@@ -79,7 +79,7 @@
         $.getJSON('/admin/main/dept/lcks', function (json) {
             if (json.resultCode > 0) {
                 var deptList = json.deptList;
-                var optioin = "<option value='0'>科室选择</option>";
+                var optioin = "<option value='0'>全部科室</option>";
                 $(deptList).each(function (i, item) {
                     optioin += "<option value=" + item.dpId + ">" + item.dpName + "</option>";
                 });

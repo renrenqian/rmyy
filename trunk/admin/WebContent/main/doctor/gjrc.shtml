@@ -70,8 +70,8 @@
                         "<p>"+
                         "<a href='docPer.shtml?cata1=zjjs&cata2=mymz&diId="+item.diId+"'>"+item.diName+"</a><span>在诊</span>"+
                         "</p>"+
-                        "<p>"+
-                        "<span>职称：</span><span>"+item.diPosition+"</span>"+
+                        "<p style='overflow: hidden;'>"+
+                        "<span style='float: left;'>职称：</span><span style='width: 60px; height: 20px; display: block; overflow: hidden; float: left;' title='"+item.diPosition+"'>"+item.diPosition+"</span>"+
                         "</p>"+
                         "<p>"+
                         "<span>科室：</span><span>"+item.diDeptName+"</span>"+
