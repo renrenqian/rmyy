@@ -23,6 +23,7 @@
         DI_NAME as diName
        from DOCTOR_INFO
        where DI_DEPTTYPE = #diDeptType# and OS_EXPERT_ID != 0
+       ORDER BY DI_ORDER
      ]]>
     </select>
     
@@ -35,11 +36,12 @@
         DI_PORTRAIT as diPortrait,
         od.OD_NAME as diDeptName,
         ops.OS_STATUS as osFamousStatus,
-        DI_NAME as diPosition
+        DI_POSITION as diPosition
        from DOCTOR_INFO di
        left join OFFICE_DETAIL od on od.OD_ID = di.DI_DEPTTYPE
        left join OUTPATIENT_SERVICE ops on ops.OS_ID = di.OS_FAMOUS_ID
-       where DI_DEPTTYPE = #diDeptType# and OS_FAMOUS_ID !=0
+       where OS_FAMOUS_ID !=0
+       ORDER BY DI_ORDER
      ]]>
     </select>
     
@@ -59,6 +61,7 @@
        left join OUTPATIENT_SERVICE opse on opse.OS_ID = di.OS_EXPERT_ID
        left join OUTPATIENT_SERVICE opsf on opsf.OS_ID = di.OS_FAMOUS_ID
        where DI_TAL_TYPE Like CONCAT('%',#doctType#,'%')
+       ORDER BY DI_ORDER
      ]]>
     </select>
     

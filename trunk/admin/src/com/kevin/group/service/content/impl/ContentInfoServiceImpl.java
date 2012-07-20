@@ -127,12 +127,12 @@ public class ContentInfoServiceImpl extends AbstractBaseService<ContentInfo>
                 // do the next list data
                 jsonBuff.append("\"newsyyxw\":[");
                 int total = contList.size() - 1;
-                for(contSize = 1; contSize < total; contSize++){
+                for(contSize = 1; contSize <= total; contSize++){
                     cont = contList.get(contSize);
                     cont.setContCont(null);
                     jsonBuff.append(CTRF).append(cont.generateJSON()).append(",");
                 }
-                if(contList.size() > 0)
+                if(contList.size() > 1)
                     jsonBuff.deleteCharAt(jsonBuff.length() -1 );
                 jsonBuff.append(CTRF).append("],").append(CTRF);
             }
