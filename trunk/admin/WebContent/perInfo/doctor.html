@@ -68,7 +68,6 @@
 						type="hidden" value="0" name="doct.osExpertId" /> <input
 						id="osFamousId" type="hidden" value="0" name="doct.osFamousId" />
 						<input id="osCate" type="hidden" value="1" name="doct.osCate" />
-						<input id="diOrder" type="hidden" value="1" name="doct.diOrder" /></td>
 					<td class="rowName">头像上传</td>
 					<td><input type='file' name="file" class='input_type1' onchange="onUploadImgChange(this)" /></td>
 				</tr>
@@ -112,6 +111,10 @@
 					</select> <select id="diDeptType" name="doct.diDeptType" class="selectType2">
 					</select></td>
 				</tr>
+                <tr>
+                    <td class="rowName">医师排序</td>
+                    <td><input id="diOrder" type="text" name="doct.diOrder" class="input_type1" rule='required'/></td>
+                </tr>
 				<tr>
 					<td class="rowName">人才类型</td>
 					<td colspan="3"><input id="doctType" type='hidden'

@@ -7,12 +7,11 @@
 <div class="content">
   <h1 class="pTitle">联系我们</h1>		
 		<ul class='itemList'>
-			<li><strong>地址：</strong></li>
-			<li><strong>邮编：</strong></li>
+			<li><strong>地址：</strong>杭州市浣纱路261号 门诊2楼 体检中心</li>
+			<li><strong>邮编：</strong>310006</li>
 			<li><strong>预约咨询电话：</strong> (0571)87065701转体检中心</li>
 			<li><strong>传真：</strong> (0571)87062111</li>
-			<li><strong>交通：</strong></li>
-			<li><strong>E-Mail:</strong> HZSYTJ@126.com</li>
+			<li><strong>E-Mail:</strong> hzsytj@126.com</li>
 		</ul>
 </div>
 <!--#include virtual="master/footer.html"-->

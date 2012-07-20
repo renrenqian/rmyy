@@ -56,7 +56,8 @@ $(document).ready(function() {
                       $('#diEducation').val(item.diEducation);
                       $('#diPosition').val(item.diPosition);
                       $('#diResume').val(item.dpSite);   
-                      $('#diMajor').val(item.diMajor);   
+                      $('#diMajor').val(item.diMajor);
+                      $('#diOrder').val(item.diOrder);
                       $('#diResearch_direction').val(item.diResearch_direction);
                       $('#diResume').val(item.diResume); 
                       $('#diResearch_direction').val(item.diResearch_direction);

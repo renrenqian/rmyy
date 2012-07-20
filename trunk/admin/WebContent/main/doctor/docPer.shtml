@@ -127,7 +127,8 @@
 		function fixPosition(str) {
 			switch (str) {
 			case 0:
-				'';
+				str ='';
+                break;
 			case 1000:
 				str = '博士后';
 				break;

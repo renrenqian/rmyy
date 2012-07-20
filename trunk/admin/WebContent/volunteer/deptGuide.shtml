@@ -6,7 +6,7 @@
 	<!--#include virtual="master/top.html"-->
 	<div class="content">
 		<h1 class="pTitle">医院常见门诊检查科室及项目导引</h1>
-		<ul class='introList mt30'>
+		<ul class='itemList mt30'>
 			<li>1、挂号收费：<strong>各楼层均开放（节假日、双休日开放1号楼1楼，3号楼2楼、4楼窗口）</strong></li>
 			<li>2、自费病历购买、病假证明盖章、医保审批咨询、申请规定病种病历、办理麻醉卡、财务咨询：<strong>1号楼1楼门诊服务中心</strong></li>
 			<li>3、入、出院手续办理：<strong>1号楼1楼大厅北侧</strong></li>

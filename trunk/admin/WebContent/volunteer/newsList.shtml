@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+<!--#include virtual="master/headFile.html"-->
+</head>
+<body>
+	<!--#include virtual="master/top.html"-->
+	<div class="content">
+        <h1 class="pTitle">之家动态</h1>
+        <ul class="newsItem">
+            <li><a class="newsTitle" title="浙江省毛发移植与头面部微创美容新进展学习班"
+                   href="javascript:;">浙江省毛发移植与头面部微创美容新进展学习班 </a><span
+                    class="newsDate">05-25 </span><span class="newIcon"></span></li>
+            <li><a class="newsTitle" title="微量营养素与孩子的健康"
+                   href="javascript:;">微量营养素与孩子的健康</a><span class="newsDate">05-25</span><span
+                    class="newIcon"></span></li>
+            <li><a class="newsTitle" title="第四届国际甲状腺周免费咨询活动"
+                   href="javascript:;">第四届国际甲状腺周免费咨询活动 </a><span class="newsDate">05-25</span><span
+                    class="newIcon"></span></li>
+            <li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
+                   href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
+                    class="newsDate">05-25 </span></li>
+            <li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
+                   href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
+                    class="newsDate">05-25 </span></li>
+            <li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
+                   href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
+                    class="newsDate">05-25 </span></li>
+            <li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
+                   href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
+                    class="newsDate">05-25 </span></li>
+        </ul>
+	</div>
+	<!--#include virtual="master/footer.html"-->
+</body>
+</html>

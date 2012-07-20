@@ -128,13 +128,17 @@
 	border-bottom:1px dashed #666;
 }
 
-.lanList{
-	overflow:hidden;
+/* news item cover */
+.newsItem{width: 100%; margin-top: 30px;}
+.newsItem li a {
+    color: #a95b0b;
 }
 
-.lanList li{
-	float:left;
-	width:300px;
-	display:block;
-	font-size:18px;
+.newsItem li a:hover {
+    color: #cc6f0e;
+    font-weight: bold;
+}
+
+.newsDate {
+    color: #f79927;
 }

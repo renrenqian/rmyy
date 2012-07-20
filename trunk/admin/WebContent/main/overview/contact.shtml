@@ -25,7 +25,7 @@
 								<th colspan="2">杭州市第一人民医院</th>
 							</tr>
 							<tr>
-								<th colspan="2" style='font-size: 14px;'>The Frist People's
+								<th colspan="2" style='font-size: 14px;color: #333;'>The Frist People's
 									Hospital of Hangzhou</th>
 							</tr>
 							<tr>
@@ -62,7 +62,7 @@
 								<th colspan="2">杭州市妇幼保健院</th>
 							</tr>
 							<tr>
-								<th colspan="2" style='font-size: 14px;'>Hangzhou Health
+								<th colspan="2" style='font-size: 14px;color: #333;'>Hangzhou Health
 									Center for Women and Children</th>
 							</tr>
 							<tr>
@@ -92,9 +92,15 @@
 							<tr>
 								<th colspan="2">杭州市肿瘤医院 （吴山院区）</th>
 							</tr>
+                            <tr>
+                                <th colspan="2" style='font-size: 14px;color: #333;'>Cancer Hospital of Hangzhou (Wushan District)</th>
+                            </tr>
 							<tr>
 								<td colspan="2">地址：杭州市上城区中山南路严官巷34号（万松岭隧道东侧）</td>
 							</tr>
+                            <tr>
+                                <td colspan="2">Add:No.34 Yanguan Street Zhongshan Road(South) Shangchen District Hangzhou China</td>
+                            </tr>
 							<tr>
 								<td>邮编：310002</td>
 								<td>P.C.:310002</td>
@@ -124,17 +130,25 @@
 							<tr>
 								<th colspan="2">杭州市老年病医院 ( 城北院区 )</th>
 							</tr>
+                            <tr>
+                                <th colspan="2" style='font-size: 14px;color: #333;'>The Old People's Hospital of Hangzhou (Chengbei
+                                    District)</th>
+                            </tr>
 							<tr>
 								<td colspan='2'>地址：拱墅区沈半路469号（320国道，杭玻旁）</td>
-								<td></td>
 							</tr>
+                            <tr>
+                                <td colspan="2">Add:No.469 Shenban Road Gongshu District Hangzhou China</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">电话：88146489（日）、88134465-830\805、88148800、88125393（夜及双休日）</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Tel:88146489（日）、88134465-830\805、88148800、88125393（夜及双休日）</td>
+                            </tr>
 							<tr>
 								<td>邮编：310022</td>
 								<td>P.C.: 310022</td>
-							</tr>
-							<tr>
-								<td>电话：88146489（日）、88134465-830\805、88148800、88125393（夜及双休日）</td>
-								<td>Tel:88146489（日）、88134465-830\805、88148800、88125393（夜及双休日）</td>
 							</tr>
 							<tr>
 								<td>传真：88145997</td>
@@ -157,9 +171,12 @@
 							<tr>
 								<th colspan="2">杭州市妇女医院 ( 钱江新城院区 )</th>
 							</tr>
+                            <tr>
+                                <th colspan="2" style='font-size: 14px;color: #333;'>The women's Hospital of Hangzhou (Qianjiang New City District)</th>
+                            </tr>
 							<tr>
 								<td>地址：杭州市鲲鹏路369号</td>
-								<td></td>
+								<td>Add:No.369 Kunpeng Road Hangzhou China</td>
 							</tr>
 							<tr>
 								<td>邮编：310000</td>
@@ -169,14 +186,6 @@
 								<td>电话：0571-28960602</td>
 								<td>Tel: 0571-28960602</td>
 							</tr>
-<!-- 							<tr> -->
-<!-- 								<td>传真：</td> -->
-<!-- 								<td>Fax:</td> -->
-<!-- 							</tr> -->
-<!-- 							<tr> -->
-<!-- 								<td>电子邮件：</td> -->
-<!-- 								<td>E-MAIL:</td> -->
-<!-- 							</tr> -->
 							<tr>
 								<td colspan="2"><a class="greenBtn tc fl"
 									style="margin: 10px; margin-left: 0;"
@@ -189,8 +198,12 @@
 							<tr>
 								<th colspan="2">五云山健康管理中心</th>
 							</tr>
+                            <tr>
+                                <th colspan="2" style='font-size: 14px; color: #333;'>Mount Wuyun Health Manage Center</th>
+                            </tr>
 							<tr>
-								<td colspan="2">地址：杭州市九溪五云东路6号</td>								
+								<td>地址：杭州市九溪五云东路6号</td>
+								<td>Add:No.6 Wuyun Road(east) JiuXi Hangzhou China</td>
 							</tr>
 							<tr>
 								<td>邮编：310008</td>

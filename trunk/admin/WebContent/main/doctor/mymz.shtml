@@ -1,79 +1,73 @@
 ﻿<!DOCTYPE html>
 <head>
-<!--#include virtual="../master/headFile.html"-->
+    <!--#include virtual="../master/headFile.html"-->
 </head>
 <body>
-	<!--#include virtual="../master/top.html"-->
-	<div class="content contentPart"
-		style="margin-top: 3px; *margin-top: 3px;">
-		<div style="display: block; overflow: hidden;">
-			<div class="leftCol2">
-				<div class="mainPart">
-					<div class="itemBg">
-						<div class="titleBg2">
-						  <p class="bread">
-								<a class="breadB" href="/admin/main/index.shtml">首页</a><span>&gt;</span>
-								<a class="breadN J_Cata1" href="#"></a><span>&gt;</span> 
-								<a class="breadN J_Cata2" href="#"></a>
-							</p>
-						</div>
-						<h2 class="titleType3">名医门诊</h2>
+<!--#include virtual="../master/top.html"-->
+<div class="content contentPart"
+     style="margin-top: 3px; *margin-top: 3px;">
+    <div style="display: block; overflow: hidden;">
+        <div class="leftCol2">
+            <div class="mainPart">
+                <div class="itemBg">
+                    <div class="titleBg2">
+                        <p class="bread">
+                            <a class="breadB" href="/admin/main/index.shtml">首页</a><span>&gt;</span>
+                            <a class="breadN J_Cata1" href="#"></a><span>&gt;</span>
+                            <a class="breadN J_Cata2" href="#"></a>
+                        </p>
+                    </div>
+                    <h2 class="titleType3">名医门诊</h2>
 
-						<div style="clear: both;"></div>
-						<div class="docBody">
-							<ul class="picDocList"></ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--#include virtual="../master/commonSubTitle.html"-->
-		</div>
-	</div>
-	<!--#include virtual="../master/footer.html"-->
-	<script src="../js/common.js"></script>
-	<script src="/admin/js/kissy.js"></script>
-	<script>
-		var action = GetParameter('cata2');
-		$.getJSON(action, function(json) {
-			if(json.resultCode>0){
-				var deptIds=json.deptIds;
-				var docList='';		
-				$(deptIds).each(function(i,item){
-					var doctListItera =  "doctList_" +item.dpId;
-					if(json[doctListItera]!=''){
-						//当前科室下有名医门诊信息									
-						$(json[doctListItera]).each(function(i,item){
-							docList+="<li><img data-ks-lazyload='/admin/"+item.diPortrait+"' class='docPic' alt='名医门诊头像-"+item.diName+"'/>"+
-									"<div class='docIntro'>"+
-										"<p>"+
-											"<a href='docPer.shtml?cata1=zjjs&cata2=mymz&diId="+item.diId+"' target='_blank'>"+item.diName+"</a><span>在诊</span>"+
-										"</p>"+
+                    <div style="clear: both;"></div>
+                    <div class="docBody">
+                        <ul class="picDocList"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--#include virtual="../master/commonSubTitle.html"-->
+    </div>
+</div>
+<!--#include virtual="../master/footer.html"-->
+<script src="../js/common.js"></script>
+<script src="/admin/js/kissy.js"></script>
+<script>
+    var action = GetParameter('cata2');
+    $.getJSON(action, function (json) {
+        if (json.resultCode > 0) {
+            var doctList = json.doctList;
+            var str="";
+            $(doctList).each(function (i, item) {
+                str += "<li><img data-ks-lazyload='/admin/" + item.diPortrait + "' class='docPic' alt='名医门诊头像-" + item.diName + "'/>" +
+                        "<div class='docIntro'>" +
+                        "<p>" +
+                        "<a href='docPer.shtml?cata1=zjjs&cata2=mymz&diId=" + item.diId + "' target='_blank'>" + item.diName + "</a><span>在诊</span>" +
+                        "</p>" +
 
-										"<p>"+
-											"<span>职称：</span><span>"+item.diPosition+"</span>"+
-										"</p>"+
+                        "<p>" +
+                        "<span>职称：</span><span>" + item.diPosition + "</span>" +
+                        "</p>" +
 
-										"<p>"+
-											"<span>科室：</span><span>"+item.diDeptName+"</span>"+
-										"</p>"+
-									"</div></li>";
-						});										
-					}							
-					$('.picDocList').html(docList);
-				});
-			}
-		});
-		
-		
-		KISSY.use('datalazyload', function(S, DataLazyload) {
-			S.ready(function(S) {
-				DataLazyload({
-					mode : 'manual',
-					diff : '100'
-				});
-			});
-		});
-	</script>
+                        "<p>" +
+                        "<span>科室：</span><span>" + item.diDeptName + "</span>" +
+                        "</p>" +
+                        "</div></li>";
+                $('.picDocList').html(str);
+            });
+        }
+    });
+
+
+    KISSY.use('datalazyload', function (S, DataLazyload) {
+        S.ready(function (S) {
+            DataLazyload({
+                mode:'manual',
+                diff:'100'
+            });
+        });
+    });
+</script>
 </body>
 </html>
 

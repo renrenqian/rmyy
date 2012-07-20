@@ -7,7 +7,7 @@
 	<div class="content">
 		<h1 class="pTitle">志愿者语言规范</h1>
 		<p class='mt30 bold'>1、基本服务用语：</p>
-		<ul class='lanList pl30 mt10'>
+		<ul class='itemList pl30 mt10'>
 			<li>您好！</li>
 			<li>请讲！</li>
 			<li>请原谅！</li>
@@ -19,7 +19,7 @@
 		</ul>
 
 		<p class='mt30 bold'>2、文明服务规范用语：</p>
-		<ul class='lanList pl30 mt10'>
+		<ul class='itemList pl30 mt10'>
 			<li>您好，请问您需要帮忙吗？</li>
 			<li>对不起，请您再说一遍好吗？</li>
 			<li>对不起，请您稍等。</li>
@@ -29,12 +29,11 @@
 			<li>我再与您核对一遍。</li>
 			<li>在医院请不要抽烟。</li>
 			<li>对不起，请让这位急诊患者先看</li>
-			<li><br></li>
-			<li style='width: 500px;'>对不起，这个问题我不太清楚，请您稍等一下，我帮您问问。</li>
+			<li>对不起，这个问题我不太清楚，请您稍等一下，我帮您问问。</li>
 		</ul>
 		<p class='mt30 bold'>3、注意称呼，礼貌尊重。</p>
 		<p class='mt30 bold'>4、禁用语：</p>
-		<ul class='lanList pl30 mt10'>
+		<ul class='itemList pl30 mt10'>
 			<li>我不知道</li>
 			<li>这不关我的事</li>
 			<li>弄不灵清</li>

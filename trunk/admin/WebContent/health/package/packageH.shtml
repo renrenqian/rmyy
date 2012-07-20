@@ -11,20 +11,17 @@
         <li><strong>一般检查</strong>（20元）：内科   外科   眼科   耳鼻喉科   血压  身高体重</li>
         <li><strong>B超</strong>(60元)：肝胆脾 双肾</li>
         <li><strong>心电图</strong>(10元)</li>
-        <li><strong>数字化胸片</strong>(35元)</li>
         <li><strong>血常规</strong>(15元)</li>
         <li><strong>肝功能</strong>：丙氨酸氨基转移酶(3元)、天门冬氨酸氨基转移酶(3元)、γ-谷氨酰基转移酶(3元)、碱性磷酸酶(3元)、总蛋白(5元)、白蛋白(5元)、总胆红素(3元)、结合胆红素(3元)、间接胆红素(3元)</li>
         <li><strong>血糖全套</strong>：葡萄糖(6元)、果糖胺(6元)</li>
         <li><strong>血脂</strong>：甘油三酯(5元)、总胆固醇(4元)、高密度脂蛋白(5元)、 低密度脂蛋白(5元) + 载脂蛋白A（8元）+ 载脂蛋白B（8元）</li>
         <li><strong>肾功能</strong>:尿素(4元)、 肌酐(4元)、 尿酸(4元)〕</li>
-        <li><strong>TSH</strong>：(25元) </li>
         <li><strong>肿瘤四项</strong>：AFP(30元) + CEA(35元) + CA19-9（4元）、女-CA125/男-PSA（40元）</li>
         <li><strong>尿常规</strong>：(9元)</li>
         <li><strong>大便OB</strong>：（3元)</li>
         <li><strong>抽血及材料费</strong>：11元</li>
         <li><strong>早餐费</strong>：6元</li>
         <li><strong>同型半胱氨酸</strong>：（50元)</li>
-        <li><strong>甲状腺功能新三项</strong>：（75元)</li>
         <li><strong>糖化血红蛋白</strong>：（60元)</li>
         <li><strong>甲状腺B超</strong>：(60元)</li>
         <li><strong>甲状腺功能全套</strong>：(125元)</li>
@@ -36,18 +33,18 @@
         <li><strong>生化类检查[生化全套 + 载脂蛋白E（ApoE）+亮氨酸氨基肽酶(LAP) +风湿三项(抗“O”+类风湿因子+C-反应蛋白]（148元）</strong></li>
         <li><strong>血肿瘤标志物CA242（40元）</strong></li>
         <li><strong>CCP（60元）</strong></li>
-        <li><strong>C13（130元）</strong></li>
+        <li><strong>呼吸试验（130元）</strong></li>
         <li><strong>血肿瘤标志物〔肺CYFRA21-1（40元）、NSE（40元）〕</strong></li>
         <li><strong>脑多普勒（120元）</strong></li>
         <li><strong>G套餐+ 血粘度(80元)</strong></li>
         <li><strong>G套餐+ IGE（30元）</strong></li>
         <li><strong>G套餐+ 骨密度（98元）</strong></li>
-        <li class="green"><strong>合计：未婚女性(1770元) / 男性(1830元)</strong></li>
+        <li><strong><span class="red">+未婚女性增加：乳房B超（60元）</span></strong></li>
         <li class="red"><strong>+已婚女性增加</strong>: 妇科常规检查(40元)</li>
         <li class="red"><strong>+已婚女性增加</strong>: 妇科B超(60元)</li>
         <li class="red"><strong>+已婚女性增加</strong>: 乳房B超(60元)</li>
         <li class="red"><strong>+已婚女性增加</strong>: HPV-DNA分型检测(300元)</li>
-        <li class="green"><strong>合计：已婚女性(2230元)</strong></li>
+        <li class="green"><strong>合计：未婚女性(1830元)、 男性(1830元)、已婚女性(2230元)</strong></li>
     </ul>
 </div>
 <!--#include virtual="../master/footer.html"-->

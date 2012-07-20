@@ -69,10 +69,45 @@ $(document).ready(function() {
 					$('.docIntro a').attr('href',
 							'/admin/main/doctor/docPer.shtml');
 				});
+function hideLeader(){
+   $('.J_Leader').hide();
+}
+function hideRC(){
+    $('.J_RC').hide();
+}
+var timeLeader,timeRC;
 
 // 导航部分
 $(document).ready(function() {
-	// li跳转
+    //显示3级目录
+    $('#J_Leader').mouseover(function(){
+       $('.J_Leader').show();
+    }).mouseleave(function(){
+            timeLeader=setTimeout(hideLeader,3000);
+    });
+
+    $('.J_Leader').mouseover(function(){
+        clearTimeout(timeLeader);
+        $('.J_Leader').show();
+    }).mouseleave(function(){
+            timeLeader=setTimeout(hideLeader,500);
+    });
+
+    $('#J_RC').mouseover(function(){
+        $('.J_RC').show();
+    }).mouseleave(function(){
+            timeRC=setTimeout(hideRC,3000);
+        });
+
+    $('.J_RC').mouseover(function(){
+        clearTimeout(timeRC);
+        $('.J_RC').show();
+    }).mouseleave(function(){
+            timeRC=setTimeout(hideRC,500);
+        });
+
+
+    // li跳转
 	$('#J_TopNav ul li').die().live().bind("click", function(event) {
 		var href = $(this).find('a').attr('href');
 		var target = $(this).find('a').attr('target');
