@@ -56,7 +56,7 @@ CREATE TABLE CONTENT_DETAIL  (
    CD_ORDER              INTEGER   DEFAULT '1',
    GM_ID                 INTEGER,
    CD_AUTHOR             VARCHAR(512),
-   CD_DETAIL             VARCHAR(512),
+   CD_DETAIL             mediumtext,
    CD_CONTENT            VARCHAR(512),
    CD_ATTACHMENT         VARCHAR(512),
    CD_DISPLAY_IMAGE      VARCHAR(256),

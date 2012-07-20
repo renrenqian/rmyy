@@ -201,7 +201,7 @@
        from CONTENT_DETAIL  cd 
        where CI_ID = 1202  and CD_AUDIT_RESULT = 1
        order by contPublish_Time desc
-       LIMIT 0,7
+       LIMIT 0,6
      ]]>
     </select>
     

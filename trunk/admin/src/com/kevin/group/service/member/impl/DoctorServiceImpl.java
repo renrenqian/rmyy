@@ -147,21 +147,30 @@ public class DoctorServiceImpl extends AbstractBaseService<DoctorInfo> implement
          try {
              String CTRF = GroupConstance.CTRF;
              StringBuilder jsonBuff = new StringBuilder();
-             jsonBuff.append(jsonBuffDept);
+             //jsonBuff.append(jsonBuffDept);
              DoctorInfo doct = new DoctorInfo();
-             for(Dept dept : deptList){
-                 doct.setDiDeptType(dept.getDpId());
-                 jsonBuff.append("\"doctList_" + dept.getDpId() + "\":[");
-                 List<DoctorInfo> doctList = doctorDAO.listmymz(doct);
-                 if(null!= doctList){
-                     for(DoctorInfo doctj : doctList) 
-                         jsonBuff.append(CTRF).append(doctj.generateJSON()).append(",");
-                     if(doctList.size() > 0)
-                         jsonBuff.deleteCharAt(jsonBuff.length() -1);
-                 }
-                 jsonBuff.append(CTRF).append("],").append(CTRF);
-                 
+//             for(Dept dept : deptList){
+//                 doct.setDiDeptType(dept.getDpId());
+//                 jsonBuff.append("\"doctList_" + dept.getDpId() + "\":[");
+//                 List<DoctorInfo> doctList = doctorDAO.listmymz(doct);
+//                 if(null!= doctList){
+//                     for(DoctorInfo doctj : doctList) 
+//                         jsonBuff.append(CTRF).append(doctj.generateJSON()).append(",");
+//                     if(doctList.size() > 0)
+//                         jsonBuff.deleteCharAt(jsonBuff.length() -1);
+//                 }
+//                 jsonBuff.append(CTRF).append("],").append(CTRF);
+//                 
+//             }
+             jsonBuff.append("{\"doctList"+ "\":[");
+             List<DoctorInfo> doctList = doctorDAO.listmymz(doct);
+             if(null!= doctList){
+                 for(DoctorInfo doctj : doctList) 
+                     jsonBuff.append(CTRF).append(doctj.generateJSON()).append(",");
+                 if(doctList.size() > 0)
+                     jsonBuff.deleteCharAt(jsonBuff.length() -1);
              }
+             jsonBuff.append(CTRF).append("],").append(CTRF);
              jsonBuff.append(" \"resultCode\": 1}");
              writeJsonFile(savePath + File.separator + "mymz", jsonBuff);// generate the mymz file
              jsonBuff.setLength(0);//clear the buffer
