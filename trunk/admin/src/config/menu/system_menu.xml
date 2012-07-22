@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<menu> 
+    <navGroup id="2200" name="科室信息管理" code="deptinfo" level="1" order="1">
+        <item id="material" name="素材管理"  href="material.action"  type="2" level="2" order="2"/>
+        <item id="resourcePlace" name="资源位管理"  href="resourcePlace.action"  type="2" level="2" order="1"/>
+    </navGroup>
+    <navGroup id="system"  name="系统管理" level="1" order="8">
+        <item id="role" name="角色管理"  href="role.action"  type="0" level="2" order="2"/>
+        <item id="user" name="用户管理"  href="user.action"  type="0" level="2" order="1"/>
+        <item id="changeUserPwdPage" name="修改密码"  href="changeUserPwdPage.action"  type="0" level="2" order="3"/>
+        <item id="operationLog" name="操作日志"  href="operationLog.action"  type="0" level="2" order="4"/>
+    </navGroup>
+</menu>
