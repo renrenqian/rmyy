@@ -32,6 +32,8 @@ public class LeaderInfo {
     private String liResume;
     private String liDesc;
 
+    private String sSearch; // for condition sSearch from datatable
+
     /**
      * @return the liId
      */
@@ -315,6 +317,21 @@ public class LeaderInfo {
      */
     public final void setLiDesc(String liDesc) {
         this.liDesc = liDesc;
+    }
+
+    /**
+     * @return the sSearch
+     */
+    public final String getsSearch() {
+        return sSearch;
+    }
+
+    /**
+     * @param sSearch
+     *            the sSearch to set
+     */
+    public final void setsSearch(String sSearch) {
+        this.sSearch = sSearch;
     }
 
     public final String generateJSON() {

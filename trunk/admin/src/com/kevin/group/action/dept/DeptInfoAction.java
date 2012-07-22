@@ -160,7 +160,6 @@ public class DeptInfoAction extends AbstractBaseAction {
             if(null != page)
                 page.setCondition(dept);
             page = deptService.list(page);
-            //deptList = deptService.listAll();
             setResultCode(1);
         } catch (CommonServiceException e) {
             setMessage(e.getMessage());

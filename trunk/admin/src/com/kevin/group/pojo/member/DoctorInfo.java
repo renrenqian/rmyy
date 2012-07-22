@@ -34,6 +34,8 @@ public class DoctorInfo {
     private Integer isfamWork; // is work same with the opser osStatus
     private Integer isexpWork; // is work same with the opser osStatus
 
+    private String sSearch; // for condition sSearch from datatable
+
     /**
      * @return the diId
      */
@@ -303,7 +305,7 @@ public class DoctorInfo {
     public final void setDoctType(String doctType) {
         this.doctType = doctType;
     }
- 
+
     /**
      * @return the isfamWork
      */
@@ -312,7 +314,8 @@ public class DoctorInfo {
     }
 
     /**
-     * @param isfamWork the isfamWork to set
+     * @param isfamWork
+     *            the isfamWork to set
      */
     public final void setIsfamWork(Integer isfamWork) {
         this.isfamWork = isfamWork;
@@ -326,10 +329,26 @@ public class DoctorInfo {
     }
 
     /**
-     * @param isexpWork the isexpWork to set
+     * @param isexpWork
+     *            the isexpWork to set
      */
     public final void setIsexpWork(Integer isexpWork) {
         this.isexpWork = isexpWork;
+    }
+
+    /**
+     * @return the sSearch
+     */
+    public final String getsSearch() {
+        return sSearch;
+    }
+
+    /**
+     * @param sSearch
+     *            the sSearch to set
+     */
+    public final void setsSearch(String sSearch) {
+        this.sSearch = sSearch;
     }
 
     /**

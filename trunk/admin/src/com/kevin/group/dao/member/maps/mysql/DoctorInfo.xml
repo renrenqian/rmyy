@@ -94,8 +94,14 @@
     <select id="getTotalCount" parameterClass="DoctorInfo" resultClass="java.lang.Long">
        <![CDATA[
          select COUNT(DI_ID) 
-         from DOCTOR_INFO
+         from DOCTOR_INFO di
+       left join OFFICE_DETAIL od on od.OD_ID = di.DI_DEPTTYPE
       ]]>
+       <dynamic prepend="where">
+          <isNotEmpty property="sSearch" prepend="">
+            <![CDATA[DI_NAME Like CONCAT('%',#sSearch#,'%') or od.OD_NAME Like CONCAT('%',#sSearch#,'%')]]>
+          </isNotEmpty>
+       </dynamic>
     <![CDATA[ ]]>
     </select>
     
@@ -117,6 +123,11 @@
        from DOCTOR_INFO di
        left join OFFICE_DETAIL od on od.OD_ID = di.DI_DEPTTYPE
      ]]>
+       <dynamic prepend="where">
+          <isNotEmpty property="condition.sSearch" prepend="">
+            <![CDATA[DI_NAME Like CONCAT('%',#condition.sSearch#,'%') or od.OD_NAME Like CONCAT('%',#condition.sSearch#,'%')]]>
+          </isNotEmpty>
+       </dynamic>
      <![CDATA[ORDER BY DI_ORDER]]>
      <![CDATA[LIMIT #start#,#pageSize#]]>
     </select>

@@ -296,7 +296,10 @@ function initConsultList() {
            // bRetrieve:true,
             sAjaxSource:"../online/listConsultation.action",
             sAjaxDataProp: "page.dataList",
-            oSearch: {"sSearch": ""},
+            //oSearch: {"sSearch": ""},
+            oSearch : {
+                "sSearch" : "","bSmart": true 
+            },
             bAutoWidth:false,
             fnServerData:function(sSource, aoData, fnCallback) {
                 var params = [];
@@ -318,6 +321,7 @@ function initConsultList() {
                 params.push({ "name": "page.pageSize", "value": iDisplayLength });
                 var currentPageNo = Math.floor(iDisplayStart / iDisplayLength) + 1;
                 params.push({ "name": "page.currentPageNo", "value": currentPageNo });
+                params.push({ "name": "cons.sSearch", "value": sSearch });
                 $.ajax({
                     dataType: 'json',
                     type: "POST",
@@ -414,6 +418,8 @@ function initConsultList() {
                     if (!json.page.dataList) {
                         json.page.dataList = [];
                     }
+                    var oSettings = consultTable.fnSettings();
+                    oSettings.iInitDisplayStart = startIndex;
                     consultTable.fnAddData(json.page.dataList);
                     setTableTrColor();
                     $('#J_ConsultTable input[type=checkbox]').sdCheckBox();

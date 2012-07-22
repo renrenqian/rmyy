@@ -95,6 +95,11 @@
                  oc.OS_TYPICAL = #osTypical#
                  ]]>
           </isNotEmpty>
+        <isNotEmpty property="sSearch" prepend=" AND ">
+          <![CDATA[
+                 oc.OC_POST_SUBJECT Like CONCAT('%',#sSearch#,'%')
+                 ]]>
+          </isNotEmpty>
         </dynamic>
     <![CDATA[ ]]>
     </select>
@@ -150,6 +155,11 @@
         <isNotEmpty property="condition.osTypical" prepend=" AND ">
           <![CDATA[
                  oc.OS_TYPICAL = #condition.osTypical#
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.sSearch" prepend=" AND ">
+          <![CDATA[
+                 oc.OC_POST_SUBJECT Like CONCAT('%',#condition.sSearch#,'%')
                  ]]>
           </isNotEmpty>
         </dynamic>

@@ -1,5 +1,6 @@
 var contentDataTable;
 var contentType;
+var startIndex;
 $(document).ready(function() {
     //zq：判断栏目类型是"医院新闻"，还是"其它栏目"
     contentType=$(window.parent.document).find('.layout-panel-center .panel-title').html();
@@ -171,7 +172,10 @@ function initContentList() {
             //bRetrieve:true,
             sAjaxSource:url,
             sAjaxDataProp: "page.dataList",
-            oSearch: {"sSearch": ""},
+            //oSearch: {"sSearch": ""},
+            oSearch : {
+                "sSearch" : "","bSmart": true 
+            },
             bAutoWidth:false,
             fnServerData:function(sSource, aoData, fnCallback) {
                 var params = [];
@@ -193,6 +197,7 @@ function initContentList() {
                 params.push({ "name": "page.pageSize", "value": iDisplayLength });
                 var currentPageNo = Math.floor(iDisplayStart / iDisplayLength) + 1;
                 params.push({ "name": "page.currentPageNo", "value": currentPageNo });
+                params.push({ "name": "continfo.sSearch", "value": sSearch });
                 $.ajax({
                     dataType: 'json',
                     type: "GET",
@@ -307,6 +312,8 @@ function initContentList() {
                     if (!json.contList) {
                         json.contList = [];
                     }
+                    var oSettings = contentDataTable.fnSettings();
+                    oSettings.iInitDisplayStart = startIndex;
                     contentDataTable.fnAddData(json.contList);
                     setTableTrColor();
                     $('#J_ContentTable input[type=checkbox]').sdCheckBox();

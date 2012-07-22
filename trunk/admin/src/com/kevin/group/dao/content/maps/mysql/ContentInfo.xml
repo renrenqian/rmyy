@@ -104,6 +104,11 @@
                  cd.CD_AUDIT_RESULT = 1
                  ]]>
           </isEmpty>
+          <isNotEmpty property="sSearch"  prepend="AND">
+           <![CDATA[
+                 cd.CD_TITAL Like CONCAT('%',#sSearch#,'%')
+                 ]]>
+          </isNotEmpty>
         </dynamic>
     <![CDATA[ ]]>
     </select>
@@ -157,6 +162,11 @@
                  cd.CD_AUDIT_RESULT = 1
                  ]]>
           </isEmpty>
+          <isNotEmpty property="condition.sSearch"  prepend="AND">
+           <![CDATA[
+                 cd.CD_TITAL Like CONCAT('%',#condition.sSearch#,'%')
+                 ]]>
+          </isNotEmpty>
         </dynamic>
      <![CDATA[ORDER BY CD_PUBLISH_TIME desc]]>
      <![CDATA[LIMIT #start#,#pageSize#]]>

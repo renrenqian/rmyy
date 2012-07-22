@@ -1,4 +1,5 @@
 var leaderDataTable;
+var startIndex;
 $(document).ready(function() {
     initLeaderList();//初始化列表
     $('#leaderForm').sdValidate();//添加验证规则
@@ -204,7 +205,10 @@ function initLeaderList() {
             //bRetrieve:true,
             sAjaxSource:"../member/listLeader.action",
             sAjaxDataProp: "page.dataList",
-            oSearch: {"sSearch": ""},
+            //oSearch: {"sSearch": ""},
+            oSearch : {
+                "sSearch" : "","bSmart": true 
+            },
             bAutoWidth:false,
             fnServerData:function(sSource, aoData, fnCallback) {
                 var params = [];
@@ -226,6 +230,7 @@ function initLeaderList() {
                 params.push({ "name": "page.pageSize", "value": iDisplayLength });
                 var currentPageNo = Math.floor(iDisplayStart / iDisplayLength) + 1;
                 params.push({ "name": "page.currentPageNo", "value": currentPageNo });
+                params.push({ "name": "leader.sSearch", "value": sSearch });
                 $.ajax({
                     dataType: 'json',
                     type: "POST",
@@ -312,6 +317,8 @@ function initLeaderList() {
                     if (!json.page.dataList) {
                         json.page.dataList = [];
                     }
+                    var oSettings = leaderDataTable.fnSettings();
+                    oSettings.iInitDisplayStart = startIndex;
                     leaderDataTable.fnAddData(json.page.dataList);
                     setTableTrColor();
                     $('#J_LeaderTable input[type=checkbox]').sdCheckBox();

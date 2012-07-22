@@ -6,7 +6,6 @@
 package com.kevin.group.pojo.dept;
 
 import com.google.gson.Gson;
-import com.googlecode.jsonplugin.annotations.JSON;
 
 /**
  * @author kevin
@@ -31,6 +30,8 @@ public class Dept {
     private String dpTech_adv;
     private String dpResearch_direction;
     private String dgIds;
+
+    private String sSearch; // for condition sSearch from datatable
 
     /**
      * @return the dpId
@@ -303,10 +304,26 @@ public class Dept {
     }
 
     /**
+     * @return the sSearch
+     */
+    public final String getsSearch() {
+        return sSearch;
+    }
+
+    /**
+     * @param sSearch
+     *            the sSearch to set
+     */
+    public final void setsSearch(String sSearch) {
+        this.sSearch = sSearch;
+    }
+
+    /**
      * Generate the json format content
+     * 
      * @return
      */
-    public final String generateJSON(){
+    public final String generateJSON() {
         Gson gson = new Gson();
         return gson.toJson(this);
     }

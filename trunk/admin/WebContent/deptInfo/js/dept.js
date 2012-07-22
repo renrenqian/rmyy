@@ -1,4 +1,5 @@
 var deptDataTable;
+var startIndex;
 $(document).ready(function() {
     initDeptList();//初始化列表
     $('#deptForm').sdValidate();//添加验证规则
@@ -221,19 +222,42 @@ function initDeptList() {
     if (!deptDataTable) {
         deptDataTable = $("#J_DeptTable").dataTable({
             bProcessing: false,
-            bServerSide:false,
+            bServerSide:true,//设置服务端分页
             bDestory:false,
             bRetrieve:true,
-            sAjaxSource:"../group/listDept.action",
-            sAjaxDataProp: "deptList",
-            oSearch: {"sSearch": ""},
+            sAjaxSource:"../group/listDeptPage.action",
+            sAjaxDataProp: "page.dataList",
+            //oSearch: {"sSearch": ""},
+            oSearch : {
+                "sSearch" : "","bSmart": true 
+            },
             bAutoWidth:false,
             fnServerData:function(sSource, aoData, fnCallback) {
+                var params = [];
+                var iDisplayStart,iDisplayLength,sEcho,sSearch;
+                for (var i = 0; i < aoData.length; i++) {
+                    if (aoData[i].name == "iDisplayStart") {
+                        iDisplayStart = aoData[i].value;
+                    }
+                    if (aoData[i].name == "iDisplayLength") {
+                        iDisplayLength = aoData[i].value;
+                    }
+                    if (aoData[i].name == "sEcho") {
+                        sEcho = aoData[i].value;
+                    }
+                    if (aoData[i].name == "sSearch") {
+                        sSearch = aoData[i].value;
+                    }
+                }
+                params.push({ "name": "page.pageSize", "value": iDisplayLength });
+                var currentPageNo = Math.floor(iDisplayStart / iDisplayLength) + 1;
+                params.push({ "name": "page.currentPageNo", "value": currentPageNo });
+                params.push({ "name": "dept.sSearch", "value": sSearch });
                 $.ajax({
                     dataType: 'json',
                     type: "GET",
                     url: sSource,
-                    data: aoData,
+                    data: params,
                     success: function(json) {
                         if (json.resultCode > 0) {
                         } else {
@@ -242,10 +266,16 @@ function initDeptList() {
                                 content:json.message ? json.message : "查询科室列表错误!"
                             });
                         }
-                        //处理返回结果
-                        if (!json.deptList) {
-                            json.deptList = [];
+                        if (!json.page) {
+                            json.page = {};
                         }
+                        if (!json.page.dataList) {//处理返回结果
+                            json.page.dataList = [];
+                        }
+                        json.sEcho = sEcho;
+                        json.iTotalRecords = json.page.totalItemCount;
+                        json.iTotalDisplayRecords = json.page.totalItemCount;
+
                         fnCallback(json);
                         setTableTrColor();
                         $('#J_DeptTable input[type=checkbox]').sdCheckBox();
@@ -314,6 +344,8 @@ function initDeptList() {
                     if (!json.deptList) {
                         json.deptList = [];
                     }
+                    var oSettings = deptDataTable.fnSettings();
+                    oSettings.iInitDisplayStart = startIndex;
                     deptDataTable.fnAddData(json.deptList);
                     setTableTrColor();
                     $('#J_DeptTable input[type=checkbox]').sdCheckBox();

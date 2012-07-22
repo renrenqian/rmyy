@@ -43,6 +43,8 @@ public class ContentInfo implements Serializable {
 
     private Integer contAuditResult;
     private Integer clickTimes;// store the upload file path
+    private String sSearch; // for condition sSearch from datatable
+
     /**
      * @return the contId
      */
@@ -57,7 +59,7 @@ public class ContentInfo implements Serializable {
     public final void setContId(Integer contId) {
         this.contId = contId;
     }
- 
+
     /**
      * @return the contTitle
      */
@@ -66,7 +68,8 @@ public class ContentInfo implements Serializable {
     }
 
     /**
-     * @param contTitle the contTitle to set
+     * @param contTitle
+     *            the contTitle to set
      */
     public final void setContTitle(String contTitle) {
         this.contTitle = contTitle;
@@ -110,7 +113,8 @@ public class ContentInfo implements Serializable {
     }
 
     /**
-     * @param ciCate the ciCate to set
+     * @param ciCate
+     *            the ciCate to set
      */
     public final void setCiCate(Integer ciCate) {
         this.ciCate = ciCate;
@@ -190,7 +194,7 @@ public class ContentInfo implements Serializable {
     public final void setContPublish_Time(String contPublish_Time) {
         this.contPublish_Time = contPublish_Time;
     }
- 
+
     /**
      * @return the contAudit_DESC
      */
@@ -250,7 +254,7 @@ public class ContentInfo implements Serializable {
     public final void setGmName(String gmName) {
         this.gmName = gmName;
     }
- 
+
     /**
      * @return the contAuthor
      */
@@ -259,7 +263,8 @@ public class ContentInfo implements Serializable {
     }
 
     /**
-     * @param contAuthor the contAuthor to set
+     * @param contAuthor
+     *            the contAuthor to set
      */
     public final void setContAuthor(String contAuthor) {
         this.contAuthor = contAuthor;
@@ -288,7 +293,8 @@ public class ContentInfo implements Serializable {
     }
 
     /**
-     * @param contCont the contCont to set
+     * @param contCont
+     *            the contCont to set
      */
     public final void setContCont(String contCont) {
         this.contCont = contCont;
@@ -317,7 +323,8 @@ public class ContentInfo implements Serializable {
     }
 
     /**
-     * @param displayImage the displayImage to set
+     * @param displayImage
+     *            the displayImage to set
      */
     public final void setDisplayImage(String displayImage) {
         this.displayImage = displayImage;
@@ -331,7 +338,8 @@ public class ContentInfo implements Serializable {
     }
 
     /**
-     * @param contSearchStartTime the contSearchStartTime to set
+     * @param contSearchStartTime
+     *            the contSearchStartTime to set
      */
     public final void setContSearchStartTime(String contSearchStartTime) {
         this.contSearchStartTime = contSearchStartTime;
@@ -345,7 +353,8 @@ public class ContentInfo implements Serializable {
     }
 
     /**
-     * @param contSearchEndTime the contSearchEndTime to set
+     * @param contSearchEndTime
+     *            the contSearchEndTime to set
      */
     public final void setContSearchEndTime(String contSearchEndTime) {
         this.contSearchEndTime = contSearchEndTime;
@@ -359,7 +368,8 @@ public class ContentInfo implements Serializable {
     }
 
     /**
-     * @param clickTimes the clickTimes to set
+     * @param clickTimes
+     *            the clickTimes to set
      */
     public final void setClickTimes(Integer clickTimes) {
         this.clickTimes = clickTimes;
@@ -373,10 +383,26 @@ public class ContentInfo implements Serializable {
     }
 
     /**
-     * @param contAuditResult the contAuditResult to set
+     * @param contAuditResult
+     *            the contAuditResult to set
      */
     public final void setContAuditResult(Integer contAuditResult) {
         this.contAuditResult = contAuditResult;
+    }
+
+    /**
+     * @return the sSearch
+     */
+    public final String getsSearch() {
+        return sSearch;
+    }
+
+    /**
+     * @param sSearch
+     *            the sSearch to set
+     */
+    public final void setsSearch(String sSearch) {
+        this.sSearch = sSearch;
     }
 
     public String generateJSON() {

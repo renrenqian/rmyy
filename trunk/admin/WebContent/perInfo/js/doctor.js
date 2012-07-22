@@ -1,4 +1,5 @@
 var doctorDataTable;
+var startIndex;
 $(document).ready(function() {
     //查数据字典
     initDoctorList();//初始化列表
@@ -380,7 +381,10 @@ function initDoctorList() {
            // bRetrieve:true,
             sAjaxSource:"../member/listDoctor.action",
             sAjaxDataProp: "page.dataList",
-            oSearch: {"sSearch": ""},
+            //oSearch: {"sSearch": ""},
+            oSearch : {
+                "sSearch" : "","bSmart": true 
+            },
             bAutoWidth:false,
             fnServerData:function(sSource, aoData, fnCallback) {
                 var params = [];
@@ -402,6 +406,7 @@ function initDoctorList() {
                 params.push({ "name": "page.pageSize", "value": iDisplayLength });
                 var currentPageNo = Math.floor(iDisplayStart / iDisplayLength) + 1;
                 params.push({ "name": "page.currentPageNo", "value": currentPageNo });
+                params.push({ "name": "doct.sSearch", "value": sSearch });
                 $.ajax({
                     dataType: 'json',
                     type: "POST",
@@ -511,6 +516,8 @@ function initDoctorList() {
                     if (!json.page.dataList) {
                         json.page.dataList = [];
                     }
+                    var oSettings = doctorDataTable.fnSettings();
+                    oSettings.iInitDisplayStart = startIndex;
                     doctorDataTable.fnAddData(json.page.dataList);
                     setTableTrColor();
                     $('#J_DoctorTable input[type=checkbox]').sdCheckBox();

@@ -31,6 +31,8 @@ public class Consultation {
     private Integer osTypical;
 
     private Integer consClick;
+    private String sSearch; // for condition sSearch from datatable
+
     /**
      * @return the ocId
      */
@@ -69,7 +71,8 @@ public class Consultation {
     }
 
     /**
-     * @param ocPostStartTime the ocPostStartTime to set
+     * @param ocPostStartTime
+     *            the ocPostStartTime to set
      */
     public final void setOcPostStartTime(String ocPostStartTime) {
         this.ocPostStartTime = ocPostStartTime;
@@ -83,7 +86,8 @@ public class Consultation {
     }
 
     /**
-     * @param ocPostEndTime the ocPostEndTime to set
+     * @param ocPostEndTime
+     *            the ocPostEndTime to set
      */
     public final void setOcPostEndTime(String ocPostEndTime) {
         this.ocPostEndTime = ocPostEndTime;
@@ -322,10 +326,26 @@ public class Consultation {
     }
 
     /**
-     * @param consClick the consClick to set
+     * @param consClick
+     *            the consClick to set
      */
     public final void setConsClick(Integer consClick) {
         this.consClick = consClick;
+    }
+
+    /**
+     * @return the sSearch
+     */
+    public final String getsSearch() {
+        return sSearch;
+    }
+
+    /**
+     * @param sSearch
+     *            the sSearch to set
+     */
+    public final void setsSearch(String sSearch) {
+        this.sSearch = sSearch;
     }
 
 }

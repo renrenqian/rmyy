@@ -98,8 +98,8 @@
     <!-- 查询总记录数 -->
     <select id="getTotalCount" parameterClass="Dept" resultClass="java.lang.Long">
        <![CDATA[
-         select COUNT(DI_ID) 
-         from DOCTOR_INFO
+         select COUNT(OD_ID) 
+         from OFFICE_DETAIL od
       ]]>
         <dynamic prepend=" where ">
         <isNotEmpty property="dpName" prepend="AND">
@@ -109,12 +109,17 @@
           </isNotEmpty>
         <isNotEmpty property="dpBelong" prepend="AND">
           <![CDATA[
-                 od.OD_BELONG =  #dpBelong#
+                 od.OD_BELONG = #dpBelong#
                  ]]>
           </isNotEmpty>
         <isNotEmpty property="dpType" prepend="AND">
           <![CDATA[
                  od.OD_TYPE Like CONCAT('%',#dpType#,'%')
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="sSearch" prepend="AND">
+          <![CDATA[
+                 od.OD_NAME Like CONCAT('%',#sSearch#,'%')
                  ]]>
           </isNotEmpty>
         </dynamic>
@@ -148,6 +153,11 @@
         <isNotEmpty property="condition.dpType" prepend="AND">
           <![CDATA[
                  od.OD_TYPE Like CONCAT('%',#condition.dpType#,'%')
+                 ]]>
+          </isNotEmpty>
+        <isNotEmpty property="condition.sSearch" prepend="AND">
+          <![CDATA[
+                 od.OD_NAME Like CONCAT('%',#condition.sSearch#,'%')
                  ]]>
           </isNotEmpty>
         </dynamic>
