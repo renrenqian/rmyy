@@ -31,7 +31,7 @@
     
     <!-- search the LeaderInfo info -->
     <select id="search"  parameterClass="LeaderInfo"  resultClass="LeaderInfo">
-     <![CDATA[       
+     <![CDATA[
      select 
            li.LI_ID as liId ,
             LI_CATE as liCate,
