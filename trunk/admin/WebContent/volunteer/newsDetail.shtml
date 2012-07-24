@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+<!--#include virtual="master/headFile.html"-->
+</head>
+<body>
+	<!--#include virtual="master/top.html"-->
+	<div class="content">
+         <h1 class="pTitle" id='J_ContTitle'></h1>
+
+                    <h3 class="newsInfo"><span id="J_PubTime">发布日期：</span><span id="J_ClickTimes">浏览量：</span> 次 <span id='J_ContAuthor'>来源：</span></h3>
+                    <hr/>
+                    <div class="newsBody"></div>
+	</div>
+	<!--#include virtual="master/footer.html"-->
+<script>
+//zq:链接指定参数获取
+function GetParameter(param) {
+	var query = window.location.search;
+	var iLen = param.length;
+	var iStart = query.indexOf(param);
+	if (iStart == -1) {
+		return "";
+	}
+	// 取得开始搜索的位置。
+	iStart += iLen + 1;
+	var iEnd = query.indexOf("&", iStart);
+	// 如果只有一个参数传进来
+	if (iEnd == -1) {
+		return query.substring(iStart);
+	} else {
+		return query.substring(iStart, iEnd);
+	}
+}
+var contId = GetParameter('contId');
+//浏览量
+$.getJSON('/admin/group/updateClickContent.action?web=1&continfo.contId=' + contId,function(json){});
+$.getJSON('/admin/group/searchContent.action?web=1&continfo.contId='+contId, function(json) {
+	if (json.resultCode > 0) {
+		var continfo = json.continfo;
+        $('#J_PubTime').after(continfo.contPublish_Time.substr(0,10).replace('/','-').replace('/','-'));
+		$('#J_ContAuthor').after(continfo.contAuthor);
+        $('#J_ClickTimes').after(continfo.clickTimes);
+		var title=''
+		if(continfo.contMedium==1){
+			title+='【媒体报道】';
+		}
+		$('#J_ContTitle').html(title+continfo.contTitle);
+		$('.newsBody').html(continfo.contDetail);
+	}
+});
+</script>
+</body>
+</html>

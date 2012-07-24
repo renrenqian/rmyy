@@ -51,7 +51,7 @@
 	<div style='overflow: hidden;' class='mt10'>
 		<div class='col'>
 			<div class='colorTitle1'>
-				<a href='#'> 患者服务<span class='arrow'></span>
+				<a href='#'>诊疗特色<span class='arrow'></span>
 				</a>
 			</div>
 			<img src='images/colPic1.jpg' class='fr mt5 mr5' />
@@ -66,7 +66,7 @@
 		</div>
 		<div class='col'>
 			<div class='colorTitle1'>
-				<a href='#'> 关于癌症<span class='arrow'></span>
+				<a href='#'>诊疗项目<span class='arrow'></span>
 				</a>
 			</div>
 			<img src='images/colPic1.jpg' class='fr mt5 mr5' />
@@ -81,7 +81,7 @@
 		</div>
 		<div class='col'>
 			<div class='colorTitle1'>
-				<a href='#'>中心特色<span class='arrow'></span>
+				<a href='#'>就诊指南<span class='arrow'></span>
 				</a>
 			</div>
 			<img src='images/colPic1.jpg' class='fr mt5 mr5' />
@@ -98,7 +98,7 @@
 	<div style='overflow: hidden;' class='mt10 mb10'>
 		<div class='col2'>
 			<div class='colorTitle2'>
-				<a href='#'> 中心新闻 </a>
+				<a href='#'>中心动态 </a>
 			</div>
 			<ul class="newsItem">
 				<li><a class="newsTitle" title="浙江省毛发移植与头面部微创美容新进展学习班"

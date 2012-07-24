@@ -46,13 +46,13 @@
             if (json.resultCode > 0) {
                 var cons = json.cons;
                 $('.newsMainTitle').html(cons.ocPost_subject);
-                $('#J_OsAnswer_time').html("提问时间:" + cons.osAnswer_time);
+                $('#J_OsAnswer_time').html("提问时间:" + cons.ocPost_time);
                 $('#J_OcRequestOfficeName').html("回复科室:" + cons.ocRequestOfficeName);
-                $('#J_ConsClick').html("浏览量:" + cons.consClick);
+                $('#J_ConsClick').html("浏览量:" + cons.consClick+"次");
                 var str = "<hr class='mb20 w'/><table class='Schedule'><thead><tr class='totalTh'><th class='w'>问题描述</th></tr></thead>" +
                         "<tbody><tr class='paTr'><td class='p20 tl'>" + cons.ocDesc + "</td></tr></tbody></table>" +
                         "<table class='Schedule mt10'><thead><tr class='totalTh'><th class='w'>回复内容</th></tr></thead>" +
-                        "<tbody><tr class='paTr'><td class='p20 tl'>" + cons.osAnswer + "次</td></tr></tbody></table>";
+                        "<tbody><tr class='paTr'><td class='p20 tl'>" + cons.osAnswer + "</td></tr></tbody></table>";
                 $('.docBody').html(str);
         }
     });

@@ -91,9 +91,9 @@
         <script src="js/adminPart/common.js"></script>
         <script src="js/adminPart/jquery.easyui.min.js"></script>       
         <script src="plugins/form/jquery.sdForm.js"></script>
-        <script src="plugins/ckeditor/ckeditor.js"></script>
-        <script src="plugins/ckeditor/adapters/jquery.js"></script>
-        <script src="plugins/ckfinder/ckfinder.js"></script>
+        <script src="/admin/ckeditor/ckeditor.js"></script>
+        <script src="/admin/ckeditor/adapters/jquery.js"></script>
+        <script src="/admin/ckfinder/ckfinder.js"></script>
        
         <script type="text/javascript">
       $(document).ready(function() {

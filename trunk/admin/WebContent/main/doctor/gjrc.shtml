@@ -65,10 +65,10 @@
             var doctList = json[tgId];
             var str = '';
             $(doctList).each(function (i, item) {
-                str += "<li><img src='/admin/"+item.diPortrait+"' class='docPic'/>"+
+                str += "<li><img data-ks-lazyload='/admin/"+item.diPortrait+"' class='docPic' alt='各级人才头像-" + item.diName + "'/>"+
                 "<div class='docIntro'>"+
                         "<p>"+
-                        "<a href='docPer.shtml?cata1=zjjs&cata2=mymz&diId="+item.diId+"'>"+item.diName+"</a><span>在诊</span>"+
+                        "<a href='docPer.shtml?cata1=zjjs&cata2=gjrc&diId="+item.diId+"'>"+item.diName+"</a><span>在诊</span>"+
                         "</p>"+
                         "<p style='overflow: hidden;'>"+
                         "<span style='float: left;'>职称：</span><span style='width: 60px; height: 20px; display: block; overflow: hidden; float: left;' title='"+item.diPosition+"'>"+item.diPosition+"</span>"+
@@ -80,16 +80,15 @@
                 "</li>";
                 $('.picDocList').html(str);
             });
-        }
-    });
-
-    KISSY.use('datalazyload', function (S, DataLazyload) {
-        S.ready(function (S) {
-            DataLazyload({
-                mode:'manual',
-                diff:'100'
+          KISSY.use('datalazyload', function (S, DataLazyload) {
+                S.ready(function (S) {
+                    DataLazyload({
+                        mode:'manual',
+                        diff:'100'
+                    });
+                });
             });
-        });
+        }
     });
 </script>
 </body>

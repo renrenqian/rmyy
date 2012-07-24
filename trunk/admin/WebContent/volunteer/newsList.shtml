@@ -1,35 +1,94 @@
 <!DOCTYPE html>
 <head>
 <!--#include virtual="master/headFile.html"-->
+<link rel="stylesheet" href="../style/webPart/pagination.css" />
+<script type="text/javascript" src="../js/webPart/jquery.pagination.js"></script>
 </head>
 <body>
 	<!--#include virtual="master/top.html"-->
 	<div class="content">
         <h1 class="pTitle">之家动态</h1>
-        <ul class="newsItem">
-            <li><a class="newsTitle" title="浙江省毛发移植与头面部微创美容新进展学习班"
-                   href="javascript:;">浙江省毛发移植与头面部微创美容新进展学习班 </a><span
-                    class="newsDate">05-25 </span><span class="newIcon"></span></li>
-            <li><a class="newsTitle" title="微量营养素与孩子的健康"
-                   href="javascript:;">微量营养素与孩子的健康</a><span class="newsDate">05-25</span><span
-                    class="newIcon"></span></li>
-            <li><a class="newsTitle" title="第四届国际甲状腺周免费咨询活动"
-                   href="javascript:;">第四届国际甲状腺周免费咨询活动 </a><span class="newsDate">05-25</span><span
-                    class="newIcon"></span></li>
-            <li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
-                   href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
-                    class="newsDate">05-25 </span></li>
-            <li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
-                   href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
-                    class="newsDate">05-25 </span></li>
-            <li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
-                   href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
-                    class="newsDate">05-25 </span></li>
-            <li><a class="newsTitle" title="2012年操作技能考前培训班（临床类）通知"
-                   href="javascript:;">2012年操作技能考前培训班（临床类）通知 </a><span
-                    class="newsDate">05-25 </span></li>
-        </ul>
+        <ul class="newsItem"></ul>
+        <div id="Pagination" class="pagination mt20"></div>
 	</div>
 	<!--#include virtual="master/footer.html"-->
+	<script>
+	//zq:链接指定参数获取
+	function GetParameter(param) {
+		var query = window.location.search;
+		var iLen = param.length;
+		var iStart = query.indexOf(param);
+		if (iStart == -1) {
+			return "";
+		}
+		// 取得开始搜索的位置。
+		iStart += iLen + 1;
+		var iEnd = query.indexOf("&", iStart);
+		// 如果只有一个参数传进来
+		if (iEnd == -1) {
+			return query.substring(iStart);
+		} else {
+			return query.substring(iStart, iEnd);
+		}
+	}
+	
+    var params = [];
+	params.push({ "name": "page.pageSize", "value":15});	//每页最大条数
+	params.push({ "name": "page.currentPageNo", "value":1});//当前显示第几页
+	var totalSize;
+	var colId ='1702';
+    var cata1 = GetParameter('cata1');
+    var cata2 = GetParameter('cata2');
+	
+    $(document).ready(function() {
+		initData(1); //初始化数据 		
+	});
+    
+    //这个事件是在翻页时候用的 
+	function pageselectCallback(page_id, jq) {
+		initData(page_id+1);
+	}
+        	
+	function initData(index) {	
+		params[1].value=index;		
+		var str='';
+		$.ajax({ //这里使用到Jquery的ajax方法
+			type : "POST",
+			dataType : "json",
+			url : '/admin/group/listContent.action?web=1&continfo.colId='+colId, //请求的处理数据 
+			data : params,			
+			//下面的操作就是成功返回数据以后，进行数据的绑定 
+			success : function(data) {	
+				if(data.resultCode>0){
+					totalSize=data.page.totalItemCount;
+					var continfo=data.page.dataList;
+					$(continfo).each(function(i,item){
+                        if(i<3){
+                            str+="<li><a class='newsTitle' title='"+item.contTitle+"'"+
+                                    "href='newsDetail.shtml?contId="+item.contId+"'>"+item.contTitle+
+                                    "</a><span class='newsDate'>"+item.contPublish_Time.substr(0,10)+"</span><span class='newIcon'></span></li>";
+                        }else{
+                            str+="<li><a class='newsTitle' title='"+item.contTitle+"'"+
+                                    "href='newsDetail.shtml?contId="+item.contId+"'>"+item.contTitle+
+                                    "</a><span class='newsDate'>"+item.contPublish_Time.substr(0,10)+"</span></li>";
+                        }
+					});				
+					$('.newsItem').html(str);					
+				}
+				if($("#Pagination").html().length == ''){			
+					$("#Pagination").pagination(totalSize, {  
+				        items_per_page      : params[0].value,  
+				        num_display_entries : 10,  
+				        num_edge_entries    : 2,  
+				        prev_text           : "上一页",  
+				        next_text           : "下一页",
+				        callback:pageselectCallback
+				    });  
+				}
+			}
+		});
+		
+	}
+</script>
 </body>
 </html>
