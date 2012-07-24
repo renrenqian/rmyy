@@ -183,7 +183,7 @@ public class DoctorAction extends AbstractBaseAction {
                     storeFolder.mkdirs();
                 File storeFile = new File(storeFolder, dateTime + "_" + fileFileName);
                 String storePath = storeFile.getAbsolutePath();
-                doct.setDiPortrait(storePath.substring(storePath .indexOf(GroupConstance.UPLOAD_ROOT)));
+                doct.setDiPortrait(storePath.substring(storePath .indexOf(GroupConstance.UPLOAD_ROOT)).replaceAll("\\", "/"));
                 // FileUtils.copyFile(file, storeFile);
                 // storeFile.createNewFile();
                 FileUtils.moveFile(file, storeFile);
@@ -238,7 +238,7 @@ public class DoctorAction extends AbstractBaseAction {
                     storeFolder.mkdirs();
                 File storeFile = new File(storeFolder, dateTime + "_" + fileFileName);
                 String storePath = storeFile.getAbsolutePath();
-                doct.setDiPortrait(storePath.substring(storePath .indexOf(GroupConstance.UPLOAD_ROOT)));
+                doct.setDiPortrait(storePath.substring(storePath .indexOf(GroupConstance.UPLOAD_ROOT)).replaceAll("\\", "/"));
                 // FileUtils.copyFile(file, storeFile);
                 // storeFile.createNewFile();
                 FileUtils.moveFile(file, storeFile);

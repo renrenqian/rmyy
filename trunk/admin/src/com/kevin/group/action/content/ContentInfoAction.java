@@ -186,7 +186,7 @@ public class ContentInfoAction extends AbstractBaseAction {
                     File storeFile = new File(storeFolder, dateFormatFile.format(new Date()) + "_" + fileFileName[i]);
                     if(0 == i){
                         String storePath = storeFile.getAbsolutePath();
-                        continfo.setDisplayImage(storePath.substring(storePath.indexOf(GroupConstance.UPLOAD_ROOT)));
+                        continfo.setDisplayImage(storePath.substring(storePath.indexOf(GroupConstance.UPLOAD_ROOT)).replaceAll("\\", "/"));
                     }
 //                    if(1 == i){
 //                        String storePath = storeFile.getAbsolutePath();
@@ -251,7 +251,7 @@ public class ContentInfoAction extends AbstractBaseAction {
                     File storeFile = new File(storeFolder, dateFormatFile.format(new Date()) + "_" + fileFileName[i]);
                     if(0 == i){
                         String storePath = storeFile.getAbsolutePath();
-                        continfo.setDisplayImage(storePath.substring(storePath.indexOf(GroupConstance.UPLOAD_ROOT)));
+                        continfo.setDisplayImage(storePath.substring(storePath.indexOf(GroupConstance.UPLOAD_ROOT)).replaceAll("\\", "/"));
                     }
 //                    if(1 == i){
 //                        String storePath = storeFile.getAbsolutePath();
