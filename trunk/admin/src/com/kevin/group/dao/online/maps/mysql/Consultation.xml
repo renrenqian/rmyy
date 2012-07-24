@@ -97,7 +97,7 @@
           </isNotEmpty>
         <isNotEmpty property="sSearch" prepend=" AND ">
           <![CDATA[
-                 oc.OC_POST_SUBJECT Like CONCAT('%',#sSearch#,'%')
+                 (oc.OC_POST_SUBJECT Like CONCAT('%',#sSearch#,'%') or odq.OD_NAME Like CONCAT('%',#sSearch#,'%') or odr.OD_NAME Like CONCAT('%',#sSearch#,'%') or DATE_FORMAT(OC_POST_TIME,'%Y-%m-%d') Like CONCAT('%',#sSearch#,'%'))
                  ]]>
           </isNotEmpty>
         </dynamic>
@@ -159,7 +159,7 @@
           </isNotEmpty>
         <isNotEmpty property="condition.sSearch" prepend=" AND ">
           <![CDATA[
-                 oc.OC_POST_SUBJECT Like CONCAT('%',#condition.sSearch#,'%')
+                 (oc.OC_POST_SUBJECT Like CONCAT('%',#condition.sSearch#,'%') or odq.OD_NAME Like CONCAT('%',#condition.sSearch#,'%') or odr.OD_NAME Like CONCAT('%',#condition.sSearch#,'%') or DATE_FORMAT(OC_POST_TIME,'%Y-%m-%d') Like CONCAT('%',#condition.sSearch#,'%'))
                  ]]>
           </isNotEmpty>
         </dynamic>
