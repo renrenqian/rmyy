@@ -128,10 +128,13 @@ $.getJSON('/admin/main/dept/lcks', function(json) {
         $('#J_Search').click(function(){
             $("#Pagination").html("");
             var deptId=$('#J_Dept').val();
-            if(deptId==0){
-                action="/admin/online/listConsultation.action?web=1&cons.osAnswered=1";
-            }else{
-                action="/admin/online/listConsultation.action?web=1&cons.osAnswered=1&cons.ocReceive_office="+deptId;
+            var date=$('#J_AskDate').val();
+            var action="/admin/online/listConsultation.action?web=1&cons.osAnswered=1";
+            if(deptId!=0){
+                action+="&cons.ocReceive_office="+deptId;
+            }
+            if(date!=''){
+                action+="&cons.ocPost_time="+date;
             }
             initData(1,action);
         });

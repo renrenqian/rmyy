@@ -116,7 +116,7 @@
 						});
 				$('.lcDeptList').html(
 						"<li><strong>非手术科室</strong></li><li><br/></li>" + neiList+
-						"<li><hr/></li><li><hr/></li><li><strong>手术科室</strong></li><li><br/></li>"+waiList+"<li><hr/></li><li><hr/></li>");
+						"<li><hr/></li><li><hr/></li><li><strong>手术科室</strong></li>"+waiList+"<li><hr/></li><li><hr/></li>");
 			}
 		});
 		

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>杭州市第一人民医院集团</title>
+    <link rel="icon" href="/admin/images/favicon.ico" type="image/x-icon" />
+    <style type="text/css">
+        body, div, a, p, ul, li{ margin: 0; padding: 0; }
+        a{text-decoration: none;}
+        body{width: 960px; margin: 10px auto;}
+        .logo{background: url("jtdh.jpg") no-repeat; width: 165px; height: 165px; background-position: -825px 0; float: left;}
+        .square{width: 165px; height: 165px; display: block; float: left; margin-left: 5px;background: url("jtdh.jpg") no-repeat;}
+        #blue{background-position: 0 0;}
+        #yellow{background-position: -165px 0;}
+        #red{background-position: -330px 0;}
+        #green{background-position: -495px 0;}
+        #ora{background-position: -660px 0;}
+        #pic1{background-position: 0 -165px;}
+        #pic2{background-position:-165px -165px;}
+        #pic3{background-position:-330px -165px;}
+        #pic4{background-position: -495px -165px;}
+        #pic5{background-position: -660px -165px;}
+        #logo2{background-position: -825px -165px;}
+        .jtName{background:url("jtName.gif") no-repeat; width: 636px; height: 88px; margin-top: 20px; float: right;}
+        .groupList{padding: 0; margin: 0;}
+        .groupList li{float: left; margin-left: 15px;  display: block; height:45px; line-height: 45px; vertical-align: middle; width: 200px;}
+        .groupList li .item1{background: url("item.gif") no-repeat; width: 24px; height: 24px; display: block; float: left; margin-top: 12px; margin-right:2px;}
+        .groupList li .item2{background: url("item2.gif") no-repeat; width: 24px; height: 24px; display: block; float: left; margin-top: 12px; margin-right:2px;}
+        .groupList li a{color: #057fc5;font-weight: bold;}
+        .groupList li a:hover{text-decoration: underline;}
+    </style>
+</head>
+<body>
+<div class="logo"></div>
+<div style="float: right; margin-left: 30px; overflow: hidden;">
+    <span class="square" id="blue"></span>
+    <span class="square pic" id="pic1"></span>
+    <span class="square" id="yellow"></span>
+    <span class="square pic" id="pic2"></span>
+</div>
+<div style="clear: both;"></div>
+<div style="overflow: hidden; margin-top: 5px; margin-right: 170px; float: right;">
+    <span class="square" id="red"></span>
+    <span class="square pic" id="pic3"></span>
+    <span class="square" id="logo2"></span>
+    <span class="square pic" id="pic4"></span>
+</div>
+<div style="clear: both;"></div>
+<div style="overflow: hidden; margin-top: 5px;float: right;">
+    <span class="square" id="green"></span>
+    <span class="square" id="orange"></span>
+    <span class="square pic" id="pic5"></span>
+</div>
+<div style="clear: both;"></div>
+<div class="jtName"></div>
+<div style="clear: both;"></div>
+<hr style="border:none; border-bottom: 1px solid #CCC; margin-top:20px;" class="hr"/>
+<ul class="groupList" style="margin-top:20px;">
+    <li><span class="item1"></span><a href="#">杭州市第一人民医院</a></li>
+    <li style="width:300px;"><span class="item2"></span><a href="#" style="color: #4db794;">杭州市肿瘤医院 • 吴山院区</a></li>
+    <li style="width:300px;"><span class="item1"></span><a href="#">杭州市老年病医院 • 城北院区</a></li>
+</ul>
+<div style="clear: both;"></div>
+<ul class="groupList">
+    <li><span class="item2"></span><a href="#" style="color: #4db794;">杭州市妇幼保健院</a></li>
+    <li style="width:300px;"><span class="item1"></span><a href="#">杭州市妇女保健院 • 钱江新城院区</a></li>
+    <li><span class="item2"></span><a href="#" style="color: #4db794;">五云山健康管理中心</a></li>
+</ul>
+<script src="jquery-1.7.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+       $('.pic,.jtName,.groupList,.hr').animate({'opacity':0},0);
+       var index=0;
+        function slide(){
+            if(index<5){
+                show($('.pic').eq(index));
+                index++;
+            }else{
+                clearInterval(showId);
+                show($('.jtName'));
+                setTimeout(showGName,500);
+            }
+        }
+       var showId=setInterval(slide,500);
+    });
+
+    function show(jq){
+        jq.animate({'opacity':1},1000);
+    }
+    function hide(jq){
+        jq.animate({'opacity':0.5},1000);
+    }
+
+    function showGName(){
+        show($('.groupList'));
+        show($('.hr'));
+    }
+</script>
+</body>
+</html>

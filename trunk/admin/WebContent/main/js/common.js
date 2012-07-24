@@ -190,7 +190,7 @@ $(document).ready(function() {
 	var title;
 	if(cata1 == '医院概览'){
 		$('.titleType4').html('医院概览');
-		title=" <li><a href='/admin/jtIndex.html' target='_blank'>集团导航</a></li>"+
+		title=" <li><a href='/admin/jt/jtIndex.html' target='_blank'>集团导航</a></li>"+
                 "<li><a href='/admin/main/overview/overview.shtml?cata1=yygl&cata2=yyjj'>医院简介</a></li>"+
                 "<li><a href='/admin/main/overview/structure.shtml?cata1=yygl&cata2=zzjg'>组织结构</a></li>"+
                 "<li><a href='/admin/main/overview/dean.shtml?cata1=yygl&cata2=yzjy'>院长寄语</a></li>"+

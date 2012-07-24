@@ -33,7 +33,7 @@
 	<script>
 	$(document).ready(function(){
 		var dpId= GetParameter('id');		
-		 $.getJSON('http://124.160.67.194:8520/admin/group/searchDept.action?web=1&dept.dpId='+dpId, function(json) {
+		 $.getJSON('/admin/group/searchDept.action?web=1&dept.dpId='+dpId, function(json) {
 	         if (json.resultCode > 0) {            
 	             var deptDetail = json.dept;
 	             $('.J_DpName').html(deptDetail.dpName);

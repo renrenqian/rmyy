@@ -118,10 +118,12 @@
 							}
 							
 							if(doctDetail.diPortrait){
-								$('#diPortrait').attr('src','/admin/'+doctDetail.diPortrait).attr('alt','医师简介-'+doctDetail.diName+'头像');
+                                 var diPortrait =  doctDetail.diPortrait;
+                                // if(null != diPortrait )  diPortrait.replace("\\", "/");
+								$('#diPortrait').attr('src','/admin/'+diPortrait).attr('alt','医师简介-'+doctDetail.diName+'头像');
 							}	
 						}					
-					});		
+					});
 				});
 
 		function fixPosition(str) {

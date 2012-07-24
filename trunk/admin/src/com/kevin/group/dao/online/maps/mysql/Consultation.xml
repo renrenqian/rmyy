@@ -63,6 +63,8 @@
        <![CDATA[
          select COUNT(OC_ID) 
          from ONLINE_CONSULTATION oc
+       left join OFFICE_DETAIL odq on oc.OC_REQUEST_OFFICE =odq.OD_ID
+       left join OFFICE_DETAIL odr on oc.OC_RECEIVE_OFFICE =odr.OD_ID
       ]]>
         <dynamic prepend=" where ">
         <isNotEmpty property="ocRequest_office" prepend=" AND ">
