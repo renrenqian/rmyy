@@ -182,7 +182,10 @@ public class LeaderAction extends AbstractBaseAction {
                     storeFolder.mkdirs();
                 File storeFile = new File(storeFolder, System.currentTimeMillis() + "_" + fileFileName);
                 String storePath = storeFile.getAbsolutePath();
-                leader.setLiPortrait(storePath.substring(storePath .indexOf(GroupConstance.UPLOAD_ROOT)).replaceAll("\\", "/"));
+                int uploadIndex = storePath.indexOf(GroupConstance.UPLOAD_ROOT);
+                storePath = storePath.substring(uploadIndex);
+                storePath = storePath.replaceAll("\\\\", "/");
+                leader.setLiPortrait(storePath);
                 // FileUtils.copyFile(file, storeFile);
                 // storeFile.createNewFile();
                 FileUtils.moveFile(file, storeFile);
@@ -238,7 +241,10 @@ public class LeaderAction extends AbstractBaseAction {
                     storeFolder.mkdirs();
                 File storeFile = new File(storeFolder, System.currentTimeMillis() + "_" + fileFileName);
                 String storePath = storeFile.getAbsolutePath();
-                leader.setLiPortrait(storePath.substring(storePath .indexOf(GroupConstance.UPLOAD_ROOT)).replaceAll("\\", "/"));
+                int uploadIndex = storePath.indexOf(GroupConstance.UPLOAD_ROOT);
+                storePath = storePath.substring(uploadIndex);
+                storePath = storePath.replaceAll("\\\\", "/");
+                leader.setLiPortrait(storePath);
                 // FileUtils.copyFile(file, storeFile);
                 // storeFile.createNewFile();
                 FileUtils.moveFile(file, storeFile);

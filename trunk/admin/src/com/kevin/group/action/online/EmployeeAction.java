@@ -185,7 +185,10 @@ public class EmployeeAction extends AbstractBaseAction {
                 if(!storeFolder.exists()) storeFolder.mkdirs();
                 File storeFile = new File(storeFolder, System.currentTimeMillis() + "_" + fileFileName);
                 String storePath = storeFile.getAbsolutePath();
-                emp.setErAttachement(storePath.substring(storePath.indexOf(GroupConstance.UPLOAD_ROOT)).replaceAll("\\", "/"));
+                int uploadIndex = storePath.indexOf(GroupConstance.UPLOAD_ROOT);
+                storePath = storePath.substring(uploadIndex);
+                storePath = storePath.replaceAll("\\\\", "/");
+                emp.setErAttachement(storePath);
                 //storeFile.createNewFile();
                 //FileUtils.copyFile(file[i], storeFile);
                 FileUtils.moveFile(file, storeFile);
@@ -239,7 +242,10 @@ public class EmployeeAction extends AbstractBaseAction {
                 if(!storeFolder.exists()) storeFolder.mkdirs();
                 File storeFile = new File(storeFolder, System.currentTimeMillis() + "_" + fileFileName);
                 String storePath = storeFile.getAbsolutePath();
-                emp.setErAttachement(storePath.substring(storePath.indexOf(GroupConstance.UPLOAD_ROOT)).replaceAll("\\", "/"));
+                int uploadIndex = storePath.indexOf(GroupConstance.UPLOAD_ROOT);
+                storePath = storePath.substring(uploadIndex);
+                storePath = storePath.replaceAll("\\\\", "/");
+                emp.setErAttachement(storePath);
                 //storeFile.createNewFile();
                 //FileUtils.copyFile(file[i], storeFile);
                 FileUtils.moveFile(file, storeFile);
