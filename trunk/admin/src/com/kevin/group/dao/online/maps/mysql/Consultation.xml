@@ -137,9 +137,9 @@
                  oc.OC_RECEIVE_OFFICE = #condition.ocReceive_office#
                  ]]>
           </isNotEmpty>
-        <isNotEmpty property="condition.ocPostStartTime" prepend=" AND ">
+        <isNotEmpty property="condition.ocPost_time" prepend=" AND ">
           <![CDATA[
-                 DATE_FORMAT(oc.OC_POST_TIME,'%Y-%m-%d') = #condition.ocPostStartTime#
+                 DATE_FORMAT(oc.OC_POST_TIME,'%Y-%m-%d') = #condition.ocPost_time#
                  ]]>
           </isNotEmpty>
         <isNotEmpty property="condition.osAnswer_time" prepend=" AND ">
