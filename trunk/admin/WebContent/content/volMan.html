@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../style/adminPart/easyui.css" rel="stylesheet" />
+<link href="../style/adminPart/common.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="mainSection">
+		<div class="toolBox">
+			<p>
+				<span> 工具箱:</span> 
+				<a href="#" class="abled" id="J_AddContent">新增内容</a>
+				<a href="#" class="unabled unit J_DelAll" title="请先从下表中选择操作对象" id="J_ContentDelAll">批量删除</a>
+				<a href="#" class="abled" id="J_GenerateHomeJson">更新首页</a>
+			</p>
+		</div>
+		<div id="J_ContentListDiv" class="mt10">
+			<table id="J_ContentTable" class='display' cellpadding='0'
+				cellspacing='0' border='0'>
+				<thead>
+					<tr>
+						<th><input type='checkbox' class='checkBoss'
+							ctrl='J_ContentTable' /></th>
+						<th class='tl w4'>内容标题</th>
+						<th>发布时间</th>
+						<th class='tl'>作者</th>
+						<th>审核状态</th>
+						<th>预览</th>
+						<th>编辑</th>
+						<th>删除</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+	</div>
+	<!-- leader div for add or edit -->
+	<div id="J_AuditDiv" style="display: none;">
+		<form id="contentForm">
+			<table class="form w">
+				<tr>
+					<td class="rowName">审核</td>
+					<td><select id="auditorOption" class='selectType1'>
+							<option value="1">通过</option>
+							<option value="0">不通过</option>
+					    </select>
+					    <input id="auditorId" type="hidden" />
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td class="p10"><a class="button btn-blue" id="J_AuditOk"><span class="icon ico-bulb"></span>确认</a> <a class="button btn-grey"
+						id="J_AuditClose">取消</a></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
+	<script src="../js/adminPart/jquery.easyui.min.js"></script>
+	<script src="../js/adminPart/jquery.dataTables.js"></script>
+	<script src="../js/adminPart/common.js"></script>
+	<script src="../plugins/form/jquery.sdForm.js"></script>
+	<script src="js/volMan.js" type="text/javascript"></script>
+</body>
+</html>

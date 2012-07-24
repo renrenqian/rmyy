@@ -99,7 +99,7 @@
                                     <li><a href="/admin/main/news/newsList.shtml?cata1=kyxs&cata2=kydt&colId=1601">科研动态</a></li>
                                     <li><a href="/admin/main/news/newsList.shtml?cata1=kyxs&cata2=kjcg&colId=1602">科技成果</a></li>
                                     <li><a href="/admin/main/news/newsList.shtml?cata1=kyxs&cata2=xsjl&colId=1604">学术交流</a></li>
-                                    <li><a href="/admin/main/news/newsList.shtml?cata1=kyxs&cata2=gxsb&colId=1603">高新设备及技术</a></li>
+                                    <li style="width: 250px;"><a href="/admin/main/news/newsList.shtml?cata1=kyxs&cata2=gxsb&colId=1603">高新设备及技术</a></li>
                                 </ul>
                             </li>
                             <li class="deptList"><a href="#">医院文化和教育</a>

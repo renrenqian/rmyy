@@ -129,9 +129,9 @@ $.getJSON('/admin/main/dept/lcks', function(json) {
             $("#Pagination").html("");
             var deptId=$('#J_Dept').val();
             if(deptId==0){
-                action="/admin/online/listConsultation.action?web=1";
+                action="/admin/online/listConsultation.action?web=1&cons.osAnswered=1";
             }else{
-                action="/admin/online/listConsultation.action?web=1&cons.ocReceive_office="+deptId;
+                action="/admin/online/listConsultation.action?web=1&cons.osAnswered=1&cons.ocReceive_office="+deptId;
             }
             initData(1,action);
         });

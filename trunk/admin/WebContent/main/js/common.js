@@ -52,23 +52,6 @@ jQuery.cookie = function(name, value, options) {
 	}
 };
 
-$(document).ready(function() {
-					// just for demo
-					var myCata2=GetParameter('cata2');
-//					if(myCata2=='rczp'){
-//						$('.newsTitle').not('.consultList').attr('href',
-//						'/admin/main/news/employDetail.shtml?cata1=xxzx&cata2='+myCata2);
-//					}else{
-//						$('.newsTitle').not('.consultList').attr('href',
-//						'/admin/main/news/newsDetail.shtml?cata1=xxzx&cata2='+myCata2);
-//					}
-
-					$('.consultList li a').attr('href',
-							'/admin/main/patient/result.shtml?cata1=hzfwzx&cata2=qtfw&cata3=zxzxzx').attr('target',
-							'_blank');
-					$('.docIntro a').attr('href',
-							'/admin/main/doctor/docPer.shtml');
-				});
 function hideLeader(){
    $('.J_Leader').hide();
 }
@@ -83,7 +66,7 @@ $(document).ready(function() {
     $('#J_Leader').mouseover(function(){
        $('.J_Leader').show();
     }).mouseleave(function(){
-            timeLeader=setTimeout(hideLeader,3000);
+            timeLeader=setTimeout(hideLeader,0);
     });
 
     $('.J_Leader').mouseover(function(){
@@ -96,7 +79,7 @@ $(document).ready(function() {
     $('#J_RC').mouseover(function(){
         $('.J_RC').show();
     }).mouseleave(function(){
-            timeRC=setTimeout(hideRC,3000);
+            timeRC=setTimeout(hideRC,0);
         });
 
     $('.J_RC').mouseover(function(){

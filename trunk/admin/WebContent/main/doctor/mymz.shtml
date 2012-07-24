@@ -55,17 +55,16 @@
                         "</div></li>";
                 $('.picDocList').html(str);
             });
-        }
-    });
 
-
-    KISSY.use('datalazyload', function (S, DataLazyload) {
-        S.ready(function (S) {
-            DataLazyload({
-                mode:'manual',
-                diff:'100'
+            KISSY.use('datalazyload', function (S, DataLazyload) {
+                S.ready(function (S) {
+                    DataLazyload({
+                        mode:'manual',
+                        diff:'100'
+                    });
+                });
             });
-        });
+        }
     });
 </script>
 </body>
