@@ -48,12 +48,12 @@ $(document).ready(function() {
 (function(S) {
     KISSY.use('calendar', function(S) {
         //创建发布日期
-        var cPubTime = new S.Calendar('#contPubTime', {
+        var cPubTime = new S.Calendar('#erPublish_date', {
             popup:true,
             showTime:true
         }).on('timeSelect', function(e) {
             var dateFormat = new DateFormat();
-            $('#contPubTime').val(dateFormat.isoDateTime(e.date));
+            $('#erPublish_date').val(dateFormat.isoDateTime(e.date));
             dateFormat = null;
             cPubTime.hide();
         });
@@ -61,12 +61,12 @@ $(document).ready(function() {
         
         
         //创建截止日期
-        var cEndTime = new S.Calendar('#contEndTime', {
+        var cEndTime = new S.Calendar('#erExpiry_date', {
             popup:true,
             showTime:true
         }).on('timeSelect', function(e) {
             var dateFormat = new DateFormat();
-            $('#contEndTime').val(dateFormat.isoDateTime(e.date));
+            $('#erExpiry_date').val(dateFormat.isoDateTime(e.date));
             dateFormat = null;
             cEndTime.hide();
         });    

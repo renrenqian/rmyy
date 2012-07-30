@@ -1,6 +1,31 @@
 var deptDataTable;
+var deptType;
 var startIndex;
 $(document).ready(function() {
+	//zq：判断栏目类型
+	deptType=$(window.parent.document).find('.layout-panel-center .panel-title').html();
+	switch(deptType){
+	case '科室信息管理&nbsp;&gt;&nbsp;临床科室管理':
+		deptType='临床科室';
+		break;
+	case '科室信息管理&nbsp;&gt;&nbsp;医技科室管理':
+		deptType='医技科室';
+		break;	
+	case '科室信息管理&nbsp;&gt;&nbsp;特色专科管理':
+		deptType='特色专科';
+		break;	
+	case '科室信息管理&nbsp;&gt;&nbsp;职能科室管理':
+		deptType='职能科室';
+		break;	
+	case '科室信息管理&nbsp;&gt;&nbsp;质控中心管理':
+		deptType='质控中心';
+		break;	
+	case '科室信息管理&nbsp;&gt;&nbsp;诊疗中心管理':
+		deptType='诊疗中心';
+		break;	
+	}   
+	
+	
     initDeptList();//初始化列表
     $('#deptForm').sdValidate();//添加验证规则
     /* 新增 */
@@ -225,7 +250,7 @@ function initDeptList() {
             bServerSide:true,//设置服务端分页
             bDestory:false,
             bRetrieve:true,
-            sAjaxSource:"../group/listDeptPage.action",
+            sAjaxSource:"../group/listDeptPage.action?dept.dpType="+deptType,
             sAjaxDataProp: "page.dataList",
             //oSearch: {"sSearch": ""},
             oSearch : {
