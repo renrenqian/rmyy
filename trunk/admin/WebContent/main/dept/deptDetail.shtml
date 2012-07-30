@@ -37,7 +37,12 @@
 	         if (json.resultCode > 0) {            
 	             var deptDetail = json.dept;
 	             $('.J_DpName').html(deptDetail.dpName);
-	             var dpStr="<h3>基本信息</h3><p><span class='mr50'><strong>【科室名称】</strong>："+deptDetail.dpName+"</span>";
+                 var dpStr="<h3>基本信息</h3>";
+                 if(deptDetail.dpType=="质控中心"||deptDetail.dpType=="诊疗中心"){
+                     dpStr+="<p><span class='mr50'><strong>【中心名称】</strong>："+deptDetail.dpName+"</span>";
+                 }else{
+                     dpStr+="<p><span class='mr50'><strong>【科室名称】</strong>："+deptDetail.dpName+"</span>";
+                 }
 			     if(deptDetail.dpIn_charge){
 			    	 dpStr+="<span class='mr50'><strong>【负责人】</strong>："+deptDetail.dpIn_charge+"</span>";
 				 }
@@ -59,16 +64,16 @@
 					"<div class='clear'></div><hr />";
 				}				
 				if(deptDetail.dpDesc){
-					dpStr+="<h3>科室简介</h3><p>"+fixTAFormat(reP(deptDetail.dpDesc))+"</p><hr />";
+					dpStr+="<h3>科室简介</h3><p class='t2'>"+fixTAFormat(reP(deptDetail.dpDesc))+"</p><hr />";
 				}
 				if(deptDetail.dpAcademic_position){
-					dpStr+="<h3>科室简介</h3><p>"+fixTAFormat(reP(deptDetail.dpDesc))+"</p><hr />";
+					dpStr+="<h3>学术地位</h3><p class='t2'>"+fixTAFormat(reP(deptDetail.dpAcademic_position))+"</p><hr />";
 				}
 				if(deptDetail.dpTech_adv){
-					dpStr+="<h3>技术优势</h3><p>"+fixTAFormat(reP(deptDetail.dpTech_adv))+"</p><hr />";
+					dpStr+="<h3>技术优势</h3><p class='t2'>"+fixTAFormat(reP(deptDetail.dpTech_adv))+"</p><hr />";
 				}
 				if(deptDetail.dpResearch_direction){
-					dpStr+="<h3>研究方向</h3><p>"+fixTAFormat(reP(deptDetail.dpResearch_direction))+"</p>";
+					dpStr+="<h3>研究方向</h3><p class='t2'>"+fixTAFormat(reP(deptDetail.dpResearch_direction))+"</p>";
 				}			            
 	            $('.newsBody').html(dpStr);
 	         }

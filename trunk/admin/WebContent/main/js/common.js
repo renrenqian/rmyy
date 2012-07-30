@@ -365,7 +365,7 @@ function reP(str) {
 // 修复textarea编辑文本的格式问题
 function fixTAFormat(str) {
 	var reg = new RegExp("\n", "g"); // g means replace all
-	str = str.replace(reg, '</p><p>');
+	str = str.replace(reg, '</p><p class="t2">');
 	return str;
 }
 

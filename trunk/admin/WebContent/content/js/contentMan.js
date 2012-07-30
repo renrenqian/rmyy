@@ -179,7 +179,7 @@ function initContentList() {
             bAutoWidth:false,
             fnServerData:function(sSource, aoData, fnCallback) {
                 var params = [];
-                var iDisplayStart,iDisplayLength,sEcho,sSearch;
+                var iDisplayStart,iDisplayLen    gth,sEcho,sSearch;
                 for (var i = 0; i < aoData.length; i++) {
                     if (aoData[i].name == "iDisplayStart") {
                         iDisplayStart = aoData[i].value;
@@ -254,17 +254,6 @@ function initContentList() {
                         return obj.aData.contAuthor?"<span class='hidden3 tl'>" + obj.aData.contAuthor + "</span>":"<span class='hidden3 tl'>未填写</span>";
                     }
                 },
-                //隐藏作者列
-//                {
-//                    fnRender:function(obj) {
-//                       var contAuthorName = obj.aData.contAuthorName;
-//                       if(undefined == contAuthorName || !contAuthorName){
-//                           return "<span>未知</span>";
-//                       }else {
-//                           return "<span>" + obj.aData.contAuthorName + "</span>";
-//                       }
-//                    }
-//                },
                 {
                     fnRender:function(obj) {
                         var state = "未通过";

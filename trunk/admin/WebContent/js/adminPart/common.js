@@ -760,14 +760,14 @@ if ($.messager) {
 function fixP(str){
     // add replace all function
     var reg = new RegExp("%", "g"); // g means replace all
-    //str=str.replace(reg, 'zq');
-    str=str.replace(reg, '#$');// should use this, as the java implemented as this
+    str=str.replace(reg, 'zq');
+    //str=str.replace(reg, '#$');// should use this, as the java implemented as this
     return str;
 }
 //替换%为#$字符
 function reP(str){
-    //var reg =new RegExp("zq","g");
-    var reg =new RegExp("#$","g");// should use this, as the java implemented as this
+    var reg =new RegExp("zq","g");
+    //var reg =new RegExp("#$","g");// should use this, as the java implemented as this
     str=str.replace(reg,'%');
     return str;
 }
