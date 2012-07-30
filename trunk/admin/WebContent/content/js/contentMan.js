@@ -1,23 +1,77 @@
 var contentDataTable;
 var contentType;
 var startIndex;
-$(document).ready(function() {
-    //zq：判断栏目类型是"医院新闻"，还是"其它栏目"
+$(document).ready(function() {    
     contentType=$(window.parent.document).find('.layout-panel-center .panel-title').html();
-    if(contentType!='主站内容管理&nbsp;&gt;&nbsp;医院新闻'){
-        contentType="其他";
-    }else{
-        contentType="新闻";
-    }
+    switch(contentType){
+    case '主站内容管理&nbsp;&gt;&nbsp;医院新闻':
+    	contentType='1202';
+    	$('#J_GenerateHomeJson').show();
+    	break;
+    case '主站内容管理&nbsp;&gt;&nbsp;院务公开':
+    	contentType='1107';
+    	break;
+    case '主站内容管理&nbsp;&gt;&nbsp;重大记事':
+    	contentType='1109';
+    	break;
+    case '主站内容管理&nbsp;&gt;&nbsp;医院公告':
+    	$('#J_GenerateHomeJson').show();
+    	contentType='1201';
+    	break;
+    case '主站内容管理&nbsp;&gt;&nbsp;集团动态':
+    	$('#J_GenerateHomeJson').show();
+    	contentType='1203';
+    	break;
+    case '主站内容管理&nbsp;&gt;&nbsp;人才招聘':
+    	contentType='1205';
+    	break;
+    case '主站内容管理&nbsp;&gt;&nbsp;招标采购':
+    	contentType='1206';
+    	break; 
+    case '主站内容管理&nbsp;&gt;&nbsp;医院规章':
+    	contentType='1305';
+    	break; 
+    case '主站内容管理&nbsp;&gt;&nbsp;特色服务':
+    	contentType='1306';
+    	break; 
+    case '主站内容管理&nbsp;&gt;&nbsp;科研动态':
+    	contentType='1601';
+    	break; 
+    case '主站内容管理&nbsp;&gt;&nbsp;科技成果':
+    	contentType='1602';
+    	break; 
+    case '主站内容管理&nbsp;&gt;&nbsp;高新设备':
+    	contentType='1603';
+    	break; 
+    case '主站内容管理&nbsp;&gt;&nbsp;学术交流':
+    	contentType='1604';
+    	break; 
+    case '主站内容管理&nbsp;&gt;&nbsp;党建团建':
+    	contentType='1701';
+    	break; 
+    case '主站内容管理&nbsp;&gt;&nbsp;护理天地':
+    	contentType='1703';
+    	break; 
+    case '主站内容管理&nbsp;&gt;&nbsp;青年文明号':
+    	contentType='1704';
+    	break; 
+    case '主站内容管理&nbsp;&gt;&nbsp;健康大讲堂':
+    	contentType='1706';
+    	break; 
+    case '主站内容管理&nbsp;&gt;&nbsp;康复沙龙':
+    	contentType='1707';
+    	break; 
+    }  
     
     initContentList();//初始化列表
     $('#contentForm').sdValidate();//添加验证规则
     /* 新增 */
     $("#J_AddContent").die().live("click", function() {
-        if(contentType=='新闻'){
+        if(contentType=='1202'){
+        	//医院新闻
              $(window.parent.document).find("#centerIFrame").attr("src", "addContent.jsp");
         }else{
-             $(window.parent.document).find("#centerIFrame").attr("src", "addCommon.jsp");
+             $(window.parent.document).find("#centerIFrame").attr("src", "addCommon.jsp?colId="+contentType);
         }       
     });
 
@@ -25,9 +79,9 @@ $(document).ready(function() {
     $(".J_ContentEdit").die().live("click", function() {
         var id = $(this).parent().parent().children().eq(0).children().eq(0).val();
         if(contentType=='新闻'){
-                $(window.parent.document).find("#centerIFrame").attr("src", "addContent.jsp?contId=" + id);
+                $(window.parent.document).find("#centerIFrame").attr("src", "addContent.jsp?contId=" + id+"&colId="+contentType);
            }else{
-                $(window.parent.document).find("#centerIFrame").attr("src", "addCommon.jsp?contId=" + id);
+                $(window.parent.document).find("#centerIFrame").attr("src", "addCommon.jsp?contId=" + id+"&colId="+contentType);
            }         
     });
 
@@ -162,7 +216,7 @@ function initContentList() {
         if(contentType=='新闻'){
             url="../group/listContent.action?continfo.ciCate=1000";//医院新闻
         }else{
-            url="../group/listContent.action?continfo.ciCate=2000";//其它栏目
+            url="../group/listContent.action?continfo.colId="+contentType;//其它栏目
         }
         url = url + "&continfo.contAuditResult=-1";// admin manager list all the content with set -1, and site list only the audit success content without this
         contentDataTable = $("#J_ContentTable").dataTable({
@@ -179,7 +233,7 @@ function initContentList() {
             bAutoWidth:false,
             fnServerData:function(sSource, aoData, fnCallback) {
                 var params = [];
-                var iDisplayStart,iDisplayLen    gth,sEcho,sSearch;
+                var iDisplayStart,iDisplayLength,sEcho,sSearch;
                 for (var i = 0; i < aoData.length; i++) {
                     if (aoData[i].name == "iDisplayStart") {
                         iDisplayStart = aoData[i].value;
@@ -239,11 +293,11 @@ function initContentList() {
                         return "<span class='hidden1 tl' style='width:100%;'>" + obj.aData.contTitle + "</span>";
                     }
                 },
-                {
-                    fnRender:function(obj) {
-                        return obj.aData.colName?"<span class='hidden3 tl'>" + obj.aData.colName + "</span>":"<span class='hidden2 tl'>未选择</span>";
-                    }
-                },
+//                {
+//                    fnRender:function(obj) {
+//                        return obj.aData.colName?"<span class='hidden3 tl'>" + obj.aData.colName + "</span>":"<span class='hidden2 tl'>未选择</span>";
+//                    }
+//                },
                 {
                     fnRender:function(obj) {
                         return "<span>" + obj.aData.contPublish_Time + "</span>";
@@ -283,7 +337,7 @@ function initContentList() {
             ],
             sPaginationType: "full_numbers",
                    aoColumnDefs: [
-                         { "bSortable": false, "aTargets": [0,6,7,8]}
+                         { "bSortable": false, "aTargets": [0,5,6,7]}
                      ]
         });
     } else {

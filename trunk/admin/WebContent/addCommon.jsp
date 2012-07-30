@@ -31,23 +31,11 @@
                          <input id="contId" name="continfo.contId" type="hidden" />                       
                          <input id="contOrder" name="continfo.contOrder" type="hidden" value="1" />
                          <input id="contAuditResult" name="continfo.contAuditResult" type="hidden" value="0" />
+                         <input id="colId" name="continfo.colId" type="hidden"/>
 					</td>
 					<td class="rowName">关键词</td>
 					<td><input id="contKey" type="text" name="continfo.contKey" class="input_type1" /></td>
 				</tr>
-				<tr>
-					<td class="rowName w1">一级栏目</td>
-					<td>
-						<select class='selectType1' id="J_Column1">
-							<option>一级栏目</option>
-						</select>
-					</td>
-					<td class="rowName w1">二级栏目</td>
-					<td>
-						<select class='selectType1' id="J_Column2" name='continfo.colId'>
-							<option>二级栏目</option>
-						</select>
-					</td>
 				</tr>
 				<tr>
 					<td class="rowName w1">作者或来源</td>
@@ -83,42 +71,11 @@
         <script type="text/javascript">
 	  $(document).ready(function() {
       $('#contentForm').sdValidate();//添加验证规则 
-      //绑定栏目信息
-       $.getJSON('group/listColumnNames.action?', function(json) {
-         if (json.resultCode > 0) {
-            var colList=json.colList;
-            //一级栏目
-            var column1="<option value='0'>一级栏目</option>";
-            var column2="";
-            $(colList).each(function(i,item){
-            	if(item.ciLevel==1){
-            		column1+="<option value='"+item.ciId+"'>"+item.ciTital+"</option>";
-            	}
-            });
-            $('#J_Column1').html(column1);
-            //二级栏目
-            $('#J_Column1').change(function(){
-            	var c1Val=$(this).attr('value');
-            	column2="<option value='0'>二级栏目</option>";
-            	 $(colList).each(function(i,item){
-                 	if(item.ciParent==c1Val && item.ciCate==2000){
-                 		column2+="<option value='"+item.ciId+"'>"+item.ciTital+"</option>";
-                 	}
-                 });
-            	  $('#J_Column2').html(column2);
-            });
-          
-         } else {
-             $.fn.sdInfo({
-                 type:"fail",
-                 content:json.message ? json.message : "查询栏目信息错误!"
-             });
-         }
-     });
-      
       
       // here to get the contId passed from parent page contentMan.page and js file, then search the page fileds.
-      var contId=GetParameter('contId');        
+     var contId=GetParameter('contId');
+     var colId=GetParameter('colId');
+     $('#colId').val(colId);    
      $.getJSON('group/searchContent.action?t=' + new Date().getTime() + '&continfo.contId=' + contId, function(json) {
          if (json.resultCode > 0) {
              formUnSerialize("contentForm", "continfo", json.continfo);
@@ -133,16 +90,7 @@
      
     /* 编辑、新增 确认按钮 */
     $('#J_ContentOk').die().live("click", function() {
-        if ($(this).sdSubmitValidate("#contentForm")) {
-        	//确认已选择二级目录
-        	if($('#J_Column2').val()=='二级栏目'||$('#J_Column2').val()==0){
-        		$.fn.sdInfo({
-                    type : "fail",
-                    content : "请选择正确的栏目"
-                });
-        		return false;
-        	}
-        	
+        if ($(this).sdSubmitValidate("#contentForm")) {        	
             var contInfoId = $("#contId").val();
             var url,actionName;
             if (!contInfoId || contInfoId == "") {
@@ -169,15 +117,6 @@
          success:function(json){
              // as it have exception while use eval, so not check the result.
              $(window.parent.document).find("#centerIFrame").attr("src", "content/contentMan.html");
-             /*json = eval('(' + json + ')');
-             if (json.resultCode > 0 ) {
-                 $(window.parent.document).find("#centerIFrame").attr("src", "content/contentMan.html");                 
-                } else  {
-                    $.fn.sdInfo({
-                        type : "fail",
-                        content : json.message ? actionName+"内容错误:"+json.message : actionName+"内容错误:"
-                    });
-                } */
          }
      });  
         }       
@@ -204,7 +143,6 @@
 	             dateFormat = null;
 	             cPubTime.hide();
 	         });
-	         //cPubTime.render({minDate:new Date()});
 	     });
 	 })(KISSY);
 	 </script>

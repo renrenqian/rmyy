@@ -1,26 +1,25 @@
 var contentDataTable;
 $(document).ready(function() {
     initEmployeeList();//初始化列表
-    //$('#contentForm').sdValidate();//添加验证规则
     /* 新增 */
     $("#J_AddEmployee").die().live("click", function() {
-        $(window.parent.document).find("#centerIFrame").attr("src", "content/addEmploy.html");
+        $(window.parent.document).find("#centerIFrame").attr("src", "addEmploy.jsp");
     });
 
     /* 编辑 */
     $(".J_EmployeeEdit").die().live("click", function() {
         var id = $(this).parent().parent().children().eq(0).children().eq(0).val();
-        $.getJSON('../online/searchEmployee.action?t=' + new Date().getTime() + '&emp.erId=' + id, function(json) {
-            if (json.resultCode > 0) {
-                //formUnSerialize("contentForm", "emp", json.emp);
-            } else {
-                $.fn.sdInfo({
-                    type:"fail",
-                    content:json.message ? json.message : "查询招聘信息错误!"
-                });
-            }
-        });
-        $(window.parent.document).find("#centerIFrame").attr("src", "content/addEmploy.html");
+//        $.getJSON('../online/searchEmployee.action?t=' + new Date().getTime() + '&emp.erId=' + id, function(json) {
+//            if (json.resultCode > 0) {
+//                //formUnSerialize("contentForm", "emp", json.emp);
+//            } else {
+//                $.fn.sdInfo({
+//                    type:"fail",
+//                    content:json.message ? json.message : "查询招聘信息错误!"
+//                });
+//            }
+//        });
+        $(window.parent.document).find("#centerIFrame").attr("src", "addEmploy.jsp?erId="+id);
     });
 
     /* del */
@@ -117,12 +116,12 @@ function initEmployeeList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span >" + obj.aData.erPosition + "</span>";
+                        return "<span class='tl hidden1'>" + obj.aData.erPosition + "</span>";
                     }
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span >" + obj.aData.erRecruit_no + "</span>";
+                        return "<span class='tl hidden3'>" + obj.aData.erRecruit_no + "</span>";
                     }
                 },
                 {
