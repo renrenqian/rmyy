@@ -244,7 +244,7 @@ a:hover.default_use, a.default_unUse { background: url(../../images/adminPart/bu
 table.display { padding-top:10px; padding-bottom:10px; clear: both; width: 100%; color:#333; }
 table.display tfoot th { padding: 3px 18px 3px 10px; border-top: 1px solid black; font-weight: bold; }
 table.display tr.heading2 td { border-bottom: 1px solid #aaa; }
-table.display td { text-align:center; padding-right:8px; padding-top:3px; padding-bottom:3px; }
+table.display td { text-align:left; padding-right:8px; padding-top:3px; padding-bottom:3px;vertical-align:middle; }
 table.display td.center { text-align: center; }
 .sorting_asc { background: url('../../images/adminPart/sort_asc.png') no-repeat center right; }
 .sorting_desc { background: url('../../images/adminPart/sort_desc.png') no-repeat center right; }

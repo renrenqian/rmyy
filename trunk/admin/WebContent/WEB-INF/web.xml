@@ -88,4 +88,8 @@
         <filter-name>struts2</filter-name>
         <url-pattern>*.action</url-pattern>
     </filter-mapping>
+    <mime-mapping>
+       <extension>xml</extension>
+       <mime-type>text/xml</mime-type>
+    </mime-mapping>
 </web-app>

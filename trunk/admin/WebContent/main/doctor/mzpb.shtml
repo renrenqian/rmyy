@@ -122,7 +122,7 @@
         params.push({ "name":"page.currentPageNo", "value":index});//当前显示第几页
         var diName = $('#J_Name').val();
         if(null != diName && "" != diName && diName.length != 0){
-           action = action + "&ops.diName=" + diName;
+           params.push({"name":"ops.diName","value":diName});                    
         }
         var diDeptType = $('#J_DeptSelect').val();
         if(null != diDeptType && "0" != diDeptType && diDeptType.length != 0){
@@ -134,7 +134,7 @@
         }
         //action = encodeURI(action);
         $.ajax({ //这里使用到Jquery的ajax方法
-            type:"GET",
+            type:"POST",
             dataType:"json",
             url:action, //请求的处理数据
             data:params,

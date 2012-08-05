@@ -285,7 +285,7 @@ function initContentList() {
             aoColumns: [
                 {
                     fnRender:function(obj) {
-                        return "<input type='checkbox' value='" + obj.aData.contId + "'/>";
+                        return "<input type='checkbox' value='" + obj.aData.contId + "' class='tc'/>";
                     }
                 },
                 {

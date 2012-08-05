@@ -250,7 +250,7 @@ function initDeptList() {
             bServerSide:true,//设置服务端分页
             bDestory:false,
             bRetrieve:true,
-            sAjaxSource:"../group/listDeptPage.action?dept.dpType="+deptType,
+            sAjaxSource:"../group/listDeptPage.action",
             sAjaxDataProp: "page.dataList",
             //oSearch: {"sSearch": ""},
             oSearch : {
@@ -278,9 +278,10 @@ function initDeptList() {
                 var currentPageNo = Math.floor(iDisplayStart / iDisplayLength) + 1;
                 params.push({ "name": "page.currentPageNo", "value": currentPageNo });
                 params.push({ "name": "dept.sSearch", "value": sSearch });
+                params.push({"name":"dept.dpType","value":deptType});
                 $.ajax({
                     dataType: 'json',
-                    type: "GET",
+                    type: "POST",
                     url: sSource,
                     data: params,
                     success: function(json) {
@@ -315,7 +316,7 @@ function initDeptList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='hidden1 tl'>" + obj.aData.dpName + "</span>";
+                        return "<span class='hidden1 tl w3'>" + obj.aData.dpName + "</span>";
                     }
                 },
                 {

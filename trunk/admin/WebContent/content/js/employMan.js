@@ -9,16 +9,6 @@ $(document).ready(function() {
     /* 编辑 */
     $(".J_EmployeeEdit").die().live("click", function() {
         var id = $(this).parent().parent().children().eq(0).children().eq(0).val();
-//        $.getJSON('../online/searchEmployee.action?t=' + new Date().getTime() + '&emp.erId=' + id, function(json) {
-//            if (json.resultCode > 0) {
-//                //formUnSerialize("contentForm", "emp", json.emp);
-//            } else {
-//                $.fn.sdInfo({
-//                    type:"fail",
-//                    content:json.message ? json.message : "查询招聘信息错误!"
-//                });
-//            }
-//        });
         $(window.parent.document).find("#centerIFrame").attr("src", "addEmploy.jsp?erId="+id);
     });
 
@@ -41,6 +31,34 @@ $(document).ready(function() {
                 });
             }
         });
+    });
+    
+  //批量删除
+    $('#J_EmployeeDelAll').click(function() {
+        if ($(this).hasClass("abled")) {
+            //获取参数
+            var checkbox = $('#J_EmployeeTable input:checkbox:not(.checkBoss):checked');
+            var ides = "";
+            checkbox.each(function() {
+                ides = ides + "ides=" + $(this).val() + "&";
+            });
+            $.messager.confirm('批量删除', '是否确认删除所选内容信息?', function(r) {
+                if (r) {
+                    $.post("../online/batchDeleteEmployee.action", ides, function(data) {
+                        if (data.resultCode && data.resultCode > 0) {
+                        	initEmployeeList();
+                        } else {
+                            $.fn.sdInfo({
+                                type:"fail",
+                                content:data.message ? data.message : "批量删除内容信息失败"
+                            });
+                        }
+                    });
+                    $.fn.checkTest("J_EmployeeTable");
+                    $('.checkBoss').attr("checked", false);
+                }
+            });
+        }
     });
 });
 
@@ -121,7 +139,7 @@ function initEmployeeList() {
                 },
                 {
                     fnRender:function(obj) {
-                        return "<span class='tl hidden3'>" + obj.aData.erRecruit_no + "</span>";
+                        return obj.aData.erRecruit_no?"<span class='tl hidden3'>" + obj.aData.erRecruit_no + "</span>":"<span class='tl hidden3'>未填写</span>";
                     }
                 },
                 {
@@ -145,10 +163,10 @@ function initEmployeeList() {
                     }
                 }
             ],
-            sPaginationType: "full_numbers"
-            //       aoColumnDefs: [
-            //             { "bSortable": false, "aTargets": [0,1,2]}
-            //         ]
+            sPaginationType: "full_numbers",
+            aoColumnDefs: [
+                { "bSortable": false, "aTargets": [0,5,6]}
+            ]
         });
     } else {
         contentDataTable.fnClearTable();
